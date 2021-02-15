@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Stack Overwriting Function - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#333">
+  <link rel="canonical" href="https://susam.in/blog/stack-overwriting-function/comments/">
+  <link rel="icon" type="image/png" href="../../../favicon.png">
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../../css/comment.css">
+  <link rel="stylesheet" href="../../../css/extra.css">
+</head>
+<body>
+<script>
+if (localStorage.getItem('dark')) { document.body.className = 'dark' }
+</script>
+<main class="comments">
+<h1>
+Comments on
+<a href="../">Stack Overwriting Function</a>
+</h1>
+
+<div class="links">
+  <a href="https://susam.in/comment/?slug=stack-overwriting-function">Post Comment</a>
+</div>
+
+<section id="1" class="comment guest">
+<h2>Juan Edwards said:</h2>
+<div class="meta">
+<a href="#1">11 Aug 2010 08:06 PM GMT</a>
+  (<a href="#1">#1 of 2 comments</a>)
+</div>
+<p>
+Good article. This is how buffer overflow is exploited. But I
+guess, kernel provides some random stack alignment to prevent this.
+</p>
+</section>
+<section id="2" class="comment guest">
+<h2>Jerald Long said:</h2>
+<div class="meta">
+<a href="#2">12 Sep 2010 01:08 AM GMT</a>
+  (<a href="#2">#2 of 2 comments</a>)
+</div>
+<p>
+I think you mean ASLR. On Linux, this can be turned off by running
+<code>echo 0 &gt; /proc/sys/kernel/randomize_va_space</code>. On
+Windows, DEP can be turned off at <samp>Control Panel</samp> &rarr;
+<samp>System</samp> &rarr; <samp>Advanced</samp> &rarr;
+<samp>Performance</samp> &rarr; <samp>Settings</samp>, if I remember
+correctly.
+</p>
+
+</section>
+
+
+<div class="links">
+  <a href="https://susam.in/comment/?slug=stack-overwriting-function">Post Comment</a>
+</div>
+</main>
+<hr>
+<footer class="textcenter">
+  <nav class="links">
+    <a class="feed" href="../../../">Home</a>
+    <a class="feed" href="../../../blog/rss.xml">Feed</a>
+    <a class="feed" href="../../../dark/">Dark</a>
+    <a class="feed" href="../../../about/">About</a>
+    <a class="feed" href="https://github.com/susam">GitHub</a>
+    <a class="feed" href="https://twitter.com/susam">Twitter</a>
+  </nav>
+  <p>&copy; 2006&ndash;2021 Susam Pal</p>
+</footer>
+</body>
+</html>

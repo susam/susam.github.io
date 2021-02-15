@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Loopy C Puzzle - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#333">
+  <link rel="canonical" href="https://susam.in/blog/loopy-c-puzzle/comments/">
+  <link rel="icon" type="image/png" href="../../../favicon.png">
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../../css/comment.css">
+  <script src="../../../js/tex.js"></script>
+</head>
+<body>
+<script>
+if (localStorage.getItem('dark')) { document.body.className = 'dark' }
+</script>
+<main class="comments">
+<h1>
+Comments on
+<a href="../">Loopy C Puzzle</a>
+</h1>
+
+<div class="links">
+  <a href="https://susam.in/comment/?slug=loopy-c-puzzle">Post Comment</a>
+</div>
+
+<section id="1" class="comment guest">
+<h2><a href="http://www.blogger.com/profile/17574626231451600275">Ryan</a> said:</h2>
+<div class="meta">
+<a href="#1">01 Oct 2011 04:26 AM GMT</a>
+  (<a href="#1">#1 of 9 comments</a>)
+</div>
+<pre>
+<code>int i;
+for (i = 0; abs(i) &lt; 6; i--)
+    printf(".");</code>
+</pre>
+</section>
+<section id="2" class="comment guest">
+<h2><a href="http://www.blogger.com/profile/17574626231451600275">Ryan</a> said:</h2>
+<div class="meta">
+<a href="#2">01 Oct 2011 04:46 AM GMT</a>
+  (<a href="#2">#2 of 9 comments</a>)
+</div>
+<pre>
+<code>int i;
+for (i = 0; -i &lt; 6; i--)
+    printf(".");</code>
+</pre>
+</section>
+<section id="3" class="comment guest">
+<h2>Sean said:</h2>
+<div class="meta">
+<a href="#3">01 Oct 2011 04:48 AM GMT</a>
+  (<a href="#3">#3 of 9 comments</a>)
+</div>
+<p>
+Changing the loop condition to <code>i ^= 6;</code> is another solution.
+</p>
+</section>
+<section id="4" class="comment guest">
+<h2><a href="http://www.blogger.com/profile/17574626231451600275">Ryan</a> said:</h2>
+<div class="meta">
+<a href="#4">01 Oct 2011 04:54 AM GMT</a>
+  (<a href="#4">#4 of 9 comments</a>)
+</div>
+<p>
+Ah-ha, a tricky one:
+</p>
+<pre>
+<code>int i;
+for (i = 0; i ^= 6; i--)
+    printf(".");</code>
+</pre>
+</section>
+<section id="5" class="comment guest">
+<h2><a href="http://www.blogger.com/profile/17574626231451600275">Ryan</a> said:</h2>
+<div class="meta">
+<a href="#5">01 Oct 2011 04:54 AM GMT</a>
+  (<a href="#5">#5 of 9 comments</a>)
+</div>
+<p>
+Ah, Sean beat me to it. :(
+</p>
+</section>
+<section id="6" class="comment guest">
+<h2><a href="http://zem.novylen.net">Martin DeMello</a> said:</h2>
+<div class="meta">
+<a href="#6">01 Oct 2011 05:11 AM GMT</a>
+  (<a href="#6">#6 of 9 comments</a>)
+</div>
+<pre><code>for (i = 0; i + 6; i--)</code></pre>
+<p>
+will stop when i&nbsp;+&nbsp;6&nbsp;=&nbsp;0.
+</p>
+</section>
+<section id="7" class="comment author">
+<h2><a href="https://susam.in/">Susam Pal</a> said:</h2>
+<div class="meta">
+<a href="#7">01 Oct 2011 11:58 AM GMT</a>
+  (<a href="#7">#7 of 9 comments</a>)
+</div>
+<p>
+All solutions except the one in the first comment are correct. The first
+one involves <code>abs()</code> function. The code would indeed end up
+printing 6 dots but it doesn't meet the requirement in the question
+since <code>abs()</code> is not an operator.
+</p>
+<p>
+There is another very simple solution similar to the obvious solution I
+have provided in the post. Instead of post-increment operator, use the
+pre-increment operator.
+</p>
+<pre>
+<code>int i;
+for (i = 0; i &lt; 6; ++i)
+    printf(".");</code>
+</pre>
+<p>
+The one involving the bitwise XOR operator is the one I had in my mind
+while mentioning that one of the solutions is very interesting. I find
+it interesting because it is not obvious at the first glance why it
+works. Another curious property of this solution is that it works only
+for an even number of dots. I'll write about this in another post.
+</p>
+</section>
+<section id="8" class="comment guest">
+<h2><a href="http://www.blogger.com/profile/17574626231451600275">Ryan</a> said:</h2>
+<div class="meta">
+<a href="#8">01 Oct 2011 05:51 PM GMT</a>
+  (<a href="#8">#8 of 9 comments</a>)
+</div>
+<p>
+Susam, absolute value is a mathematical operator. You didn't specify
+the set of acceptable operators. :P
+</p>
+</section>
+<section id="9" class="comment author">
+<h2><a href="https://susam.in/">Susam Pal</a> said:</h2>
+<div class="meta">
+<a href="#9">01 Oct 2011 06:08 PM GMT</a>
+  (<a href="#9">#9 of 9 comments</a>)
+</div>
+<p>
+Ryan,
+</p>
+<p>
+I am used to referring to <code>abs()</code> as the absolute value
+function. But yes, I see your point. The problem statement could have
+specified that exactly one operator from the C programming language must
+be added to or modified in the given code snippet. That would have ruled
+out this little ambiguity.
+</p>
+
+</section>
+
+
+<div class="links">
+  <a href="https://susam.in/comment/?slug=loopy-c-puzzle">Post Comment</a>
+</div>
+</main>
+<hr>
+<footer class="textcenter">
+  <nav class="links">
+    <a class="feed" href="../../../">Home</a>
+    <a class="feed" href="../../../blog/rss.xml">Feed</a>
+    <a class="feed" href="../../../dark/">Dark</a>
+    <a class="feed" href="../../../about/">About</a>
+    <a class="feed" href="https://github.com/susam">GitHub</a>
+    <a class="feed" href="https://twitter.com/susam">Twitter</a>
+  </nav>
+  <p>&copy; 2006&ndash;2021 Susam Pal</p>
+</footer>
+</body>
+</html>

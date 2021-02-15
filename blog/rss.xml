@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's Blog</title>
+<link>https://susam.in/blog/</link>
+<atom:link href="https://susam.in/blog/rss.xml"
+           rel="self" type="application/rss+xml"/>
+<description>Feed from Susam's Blog</description>
+
+<item>
+<title>Good Quality DOSBox Video Capture</title>
+<link>https://susam.in/blog/good-quality-dosbox-video-capture/</link>
+<guid>https://susam.in/blog/good-quality-dosbox-video-capture/</guid>
+<description>
+<![CDATA[
+<p>
+Once in a while, I fire up one of the vintage DOS games or language interpreters in DOSBox for nostalgia's sake. I have archived these&nbsp;<a href="https://susam.in/blog/good-quality-dosbox-video-capture/">...</a>
+</p>
+<p><a href="https://susam.in/blog/good-quality-dosbox-video-capture/">Read More</a></p>
+]]>
+</description>
+<pubDate>Tue, 01 Sep 2020 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Microcentury</title>
+<link>https://susam.in/blog/microcentury/</link>
+<guid>https://susam.in/blog/microcentury/</guid>
+<description>
+<![CDATA[
+<p>
+I recently found this interesting paragraph from an article titled Ten Lessons I Wish I Had Been Taught that is based on a talk presented&nbsp;<a href="https://susam.in/blog/microcentury/">...</a>
+</p>
+<p><a href="https://susam.in/blog/microcentury/">Read More</a></p>
+]]>
+</description>
+<pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Global Palindrome Day</title>
+<link>https://susam.in/blog/global-palindrome-day/</link>
+<guid>https://susam.in/blog/global-palindrome-day/</guid>
+<description>
+<![CDATA[
+<p>
+There are three popular date formats followed worldwide: big-endian, little-endian, and middle-endian. Here is how today's date looks like in these formats if the year&nbsp;<a href="https://susam.in/blog/global-palindrome-day/">...</a>
+</p>
+<p><a href="https://susam.in/blog/global-palindrome-day/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sun, 02 Feb 2020 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Lisp in Vim with Slimv or Vlime</title>
+<link>https://susam.in/blog/lisp-in-vim-with-slimv-or-vlime/</link>
+<guid>https://susam.in/blog/lisp-in-vim-with-slimv-or-vlime/</guid>
+<description>
+<![CDATA[
+<p>
+Fifteen years ago, writing Lisp code in Vim was an odd adventure. There were no good plugins for Vim that assisted in structured editing of&nbsp;<a href="https://susam.in/blog/lisp-in-vim-with-slimv-or-vlime/">...</a>
+</p>
+<p><a href="https://susam.in/blog/lisp-in-vim-with-slimv-or-vlime/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Sinkholed</title>
+<link>https://susam.in/blog/sinkholed/</link>
+<guid>https://susam.in/blog/sinkholed/</guid>
+<description>
+<![CDATA[
+<p>
+On 26 Nov 2019 at 14:55 UTC, I logged into my server that hosts my website to perform a simple maintenance activity. Merely three minutes&nbsp;<a href="https://susam.in/blog/sinkholed/">...</a>
+</p>
+<p><a href="https://susam.in/blog/sinkholed/">Read More</a></p>
+]]>
+</description>
+<pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>File Transfer with SSH, Tee, and Base64</title>
+<link>https://susam.in/blog/file-transfer-with-ssh-tee-and-base64/</link>
+<guid>https://susam.in/blog/file-transfer-with-ssh-tee-and-base64/</guid>
+<description>
+<![CDATA[
+<p>
+Computer servers deployed in a secure environment may allow SSH sessions but forbid SCP, SFTP, and execution of remote commands without a login shell. Such&nbsp;<a href="https://susam.in/blog/file-transfer-with-ssh-tee-and-base64/">...</a>
+</p>
+<p><a href="https://susam.in/blog/file-transfer-with-ssh-tee-and-base64/">Read More</a></p>
+]]>
+</description>
+<pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>From Vector Spaces to Periodic Functions</title>
+<link>https://susam.in/blog/from-vector-spaces-to-periodic-functions/</link>
+<guid>https://susam.in/blog/from-vector-spaces-to-periodic-functions/</guid>
+<description>
+<![CDATA[
+<p>
+A fascinating result that appears in linear algebra is the fact that the set of real numbers R is a vector space over the set&nbsp;<a href="https://susam.in/blog/from-vector-spaces-to-periodic-functions/">...</a>
+</p>
+<p><a href="https://susam.in/blog/from-vector-spaces-to-periodic-functions/">Read More</a></p>
+]]>
+</description>
+<pubDate>Wed, 30 Jan 2019 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Temperature Conversion</title>
+<link>https://susam.in/blog/temperature-conversion/</link>
+<guid>https://susam.in/blog/temperature-conversion/</guid>
+<description>
+<![CDATA[
+<p>
+Everytime I travel to the US, one thing that troubles me a little is having to convert temperature from the Celsius scale to the Fahrenheit&nbsp;<a href="https://susam.in/blog/temperature-conversion/">...</a>
+</p>
+<p><a href="https://susam.in/blog/temperature-conversion/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sun, 05 Jan 2014 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Fare Conversion</title>
+<link>https://susam.in/blog/fare-conversion/</link>
+<guid>https://susam.in/blog/fare-conversion/</guid>
+<description>
+<![CDATA[
+<p>
+Auto rickshaw fare in Bangalore was revised on Fri, 20 Dec 2013. The old rate for an auto rickshaw ride was a minimum of 20&nbsp;<a href="https://susam.in/blog/fare-conversion/">...</a>
+</p>
+<p><a href="https://susam.in/blog/fare-conversion/">Read More</a></p>
+]]>
+</description>
+<pubDate>Tue, 24 Dec 2013 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>AUTH CRAM-MD5</title>
+<link>https://susam.in/blog/auth-cram-md5/</link>
+<guid>https://susam.in/blog/auth-cram-md5/</guid>
+<description>
+<![CDATA[
+<p>
+Last night, while I was setting up my SMTP server, I decided to dig deeper into CRAM-MD5 authentication mechanism. It is a challenge-response authentication mechanism&nbsp;<a href="https://susam.in/blog/auth-cram-md5/">...</a>
+</p>
+<p><a href="https://susam.in/blog/auth-cram-md5/">Read More</a></p>
+]]>
+</description>
+<pubDate>Mon, 07 Nov 2011 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>When Worse Is Better</title>
+<link>https://susam.in/blog/when-worse-is-better/</link>
+<guid>https://susam.in/blog/when-worse-is-better/</guid>
+<description>
+<![CDATA[
+<p>
+Let me begin this post with a puzzle. Alex and Bob work as financial advisers for the same company. They receive equal salaries from the&nbsp;<a href="https://susam.in/blog/when-worse-is-better/">...</a>
+</p>
+<p><a href="https://susam.in/blog/when-worse-is-better/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sat, 29 Oct 2011 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Loopy C Puzzle</title>
+<link>https://susam.in/blog/loopy-c-puzzle/</link>
+<guid>https://susam.in/blog/loopy-c-puzzle/</guid>
+<description>
+<![CDATA[
+<p>
+Let us talk a little bit about integer underflow and undefined behaviour in C before we discuss the puzzle I want to share in this&nbsp;<a href="https://susam.in/blog/loopy-c-puzzle/">...</a>
+</p>
+<p><a href="https://susam.in/blog/loopy-c-puzzle/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sat, 01 Oct 2011 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>From Tower of Hanoi to Counting Bits</title>
+<link>https://susam.in/blog/from-tower-of-hanoi-to-counting-bits/</link>
+<guid>https://susam.in/blog/from-tower-of-hanoi-to-counting-bits/</guid>
+<description>
+<![CDATA[
+<p>
+A few weeks ago, I watched Rise of the Planet of the Apes. The movie showed a genetically engineered chimpanzee trying to solve a puzzle&nbsp;<a href="https://susam.in/blog/from-tower-of-hanoi-to-counting-bits/">...</a>
+</p>
+<p><a href="https://susam.in/blog/from-tower-of-hanoi-to-counting-bits/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sun, 25 Sep 2011 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Langford Pairing</title>
+<link>https://susam.in/blog/langford-pairing/</link>
+<guid>https://susam.in/blog/langford-pairing/</guid>
+<description>
+<![CDATA[
+<p>
+A few days ago, I came across this problem: There is a sequence of 2n numbers where each natural number from 1 to n is&nbsp;<a href="https://susam.in/blog/langford-pairing/">...</a>
+</p>
+<p><a href="https://susam.in/blog/langford-pairing/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sat, 17 Sep 2011 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Orkut Exploit</title>
+<link>https://susam.in/blog/orkut-exploit/</link>
+<guid>https://susam.in/blog/orkut-exploit/</guid>
+<description>
+<![CDATA[
+<p>
+I first came to know about Sunny Vaghela about one and a half years ago when I got an email from Sandip Dev from Sun&nbsp;<a href="https://susam.in/blog/orkut-exploit/">...</a>
+</p>
+<p><a href="https://susam.in/blog/orkut-exploit/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sat, 25 Jun 2011 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>URL in C</title>
+<link>https://susam.in/blog/url-in-c/</link>
+<guid>https://susam.in/blog/url-in-c/</guid>
+<description>
+<![CDATA[
+<p>
+Here is an interesting C puzzle I created recently. It is a silly one but you might find it amusing. #include &lt;stdio.h&gt; int main() {&nbsp;<a href="https://susam.in/blog/url-in-c/">...</a>
+</p>
+<p><a href="https://susam.in/blog/url-in-c/">Read More</a></p>
+]]>
+</description>
+<pubDate>Fri, 03 Jun 2011 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>From Out Shuffles to Multiplicative Order</title>
+<link>https://susam.in/blog/from-out-shuffles-to-multiplicative-order/</link>
+<guid>https://susam.in/blog/from-out-shuffles-to-multiplicative-order/</guid>
+<description>
+<![CDATA[
+<p>
+\def\operatorname{ord} A perfect riffle shuffle of a deck of cards involves splitting the deck into two halves (one in each hand) and then alternately dropping&nbsp;<a href="https://susam.in/blog/from-out-shuffles-to-multiplicative-order/">...</a>
+</p>
+<p><a href="https://susam.in/blog/from-out-shuffles-to-multiplicative-order/">Read More</a></p>
+]]>
+</description>
+<pubDate>Wed, 23 Mar 2011 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>From Diophantus to Fermat</title>
+<link>https://susam.in/blog/from-diophantus-to-fermat/</link>
+<guid>https://susam.in/blog/from-diophantus-to-fermat/</guid>
+<description>
+<![CDATA[
+<p>
+Here is a puzzle I created recently for my friends who love to indulge in recreational mathematics: Find all integer solutions to the equation \[&nbsp;<a href="https://susam.in/blog/from-diophantus-to-fermat/">...</a>
+</p>
+<p><a href="https://susam.in/blog/from-diophantus-to-fermat/">Read More</a></p>
+]]>
+</description>
+<pubDate>Wed, 12 Jan 2011 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Clumsy Pointers</title>
+<link>https://susam.in/blog/clumsy-pointers/</link>
+<guid>https://susam.in/blog/clumsy-pointers/</guid>
+<description>
+<![CDATA[
+<p>
+Here is a fun puzzle that involves complex type declarations in C: Without using typedef, declare x as a pointer to a function that takes&nbsp;<a href="https://susam.in/blog/clumsy-pointers/">...</a>
+</p>
+<p><a href="https://susam.in/blog/clumsy-pointers/">Read More</a></p>
+]]>
+</description>
+<pubDate>Mon, 29 Nov 2010 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Clumsy Equations</title>
+<link>https://susam.in/blog/clumsy-equations/</link>
+<guid>https://susam.in/blog/clumsy-equations/</guid>
+<description>
+<![CDATA[
+<p>
+At work today, while calculating optimal parameters for a data structure, I arrived at this equation: \[ x e^{-x} + (1 - e^{-x}) \ln (1&nbsp;<a href="https://susam.in/blog/clumsy-equations/">...</a>
+</p>
+<p><a href="https://susam.in/blog/clumsy-equations/">Read More</a></p>
+]]>
+</description>
+<pubDate>Thu, 28 Oct 2010 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Lost Solutions</title>
+<link>https://susam.in/blog/lost-solutions/</link>
+<guid>https://susam.in/blog/lost-solutions/</guid>
+<description>
+<![CDATA[
+<p>
+Let me start this post with a simple equation: \[ x(x - 2) = 3x. \] Let us first solve it in a flawed manner.&nbsp;<a href="https://susam.in/blog/lost-solutions/">...</a>
+</p>
+<p><a href="https://susam.in/blog/lost-solutions/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sun, 05 Sep 2010 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Stack Overwriting Function</title>
+<link>https://susam.in/blog/stack-overwriting-function/</link>
+<guid>https://susam.in/blog/stack-overwriting-function/</guid>
+<description>
+<![CDATA[
+<p>
+Here is a C puzzle that involves some analysis of the machine code generated from it followed by manipulation of the runtime stack. The solution&nbsp;<a href="https://susam.in/blog/stack-overwriting-function/">...</a>
+</p>
+<p><a href="https://susam.in/blog/stack-overwriting-function/">Read More</a></p>
+]]>
+</description>
+<pubDate>Wed, 28 Jul 2010 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Illiteracy and Digital Weighing Scale</title>
+<link>https://susam.in/blog/illiteracy-and-digital-weighing-scale/</link>
+<guid>https://susam.in/blog/illiteracy-and-digital-weighing-scale/</guid>
+<description>
+<![CDATA[
+<p>
+Here is a real life problem from a factory. There are illiterate workers who cannot identify decimal digits. The management team of the factory is&nbsp;<a href="https://susam.in/blog/illiteracy-and-digital-weighing-scale/">...</a>
+</p>
+<p><a href="https://susam.in/blog/illiteracy-and-digital-weighing-scale/">Read More</a></p>
+]]>
+</description>
+<pubDate>Tue, 06 Jul 2010 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Sequence Points</title>
+<link>https://susam.in/blog/sequence-points/</link>
+<guid>https://susam.in/blog/sequence-points/</guid>
+<description>
+<![CDATA[
+<p>
+A particular type of question comes up often in C programming forums. Here is an example of such a question: #include &lt;stdio.h&gt; int main() {&nbsp;<a href="https://susam.in/blog/sequence-points/">...</a>
+</p>
+<p><a href="https://susam.in/blog/sequence-points/">Read More</a></p>
+]]>
+</description>
+<pubDate>Wed, 26 May 2010 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Product of Negatives</title>
+<link>https://susam.in/blog/product-of-negatives/</link>
+<guid>https://susam.in/blog/product-of-negatives/</guid>
+<description>
+<![CDATA[
+<p>
+A negative real number multiplied by a negative real number results in a positive real number. We learn this fact in school after our knowledge&nbsp;<a href="https://susam.in/blog/product-of-negatives/">...</a>
+</p>
+<p><a href="https://susam.in/blog/product-of-negatives/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sun, 28 Feb 2010 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>My Favourite Email Prank</title>
+<link>https://susam.in/blog/my-favourite-email-prank/</link>
+<guid>https://susam.in/blog/my-favourite-email-prank/</guid>
+<description>
+<![CDATA[
+<p>
+My favourite email prank ends with my friends receiving an email like this: From: "Prunthaban Kanthakumar" &lt;p****@gmail.com&gt; To: "Prunthaban Kanthakumar" &lt;p****@gmail.com&gt; Cc: Susam Pal &lt;s****@gmail.com&gt;,&nbsp;<a href="https://susam.in/blog/my-favourite-email-prank/">...</a>
+</p>
+<p><a href="https://susam.in/blog/my-favourite-email-prank/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sun, 14 Feb 2010 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>C Quiz</title>
+<link>https://susam.in/blog/c-quiz/</link>
+<guid>https://susam.in/blog/c-quiz/</guid>
+<description>
+<![CDATA[
+<p>
+Here is a fun quiz I prepared recently: Dennis : C :: Bjarne : ? Sa : C :: Pa : ? 6 : C&nbsp;<a href="https://susam.in/blog/c-quiz/">...</a>
+</p>
+<p><a href="https://susam.in/blog/c-quiz/">Read More</a></p>
+]]>
+</description>
+<pubDate>Mon, 28 Dec 2009 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>A Kid Who Could Read My Mind</title>
+<link>https://susam.in/blog/a-kid-who-could-read-my-mind/</link>
+<guid>https://susam.in/blog/a-kid-who-could-read-my-mind/</guid>
+<description>
+<![CDATA[
+<p>
+Last night, I was with a group of people I didn't know. In the group, there was a kid who claimed that he could read&nbsp;<a href="https://susam.in/blog/a-kid-who-could-read-my-mind/">...</a>
+</p>
+<p><a href="https://susam.in/blog/a-kid-who-could-read-my-mind/">Read More</a></p>
+]]>
+</description>
+<pubDate>Fri, 03 Jul 2009 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>ADAC and HE Puzzles from GEB</title>
+<link>https://susam.in/blog/adac-and-he-puzzles-from-geb/</link>
+<guid>https://susam.in/blog/adac-and-he-puzzles-from-geb/</guid>
+<description>
+<![CDATA[
+<p>
+I have been reading G&ouml;del, Escher, Bach: An Eternal Golden Braid by Douglas R. Hofstadter for a few weeks. The book follows an interesting format&nbsp;<a href="https://susam.in/blog/adac-and-he-puzzles-from-geb/">...</a>
+</p>
+<p><a href="https://susam.in/blog/adac-and-he-puzzles-from-geb/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sat, 16 May 2009 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Apache Nutch 1.0 Released</title>
+<link>https://susam.in/blog/apache-nutch-1-released/</link>
+<guid>https://susam.in/blog/apache-nutch-1-released/</guid>
+<description>
+<![CDATA[
+<p>
+Today, we received an announcement from the Nutch committer, Sami Siren that Apache Nutch 1.0 has been released. An extract from the announcement: Apache Nutch,&nbsp;<a href="https://susam.in/blog/apache-nutch-1-released/">...</a>
+</p>
+<p><a href="https://susam.in/blog/apache-nutch-1-released/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sat, 28 Mar 2009 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Combinatorics Coincidence</title>
+<link>https://susam.in/blog/combinatorics-coincidence/</link>
+<guid>https://susam.in/blog/combinatorics-coincidence/</guid>
+<description>
+<![CDATA[
+<p>
+I joined RSA a few weeks ago. It is a small and delightful place with a great work culture. It was founded by Ron Rivest,&nbsp;<a href="https://susam.in/blog/combinatorics-coincidence/">...</a>
+</p>
+<p><a href="https://susam.in/blog/combinatorics-coincidence/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sun, 14 Sep 2008 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>An Hour-Long Ride</title>
+<link>https://susam.in/blog/an-hour-long-ride/</link>
+<guid>https://susam.in/blog/an-hour-long-ride/</guid>
+<description>
+<![CDATA[
+<p>
+Yesterday, I was returning home from Malleswaram in an auto rickshaw. It was a long ride because of the terrible Bangalore traffic. At one of&nbsp;<a href="https://susam.in/blog/an-hour-long-ride/">...</a>
+</p>
+<p><a href="https://susam.in/blog/an-hour-long-ride/">Read More</a></p>
+]]>
+</description>
+<pubDate>Thu, 05 Jun 2008 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>From Perl to Pi</title>
+<link>https://susam.in/blog/from-perl-to-pi/</link>
+<guid>https://susam.in/blog/from-perl-to-pi/</guid>
+<description>
+<![CDATA[
+<p>
+I was learning Perl last weekend from the book Learning Perl, 3rd Edition by Randal L. Schwartz and Tom Phoenix. While reading the book, I&nbsp;<a href="https://susam.in/blog/from-perl-to-pi/">...</a>
+</p>
+<p><a href="https://susam.in/blog/from-perl-to-pi/">Read More</a></p>
+]]>
+</description>
+<pubDate>Tue, 15 Apr 2008 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Writing Boot Sector Code</title>
+<link>https://susam.in/blog/writing-boot-sector-code/</link>
+<guid>https://susam.in/blog/writing-boot-sector-code/</guid>
+<description>
+<![CDATA[
+<p>
+In this article, we discuss how to write our own "hello, world" program into the boot sector. At the time of this writing, most such&nbsp;<a href="https://susam.in/blog/writing-boot-sector-code/">...</a>
+</p>
+<p><a href="https://susam.in/blog/writing-boot-sector-code/">Read More</a></p>
+]]>
+</description>
+<pubDate>Mon, 19 Nov 2007 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Irrational Base</title>
+<link>https://susam.in/blog/irrational-base/</link>
+<guid>https://susam.in/blog/irrational-base/</guid>
+<description>
+<![CDATA[
+<p>
+Yesterday, I was going through Google's blog on their plans for Code Jam. I found an error in a document linked to from their blog&nbsp;<a href="https://susam.in/blog/irrational-base/">...</a>
+</p>
+<p><a href="https://susam.in/blog/irrational-base/">Read More</a></p>
+]]>
+</description>
+<pubDate>Tue, 11 Sep 2007 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Obfuscating main</title>
+<link>https://susam.in/blog/obfuscating-main/</link>
+<guid>https://susam.in/blog/obfuscating-main/</guid>
+<description>
+<![CDATA[
+<p>
+In 2004, when I was in engineering college, I used to run a mailing list called ncoders which had around 150 members. We used to&nbsp;<a href="https://susam.in/blog/obfuscating-main/">...</a>
+</p>
+<p><a href="https://susam.in/blog/obfuscating-main/">Read More</a></p>
+]]>
+</description>
+<pubDate>Tue, 31 Jul 2007 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Live Demo of Orkut Session Hijacking</title>
+<link>https://susam.in/blog/live-demo-of-orkut-session-hijacking/</link>
+<guid>https://susam.in/blog/live-demo-of-orkut-session-hijacking/</guid>
+<description>
+<![CDATA[
+<p>
+On 22 June 2007, I posted a full-disclosure regarding an Orkut session management issue. A week later, on 29 June 2007, I posted another full-disclosure&nbsp;<a href="https://susam.in/blog/live-demo-of-orkut-session-hijacking/">...</a>
+</p>
+<p><a href="https://susam.in/blog/live-demo-of-orkut-session-hijacking/">Read More</a></p>
+]]>
+</description>
+<pubDate>Mon, 09 Jul 2007 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Character Encoding Bug in Notepad</title>
+<link>https://susam.in/blog/character-encoding-bug-in-notepad/</link>
+<guid>https://susam.in/blog/character-encoding-bug-in-notepad/</guid>
+<description>
+<![CDATA[
+<p>
+I came across an interesting bug in Notepad last week. I have verified that this bug is reproducible in Windows XP. Older versions might be&nbsp;<a href="https://susam.in/blog/character-encoding-bug-in-notepad/">...</a>
+</p>
+<p><a href="https://susam.in/blog/character-encoding-bug-in-notepad/">Read More</a></p>
+]]>
+</description>
+<pubDate>Mon, 19 Jun 2006 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>IncredibleIndia.org Attacked Twice</title>
+<link>https://susam.in/blog/incredibleindia-attacked-twice/</link>
+<guid>https://susam.in/blog/incredibleindia-attacked-twice/</guid>
+<description>
+<![CDATA[
+<p>
+IncredibleIndia.org has a security loophole. The vulnerability was reported to the administrator of the website in the first week of April 2006 but no action&nbsp;<a href="https://susam.in/blog/incredibleindia-attacked-twice/">...</a>
+</p>
+<p><a href="https://susam.in/blog/incredibleindia-attacked-twice/">Read More</a></p>
+]]>
+</description>
+<pubDate>Thu, 25 May 2006 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Hello, World!</title>
+<link>https://susam.in/blog/hello-world/</link>
+<guid>https://susam.in/blog/hello-world/</guid>
+<description>
+<![CDATA[
+<p>
+Welcome to my blog. This is my space on the web where I will post my content on technology, mathematics, and other stuff that are&nbsp;<a href="https://susam.in/blog/hello-world/">...</a>
+</p>
+<p><a href="https://susam.in/blog/hello-world/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sat, 13 May 2006 00:00:00 +0000</pubDate>
+</item>
+
+
+</channel>
+</rss>

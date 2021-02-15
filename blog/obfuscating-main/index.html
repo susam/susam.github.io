@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Obfuscating main - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#333">
+  <link rel="canonical" href="https://susam.in/blog/obfuscating-main/">
+  <link rel="icon" type="image/png" href="../../favicon.png">
+  <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+<script>
+if (localStorage.getItem('dark')) { document.body.className = 'dark' }
+</script>
+<main>
+<h1><a href="./">Obfuscating main</a></h1>
+<div class="meta">By <b>Susam Pal</b> on 31 Jul 2007</div>
+<p>
+In 2004, when I was in engineering college, I used to run a mailing list
+called <em>ncoders</em> which had around 150 members. We used to discuss
+programming and network protocols in the mailing list.
+</p>
+
+<p>
+One day we were discussing how we could obfuscate the
+<code>main()</code> function in C such that the <code>main()</code>
+function didn't seem to appear in the code. I wrote the following code
+and posted to the mailing list:
+</p>
+
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+#define decode(s,t,u,m,p,e,d) m ## s ## u ## t
+#define begin decode(a,n,i,m,a,t,e)
+
+int begin()
+{
+    printf("Stumped?\n");
+}</code>
+</pre>
+
+<p>
+This program compiles and runs successfully. It produces the following
+output:
+</p>
+
+<pre>
+<samp>Stumped?</samp>
+</pre>
+
+<p>
+The mailing list does not exist anymore. The community disappeared
+gradually and the mailing list was removed. But the code seems to have
+survived in the inboxes of some subscribers because if we search the
+web, <a
+href="https://www.google.com/search?q=%22s%2Ct%2Cu%2Cm%2Cp%2Ce%2Cd%22+define">we
+can find so many occurrences of this code</a>.
+</p>
+
+<p>
+Here is a quick explanation of the code. In C, <code>##</code> is the
+preprocessor operator for concatenation.
+</p>
+
+<ul>
+<li>
+    <code>begin()</code> is replaced with <code>decode(a,n,i,m,a,t,e)()</code>,
+</li>
+<li>
+    <code>decode(a,n,i,m,a,t,e)()</code> is replaced with <code>m ## a ## i ##
+    n()</code>, and
+</li>
+<li>
+    <code>m ## a ## i ## n()</code> is replaced with <code>main()</code>.
+</li>
+</ul>
+
+<p>
+Thus effectively, <code>begin()</code> is replaced with
+<code>main()</code>.
+</p>
+
+
+<div class="links">
+  <a href="comments/">Comments</a>
+</div>
+</main>
+<hr>
+<footer class="textcenter">
+  <nav class="links">
+    <a class="feed" href="../../">Home</a>
+    <a class="feed" href="../../blog/rss.xml">Feed</a>
+    <a class="feed" href="../../dark/">Dark</a>
+    <a class="feed" href="../../about/">About</a>
+    <a class="feed" href="https://github.com/susam">GitHub</a>
+    <a class="feed" href="https://twitter.com/susam">Twitter</a>
+  </nav>
+  <p>&copy; 2006&ndash;2021 Susam Pal</p>
+</footer>
+</body>
+</html>
