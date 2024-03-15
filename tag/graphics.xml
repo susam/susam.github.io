@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's Graphics Pages</title>
+<link>https://susam.net/tag/graphics.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/graphics.xml"/>
+<description>Feed for Susam's Graphics Pages</description>
+
+<item>
+<title>FXYT</title>
+<link>https://susam.net/fxyt.html</link>
+<guid>https://susam.net/fxyt.html</guid>
+<description>
+<![CDATA[
+<p>
+  Tiny, stack-based, postfix, canvas colouring language with only 36
+  simple commands.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/fxyt.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+<pubDate>Wed, 20 Dec 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>CFRS[]</title>
+<link>https://susam.net/cfrs.html</link>
+<guid>https://susam.net/cfrs.html</guid>
+<description>
+<![CDATA[
+<p>
+  An extremely minimal drawing language consisting of only 6 simple
+  commands: <code>C</code>, <code>F</code>, <code>R</code>,
+  <code>S</code>, <code>[</code>, and <code>]</code>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/cfrs.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+<pubDate>Thu, 19 Oct 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>TextMetrics</title>
+<link>https://susam.net/code/web/textmetrics.html</link>
+<guid>https://susam.net/code/web/textmetrics.html</guid>
+<description>
+<![CDATA[
+<p>
+  An example page that demonstrates text metrics measurements.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/textmetrics.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a>
+</p>
+]]>
+</description>
+<pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+</item>
+
+
+</channel>
+</rss>
