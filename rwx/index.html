@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Susam's RWX</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#333">
+  <link rel="canonical" href="https://susam.net/rwx/">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+<main>
+<h1>Susam's RWX</h1>
+<div id="sub">Read, Write, Execute</div>
+<p>
+  Welcome to RWX, a quirky corner of my website where a diverse mix of
+  topics come together.  Each post here contains a collection of very
+  brief updates spanning from interesting books and articles I have
+  recently encountered to handy code snippets and commands.
+  See <a href="README.html">About RWX</a> for more details about this
+  section of my website.  Subscribe to <a href="../tag/rwx.xml">RWX
+  RSS Feed</a> if you want to receive new posts from this section in
+  your feed reader.
+</p>
+<ul class="blog">
+  <li>
+    <a href="2.html">RWX #2: Perron's Paradox, Light Through the Ages, Etc.</a> (14 Apr 2024)
+  </li>
+  <li>
+    <a href="1.html">RWX #1: Grothendieck Prime, Logarithm Notation, Etc.</a> (07 Apr 2024)
+  </li>
+</ul>
+<script>
+  const messages = [
+    'Read, Write, Explore',
+    'Random Weekly Explorations',
+    'Recent Weekly Explorations',
+    'Read, Write, Execute',
+  ]
+
+  let idx = 0
+  let len = 0
+  let blink = 1
+
+  const sub = document.getElementById('sub')
+  let cursor = '<span style="border-left: thin solid; margin-left: 2px">&nbsp;</span>'
+
+  function iterate () {
+    const msg = messages[idx]
+    sub.innerHTML = msg.substring(0, len) + ((blink % 2 === 1) ? cursor : '')
+    let interval
+    if (len < msg.length) {
+      blink = 1
+      interval = len < 4 ? 500 : 100
+      ++len
+    } else if (blink < 8) {
+      ++blink
+      interval = 500;
+    } else if (idx < messages.length - 1) {
+      ++idx
+      len = 0
+      blink = 1
+      interval = 500
+    } else {
+      return
+    }
+
+    setTimeout(iterate, interval)
+  }
+
+  setTimeout(iterate, 5000)
+</script>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../rwx/">RWX</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="https://susam.net/form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2024 Susam Pal</p>
+</footer>
+</body>
+</html>

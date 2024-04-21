@@ -1,0 +1,4420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's Mathematics Pages</title>
+<link>https://susam.net/tag/mathematics.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/mathematics.xml"/>
+<description>Feed for Susam's Mathematics Pages</description>
+
+<item>
+<title>Thurston's Paean</title>
+<link>https://susam.net/thurstons-paean.html</link>
+<guid>https://susam.net/thurstons-paean.html</guid>
+<description>
+<![CDATA[
+<p>
+  I recently came across a beautiful and thoughtful answer on
+  MathOverflow by the late mathematician William Thurston.  A brief
+  background about him from
+  the <a href="https://en.wikipedia.org/wiki/William_Thurston">Wikipedia
+  article</a> about him:
+</p>
+<blockquote>
+  <p>
+    William Paul Thurston (October 30, 1946 &ndash; August 21, 2012)
+    was an American mathematician.  He was a pioneer in the field of
+    low-dimensional topology and was awarded the Fields Medal in 1982
+    for his contributions to the study of 3-manifolds.
+  </p>
+  <p>
+    Thurston was a professor of mathematics at Princeton University,
+    University of California, Davis, and Cornell University.  He was
+    also a director of the Mathematical Sciences Research Institute.
+  </p>
+</blockquote>
+<p>
+  MathOverflow makes all answers posted to the website available under
+  a Creative Commons license.  In particular, all answers posted
+  before 08 Apr 2011 (UTC) are available under the terms of the
+  Creative Commons Attribution-ShareAlike 2.5 Generic (CC BY-SA 2.5)
+  license.  Thurston wrote the answer I am about to share on 30 Oct
+  2010.  Due to the license terms, this post too is available under
+  the terms of the same license.
+</p>
+<p>
+  Thurston posted his answer while replying to a MathOverflow
+  question:
+  <a href="https://mathoverflow.net/q/43690"><em>What's a
+  mathematician to do?</em></a>.  The question enquires about how an
+  ordinary mathematician can contribute to mathematics.  Thurston's
+  answer
+  from <a href="https://mathoverflow.net/a/44213">mathoverflow.net/a/44213</a>
+  is reproduced below:
+</p>
+<blockquote>
+  <p>
+    It's not <em>mathematics</em> that you need to contribute to.
+    It's deeper than that: how might you contribute to humanity, and
+    even deeper, to the well-being of the world, by pursuing
+    mathematics?  Such a question is not possible to answer in a
+    purely intellectual way, because the effects of our actions go far
+    beyond our understanding.  We are deeply social and deeply
+    instinctual animals, so much that our well-being depends on many
+    things we do that are hard to explain in an intellectual way.
+    That is why you do well to follow your heart and your passion.
+    Bare reason is likely to lead you astray.  None of us are smart
+    and wise enough to figure it out intellectually.
+  </p>
+  <p>
+    The product of mathematics is clarity and understanding.  Not
+    theorems, by themselves.  Is there, for example any real reason
+    that even such famous results as Fermat's Last Theorem, or the
+    Poincaré conjecture, really matter?  Their real importance is not
+    in their specific statements, but their role in challenging our
+    understanding, presenting challenges that led to mathematical
+    developments that increased our understanding.
+  </p>
+  <p>
+    The world does not suffer from an oversupply of clarity and
+    understanding (to put it mildly).  How and whether specific
+    mathematics might lead to improving the world (whatever that
+    means) is usually impossible to tease out, but mathematics
+    collectively is extremely important.
+  </p>
+  <p>
+    I think of mathematics as having a large component of psychology,
+    because of its strong dependence on human minds.  Dehumanized
+    mathematics would be more like computer code, which is very
+    different.  Mathematical ideas, even simple ideas, are often hard
+    to transplant from mind to mind.  There are many ideas in
+    mathematics that may be hard to get, but are easy once you get
+    them.  Because of this, mathematical understanding does not expand
+    in a monotone direction.  Our understanding frequently
+    deteriorates as well.  There are several obvious mechanisms of
+    decay.  The experts in a subject retire and die, or simply move on
+    to other subjects and forget.  Mathematics is commonly explained
+    and recorded in symbolic and concrete forms that are easy to
+    communicate, rather than in conceptual forms that are easy to
+    understand once communicated.  Translation in the direction
+    conceptual -> concrete and symbolic is much easier than
+    translation in the reverse direction, and symbolic forms often
+    replaces the conceptual forms of understanding.  And mathematical
+    conventions and taken-for-granted knowledge change, so older texts
+    may become hard to understand.
+  </p>
+  <p>
+    In short, mathematics only exists in a living community of
+    mathematicians that spreads understanding and breaths life into
+    ideas both old and new.  The real satisfaction from mathematics is
+    in learning from others and sharing with others.  All of us have
+    clear understanding of a few things and murky concepts of many
+    more.  There is no way to run out of ideas in need of
+    clarification.  The question of who is the first person to ever
+    set foot on some square meter of land is really secondary.
+    Revolutionary change does matter, but revolutions are few, and
+    they are not self-sustaining --- they depend very heavily on the
+    community of mathematicians.
+  </p>
+</blockquote>
+<p>
+  In the comments to the answer, one of the commenters
+  was <a href="https://users.cs.utah.edu/~suresh/">Suresh
+  Venkatasubramanian</a> who was a professor in the School of
+  Computing at the University of Utah back then.  He
+  is <a href="https://vivo.brown.edu/display/suresh">now</a> a
+  professor of Computer Science and Data Science at Brown University.
+  In his <a href="https://mathoverflow.net/questions/43690/whats-a-mathematician-to-do/44213#comment271029_44213">comment</a>,
+  Suresh proposed that this answer be called <em>Thurston's
+  Paean</em>.  Here is his complete comment:
+</p>
+<blockquote>
+  <p>
+    This seems like an ideal counterpoint to Hardy's Lament.  I'm
+    calling it Thurston's Paean :).  Seems poignant now that he has
+    passed.
+  </p>
+</blockquote>
+<p>
+  Thurston's answer does appear to be a perfect complement to Hardy's
+  lament in the 1940 essay <em>A Mathematician's Apology</em>.  While
+  Hardy's lament is remarkably beautiful and introspective, it may
+  also feel a little depressing at places.  Thurston's post on the
+  other hand is full of hope and purpose that goes beyond the actual
+  work of doing mathematics.  Indeed <em>Thurston's Paean</em> is a
+  befitting title for his answer.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/thurstons-paean.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a>
+</p>
+]]>
+</description>
+<pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Integrating Factor</title>
+<link>https://susam.net/integrating-factor.html</link>
+<guid>https://susam.net/integrating-factor.html</guid>
+<description>
+<![CDATA[
+<h2 id="introduction">Introduction<a href="#introduction"></a></h2>
+<p>
+  One of the many techniques for solving ordinary differential
+  equations involves using an <em>integrating factor</em>.  An
+  integrating factor is a function that a differential equation is
+  multiplied by to simplify it and make it integrable.  It almost
+  appears to work like magic!
+</p>
+<h2 id="method">The Method<a href="#method"></a></h2>
+<p>
+  Let us first see how the integrating factor method works.  In this
+  post, we will work with linear first-order ordinary differential
+  equations of type
+
+  \[
+    \frac{dy}{dx} + y P(x) = Q(x)
+  \]
+
+  to discuss, reason about, and illustrate this method.  We will also
+  often use the Leibniz's notation \( dy/dx \) and the Lagrange's
+  notation \( y'(x) \) or simply \( y' \) interchangeably as is
+  typical in calculus.  They all mean the same thing: the derivative
+  of the function \( y \) with respect to \( x.  \) Thus the above
+  differential equation may also be written as
+
+  \[
+    y' + y P(x) = Q(x).
+  \]
+
+  Given a differential equation of this form, we first find an
+  integrating factor \( M(x) \) using the formula
+
+  \[
+    M(x) = e^{\int P(x) \, dx}.
+  \]
+
+  Then we multiply both sides of the differential equation by this
+  integrating factor.  Now remarkably, the left-hand side (LHS)
+  reduces to a single term consisting only of a derivative.  As a
+  result, we can get rid of that derivative by integrating both sides
+  of the equation and we then proceed to obtain a solution.
+</p>
+<h2 id="example">An Example<a href="#example"></a></h2>
+<p>
+  Here is an example that demonstrates the method of using an
+  integrating factor.  Let us say we want to solve the differential
+  equation
+
+  \[
+    y' + y \left( \frac{x + 1}{x} \right) = \frac{1}{x}.
+  \]
+
+  Indeed this is in the form \( y' + y P(x) = Q(x) \) with \( P(x) =
+  (x + 1)/x \) and \( Q(x) = 1/x.  \) We first obtain the integrating
+  factor
+
+  \[
+    M(x)
+    = e^{\int P(x) \, dx}
+    = e^{\int (x + 1)/x \, dx}
+    = e^{\int (1 + 1/x) \, dx}
+    = e^{x + \ln x}
+    = x e^x.
+  \]
+
+  Now we multiply both sides of the differential equation by this
+  integrating factor and get
+
+  \[
+    y' x e^x + y (x + 1) e^x = e^x.
+  \]
+
+  The LHS can now be simplified to \( \frac{d}{dx} (y x e^x).  \) This
+  can be verified using the product rule for derivatives.  This
+  simplification of the LHS is the remarkable feature of this method.
+  Therefore the above equation can be written as
+
+  \[
+    \frac{d}{dx} (y x e^x) = e^x.
+  \]
+
+  Note that the expression on the LHS is a product of the function \(
+  y \) and the integrating factor \( x e^x.  \) We will discuss this
+  observation in more detail a little later.  Let us first complete
+  solving this differential equation.  Since the LHS is now a single
+  term that consists of a derivative, obtaining a solution now simply
+  involves integrating both sides with respect to \( x.  \)
+  Integrating both sides we get
+
+  \[
+    y x e^x = e^x + C
+  \]
+
+  where \( C \) is the constant of integration.  Finally, we divide
+  both sides by the integrating factor \( x e^x \) to get
+
+  \[
+    y = \frac{1}{x} + \frac{C}{x e^x}.
+  \]
+
+  We have now obtained a solution for the differential equation.  If
+  we review the steps above, we will find that after multiplying both
+  sides of the given differential equation by the integrating factor,
+  the differential equation becomes significantly simpler and
+  integrable.  In fact, after multiplying both sides of the given
+  differential equation by the integrating factor, the LHS always
+  becomes the derivative of the product of the function \( y \) and
+  the integrating factor.  We will now see why this is so.
+</p>
+<h2 id="interesting-relationship">An Interesting Relationship<a href="#interesting-relationship"></a></h2>
+<p>
+  Consider once again the linear first-order differential equation
+
+  \begin{equation}
+    \label{if-eq-diff}
+    y' + yP(x) = Q(x).
+  \end{equation}
+
+  We first find the integrating factor
+
+  \begin{equation}
+    \label{if-eq-integrating-factor}
+    M(x) = e^{\int P(x)\, dx}.
+  \end{equation}
+
+  The integrating factor obtained like this satisfies an interesting
+  relationship:
+
+  \begin{equation}
+    \label{if-eq-property}
+    M'(x) = M(x) P(x).
+  \end{equation}
+
+  We can prove this relationship easily by differentiating both sides
+  of \eqref{if-eq-integrating-factor} as follows:
+
+  \[
+    M'(x)
+    = \frac{d}{dx} \left( e^{\int P(x)\, dx} \right)
+    = e^{\int P(x)\, dx} \frac{d}{dx} \left( \int P(x)\, dx \right)
+    = M(x) P(x).
+  \]
+
+  Note that we use the chain rule to work out the derivative above.
+  This beautiful result is due to how the derivative of the
+  exponential function works.  When we apply the chain rule to obtain
+  the derivative of \( e^{f(x)} \) we get
+
+  \[
+    \frac{d}{dx} e^{f(x)} = e^{f(x)} f'(x).
+  \]
+
+  This nice property of the exponential function leads to the
+  interesting relationship in \eqref{if-eq-property}.
+</p>
+<h2 id="simplification-of-lhs">Simplification of LHS<a href="#simplification-of-lhs"></a></h2>
+<p>
+  Now let us multiply both sides of the differential equation
+  \eqref{if-eq-diff} by the integrating factor \( M(x) \) By doing so,
+  we get
+
+  \[
+    y' M(x) + y P(x) M(x) = Q(x) M(x).
+  \]
+
+  But from \eqref{if-eq-property} we know that \( P(x) M(x) = M'(x),
+  \) so the above equation can be written as
+
+  \[
+    y' M(x) + y M'(x) = Q(x) M(x).
+  \]
+
+  Look what we have got on the LHS!  We have the expansion of \(
+  \frac{d}{dx}(yM(x)) \) on the LHS.  By product rule of
+  differentiation, we have \( \frac{d}{dx}(yM(x)) = y' M(x) + y M'(x).
+  \) Therefore the above equation can be written as
+
+  \[
+    \frac{d}{dx}(yM(x)) = Q(x) M(x).
+  \]
+
+  The "magic" has occurred here!  Multiplying both sides of the
+  differential equation by the integrating factor has led us to an
+  equation that has got a single derivative only on the LHS.  As a
+  result, finding the solution is now a simple matter of integrating
+  both sides, i.e.,
+
+  \[
+    y M(x) = \int Q(x) M(x) \, dx.
+  \]
+
+  Thus
+
+  \[
+    y = \frac{1}{M(x)} \int Q(x) M(x) \, dx.
+  \]
+
+  Note that the result of indefinite integral on the RHS will contain
+  the constant of integration, which we will denote as \( C, \) so the
+  final solution looks like
+
+  \begin{equation}
+    \label{if-eq-general-solution}
+    y = \frac{1}{M(x)} \int Q(x) M(x) \, dx + \frac{C}{M(x)}.
+  \end{equation}
+</p>
+<h2 id="illustration">Illustration<a href="#illustration"></a></h2>
+<p>
+  Let us illustrate the method and its magic with a very simple
+  differential equation:
+
+  \[
+    y' + \frac{y}{x} = x.
+  \]
+
+  First we note that this equation is in the form \( y' + yP(x) = Q(x)
+  \) with \( P(x) = 1/x \) and \( Q(x) = x.  \) We then find the
+  integrating factor
+
+  \[
+  M(x)
+  = e^{\int P(x) \, dx}
+  = e^{\int \frac{1}{x} \, dx}
+  = e^{\ln x}
+  = x.
+  \]
+
+  Then we multiply both sides of the differential equation by the
+  integrating factor to get
+
+  \[
+    y'x + y = x^2.
+  \]
+
+  Now indeed the LHS can be written down as a single derivative as
+  shown below:
+
+  \[
+    \frac{d}{dx} yx = x^2.
+  \]
+
+  Note that the LHS is the derivative of the product of \( y \) and
+  the integrating factor \( x.  \) This is exactly what we discussed
+  in the previous section.  We integrate both sides of the above
+  equation to get
+
+  \[
+    yx = \frac{x^3}{3} + C.
+  \]
+
+  Finally we divide both sides by the integrating factor \( x \) to
+  get
+
+  \[
+    y = \frac{x^2}{3} + \frac{C}{x}.
+  \]
+
+  We have arrived at the solution \( y(x) \) for the differential
+  equation.
+</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  In this post, we used very simple and convenient differential
+  equations that led to nice closed-form solutions.  In practice,
+  differential equations can be quite complicated and may not always
+  lead to closed-form solutions.  In such cases, we leave the result
+  in the form of an expression that contains an unsolved integral.
+  Such solutions may resemble the form shown in
+  \eqref{if-eq-general-solution}.
+</p>
+<p>
+  The method of using integrating factors to solve differential
+  equations can also be extended to linear higher-order differential
+  equations.  That is something we did not discuss in this post.
+  However, I hope that the intuition gained from understanding how and
+  why this method works for linear first-order differential equations
+  will be useful while studying such extensions of this method.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/integrating-factor.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+<pubDate>Wed, 10 Nov 2021 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>GCD Grid</title>
+<link>https://susam.net/gcd-grid.html</link>
+<guid>https://susam.net/gcd-grid.html</guid>
+<description>
+<![CDATA[
+<p>
+  I recently completed reading the book <em>Introduction to Analytic
+  Number Theory</em> written by Tom M. Apostol and published in 1976.
+  It is a fantastic book that takes us through a breathtaking journey
+  of analytic number theory.  The journey begins with simple
+  properties of divisibility and ends with integer partitions.  During
+  this journey, we learn about several fascinating concepts such as
+  the M&ouml;bius function, Dirichlet multiplication, Chebyshev's
+  functions, Dirichlet characters, quadratic residues, the Riemann
+  zeta function, etc.  An analytic proof of the prime number theorem
+  is also presented in the book.
+</p>
+<p>
+  One of the things about the book that caught my interest from the
+  very beginning was its front cover.  It has a peculiarly drawn grid
+  of white boxes and red empty regions that looks quite interesting.
+  Here is the grid from the front cover of the book:
+</p>
+<figure>
+  <a href="files/blog/iant-cover.png"><img
+      src="files/blog/iant-cover.png"
+      alt="A diagram of a grid with cells and empty region"></a>
+  <figcaption>
+    Diagram of a grid on the front cover of the book <em>Introduction
+    to Analytic Number Theory</em>
+  </figcaption>
+</figure>
+<p>
+  Can we come up with a simple and elegant rule that defines this
+  grid?  Here is one I could come up with:
+</p>
+<div class="highlight">
+  <em>Number the columns in the grid 0, 1, 2, and so on from left to
+  right.  Number the rows in the grid 0, 1, 2, and so on from bottom
+  to top.  Let \( (x, y) \) represent the cell at column \( x \) and
+  row \( y.  \) Then a box exists at \( (x, y) \) if and only if \(
+  \gcd(x, y) \ne 1.  \)</em>
+</div>
+<p>
+  We define \( \gcd(x, y) \) to be a nonnegative common divisor of \(
+  x \) and \( y \) such that every common divisor of \( x \) and \( y
+  \) also divides \( \gcd(x, y).  \) Let us now see if we can explain
+  some of the interesting properties of this grid using the above
+  rule:
+</p>
+<ol>
+  <li>
+    <p>
+      When \( x = 0 \) and \( y \ne 1, \) we get \( \gcd(x, y) =
+      \lvert y \rvert \ne 1, \) so the entire column at \( x = 0 \)
+      has boxes except at \( (0, 1).  \) Similarly, the entire row at
+      \( y = 0 \) has boxes except at \( (1, 0).  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      The cell \( (0, 0) \) has a box because \( \gcd(0, 0) \ne 1.  \)
+      In fact, \( \gcd(0, 0) = 0.  \) This follows from the definition
+      of the \( \gcd \) function.  We will discuss this in more detail
+      later in this post.
+    </p>
+  </li>
+  <li>
+    <p>
+      Every diagonal cell \( (x, x) \) has a box except at \( (1, 1)
+      \) because \( \gcd(x, x) = \lvert x \rvert \) for all integers
+      \( x.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      The grid is symmetric about the diagonal cells \( (x, x) \)
+      because \( \gcd(x, y) = \gcd(y, x).  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      A column at \( x \) has exactly one cell below the diagonal if
+      and only if \( x \) is prime.  For example, check the column for
+      \( x = 5.  \) It has exactly one cell below the diagonal.  We
+      know that \( 5 \) is prime.  Now check the column for \( x = 6.
+      \) It has four cells below the diagonal.  We know that \( 6 \)
+      is not prime.
+    </p>
+  </li>
+</ol>
+<p>
+  Let us now elaborate the second point in the list above.  If \(
+  \gcd(0, 0) \) is \( 0, \) then \( 0 \) must divide \( 0.  \) Does \(
+  0 \) really divide \( 0?  \) Isn't \( 0/0 \) undefined?  Yes, even
+  though \( 0/0 \) is undefined, \( 0 \) divides \( 0.  \) We say an
+  integer \( d \) divides an integer \( n \) when \( n = cd \) for
+  some integer \( c.  \) We have \( 0 = 0 \cdot 0, \) so indeed \( 0
+  \) divides \( 0.  \)
+</p>
+<p>
+  We have shown that \( 0 \) divides \( 0 \) but we have not shown yet
+  that \( \gcd(0, 0) = 0.  \) Is \( \gcd(0, 0) \) really \( 0?  \)
+  Every integer divides \( 0, \) e.g., \( 1 \) divdes \( 0, \) \( 2 \)
+  divides \( 0, \) \( 3 \) divides \( 0, \) etc.  There does not seem
+  to be a greatest common divisor of \( 0 \) and \( 0.  \) Shouldn't
+  \( \gcd(0, 0) \) be called either infinity or undefined?  No, we
+  need to look at the definition of \( \gcd \) introduced earlier.  As
+  per the definition, every common divisor of integers \( x \) and \(
+  y \) must also divide \( \gcd(x, y).  \) With this requirement in
+  mind, we see that \( \gcd(0, 0) \) must be \( 0.  \) This definition
+  also makes \( \gcd(n, 0) = \gcd(0, n) = \lvert n \rvert \) for all
+  integers \( n.  \) Further, this definition makes B&eacute;zout's
+  identity hold for all integers.  B&eacute;zout's identity states
+  that there exists integers \( m \) and \( n \) such that \( mx + ny
+  = \gcd(x, y).  \) Indeed if we have \( \gcd(0, 0) = 0, \) we get \(
+  0 \cdot 0 + 0 \cdot 0 = 0 = \gcd(0, 0).  \)
+</p>
+<p>
+  That's all I wanted to share about the front cover of the book.
+  While the front cover is quite interesting, the content of the book
+  is even more fascinating.  I found chapters 12 and 13 of the book to
+  be the most interesting.  In chapter 12, the book teaches how to
+  prove that the Riemann zeta function \( \zeta(s) \) vanishes at
+  every negative even integer \( s.  \) Through several contour
+  integrals and clever use of Cauchy's residue theorem, it shows in
+  the end that \( \zeta(-2n) = 0 \) for \( n = 1, 2, 3, \dots.  \) In
+  chapter 13, the book shows us how to obtain zero-free regions where
+  \( \zeta(s) \) does not vanish.  The book exposes various subtle
+  nuances of the zeta function with great rigour and thoroughness.
+  Results like \( \zeta(-1) = 1/12 \) that once felt mysterious look
+  crystal clear and obvious after working through this book.  I
+  strongly recommend this book to anyone who wants to learn analytic
+  number theory.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/gcd-grid.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/number-theory.html">#number-theory</a>
+</p>
+]]>
+</description>
+<pubDate>Thu, 07 Oct 2021 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Final IANT Meeting Today</title>
+<link>https://susam.net/final-iant-meeting.html</link>
+<guid>https://susam.net/final-iant-meeting.html</guid>
+<description>
+<![CDATA[
+<h2 id="introduction">Introduction<a href="#introduction"></a></h2>
+<p>
+  We have been reading the book <em>Introduction to Analytic Number
+  Theory</em> (Apostol, 1976) since March 2021.  It has been going
+  consistently since then and the previous few posts on this blog
+  provide an account of how this journey has been so far.  After about
+  seven months of reading this book together, we are having our final
+  meeting for this book today.  This is going to be
+  the <a href="cc/iant/log.html#120">120th meeting</a> of our book
+  discussion group.  The meeting notes from all previous reading
+  sessions are archived at
+  <a href="cc/iant/">IANT Notes</a>.  We will discuss the
+  final two pages of this book today and complete reading this book.
+</p>
+<p>
+  In the meeting today, we will look at some applications of the
+  recursion formula related to partition functions that we learnt
+  earlier.  Here is an excerpt from the book that shows a specific
+  example that demonstrates the richness and beauty of concepts one
+  can discover while studying analytic number theory:
+</p>
+<blockquote>
+  Equation (24) becomes
+
+  \[
+  np(n) = \sum_{k=1}^n \sigma(k) p(n - k).
+  \]
+
+  a remarkable relation connecting a function of multiplicative number
+  theory with one of additive number theory.
+</blockquote>
+<p>
+  Now what equation (24) contains is not important for this post.  Of
+  course, you can refer to the book if you really want to know what
+  equation (24) is.  We learnt to prove that equation in the
+  penultimate meeting for this subject yesterday.  In this post, I
+  will emphasise how indeed this equation is remarkable.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#divisor-sum-function">The Divisor Sum Function</a></li>
+  <li><a href="#unrestricted-partition-function">The Unrestricted Partition Function</a></li>
+  <li><a href="#linkage-of-two-theorems">The Linkage of Two Theories</a></li>
+  <li><a href="#final-meeting">The Final Meeting</a></li>
+  <li><a href="#thanks">Thanks!</a></li>
+</ul>
+<h2 id="divisor-sum-function">The Divisor Sum Function<a href="#divisor-sum-function"></a></h2>
+<p>
+  The divisor sum function \( \sigma(n) \) represents the sum of all
+  positive divisors of \( n.  \) Here are some examples:
+
+  \begin{align*}
+  \sigma(1) &= 1, \\
+  \sigma(2) &= 1 + 2 = 3, \\
+  \sigma(3) &= 1 + 3 = 4, \\
+  \sigma(4) &= 1 + 2 + 4 = 7, \\
+  \sigma(5) &= 1 + 5 = 6.
+  \end{align*}
+
+  We have spent a good amount of time with this function in the
+  initial chapters of the book.  However, for the purpose of this blog
+  post, the definition and the examples above are good enough.
+</p>
+<h2 id="unrestricted-partition-function">The Unrestricted Partition Function<a href="#unrestricted-partition-function"></a></h2>
+<p>
+  The \( p(n) \) function is the unrestricted partition function.  It
+  represents the number of ways \( n \) can be written as a sum of
+  positive integers \( \le n.  \) Further, we let \( p(0) = 1.  \)
+  Here are some examples:
+
+  \begin{align*}
+  p(1) &= 1, \\
+  p(2) &= 2, \\
+  p(3) &= 3, \\
+  p(4) &= 4, \\
+  p(5) &= 7.
+  \end{align*}
+
+  Let me illustration the last value.  The integer \( 5 \) can be
+  represented as a sum of positive integers \( \le 5 \) in 7 different
+  ways.  They are: \( 5, \) \( 4 + 1, \) \( 3 + 2, \) \( 3 + 1 + 1, \)
+  \( 2 + 2 + 1, \) \( 2 + 1 + 1 + 1, \) and \( 1 + 1 + 1 + 1 + 1.  \)
+  Thus \( p(n) = 5.  \)
+</p>
+<h2 id="linkage-of-two-theorems">The Linkage of Two Theories<a href="#linkage-of-two-theorems"></a></h2>
+<p>
+  The divisor sum function comes from multiplicative number theory.
+  The partition function comes from additive number theory.  Yet these
+  two very different things get linked together in the formula
+  mentioned in the excerpt included above.  Here is the formula once
+  again:
+
+  \[
+    np(n) = \sum_{k=1}^n \sigma(k) p(n - k).
+  \]
+
+  How beautiful!  How nicely the divisor sum function and the
+  unrestricted partition function appear together elegantly in a
+  single equation!  Further, this equation provides a recursion
+  formula for the partition function.
+
+  Here is an illustration of this equation with \( n = 5 \):
+
+  \[
+    5 \cdot p(5) = 5 \cdot 7 = 35.
+  \]
+
+  \begin{align*}
+    \sum_{k=1}^5 \sigma(k) p(5 - k)
+    &= \sigma(1) p(4) + \sigma(2) p(3) + \sigma(3) p(2) + \sigma(4) p(1) + \sigma(5) p(0) \\
+    &= (1)(5) + (3)(3) + (4)(2) + (7)(1) + (6)(1) \\
+    &= 5 + 9 + 8 + 7 + 6 \\
+    &= 35.
+  \end{align*}
+
+  We will go through this topic once more in the meeting today, so if
+  you are interested to see this formula worked out in a step-by-step
+  manner, do join our final meeting for this book.
+</p>
+<h2 id="final-meeting">The Final Meeting<a href="#final-meeting"></a></h2>
+<p>
+  The final meeting is coming up at 17:00 UTC today.  Visit
+  the <a href="cc/iant/">analytic number theory page</a> to
+  get the meeting link.  This is not going to be the final meeting for
+  our overall book discussion group though.  This is going to be the
+  finally meeting for only the analytic number theory book.  We will
+  have more meetings for another book after a short break.
+</p>
+<p>
+  The meeting today is going to be a lightweight session.  The last
+  two pages that we will discuss today contain some examples of
+  recursion formulas and some commentary about Ramanujan's partition
+  identities.  Most of it should make sense even to those who have not
+  been part of our meetings earlier, so everyone is welcome to join
+  this meeting today, even if only to lurk.  You can also join our
+  group by joining our IRC channel where we will publish updates about
+  future meetings.  Our channel details are available in the
+  <a href="cc/#join">main page here</a>.
+</p>
+<h2 id="thanks">Thanks!<a href="#thanks"></a></h2>
+<p>
+  A big thank you to the Hacker News community and the Libera IRC
+  mathematics and algorithms communities who showed interest in these
+  meetings, joined the meetings, and made this series of meetings
+  successful.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/final-iant-meeting.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/number-theory.html">#number-theory</a> |
+  <a href="https://susam.net/tag/meetup.html">#meetup</a>
+</p>
+]]>
+</description>
+<pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Journey to Integer Partitions</title>
+<link>https://susam.net/journey-to-integer-partitions.html</link>
+<guid>https://susam.net/journey-to-integer-partitions.html</guid>
+<description>
+<![CDATA[
+<h2 id="introduction">Introduction<a href="#introduction"></a></h2>
+<p>
+  After <a href="cc/iant/log.html#114">114 meetings</a> and 75 hours
+  of studying together, our analytic number theory book discussion
+  group has finally reached the final chapter of the
+  book <em>Introduction to Analytic Number Theory</em> (Apostol,
+  1976).  We have less than 18 pages to read in order to complete
+  reading this book.  Considering that we meet 3-4 times in a week and
+  we discuss about 2-3 pages in every meeting, it appears that we
+  would be able to complete reading this book in another 2 weeks.
+</p>
+<p>
+  Reading this book has been quite a journey!  The previous three
+  posts on this blog provide an account of how this journey has been.
+  It has been fun, of course.  The best part of hosting a book
+  discussion group like this has been the number of extremely smart
+  people I got an opportunity to meet and interact with.  The insights
+  and comments on the study material that others shared during the
+  meetings were very helpful.
+</p>
+<p>
+  The <a href="cc/iant/log.html">meeting log</a> shows that our
+  meetings started really small with only 4 participants in the first
+  meeting in March 2021 and then it gradually grew to about 10-12
+  regular members within a month.  Then a few months later, the number
+  of participants began dwindling a little.  This happened because
+  some members of the group had to drop out as they got busy with
+  other personal or professional engagements.  However, six months
+  later, we still have about 4-5 regular participants meeting
+  consistently.  I think it is pretty good that we have made it this
+  far.
+</p>
+<h2 id="unrestricted-partitions">Unrestricted Partitions<a href="#unrestricted-partitions"></a></h2>
+<p>
+  The final chapter on integer partitions is very unlike all the
+  previous 12 chapters.  While the previous chapters dealt
+  with <em>multiplicative number theory</em>, this final chapter deals
+  with <em>additive number theory</em>.  For example, the first
+  theorem talks about an interesting property of <em>unrestricted
+  partitions</em>.  We study the number of ways a positive integer can
+  be expressed as a sum of positive integers.  The number of summands
+  is unrestricted, repetition of summands is allowed, and the order of
+  the summands is not taken into account.  For example, the number 3
+  has 3 partitions: 3, 2 + 1, and 1 + 1 + 1.  Similarly, the number 4
+  has 5 partitions: 4, 3 + 1, 2 + 2, 2 + 1 + 1, and 1 + 1 + 1 + 1.
+</p>
+<p>
+  I have always wanted to learn about partitions more deeply, so I am
+  quite happy that this book ends with a chapter on partitions.  The
+  subject of partitions is rich with very interesting results obtained
+  by various accomplished mathematicians.  In the book, the first
+  theorem about partitions is a very simple one that follows from the
+  geometric representation of partitions.  Let us see an illustration
+  first.
+</p>
+<p>
+  How many partitions of 6 are there?  There are 11 partitions of 6.
+  They are 6, 5 + 1, 4 + 2, 4 + 1 + 1, 3 + 3, 3 + 2 + 1, 3 + 1 + 1 +
+  1, 2 + 2 + 2, 2 + 2 + 1 + 1, 2 + 1 + 1 + 1 + 1, and 1 + 1 + 1 + 1 +
+  1 + 1.  Now how many of these partitions are made up of 5 parts?
+  Each summand is called a part.  The answer is 2.  There are 2
+  partitions of 6 that are made up of 5 parts.  They are 3 + 1 + 1 + 1
+  and 2 + 2 + 1 + 1.  Let us represent both these partitions as
+  arrangements of lattice points.  Here is the representation of the
+  partition 3 + 1 + 1 + 1:
+</p>
+<pre>
+<code>&bull; &bull; &bull;
+&bull;
+&bull;
+&bull;</code>
+</pre>
+<p>
+  Now if we read this arrangement from left-to-right,
+  column-by-column, we get another partition of 6, i.e., 4 + 1 + 1.
+  Note that the number of parts in 3 + 1 + 1 + 1 (i.e., 4) appears as
+  the largest part in 4 + 1 + 1.  Similarly, the number of parts in 4
+  + 1 + 1 (i.e., 3) appears as the largest part in 3 + 1 + 1 + 1.  Let
+  us see one more example of this relationship.  Here is the geometric
+  representation of 2 + 2 + 1 + 1:
+</p>
+<pre>
+<code>&bull; &bull;
+&bull; &bull;
+&bull;
+&bull;</code>
+</pre>
+<p>
+  Once again, reading this representation from left-to-right, we get 4
+  + 2, another partition of 6.  Once again, we can see that the number
+  of partitions in 2 + 2 + 1 + 1 (i.e., 4) appears as the largest part
+  in 4 + 2, and vice versa.  These observations lead to the first
+  theorem in the chapter on partitions:
+</p>
+<blockquote>
+  <strong>Theorem 14.1</strong> <em>The number ofpartitions of \( n \)
+  into \( m \) parts is equal to the number of partitions of \( n \)
+  into parts, the largest of which is \( m.  \)</em>
+</blockquote>
+<p>
+  That was a brief introduction to the chapter on partitions.  In the
+  next two or so weeks, we will dive deeper into the theory of
+  partitions.
+</p>
+<h2 id="next-meeting">Next Meeting<a href="#next-meeting"></a></h2>
+<p>
+  If this blog post was fun for you, consider joining our next
+  meeting.  Our next meeting is on Tue, 21 Sep 2021 at 17:00 UTC.
+  Since we are at the beginning of a new chapter, it is a good time
+  for new participants to join us.  It is also a good time for members
+  who have been away for a while to join us back.  Since this chapter
+  does not depend much on the previous chapters, new participants
+  should be able to join our reading sessions for this chapter and
+  follow along easily without too much effort.
+</p>
+<p>
+  To join our discussions, see our channel details in the
+  <a href="cc/#join">main page here</a>.  To get the
+  meeting link for the next meeting, visit the
+  <a href="cc/iant/">analytic number theory book
+  page</a>.
+</p>
+<p>
+  It is worth mentioning here that lurking is absolutely fine in our
+  meetings.  In fact, most participants of our meetings join in and
+  stay silent throughout the meeting.  Only a few members talk via
+  audio/video or chat.  This is considered absolutely normal in our
+  meetings, so please do not hesitate to join our meetings!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/journey-to-integer-partitions.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/number-theory.html">#number-theory</a> |
+  <a href="https://susam.net/tag/meetup.html">#meetup</a>
+</p>
+]]>
+</description>
+<pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Journey to the Prime Number Theorem</title>
+<link>https://susam.net/journey-to-prime-number-theorem.html</link>
+<guid>https://susam.net/journey-to-prime-number-theorem.html</guid>
+<description>
+<![CDATA[
+<p>
+  How long does it take to start with zero knowledge of analytic
+  number theory and successfully learn the analytic proof of the prime
+  number theorem?  Take a guess!  I will share my answer in the next
+  two paragraphs.  This is something I had wondered when we began our
+  analytic number theory book discussion group in March 2021.  Back
+  then, I thought it would take at least 100 hours of effort.
+</p>
+<p>
+  The book I had chosen for our discussions was <em>Introduction to
+  Analytic Number Theory</em> (Apostol, 1976).  I have been hosting
+  40-minute meetings for about 3-4 days every week since March 2021.
+  We discuss a couple of pages of the book in every meeting.  Most
+  participants in this meeting are from Hacker News and Libera IRC
+  network.  For a long time, I was eager to learn the proof of the
+  prime number theorem.  For those unfamiliar with the theorem, I will
+  describe it briefly in further sections.  Let me first answer the
+  question I asked in the previous paragraph.
+</p>
+<p>
+  So how long does it take to start with no knolwedge of analytic
+  number theory and teach ourselves the analytic proof of the prime
+  number theorem?  Turns out, it takes 72 hours!  It took our group 72
+  hours spread across <a href="cc/iant/log.html#110">110 meetings</a>
+  over 6 months to be able to understand the proof.  It is worth
+  noting here that most of us in this group have full-time jobs and
+  other personal obligations!  We were all doing this for fun, for the
+  joy of learning!
+</p>
+<p>
+  Now I must mention that the 72 hours noted above is only the time
+  spent together in reading the book and working through the theorems
+  and proofs.  It does not include the personal time spent in solving
+  problems, reading some sections again, taking notes, etc.  All of
+  that was done in our personal time.  We did discuss the solutions to
+  some of the very interesting problems in our meetings just to take a
+  break from the theorem-and-proof style of reading but most of these
+  72 hours of meetings focussed on working through the theorems and
+  proofs in the book.
+</p>
+<p>
+  It may be possible to achieve this milestone in lesser number of
+  hours, perhaps by reading the book alone which for some folks might
+  be faster than studying in a group, or perhaps by skipping some
+  chapters for topics that look very familiar.  In our discussions,
+  however, we did not skip any chapter.  There were in fact a few
+  chapters we could have skipped.  All members of these meetings were
+  very familiar with divisibility, greatest common divisor, the
+  fundamental theorem of arithmetic, etc. discussed in Chapter 1.
+  Most of us were also very familiar with the concepts discussed in
+  Chapter 5 such as congruences, residue classes, the Euler-Fermat
+  theorem, the Chinese remainder theorem, etc.  Despite being familiar
+  with these concepts, we decided not to skip any chapter for the sake
+  of completeness of our coverage of the material.  In fact, we read
+  every single line of the book and deliberated over every single
+  concept discussed in the book.  With this detailed and tedious
+  approach to reading the book, it took us 72 hours to read about 290
+  pages and learn the analytic proof of the prime number theorem in
+  Chapter 13.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#prime-number-theorem">Prime Number Theorem</a></li>
+  <li><a href="#the-basics">Equivalent Forms</a></li>
+  <li><a href="#dirichlet-dirichlet-dirichlet">Dirichlet, Dirichlet, Dirichlet!</a></li>
+  <li><a href="#chain-of-proofs">Chain of Proofs</a></li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h2 id="prime-number-theorem">Prime Number Theorem<a href="#prime-number-theorem"></a></h2>
+<p>
+  The prime number theorem is a very curious fact about the
+  distribution of prime numbers that Gauss noticed in the year 1792
+  when he was about 15 years old.  He noticed that the occurrence of
+  primes become rarer and rarer as we expand our search for them to
+  larger and larger integers.  For example, there are 4 primes between
+  1 and 10, i.e., 40% of the numbers between 1 and 10 are primes!  But
+  there are only 25 primes between 1 and 100, i.e., only 25% of the
+  numbers between 1 and 100 are primes.  If we go up to 1000, we
+  notice that there are only 168 primes between 1 and 1000, i.e., only
+  16.8% of the numbers between 1 and 1000 are primes.  Formally, we
+  denote these facts with the mathematical notation \( \pi(x) \) that
+  denotes the prime counting function.  We say \( \pi(10) = 4, \) \(
+  \pi(100) = 25, \) \( \pi(1000) = 168, \) and so on.  Note that we
+  allow \( x \) to be a real number, so while \( \pi(10) = 4, \) we
+  have \( \pi(10.3) = 4 \) as well.  One of the reasons we let \( x \)
+  be a real number in the definition of \( \pi(x) \) is because it
+  makes various problems we come across during the study of this
+  function more convenient to work on using real analysis.
+</p>
+<p>
+  We observe that the "density" of primes continue to fall as we make
+  \( x \) larger and larger.  In formal notation, we see that the
+  ratio \( \pi(x) / x \) is \( 0.4 \) when \( x = 10.  \) This ratio
+  falls to \( 0.25 \) when \( x = 100.  \) It falls further to \(
+  0.168 \) when \( x = 1000, \) and so on.  Can we predict by how much
+  this "density" falls?  The answer is, yes, and that leads us to the
+  prime number theorem.  The prime number theorem states that \(
+  \pi(x) / x \) is asymptotic to \( 1 / \log x \) as \( x \)
+  approaches infinity, i.e.,
+
+  \[
+    \frac{\pi(x)}{x} \sim \frac{1}{\log x} \text{ as } x \to \infty.
+  \]
+
+  For those unfamiliar with the notation of asymptotic equality, here
+  is another equivalent way to state the above relationship,
+
+  \[
+    \lim_{x \to \infty} \frac{\pi(x) / x}{1 / \log x} = 1.
+  \]
+
+  We could also write this as
+
+  \[
+    \lim_{x \to \infty} \frac{\pi(x)}{x / \log x} = 1
+  \]
+
+  or
+
+  \[
+    \pi(x) \sim \frac{x}{\log x} \text{ as } x \to \infty.
+  \]
+
+  Let us see how well this formula works as an estimate for the
+  density of primes for small values of \( x.  \)
+</p>
+<table style="text-align: right" class="grid center">
+  <tr>
+    <th style="text-align: right">\( x \)</th>
+    <th style="text-align: right">\( \pi(x) \)</th>
+    <th style="text-align: right">\( x / \log x \)</th>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>4</td>
+    <td>4.3</td>
+  </tr>
+  <tr>
+    <td>100</td>
+    <td>25</td>
+    <td>21.7</td>
+  </tr>
+  <tr>
+    <td>1000</td>
+    <td>168</td>
+    <td>144.8</td>
+  </tr>
+  <tr>
+    <td>10000</td>
+    <td>1229</td>
+    <td>1085.7</td>
+  </tr>
+  <tr>
+    <td>100000</td>
+    <td>9592</td>
+    <td>8685.9</td>
+  </tr>
+</table>
+<p>
+  Not bad!  In fact, the last two columns begin to agree more and more
+  as \( x \) becomes larger and larger.
+</p>
+<p>
+  The analytic proof of the prime number theorem was achieved with an
+  intricate chain of equivalences and implications between various
+  theorems.  The book consumes 13 chapters and 290 pages before
+  completing the proof of the prime number theorem.  Each page is also
+  quite dense with information.  The amount of commentary or
+  illustrations is very little in the book.  Most of the book keeps
+  alternating between theorem statements and proofs.  Occasionally,
+  for especially long chapters with an intricate sequence of proofs,
+  Apostol provides a plan of the proof in the introductions to such
+  chapters.  It is quite hard to summarise a large and dense volume of
+  work like this in a blog post but I will make an attempt to paint a
+  very high-level picture of some of the key concepts that are
+  involved in the proof.
+</p>
+<h2 id="the-basics">Equivalent Forms<a href="#the-basics"></a></h2>
+<p>
+  Everything from Chapters 1 to 3 is about building basic concepts and
+  tools we will use later to work on the problem of the prime number
+  theorem.  These concepts and tools were very interesting on their
+  own.  They involved divisibility, various number-theoretic
+  functions, Dirichlet products, the big oh notation, etc.  Chapter 4
+  was the first chapter where we engaged ourselves with the prime
+  number theorem.  This chapter taught us several other formulas that
+  were logically equivalent to the prime number theorem.  One
+  equivalence that would play a big role later was the equivalence
+  between the prime number theorem
+
+  \[
+    \lim_{x \to \infty} \frac{\pi(x) \log x}{x} = 1
+  \]
+
+  and the following form:
+
+  \[
+    \lim_{x \to \infty} \frac{\psi(x)}{x} = 1.
+  \]
+
+  If we could prove one, the validity of the other would be
+  established automatically.  The notation \( \psi(x) \) denotes the
+  Chebyshev function which in turn is defined in terms of the Mangoldt
+  function \( \Lambda(n) \) as \( \psi(x) = \sum_{n \le x} \Lambda(n).
+  \) Note that the formula above can also be stated using the
+  asymptotic equality notation as follows:
+  
+  \[
+    \psi(x) \sim x \text{ as } x \to \infty.
+  \]
+  
+  There were several other equivalent forms too shown in Chapter 4.
+  The fact that all these various forms were equivalent to each other
+  was rigorously proved in the chapter.  Thus proving any one of the
+  equivalent forms would be sufficient to prove the prime number
+  theorem.  But in Chapter 4, we did not know how to prove any of the
+  equivalent forms.  We could only prove the equivalence of the
+  various formulas, not the formulas themselves.  We only learnt that
+  if any of the equivalent forms is true, so is the prime number
+  theorem.  Similarly, if any of the equivalent forms is false, so is
+  the prime number theorem.  We would visit the prime number theorem
+  again in Chapter 13 which would complete the proof of the prime
+  number theorem by showing that the equivalent form mentioned above
+  is indeed true.
+</p>
+<h2 id="dirichlet-dirichlet-dirichlet">Dirichlet, Dirichlet, Dirichlet!<a href="#dirichlet-dirichlet-dirichlet"></a></h2>
+<p>
+  Chapters 5 to 10 introduced more concepts involving congruences,
+  finite abelian groups, their characters, Dirichlet characters,
+  Dirichlet's theorem on primes in arithmetic progressions, Gauss
+  sums, quadratic residues, primitive roots, etc.  Some of these
+  concepts would turn out to be very important in proving the prime
+  number theroem but most of them probably are not too important if
+  understanding the proof of the prime number theorem is the only
+  goal.  Regardless, all of these chapters were very interesting.
+</p>
+<p>
+  It was in Chapters 11 and 12 that we felt that we were getting
+  closer and closer to the proof of the prime number theorem.  Chapter
+  11 began a detailed and rigorous study of convergence and divergence
+  of Dirichlet series.  The Riemann zeta function is a specific type
+  of Dirichlet series.  Chapter 12 introduced analytic continuation of
+  the Riemann zeta function.  We could then show interesting results
+  like \( \zeta(0) = -1/2 \) and \( \zeta(-1) = -1/12 \) using the
+  analytic continuation of the zeta function.  This chapter also
+  showed us why all trivial zeroes of \( \zeta(s) \) must lie at
+  negative even integers.
+</p>
+<p>
+  One thing I realised during the study of this book is how frequently
+  we use concepts, operations, functions, and theorems named after
+  Dirichlet.  It was impossible to get through a meeting without
+  having uttered "Dirichlet" at least a dozen times!
+</p>
+<h2 id="chain-of-proofs">Chain of Proofs<a href="#chain-of-proofs"></a></h2>
+<p>
+  Finally, Chapter 13 showed us how to prove the prime number theorem.
+  The plan of the proof was laid out in the first section.  Our goal
+  in this chapter is to prove that \( \psi(x) \sim x \) as \( x \to
+  \infty.  \) This is equivalent to the prime number theorem, so
+  proving this amounts to proving the prime number theorem too.
+</p>
+<p>
+  Next we learn that the asymptotic relation \( \psi_1(x) \sim x^2 / 2
+  \) as \( x \to \infty \) implies the previous asymptotic
+  relationship.  Here \( \psi_1(x) \) is defined as \( \psi_1(x) =
+  \int_1^x \psi(t) \, dt.  \) This implication is proved quite easily
+  in one and a half pages.  But we still need to show that the
+  asymptotic relation \( \psi_1(x) \sim x^2 / 2 \) as \( x \to \infty
+  \) indeed holds good.  Proving this takes a lot of work.  To prove
+  this asymptotic relation we first learn to arrive at the following
+  equation involving a contour integral:
+
+  \[
+    \frac{\psi_1(x)}{x^2} - \frac{1}{2} \left( 1 - \frac{1}{x} \right)^2
+    = \frac{1}{2\pi i} \int_{c - \infty i}^{c + \infty i} \frac{x^{s - 1}}{s(s + 1)}
+    \left( -\frac{\zeta'(s)}{\zeta(s)} - \frac{1}{s - 1} \right) \, ds
+  \]
+
+  for \( c &gt; 1.  \) The equation above looks quite complex
+  initially but each part of it becomes friendly as we learn to derive
+  it and then work on each part of it while working out further
+  proofs.  Now if we could somehow show that the integral on the right
+  hand side of the above equation approaches 0 as \( x \to \infty, \)
+  that would end up proving the asymptotic relation involving \(
+  \psi_1(x) \) and thus end up proving the prime number theorem by
+  equivalence.  However, proving that this integral indeed becomes 0
+  as \( x \to \infty \) requires a careful study of \(
+  \zeta(s)/\zeta'(s) \) in the vicinity of the line \(
+  \operatorname{Re}(s) = 1.  \) This is the topic that most of the
+  chapter deals with.
+</p>
+<p>
+  This plan of the proof looked quite convoluted initially but Apostol
+  has done a great job in this chapter to first walk us through this
+  plan and then prove each fact that we need to make the proof work in
+  a detailed and rigorous manner.  When we reached the end of the
+  proof, one of our regular members remarked, "Now the proof does not
+  look so complex!"
+</p>
+<p>
+  Would the elementary proof of the prime number theory have been
+  easier?  I don't know.  I have not studied the elementary proof.
+  But Apostol does say this at the beginning of Chapter 13,
+</p>
+<blockquote>
+  The analytic proof is shorter than the elementary proof sketched in
+  Chapter 4 and its principal ideas are easier to comprehend.
+</blockquote>
+<p>
+  Learning the analytic proof itself was quite a long journey that
+  required dedication and consistency in our studies over a period of
+  6 months.  If we trust the above excerpt from the book, then I think
+  it is fair to assume that the elementary proof is even more
+  formidable.
+</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  That was an account of our journey through an analytic number theory
+  book from its first chapter up to the analytic proof of the prime
+  number theorem.  We have not completed reading the entire book
+  though.  We still have about another 30 pages to go through.  In the
+  remaining study of this book, we will learn more about zero-free
+  regions for \( \zeta(s), \) the application of the prime number
+  theorem to the divisor function, and the Euler totient function.
+  The next and the final chapter too has a lot to offer such as
+  integer partition, Euler's pentagonal-number theorem, and the
+  partition identities of Ramanujan.  I am pretty hopeful that we will
+  be complete reading this book in another few weeks of meetings.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/journey-to-prime-number-theorem.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/number-theory.html">#number-theory</a> |
+  <a href="https://susam.net/tag/meetup.html">#meetup</a>
+</p>
+]]>
+</description>
+<pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>One Hundred Meetings</title>
+<link>https://susam.net/one-hundred-meetings.html</link>
+<guid>https://susam.net/one-hundred-meetings.html</guid>
+<description>
+<![CDATA[
+<p>
+  Today, our computation book discussion group is going to have the
+  100th meeting!  Yes, <a href="cc/iant/log.html#100">the 100th
+  meeting</a>!  We began these book discussion meetings about five
+  months ago.  The first book we picked up for our discussions
+  was <em>Introduction to Analytic Number Theory</em> (Apostol, 1976).
+  We have been reading this book together for the last five months.
+  We have a tiny but consistent community of 6 to 8 participants who
+  meet regularly to study this book and share our understanding and
+  insights with each other.
+</p>
+<p>
+  In this blog post, I will talk about my personal experience hosting
+  these meetings and my personal journey about reading this book.  It
+  is worth keeping in mind then that what I am about to write below
+  may not have any resemblance with the experience of other
+  participants of these meetings.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#the-reading-experience">The Reading Experience</a></li>
+  <li><a href="#the-learning-experience">The Learning Experience</a></li>
+  <li><a href="#three-concepts">Three Concepts</a>
+    <ul>
+      <li><a href="#the-mobius-function">The M&ouml;bius Function</a></li>
+      <li><a href="#dirichlet-product">Dirichlet Product</a></li>
+      <li><a href="#hurwitz-zeta-function">Hurwitz Zeta Function</a></li>
+    </ul>
+  </li>
+  <li><a href="#the-next-meeting">The Next Meeting</a></li>
+  <li><a href="#join-us">Join Us</a></li>
+</ul>
+<h2 id="the-reading-experience">The Reading Experience<a href="#the-reading-experience"></a></h2>
+<p>
+  As far as I know, everyone who joins our meetings are involved in
+  computer programming in one form or another.  A few of them have
+  very strong background in mathematics.  I host these meetings
+  everyday and discuss a few sections of the book in detail.  I show
+  how to work through the proofs, explain some of the steps, etc.
+  Sometimes I get stuck in some step that I find too unobvious.
+  Sometimes the steps are obvious but my brain is too slow to
+  understand why the steps work.  But these tiny glitches have not
+  been a problem so far, thanks to all the members who join these
+  meetings on a daily basis and contribute their explanations of the
+  proofs.
+</p>
+<p>
+  I believe the group members are the best part of these discussions.
+  Thanks to the insights and explanation of the reading material
+  shared by all these members, I am fairly confident that we are able
+  to take a close look at every proof and convince ourselves that
+  every step of the proofs work.
+</p>
+<h2 id="the-learning-experience">The Learning Experience<a href="#the-learning-experience"></a></h2>
+<p>
+  The first web meeting to discuss the chosen analytic number theory
+  book occurred on 5 Mar 2021.  See the blog
+  post <a href="reading-classic-computation-books.html">Reading
+  Classic Computation Books</a> to read about the early days of our
+  group and how it was formed.  Back then, I knew little to nothing
+  about analytic number theory.  Although I was familiar with some of
+  the elementary concepts like divisibility, Euler's totient function,
+  modular arithmetic, calculus, and related theorems, chapter 2 of the
+  book itself proved to be a significant challenge for me.  In the
+  second chapter, it became clear to me that we will be building new
+  levels of mathematical abstractions, use these abstractions to build
+  yet another layer of abstractions, and so on.  The chapter began
+  with a description of the M&ouml;bius function, a very neat and
+  interesting function that I was previously unaware of.  That was
+  fun!  But soon, this chapter began adding new layers of abstractions
+  such as Dirichlet product, Dirichlet inverse, generalised
+  convolution, etc.  I could almost feel my brain stretching and
+  growing as we went through each page of this chapter.
+</p>
+<p>
+  I often saw that after I have learnt a new concept in a chapter, it
+  would not become intuitive immediately.  I would understand the
+  concepts, understand the related theorems, understand each step of
+  the proofs, solve exercise problems, know how to apply the theorems
+  when needed, and yet I could not "feel" them.  I wanted to not just
+  understand the concepts but I also wanted to "feel" the concepts
+  like the way I could feel algebra, calculus, computer programming,
+  etc.  In the initial days, I wondered if I was too old to develop
+  good intuition for all these new and highly sophisticated concepts.
+</p>
+<p>
+  Despite always feeling that all these concepts were too technical
+  and quite unintuitive, I kept going.  I kept hosting these
+  discussions with a frequency of about 3-5 days every week.  We
+  continued discussing the various chapters and the proofs in them.
+  And then suddenly one day while reading chapter 4, something
+  interesting happened.  As we were employing Dirichlet products to
+  obtain some useful results, I realised that the concept
+  of <em>Dirichlet products</em> which once felt so foreign two
+  chapters earlier, now felt completely intuitive.  I
+  could <em>see</em> different functions being equivalent to Dirichlet
+  products intuitively and effortlessly.  Dirichlet products felt no
+  more alien than, say, arithmetic multiplication.  I could "feel" it
+  now.  It was a great feeling.  I realised that sometimes it might
+  take a few additional chapters of reading and using those concepts
+  over and over again before they really begin to feel intuitive.
+</p>
+<h2 id="three-concepts">Three Concepts<a href="#three-concepts"></a></h2>
+<p>
+  In this section, I will pick three interesting concepts from
+  different parts of the book to provide a glimpse of what the journey
+  has been a like.  These three things occur in the book again and
+  again and play a very important role in several chapters of the
+  book.  Of course, it goes without saying that there are many
+  interesting concepts in the book and many of them may be more
+  important than the ones I am about to show below.
+</p>
+<h3 id="the-mobius-function">The M&ouml;bius Function<a href="#the-mobius-function"></a></h3>
+<p>
+ For any positive integer \( n, \) the M&ouml;bius function \( \mu(n)
+ \) is defined as follows:
+
+ \[
+   \mu(1) = 1; \] If \( n &gt; 1,
+ \)
+
+ write \( n = p_1^{a_1} \dots p_k^{a_k} \) (prime factorisation).
+ Then
+
+ \begin{align*}
+   \mu(n) &amp; = (-1)^k \text{ if } a_1 = a_2 = \dots = a_k = 1, \\
+   \mu(n) &amp; = 0 \text{ otherwise}.
+ \end{align*}
+
+ If \( n \ge 1, \) we have
+
+ \[
+   \sum_{d \mid n} \mu(d) =
+   \begin{cases}
+   1 &amp; \text{ if } n = 1, \\
+   0 &amp; \text{ if } n &gt; 1.
+   \end{cases}
+ \]
+</p>
+<p>
+  I was unfamiliar with this function prior to reading the book.  It
+  felt like a nice little cute function initially but as we went
+  through more chapters, it soon became clear that this function plays
+  a major role in analytic number theory.
+</p>
+<p>
+  As a simple example, we will soon see in this post that the Euler's
+  totient function can be expressed as a Dirichlet product of the
+  M&ouml;bius function and the arithmetical function \( N(n) = n.  \)
+</p>
+<p>
+  As a more sophisticated example, the Dirichlet series with
+  coefficients as the M&ouml;bius function is the multiplicative
+  inverse of the Riemann zeta function, i.e., if \( s = \sigma + it \)
+  is a complex number with its real part \( \sigma &gt; 1, \) we have
+
+  \[
+    \sum_{n=1}^{\infty} \frac{\mu(n)}{n^s} = \frac{1}{\zeta(s)}.
+  \]
+
+  This immediately shows that \( \zeta(s) \ne 0 \) for \( \sigma &gt;
+  1.  \)
+</p>
+<h3 id="dirichlet-product">Dirichlet Product<a href="#dirichlet-product"></a></h3>
+<p>
+  If \( f \) and \( g \) are two arithmetical functions, their
+  Dirichlet product \( f * g \) is defined as:
+
+  \[
+    (f * g)(n) = \sum_{d \mid n} f(d) g\left( \frac{n}{d} \right).
+  \]
+
+  Dirichlet products appear to pop up magically at various places in
+  number theory.  Here is a simple example:
+
+  \[
+    \varphi(n) = \sum_{d \mid n} \mu(d) \frac{n}{d}.
+  \]
+
+  Therefore in the notation of Dirichlet products, the above equation
+  can also be written as
+
+  \[
+    \varphi = \mu * N
+  \]
+
+  where \( N \) represents the arithmetical function \( N(n) = n \)
+  for all \( n.  \)
+</p>
+<h3 id="hurwitz-zeta-function">Hurwitz Zeta Function<a href="#hurwitz-zeta-function"></a></h3>
+<p>
+  For complex numbers \( s = \sigma + it, \) the Hurwitz zeta function
+  \( \zeta(s, a) \) is initially defined for \( \sigma &gt; 1 \) as
+
+  \[
+    \zeta(s, a) = \sum_{n=0}^{\infty} \frac{1}{(n + a)^s}
+  \]
+
+  where \( a \) is a fixed real number, \( 0 &lt; a &lt; 1.  \) Then
+  by analytic continuation, it is defined for \( \sigma \le 1 \) as
+
+  \[
+    \zeta(s, a) = \Gamma(1 - s)I(s, a)
+  \]
+
+  where \( \Gamma \) represents the gamma function
+
+  \[
+    \Gamma(s) =  \int_0^{\infty} x^{s - 1} e^{-x} \, dx
+  \]
+
+  defined for \( \sigma &gt; 0 \) and also defined, by analytic
+  continuation, for \( \sigma \le 0 \) except for \( \sigma = 0, -1,
+  -2, \dots \) (the nonpositive integers) and \( I(s, a) \) is defined
+  by the contour integral
+
+  \[
+    I(s, a) = \frac{1}{2\pi i} \int_C \frac{z^{s-1} e^{az}}{1 - e^z} \, dz
+  \]
+
+  where \( 0 &lt; a \le 1 \) and the contour \( C \) is a loop around
+  the negative real axis composed of three parts \( C_1, \) \( C_2, \)
+  and \( C_3 \) such that for \( c &lt; 2\pi, \) we have \( z =
+  re^{-\pi i} \) on \( C_1 \) and \( z = re^{\pi i} \) on \( C_3 \) as
+  \( r \) varies from \( c \) to \( +\infty, \) and \( z = ce^{i
+  \theta} \) on \( C_2, \) \( -\pi \le \theta \le \pi.  \)
+</p>
+<p>
+  Now admittedly, the definition or the analytic continuation of
+  Hurwitz zeta function may seem very heavy and obscure to the
+  uninitiated and it <em>is</em> indeed quite heavy.  It takes 6 pages
+  in chapter 12 to build the prerequisite concepts before we arrive at
+  this definition.  It is evident that this definition uses other
+  concepts like the gamma function, a specific contour integral, etc.
+  and it is only natural to expect that one has to gain sufficient
+  expertise with the gamma function and contour integrals before the
+  Hurwitz zeta function begins to feel intuitive.
+</p>
+<p>
+  But once we have established the analytic continuation of the
+  Hurwitz zeta function, many insightful facts about the Riemann zeta
+  function follow readily.  It is easy to see that the Riemann zeta
+  function can be defined in terms of the Hurwitz zeta function as
+
+  \[
+    \zeta(s) = \zeta(s, 1) = \sum_{n=1}^{\infty} \frac{1}{n^s}.
+  \]
+
+  Yes, the \( \zeta \) symbol is overloaded: \( \zeta(s, a) \) is the
+  Hurwitz zeta function whereas \( \zeta(s) \) is the Riemann zeta
+  function.  This relationship between the Riemann zeta function and
+  the Hurwitz zeta function along with the analytic continuation of
+  the Hurwitz zeta function opens new doors into the wonderful world
+  of complex numbers and let us obtain beautiful and profound facts
+  about the Riemann zeta function such as the fact that it has zeros
+  at negative even integers, i.e., \( \zeta(n) = 0 \) for \( n = -2,
+  -4, -6, \dots \) and the fact that \( \zeta(0) = -\frac{1}{2} \) and
+  \( \zeta(-1) = -\frac{1}{12} \) and so on.
+</p>
+<p>
+  I believe beautiful results like these obtained by digging deep into
+  complex analysis are what makes the study of analytic number theory
+  so rewarding.
+</p>
+<h2 id="the-next-meeting">The Next Meeting<a href="#the-next-meeting"></a></h2>
+<p>
+  The next meeting is coming up today in a few hours.  Are we planning
+  anything special for the 100th meeting?
+</p>
+<p>
+  I think the 100th meeting is a significant milestone in our journey
+  of understanding the beautiful and interesting gems hidden away in
+  the subject of analytic number theory.  This milestone has been
+  possible only due to the sustained curiousity and eagerness among
+  the members of the group to learn a significant area of mathematics
+  and learn it well.  We have reached this milestone successfully due
+  to the passion and love for mathematics that drive the regular
+  members to join these meetings and go through a few pages of the
+  book everyday.  In these meetings, we have read 12 chapters
+  consisting of over 250 pages so far.  Many of us knew nothing about
+  analytic number theory merely five months ago and now we can
+  appreciate the Riemann zeta function at a deeper level.  We now
+  understand what the Riemann hypothesis really means.  This has been
+  a great journey so far.
+</p>
+<p>
+  Despite being a significant milestone and cause for celebration, we
+  are going to keep our 100th meeting fairly simple.  We will continue
+  where we left off yesterday.  Today we have some more relationships
+  between the gamma function and the Riemann zeta function to go
+  through, so that is what we will do.  We will also show that \(
+  \zeta(0) = -\frac{1}{2} \) and \( \zeta(-1) = -\frac{1}{12} \) using
+  the analytic continuation of the Hurwitz zeta function today.
+</p>
+<h2 id="join-us">Join Us<a href="#join-us"></a></h2>
+<p>
+  If this blog post was fun for you and you would like to join our
+  meetups, please go through <a href="cc/iant/">this
+  page</a> to get the meeting link and join us.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/one-hundred-meetings.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/number-theory.html">#number-theory</a> |
+  <a href="https://susam.net/tag/meetup.html">#meetup</a>
+</p>
+]]>
+</description>
+<pubDate>Fri, 20 Aug 2021 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Euler's Formula</title>
+<link>https://susam.net/euler-formula.html</link>
+<guid>https://susam.net/euler-formula.html</guid>
+<description>
+<![CDATA[
+<p>
+  I know that Euler's identity is widely regarded as the most
+  beautiful theorem in mathematics.  In my opinion, the truly
+  beautiful concept involved here is Euler's formula:
+
+  \[
+  e^{ix} = \cos x + i \sin x.
+  \]
+
+  It unifies algebra, trigonometry, complex numbers, and calculus.
+  Euler's identity is only a special case of Euler's formula, i.e.,
+  Euler's formula with \( x = \pi \) gives us Euler's identity:
+
+  \[
+  e^{i \pi} = -1.
+  \]
+
+  This is cute but Euler's formula is truly beautiful.  In fact with
+  \( x = \tau = 2\pi, \) we get another cute result:
+
+  \[
+  e^{i \tau} = 1.
+  \]
+
+  Quoting an excerpt from Chapter 22 of <em>The Feynman Lectures on
+  Physics, Volume I</em>:
+</p>
+<blockquote>
+  <p>
+    We summarise with this, the most remarkable formula in mathematics:
+
+    \[
+    e^{i \theta} = \cos \theta + i \sin \theta.
+    \]
+
+    This is our jewel.
+  </p>
+  <p>
+    We may relate the geometry to the algebra by representing complex
+    numbers in a plane; the horizontal position of a point is \( x, \)
+    the vertical position of a point is \( y.  \) We represent every
+    complex number, \( x + iy.  \) Then if the radial distance to this
+    point is called \( r \) and the angle is called \( \theta, \) the
+    algebraic law is that \( x + iy \) is written in the form \( r,
+    e^{i \theta} \) where the geometrical relationships between \( x
+    \) \( y, \) \( r, \) and \( \theta \) are as shown.  This, then,
+    is the unification of algebra and geometry.
+  </p>
+</blockquote>
+<p>
+  See the bottom of the page at
+  <a href="https://www.feynmanlectures.caltech.edu/I_22.html">https://www.feynmanlectures.caltech.edu/I_22.html</a>
+  for the above excerpt.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/euler-formula.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+<pubDate>Fri, 04 Jun 2021 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Notes on Chapter 3: Averages of Arithmetical Functions</title>
+<link>https://susam.net/cc/iant/ch03.html</link>
+<guid>https://susam.net/cc/iant/ch03.html</guid>
+<description>
+<![CDATA[
+
+<!-- Section 3.3 -->
+<h2 id="3.3">&sect; 3.3: Euler's summation formula<a href="#3.3"></a></h2>
+<h3 id="main-idea-behind-the-proof-of-eulers-summation-formula">Main idea behind the proof of Euler's summation formula<a href="#main-idea-behind-the-proof-of-eulers-summation-formula"></a></h3>
+<p>
+  Important numbers in the proof:
+
+  \[
+    0, \quad
+    \underbrace{[y]}_{=\,m}, \quad
+    y, \quad
+    \underbrace{[y] + 1}_{=\,m + 1}, \quad
+    \underbrace{[x]}_{=\,k}, \quad
+    x.
+  \]
+
+  Splitting the definite integral:
+
+  \[
+    \int_y^x f(t)\,dt
+    = \int_{y}^{[y] + 1} f(t)\,dt
+    + \underbrace{\int_{[y] + 1}^{[y] + 2} f(t)\,dt + \dots
+    + \int_{[x] - 1}^{[x]} f(t)\,dt}_{=\,\int_{[y] + 1}^{[x]} f(t)\, dt}
+    + \int_{[x]}^{x} f(t)\,dt.
+  \]
+
+  Using the more convenient variables \( m \) and \( k, \) we get:
+
+  \[
+    \int_y^x f(t)\,dt
+    = \int_m^{m + 1} f(t)\,dt
+    + \underbrace{\int_{m + 1}^{m + 2} f(t)\,dt + \dots
+    + \int_{k - 1}^{k} f(t)\,dt}_{=\,\int_{m + 1}^{k} f(t)\, dt}
+    + \int_{k}^{x} f(t)\,dt.
+  \]
+</p>
+<h3 id="sum-of-integrals-in-the-proof-of-eulers-summation-formula">Sum of integrals in the proof Euler's summation formula<a href="#sum-of-integrals-in-the-proof-of-eulers-summation-formula"></a></h3>
+<p>
+  \begin{align*}
+    \int_{m + 1}^{k} [t] f'(t) dt
+    &amp; = \int_{m + 1}^{m + 2} [t] f'(t) dt
+    + \int_{m + 2}^{m + 3} [t] f'(t) dt + \dots
+    + \int_{k - 1}^{k} [t] f'(t) dt \\
+    &amp; =
+    \begin{aligned}[t]
+      &amp; (m + 2) f(m + 2) - (m + 1) f(m + 1) - f(m + 2) \\
+    + &amp; (m + 3) f(m + 3) - (m + 2) f(m + 2) - f(m + 3) \\
+      &amp; \dots \\
+    + &amp; (k) f(k) - (k - 1) f(k - 1) - f(k)
+    \end{aligned} \\
+    &amp; = kf(k) - (m + 1)f(m + 1) - \sum_{n=m + 2}^{k} f(n) \\
+    &amp; = kf(k) - mf(m + 1) - f(m + 1) - \sum_{n=m + 2}^{k} f(n) \\
+    &amp; = kf(k) - mf(m + 1) - \sum_{n=m + 1}^{k} f(n) \\
+    &amp; = kf(k) - mf(m + 1) - \sum_{y &lt; n \le x} f(n).
+  \end{align*}
+</p>
+<h3 id="equation-6-in-the-proof-of-eulers-summation-formula">Equation (6) in the proof of Euler's summation formula<a href="#equation-6-in-the-proof-of-eulers-summation-formula"></a></h3>
+<p>
+  \begin{align*}
+    \sum_{y &lt; n \le x} f(n)
+    &amp; = - \int_{m + 1}^k [t] f'(t) \, dt + k f(k) - m f(m + 1) \\
+    &amp; = \begin{aligned}[t]
+          &amp; \left( - \int_y^{m + 1} [t] f'(t) \, dt
+                       - \int_{m + 1}^k [t] f'(t) \, dt
+                       - \int_k^x [t] f'(t) \, dt \right) \\
+          &amp; + f(k) - m f(m + 1)
+                + \int_y^{m + 1} [t] f'(t) \, dt
+                + \int_k^x [t] f'(t) \, dt
+        \end{aligned} \\
+    &amp; = - \int_y^x [t] f'(t) \, dt + k f(k) - m f(m + 1)
+            + \int_y^{m + 1} m f'(t) \, dt + \int_k^x k f'(t) \, dt \\
+    &amp; = - \int_y^x [t] f'(t) \, dt + k f(k) - m f(m + 1)
+            + \biggl( m f(m + 1) - m f(y) \biggr) + \biggl( k f(x) - k f(k) \biggr) \\
+    &amp; = - \int_y^x [t] f'(t) \, dt + k f(x) - m f(y).
+  \end{align*}
+</p>
+<h3 id="using-integration-by-parts-in-the-proof-of-eulers-summation-formula">Using integration by parts in the proof of Euler's summation formula<a href="#using-integration-by-parts-in-the-proof-of-eulers-summation-formula"></a></h3>
+<p>
+  Integration by parts:
+
+  \[
+    \int uv \, dt = u \int v \, dt - \int u' \left( \int v \, dt \right) \, dt.
+  \]
+
+  \[
+    \int_y^x t f'(t) \, dt
+    = \left. \left( t f(t) - \int f(t) \, dt \right) \right|_y^x
+    = x f(x) - y f(y) - \int_y^x f(t) \, dt.
+  \]
+
+  Final step of the proof:
+
+  \begin{align*}
+    \sum_{y &lt; n \le x} f(n)
+    &amp; = -\int_y^x [t] f'(t) \, dt + k f(x) - m f(y) \\
+    &amp; = \begin{aligned}[t]
+          &amp; -\int_y^x [t] f'(t) \, dt + [x] f(x) - [y] f(y) \\
+          &amp; + \underbrace{
+            \left( \int_y^x t f'(t) \, dt - x f(x) + y f(y)
+                   + \int_y^x f(t) \, dt \right)}_{0 \text{ by above definite integral}}
+        \end{aligned} \\
+    &amp; = \int_y^x f(t) \, dt + \int_y^x (t - [t]) f'(t) \, dt
+        + f(x)([x] - x) - f(y)([y] - y).
+  \end{align*}
+</p>
+
+<!-- Section 3.4 -->
+<h2 id="3.4">&sect; 3.3: Some elementary asymptotic formulas<a href="#3.4"></a></h2>
+<h3 id="splitting-integral-in-the-proof-of-theorem-3.2">Splitting integral in the proof of Theorem 3.2<a href="#splitting-integral-in-the-proof-of-theorem-3.2"></a></h3>
+<p>
+  Splitting definite integral:
+
+  \begin{align*}
+    &amp; \int_1^{\infty} f(t) \, dt = \int_1^{x} f(t) \, dt + \int_x^{\infty} f(t) \, dt \\
+    &amp; \iff
+    \int_1^{\infty} f(t) \, dt - \int_x^{\infty} f(t) \, dt = \int_1^x f(t) \, dt.
+  \end{align*}
+
+  Solving improper integral:
+
+  \[
+    \int_x^{\infty} \frac{1}{t^2} \, dt
+    = \lim_{b \to \infty} \int_x^b \frac{1}{t^2} dt
+    = \lim_{b \to \infty} \frac{-1}{t} \Biggr|_x^b
+    = \left( \lim_{b \to \infty} \frac{-1}{b} \right) + \frac{1}{x}
+    = 0 + \frac{1}{x} = \frac{1}{x}.
+  \]
+</p>
+<h3 id="eulers-constant-in-the-proof-of-theorem-3.2-a">Euler's constant in the proof of Theorem 3.2 (a)<a href="#eulers-constant-in-the-proof-of-theorem-3.2-a"></a></h3>
+<p>
+  Definition of Euler's constant:
+
+  \[
+    C = \lim_{n \to \infty}
+        \left( 1 + \frac{1}{2} + \frac{1}{3} + \dots + \frac{1}{n} - \log n \right)
+      = \lim_{x \to \infty} \left( \sum_{n \le x} \frac{1}{n} - \log x \right).
+  \]
+
+  We begin with
+
+  \[
+    \sum_{n \le x} \frac{1}{n}
+    = \log x
+    + \underbrace{1 - \int_1^{\infty} \frac{t - [t]}{t^2} \, dt}_{\text{We will show below that this is \( C \)}}
+    + O\left( \frac{1}{x} \right).
+  \]
+
+  Rearranging the terms, we get
+
+  \[
+    \sum_{n \le x} \frac{1}{n} - \log x
+    = 1 - \int_1^{\infty} \frac{t - [t]}{t^2} \, dt
+    + O\left( \frac{1}{x} \right).
+  \]
+
+  Using the definition of \( C, \) we get
+
+  \begin{align*}
+    C
+    &amp; = \lim_{x \to \infty}
+            \left( \sum_{n \le x} \frac{1}{n} - \log x \right) \\
+    &amp; = \lim_{x \to \infty}
+            \left( 1 - \int_1^{\infty} \frac{t - [t]}{t^2} \, dt
+                     + O\left( \frac{1}{x} \right) \right) \\
+    &amp; = 1 - \int_1^{\infty} \frac{t - [t]}{t^2} \, dt.
+  \end{align*}
+</p>
+<h3 id="some-integrals-in-the-proof-of-theorem-3.2-b">Some integrals in the proof of Theorem 3.2 (b)<a href="#some-integrals-in-the-proof-of-theorem-3.2-b"></a></h3>
+<p>
+  \[
+    \int_1^x \frac{dt}{t^s}
+    = \frac{t^{-s + 1}}{-s + 1} \Biggr|_1^x
+    = \frac{t^{1 - s}}{1 - s} \Biggr|_1^x
+    = \frac{x^{1 - s}}{1 - s} - \frac{1}{1 - s}.
+  \]
+
+  \[
+    \int_1^x \frac{t - [t]}{t^{s + 1}} \, dt
+    =   \int_1^{\infty} \frac{t - [t]}{t^{s + 1}} \, dt
+      - \int_x^{\infty} \frac{t - [t]}{t^{s + 1}} \, dt
+    = \int_1^{\infty} \frac{t - [t]}{t^{s + 1}} \, dt
+    + \underbrace{\frac{1}{s} O\left( x^{-s}\right)}_{\text{explained below}}.
+  \]
+
+  \[
+    0
+    \le \int_x^{\infty} \frac{t - [t]}{t^{s + 1}} \, dt
+    \le \int_x^{\infty} \frac{1}{t^{s + 1}} \, dt
+    = \frac{-1}{st^s} \Biggr|_x^\infty = \frac{1}{sx^s} = \frac{1}{s} x^{-s}.
+  \]
+
+  \begin{align*}
+    \sum_{n \le x} \frac{1}{n^s}
+    &amp; = \int_1^x \frac{dt}{t^s}
+            - s \int_1^x \frac{t - [t]}{t^{s + 1}} + 1
+            - \frac{x - [x]}{x^s} \, dt \\
+    &amp; = \frac{x^{1 - s}}{1 - s} - \frac{1}{1 - s}
+            - s \int_1^{\infty} \frac{t - [t]}{t^{s + 1}} \, dt + 1 + O(x^{-s}).
+  \end{align*}
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/cc/iant/ch03.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/number-theory.html">#number-theory</a> |
+  <a href="https://susam.net/tag/book.html">#book</a> |
+  <a href="https://susam.net/tag/meetup.html">#meetup</a>
+</p>
+]]>
+</description>
+<pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Notes on Chapter 2: Arithmetical Functions and Dirichlet Multiplication</title>
+<link>https://susam.net/cc/iant/ch02.html</link>
+<guid>https://susam.net/cc/iant/ch02.html</guid>
+<description>
+<![CDATA[
+
+<!-- Section 2.11 -->
+<h2 id="2.11">&sect; 2.11: The inverse of a completely multiplicative function<a href="#2.11"></a></h2>
+<h3 id="completely-multiplicative-function">Completely Multiplicative Function<a href="#completely-multiplicative-function"></a></h3>
+<p>
+  \[
+    f(mn) = f(m) f(n) \text{ for all } m, n.
+  \]
+</p>
+<h3 id="identity-function-dirichlet-product">Identity function (Dirichlet product)<a href="#identity-function-dirichlet-product"></a></h3>
+<p>
+  \[
+    I(n) =
+    \begin{cases}
+    1 &amp; \text{ if } n = 1, \\
+    0 &amp; \text{ if } n &gt; 1.
+    \end{cases}
+  \]
+</p>
+<p>
+  \begin{align*}
+    f(n)I(n)
+    &amp; =
+    \begin{cases}
+      1 \cdot 1    &amp; \text{ if } n = 1, \\
+      f(n) \cdot 0 &amp; \text{ if } n &gt; 1.
+    \end{cases} \\
+    &amp; = \begin{cases}
+      1 &amp; \text{ if } n = 1, \\
+      0 &amp; \text{ if } n &gt; 1.
+    \end{cases} \\
+    &amp; = I(n).
+  \end{align*}
+</p>
+<h3 id="mobius-function-for-prime-powers">M&ouml;bius function for prime powers<a href="#mobius-function-for-prime-powers"></a></h3>
+<p>
+  \[
+    \mu(1) = 1, \qquad
+    \mu(p) = -1, \qquad
+    \mu(p^2) = \mu(p^3) = \dots = 0.
+  \]
+</p>
+<h3 id="third-equation-in-the-proof-of-theorem-2.17">Third equation in the proof of Theorem 2.17<a href="#third-equation-in-the-proof-of-theorem-2.17"></a></h3>
+<p>
+  \begin{align*}
+    \sum_{d \mid p^a} \mu(d) f(d) f\left(\frac{p^a}{d}\right)
+    &amp; = \sum_{d = 1, p, p^2, \dots, p^a} \mu(d) f(d) f\left(\frac{p^a}{d}\right) \\
+    &amp; = \begin{aligned}[t]
+           &amp; \mu(1) f(1) f\left( \frac{p^a}{1} \right) +
+                 \mu(p) f(p) f\left( \frac{p^a}{p} \right) \\
+           &amp; + \underbrace{\mu(p^2) f(p^2) f\left( \frac{p^a}{p^2} \right) + \dots +
+                               \mu(p^a) f(p^a) f\left( \frac{p^a}{p^a} \right)}_{=\,0}
+        \end{aligned} \\
+    &amp; = \mu(1) f(1) f(p^a) + \mu(p) f(p) f(p^{a - 1}) \\
+    &amp; = f(p^a) - f(p) f(p^{a - 1}).
+  \end{align*}
+</p>
+<h3 id="final-step-in-the-proof-of-theorem-2.17">Final step in the proof of Theorem 2.17<a href="#final-step-in-the-proof-of-theorem-2.17"></a></h3>
+<p>
+  \begin{align*}
+    f(p^a)
+    &amp; = f(p)f(p^{a - 1}) \\
+    &amp; = f(p)f(p)f(p^{a - 2}) \\
+    &amp; = \dots \\
+    &amp; = \underbrace{f(p)f(p)f(p) \dots f(p)}_{a \text{ times}} \\
+    &amp; = \left( f(p) \right)^a.
+  \end{align*}
+</p>
+<h3 id="how-the-completely-multiplicative-property-works-for-prime-powers">How the completely multiplicative property works for prime powers<a href="#how-the-completely-multiplicative-property-works-for-prime-powers"></a></h3>
+<p>
+  \[
+    f(mn) = f(m)f(n) \text{ whenever } (m, n) = 1.
+  \]
+</p>
+<p>
+  \[
+    f(p_1^{\alpha_1} p_2^{\alpha_2} \dots p_k^{\alpha_k})
+    = f(p_1^{\alpha_1}) f(p_2^{\alpha_2}) \dots f(p_k^{\alpha_k}).
+  \]
+</p>
+<h3 id="euler-totient-function-as-dirichlet-product">Euler totient function as Dirichlet product<a href="#euler-totient-function-as-dirichlet-product"></a></h3>
+<p>
+  \[
+    \varphi(n)
+    = \sum_{d \mid n} \mu(d) \frac{n}{d}
+    = \sum_{d \mid n} \mu(d) N\left(\frac{n}{d}\right)
+    = (\mu * N)(n).
+  \]
+</p>
+<h3 id="proof-of-theorem-2.18">Proof of Theorem 2.18<a href="#proof-of-theorem-2.18"></a></h3>
+<p>
+  Let \( f \) be multiplicative.  We want to show that
+
+  \[
+    \sum_{d \mid n} \mu(d) f(d) = \prod_{p \mid n} (1 - f(p)).
+  \]
+
+  Note the following:
+
+  \[
+    g(n)
+    = \sum_{d \mid n} \mu(d) f(d)
+    = \sum_{d \mid n} (\mu f) (d)
+    u\left( \frac{n}{d} \right)
+    = (\mu f) * u.
+  \]
+
+  The functions \( \mu \) and \( f \) are multiplicative.  Thus \( \mu
+  f \) is multiplicative.  Thus \( (\mu f) * u \) is multiplicative.
+  Therefore
+
+  \[
+    g(n) = g(p_1^{a_1} p_2^{a_2} \dots p_k^{a_k}) =
+    g(p_1^{a_1}) g(p_2^{a_2}) \dots g(p_k^{a_k}).
+  \]
+
+  But
+
+  \begin{align*}
+    g(p_i^{a_i})
+    &amp; = \sum_{d \mid p_i^{a_i}} \mu(d) f(d) \\
+    &amp; = \mu(1) f(1) + \mu(p_i) f(p_i) +
+             \underbrace{\mu(p_i^2) f(p_i^2) + \dots + \mu(p_i^{a_i}) f(p_i^{a_i})}_{=\,0} \\
+    &amp; = 1 - f(p).
+  \end{align*}
+
+  From the two equations above, we get
+
+  \begin{align*}
+    g(n)
+    &amp; = g(p_1^{a_1}) g(p_2^{a_2}) \dots g(p_k^{a_k}) \\
+    &amp; = (1 - f(p_1)) (1 - f(p_2)) \dots (1 - f(p_k)) \\
+    &amp; = \prod_{p \mid n} (1 - f(p)).
+  \end{align*}
+</p>
+
+<!-- Section 2.15 -->
+<h2 id="2.15">&sect; 2.15: Formal power series<a href="#2.15"></a></h2>
+
+<h3 id="product-of-formal-power-series">Product of formal power series<a href="#product-of-formal-power-series"></a></h3>
+<p>
+  \begin{align*}
+    A(x)B(x)
+    &amp; = \left( \sum_{n=0}^{\infty} a(n) x^n \right) \left( \sum_{n=0}^{\infty} b(n) x^n \right) \\
+    &amp; = \left( a(0) + a(1)x + a(2)x^2 + \dots \right)
+            \left( b(0) + b(1)x + b(2)x^2 + \dots \right) \\
+    &amp; = a(0)b(0) +
+            \Bigl( a(0)b(1) + a(1)b(0) \Bigr) x +
+            \Bigl( a(0)b(2) + a(1)b(1) + a(2)b(0) \Bigr) x^2 + \dots \\
+    &amp; = \sum_{k=0}^0 a(k)b(n - k) + \sum_{k=0}^1 a(k)b(1 - k)x + \sum_{k=0}^2 a(k)b(2 - k)x^2 + \dots \\
+    &amp; = \sum_{n=0}^{\infty} \sum_{k=0}^n a(k)b(n - k).
+  \end{align*}
+</p>
+<h3 id="commutativity-of-product-of-formal-power-series">Commutativity of product of formal power series<a href="#commutativity-of-product-of-formal-power-series"></a></h3>
+<p>
+  \[
+    A(x)B(x)
+    = \sum_{n=0}^{\infty} \underbrace{\left\{ \sum_{k=0}^{n} a(k) b(n - k) \right\}}_{c(n)} x^n.
+  \]
+  \[
+    B(x)A(x)
+    = \sum_{n=0}^{\infty} \underbrace{\left\{ \sum_{k=0}^{n} a(n - k) b(k) \right\}}_{c'(n)} x^n.
+  \]
+  \[
+    c(3) = a(0)b(3) + a(1)b(2) + a(2)b(1) + a(3)b(0).
+  \]
+  \[
+    c'(3) = a(3)b(0) + a(2)b(1) + a(1)b(2) + a(0)b(3).
+  \]
+</p>
+<h3 id="distributivity-of-multiplication-over-addition-in-formal-power-series">Distributivity of multiplication over addition in formal power series<a href="#distributivity-of-multiplication-over-addition-in-formal-power-series"></a></h3>
+<p>
+  \[
+    A(x)\Bigl(B(x) + C(x)\Bigr) = A(x)B(x) + A(x)C(x).
+  \]
+  \[
+    \Bigl(B(x) + C(x)\Bigr)A(x) = B(x)A(x) + C(x)A(x).
+  \]
+
+  \begin{align*}
+    A(x)\Bigl(B(x) + C(x)\Bigr)
+    &amp; = \left( \sum_{n=0}^{\infty} a(n) x^n \right)
+        \left( \sum_{n=0}^{\infty} \Bigl( b(n) + c(n) \Bigr) x^n \right) \\
+    &amp; = \sum_{n=0}^{\infty} \Bigl\{ \sum_{k=0}^{n} a(k) \Bigl( b(n - k) + c(n - k) \Bigr) \Bigr\} x^n.
+  \end{align*}
+
+  \[
+    A(x)B(x) + A(x)C(x)
+    = \sum_{n=0}^{\infty} \sum_{k=0}^n a(k) b(n - k) x^n +
+    \sum_{n=0}^{\infty} \sum_{k=0}^n a(k) c(n - k) x^n.
+  \]
+</p>
+<h3 id="determining-coefficients-of-inverse-of-power-series">Determining coefficients of inverse of power series<a href="#determining-coefficients-of-inverse-of-power-series"></a></h3>
+<p>
+  \begin{align*}
+    A(x)B(x)
+    &amp; = \sum_{n=0}^{\infty} \Bigl( \sum_{k=0}^{n} a(k) b(n - k) \Bigr) x^n \\
+    &amp; = \Bigl( a(0) b(0) \Bigr) x^0 +
+            \Bigl( a(0) b(1) + a(1) b(0) \Bigr) x^1 +
+            \Bigl( a(0) b(2) + a(1) b(1) + a(2) b(0) \Bigr) x^2 +
+            \dots \\
+    &amp; = 1.
+  \end{align*}
+</p>
+<h3 id="inverse-of-geometric-series">Inverse of geometric series<a href="#inverse-of-geometric-series"></a></h3>
+<p>
+  \begin{align*}
+    A(x) &amp; = 1 + ax + (ax)^2 + (ax)^3 + \dots, \\
+    B(x) &amp; = 1 - ax.
+  \end{align*}
+
+  \begin{align*}
+    A(x) B(x)
+    &amp; = \Bigl( 1 + ax + (ax)^2 + (ax)^3 + \dots \Bigr) (1 - ax) \\
+    &amp; = \Bigl( 1 + ax + (ax)^2 + (ax)^3 + \dots \Bigr) -
+            \Bigl( (ax) - (ax)^2 - (ax)^3 - \dots \Bigr)
+    = 1.
+  \end{align*}
+</p>
+
+<!-- Section 2.16 -->
+<h2 id="2.16">&sect; 2.16: The Bell series of an arithmetical function<a href="#2.16"></a></h2>
+<h3 id="bell-series-of-f-modulo-p">Bell series of \( f \) modulo \( p \)<a href="#bell-series-of-f-modulo-p"></a></h3>
+<p>
+  \[
+    f_p(x)
+    = \sum_{n=0}^{\infty} f(p^n) x^n
+    = f(1) + f(p) x + f(p^2) x^2 + f(p^3) x^3 + \dots
+  \]
+</p>
+<h3 id="theorem-2.24-uniqueness-theorem">Theorem 2.24: Uniqueness theorem<a href="#theorem-2.24-uniqueness-theorem"></a></h3>
+<p>
+  \begin{align*}
+    f(n)
+    &amp; = f(p_1^{a_1} p_2^{a_2} \dots p_k^{a_k})
+    = f(p_1^{a_1}) f(p_2^{a_2}) \dots f(p_k^{a_k}), \\ \\
+
+    g(n)
+    &amp; = g(p_1^{a_1} p_2^{a_2} \dots p_k^{a_k})
+    = g(p_1^{a_1}) g(p_2^{a_2}) \dots g(p_k^{a_k}).  \\
+  \end{align*}
+</p>
+<h3 id="example-1-mobius-funcion">Example 1: Möbius function<a href="#example-1-mobius-funcion"></a></h3>
+<p>
+  \begin{align*}
+    \mu_p(x) = \sum_{n=0}^{\infty} \mu(p^n) x^n
+    &amp; = \mu(1) + \mu(p) x + \mu(p^2) x^2 + \mu(p^3) x^3 + \dots \\
+    &amp; = 1 - x + 0 + 0 + \dots \\
+    &amp; = 1 - x.
+  \end{align*}
+</p>
+
+<!-- Section 2.17 -->
+<h2 id="2.17">&sect; 2.17: Bell series and Dirichlet multiplication<a href="#2.17"></a></h2>
+<h3 id="power-series-multiplication">Power series multiplication<a href="#power-series-multiplication"></a></h3>
+<p>
+  \[
+    A(x) = \sum_{n=0}^{\infty} a(n) x^n, \quad
+    B(x) = \sum_{n=0}^{\infty} b(n) x^n, \quad
+    A(x) B(x) = \sum_{n=0}^{\infty} \underbrace{\sum_{k=0}^n a(k) b(n - k)}_{c(n)} x^n.
+  \]
+</p>
+<h3 id="relationship-with-dirichlet-multiplication">Relationship with Dirichlet multiplication<a href="#relationship-with-dirichlet-multiplication"></a></h3>
+<p>
+  \[
+    (f * g)_p(x) = f_p(x) g_p(x).
+  \]
+
+  \[
+    f_p(x) = \sum_{n=0}^{\infty} f(p^n) x^n, \quad
+    g_p(x) = \sum_{n=0}^{\infty} g(p^n) x^n, \quad
+    f_p(x) g_p(x) = \sum_{n=0}^{\infty} \sum_{k=0}^n f(p^k) g(p^{n-k}) x^n.
+  \]
+
+  \[
+    h = f * g = \sum_{d \mid n} f(d) g\left( \frac{n}{d} \right).
+  \]
+
+  \[
+    h_p(x)
+    = \sum_{n=0}^{\infty} h(p^n) x^n
+    = \sum_{n=0}^{\infty} \sum_{d \mid p^n} f(d) g\left( \frac{p^n}{d} \right) x^n
+    = \sum_{n=0}^{\infty} \sum_{k=0}^{n} f(p^k) g(p^{n-k}) x^n.
+  \]
+</p>
+<p>
+  Some steps of Example 1:
+
+  \[
+    I(n)= \mu^2(n) * \lambda(n)
+    \implies I_p(x) = \mu_p^2(x) \lambda_p(x)
+  \]
+
+  \[
+    I_p(x) = \mu_p^2(x) \lambda_p(x)
+    \iff 1 = \mu_p^2(x) \cdot \frac{1}{1 + x}
+    \iff \mu_p^2(x) = 1 + x.
+  \]
+</p>
+<p>
+  Some steps of Example 2:
+
+  \begin{align*}
+    \frac{1}{1 - p^{\alpha}} \cdot \frac{1}{1 - x}
+    &amp; = \frac{1}{1 - x - p^{\alpha}x + p^{\alpha}x^2} \\
+    &amp; = \frac{1}{1 - (1 + p^{\alpha})x + p^{\alpha}x^2} \\
+    &amp; = \frac{1}{1 - \sigma_{\alpha}(p)x + p^{\alpha}x^2}.
+  \end{align*}
+
+  Note that \( \sigma_{\alpha}(n) = \sum_{d\,\mid\,n} d^{\alpha}, \) so
+
+  \[
+    \sigma_{\alpha}(p)
+    = \sum_{d\,\mid\,p} d^{\alpha}
+    = 1^{\alpha} + p^{\alpha}
+    = 1 + p^{\alpha}.
+  \]
+</p>
+<p>
+  Some steps of Example 3: Showing That \( f(n) = 2^{\nu(n)} \) is
+  multiplicative:
+
+  \[
+    f(n) = 2^{\nu(n)}.
+  \]
+
+  \[
+    f(p_1^{\alpha_1} p_2^{\alpha_2} \dots p_k^{\alpha_k})
+    = 2^{\nu(p_1^{\alpha_1} p_2^{\alpha_2} \dots p_k^{\alpha_k})} = 2^k.
+  \]
+
+  \[
+    f(p_1^{\alpha_1}) f(p_2^{\alpha_2}) \dots f(p_k^{\alpha_k})
+    = 2^{\nu(p_1^{\alpha_1})} 2^{\nu(p_2^{\alpha_2})} \dots 2^{\nu(p_k^{\alpha_k})}
+    = \underbrace{2 \cdot 2 \cdot \dots \cdot 2}_{k \text{ times}}.
+    = 2^k.
+  \]
+</p>
+
+<!-- Section 2.18 -->
+<h2 id="2.18">&sect; 2.18: Derivatives of arithmetical functions<a href="#2.18"></a></h2>
+<h3 id="ordinary-derivative">Ordinary derivative<a href="#ordinary-derivative"></a></h3>
+<p>
+  \[
+    (f + g)' = f' + g'.
+  \]
+
+  \[
+    (fg)' = f'g + fg'.
+  \]
+
+  \[
+    \left( f^{-1} \right)' = \frac{-f'}{f^2} = -f' \cdot (f \cdot f)^{-1}.
+  \]
+</p>
+<h3 id="similarities-in-special-derivative">Similarities in special derivative<a href="#similarities-in-special-derivative"></a></h3>
+<p>
+  \[
+    f'(n) = f(n) \log n.
+  \]
+
+  \[
+    (f + g)' = f' + g'.
+  \]
+
+  \[
+    (f * g)' = f' * g + f * g'.
+  \]
+
+  \[
+    \left( f^{-1} \right)' = -f' * (f * f)^{-1}.
+  \]
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/cc/iant/ch02.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/number-theory.html">#number-theory</a> |
+  <a href="https://susam.net/tag/book.html">#book</a> |
+  <a href="https://susam.net/tag/meetup.html">#meetup</a>
+</p>
+]]>
+</description>
+<pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Notes on Introduction to Analytic Number Theory</title>
+<link>https://susam.net/cc/iant/notes.html</link>
+<guid>https://susam.net/cc/iant/notes.html</guid>
+<description>
+<![CDATA[
+<h1>Notes on Introduction to Analytic Number Theory</h1>
+<p>
+   This page contains an archive of notes from the book <em>Apostol,
+   Introduction to Analytic Number Theory (1976)</em>.
+</p>
+<p>
+  Note that this set of notes is not meant to be a systematic
+  exposition of analytic number theory.  Instead this is just a
+  collection of examples that illustrate some of the theorems in the
+  reference textbook and intermediate steps that are not explicitly
+  expressed in the book.  These boards were used to aid the
+  discussions during book discussion meetings.  As a result, the
+  content of these boards is informal in nature and is not intended to
+  be a substitute for the book or the actual discussion meetings.
+</p>
+<p>
+  If you find any mistakes in the content of the board files, please
+  <a href="https://github.com/susam/susam.net/issues/new">create a new
+  issue</a> or <a href="https://github.com/susam/susam.net">send a
+  pull request</a>.
+</p>
+<ul>
+  <li>
+    <a href="ch02.html">Notes on Chapter 2: Arithmetical Functions and Dirichlet Multiplication</a>
+  </li>
+  <!--
+  <li>
+    <a href="ch03.html">Notes on Chapter 3: Averages of Arithmetical Functions</a>
+  </li>
+  <li>
+    <a href="ch04.html">Notes on Chapter 4: Some Elementary Theorems on the Distribution of Prime Numbers</a>
+  </li>
+  <li>
+    <a href="ch05.html">Notes on Chapter 5: Congruences</a>
+  </li>
+  <li>
+    <a href="ch06.html">Notes on Chapter 6: Finite Abelian Groups and Their Characters</a>
+  </li>
+  <li>
+    <a href="ch07.html">Notes on Chapter 7: Dirichlet's Theorem on Primes in Arithmetical Progressions</a>
+  </li>
+  <li>
+    <a href="ch08.html">Notes on Chapter 8: Periodic Arithmetical Functions and Gauss Sums</a>
+  </li>
+  <li>
+    <a href="ch09.html">Notes on Chapter 9: Quadratic Residues and the Quadratic Reciprocity Law</a>
+  </li>
+  <li>
+    <a href="ch10.html">Notes on Chapter 10: Primitive Roots</a>
+  </li>
+  <li>
+    <a href="ch11.html">Notes on Chapter 11: Dirichlet Series and Euler Products</a>
+  </li>
+  <li>
+    <a href="ch12.html">Notes on Chapter 12: The Functions and \( \zeta(s) \) and \( L(s, \chi) \)</a>
+  </li>
+  <li>
+    <a href="ch13.html">Notes on Chapter 13: Analytic Proof of Prime Number Theorem</a>
+  </li>
+  <li>
+    <a href="ch14.html">Notes on Chapter 14: Partitions</a>
+  </li>
+  -->
+</ul>
+<p>
+  More notes coming soon!  We have all the meeting notes safely
+  archived.  Just need to format them and publish them here.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/cc/iant/notes.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/number-theory.html">#number-theory</a> |
+  <a href="https://susam.net/tag/book.html">#book</a> |
+  <a href="https://susam.net/tag/meetup.html">#meetup</a>
+</p>
+]]>
+</description>
+<pubDate>Sun, 07 Mar 2021 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Introduction to Analytic Number Theory Book Discussions</title>
+<link>https://susam.net/cc/iant/</link>
+<guid>https://susam.net/cc/iant/</guid>
+<description>
+<![CDATA[
+<h1>Introduction to Analytic Number Theory Book Discussions</h1>
+<div class="highlight">
+  This meeting series is complete!  There are no new meetings
+  happening for this book.  Go to the meetings
+  <a href="../">main page</a> to find out about current
+  active meetings.
+</div>
+<p>
+  The following content on this page is an archive of the content as
+  it appeared on the last day of meeting for this book.
+</p>
+<hr>
+<div class="highlight">
+  <p>
+    Meeting time: 17:00 UTC from Tuesday to Friday,
+    usually.<sup>&dagger;</sup>
+  </p>
+  <p>
+    Meeting duration: 40 minutes.
+  </p>
+  <p>
+    Book: <a href="https://www.springer.com/gp/book/9780387901633">Introduction
+    to Analytic Number Theory (Apostol, 1976)</a>
+  </p>
+  <p>
+    Meeting link: <a href="https://bit.ly/spzoom2">bit.ly/spzoom2</a>
+  </p>
+  <p>
+    Meeting log: <a href="log.html">120 meetings</a>
+  </p>
+  <p>
+    Meeting notes: <a href="notes.html">Notes</a>
+  </p>
+  <p>
+    Started: 05 Mar 2021
+  </p>
+  <p>
+    Ended: 01 Oct 2021
+  </p>
+</div>
+<p>
+  <small>&dagger; There are some exceptions to this schedule
+  occasionally.  <a href="../#join">Join our channel</a> to
+  receive schedule updates.</small>
+</p>
+<p>
+  The primary reference book for these meetings is
+  <em>Introduction to Analytic Number Theory</em> written by Tom
+  M. Apostol.  Admittedly, the book is quite expensive but you may
+  find a relatively cheap paperback (softcover) copy on some websites.
+</p>
+<p>
+  These meetings are hosted by Susam and attended by some members of
+  <a href="#math">#math</a> and <a href="#algoritms">#algorithms</a>
+  channels of Libera IRC network as well as by some members
+  from <a href="https://news.ycombinator.com/">Hacker News</a>.
+</p>
+<p>
+  You are welcome to join these meetings anytime.  If you are
+  concerned that the meetings may not make sense if you join when we
+  are in the middle of a chapter, please free to talk to us about it
+  in the <a href="../#join">group channel</a>.  I can
+  recommend the next best time to begin joining the meetings.
+  Usually, it would be when we begin reading a new section or chapter
+  that is fairly self-contained and does not depend a lot on material
+  we have read previously.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/cc/iant/">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/number-theory.html">#number-theory</a> |
+  <a href="https://susam.net/tag/book.html">#book</a> |
+  <a href="https://susam.net/tag/meetup.html">#meetup</a>
+</p>
+]]>
+</description>
+<pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Leap Year Test in K&amp;R</title>
+<link>https://susam.net/leap-year-test-in-knr.html</link>
+<guid>https://susam.net/leap-year-test-in-knr.html</guid>
+<description>
+<![CDATA[
+<p>
+  About 18 years ago, while learning to program a computer using C, I
+  learnt the following test for leap year from the book <em>The C
+  Programming Language, 2nd ed.</em> (K&amp;R) written by Brian
+  Kernighan and Dennis Ritchie.  Section 2.5 (Arithmetic Operators) of
+  the book uses the following test:
+</p>
+<pre>
+<code>(year % 4 == 0 &amp;&amp; year % 100 != 0) || year % 400 == 0</code>
+</pre>
+<p>
+  It came as a surprise to me.  Prior to reading this, I did not know
+  that centurial years are not leap years except for those centurial
+  years that are also divisible by 400.  Until then, I always
+  incorrectly thought that all years divisible by 4 are leap years.  I
+  have witnessed only one centurial year, namely the year 2000, which
+  happens to be divisible by 400.  As a result, the year 2000 proved
+  to be a leap year and my misconception remained unchallenged for
+  another few years until I finally came across the above test in
+  K&amp;R.
+</p>
+<p>
+  Now that I understand that centurial years are not leap years unless
+  divisible by 400, it is easy to confirm this with the
+  Unix <code>cal</code> command.  Enter <code>cal 1800</code>
+  or <code>cal 1900</code> and we see calendars of non-leap years.
+  But enter <code>cal 2000</code> and we see the calendar of a leap
+  year.
+</p>
+<p>
+  By the way, the following leap year test is equally effective:
+</p>
+<pre>
+<code>year % 4 == 0 &amp;&amp; (year % 100 != 0 || year % 400 == 0)</code>
+</pre>
+<hr>
+<p>
+  <strong>Update:</strong> In the
+  <a href="comments/leap-year-test-in-knr.html">comments section</a>,
+  Thaumasiotes explains why both tests work.  Let me take the liberty
+  of elaborating that comment further with a truth table.  We use the
+  notation <code>A</code>, <code>B</code>, and <code>C</code>,
+  respectively, for the three comparisons in the above expressions.
+  Then the two tests above can be expressed as the following boolean expressions:
+</p>
+<ul>
+  <li><code>(A &amp;&amp; B) || C</code></li>
+  <li><code>A &amp;&amp; (B || C)</code></li>
+</ul>
+<p>
+  Now normally these two boolean expressions are not equivalent.  The
+  truth table below shows this:
+</p>
+<table class="grid center textcenter">
+  <tr>
+    <th><code>A</code></th>
+    <th><code>B</code></th>
+    <th><code>C</code></th>
+    <th><code>(A &amp;&amp; B) || C</code></th>
+    <th><code>A &amp;&amp; (B || C)</code></th>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>F</td>
+    <td>F</td>
+    <td>F</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>F</td>
+    <td>T</td>
+    <td>T</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>T</td>
+    <td>F</td>
+    <td>F</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>T</td>
+    <td>T</td>
+    <td>T</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>F</td>
+    <td>F</td>
+    <td>F</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>F</td>
+    <td>T</td>
+    <td>T</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>T</td>
+    <td>F</td>
+    <td>T</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>T</td>
+    <td>T</td>
+    <td>T</td>
+    <td>T</td>
+  </tr>
+</table>
+<p>
+  We see that there are two cases where the last two columns differ.
+  Therefore indeed the two boolean expressions are not equivalent.
+  The two cases where the boolean expressions yield different results
+  occur when <code>A</code> is false and <code>C</code> is true.  But
+  these cases are impossible!  If <code>A</code> is false
+  and <code>C</code> is true, it means we have <code>year % 4 !=
+  0</code> and <code>year % 400 == 0</code> which is impossible.
+</p>
+<p>
+  If <code>year % 400 == 0</code> is true, then <code>year % 4 ==
+  0</code> must also hold true.  In other words, if <code>C</code> is
+  true, <code>A</code> must also be true.  Therefore, the two cases
+  where the last two columns differ cannot occur and may be ignored.
+  The last two columns are equal in all other cases and that is why
+  the two tests we have are equivalent.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/leap-year-test-in-knr.html">Read on website</a> |
+  <a href="https://susam.net/tag/c.html">#c</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/book.html">#book</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+<pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>From Vector Spaces to Periodic Functions</title>
+<link>https://susam.net/from-vector-spaces-to-periodic-functions.html</link>
+<guid>https://susam.net/from-vector-spaces-to-periodic-functions.html</guid>
+<description>
+<![CDATA[
+<h2 id="vector-spaces">Vector Spaces<a href="#vector-spaces"></a></h2>
+<p>
+  A fascinating result that appears in linear algebra is the fact that
+  the set of real numbers \( \mathbb{R} \) is a vector space over the
+  set of rational numbers \( \mathbb{Q}.  \) This may appear
+  surprising at first but it is easy to show that it is indeed so by
+  checking that all eight axioms of vector spaces hold good:
+</p>
+<ol>
+  <li>
+    <p>
+      Commutativity of vector addition:<br>
+      \( x + y = y + x \) for all \( x, y \in \mathbb{R}.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      Associativity of vector addition:<br>
+      \( x + (y + z) = (x + y) + z \) for all \( x, y, z \in
+      \mathbb{R}.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      Existence of additive identity vector:<br>
+      We have \( 0 \in \mathbb{R} \) such that \( x + 0 = x \) for all
+      \( x \in \mathbb{R}.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      Existence of additive inverse vectors:<br>
+      There exists \( -x \in \mathbb{R} \) for every \( x \in
+      \mathbb{R}.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      Associativity of scalar multiplication:<br>
+      \( a(bx) = (ab)x \) for all \( a, b \in \mathbb{Q} \) and all \(
+      x \in \mathbb{R}.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      Distributivity of scalar multiplication over vector
+      addition:<br>
+      \( a(x + y) = ax + by \) for all \( a \in \mathbb{Q} \) and all
+      \( x, y \in \mathbb{R}.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      Distributivity of scalar multiplication over scalar
+      addition:<br>
+      \( (a + b)x = ax + bx \) for all \( a, b \in \mathbb{Q} \) and
+      all \( x \in \mathbb{R}.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      Existence of scalar multiplicative identity:<br>
+      We have \( 1 \in \mathbb{Q} \) such that \( 1 \cdot x = x \) for
+      all \( x \in \mathbb{R}.  \)
+    </p>
+  </li>
+</ol>
+<p>
+  This shows that the set of real numbers \( \mathbb{R} \) forms a
+  vector space over the field of rational numbers \( \mathbb{Q}.  \)
+  Another quick way to arrive at this fact is to observe that \(
+  \mathbb{Q} \subseteq \mathbb{R}, \) that is, \( \mathbb{Q} \) is a
+  subfield of \( \mathbb{R}.  \) Any field is a vector space over any
+  of its subfields, so \( \mathbb{R} \) must be a vector space over \(
+  \mathbb{Q}.  \)
+</p>
+<p>
+  We can also show that \( \mathbb{R} \) is an infinite dimensional
+  vector space over \( \mathbb{Q}.  \) Let us assume the opposite,
+  i.e., \( \mathbb{R} \) is finite dimensional.  Let \( r_1, \dots,
+  r_n \) be the basis for this vector space.  Therefore for each \( r
+  \in \mathbb{R}, \) we have unique \( q_1, \dots, q_n \in \mathbb{Q}
+  \) such that \( r = q_1 r_1 + \dots + q_n r_n.  \) Thus there is a
+  bijection between \( \mathbb{Q}^n \) and \( \mathbb{R}.  \) This is
+  a contradiction because \( \mathbb{Q}^n \) is countable whereas \(
+  \mathbb{R} \) is uncountable.  Therefore \( \mathbb{R} \) must be an
+  infinite dimensional vector space over \( \mathbb{Q}.  \)
+</p>
+<h2 id="problem">Problem<a href="#problem"></a></h2>
+<p>
+  Here is an interesting problem related to vector spaces that I came
+  across recently:
+</p>
+<div class="highlight">
+  <p>
+    Define two periodic functions \( f \) and \( g \) from \(
+    \mathbb{R} \) to \( \mathbb{R} \) such that their sum \( f + g \)
+    is the identity function.  The axiom of choice is allowed.
+  </p>
+  <p>
+    A function \( f \) is periodic if there exists \( p \gt 0 \) such
+    that \( f(x + p) = f(x) \) for all \( x \) in the domain.
+  </p>
+</div>
+<p>
+  <em>If you want to think about this problem, this is a good time to
+  pause and think about it.  There are spoilers ahead.</em>
+</p>
+<h2 id="solution">Solution<a href="#solution"></a></h2>
+<p>
+  The axiom of choice is equivalent to the statement that every vector
+  space has a basis.  Since the set of real numbers \( \mathbb{R} \)
+  is a vector space over the set of rational numbers \( \mathbb{Q}, \)
+  there must be a basis \( \mathcal{H} \subseteq \mathbb{R} \) such
+  that every real number \( x \) can be written uniquely as a finite
+  linear combination of elements of \( \mathcal{H} \) with rational
+  coefficients, that is,
+
+  \[
+    x = \sum_{a \in \mathcal{H}} x_a a
+  \]
+
+  where each \( x_a \in \mathbb{Q} \) and \( \{ a \in \mathcal{H} \mid
+  x_a \ne 0 \} \) is finite.  The set \( \mathcal{H} \) is also known
+  as the Hamel basis.
+</p>
+<p>
+  In the above expansion of \( x, \) we use the notation \( x_a \) to
+  denote the rational number that appears as the coefficient of the
+  basis vector \( a.  \) Therefore \( (x + y)_{a} = x_a + y_a \) for
+  all \( x, y \in \mathbb{R} \) and all \( a \in \mathcal{H}.  \)
+</p>
+<p>
+  We know that \( b_a = 0 \) for distinct \( a, b \in \mathcal{H} \)
+  because \( a \) and \( b \) are basis vectors.  Thus \( (x + b)_{a}
+  = x_a + b_a = x_a + 0 = x_a \) for all \( x \in \mathbb{R} \) and
+  distinct \( a, b \in \mathcal{H}.  \) This shows that a function \(
+  f(x) = x_a \) is a periodic function with period \( b \) for any \(
+  a \in \mathcal{H} \) and any \( b \in \mathcal{H} \setminus \{ a \}.
+  \)
+</p>
+<p>
+  Let us define two functions:
+
+  \begin{align*}
+    g(x) &amp; = \sum_{a \in \mathcal{H} \setminus \{ b \}} x_a a,
+    &amp;
+    h(x) &amp; = x_b b.
+  \end{align*}
+
+  where \( b \in \mathcal{H} \) and \( x \in \mathbb{R}.  \) Now \(
+  g(x) \) is a periodic function with period \( b \) for any \( b \in
+  \mathcal{H} \) and \( h(x) \) is a periodic function with period \(
+  c \) for any \( c \in \mathcal{H} \setminus \{ b \}.  \) Further,
+
+  \[
+    g(x) + h(x)
+    = \left( \sum_{a \in \mathcal{H} \setminus \{ b \}} x_a a \right) + x_b b
+    = \sum_{a \in \mathcal{H}} x_a a
+    = x.
+  \]
+
+  Thus \( g(x) \) and \( h(x) \) are two periodic functions such that
+  their sum is the identity function.
+</p>
+<h2 id="references">References<a href="#references"></a></h2>
+<ul>
+  <li>
+    <a href="https://mathworld.wolfram.com/VectorSpace.html">Vector Space</a>
+    by Eric W. Weisstein
+  </li>
+  <li>
+    <a href="https://web.archive.org/web/20141026224511/https://drexel28.wordpress.com/2010/10/22/the-dimension-of-r-over-q/">The Dimension of R over Q</a>
+    by Alex Youcis
+  </li>
+  <li>
+    <a href="https://mathblag.wordpress.com/2013/09/01/sums-of-periodic-functions/">Sums of Periodic Functions</a>
+    by David Radcliffe
+  </li>
+</ul>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/from-vector-spaces-to-periodic-functions.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+<pubDate>Wed, 30 Jan 2019 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Temperature Conversion</title>
+<link>https://susam.net/temperature-conversion.html</link>
+<guid>https://susam.net/temperature-conversion.html</guid>
+<description>
+<![CDATA[
+<h2 id="approximation-problem">Approximation Problem<a href="#approximation-problem"></a></h2>
+<p>
+  Everytime I travel to the US, one thing that troubles me a little is
+  having to convert temperature from the Celsius scale to the
+  Fahrenheit scale and vice versa.  The exact conversion formulas are:
+
+  \begin{align*}
+    f &amp; = \frac{9c}{5} + 32, \\
+    c &amp; = \frac{5(f - 32)}{9}
+  \end{align*}
+
+  where \( f \) represents the temperature value in Fahrenheit and \( c
+  \) represents the temperature value in Celsius.
+</p>
+<p>
+  While the formulas above are accurate, they are not very convenient
+  to mentally figure what I need to set a room thermostat in
+  Fahrenheit scale to if I want to keep the room at, say,
+  25&nbsp;&deg;C.  For this particular case, I have memorised that
+  25&nbsp;&deg;C is 77&nbsp;&deg;F.  This combined with the fact that
+  every 5&nbsp;&deg;C interval corresponds to an interval of
+  9&nbsp;&deg;F, it is easy to mentally compute that 20&nbsp;&deg;C is
+  68&nbsp;&deg;F or 22.5&nbsp;&deg;C is 72.5&nbsp;&deg;F.  It would
+  still be nice to find an easy way to mentally convert any arbitrary
+  temperature in one scale to the other scale.
+</p>
+<p>
+  In my last trip to the US, I decided to devise a few approximation
+  methods to convert temperature from the Fahrenheit scale to the
+  Celsius scale and vice versa.  I arrived at two methods: one to
+  convert temperature value in Fahrenheit to Celsius and another to
+  convert from Fahrenheit to Celsius.  Both these methods are based on
+  the exact conversion formulas but they sacrifice accuracy a little
+  bit in favour of simplifying the computations, so that they can be
+  performed mentally.
+</p>
+<h2 id="crude-approximation-methods">Crude Approximation Methods<a href="#crude-approximation-methods"></a></h2>
+<p>
+  Before we dive into
+  the <a href="#refined-approximation-methods">refined approximation
+  methods</a> I have arrived at, let us first see a very popular
+  method that obtains a crude approximation of the result of
+  temperature conversion from &deg;C to &deg;F and vice versa pretty
+  quickly.
+</p>
+<p>
+  To go from &deg;C to &deg;F, we perform the following two steps:
+</p>
+<ol>
+  <li>Double the value in Celsius.</li>
+  <li>Add 30 to the previous result.</li>
+</ol>
+<p>
+  To go from &deg;F to &deg;C, we perform the inverse:
+</p>
+<ol>
+  <li>Subtract 30 from the value in Fahrenheit.</li>
+  <li>Halve the result.</li>
+</ol>
+<p>
+  We arrive at the above methods by approximating 9/5 and 32 in the
+  exact conversion formulas with 2 and 30, respectively.  These
+  methods can be performed mentally quite fast but this speed of
+  mental calculation comes at the cost of accuracy.  That's why I call
+  them crude approximation methods.
+</p>
+<p>
+  The first method converts 10&nbsp;&deg;C exactly to 50&nbsp;&deg;F
+  without any error.  But then it introduces an error of 1&nbsp;&deg;F
+  for every 5&nbsp;&deg;C interval.  For example, the error is
+  3&nbsp;&deg;F for 25&nbsp;&deg;C and 18&nbsp;&deg;F for
+  100&nbsp;&deg;C.
+</p>
+<p>
+  Similarly, the second method converts 50&nbsp;&deg;F exactly to
+  10&nbsp;&deg;C without any error.  But it introduces an error of
+  0.5&nbsp;&deg;C for every 9&nbsp;&deg;F interval.  For example, the
+  error is 1.5&nbsp;&deg;C for 77&nbsp;&deg;C and 9&nbsp;&deg;C for
+  212&nbsp;&deg;F.
+</p>
+<h3 id="examples-for-crude-method">Examples<a href="#examples-for-crude-method"></a></h3>
+<p>
+  Let us do a few examples to see how well the crude approximation
+  methods work.  Let us say, we want to convert 24&nbsp;&deg;C to
+  &deg;F.
+</p>
+<ol>
+  <li>Double 24.  We get 48.</li>
+  <li>Add 30 to it.  We get 78.</li>
+</ol>
+<p>
+  The exact value for 24&nbsp;&deg;C is 75.2&nbsp;&deg;F.  This
+  approximation method overestimated the actual temperature in
+  Fahrenheit by 2.8&nbsp;&deg;F.
+</p>
+<p>
+  Let us now convert 75&nbsp;&deg;F to &deg;C.
+</p>
+<ol>
+  <li>Subtract 30.  We get 45.</li>
+  <li>Divide by 2.  We get 22.5.</li>
+</ol>
+<p>
+  The exact value for 75&nbsp;&deg;F is 23.89&nbsp;&deg;C.  This
+  approximation method underestimated the actual temperature in
+  Celsius by 1.39&nbsp;&deg;C.
+</p>
+<p>
+  Can we do better?
+</p>
+<h2 id="refined-approximation-methods">Refined Approximation Methods<a href="#refined-approximation-methods"></a></h2>
+<p>
+  This section presents the refined approximation methods that I have
+  arrived at.  They are a little slower to perform mentally than the
+  crude approximation methods but they are more accurate.
+</p>
+<p>
+  To keep the methods convenient enough to perform mentally, we work
+  with integers only.  We always start with an integer value in
+  Celsius or Fahrenheit.  The result of conversion is also an integer.
+  If a fraction arises in an intermediate step, we discard the
+  fractional part.  For example, if a step requires us to calculate
+  one-tenth of a number, say, 25, we consider the result to be 2.
+  Similarly, if a step requires us to halve the number 25, we consider
+  the result to be 12.  This is also known as <em>truncated
+  division</em> or <em>integer division</em> or <em>floor
+  division</em>.
+</p>
+<p>
+  To go from &deg;C to &deg;F, here is my quick three-step
+  approximation method:
+</p>
+<ol>
+  <li>
+    Subtract one-tenth of the value in Celsius from itself.
+  </li>
+  <li>
+    Double the previous result.
+  </li>
+  <li>
+    Add 31 to the previous result.
+  </li>
+</ol>
+<p>
+  The approximation error due to this method does not exceed
+  1&nbsp;&deg;F in magnitude.  In terms of Celsius, the approximation
+  error does not exceed 0.56&nbsp;&deg;C.  I believe this is pretty
+  good if we are talking about setting the thermostat temperature.
+</p>
+<p>
+  To go from &deg;F to &deg;C, we perform a rough inverse of the above
+  steps:
+</p>
+<ol>
+  <li>
+    Subtract 31 from the value in Fahrenheit.
+  </li>
+  <li>
+    Halve the result.
+  </li>
+  <li>
+    Add one-tenth of the previous result to itself.
+  </li>
+</ol>
+<p>
+  In fact, for integer temperature values between 32&nbsp;&deg;F
+  (0&nbsp;&deg;C) and 86&nbsp;&deg;F (30&nbsp;&deg;C), the
+  approximation error due to this method does not exceed
+  1.12&nbsp;&deg;C.  Further, for integer temperature values between
+  &minus;148&nbsp;&deg;F (&minus;100&nbsp;&deg;C) and 212&nbsp;&deg;F
+  (100&nbsp;&deg;C), the approximation error does not exceed
+  1.89&nbsp;&deg;C.  This is pretty good if we are talking about the
+  weather.
+</p>
+<h3 id="examples-for-refined-method">Examples<a href="#examples-for-refined-method"></a></h3>
+<p>
+  Let us do a few examples to see how well the three-step methods
+  above work.  Let us say, we want to convert 24&nbsp;&deg;C to
+  &deg;F.
+</p>
+<ol>
+  <li>
+    Subtract one-tenth of 24 from itself, i.e., subtract 2 from 24.
+    We get 22.
+  </li>
+  <li>
+    Double 22.  We get 44.
+  </li>
+  <li>
+    Add 31 to 44.  We get 75.
+  </li>
+</ol>
+<p>
+  The exact value for 22&nbsp;&deg;C is 75.2&nbsp;&deg;F.  The
+  approximation method has underestimated the actual temperature in
+  Fahrenheit by only 0.2&nbsp;&deg;F.
+</p>
+<p>
+  Let us now try to convert 75&nbsp;&deg;F to &deg;C.
+</p>
+<ol>
+  <li>
+    Subtract 31 from 75.  We get 44.
+  </li>
+  <li>
+    Halve 44.  We get 22.
+  </li>
+  <li>
+    Add one-tenth of 22 to itself, i.e., add 2 to 22.  We get 24.
+  </li>
+</ol>
+<p>
+  The exact value for 75&nbsp;&deg;F is 23.89&nbsp;&deg;C, so this
+  approximation method overestimated the actual temperature in Celsius
+  by 0.11&nbsp;&deg;C only.
+</p>
+<p>
+  If you were looking only for quick methods to convert temperature
+  values in Fahrenheit to Celsius and vice versa, this is all you need
+  to know.  You may skip the remaining post unless you want to know
+  why these methods work.
+</p>
+<h3 id="analysis">Analysis<a href="#analysis"></a></h3>
+<p>
+  In this section, we will see why the refined approximation methods
+  work so well.
+</p>
+<h4 id="celsius-to-fahrenheit-conversion">Celsius to Fahrenheit Conversion<a href="#celsius-to-fahrenheit-conversion"></a></h4>
+<p>
+  The method to convert temperature value from Celsius to Fahrenheit
+  is equivalent to
+
+  \[
+    \overset{\approx}{f} =
+    2 \left(c - \left\lfloor \frac{c}{10} \right\rfloor \right) + 31
+  \]
+
+  where \( c \) is the temperature value in Celsius and \(
+  \overset{\approx}{f} \) is the approximate temperature value in
+  Fahrenheit.
+</p>
+<p>
+  Here is a brief justification for this:
+</p>
+<ol>
+  <li>
+    Subtracting one-tenth (floor division by 10) of \( c \) from
+    itself gives us \( c - \left\lfloor \frac{c}{10} \right\rfloor.
+    \)
+  </li>
+  <li>
+    Doubling the previous result gives us \( 2 \left(c - \left\lfloor
+    \frac{c}{10} \right\rfloor \right).  \)
+  </li>
+  <li>
+    Adding \( 31 \) to the previous result gives us \( 2 \left(c -
+    \left\lfloor \frac{c}{10} \right\rfloor \right) + 31.  \)
+  </li>
+</ol>
+<p>
+  Now let us see how we arrive at the above approximate conversion
+  formula.  It's not too different from the exact conversion formula.
+  The exact formula to convert temperature from Celsius to Fahrenheit
+  is
+
+  \[
+    f  = \frac{9c}{5} + 32.
+  \]
+
+  This can be rewritten as
+
+  \[
+    f = 2 \left(c - \frac{c}{10} \right) + 32.
+  \]
+
+  We don't want to deal with fractions, so we decide to approximate \(
+  \frac{c}{10} \) in the above formula with \( \left\lfloor
+  \frac{c}{10} \right\rfloor \) and get
+
+  \[
+    \overset{\sim}{f} =
+    2 \left(c - \left\lfloor \frac{c}{10} \right\rfloor \right) + 32.
+  \]
+
+  where \( \overset{\sim}{f} \) is an approximation of the value in
+  Fahrenheit.  The floor division has the effect of potentially
+  overestimating the final result by a value that is less than \( 2.
+  \) This is the approximation error.
+</p>
+<p>
+  If we define the approximation error as \( \overset{\sim}{f} - f, \)
+  then the approximation error lies in the half-open interval \( [0,
+  2).  \) To ensure that the magnitude of the error never exceeds \(
+  1, \) i.e., to make the approximation error lie in the half-open
+  interval \( [-1, 1), \) we subtract \( 1 \) from the above formula
+  and get
+
+  \[
+    \overset{\approx}{f} =
+    2 \left(c - \left\lfloor \frac{c}{10} \right\rfloor \right) + 31.
+  \]
+
+  This is the formula that the three-step method to convert
+  temperature from Celsius to Fahrenheit is equivalent to.
+</p>
+<h4 id="fahrenheit-to-celsius-conversion">Fahrenheit to Celsius Conversion<a href="#fahrenheit-to-celsius-conversion"></a></h4>
+<p>
+  The inverse method to convert temperature value from Fahrenheit to
+  Celsius amounts to this formula:
+
+  \[
+    \overset{\approx}{c} =
+    \left\lfloor \frac{f - 31}{2} \right\rfloor +
+    \left\lfloor \frac{f - 31}{20} \right\rfloor
+  \]
+
+  where \( f \) is the temperature value in Fahrenheit and \(
+  \overset{\approx}{c} \) is the approximate temperature value in
+  Celsius.
+</p>
+<p>
+  Here is a brief justification for this:
+</p>
+<ol>
+  <li>
+    Subtracting \( 31 \) from \( f \) gives us \( f - 31.  \)
+  </li>
+  <li>
+    Halving (floor division by \( 2 \)) the previous result gives us
+    \( \left\lfloor \frac{f - 31}{2} \right\rfloor.  \)
+  </li>
+  <li>
+    Adding one-tenth (floor division by \( 10 \)) of the previous
+    result to itself gives us \( \left\lfloor \frac{f - 31}{2}
+    \right\rfloor + \left\lfloor \frac{1}{10} \left\lfloor \frac{f -
+    31}{2} \right\rfloor \right\rfloor = \left\lfloor \frac{f - 31}{2}
+    \right\rfloor + \left\lfloor \frac{f - 31}{20} \right\rfloor.  \)
+  </li>
+</ol>
+<p>
+  This is roughly an inverse of all the steps for converting a
+  temperature value from Celsius to Fahrenheit.  Let us see if this is
+  close to the exact conversion formula
+
+  \[
+    c = \frac{5(f - 32)}{9}.
+  \]
+</p>
+<p>
+  It turns out that it is in fact close to the exact conversion formula as
+  follows:
+
+  \begin{align*}
+    c &amp; =       \frac{5(f - 32)}{9} \\
+      &amp; =       0.5556 (f - 32) \\
+      &amp; \approx 0.55 (f - 31) \\
+      &amp; =       \frac{11 (f - 31)}{20} \\
+      &amp; =       \frac{f - 31}{2} + \frac{f - 31}{20} \\
+      &amp; \approx \left\lfloor \frac{f - 31}{2} \right\rfloor +
+                \left\lfloor \frac{f - 31}{20} \right\rfloor
+      = \overset{\approx}{c}
+  \end{align*}
+</p>
+<p>
+  Like we discussed earlier, the magnitude of the approximation error
+  does not exceed 1.89&nbsp;&deg;C for integer values between
+  &minus;148&nbsp;&deg;F and 212&nbsp;&deg;F.  The error here is a
+  little bit more than the previous approximation method to convert
+  temperature in Celsius to Fahrenheit but it is still small enough to
+  give us a reasonably good estimate of what a temperature value in
+  Fahrenheit would look like in Celsius when we are talking about the
+  weather.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/temperature-conversion.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+<pubDate>Sun, 05 Jan 2014 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Loopy C Puzzle</title>
+<link>https://susam.net/loopy-c-puzzle.html</link>
+<guid>https://susam.net/loopy-c-puzzle.html</guid>
+<description>
+<![CDATA[
+<h2 id="integer-underflow">Integer Underflow<a href="#integer-underflow"></a></h2>
+<p>
+  Let us talk a little bit about integer underflow and undefined
+  behaviour in C before we discuss the puzzle I want to share in this
+  post.
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i;
+    for (i = 0; i &lt; 6; i--) {
+        printf(".");
+    }
+    return 0;
+}</code>
+</pre>
+<p>
+  This code invokes undefined behaviour.  The value in variable
+  <code>i</code> decrements to <code>INT_MIN</code> after
+  <code>|INT_MIN|</code> iterations.  In the next iteration, there is a
+  negative overflow which is undefined for signed integers in C.  On
+  many implementations though, <code>INT_MIN - 1</code> wraps around
+  to <code>INT_MAX</code>.  Since <code>INT_MAX</code> is not less than
+  <code>6</code>, the loop terminates.  With such implementations, this
+  code prints print <code>|INT_MIN| + 1</code> dots.  With 32-bit integers,
+  that amounts to 2147483649 dots.  Here is one such example output:
+</p>
+<pre>
+<samp>$ <kbd>gcc -std=c89 -Wall -Wextra -pedantic foo.c &amp;&amp; ./a.out | wc -c</kbd>
+2147483649</samp>
+</pre>
+<p>
+  It is worth noting that the above behaviour is only one of the many
+  possible ones.  The code invokes undefined behaviour and the ISO
+  standard imposes no requirements on a specific implementation of the
+  compiler regarding what the behaviour of such code should be.  For
+  example, an implementation could also exploit the undefined
+  behaviour to turn the loop into an infinite loop.  In fact, GCC does
+  optimise it to an infinite loop if we compile the code with
+  the <code>-O2</code> option.
+</p>
+<pre>
+<samp><kbd># This never terminates!</kbd>
+$ <kbd>gcc -O2 -std=c89 -Wall -Wextra -pedantic foo.c &amp;&amp; ./a.out</kbd></samp>
+</pre>
+<h2 id="puzzle">Puzzle<a href="#puzzle"></a></h2>
+<p>
+  Let us take a look at the puzzle now.
+</p>
+<div class="highlight">
+<p>
+  Add or modify exactly one operator in the following code such that
+  it prints exactly 6 dots.
+</p>
+<pre>
+<code>for (i = 0; i &lt; 6; i--) {
+    printf(".");
+}</code>
+</pre>
+</div>
+<p>
+  An obvious solution is to change <code>i--</code>
+  to <code>i++</code>.
+</p>
+<pre>
+<code>for (i = 0; i &lt; 6; i++) {
+    printf(".");
+}</code>
+</pre>
+<p>
+  There are a few more solutions to this puzzle.  One of the solutions
+  is very interesting.  We will discuss the interesting solution in
+  detail below.
+</p>
+<h2 id="solutions">Solutions<a href="#solutions"></a></h2>
+<p>
+  <em><strong>Update on 02 Oct 2011:</strong> The puzzle has been
+  solved in the <a href="comments/loopy-c-puzzle.html">comments</a>
+  section.  We will discuss the solutions now.  If you want to think
+  about the problem before you see the solutions, this is a good time
+  to pause and think about it.  There are spoilers ahead.</em>
+</p>
+<p>
+  Here is a list of some solutions:
+</p>
+<ul>
+  <li>
+    <code>for (i = 0; i &lt; 6; i++)</code>
+  </li>
+  <li>
+    <code>for (i = 0; i &lt; 6; ++i)</code>
+  </li>
+  <li>
+    <code>for (i = 0; -i &lt; 6; i--)</code>
+  </li>
+  <li>
+    <code>for (i = 0; i + 6; i--)</code>
+  </li>
+  <li>
+    <code>for (i = 0; i ^= 6; i--)</code>
+  </li>
+</ul>
+<p>
+  The last solution involving the bitwise XOR operation is not
+  immediately obvious.  A little analysis is required to understand
+  why it works.
+</p>
+<h2 id="generalisation">Generalisation<a href="#generalisation"></a></h2>
+<p>
+  Let us generalise the puzzle by replacing \( 6 \) in the loop with
+  an arbitrary positive integer \( n.  \) The loop in the last
+  solution now becomes:
+</p>
+<pre>
+<code>for (i = 0; i ^= n; i--) {
+    printf(".");
+}</code>
+</pre>
+<p>
+  If we denote the value of the variable <code>i</code> set by the
+  execution of <code>i ^= n</code> after \( k \) dots are printed as
+  \( f(k), \) then
+
+  \[
+    f(k) =
+      \begin{cases}
+        0                       &amp; \text{if } k = 0, \\
+        n \oplus (f(k - 1) - 1) &amp; \text{if } k &gt; 1
+      \end{cases}
+  \]
+
+  where \( k \) is a nonnegative integer, \( n \) is a positive
+  integer, and the symbol \( \oplus \) denotes bitwise XOR operation
+  on two nonnegative integers.
+</p>
+<p>
+  Note that \( f(0) \) represents the value of <code>i</code> set by
+  the execution of <code>i ^= n</code> when no dots have been printed
+  yet.
+</p>
+<p>
+  If we can show that \( n \) is the least value of \( k \) for which
+  \( f(k) = 0, \) it would prove that the loop terminates after
+  printing \( n \) dots.
+</p>
+<p>
+  We will see in the next section that for odd values of \( n, \)
+
+  \[
+    f(k) =
+      \begin{cases}
+        n &amp; \text{if } k \text{ is even}, \\
+        1 &amp; \text{if } k \text{ is odd}.
+      \end{cases}
+  \]
+
+  Therefore there is no value of \( k \) for which \( f(k) = 0 \) when
+  \( n \) is odd.  As a result, the loop never terminates when \( n \)
+  is odd.
+</p>
+<p>
+  We will then see that for even values of \( n \) and \( 0 \leq k
+  \leq n, \)
+
+  \[
+    f(k) = 0 \iff k = n.
+  \]
+
+  Therefore the loop terminates after printing \( n \) dots when \( n
+  \) is even.
+</p>
+<h2 id="lemmas">Lemmas<a href="#lemmas"></a></h2>
+<p>
+  We will first prove a few lemmas about some interesting properties
+  of the bitwise XOR operation.  We will then use it to prove the
+  claims made in the previous section.
+</p>
+<!-- Lemma 1 -->
+<p>
+<strong>Lemma 1.</strong>
+<em>
+  For an odd positive integer \( n, \)
+
+  \[
+    n \oplus (n - 1) = 1
+  \]
+
+  where the symbol \( \oplus \) denotes bitwise XOR operation on two
+  nonnegative integers.
+</em>
+</p>
+<p>
+  <em>Proof.</em>  Let the binary representation of \( n \) be \( b_m
+  \dots b_1 b_0 \) where \( m \) is a nonnegative integer and \( b_m
+  \) represents the most significant nonzero bit of \( n.  \) Since \(
+  n \) is an odd number, \( b_0 = 1.  \)
+
+  Thus \( n \) may be written as
+
+  \[
+    b_m \dots b_1 1.
+  \]
+
+  As a result \( n - 1 \) may be written as
+
+  \[
+    b_m \dots b_1 0.
+  \]
+
+  The bitwise XOR of both binary representations is \( 1.  \)
+</p>
+<!-- Lemma 2 -->
+<p>
+  <strong>Lemma 2.</strong>
+  <em>
+    For a nonnegative integer \( n, \)
+
+    \[
+      n \oplus 1 =
+      \begin{cases}
+      n + 1 &amp; \text{if } n \text{ is even}, \\
+      n - 1 &amp; \text{if } n \text{ is odd}.
+      \end{cases}
+    \]
+
+    where the symbol \( \oplus \) denotes bitwise XOR operation on two
+    nonnegative integers.
+  </em>
+</p>
+<p>
+  <em>Proof.</em>  Let the binary representation of \( n \) be \( b_m
+  \dots b_1 b_0 \) where \( m \) is a nonnegative integer and \( b_m
+  \) represents the most significant nonzero bit of \( n.  \)
+</p>
+<p>
+  If \( n \) is even, \( b_0 = 0.  \) In this case, \( n \) may be
+  written as \( b_m \dots b_1 0.  \) Thus \( n \oplus 1 \) may be
+  written as \( b_m \dots b_1 1.  \) Therefore \( n \oplus 1 = n + 1.
+  \)
+</p>
+<p>
+  If \( n \) is odd, \( b_0 = 1.  \) In this case, \( n \) may be
+  written as \( b_m \dots b_1 1.  \) Thus \( n \oplus 1 \) may be
+  written as \( b_m \dots b_1 0.  \) Therefore \( n \oplus 1 = n - 1.
+  \)
+</p>
+<p>
+  Note that for odd \( n, \) lemma 1 can also be derived as a
+  corollary of lemma 2 in this manner:
+
+  \[
+    k \oplus (k - 1)
+    = k \oplus (k \oplus 1)
+    = (k \oplus k) \oplus 1
+    = 0 \oplus 1
+    = 1.
+  \]
+</p>
+<!-- Lemma 3 -->
+<p>
+  <strong>Lemma 3.</strong>
+  <em>
+    If \( x \) is an even nonnegative integer and \( y \) is an odd
+    positive integer, then \( x \oplus y \) is odd, where the symbol
+    \( \oplus \) denotes bitwise XOR operation on two nonnegative
+    integers.
+  </em>
+</p>
+<p>
+  <em>Proof.</em>  Let the binary representation of \( x \) be \(
+  b_{xm_x} \dots b_{x1} b_{x0} \) and that of \( y \) be \( b_{ym_y}
+  \dots b_{y1} b_{y0} \) where \( m_x \) and \( m_y \) are nonnegative
+  integers and \( b_{xm_x} \) and \( b_{xm_y} \) represent the most
+  significant nonzero bits of \( x \) and \( y, \) respectively.
+</p>
+<p>
+  Since \( x \) is even, \( b_{x0} = 0.  \) Since \( y \) is odd, \(
+  b_{y0} = 1.  \)
+</p>
+<p>
+  Let \( z = x \oplus y \) with a binary representation of \( b_{zm_z}
+  \dots b_{z1} b_{z0} \) where \( m_{zm_z} \) is a nonnegative integer
+  and \( b_{zm_z} \) is the most significant nonzero bit of \( z.  \)
+</p>
+<p>
+  We get \( b_{z0} = b_{x0} \oplus b_{y0} = 0 \oplus 1 = 1.  \)
+  Therefore \( z \) is odd.
+</p>
+<h2 id="theorems">Theorems<a href="#theorems"></a></h2>
+<!-- Theorem 1 -->
+<p>
+<strong>Theorem 1.</strong>
+<em>
+  Let \( \oplus \) denote bitwise XOR operation on two nonnegative
+  integers and
+
+  \[
+    f(k) =
+    \begin{cases}
+    n                        &amp; \text{if } n = 0, \\
+    n \oplus (f(n - 1) - 1)  &amp; \text{if } n &gt; 1.
+    \end{cases}
+  \]
+
+  where \( k \) is a nonnegative integer and \( n \) is an odd
+  positive integer.  Then
+
+  \[
+    f(k) =
+    \begin{cases}
+    n &amp; \text{if } k \text{ is even}, \\
+    1 &amp; \text{if } k \text{ is odd}.
+    \end{cases}
+  \]
+</em>
+</p>
+<p>
+  <em>Proof.</em>  This is a proof by mathematical induction.  We have
+  \( f(0) = n \) by definition.  Therefore the base case holds good.
+</p>
+<p>
+  Let us assume that \( f(k) = n \) for any even \( k \) (induction
+  hypothesis).  Let \( k' = k + 1 \) and \( k'' = k + 2.  \)
+</p>
+<p>
+  If \( k \) is even, we get
+
+  \begin{align*}
+    f(k')  &amp; = n \oplus (f(k) - 1)  &amp;&amp; \text{(by definition)} \\
+           &amp; = n \oplus (n - 1)     &amp;&amp; \text{(by induction hypothesis)} \\
+           &amp; = 1                    &amp;&amp; \text{(by lemma 1)},\\
+    f(k'') &amp; = n \oplus (f(k') - 1) &amp;&amp; \text{(by definition)} \\
+           &amp; = n \oplus (1 - 1)     &amp;&amp; \text{(since \( f(k') = 1 \))} \\
+           &amp; = n \oplus 0 \\
+           &amp; = n.
+  \end{align*}
+</p>
+<p>
+  Since \( f(k'') = n \) and \( k'' \) is the next even number after
+  \( k, \) the induction step is complete.  The induction step shows
+  that for every even \( k, \) \( f(k) = n \) holds good.  It also
+  shows that as a result of \( f(k) = n \) for every even \( k, \) we
+  get \( f(k') = 1 \) for every odd \( k'.  \)
+</p>
+<!-- Theorem 2 -->
+<p>
+  <strong>Theorem 2.</strong>
+  <em>
+    Let \( \oplus \) denote bitwise XOR operation on two nonnegative
+    integers and
+
+    \[
+      f(k) =
+        \begin{cases}
+          n                        &amp; \text{if } n = 0, \\
+          n \oplus (f(n - 1) - 1)  &amp; \text{if } n &gt; 1.
+        \end{cases}
+    \]
+
+    where \( k \) is a nonnegative integer, \( n \) is an even
+    positive integer, and \( 0 \leq k \leq n.  \) Then
+
+   \[
+     f(k) = 0 \iff k = n.
+   \]
+</em>
+</p>
+<p>
+  <em>Proof.</em>  We will first show by the principle of mathematical
+  induction that for even \( k, \) \( f(k) = n - k.  \) We have \(
+  f(0) = n \) by definition, so the base case holds good.  Now let us
+  assume that \( f(k) = n - k \) holds good for any even \( k \) where
+  \( 0 \leq k \leq n \) (induction hypothesis).
+</p>
+<p>
+  Since \( n \) is even (by definition) and \( k \) is even (by
+  induction hypothesis), \( f(k) = n - k \) is even.  As a result, \(
+  f(k) - 1 \) is odd.  By lemma 3, we conclude that \( f(k + 1) = n
+  \oplus (f(k) - 1) \) is odd.
+</p>
+<p>
+  Now we perform the induction step as follows:
+
+  \begin{align*}
+    f(k + 2) &amp; = n \oplus (f(k + 1) - 1)
+                     &amp;&amp; \text{(by definition)} \\
+             &amp; = n \oplus (f(k + 1) \oplus 1)
+                     &amp;&amp; \text{(by lemma 2 for odd \( n \))} \\
+             &amp; = n \oplus ((n \oplus (f(k) - 1)) \oplus 1)
+                     &amp;&amp; \text{(by definition)} \\
+             &amp; = (n \oplus n ) \oplus ((f(k) - 1) \oplus 1)
+                     &amp;&amp; \text{(by associativity of XOR)} \\
+             &amp; = 0 \oplus ((f(k) - 1) \oplus 1) \\
+             &amp; = (f(k) - 1) \oplus 1 \\
+             &amp; = (f(k) - 1) - 1
+                     &amp;&amp; \text{(from lemma 2 for odd \( n \))} \\
+             &amp; = f(k) - 2 \\
+             &amp; = n - k - 2
+                     &amp;&amp; \text{(by induction hypothesis).}
+  \end{align*}
+
+  This completes the induction step and proves that \( f(k) = n - k \)
+  for even \( k \) where \( 0 \leq k \leq n.  \)
+</p>
+<p>
+  We have shown above that \( f(k) \) is even for every even \( k \)
+  where \( 0 \leq k \leq n \) which results in \( f(k + 1) \) as odd
+  for every odd \( k + 1.  \) This means that \( f(k) \) cannot be \(
+  0 \) for any odd \( k.  \) Therefore \( f(k) = 0 \) is possible only
+  even \( k.  \) Solving \( f(k) = n - k = 0, \) we conclude that \(
+  f(k) = 0 \) if and only if \( k = n.  \)
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/loopy-c-puzzle.html">Read on website</a> |
+  <a href="https://susam.net/tag/c.html">#c</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+<pubDate>Sat, 01 Oct 2011 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>From Tower of Hanoi to Counting Bits</title>
+<link>https://susam.net/from-tower-of-hanoi-to-counting-bits.html</link>
+<guid>https://susam.net/from-tower-of-hanoi-to-counting-bits.html</guid>
+<description>
+<![CDATA[
+
+<h2 id="tower-of-hanoi">Tower of Hanoi<a href="#tower-of-hanoi"></a></h2>
+<p>
+  A few weeks ago, I watched
+  <a href="http://www.imdb.com/title/tt1318514/">Rise of the Planet of
+  the Apes</a>.  The movie showed a genetically engineered chimpanzee
+  trying to solve a puzzle involving four discs, initially stacked in
+  ascending order of size on one of three pegs.  The chimpanzee was
+  supposed to transfer the entire stack to one of the other pegs,
+  moving only one disc at a time, and never placing a larger disc on a
+  smaller one.
+</p>
+<p>
+  The problem was called the <em>Lucas' Tower</em> in the movie.  I
+  have always known this problem as the <em>Tower of Hanoi</em>
+  puzzle.  The minimum number of moves required to solve the problem
+  is \( 2^n - 1 \) where \( n \) is the number of discs.  In the
+  movie, the chimpanzee solved the problem in 15 moves, the minimum
+  number of moves required when there are 4 discs.
+</p>
+<p>
+  Referring to the problem as the Lucas' Tower made me wonder why it
+  was called so instead of calling it the Tower of Hanoi.  I guessed
+  it was probably because the puzzle was invented by the French
+  mathematician &Eacute;douard Lucas.  Later when I checked
+  the <a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi">Wikipedia
+  article on this topic</a>, I realised I was right about this.  In
+  fact, the article mentioned that there is another version of this
+  problem known as <em>the Tower of Brahma</em> that involves 64 discs
+  made of pure gold and three diamond needles.  According to a legend,
+  a group of Brahmin priests are working at the problem and the world
+  will end when the last move of the puzzle is completed.  Now, even
+  if they make one move every second, it'll take
+  18&#8239;446&#8239;744&#8239;073&#8239;709&#8239;551&#8239;615
+  seconds to complete the puzzle.  That's about 585 billion years.
+  The article also had this nice animation of a solution involving
+  four discs.
+</p>
+<figure>
+  <img src="files/blog/tower-of-hanoi-animation.gif"
+       alt="Animated solution of the Tower of Hanoi puzzle">
+  <figcaption>
+    Animated solution of the Tower of Hanoi puzzle created by
+    Andr&eacute; Karwath
+    (<a
+    href="https://commons.wikimedia.org/wiki/File:Tower_of_Hanoi_4.gif">original
+    source</a>)
+  </figcaption>
+</figure>
+<p>
+  I'll not discuss the solution of this puzzle in this blog post.
+  There are plenty of articles on the web including the Wikpedia
+  article that describes why it takes a minimum of \( 2^n - 1 \) moves
+  to solve the puzzle when there are \( n \) discs involved.  In this
+  post, I'll talk about an interesting result I discovered while
+  playing with this puzzle one afternoon.
+</p>
+<h2 id="binary-numbers">Binary Numbers<a href="#binary-numbers"></a></h2>
+<p>
+  If we denote the minimum number of moves required to solve the Tower
+  of Hanoi puzzle as \( T_n, \) then \( T_n \) when expressed in
+  binary is the largest possible \( n \)-bit integer.  For example, \(
+  T_4 = 15_{10} = 1111_{2}.  \) That makes sense because \( T_n = 2^n
+  - 1 \) indeed represents the maximum possible \( n \)-bit integer
+  where all \( n \) bits are set to \( 1.  \)
+</p>
+<p>
+  While playing with different values of \( T_n \) for different
+  values of \( n, \) I stumbled upon an interesting result which I
+  will pose as a problem in a later section below.
+</p>
+<h2 id="assumptions">Assumptions<a href="#assumptions"></a></h2>
+<p>
+  Before proceeding to the problem, let us define the bit-length of an
+  integer to eliminate any possibility of ambiguity:
+</p>
+<ul>
+  <li>
+    A positive integer \( x \) is said to be an \( n \)-bit integer if
+    and only if the minimum number of bits required to express the
+    integer is \( n, \) or equivalently, \( \lfloor \log_2 x \rfloor +
+    1 = n.  \)
+  </li>
+</ul>
+<p>
+  We will be dealing with arbitrary precision integers (bignums) in
+  the problem, so let us also make a few assumptions:
+</p>
+<ul>
+  <li>
+    Addition or subtraction of an \( m \)-bit integer and an \( n \)-bit
+    integer (\( m \le n \)) takes \( O(n) \) time.
+  </li>
+  <li>
+    Counting the number of \( 1 \)-bits in an \( n \)-bit integer takes
+    \( O(n) \) time.
+  </li>
+</ul>
+<p>
+  The definition along with the assumptions lead to the following
+  conclusions:
+</p>
+<ul>
+  <li>
+    Adding or subtracting two integers \( a \) and \( b \) takes \(
+    O(\log(\max(a, b))) \) time.
+  </li>
+  <li>
+    Counting the number of \( 1 \)-bits in an integer \( a \) takes
+    \( O(\log(a)) \) time.
+  </li>
+</ul>
+<h2 id="binary-puzzle">Binary Puzzle<a href="#binary-puzzle"></a></h2>
+<div class="highlight">
+  What is the most efficient way to compute the number of \( 1 \)-bits
+  in
+
+  \[
+    T_1 + T_2 + \dots + T_n
+  \]
+
+  where \( n \) is a positive integer, each \( T_i = 2^i - 1 \) for
+  integers \( 1 \le i \le n, \) and efficiency is measured in terms of
+  time and space complexity?
+</div>
+<p>
+  The naive approach involves adding all the \( n \) integers and
+  counting the number of \( 1 \)-bits in the sum.  It takes \( O(n^2)
+  \) time to add the \( n \) integers.  The sum is an \( (n + 1)
+  \)-bit integer, so it takes \( O(n) \) time to count the number of
+  \( 1 \)-bits in the sum.  Since the sum is \( (n + 1) \)-bit long,
+  it takes \( O(n) \) memory to store the sum.  If \( n \) is as large
+  as, say, \( 2^{64}, \) it takes 2 exbibytes plus one more bit of
+  memory to store the sum.
+</p>
+<p>
+  We can arrive at a much more efficient solution if we look at what
+  the binary representation of the sum looks like.  We first arrive at
+  a closed-form expression for the sum:
+
+  \begin{align*}
+    T_1 + T_2 + \dots + T_n
+    &amp; = (2 - 1) + (2^2 - 1) + \dots + (2^n - 1) \\
+    &amp; = (2 + 2^2 + \dots + 2^n) - n \\
+    &amp; = (2^{n + 1} - 2) - n \\
+    &amp; = (2^{n + 1} - 1) - (n + 1).
+  \end{align*}
+
+  Now \( 2^{n + 1} - 1 \) is an \( (n + 1) \)-bit number with all its
+  bits set to \( 1.  \) Subtracting \( n + 1 \) from it is equivalent
+  to performing the following operation with their binary
+  representations: for each \( 1 \)-bit in \( (n + 1), \) set the
+  corresponding bit in \( (2^{n + 1} - 1) \) to \( 0.  \)
+</p>
+<p>
+  If we use the notation \( \text{bitcount}(n) \) to represent the
+  number of \( 1 \)-bits in the binary representation of a positive
+  integer \( n, \) then we get
+
+  \[
+    \text{bitcount}(T_1 + T_2 + \dots + T_n)
+    = (n + 1) - \text{bitcount}(n + 1).
+  \]
+
+  Now the computation involves counting the number of \( 1 \)-bits in
+  \( n + 1 \) which takes \( O(\log n) \) and subtracting this count
+  from \( n + 1 \) which also takes \( O(\log n) \) time.  Further,
+  the largest number that we keep in memory is \( n + 1 \) which
+  occupies \( O(\log n) \) space.  Therefore, the entire problem can
+  be solved in \( O(\log n) \) time with \( O(\log n) \) space.
+</p>
+<p>
+  What would have taken 2 exbibytes and 1 bit of memory with the naive
+  approach requires 8 bytes and 1 bit of memory now.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/from-tower-of-hanoi-to-counting-bits.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+<pubDate>Sun, 25 Sep 2011 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Langford Pairing</title>
+<link>https://susam.net/langford-pairing.html</link>
+<guid>https://susam.net/langford-pairing.html</guid>
+<description>
+<![CDATA[
+<h2 id="permutation-problem">Permutation Problem<a href="#permutation-problem"></a></h2>
+<p>
+  A few days ago, I came across this problem:
+</p>
+<div class="highlight">
+  <p>
+    There is a sequence of \( 2n \) numbers where each natural number
+    from \( 1 \) to \( n \) is repeated twice, i.e.,
+
+    \[
+      (1, 1, 2, 2, \dots, n, n).
+    \]
+
+    Find a permutation of this sequence such that for each \( k \)
+    where \( 1 \le k \le n, \) there are \( k \) numbers between two
+    occurrences of \( k \) in the permutation.
+  </p>
+</div>
+<h2 id="getting-started">Getting Started<a href="#getting-started"></a></h2>
+<p>
+  In combinatorics, this problem has a name: <em>Langford's
+  problem</em>.  A permutation of \( (1, 1, 2, 2, \dots, n, n) \) that
+  satisfies the condition given in the probem is known as
+  a <em>Langford pairing</em> or <em>Langford sequence</em>.
+</p>
+<p>
+  For small \( n, \) say \( n = 4, \) Langford pairings can be
+  obtained easily by trial and error: \( (4, 1, 3, 1, 2, 4, 3, 2).  \)
+  What if \( n \) is large?  We need an algorithm to find a
+  permutation that solves the problem in that case.
+</p>
+<p>
+  There is another question to consider: Is there a solution for every
+  possible \( n?  \) One can easily see that there are no Langford
+  pairings for \( n = 1 \) and \( n = 2, \) i.e., the sequences \( (1,
+  1) \) and \( (1, 1, 2, 2) \) have no Langford pairings.
+</p>
+<p>
+  We need to understand two things:
+</p>
+<ol>
+  <li>
+    For what values of \( n \) do Langford pairings exist?
+  </li>
+  <li>
+    For the values of \( n \) for which Langford pairings exist, how
+    do we find the Langford pairings?
+  </li>
+</ol>
+<p>
+  A simple Python 3 program I wrote to find Langford pairings for
+  small values of \( n \) offers some clues.  Here is the program:
+</p>
+<pre>
+<code>def find_solutions(n, s=None):
+    # If called from top-level (s=None), create a list of 2n zero
+    # values.  Zeroes represent unoccupied cells.
+    if s is None:
+        s = [0] * (2 * n)
+
+    # Next number to be placed.
+    m = max(s) + 1
+
+    # For each i, try to place m at s[i] and s[i + m + 1].
+    for i in range(2 * n - m - 1):
+
+        # If s[i] and s[i + m + 1] are unoccupied, ...
+        if s[i] == s[i + m + 1] == 0:
+
+            # first place m at s[i] and s[i + m + 1].
+            s[i] = s[i + m + 1] = m
+
+            # If m is the last number to be placed, ...
+            if m == n:
+                # then a solution has been found; yield it.
+                yield s[:]
+            else:
+                # else try to place the next number.
+                yield from find_solutions(n, s)
+
+            # Undo placement of m.
+            s[i] = s[i + m + 1] = 0
+
+
+# Count solutions for 1 <= n <= 12.
+for n in range(1, 13):
+    count = sum(1 for s in find_solutions(n))
+    print('n = {:2} => {:6} solutions'.format(n, count))</code>
+</pre>
+<p>
+  It takes a few minutes for this program to run.  Here is the output
+  of this program:
+</p>
+<pre>
+<samp>$ <kbd>python3 langford.py</kbd>
+n =  1 =>      0 solutions
+n =  2 =>      0 solutions
+n =  3 =>      2 solutions
+n =  4 =>      2 solutions
+n =  5 =>      0 solutions
+n =  6 =>      0 solutions
+n =  7 =>     52 solutions
+n =  8 =>    300 solutions
+n =  9 =>      0 solutions
+n = 10 =>      0 solutions
+n = 11 =>  35584 solutions
+n = 12 => 216288 solutions</samp>
+</pre>
+<p>
+  Note that we always talk about Langford pairings in plural in this
+  post.  That's because either a sequence has no Langford pairings or
+  it has two or more Langford pairings.  There is never a sequence
+  that has only one Langford pairing.  That's because if we find at
+  least one Langford pairing for a sequence, the reverse of that
+  Langford pairing is also a Langford pairing.  Therefore, when
+  Langford pairings exist for a sequence, they must at least be two in
+  number.  Since they occur in pairs, they are always even in number.
+  This is why we don't have to write "one or more Langford pairings"
+  in this post.  We can always write "Langford pairings" instead.
+</p>
+<h2 id="conjecture">Conjecture<a href="#conjecture"></a></h2>
+<p>
+  From the output above, we can form a conjecture:
+</p>
+<div class="highlight">
+  The sequence \( (1, 1, 2, 2, \dots, n, n) \) has Langford pairings
+  if and only if \( n \equiv 0 \pmod{4} \) or \( n \equiv 3 \pmod{4}.
+  \)
+</div>
+<p>
+  For convenience, let us denote the sequence \( (1, 1, 2, 2, \dots,
+  n, n) \) as \( S_n.  \) We will now prove the above conjecture in two
+  parts:
+</p>
+<ol>
+  <li>
+    We will first show that the condition that either \( n \equiv 0
+    \pmod{4} \) or \( n \equiv 3 \pmod{4} \) must hold is a
+    <em>necessary</em> condition for the sequence \( S_n \) to have
+    Langford pairings.
+  </li>
+  <li>
+    We will then show that the condition that either \( n \equiv 0
+    \pmod{4} \) or \( n \equiv 3 \pmod{4} \) must hold is a
+    <em>sufficient</em> condition for the sequence \( S_n \) to have
+    Langford pairings.
+  </li>
+</ol>
+<h2 id="necessity">Necessity<a href="#necessity"></a></h2>
+<p>
+  Let \( S_n = (1, 1, 2, 2, \dots, n, n) \) be a sequence such that it
+  has Langford pairings.  Let us pick an arbitrary Langford pairing \(
+  s \) of \( S_n \) and split this Langford pairing \( s \) into two
+  mutually exclusive subsequences \( s_1 \) and \( s_2 \) such that:
+</p>
+<ul>
+  <li>
+    \( s_1 \) contains all numbers in odd numbered positions and
+  </li>
+  <li>
+    \( s_2 \) contains all numbers in even numbered positions.
+  </li>
+</ul>
+<p>
+  For example, if we pick \( s = (1, 7, 1, 2, 5, 6, 2, 3, 4, 7, 5, 3,
+  6, 4) \) which is a Langford pairing of \( S_7, \) we split \( s \)
+  into
+
+  \begin{align*}
+    s_1 &amp; = (1, 1, 5, 2, 4, 5, 6), \\
+    s_2 &amp; = (7, 2, 6, 3, 7, 3, 4).
+  \end{align*}
+</p>
+<p>
+  We can make a few observations:
+</p>
+<ol>
+  <li>
+    Both occurrences of an even number do not occur in the same
+    subsequence.
+  </li>
+  <li>
+    There are \( \left\lfloor \frac{n}{2} \right\rfloor \) even
+    numbers in each subsequence.
+  </li>
+  <li>
+    Both occurrences of an odd number occur in the same subsequence.
+  </li>
+  <li>
+    There are \( \left\lceil \frac{n}{2} \right\rceil \) odd numbers
+    in each subsequence.
+  </li>
+</ol>
+<p>
+  Do these observations hold good for every Langford pairing of any
+  aribrary \( S_n \) for every positive integer value of \( n?  \)
+  Yes, they do.  We will now prove them one by one:
+</p>
+<ol>
+  <li>
+    <p>
+      Let us consider an even number \( k \) from a Langford pairing.
+      If the first occurrence of \( k \) lies at the \( i \)th
+      position in the pairing, then its second occurrence lies at the
+      \( (i + k + 1) \)th position.  Since \( k \) is even, \( i \)
+      and \( i + k + 1 \) have different parities, i.e., if \( i \) is
+      odd, then \( i + k + 1 \) is even and vice versa.  Therefore, if
+      the first occurrence of \( k \) lies at an odd numbered
+      position, its second occurrence must lie at an even numbered
+      position and vice versa.  Thus one occurrence of \( k \) must
+      belong to \( s_1 \) and the other must belong to \( s_2.  \)
+      This proves the first observation.
+    </p>
+  </li>
+  <li>
+    <p>
+      The number of even numbers between \( 1 \) and \( n, \)
+      inclusive, is \( \left\lfloor \frac{n}{2} \right\rfloor.  \)
+      Each of these even numbers has been split equally between \( s_1
+      \) and \( s_2.  \) This proves the second observation.
+    </p>
+  </li>
+  <li>
+    <p>
+      Now let us consider an odd number \( k \) from a Langford
+      pairing.  If the first occurrence of \( k \) lies at the \( i
+      \)th position in the pairing, then its second occurrence lies at
+      the \( (i + k + 1) \)th position.  Since \( k \) is odd, \( i \)
+      and \( i + k + 1 \) have the same parity.  Therefore, either
+      both occurrences of \( k \) belong to \( s_1 \) or both belong
+      to \( s_2.  \) This proves the third observation.
+    </p>
+  </li>
+  <li>
+    <p>
+      Each subsequence, \( s_1 \) or \( s_2 \) has \( n \) numbers
+      because we split a Langford pairing \( s \) with \( 2n \)
+      numbers equally between the two subsequences.  We have shown
+      that each subsequence has \( \left\lfloor \frac{n}{2}
+      \right\rfloor \) even numbers.  Therefore the number of odd
+      numbers in each subsequence is \( n - \left\lfloor \frac{n}{2}
+      \right\rfloor = \left\lceil \frac{n}{2} \right\rceil.  \)
+    </p>
+  </li>
+</ol>
+<p>
+  From the third observation, we know that the odd numbers always
+  occur in pairs in each subsequence because both occurrences of an
+  odd number occur together in the same subsequence.  Therefore, the
+  number of odd numbers in each subsequence must be even.  Since the
+  number of odd numbers in each subsequence is \( \left\lceil
+  \frac{n}{2} \right\rceil \) as proven for the fourth observation, we
+  conclude that \( \left\lceil \frac{n}{2} \right\rceil \) must be
+  even.
+</p>
+<p>
+  Now let us see what must \( n \) be like so that \( \left\lceil
+  \frac{n}{2} \right\rceil \) is even.
+</p>
+<p>
+  Let us express \( n \) as \( 4q + r \) where \( q \) is a
+  nonnegative integer and \( r \in \{0, 1, 2, 3\}.  \)
+</p>
+<ul>
+  <li>
+    If \( n = 4q + 0, \) then\( \left\lceil \frac{n}{2} \right\rceil =
+    \left\lceil \frac{4q}{2} \right\rceil = 2q.  \)
+  </li>
+  <li>
+    If \( n = 4q + 1, \) then\( \left\lceil \frac{n}{2} \right\rceil =
+    \left\lceil \frac{4q + 1}{2} \right\rceil = 2q + 1.  \)
+  </li>
+  <li>
+    If \( n = 4q + 2, \) then\( \left\lceil \frac{n}{2} \right\rceil =
+    \left\lceil \frac{4q + 2}{2} \right\rceil = 2q + 1.  \)
+  </li>
+  <li>
+    If \( n = 4q + 3, \) then\( \left\lceil \frac{n}{2} \right\rceil =
+    \left\lceil \frac{4q + 3}{2} \right\rceil = 2q + 2.  \)
+  </li>
+</ul>
+<p>
+  We see that \( \left\lceil \frac{n}{2} \right\rceil \) is even if
+  and only if either \( n \equiv 0 \pmod{4} \) or \( n \equiv 3
+  \pmod{4} \) holds good.
+</p>
+<p>
+  We have shown that if a sequence \( S_n \) has Langford pairings,
+  then either \( n \equiv 0 \pmod{4} \) or \( n \equiv 3 \pmod{4}.  \)
+  This proves the necessity of the condition.
+</p>
+<h2 id="sufficiency">Sufficiency<a href="#sufficiency"></a></h2>
+<p>
+  If we can show that we can construct a Langford pairing for \( (1,
+  1, 2, 2, \dots, n, n ) \) for both cases, i.e., \( n \equiv 0
+  \pmod{4} \) as well as \( n \equiv 3 \pmod{4}, \) then it would
+  complete the proof.
+</p>
+<h3 id="notation">Notation<a href="#notation"></a></h3>
+<p>
+  Let us define some notation to make it easier to write sequences we
+  will use in the construction of a Langford pairing:
+</p>
+<ul>
+  <li>
+    <p>
+      \( (i \dots j)_{even} \) denotes a sequence of even positive
+      integers from \( i \) to \( j, \) exclusive, arranged in
+      ascending order.
+    </p>
+    <p>
+      For example, \( (1 \dots 8)_{even} = (2, 4, 6) \) and \( (1
+      \dots 2)_{even} = ().  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      \( (i \dots j)_{odd} \) denotes a sequence of odd positive
+      integers from \( i \) to \( j, \) exclusive, arranged in
+      ascending order.
+    </p>
+    <p>
+      For example, \( (1 \dots 8)_{odd} = (3, 5, 7) \) and \( (1 \dots
+      3)_{odd} = ().  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      \( s' \) denotes the reverse of the sequence \( s.  \)
+    </p>
+    <p>
+      For example, for a sequence \( s = (2, 3, 4, 5), \) we have \(
+      s' = (2, 3, 4, 5)' = (5, 4, 3, 2).  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      \( s \cdot t \) denotes the concatenation of sequences \( s \)
+      and \( t.  \)
+    </p>
+    <p>
+      For example, for sequences \( s = (1, 2, 3) \) and \( t = (4, 5)
+      , \) we have \( s \cdot t = (1, 2, 3) \cdot (4, 5) = (1, 2, 3,
+      4, 5).  \)
+    </p>
+  </li>
+</ul>
+<p>
+  Let \( x = \left\lceil \frac{n}{4} \right\rceil.  \) Therefore,
+
+  \[
+    x =
+    \begin{cases}
+      \frac{n}{4}     &amp; \text{if } n \equiv 0 \pmod{4}, \\
+      \frac{n + 1}{4} &amp; \text{if } n \equiv 3 \pmod{4}.
+    \end{cases}
+  \]
+
+  Let us now define the following eight sequences:
+
+  \begin{align*}
+    a &amp; = (2x - 1), \\
+    b &amp; = (4x - 2), \\
+    c &amp; = (4x - 1), \\
+    d &amp; = (4x), \\
+    p &amp; = (0 \dots a)_{odd}, \\
+    q &amp; = (0 \dots a)_{even}, \\
+    r &amp; = (a \dots b)_{odd}, \\
+    s &amp; = (a \dots b)_{even}.
+  \end{align*}
+
+  Now let us construct a Langford pairing for both cases: \( n \equiv
+  0 \pmod{4} \) and \( n \equiv 3 \pmod{4}.  \) We will do this case by
+  case.
+</p>
+<h3 id="case-1">Case \( n \equiv 0 \pmod{4} \)<a href="#case-1"></a></h3>
+<p>
+  If \( n \equiv 0 \pmod{4}, \) we construct a Langford pairing with
+  the following concatenation:
+
+  \[
+    s' \cdot
+    p' \cdot
+    b  \cdot
+    p  \cdot
+    c  \cdot
+    s  \cdot
+    d  \cdot
+    r' \cdot
+    q' \cdot
+    b  \cdot
+    a  \cdot
+    q  \cdot
+    c  \cdot
+    r  \cdot
+    a  \cdot
+    d.
+  \]
+
+  Let us do an example with \( n = 12.  \)
+</p>
+<p>
+  For \( n = 12, \) we get \( x = \frac{n}{4} = 3.  \) Therefore,
+
+  \begin{alignat*}{2}
+    a &amp; = (2x - 1)           &amp;&amp; = (5), \\
+    b &amp; = (4x - 2)           &amp;&amp; = (10), \\
+    c &amp; = (4x - 1)           &amp;&amp; = (11), \\
+    d &amp; = (4x)               &amp;&amp; = (12), \\
+    p &amp; = (0 \dots a)_{odd}  &amp;&amp; = (1, 3), \\
+    q &amp; = (0 \dots a)_{even} &amp;&amp; = (2, 4), \\
+    r &amp; = (a \dots b)_{odd}  &amp;&amp; = (7, 9), \\
+    s &amp; = (a \dots b)_{even} &amp;&amp; = (6, 8).
+  \end{alignat*}
+
+  After performing the specified concatenation, we get the following
+  Langford pairing:
+
+  \[
+    (
+      8, 6, 3, 1, 10, 1, 3, 11, 6, 8, 12, 9,
+      7, 4, 2, 10, 5, 2, 4, 11, 7, 9, 5, 12
+    ).
+  \]
+
+  Let us now show that any construction of a sequence as per this
+  specified concatenation always leads to a Langford pairing.
+</p>
+<p>
+  Each sequence \( a, \) \( b, \) \( c, \) and \( d \) has one number
+  each.  Each sequence \( p, \) \( q, \) \( r, \) and \( s \) has \( x
+  - 1 \) numbers each.
+</p>
+<p>
+  The two occurrences of \( a \) have \( q, \) \( c, \) and \( r \) in
+  between, i.e.,
+
+  \[
+    (x - 1) + 1 + (x - 1) = 2x - 1 = a
+  \]
+
+  numbers in between.  Similarly, we can check that the two
+  occurrences of \( b \) have \( b \) numbers in between; likewise for
+  \( c \) and \( d.  \)
+</p>
+<p>
+  The two occurrences of \( 1 \) belong to \( p \) and \( p'.  \)
+  Between these two occurrences of \( 1, \) we have only one element
+  of \( b.  \)
+</p>
+<p>
+  We now show that for each \( k \) in \( p, \) there are \( k \)
+  numbers in between.  For any \( k \) in \( p, \) there is the
+  sequence \( (0..k)'_{odd} \cdot b \cdot (0..k)_{odd} \) in between
+  the two occurrences of \( k, \) i.e, there are \( \frac{k - 1}{2} +
+  1 + \frac{k - 1}{2} = k \) numbers in between.  Similarly, we can
+  check that for each \( k \) in \( q, \) there are \( k \) numbers in
+  between.
+</p>
+<p>
+  Finally, we show that for each \( k \) in \( r, \) there are \( k \)
+  numbers in between.  For any \( k \) in \( r, \) there is the
+  sequence \( (a..k)'_{odd} \cdot q' \cdot b \cdot a \cdot q \cdot c
+  \cdot (a..k)_{odd} \) in between the two occurrences of \( k.  \)
+  Note that \( a \) is odd, so the number of integers in this sequence
+  is
+
+  \[
+    \frac{k - a - 2}{2} + (x - 1) + 1 + 1 + (x - 1) + 1 + \frac{k - a - 2}{2}.
+  \]
+
+  Simplifying the above expression and then substituting
+  \( a = 2x - 1, \) we get
+
+  \[
+    k - a - 2 + 2x + 1 = k.
+  \]
+
+  Similarly, we can check that for each \( k \) in \( s, \) there are
+  \( k \) numbers in between.
+</p>
+<h3 id="case-2">Case \( n \equiv 3 \pmod{4} \)<a href="#case-2"></a></h3>
+<p>
+  If \( n \equiv 3 \pmod{4}, \) we construct a Langford pairing with
+  the following concatenation:
+
+  \[
+    s' \cdot
+    p' \cdot
+    b  \cdot
+    p  \cdot
+    c  \cdot
+    s  \cdot
+    a  \cdot
+    r' \cdot
+    q' \cdot
+    b  \cdot
+    a  \cdot
+    q  \cdot
+    c  \cdot
+    r.
+  \]
+
+  Note that this concatenation of sequences is almost the same as the
+  concatenation in the previous section with the following two
+  differences:
+</p>
+<ul>
+  <li>
+    The sequence \( d \) is not used here.
+  </li>
+  <li>
+    The sequence \( a \) in the end has moved to replace the sequence
+    \( d \) in the middle of the concatenation.
+  </li>
+</ul>
+<p>
+  Let us do an example with \( n = 11.  \) For \( n = 12, \) we get \(
+  x = \frac{n + 1}{4} = 3.  \) Therefore, the sequences \( a, \) \( b,
+  \) \( c, \) \( p, \) \( q, \) \( r, \) and \( s \) are same as those
+  in the last example in the previous section.  After performing the
+  specified concatenation, we get the following Langford pairing:
+
+  \[
+    (
+      8, 6, 3, 1, 10, 1, 3, 11, 6, 8, 5,
+      9, 7, 4, 2, 10, 5, 2, 4, 11, 7, 9
+    ).
+  \]
+
+  We can verify that for every \( k \) in a Langford pairing
+  constructed in this manner, there are \( k \) numbers in between.
+  The verification steps are similar to what we did in the previous
+  section.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/langford-pairing.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/combinatorics.html">#combinatorics</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+<pubDate>Sat, 17 Sep 2011 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Magical Chameleons Puzzle</title>
+<link>https://susam.net/magical-chameleons-puzzle.html</link>
+<guid>https://susam.net/magical-chameleons-puzzle.html</guid>
+<description>
+<![CDATA[
+<p>
+  An island contained chameleons of three different colours: red,
+  green and blue.  The chameleons were studied by some biologists and
+  they found that when two chameleons of different colours met they
+  changed their colours to the third one.  They found that there were
+  2000 red chameleons and 3000 green ones on the day they counted
+  them.  They didn't get time to count the number of blue chameleons.
+</p>
+<p>
+  When the biologists returned to the island two months later they
+  found that all chameleons were red in colour.  They were certain
+  that no chameleons died because they did not find dead remains of
+  any chameleon.  What does it say about the number of blue chameleons
+  on the day the biologists counted the number of red and green
+  chameleons?
+</p>
+<p>
+  See the comments page for the solution.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/magical-chameleons-puzzle.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+<pubDate>Sun, 19 Jun 2011 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Calendar Cubes Puzzle</title>
+<link>https://susam.net/calendar-cubes-puzzle.html</link>
+<guid>https://susam.net/calendar-cubes-puzzle.html</guid>
+<description>
+<![CDATA[
+<p>
+  How many different ways are there to assign the ten digits of Arabic
+  numerals (0 to 9) to each face of two cubes to ensure that we can
+  arrange both cubes on any day such that the front faces of the cubes
+  show the current day of the month?
+</p>
+<p>
+  For example, on February 9 the cubes would be placed side by side
+  such that the front face of the cube on the left side shows 0 and
+  that of the one on the right side shows 9.
+</p>
+<p>
+  Two ways of assigning the digits to the faces of the cubes are
+  considered different if and only if it is not possible to get one
+  assignment from the other by performing one or more of the following
+  operrations:
+</p>
+<ol>
+  <li>
+    Rotating (reorienting) the digits with respect to the faces they
+    belong to.
+  </li>
+  <li>
+    Rotating the cubes.
+  </li>
+  <li>
+    Swapping the cubes.
+  </li>
+</ol>
+<p>
+  See the comments page for the solution.
+</p>
+
+<!-- ### -->
+<p>
+  <a href="https://susam.net/calendar-cubes-puzzle.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+<pubDate>Sun, 12 Jun 2011 00:00:00 +0000</pubDate>
+</item>
+
+
+</channel>
+</rss>

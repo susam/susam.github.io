@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's Meta Pages</title>
+<link>https://susam.net/tag/meta.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/meta-full.xml"/>
+<description>Feed for Susam's Meta Pages</description>
+
+<item>
+<title>About RWX</title>
+<link>https://susam.net/rwx/README.html</link>
+<guid>https://susam.net/rwx/README.html</guid>
+<description>
+<![CDATA[
+<h1>About RWX</h1>
+<p>
+  <a href="./">RWX</a> is a quirky corner of my website
+  where I keep my recent notes and observations across various topics.
+  Each post here contains a collection of concise updates, ranging
+  from interesting books and articles I have recently encountered to
+  handy code snippets and commands.
+</p>
+<p>
+  The name <em>RWX</em> is of course inspired by the Unix
+  permissions <code>r</code>, <code>w</code>, and <code>x</code> which
+  stand for <em>read</em>, <em>write</em>, and <em>execute</em>.
+  Indeed, in this section, I gather bits and fragments of content
+  related to what I have been reading, writing, or executing recently.
+  But RWX could also mean "recent weekly explorations" or "random
+  weekly explorations".  I publish a new post here roughly once every
+  one or two weeks.
+</p>
+<p>
+  This section serves as a buffer zone where I can freely archive my
+  notes, thoughts, and explorations without having to bother with
+  refining them or organising them extensively.  Some entries may
+  eventually be turned into complete <a href="../">blog
+  posts</a>, while others will remain as fragments indefinitely.
+</p>
+<p>
+  An unusual aspect of this section is its conservative tagging
+  approach.  Pages are tagged sparingly, with not all discussed topics
+  receiving tags.  For instance, a post might include updates on
+  multiple subjects, including Emacs (<a href="2.html">see
+  example</a>), yet may not be tagged <a href="../tag/emacs.html">#emacs</a>.
+  This is to avoid flooding readers subscribed to specific tag feeds
+  with less substantial posts from this section.  Consequently,
+  browsing the <a href="../tag/">Tags</a> section does not
+  help in locating RWX posts related to a specific topic.
+</p>
+<p>
+  Moreover, when browsing through the post titles on
+  <a href="./">RWX</a>, you'll notice that each one only
+  includes the initial two topics discussed within the post.  As a
+  result, the titles may not fully reflect the entirety of the
+  content.  The best way to ascertain what a post contains is by
+  visiting it directly.  This may be seen as a feature or a
+  limitation.  On one hand, the posts in this section are not easy to
+  search by topic, on the other hand each post you visit may offer an
+  element of surprise.  Regardless, I hope you find this section fun.
+</p>
+<p>
+  <a href="./">Click here</a> to begin browsing RWX.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/rwx/README.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+<pubDate>Sun, 07 Apr 2024 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Quick Links</title>
+<link>https://susam.net/links.html</link>
+<guid>https://susam.net/links.html</guid>
+<description>
+<![CDATA[
+<h1>Quick Links</h1>
+<p>
+  This page contains quick links to various sections of this website.
+</p>
+<h2 id="pages">Pages<a href="#pages"></a></h2>
+<ul>
+  <li>
+    <a href="./">Blog Posts</a>
+  </li>
+  <li>
+    <a href="wall.html">Quick Posts</a>
+  </li>
+  <li>
+    <a href="rwx/">Weekly Explorations</a>
+  </li>
+  <li>
+    <a href="cc/">Computation Club</a>
+  </li>
+  <li>
+    <a href="feed.html">All Pages</a>
+  </li>
+  <li>
+    <a href="tag/">Topics</a>
+  </li>
+  <li>
+    <a href="backlinks.html">Backlinks</a>
+  </li>
+</ul>
+<h2 id="fun">Fun Pages<a href="#fun"></a></h2>
+<ul>
+  <li>
+    <a href="blank.html">Blank</a> &mdash; Blank page
+  </li>
+  <li>
+    <a href="cfrs.html">CFRS[]</a> &mdash; Minimal drawing language with only six commands
+  </li>
+  <li>
+    <a href="fxyt.html">FXYT</a> &mdash; Tiny, stack-based, postfix canvas colouring language
+  </li>
+  <li>
+    <a href="myrgb.html">Guess My RGB</a> &mdash; RGB colour guessing game
+  </li>
+  <li>
+    <a href="invaders.html">Invaders</a> &mdash; 1980s-arcade-style invaders game
+  </li>
+  <li>
+    <a href="jokes.html">Jokes</a> &mdash; My favourite jokes
+  </li>
+</ul>
+<h2 id="demos">Fun Demos<a href="#demos"></a></h2>
+<ul>
+  <li>
+    CFRS[] Demos:
+    <a href="cfrs.html#1">#1</a>,
+    <a href="cfrs.html#2">#2</a>,
+    <a href="cfrs.html#3">#3</a>,
+    <a href="cfrs.html#4">#4</a>,
+    <a href="cfrs.html#5">#5</a>
+  </li>
+  <li>
+    FXYT Demos:
+    <a href="https://susam.net/fxyt.html#XYxTN1srN255pTN1sqD">#1</a>,
+    <a href="https://susam.net/fxyt.html#XYaTN1srN255pTN1sqN0">#2</a>,
+    <a href="https://susam.net/fxyt.html#XYoTN1srN255pTN1sqDN0S">#3</a>,
+    <a href="https://susam.net/fxyt.html#XYpTN1srN255pTN1sqD">#4</a>,
+    <a href="https://susam.net/fxyt.html#XYN256sTdrD">#5</a>
+  </li>
+  <li>
+    Invaders: <a href="invaders.html#auto">Autopilot</a>
+  </li>
+</ul>
+<h2 id="sections">Subscribe<a href="#sections"></a></h2>
+<ul>
+  <li>
+    <a href="feed.xml">By RSS Feed</a>
+  </li>
+  <li>
+    <a href="https://susam.net/form/subscribe/">By Email Newsletter</a>
+  </li>
+</ul>
+<h2 id="social">Social<a href="#social"></a></h2>
+<ul>
+  <li>
+    <a href="https://github.com/susam">GitHub</a>
+  </li>
+  <li>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </li>
+  <li>
+    <a href="https://twitter.com/susam">Twitter</a>
+  </li>
+  <li>
+    <a href="https://twitch.tv/susampal">Twitch</a>
+  </li>
+  <li>
+    <a href="https://web.libera.chat/#susam">IRC</a>
+  </li>
+  <li>
+    <a href="https://app.element.io/#/room/#susam:matrix.org">Matrix</a>
+  </li>
+</ul>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/links.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+<pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Computation Club Meeting</title>
+<link>https://susam.net/meet/</link>
+<guid>https://susam.net/meet/</guid>
+<description>
+<![CDATA[
+<p>
+  Meeting link for computation club.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/meet/">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+<pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Privacy Notice</title>
+<link>https://susam.net/privacy.html</link>
+<guid>https://susam.net/privacy.html</guid>
+<description>
+<![CDATA[
+<h1>Privacy Notice</h1>
+<p>
+  <a href="https://susam.net/">Susam.Net</a> (this website) is a
+  personal website maintained by Susam Pal.  This privacy notice
+  explains how this website uses the data it collects from you when
+  you use this website.
+</p>
+<h2 id="data-items">Data Items<a href="#data-items"></a></h2>
+<p>
+  This website collects the following data:
+</p>
+<ol>
+  <li>
+    <p>
+      The text submitted by you if you submit a new comment to this
+      website.  This text submitted by you may contain your name, a
+      URL to your profile on the world wide web, and a comment.  This
+      text is written by you, so you are in complete control of what
+      you submit in the text.  You must not submit sensitive personal
+      data to this website.
+    </p>
+  </li>
+  <li>
+    <p>
+      Your email address submitted by you if you submit a subscribe or
+      unsubscribe request to this website.
+    </p>
+  </li>
+  <li>
+    <p>
+      Your Internet Protocol (IP) address used to visit this website.
+    </p>
+  </li>
+  <li>
+    <p>
+      HTTP referrer URL sent by your web browser or client software
+      while connecting to this website.  A web browser or a client
+      software typically, but not necessarily, sends the URL of the
+      web page or website where you clicked on a link to visit this
+      website as the HTTP referrer value.  If this website is visited
+      directly without clicking on any link, then a web browser or
+      client does not typically send any HTTP referrer data.
+    </p>
+  </li>
+  <li>
+    <p>
+      User agent string sent by your web browser or client software
+      while visiting this website.  A web browser or a client software
+      typically, but not necessarily, sends the names and versions of
+      your device, operating system, and web browser or client
+      software as the user agent string.
+    </p>
+  </li>
+</ol>
+<h2 id="data-collection">Data Collection<a href="#data-collection"></a></h2>
+<p>
+  When you visit this website, your IP address, referrer data, and
+  user agent string are automatically recorded in web server log
+  files.
+</p>
+<p>
+  When you submit a new comment to this website successfully, your
+  text is written to a file on the web server.  If the comment
+  submission fails due to errors, then your text is neither saved nor
+  published.  If the comment submission succeeds, the text submitted
+  by you is reviewed within 30 days.  If your comment is found to be
+  suitable for this website, then the text you have submitted is
+  published on the website.  If the comment is found to be unsuitable
+  for this website, then the text file containing your submitted text
+  is deleted.
+</p>
+<p>
+  When you submit a new subscribe or unsubscribe request to this
+  website successfully, your email address is written to a file on the
+  web server.  If the request submission fails due to errors, then
+  your email address is not saved.  If the subscribe or unsubscribe
+  request succeeds, the email address submitted by you is added to a
+  Google Groups mailing list that is used to send email newsletters.
+  The use of your email address by Google Groups is covered by
+  Google's privacy policy.
+</p>
+<h2 id="data-usage">Data Usage<a href="#data-usage"></a></h2>
+<p>
+  The IP address, referrer data, and user agent string is used to
+  monitor abuse of this website such as submitting spam comments,
+  sending too many requests to reduce the availability of this
+  website, etc.  This data is also used to mitigate abuse of this
+  website by blocking certain combinations of IP address, referrer
+  data, and/or user agent from accessing this website or by limiting
+  the number of requests such a combination may send to this website.
+</p>
+<p>
+  If you submit a comment to this website successfully and if the
+  comment is found to be suitable for this website during review, the
+  comment text is published at a comments page on this website.
+  Whether a comment is published or not is at the discretion of the
+  maintainer of this website.  When your comment text is published on
+  this website, it becomes available publicly to anyone who visits the
+  comments page.  You must not submit sensitive personal data to this
+  website.
+</p>
+<p>
+  If you submit a subscribe request to this website successfully, then
+  at the discretion of the maintainer of this website, your email
+  address may be added to the email newsletter recipient list.  The
+  recipient list is maintained in Google Groups, a third-party service
+  provided by Google LLC.  This website uses Google Groups mailing
+  list to send email newsletters.  The mailing list is configured to
+  not expose your email address to other subscribers.  The use of your
+  email address by Google Groups is covered by Google's privacy
+  policy.
+</p>
+<p>
+  If you submit an unsubscribe request to this website successfully,
+  then your email address is removed from the Google Groups mailing
+  list within 30 days if the email address exists in the mailing list.
+  You can remove your email address immediately from the Google Groups
+  mailing list by sending an email
+  to <code>susampal+unsubscribe@googlegroups.com</code>.
+</p>
+<h2 id="data-storage">Data Storage<a href="#data-storage"></a></h2>
+<p>
+  The IP address, referrer data, and user agent string are stored in
+  web server log files.  This data is retained for 15 days.  After 15
+  days, this data is deleted automatically.
+</p>
+<p>
+  A successfully submitted comment text is first stored in a text file
+  on the web server.  The comment text is reviewed within 30 days.  If
+  the comment is found to be suitable for this website, the comment
+  text is copied to a comments page where the comment becomes
+  available publicly on the world wide web.  If the comment is found
+  to be unsuitable for this website, then the text file containing
+  your submitted text is deleted from the web server.  You must never
+  submit sensitive personal data to this website.
+</p>
+<p>
+  A successfully submitted email address in a subscribe or unsubscribe
+  request is first stored in a text file on the web server.  The email
+  address is reviewed within 30 days.  At the discretion of the
+  maintainer of this website, a successfully submitted subscription
+  request is either accepted or rejected.  When a subscription request
+  is accepted, the email address is added to a Google Groups mailing
+  list that is used to send email newsletters.  After adding your
+  email address to the mailing list, the text file containing your
+  email address is deleted from the web server.  The mailing list is
+  configured to not expose your email address to other subscribers.
+  When a subscription request is rejected, the text file containing
+  your email address is deleted from the web server.  A successfully
+  submitted unsubscribe request is always accepted within 30 days.
+  The email address submitted in an unsubscribe request is removed
+  from the Google Groups mailing list within 30 days if it exists in
+  the mailing list.  Then the text file containing the email address
+  is deleted.  The use of your email address by Google Groups is
+  covered by Google's privacy policy.
+</p>
+<h2 id="third-party-services">Third-Party Services<a href="#third-party-services"></a></h2>
+<p>
+  If and only if you successfully submit a request to subscribe to the
+  email newsletters of this website and your subscription requested is
+  accepted, your email address is added to a Google Groups mailing
+  list used to send email newsletters.  Google Groups is a third-party
+  service provided by Google LLC.  The use of your email address by
+  Google Groups is covered by Google's privacy policy.  Google's
+  privacy policy is available
+  at <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.
+</p>
+<h2 id="third-party-analytics">Third-Party Analytics<a href="#third-party-analytics"></a></h2>
+<p>
+  This website does not use third-party analytics.
+</p>
+<h2 id="cookies">Cookies<a href="#cookies"></a></h2>
+<p>
+  This website does not use cookies.
+</p>
+<h2 id="marketing">Marketing<a href="#marketing"></a></h2>
+<p>
+  This website does not use your data for marketing purpose.
+</p>
+<h2 id="contact">Contact<a href="#contact"></a></h2>
+<p>
+  If you have any questions about the data collected by this website,
+  please contact susam (dot) pal (at) gmail (dot) com.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/privacy.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+<pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Backlinks</title>
+<link>https://susam.net/backlinks.html</link>
+<guid>https://susam.net/backlinks.html</guid>
+<description>
+<![CDATA[
+<h1>Backlinks</h1>
+<div>A list of backlinks and mentions on other websites</div>
+<ul class="blog">
+  <li>
+    <a href="https://internet.watch.impress.co.jp/docs/yajiuma/1583689.html">Aim for less than 10 clicks!</a> (title translated from Japanese)
+    (12 Apr 2024)<br>&#x21aa;
+    <a href="myrgb.html">Guess My RGB</a>
+  </li>
+  <li>
+    <a href="https://gigazine.net/gsc_news/en/20240406-guess-rgb/">Gigazine: Guess My RGB</a>
+    (06 Apr 2024)<br>&#x21aa;
+    <a href="myrgb.html">Guess My RGB</a>    
+  <li>
+    <a href="https://www.youtube.com/watch?v=l9EXPvxjzwo&amp;t=1771s">Adobe Live: The File New Show: Episode 51</a>
+    (05 Apr 2024)<br>&#x21aa;
+    <a href="myrgb.html">Guess My RGB</a>
+  </li>
+  <li>
+    <a href="https://irreal.org/blog/?p=11900">Irreal: Query Replace Regexp</a>
+    (11 Jan 2024)<br>&#x21aa;
+    <a href="elisp-in-replacement-string.html">Elisp in Replacement String</a>
+  </li>
+  <li>
+    <a href="https://www.youtube.com/watch?v=Lju6aYms2EA&amp;t=876s">Mind Your Decisions: Math problem inspired by a children's game</a>
+    (03 Sep 2023)<br>&#x21aa;
+    <a href="langford-pairing.html">Langford Pairing</a>
+  </li>
+  <li>
+    <a href="https://irreal.org/blog/?p=11559">Irreal: Emacs Text Sorting</a>
+    (13 Aug 2023)<br>&#x21aa;
+    <a href="sorting-in-emacs.html">Sorting in Emacs</a>
+  </li>
+  <li>
+    <a href="https://irreal.org/blog/?p=11485">Irreal: Emacs For Common Lisp</a>
+    (11 Jul 2023)<br>&#x21aa;
+    <a href="https://github.com/susam/emacs4cl">Emacs4CL</a>
+  </li>
+  <li>
+    <a href="https://irreal.org/blog/?p=11362">Irreal: Devil Mode</a>
+    (16 May 2023)<br>&#x21aa;
+    <a href="https://susam.github.io/devil/">Devil Mode</a>
+  </li>
+  <li>
+    <a href="https://www.youtube.com/watch?v=IGt9Cc3OSVE&amp;t=8169s">Challenge The Cyber 2022 Challenges Discord Q&amp;A</a>
+    (25 May 2022)<br>&#x21aa;
+    <a href="https://github.com/susam/mintotp">MinTOTP</a>
+  </li>
+  <li>
+    <a href="https://www.pointer.io/archives/40664fe1e3/">Pointer Issue #270</a>
+    (19 Nov 2021)<br>&#x21aa;
+    <a href="peculiar-self-references.html">Peculiar Self-References</a>
+  </li>
+  <li>
+    <a href="https://irreal.org/blog/?p=7365">Irreal: Managing Forks and Pull Request in GitHub</a>
+    (26 Jul 2018)<br>&#x21aa;
+    <a href="https://github.com/susam/gitpr">Fork and Pull Request Workflow</a>
+  </li>
+</ul>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/backlinks.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+<pubDate>Thu, 26 Jul 2018 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>About Me</title>
+<link>https://susam.net/about.html</link>
+<guid>https://susam.net/about.html</guid>
+<description>
+<![CDATA[
+<h1>About Me</h1>
+<p>
+  Hi!  I am Susam Pal.  Welcome to my website.  This page provides a
+  brief introduction about me and this website.
+</p>
+<p>
+  I am a software engineer by profession.  I have a keen interest in
+  free and open source software.  My first non-trivial contribution to
+  open source was
+  <a href="https://issues.apache.org/jira/browse/NUTCH-559">NUTCH-559</a>
+  in 2007.  That contribution added support for various authentication
+  schemes to Apache Nutch, an open source web crawler.  I have
+  remained active in the open source communities since then.  I also
+  develop and maintain a few open source projects of my own at
+  <a href="https://github.com/susam">github.com/susam</a>.  For a list
+  of my projects, see my <a href="foss.html">open source work
+  details</a>.
+</p>
+<p>
+  When not involved with technology, I like reading books, playing the
+  piano, and travelling.
+</p>
+<h2 id="irc">IRC<a href="#irc"></a></h2>
+<p>
+  I am usually online as my IRC nick <em>susam</em> on
+  <a href="https://web.libera.chat/">Libera IRC</a>.  I hang out at
+  various channels like #algorithms, #commonlisp, #emacs, #python,
+  etc.
+</p>
+<p>
+  The #algorithms channel was founded by me first on Freenode in 2007
+  when there was no such channel dedicated to the subject of
+  algorithms.  It started as a tiny community of about 10 members from
+  the ##math channel and then gradually grew to have over 200 members
+  within a few years.  The channel was then
+  <a href="algorithms-channel-migrates-to-libera-chat.html">migrated</a>
+  to Libera in 2021.
+</p>
+<h2 id="website">Website<a href="#website"></a></h2>
+<p>
+  This website is generated using a Common Lisp program.  Most of this
+  website is static in nature.  The
+  <a href="https://susam.net/form/comment/?post=about">comment
+  form</a> on this website is served dynamically using a tiny web
+  server program written in Common Lisp.  See
+  <a href="https://github.com/susam/susam.net">github.com/susam/susam.net</a>
+  for the source code of this website.
+</p>
+<p>
+  Every line of HTML and CSS that makes this website is handcrafted.
+  The primary copy of this website is hosted at
+  <a href="https://susam.net/">susam.net</a>.  A mirror of the
+  website is hosted at
+  <a href="https://susam.github.io/">susam.github.io</a>.
+</p>
+<p>
+  This website began its life as an intranet portal running on an
+  intranet server out of my dorm room during my university days back
+  in 2001-2005.  That intranet server was named <code>maze</code>.  I
+  used to run that server for my fellow students in our university's
+  computer network.  The server used to host an FTP server and an HTTP
+  portal for mathematical puzzles, technical articles, free software
+  downloads, and audio/video streaming.  While that intranet portal
+  and its source code written in Classic ASP are now long gone, some
+  of its content still survives on this website.
+</p>
+<h2 id="browse">Browse<a href="#browse"></a></h2>
+<p>
+  The <a href="./">home page</a> of this website presents
+  my primary blog.  I write about technology, mathematics, and other
+  miscellaneous topics on this blog.  The posts on my primary blog
+  often tend to be long-form, involved, and detailed.  They sometimes
+  take considerable time to write and publish.  As a result, the
+  interval between two posts on this blog can range from several weeks
+  to months.
+</p>
+<p>
+  I also archive notes, code, and various miscellaneous files on other
+  sections of this website that I update more frequently than my
+  primary blog.  Visit <a href="links.html">links.html</a> to find
+  quick links to my primary blog as well as other sections of this
+  website.
+</p>
+<h2 id="colours">Colours<a href="#colours"></a></h2>
+<p>
+  This website supports both light and dark colour schemes.  The
+  information box below shows the colour scheme selected right now.
+</p>
+<p class="light highlight">
+  The <strong>light colour scheme</strong> is active currently.
+</p>
+<p class="dark highlight">
+  The <strong>dark colour scheme</strong> is active currently.
+</p>
+<p>
+  If you would like to browse this website using the opposite colour
+  scheme, please check if your operating system or web browser
+  supports changing the preferred colour scheme.  Most modern
+  operating systems do support it.
+</p>
+<h2 id="name">Name<a href="#name"></a></h2>
+<p>
+  I have been told many times that my name, <em>"Susam"</em>, is a
+  little unusual which makes it difficult for others to figure how to
+  pronounce it.  It is pronounced almost like the English
+  words <em>"sue sum"</em> (/suːsʌm/).  However you may call my name
+  however you find most natural, convenient, or intuitive.  I do not
+  mind mispronunciations of my name at all whatsoever.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/about.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+<pubDate>Mon, 01 Oct 2007 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>FOSS</title>
+<link>https://susam.net/foss.html</link>
+<guid>https://susam.net/foss.html</guid>
+<description>
+<![CDATA[
+<p>
+  Free and open source contributions.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/foss.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+<pubDate>Sun, 06 Aug 2006 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>CV</title>
+<link>https://susam.net/cv.html</link>
+<guid>https://susam.net/cv.html</guid>
+<description>
+<![CDATA[
+<p>
+  Curriculum vitae.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/cv.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+<pubDate>Mon, 10 Oct 2005 00:00:00 +0000</pubDate>
+</item>
+
+
+</channel>
+</rss>

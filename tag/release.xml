@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's Release Pages</title>
+<link>https://susam.net/tag/release.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/release.xml"/>
+<description>Feed for Susam's Release Pages</description>
+
+<item>
+<title>CFRS[] 0.2.0</title>
+<link>https://susam.net/code/news/cfrs/0.2.0.html</link>
+<guid>https://susam.net/code/news/cfrs/0.2.0.html</guid>
+<description>
+<![CDATA[
+<p>
+  CFRS[] 0.2.0 is a minor update of CFRS[], an extremely minimal
+  drawing language consisting of only 6 simple commands.  This update
+  brings minor changes to the built-in help screen that can be invoked
+  by typing <code>?</code> in the input pane.  For example, the help
+  screen now has a direct links to built-in demos and community demos.
+  Further, based on community feedback, the description of
+  the <code>]</code> command has been updated with clearer language
+  that better clarifies that this command repeats a repeatable block
+  once (i.e., executes the repeatable block again).  See
+  the <a href="https://github.com/susam/cfrs/blob/main/CHANGES.md">changelog</a>
+  for more details.
+</p>
+<p>
+  To read more about CFRS[], go to
+  <a href="https://github.com/susam/cfrs">github.com/susam/cfrs</a>.
+  Visit <a href="../../../cfrs.html">cfrs.html</a> to play with CFRS[]
+  now and draw some nice pictures and animation.  If you end up
+  developing any cool demos, do share them by creating
+  a <a href="https://github.com/susam/cfrs/issues/new">new post</a> on
+  its GitHub repository.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/cfrs/0.2.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+<pubDate>Sat, 06 Apr 2024 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>CFRS[] 0.1.0</title>
+<link>https://susam.net/code/news/cfrs/0.1.0.html</link>
+<guid>https://susam.net/code/news/cfrs/0.1.0.html</guid>
+<description>
+<![CDATA[
+<p>
+  CFRS[] 0.1.0 is the first release of CFRS[], an extremely minimal
+  drawing language that consists of only six simple commands.  Ever
+  since this new esoteric language and its implementation was
+  <a href="https://news.ycombinator.com/item?id=37956065">announced
+  about two months ago</a>, a small but enthusiastic community has
+  sprung up around it.  Feedback and enhancement requests from the
+  community has been crucial in polishing the implementation and
+  arriving at the current stable release.  Further, some community
+  members have also submitted very interesting and impressive demos.
+</p>
+<p>
+  To play with CFRS[] now, please
+  visit <a href="../../../cfrs.html">cfrs.html</a>.
+</p>
+<p>
+  See <a href="https://github.com/susam/cfrs">github.com/susam/cfrs</a>
+  for more information about CFRS.  Also,
+  see <a href="https://github.com/susam/cfrs/blob/main/demo.md">demo.md</a>
+  for a curated collection of community demos.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/cfrs/0.1.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+<pubDate>Mon, 25 Dec 2023 00:00:00 +0000</pubDate>
+</item>
+
+
+</channel>
+</rss>

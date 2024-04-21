@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Coefficient of Variation Function in PostgreSQL - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#333">
+  <link rel="canonical" href="https://susam.net/comments/coefficient-of-variation-function-in-postgresql.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+<main>
+<h1>Comments on <a href="../coefficient-of-variation-function-in-postgresql.html">Coefficient of Variation Function in PostgreSQL</a></h1>
+<div><a href="https://susam.net/form/comment/?p=coefficient-of-variation-function-in-postgresql">Post Comment</a></div>
+<section id="1" class="comment visitor">
+<h2>Philipp Rautenberg said:</h2>
+<p>
+  What exactly is <code>float8_accum</code> doing?
+</p>
+
+<div>
+<a href="#1">23 Mar 2011 12:34 GMT</a>
+(<a href="#1">#1 of 2 comments</a>)
+</div>
+</section>
+<section id="2" class="comment author">
+<h2><a href="https://susam.net/">Susam Pal</a> said:</h2>
+<p>
+  The <code>float8_accum</code> is the aggregate state transition
+  function which maintains an internal state which changes for every
+  new <code>float8</code> input value.
+</p>
+<p>
+  It requires a three-element array, not just two elements, because it
+  accumulates the sum of squares as well as the sum and count of the
+  inputs.  This is so that it can be used for some other aggregates
+  besides <code>avg</code>.
+</p>
+
+<div>
+<a href="#2">23 Mar 2011 19:03 GMT</a>
+(<a href="#2">#2 of 2 comments</a>)
+</div>
+</section>
+
+<div><a href="https://susam.net/form/comment/?p=coefficient-of-variation-function-in-postgresql">Post Comment</a></div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../wall.html">Wall</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="https://susam.net/form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2024 Susam Pal</p>
+</footer>
+</body>
+</html>

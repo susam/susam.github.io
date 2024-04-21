@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Shrinking List Puzzle - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#333">
+  <link rel="canonical" href="https://susam.net/comments/shrinking-list-puzzle.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+  <script>window.MathJax = { tex: { tags: 'ams' } }</script>
+  <script async src="../js/mathjax/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<main>
+<h1>Comments on <a href="../shrinking-list-puzzle.html">Shrinking List Puzzle</a></h1>
+<div><a href="https://susam.net/form/comment/?p=shrinking-list-puzzle">Post Comment</a></div>
+<section id="1" class="comment visitor">
+<h2>Ryan Batterman said:</h2>
+<p>
+  Let \( f(x, y) = x + y + xy.  \) It can be rewritten as \( f(x, y) =
+  (x + 1)(y + 1) - 1.  \) Now, consider an arbitrary set of integers
+  \( A = \{a_1, a_2, \dots, a_n\}.  \) Applying the algorithm
+  mentioned in the problem statement to two integers \( a_i \) and \(
+  a_j \) chosen randomly from the set such that \( i \ne j, \) we
+  obtain, \( f(a_i, a_j) = (a_i + 1)(b_i + 1) - 1.  \) When this
+  expression is used in subsequent calls to \( f(x, y), \) the \( -1
+  \) drops, the new number is included in the product and the \( -1 \)
+  gets added again.  For instance, using this result and a different
+  number \( a_k \) chosen randomly from the set, we obtain \(
+  f\bigl((a_i + 1)(a_j + 1) - 1, a_k\bigr) = (a_i + 1)(a_j + 1)(a_k +
+  1) - 1.  \) Inductively, this pattern holds, and the algorithm
+  returns a product of all integers in the set minus \( 1.  \)
+</p>
+<p>
+  Therefore, the result of the algorithm, when applied to the set \( A
+  \) is \( \prod_{i=1}^n (a_i + 1) - 1.  \) If \( A = \{1, 2, \dots,
+  9\}, \) on applying the algorithm, we obtain \( (1 + 1)(2 + 1) \dots
+  (9 + 1) - 1 = 10!  - 1 = 3628799.  \)
+</p>
+
+<div>
+<a href="#1">06 Jul 2011 05:07 GMT</a>
+(<a href="#1">#1 of 1 comment</a>)
+</div>
+</section>
+
+<div><a href="https://susam.net/form/comment/?p=shrinking-list-puzzle">Post Comment</a></div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../wall.html">Wall</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="https://susam.net/form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2024 Susam Pal</p>
+</footer>
+</body>
+</html>
