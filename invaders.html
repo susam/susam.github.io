@@ -1,0 +1,1397 @@
+<!--
+  Andromeda Invaders 0.9.0
+  Copyright (c) 2022-2023 Susam Pal
+  Source: https://github.com/susam/invaders
+  License: MIT
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Andromeda Invaders</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style>
+      body {
+        background: #111;
+        margin: 0;
+      }
+      canvas, button {
+        background: #000;
+        border: 1px solid #333;
+        box-sizing: border-box;
+      }
+      canvas {
+        display: block;
+        margin: 0 auto;
+        image-rendering: pixelated;
+      }
+      div {
+        text-align: center;
+      }
+      button {
+        color: #999;
+        font-size: 16px;
+        font-weight: bold;
+        vertical-align: middle;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+    </style>
+    <script>
+      'use strict'
+
+      // Metadata for info screen.
+      const NAME = 'Andromeda Invaders'
+      const VERSION = '0.8.0'
+      const COPYRIGHT = 'Copyright (c) 2022-2023 Susam Pal'
+      const LICENSE = 'Licensed under the MIT License'
+      const SOURCE_URL = 'https://github.com/susam/invaders'
+
+      // Lifecycle states.
+      const INITIALIZED = 'initialized'
+      const PLAYING = 'playing'
+      const PAUSED = 'paused'
+      const ENDED = 'ended'
+      const INFO = 'info'
+
+      const PLAY_SYMBOL = '&#x25ba;'
+      const PAUSE_SYMBOL = '&#x25a0;'
+
+      const LOGGING_ENABLED = false
+      const SCAFFOLDING_ENABLED = false
+
+      // Graphics dimensions.
+      const PADDING = 10
+      const CANVAS_WIDTH = 640
+      const CANVAS_HEIGHT = 480
+
+      const FONT_SCALE = 2
+      const FONT_WIDTH = 8 * FONT_SCALE
+      const FONT_HEIGHT = 16 * FONT_SCALE
+      const FONT_TOP_BLANK = 2 * FONT_SCALE
+
+      const SCORE_Y = PADDING - FONT_TOP_BLANK
+      const SPACE_Y = 40
+
+      const PLAYER_WIDTH = 50
+      const PLAYER_HEIGHT = 30
+      const PLAYER_HEAD_SIZE = 10
+      const PLAYER_Y = CANVAS_HEIGHT - PADDING - PLAYER_HEIGHT
+      const PLAYER_MAX_X = CANVAS_WIDTH - PADDING - PLAYER_WIDTH
+      const PLAYER_MOVE_STEP = 5
+
+      const PULSE_WIDTH = 4
+      const PULSE_HEIGHT = 30
+      const PULSE_X_OFFSET = (PLAYER_WIDTH - PULSE_WIDTH) / 2
+      const PULSE_Y_OFFSET = 0
+      const PULSE_MOVE_STEP = 10
+
+      const SHIP_WIDTH = 50
+      const SHIP_HEIGHT = 20
+      const SHIP_ROOF_WIDTH = 30
+      const SHIP_ROOF_HEIGHT = 5
+      const SHIP_ROOF_OFFSET = (SHIP_WIDTH - SHIP_ROOF_WIDTH) / 2
+      const SHIP_BODY_HEIGHT = SHIP_HEIGHT - 2 * SHIP_ROOF_HEIGHT
+      const SHIP_LANE_HEIGHT = 35
+      const SHIP_MAX_Y = PLAYER_Y - SHIP_ROOF_HEIGHT
+      const SHIP_MAX_X = CANVAS_WIDTH - PADDING - SHIP_WIDTH
+
+      const BOULDER_WIDTH = 6
+      const BOULDER_HEIGHT = 6
+      const BOULDER_X_OFFSET = (SHIP_WIDTH - BOULDER_WIDTH) / 2
+      const BOULDER_Y_OFFSET = SHIP_HEIGHT - BOULDER_HEIGHT
+
+      // Color palettes.
+      const SHIP_COLORS = ['#f60', '#c30', '#900']
+      const PLAYER_COLORS = ['#0c0', '#390', '#660']
+
+      // Audio parameters.
+      const BACKGROUND_VOLUME = 1
+      const HIT_VOLUME = 1
+      const HIT_DURATION = 0.125
+
+      // C major scale notes.
+      const C2 = 65.41
+      const E2 = 82.41
+      const G2 = 98.00
+      const A2 = 110.00
+      const C3 = 130.81
+      const D3 = 146.83
+      const E3 = 164.81
+      const F3 = 174.61
+      const G3 = 196.00
+      const A3 = 220.00
+      const B3 = 246.94
+      const C4 = 261.63
+      const E4 = 329.63
+      const F4 = 349.23
+      const G4 = 392.00
+      const A4 = 440.00
+      const B4 = 493.88
+      const C5 = 523.25
+      const D5 = 587.33
+      const F5 = 698.46
+      const B5 = 987.77
+
+      // Time intervals.
+      const REFRESH_INTERVAL = 20
+      const ACTION_REPEAT_INTERVAL = 20
+      const AUTO_SHORT_DELAY = 1000
+      const AUTO_LONG_DELAY = 5000
+      const AUTO_PLAY_INTERVAL = 20
+
+      // Time logging and display.
+      let initTime
+      let startTime
+      let timeUntilPreviousPause
+
+      // Graphics and audio contexts.
+      let canvas
+      let gCtx
+      let aCtx = null
+      let compressor
+      let gTimer
+      let aTimer
+      let scaledCanvasWidth
+      let scaledCanvasHeight
+
+      // HTML buttons.
+      let buttonsPlay
+      let buttonsMore
+      let buttonLeft
+      let buttonRight
+      let buttonEnter
+      let buttonPause
+      let buttonMute
+      let buttonList
+
+      // Game states.
+      let shipsAlive
+      let nearestShipAlive
+      let state
+      let level
+      let shipDescent = 0
+
+      // User interface states.
+      let leftTimer
+      let rightTimer
+      let leftOn = false
+      let rightOn = false
+      let muted = false
+
+      // Auto-play.
+      let autoSoon
+      let autoTimer
+      let autoAllowLeft = true
+
+      // Game objects visible on screen.
+      const player = {}
+      const pulse = {}
+      let ships
+      let boulders
+
+      // Utility functions.
+      function log () {
+        if (LOGGING_ENABLED) {
+          const args = Array.prototype.slice.call(arguments)
+          const prefix = ('time: ' + ((Date.now() - initTime) / 1000) +
+                          '; state: ' + state +
+                          '; level: ' + level +
+                          '; score: ' + player.score +
+                          '; health: ' + player.health +
+                          '; ships: ' + shipsAlive +
+                          '; nearest: ' + nearestShipAlive +
+                          '; descent: ' + shipDescent.toFixed(3) +
+                          '; x: ' + player.x +
+                          '; pulse: ' + pulse.x + ',' + pulse.y +
+                          '; ')
+          console.log(prefix + args.join(' '))
+        }
+      }
+
+      function random (min, max) {
+        return min + Math.floor(Math.random() * (max - min + 1))
+      }
+
+      function bounded (x, min, max) {
+        return Math.max(Math.min(x, max), min)
+      }
+
+      // Game initialization.
+      function init () {
+        state = INITIALIZED
+        initTime = Date.now()
+        autoSoon = window.location.hash === '#auto'
+        initGraphics()
+        initButtons()
+        initEventListeners()
+        resizeUI()
+        resetGame()
+        drawGame()
+        buttonPause.innerHTML = PLAY_SYMBOL
+        log('initialized canvas')
+      }
+
+      function initGraphics () {
+        canvas = document.getElementById('canvas')
+        gCtx = canvas.getContext('2d')
+        canvas.width = CANVAS_WIDTH
+        canvas.height = CANVAS_HEIGHT
+      }
+
+      function initButtons () {
+        buttonsPlay = document.getElementById('play')
+        buttonsMore = document.getElementById('more')
+        buttonLeft = document.getElementById('left')
+        buttonRight = document.getElementById('right')
+        buttonEnter = document.getElementById('enter')
+        buttonPause = document.getElementById('pause')
+        buttonMute = document.getElementById('mute')
+        buttonList = [
+          buttonLeft, buttonRight, buttonEnter, buttonPause, buttonMute
+        ]
+      }
+
+      function initAudio () {
+        if (aCtx !== null) {
+          return
+        }
+        if (typeof window.AudioContext === 'undefined') {
+          window.AudioContext = window.webkitAudioContext
+        }
+        aCtx = new window.AudioContext()
+        compressor = aCtx.createDynamicsCompressor()
+        compressor.connect(aCtx.destination)
+        log('initialized audio')
+      }
+
+      function initEventListeners () {
+        window.addEventListener('resize', resizeUI)
+
+        document.addEventListener('keydown', readKeyDown)
+        document.addEventListener('keyup', readKeyUp)
+
+        buttonLeft.addEventListener('mousedown', actionStartLeft)
+        buttonLeft.addEventListener('mouseup', actionStopLeft)
+        buttonLeft.addEventListener('touchstart', actionStartLeft)
+        buttonLeft.addEventListener('touchend', actionStopLeft)
+
+        buttonRight.addEventListener('mousedown', actionStartRight)
+        buttonRight.addEventListener('mouseup', actionStopRight)
+        buttonRight.addEventListener('touchstart', actionStartRight)
+        buttonRight.addEventListener('touchend', actionStopRight)
+
+        buttonEnter.addEventListener('click', actionEnter)
+        buttonEnter.addEventListener('touchstart', actionEnter)
+
+        buttonPause.addEventListener('click', actionPause)
+        buttonPause.addEventListener('touchstart', actionPause)
+
+        buttonMute.addEventListener('click', actionMute)
+        buttonMute.addEventListener('touchstart', actionMute)
+      }
+
+      // Resize canvas and buttons on browser resize.
+      function resizeUI () {
+        document.body.style.padding = PADDING + 'px'
+        if (window.innerWidth > window.innerHeight) {
+          resizeElements('inline-block', [5], 40, 10)
+          log('resized UI for wide screen')
+        } else {
+          resizeElements('block', [2, 3], 60, 30)
+          log('resized UI for tall screen')
+        }
+      }
+
+      function resizeElements (buttonsDivStyle, buttonGroups,
+        buttonHeight, buttonPadding) {
+        const buttonRows = buttonGroups.length
+        const buttonsHeight = buttonRows * (buttonPadding + buttonHeight)
+        const availableHeight = window.innerHeight - 2 * PADDING - buttonsHeight
+        const availableWidth = window.innerWidth - 2 * PADDING
+        buttonsPlay.style.display = buttonsDivStyle
+        buttonsMore.style.display = buttonsDivStyle
+        scaledCanvasHeight = Math.min(availableHeight, availableWidth * 3 / 4)
+        scaledCanvasWidth = scaledCanvasHeight * 4 / 3
+        canvas.style.width = scaledCanvasWidth + 'px'
+        canvas.style.height = scaledCanvasHeight + 'px'
+        let start = 0
+        for (let i = 0; i < buttonGroups.length; i++) {
+          const len = buttonGroups[i]
+          resizeButtons(start, len, buttonHeight, buttonPadding)
+          start += len
+        }
+      }
+
+      function resizeButtons (start, len, height, padding) {
+        const scaledWidth = (scaledCanvasWidth - (len - 1) * padding) / len
+        const width = Math.max(scaledWidth, 40)
+        for (let i = start; i < start + len; i++) {
+          const button = buttonList[i]
+          button.style.height = height + 'px'
+          button.style.width = width + 'px'
+          button.style.marginTop = padding + 'px'
+          if (i === start + len - 1) {
+            button.style.marginRight = '0'
+          } else {
+            button.style.marginRight = padding + 'px'
+          }
+        }
+      }
+
+      // Functions to set/change game states.
+      function resetGame () {
+        player.score = 0
+        level = 1
+        resetPlayer()
+        resetPulse()
+        resetShips()
+        resetBoulders()
+        startTime = -1
+        timeUntilPreviousPause = 0
+        clearTimeout(autoTimer)
+
+        const autoDelay = autoSoon ? AUTO_SHORT_DELAY : AUTO_LONG_DELAY
+        autoTimer = setTimeout(autoPlay, autoDelay)
+        autoSoon = false
+
+        log('reset game')
+      }
+
+      function newLevel () {
+        if (level === 1000) {
+          level = 1
+        } else {
+          level++
+        }
+        resetPulse()
+        resetShips()
+        resetBoulders()
+        drawGame()
+        log('created game level', level)
+      }
+
+      function autoPlay () {
+        if (state === ENDED || state === INFO) {
+          stopRight()
+          stopLeft()
+          return
+        } else if (state === PAUSED) {
+          stopRight()
+          stopLeft()
+        } else if (state === INITIALIZED) {
+          startRight()
+        } else if (shipsAlive > 0) {
+          autoMove()
+        }
+        autoTimer = setTimeout(autoPlay, AUTO_PLAY_INTERVAL)
+      }
+
+      function autoMove () {
+        const SCAN_WIDTH = 2 * PLAYER_MOVE_STEP
+
+        const tBlock = []
+        const lBlock = []
+        const rBlock = []
+
+        // Scan airspace four boulders that are too close.
+        for (let i = 0; i < boulders.length; i++) {
+          const boulder = boulders[i]
+          if (boulder.live &&
+              boulder.y > PLAYER_Y - 12 * boulder.speed - BOULDER_HEIGHT &&
+              boulder.y < CANVAS_HEIGHT - PADDING &&
+              boulder.x >= player.x - SCAN_WIDTH - BOULDER_WIDTH &&
+              boulder.x <= player.x + PLAYER_WIDTH + SCAN_WIDTH) {
+            const param = [i, boulder.x, boulder.y, boulder.speed]
+            if (boulder.x <= player.x - BOULDER_WIDTH) {
+              lBlock.push(param)
+            } else if (boulder.x >= player.x + PLAYER_WIDTH) {
+              rBlock.push(param)
+            } else {
+              tBlock.push(param)
+              if (boulder.x < PADDING + PLAYER_WIDTH) {
+                lBlock.push(param)
+              } else if (boulder.x > PLAYER_MAX_X) {
+                rBlock.push(param)
+              }
+            }
+          }
+        }
+
+        // Estimated hit spot position of nearest ship.
+        const startX = player.x + PULSE_X_OFFSET
+        const startY = PLAYER_Y - PULSE_HEIGHT
+        const ship = ships[nearestShipAlive]
+        const aimX = ship.x + BOULDER_X_OFFSET - PULSE_WIDTH
+        const aimY = ship.y + SHIP_HEIGHT / 2
+        const relativeSpeed = PULSE_MOVE_STEP + 1 / (1 + shipsAlive)
+        const travelTime = Math.floor((startY - aimY) / relativeSpeed)
+        const shiftedAimX = aimX + (ship.direction * ship.speed * travelTime)
+
+        // Movement constants and variables.
+        const STAY = 'stay'
+        const LEFT = 'left'
+        const RIGHT = 'right'
+        let decision = STAY
+        let canClearLeft = true
+        let canClearRight = true
+        let remark = 'n/a'
+
+        if (tBlock.length !== 0) {
+          // Check which way player cannot move to clear the top boulders.
+          for (let i = 0; i < tBlock.length; i++) {
+            const x = tBlock[i][1]
+            const y = tBlock[i][2]
+            const s = tBlock[i][3]
+            const lSteps = Math.ceil((player.x + PLAYER_WIDTH - x) / PLAYER_MOVE_STEP)
+            const rSteps = Math.ceil((x + BOULDER_WIDTH - player.x) / PLAYER_MOVE_STEP)
+            const impactSteps = Math.ceil((player.y - y - BOULDER_HEIGHT) / s)
+            canClearLeft &&= lSteps < impactSteps
+            canClearRight &&= rSteps < impactSteps
+          }
+          // Decide next move.
+          if (lBlock.length === 0 && canClearLeft && autoAllowLeft) {
+            decision = LEFT
+            remark = 'clear boulder'
+          } else if (rBlock.length === 0 && canClearRight) {
+            autoAllowLeft = false
+            decision = RIGHT
+            remark = 'clear boulder'
+          } else {
+            const boulderX = tBlock[0][1]
+            const pulseX = player.x + PULSE_X_OFFSET
+            if (pulseX + PULSE_WIDTH <= boulderX) {
+              decision = RIGHT
+            } else if (pulseX >= boulderX + BOULDER_WIDTH) {
+              decision = LEFT
+            }
+            remark = 'aim boulder'
+          }
+        } else if (startX < shiftedAimX && rBlock.length === 0) {
+          decision = RIGHT
+          autoAllowLeft = true
+          remark = 'aim ship'
+        } else if (startX > shiftedAimX && lBlock.length === 0) {
+          decision = LEFT
+          autoAllowLeft = true
+          remark = 'aim ship'
+        }
+
+        log('clearance: ' + autoAllowLeft + ',' +
+            canClearLeft + ',' + canClearRight + '; ' +
+            (tBlock.length === 0 ? '' : 'tBlock: ' + tBlock.join(' ') + '; ') +
+            (lBlock.length === 0 ? '' : 'lBlock: ' + lBlock.join(' ') + '; ') +
+            (rBlock.length === 0 ? '' : 'rBlock: ' + rBlock.join(' ') + '; ') +
+            'decision: ' + decision + ' (' + remark + ')')
+
+        if (decision === STAY) {
+          stopLeft()
+          stopRight()
+        } else if (decision === LEFT) {
+          stopRight()
+          startLeft()
+        } else if (decision === RIGHT) {
+          stopLeft()
+          startRight()
+        }
+      }
+
+      function playGame () {
+        state = PLAYING
+        startTime = Date.now()
+        initAudio()
+        startMusic()
+        animate()
+        buttonPause.innerHTML = PAUSE_SYMBOL
+        log('started game')
+      }
+
+      function startGame () {
+        clearTimeout(autoTimer)
+        playGame()
+      }
+
+      function resumeGame () {
+        playGame()
+      }
+
+      function stopGame () {
+        state = ENDED
+        clearTimeout(gTimer)
+        clearTimeout(aTimer)
+        buttonPause.innerHTML = PLAY_SYMBOL
+        log('stopped game')
+      }
+
+      function pauseGame () {
+        state = PAUSED
+        timeUntilPreviousPause += Date.now() - startTime
+        clearTimeout(gTimer)
+        clearTimeout(aTimer)
+        buttonPause.innerHTML = PLAY_SYMBOL
+        log('paused game')
+      }
+
+      function restartGame () {
+        if (state === PLAYING) {
+          stopGame()
+        }
+        state = INITIALIZED
+        resetGame()
+        drawGame()
+        buttonPause.innerHTML = PLAY_SYMBOL
+        log('restarted game')
+      }
+
+      // Functions to reset game object states.
+      function shipColor (ship) {
+        return SHIP_COLORS[SHIP_COLORS.length - ship.health]
+      }
+
+      function playerColor () {
+        return PLAYER_COLORS[PLAYER_COLORS.length - player.health]
+      }
+
+      function resetPlayer () {
+        player.x = PADDING
+        player.y = PLAYER_Y
+        player.health = PLAYER_COLORS.length
+        player.repairySinceScore = 0
+        log('reset player; x: ' + player.x + '; y: ' + player.y)
+      }
+
+      function resetPulse () {
+        if (player.health <= 0) {
+          return
+        }
+        pulse.x = player.x + PULSE_X_OFFSET
+        pulse.y = player.y + PULSE_Y_OFFSET
+        pulse.color = playerColor()
+        pulse.live = true
+        log('reset pulse')
+      }
+
+      function resetShips () {
+        const shipSpeed = Math.min(Math.floor((level + 6) / 3), 8)
+        shipsAlive = (level <= 2) ? (3 * level) : 10
+        ships = []
+        shipDescent = 0
+        for (let i = 0; i < shipsAlive; i++) {
+          const ship = {}
+          ship.x = random(PADDING, SHIP_MAX_X)
+          ship.y = SPACE_Y + Math.floor(shipDescent) + SHIP_LANE_HEIGHT * i
+          ship.direction = random(0, 1) === 0 ? -1 : 1
+          ship.health = SHIP_COLORS.length
+          ship.speed = shipSpeed
+          ship.repaired = 0
+          ships.push(ship)
+          log('ship ' + i + '; x: ' + ship.x + '; y: ' + ship.y +
+              '; height: ' + SHIP_HEIGHT)
+        }
+        updateNearestShipAlive()
+        log('reset', shipsAlive, 'ships with speed', shipSpeed)
+      }
+
+      function resetBoulders () {
+        boulders = []
+        for (let i = 0; i < shipsAlive; i++) {
+          const boulder = {}
+          resetBoulder(boulder, ships[i])
+          boulders.push(boulder)
+        }
+        log('reset boulders')
+      }
+
+      function resetBoulder (boulder, ship) {
+        const minSpeed = Math.min(Math.floor((level + 4) / 3), 8)
+        const maxSpeed = Math.min(Math.floor((level + 11) / 3), 10)
+        if (ship.health > 0) {
+          repairShip(ship)
+          boulder.x = ship.x + BOULDER_X_OFFSET
+          boulder.y = ship.y + BOULDER_Y_OFFSET
+          boulder.color = shipColor(ship)
+          boulder.speed = random(minSpeed, maxSpeed)
+          boulder.live = true
+        } else {
+          boulder.live = false
+        }
+      }
+
+      // Health recovery rules.
+      function repairPlayer () {
+        const repairy = player.score - player.repairySinceScore
+        if (player.health > 0 && player.health < PLAYER_COLORS.length &&
+            repairy >= 100) {
+          player.health++
+          log('increased player health; repairy =', player.score, '-',
+            player.repairySinceScore, '=', repairy)
+          player.repairySinceScore = player.score
+        }
+      }
+
+      function repairShip (ship) {
+        if (ship.health > 0 && ship.health < SHIP_COLORS.length) {
+          ship.repaired++
+        }
+        if (ship.repaired === 10) {
+          ship.health++
+          ship.repaired = 0
+        }
+      }
+
+      // Animation loop.
+      function animate () {
+        movePulse()
+        moveShips()
+        moveBoulders()
+        drawGame()
+        if (player.health <= 0) {
+          stopGame()
+          return
+        }
+        if (shipsAlive === 0) {
+          newLevel()
+        }
+        checkShipHits()
+        checkBoulderHits()
+        checkPlayerHit()
+        repairPlayer()
+        gTimer = setTimeout(animate, REFRESH_INTERVAL)
+      }
+
+      // Move game objects.
+      function movePulse () {
+        if (!pulse.live) {
+          resetPulse()
+        } else if (pulse.y < -PULSE_HEIGHT) {
+          pulse.live = false
+        } else {
+          pulse.y -= PULSE_MOVE_STEP
+        }
+        if (player.health > 0 && pulse.y + PULSE_HEIGHT >= PLAYER_Y) {
+          pulse.x = player.x + PULSE_X_OFFSET
+          pulse.color = playerColor()
+        }
+      }
+
+      function moveShips () {
+        if (shipsAlive > 0 &&
+            SPACE_Y + shipDescent + nearestShipAlive * SHIP_LANE_HEIGHT <
+            SHIP_MAX_Y) {
+          shipDescent += 1 / (1 + shipsAlive)
+        }
+
+        for (let i = 0; i < ships.length; i++) {
+          const ship = ships[i]
+
+          if (ship.health <= 0) {
+            continue
+          }
+
+          ship.x += ship.direction * ship.speed
+          if (ship.x < PADDING) {
+            ship.x = PADDING
+            ship.direction *= -1
+          } else if (ship.x > SHIP_MAX_X) {
+            ship.x = SHIP_MAX_X
+            ship.direction *= -1
+          }
+
+          const minY = SPACE_Y + Math.floor(shipDescent) + SHIP_LANE_HEIGHT * i
+          const maxY = minY + 10
+
+          if (ship.y < SHIP_MAX_Y) {
+            ship.y += random(-1, 1)
+            ship.y = bounded(ship.y, minY, maxY)
+            if (random(1, 100) === 1) {
+              ship.direction *= -1
+            }
+          } else {
+            ship.y = SHIP_MAX_Y
+            ship.speed = Math.max(4, ship.speed)
+            ship.direction = player.x >= ship.x ? 1 : -1
+          }
+        }
+      }
+
+      function moveBoulders () {
+        for (let i = 0; i < boulders.length; i++) {
+          const boulder = boulders[i]
+          const ship = ships[i]
+          boulder.y += boulder.speed
+          if (!boulder.live) {
+            resetBoulder(boulder, ship)
+          } else if (boulder.y > CANVAS_HEIGHT) {
+            boulder.live = false
+          }
+          if (boulder.y - ship.y <= 5 * BOULDER_HEIGHT) {
+            boulder.x = ship.x + BOULDER_X_OFFSET
+          }
+        }
+      }
+
+      // Render game state to canvas.
+      function drawBackground () {
+        gCtx.fillStyle = '#000'
+        gCtx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+      }
+
+      function drawGame () {
+        drawBackground()
+        drawScore()
+        drawTime()
+        drawPlayer()
+        drawShips()
+        drawBoulders()
+        drawPulse()
+        drawScaffolding()
+      }
+
+      let urlMinY
+      let urlMaxY
+
+      function drawInfo () {
+        state = INFO
+        drawBackground()
+
+        let textY = (CANVAS_HEIGHT - 7 * FONT_HEIGHT) / 2
+        drawCenterText(NAME + ' v' + VERSION, textY, false)
+        textY += 2 * FONT_HEIGHT
+        drawCenterText(COPYRIGHT, textY, false)
+        textY += 2 * FONT_HEIGHT
+        drawCenterText(LICENSE, textY, false)
+        textY += 2 * FONT_HEIGHT
+        drawCenterText(SOURCE_URL, textY, true)
+        urlMinY = textY
+        urlMaxY = textY + FONT_HEIGHT
+      }
+
+      function drawScore () {
+        const text = player.score + ' (L' + level + ')'
+        drawText(text, PADDING, SCORE_Y)
+      }
+
+      function drawTime () {
+        if (startTime === -1) {
+          return
+        }
+        const ms = timeUntilPreviousPause + Date.now() - startTime
+        const ds = Math.floor(ms / 100) % 10
+        const ss = Math.floor(ms / 1000) % 60
+        const mm = Math.floor(ms / 1000 / 60) % 60
+        const hh = Math.floor(ms / 1000 / 60 / 60)
+
+        const ssStr = (ss < 10 ? '0' : '') + ss
+        const mmStr = (mm < 10 ? '0' : '') + mm
+        const hhStr = (hh < 10 ? '0' : '') + hh
+
+        let text
+        if (hh > 0) {
+          text = hhStr + ':' + mmStr + ':' + ssStr + '.' + ds
+        } else if (mm > 0) {
+          text = mmStr + ':' + ssStr + '.' + ds
+        } else {
+          text = ss + '.' + ds
+        }
+
+        const x = CANVAS_WIDTH - PADDING - FONT_WIDTH * text.length
+        drawText(text, x, SCORE_Y)
+      }
+
+      function drawShips () {
+        for (let i = 0; i < ships.length; i++) {
+          const ship = ships[i]
+          if (ship.health <= 0) {
+            continue
+          }
+          gCtx.fillStyle = shipColor(ship)
+          gCtx.fillRect(
+            ship.x + SHIP_ROOF_OFFSET,
+            ship.y,
+            SHIP_ROOF_WIDTH,
+            SHIP_ROOF_HEIGHT)
+          gCtx.fillRect(
+            ship.x,
+            ship.y + SHIP_ROOF_HEIGHT,
+            SHIP_WIDTH,
+            SHIP_BODY_HEIGHT)
+          gCtx.fillRect(
+            ship.x + SHIP_ROOF_OFFSET,
+            ship.y + SHIP_ROOF_HEIGHT + SHIP_BODY_HEIGHT,
+            SHIP_ROOF_WIDTH,
+            SHIP_ROOF_HEIGHT)
+        }
+      }
+
+      function drawBoulders () {
+        for (let i = 0; i < boulders.length; i++) {
+          const boulder = boulders[i]
+          if (!boulder.live) {
+            continue
+          }
+          gCtx.fillStyle = boulder.color
+          gCtx.fillRect(boulder.x, boulder.y, BOULDER_WIDTH, BOULDER_HEIGHT)
+        }
+      }
+
+      function drawPlayer () {
+        if (player.health <= 0) {
+          return
+        }
+        gCtx.fillStyle = playerColor()
+        gCtx.fillRect(
+          player.x + 2 * PLAYER_HEAD_SIZE,
+          player.y,
+          PLAYER_HEAD_SIZE,
+          PLAYER_HEAD_SIZE)
+        gCtx.fillRect(
+          player.x + PLAYER_HEAD_SIZE,
+          player.y + PLAYER_HEAD_SIZE,
+          PLAYER_WIDTH - 2 * PLAYER_HEAD_SIZE,
+          PLAYER_HEAD_SIZE)
+        gCtx.fillRect(
+          player.x,
+          player.y + 2 * PLAYER_HEAD_SIZE,
+          PLAYER_WIDTH,
+          PLAYER_HEAD_SIZE)
+      }
+
+      function drawPulse () {
+        if (!pulse.live) {
+          return
+        }
+        gCtx.fillStyle = pulse.color
+        gCtx.fillRect(pulse.x, pulse.y, PULSE_WIDTH, PULSE_HEIGHT)
+      }
+
+      function drawScaffolding () {
+        if (!SCAFFOLDING_ENABLED) {
+          return
+        }
+
+        gCtx.fillStyle = '#090'
+        gCtx.fillRect(0, SHIP_MAX_Y, CANVAS_WIDTH, 1)
+
+        for (let i = 0; i <= 10; i++) {
+          const y = SPACE_Y + SHIP_LANE_HEIGHT * i
+          gCtx.fillRect(0, y, CANVAS_WIDTH, 1)
+        }
+
+        gCtx.fillStyle = '#660'
+        for (let i = 0; i <= 10; i++) {
+          const y = SPACE_Y + SHIP_LANE_HEIGHT * i
+          gCtx.fillRect(0, y, CANVAS_WIDTH, 1)
+        }
+
+        gCtx.fillStyle = '#f00'
+        for (let i = 0; i <= 10; i++) {
+          const y = SPACE_Y + Math.floor(shipDescent) + SHIP_LANE_HEIGHT * i
+          gCtx.fillRect(0, y, CANVAS_WIDTH, 1)
+        }
+      }
+
+      // Info screen displayed when a game ends.
+      function infoCursor (e) {
+        const cursorY = e.offsetY * CANVAS_HEIGHT / scaledCanvasHeight
+        if (cursorY >= urlMinY && cursorY <= urlMaxY) {
+          canvas.style.cursor = 'pointer'
+        } else {
+          canvas.style.cursor = 'auto'
+        }
+      }
+
+      function infoClick (e) {
+        const cursorY = e.offsetY * CANVAS_HEIGHT / scaledCanvasHeight
+        if (cursorY >= urlMinY && cursorY <= urlMaxY) {
+          window.location = SOURCE_URL
+        }
+      }
+
+      function enableClickableInfo () {
+        canvas.addEventListener('mousemove', infoCursor)
+        canvas.addEventListener('click', infoClick)
+      }
+
+      function disableClickableInfo () {
+        canvas.removeEventListener('mousemove', infoCursor)
+        canvas.removeEventListener('click', infoClick)
+      }
+
+      function drawChar (c, x, y, s) {
+        const bitmap = FONTMAP[c]
+        if (typeof bitmap === 'undefined') {
+          throw new Error('No bitmap for ' + c)
+        }
+        for (let i = 0; i < bitmap.length; i++) {
+          for (let j = 0; j < 8; j++) {
+            const mask = 1 << (7 - j)
+            if ((bitmap[i] & mask) !== 0) {
+              gCtx.fillRect(x + s * j, y + s * i, s, s)
+            }
+          }
+        }
+      }
+
+      function drawText (line, x, y) {
+        gCtx.fillStyle = PLAYER_COLORS[0]
+        for (let i = 0; i < line.length; i++) {
+          drawChar(line.charAt(i), x + i * FONT_WIDTH, y, FONT_SCALE)
+        }
+      }
+
+      function drawCenterText (text, textY, underline) {
+        const width = text.length * FONT_WIDTH
+        const textX = Math.round((CANVAS_WIDTH - width) / 2)
+        drawText(text, textX, textY)
+        if (underline) {
+          gCtx.fillRect(textX, textY + FONT_HEIGHT, width, FONT_SCALE)
+        }
+      }
+
+      // Audio
+      function startMusic () {
+        log('audio state is', aCtx.state)
+        if (aCtx.state === 'suspended') {
+          aCtx.resume().then(function () {
+            log('audio has resumed; audio state is', aCtx.state)
+            playMusic()
+          })
+        } else {
+          playMusic()
+        }
+      }
+
+      function playMusic () {
+        const chords = [
+          [C2, C3, A3, E3, C4], // A minor
+          [E2, E3, G3, B3, E4], // E minor
+          [A2, D3, A3, F3, A4], // D minor
+          [G2, G3, B3, D3, G4] // G major
+        ]
+        const interval = 1 / bounded(level, 2, 12)
+        playChordProgression(chords, interval, BACKGROUND_VOLUME)
+
+        // If the browser suspends audio when the game starts and a
+        // human player pauses and resumes the game, two invocations
+        // of aCtx.resume() callbacks would interleave. The following
+        // clearTimeout() avoids two music loops running
+        // simultaneously in such a case.
+        clearTimeout(aTimer)
+        aTimer = setTimeout(playMusic, chords.length * interval * 1000)
+      }
+
+      function playChordProgression (chords, duration, volume) {
+        for (let i = 0; i < chords.length; i++) {
+          playChord(chords[i], i * duration, duration, volume)
+        }
+      }
+
+      function playChord (frequencies, delay, duration, volume) {
+        if (aCtx.state === 'suspended') {
+          return
+        }
+        const gain = aCtx.createGain()
+        const timeConstant = Math.min(duration, 0.200) / 3
+        const beginTime = aCtx.currentTime + delay
+        const endTime = beginTime + 10 * timeConstant
+        gain.connect(compressor)
+        for (let i = 0; i < frequencies.length; i++) {
+          const oscillator = aCtx.createOscillator()
+          oscillator.frequency.value = frequencies[i]
+          gain.gain.setValueAtTime(muted ? 0 : volume, beginTime)
+          gain.gain.setTargetAtTime(0, beginTime, timeConstant)
+          oscillator.connect(gain)
+          oscillator.start(beginTime)
+          oscillator.stop(endTime)
+          setTimeout(function () {
+            oscillator.disconnect()
+            gain.disconnect()
+          }, (endTime + 1) * 1000)
+        }
+      }
+
+      function overlap (x1, y1, w1, h1, x2, y2, w2, h2) {
+        return x1 + w1 > x2 && x1 < x2 + w2 &&
+               y1 + h1 > y2 && y1 < y2 + h2
+      }
+
+      // Collision detection.
+      function checkShipHits () {
+        for (let i = 0; i < ships.length; i++) {
+          const ship = ships[i]
+          if (ship.health <= 0) {
+            continue
+          }
+          const hitBetweenRoofs = overlap(
+            pulse.x, pulse.y, PULSE_WIDTH, PULSE_HEIGHT,
+            ship.x + SHIP_ROOF_OFFSET, ship.y, SHIP_ROOF_WIDTH, SHIP_HEIGHT)
+          const hitBetweenWings = overlap(
+            pulse.x, pulse.y, PULSE_WIDTH, PULSE_HEIGHT,
+            ship.x, ship.y + SHIP_ROOF_HEIGHT, SHIP_WIDTH, SHIP_BODY_HEIGHT)
+          if (hitBetweenRoofs || hitBetweenWings) {
+            // F major
+            playChord([F3, C4, F4, A4, F5], 0, HIT_DURATION, HIT_VOLUME)
+            pulse.live = false
+            ship.health--
+            if (ship.health <= 0) {
+              shipsAlive--
+              updateNearestShipAlive()
+            }
+            player.score += (SHIP_COLORS.length - ship.health) * 10
+            log('ship', i, 'is hit')
+          }
+        }
+      }
+
+      function checkBoulderHits () {
+        for (let i = 0; i < boulders.length; i++) {
+          const boulder = boulders[i]
+          if (!boulder.live) {
+            continue
+          }
+          const hit = overlap(
+            pulse.x, pulse.y, PULSE_WIDTH, PULSE_HEIGHT,
+            boulder.x, boulder.y, BOULDER_WIDTH, BOULDER_HEIGHT)
+          if (hit) {
+            // C major
+            playChord([C3, C4, E4, G4, C5], 0, HIT_DURATION, HIT_VOLUME)
+            boulder.live = false
+            pulse.live = false
+            player.score++
+            log('boulder', i, 'is hit')
+          }
+        }
+      }
+
+      function checkPlayerHit () {
+        let playerHit = false
+
+        // Hit by boulders.
+        for (let i = 0; i < boulders.length; i++) {
+          const boulder = boulders[i]
+          if (!boulder.live) {
+            continue
+          }
+
+          const headHit = overlap(
+            boulder.x, boulder.y, BOULDER_WIDTH, BOULDER_HEIGHT,
+            player.x + 2 * PLAYER_HEAD_SIZE,
+            player.y,
+            PLAYER_HEAD_SIZE,
+            PLAYER_HEAD_SIZE)
+          const bodyHit = overlap(
+            boulder.x, boulder.y, BOULDER_WIDTH, BOULDER_HEIGHT,
+            player.x + PLAYER_HEAD_SIZE,
+            player.y + PLAYER_HEAD_SIZE,
+            PLAYER_WIDTH - 2 * PLAYER_HEAD_SIZE,
+            PLAYER_HEAD_SIZE)
+          const baseHit = overlap(
+            boulder.x, boulder.y, BOULDER_WIDTH, BOULDER_HEIGHT,
+            player.x,
+            player.y + 2 * PLAYER_HEAD_SIZE,
+            PLAYER_WIDTH,
+            PLAYER_HEAD_SIZE)
+
+          if (headHit || bodyHit || baseHit) {
+            playerHit = true
+            boulder.live = false
+            player.health--
+            player.repairySinceScore = player.score
+            log('player hit by boulder', i)
+          }
+        }
+
+        // Hit by ship.
+        if (nearestShipAlive >= 0) {
+          const ship = ships[nearestShipAlive]
+          const hitByWing = overlap(
+            player.x + 2 * PLAYER_HEAD_SIZE, player.y,
+            PLAYER_HEAD_SIZE, PLAYER_HEAD_SIZE,
+            ship.x, ship.y + SHIP_ROOF_HEIGHT, SHIP_WIDTH, SHIP_BODY_HEIGHT)
+          const hitByBody = overlap(
+            player.x + 2 * PLAYER_HEAD_SIZE, player.y,
+            PLAYER_HEAD_SIZE, PLAYER_HEAD_SIZE,
+            ship.x + SHIP_ROOF_OFFSET, ship.y, SHIP_ROOF_WIDTH, SHIP_HEIGHT)
+
+          if (hitByWing || hitByBody) {
+            playerHit = true
+            ship.health = 0
+            player.health = 0
+            log('player hit by ship', nearestShipAlive)
+          }
+        }
+
+        if (playerHit) {
+          playChord([B3, B4, D5, F5, B5], 0, 4 * HIT_DURATION, HIT_VOLUME)
+        }
+      }
+
+      function updateNearestShipAlive () {
+        for (let i = ships.length - 1; i >= 0; i--) {
+          if (ships[i].health > 0) {
+            nearestShipAlive = i
+            return
+          }
+        }
+        nearestShipAlive = -1
+      }
+
+      // User input handling.
+      function readKeyDown (e) {
+        if (e.code === 'KeyA' || e.code === 'ArrowLeft') {
+          actionStartLeft(e)
+        } else if (e.code === 'KeyD' || e.code === 'ArrowRight') {
+          actionStartRight(e)
+        } else if (e.code === 'KeyP' || e.code === 'Space') {
+          actionPause(e)
+        } else if (e.code === 'KeyE' || e.code === 'Enter') {
+          actionEnter(e)
+        } else if (e.code === 'KeyM') {
+          actionMute(e)
+        } else if (e.code === 'KeyF') {
+          actionFullScreen(e)
+        }
+      }
+
+      function readKeyUp (e) {
+        if (e.code === 'KeyA' || e.code === 'ArrowLeft') {
+          actionStopLeft(e)
+        } else if (e.code === 'KeyD' || e.code === 'ArrowRight') {
+          actionStopRight(e)
+        }
+      }
+
+      function actionStartLeft (e) {
+        e.preventDefault()
+        startLeft()
+      }
+
+      function actionStartRight (e) {
+        e.preventDefault()
+        startRight()
+      }
+
+      function actionStopLeft (e) {
+        e.preventDefault()
+        stopLeft()
+      }
+
+      function actionStopRight (e) {
+        e.preventDefault()
+        stopRight()
+      }
+
+      function startLeft () {
+        if (!leftOn) {
+          leftOn = true
+          moveLeft()
+        }
+      }
+
+      function startRight () {
+        if (!rightOn) {
+          rightOn = true
+          moveRight()
+        }
+      }
+
+      function stopLeft () {
+        leftOn = false
+        clearTimeout(leftTimer)
+      }
+
+      function stopRight () {
+        rightOn = false
+        clearTimeout(rightTimer)
+      }
+
+      function moveLeft () {
+        if (state === INITIALIZED) {
+          startGame()
+          return
+        } else if (state !== PLAYING || player.x === PADDING) {
+          return
+        }
+        player.x -= PLAYER_MOVE_STEP
+        drawGame()
+        leftTimer = setTimeout(moveLeft, ACTION_REPEAT_INTERVAL)
+      }
+
+      function moveRight () {
+        if (state === INITIALIZED) {
+          startGame()
+        } else if (state !== PLAYING || player.x === PLAYER_MAX_X) {
+          return
+        }
+        player.x += PLAYER_MOVE_STEP
+        drawGame()
+        rightTimer = setTimeout(moveRight, ACTION_REPEAT_INTERVAL)
+      }
+
+      function actionEnter (e) {
+        e.preventDefault()
+        if (state === INFO) {
+          disableClickableInfo()
+          restartGame()
+        } else {
+          stopGame()
+          drawInfo()
+          enableClickableInfo()
+        }
+      }
+
+      function actionMute (e) {
+        e.preventDefault()
+        muted = !muted
+      }
+
+      function actionPause (e) {
+        e.preventDefault()
+        if (state === INITIALIZED) {
+          startGame()
+        } else if (state === PLAYING) {
+          pauseGame()
+        } else if (state === PAUSED) {
+          resumeGame()
+        } else if (state === ENDED) {
+          drawInfo()
+          enableClickableInfo()
+        } else if (state === INFO) {
+          disableClickableInfo()
+          restartGame()
+        }
+      }
+
+      function actionFullScreen (e) {
+        if (document.fullscreenElement) {
+          if (document.exitFullscreen) {
+            document.exitFullscreen()
+          } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen()
+          } else if (document.msExitFullscreen) {
+            document.msExitFullscreen()
+          }
+        } else {
+          if (canvas.requestFullscreen) {
+            canvas.requestFullscreen()
+          } else if (canvas.webkitRequestFullscreen) {
+            canvas.webkitRequestFullscreen()
+          } else if (canvas.msRequestFullscreen) {
+            canvas.msRequestFullscreen()
+          }
+        }
+      }
+
+      // Bitmaps for drawing text on canvas.
+      const FONTMAP = {
+        /* eslint-disable indent, quote-props */
+        ' ': [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
+        '(': [0x00, 0x00, 0x0c, 0x18, 0x30, 0x30, 0x30, 0x30,
+              0x30, 0x30, 0x18, 0x0c, 0x00, 0x00, 0x00, 0x00],
+        ')': [0x00, 0x00, 0x30, 0x18, 0x0c, 0x0c, 0x0c, 0x0c,
+              0x0c, 0x0c, 0x18, 0x30, 0x00, 0x00, 0x00, 0x00],
+        '-': [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xfe,
+              0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
+        '.': [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+              0x00, 0x00, 0x30, 0x30, 0x00, 0x00, 0x00, 0x00],
+        '/': [0x00, 0x00, 0x00, 0x02, 0x06, 0x0c, 0x18, 0x30,
+              0x60, 0xc0, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00],
+        '0': [0x00, 0x00, 0x7c, 0xc6, 0xc6, 0xce, 0xde, 0xf6,
+              0xe6, 0xc6, 0xc6, 0x7c, 0x00, 0x00, 0x00, 0x00],
+        '1': [0x00, 0x00, 0x18, 0x38, 0x78, 0x18, 0x18, 0x18,
+              0x18, 0x18, 0x18, 0x7e, 0x00, 0x00, 0x00, 0x00],
+        '2': [0x00, 0x00, 0x7c, 0xc6, 0x06, 0x0c, 0x18, 0x30,
+              0x60, 0xc0, 0xc6, 0xfe, 0x00, 0x00, 0x00, 0x00],
+        '3': [0x00, 0x00, 0x7c, 0xc6, 0x06, 0x06, 0x3c, 0x06,
+              0x06, 0x06, 0xc6, 0x7c, 0x00, 0x00, 0x00, 0x00],
+        '4': [0x00, 0x00, 0x0c, 0x1c, 0x3c, 0x6c, 0xcc, 0xcc,
+              0xfe, 0x0c, 0x0c, 0x1e, 0x00, 0x00, 0x00, 0x00],
+        '5': [0x00, 0x00, 0xfe, 0xc0, 0xc0, 0xc0, 0xfc, 0x06,
+              0x06, 0x06, 0xc6, 0x7c, 0x00, 0x00, 0x00, 0x00],
+        '6': [0x00, 0x00, 0x7c, 0xc6, 0xc0, 0xc0, 0xfc, 0xc6,
+              0xc6, 0xc6, 0xc6, 0x7c, 0x00, 0x00, 0x00, 0x00],
+        '7': [0x00, 0x00, 0xfe, 0xc6, 0x06, 0x06, 0x0c, 0x18,
+              0x30, 0x30, 0x30, 0x30, 0x00, 0x00, 0x00, 0x00],
+        '8': [0x00, 0x00, 0x7c, 0xc6, 0xc6, 0xc6, 0x7c, 0xc6,
+              0xc6, 0xc6, 0xc6, 0x7c, 0x00, 0x00, 0x00, 0x00],
+        '9': [0x00, 0x00, 0x7c, 0xc6, 0xc6, 0xc6, 0xc6, 0x7e,
+              0x06, 0x06, 0xc6, 0x7c, 0x00, 0x00, 0x00, 0x00],
+        ':': [0x00, 0x00, 0x00, 0x00, 0x18, 0x18, 0x00, 0x00,
+              0x00, 0x18, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00],
+        'A': [0x00, 0x00, 0x38, 0x6c, 0xc6, 0xc6, 0xc6, 0xfe,
+              0xc6, 0xc6, 0xc6, 0xc6, 0x00, 0x00, 0x00, 0x00],
+        'C': [0x00, 0x00, 0x7c, 0xc6, 0xc6, 0xc0, 0xc0, 0xc0,
+              0xc0, 0xc6, 0xc6, 0x7c, 0x00, 0x00, 0x00, 0x00],
+        'I': [0x00, 0x00, 0x3c, 0x18, 0x18, 0x18, 0x18, 0x18,
+              0x18, 0x18, 0x18, 0x3c, 0x00, 0x00, 0x00, 0x00],
+        'L': [0x00, 0x00, 0xf0, 0x60, 0x60, 0x60, 0x60, 0x60,
+              0x60, 0x62, 0x66, 0xfe, 0x00, 0x00, 0x00, 0x00],
+        'M': [0x00, 0x00, 0x82, 0xc6, 0xee, 0xfe, 0xfe, 0xd6,
+              0xc6, 0xc6, 0xc6, 0xc6, 0x00, 0x00, 0x00, 0x00],
+        'P': [0x00, 0x00, 0xfc, 0x66, 0x66, 0x66, 0x66, 0x7c,
+              0x60, 0x60, 0x60, 0xf0, 0x00, 0x00, 0x00, 0x00],
+        'S': [0x00, 0x00, 0x7c, 0xc6, 0xc6, 0x60, 0x38, 0x0c,
+              0x06, 0xc6, 0xc6, 0x7c, 0x00, 0x00, 0x00, 0x00],
+        'T': [0x00, 0x00, 0x7e, 0x7e, 0x5a, 0x18, 0x18, 0x18,
+              0x18, 0x18, 0x18, 0x3c, 0x00, 0x00, 0x00, 0x00],
+        'a': [0x00, 0x00, 0x00, 0x00, 0x00, 0x78, 0x0c, 0x7c,
+              0xcc, 0xcc, 0xcc, 0x76, 0x00, 0x00, 0x00, 0x00],
+        'b': [0x00, 0x00, 0xe0, 0x60, 0x60, 0x7c, 0x66, 0x66,
+              0x66, 0x66, 0x66, 0x7c, 0x00, 0x00, 0x00, 0x00],
+        'c': [0x00, 0x00, 0x00, 0x00, 0x00, 0x7c, 0xc6, 0xc0,
+              0xc0, 0xc0, 0xc6, 0x7c, 0x00, 0x00, 0x00, 0x00],
+        'd': [0x00, 0x00, 0x1c, 0x0c, 0x0c, 0x7c, 0xcc, 0xcc,
+              0xcc, 0xcc, 0xcc, 0x76, 0x00, 0x00, 0x00, 0x00],
+        'e': [0x00, 0x00, 0x00, 0x00, 0x00, 0x7c, 0xc6, 0xc6,
+              0xfe, 0xc0, 0xc6, 0x7c, 0x00, 0x00, 0x00, 0x00],
+        'f': [0x00, 0x00, 0x1c, 0x36, 0x30, 0x7c, 0x30, 0x30,
+              0x30, 0x30, 0x30, 0x78, 0x00, 0x00, 0x00, 0x00],
+        'g': [0x00, 0x00, 0x00, 0x00, 0x00, 0x76, 0xcc, 0xcc,
+              0xcc, 0xcc, 0xcc, 0x7c, 0x0c, 0xcc, 0x78, 0x00],
+        'h': [0x00, 0x00, 0xe0, 0x60, 0x60, 0x6c, 0x76, 0x66,
+              0x66, 0x66, 0x66, 0xe6, 0x00, 0x00, 0x00, 0x00],
+        'i': [0x00, 0x00, 0x18, 0x18, 0x00, 0x38, 0x18, 0x18,
+              0x18, 0x18, 0x18, 0x3c, 0x00, 0x00, 0x00, 0x00],
+        'l': [0x00, 0x00, 0x38, 0x18, 0x18, 0x18, 0x18, 0x18,
+              0x18, 0x18, 0x18, 0x3c, 0x00, 0x00, 0x00, 0x00],
+        'm': [0x00, 0x00, 0x00, 0x00, 0x00, 0xec, 0xfe, 0xd6,
+              0xd6, 0xd6, 0xd6, 0xc6, 0x00, 0x00, 0x00, 0x00],
+        'n': [0x00, 0x00, 0x00, 0x00, 0x00, 0xdc, 0x66, 0x66,
+              0x66, 0x66, 0x66, 0x66, 0x00, 0x00, 0x00, 0x00],
+        'o': [0x00, 0x00, 0x00, 0x00, 0x00, 0x7c, 0xc6, 0xc6,
+              0xc6, 0xc6, 0xc6, 0x7c, 0x00, 0x00, 0x00, 0x00],
+        'p': [0x00, 0x00, 0x00, 0x00, 0x00, 0xdc, 0x66, 0x66,
+              0x66, 0x66, 0x66, 0x7c, 0x60, 0x60, 0xf0, 0x00],
+        'r': [0x00, 0x00, 0x00, 0x00, 0x00, 0xde, 0x76, 0x60,
+              0x60, 0x60, 0x60, 0xf0, 0x00, 0x00, 0x00, 0x00],
+        's': [0x00, 0x00, 0x00, 0x00, 0x00, 0x7c, 0xc6, 0x60,
+              0x38, 0x0c, 0xc6, 0x7c, 0x00, 0x00, 0x00, 0x00],
+        't': [0x00, 0x00, 0x10, 0x30, 0x30, 0xfc, 0x30, 0x30,
+              0x30, 0x30, 0x34, 0x18, 0x00, 0x00, 0x00, 0x00],
+        'u': [0x00, 0x00, 0x00, 0x00, 0x00, 0xcc, 0xcc, 0xcc,
+              0xcc, 0xcc, 0xcc, 0x76, 0x00, 0x00, 0x00, 0x00],
+        'v': [0x00, 0x00, 0x00, 0x00, 0x00, 0xc6, 0xc6, 0xc6,
+              0xc6, 0x6c, 0x38, 0x10, 0x00, 0x00, 0x00, 0x00],
+        'y': [0x00, 0x00, 0x00, 0x00, 0x00, 0xc6, 0xc6, 0xc6,
+              0xc6, 0xc6, 0xc6, 0x7e, 0x06, 0x0c, 0xf8, 0x00]
+        /* eslint-enable indent, quote-props */
+      }
+
+      window.addEventListener('load', init)
+    </script>
+  </head>
+  <body>
+    <canvas id="canvas">
+    </canvas>
+    <div>
+      <div id="play">
+        <button id="left" title="Move Left">&larr;</button><!--
+        --><button id="right" title="Move Right">&rarr;</button>
+      </div><div id="more">
+        <button id="enter" title="Restart">&crarr;</button><!--
+        --><button id="pause" title="Play/Pause">&#x25ba;</button><!--
+        --><button id="mute" title="Mute/Unmute">&#x266b;</button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Loopy C Puzzle - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#333">
+  <link rel="canonical" href="https://susam.net/comments/loopy-c-puzzle.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+  <script>window.MathJax = { tex: { tags: 'ams' } }</script>
+  <script async src="../js/mathjax/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<main>
+<h1>Comments on <a href="../loopy-c-puzzle.html">Loopy C Puzzle</a></h1>
+<div><a href="https://susam.net/form/comment/?p=loopy-c-puzzle">Post Comment</a></div>
+<section id="1" class="comment visitor">
+<h2><a href="http://www.blogger.com/profile/17574626231451600275">Ryan</a> said:</h2>
+<pre>
+<code>int i;
+for (i = 0; abs(i) &lt; 6; i--) {
+    printf(".");
+}</code>
+</pre>
+
+<div>
+<a href="#1">01 Oct 2011 04:26 GMT</a>
+(<a href="#1">#1 of 8 comments</a>)
+</div>
+</section>
+<section id="2" class="comment visitor">
+<h2><a href="http://www.blogger.com/profile/17574626231451600275">Ryan</a> said:</h2>
+<pre>
+<code>int i;
+for (i = 0; -i &lt; 6; i--) {
+    printf(".");
+}</code>
+</pre>
+
+<div>
+<a href="#2">01 Oct 2011 04:46 GMT</a>
+(<a href="#2">#2 of 8 comments</a>)
+</div>
+</section>
+<section id="3" class="comment visitor">
+<h2>Sean said:</h2>
+<p>
+Changing the loop condition to <code>i ^= 6;</code> is another solution.
+</p>
+
+<div>
+<a href="#3">01 Oct 2011 04:48 GMT</a>
+(<a href="#3">#3 of 8 comments</a>)
+</div>
+</section>
+<section id="4" class="comment visitor">
+<h2><a href="http://www.blogger.com/profile/17574626231451600275">Ryan</a> said:</h2>
+<p>
+Ah-ha, a tricky one:
+</p>
+<pre>
+<code>int i;
+for (i = 0; i ^= 6; i--) {
+    printf(".");
+}</code>
+</pre>
+
+<div>
+<a href="#4">01 Oct 2011 04:54 GMT</a>
+(<a href="#4">#4 of 8 comments</a>)
+</div>
+</section>
+<section id="5" class="comment visitor">
+<h2><a href="http://www.blogger.com/profile/17574626231451600275">Ryan</a> said:</h2>
+<p>
+Ah, Sean beat me to it. :(
+</p>
+
+<div>
+<a href="#5">01 Oct 2011 04:54 GMT</a>
+(<a href="#5">#5 of 8 comments</a>)
+</div>
+</section>
+<section id="6" class="comment visitor">
+<h2><a href="http://zem.novylen.net">Martin DeMello</a> said:</h2>
+<pre><code>for (i = 0; i + 6; i--)</code></pre>
+<p>
+will stop when i&nbsp;+&nbsp;6&nbsp;=&nbsp;0.
+</p>
+
+<div>
+<a href="#6">01 Oct 2011 05:11 GMT</a>
+(<a href="#6">#6 of 8 comments</a>)
+</div>
+</section>
+<section id="7" class="comment visitor">
+<h2><a href="https://tromp.github.io/">John Tromp</a> said:</h2>
+<blockquote>
+  The value in variable <code>i</code> decrements
+  to <code>INT_MIN</code> after <code>|INT_MIN| + 1</code> iterations.
+</blockquote>
+<p>
+  No; i decrements to <code>INT_MIN</code>
+  after <code>|INT_MIN|</code> iterations.  For example,
+  if <code>i</code> were a signed 1-bit integer,
+  making <code>INT_MIN</code> equal to <code>-1</code>,
+  than <code>i</code> becomes <code>-1</code> upon
+  executing <code>--i</code> after the first iteration.
+</p>
+<p>
+  Of course, you're correct that <code>|INT_MIN| + 1</code> dots are
+  output, due to the extra (and final) iteration starting with <code>i
+  = INT_MIN</code>.
+</p>
+
+<div>
+<a href="#7">22 Dec 2023 11:46 GMT</a>
+(<a href="#7">#7 of 8 comments</a>)
+</div>
+</section>
+<section id="8" class="comment author">
+<h2><a href="https://susam.net/">Susam Pal</a> said:</h2>
+<p>
+  John, You are absolutely right.  Thank you for taking a close look
+  at this post and reporting the off-by-one error in my explanation.
+  I have updated the post now to correct it.
+</p>
+
+<div>
+<a href="#8">12 Jan 2024 21:38 GMT</a>
+(<a href="#8">#8 of 8 comments</a>)
+</div>
+</section>
+
+<div><a href="https://susam.net/form/comment/?p=loopy-c-puzzle">Post Comment</a></div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="https://susam.net/form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2024 Susam Pal</p>
+</footer>
+</body>
+</html>
