@@ -1,0 +1,1786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="./feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam Pal</title>
+<link>https://susam.net/</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/feed.xml"/>
+<description>Susam's Feed</description>
+
+<item>
+<title>ASCII PC</title>
+<link>https://susam.net/pc.html</link>
+<guid>https://susam.net/pc.html</guid>
+<description>
+<![CDATA[
+<p>
+  An ASCII art depiction of a PC resting on a computer case, with a
+  classic Model M keyboard placed in front.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/pc.html">Read on website</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a>
+</p>
+]]>
+</description>
+<pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Elliptical Python Programming</title>
+<link>https://susam.net/elliptical-python-programming.html</link>
+<guid>https://susam.net/elliptical-python-programming.html</guid>
+<description>
+<![CDATA[
+<p>
+  One thing I love about Python is how it comes with its very own
+  built-in zen.  In moments of tribulations, when I am wrestling with
+  crooked code and tangled thoughts, I often find solace in its
+  timeless wisdom.  Here's a glimpse of the clarity it provides:
+</p>
+<pre>
+<samp>$ <kbd>python3 -m this | grep e-</kbd>
+There should be one-- and preferably only one --obvious way to do it.</samp>
+</pre>
+<p>
+  Indeed, there is one and only one <em>obvious</em> way to write the
+  number 1 in Python, like so:
+</p>
+<pre><samp>&gt;&gt;&gt; <kbd>--(...==...)</kbd>
+1</samp></pre>
+<p>
+  You may, quite naturally, place several ones adjacently to produce
+  larger integers:
+</p>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>--(...==...)--(...==...)</kbd>
+2</samp>
+</pre>
+<p>
+  And so on, ad infinitum, or until your heap collapses like a poorly
+  made soufflé.  Now, the "pre-decrement operator" at the beginning is
+  entirely optional, much like the plus sign when you write "+5
+  biscuits" in a letter to your grandmother.  It's not wrong, but it
+  is unnecessary.  So unless you want to look peculiar to your
+  colleagues, you would likely want to adopt a more conventional
+  style, such as this:
+</p>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>(...==...)--(...==...)--(...==...)</kbd>
+3</samp>
+</pre>
+<p>
+  Now, all computer programs are, in some sense, just a long, earnest
+  stream of bits.  It is currently fashionable to bundle these bits
+  into groups of eight and write them as integers.  Following this
+  trend, we can compute absolutely anything that is computable as long
+  as we know exactly what integers to write.  Now, I wouldn't want to
+  bore you with the finer details of computer science &ndash; not in
+  this day and age &ndash; fascinating as they may be.  I trust you
+  are quite capable of drawing the rest of the
+  f... well, <em>feathered</em>, nocturnal bird.  Once you've grasped
+  the basics, a typical first Python program might look something like
+  this:
+</p>
+<pre class="wrap"><code>exec('%c'*((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))%(((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)),((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))--((...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))--((...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))--(...==...),*(((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...)),)*((...==...)--(...==...)),((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)),((...==...)--(...==...))**((...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))--((...==...)--(...==...)--(...==...)),((...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))--(...==...)))</code></pre>
+<p>
+  Now you might be wondering if this is <em>really</em> the way one
+  ought to write production Python code.  Isn't it too much trouble to
+  type those dots over and over again?  Not if you remap your
+  <kbd>tab</kbd> key to type three dots, of course.  But I understand
+  not everyone likes to remap their keys like this.  In particular,
+  there exists a peculiar species of mammal known to remap their
+  <kbd>tab</kbd> key to parentheses.  They claim it leads to
+  enlightenment.  Such enlightened living forms may find the following
+  program more convenient to type:
+</p>
+<pre class="wrap"><code>exec('%c'*((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))%(((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())),((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==()))**((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))--((()==())--(()==())),((()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())--(()==())--(()==())),((()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))--((()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))--((()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))--(()==()),*(((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==()))**((()==())--(()==())--(()==())),)*((()==())--(()==())),((()==())--(()==())--(()==()))**((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))--((()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())),((()==())--(()==()))**((()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==()))**((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))--((()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==()))**((()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==())),((()==())--(()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))--((()==())--(()==())--(()==())),((()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))--(()==())))</code></pre>
+<p>
+  This program is functionally equivalent to the earlier one.  But
+  Python isn't meant for enlightenment.  It's meant for getting things
+  done.  And to get things done, code should be readable,
+  maintainable, and ideally not resemble an ancient summoning ritual.
+  That's why I personally prefer the earlier style, the one with the
+  ellipses.  It gracefully avoids the disconcerting void that lurks
+  within the parentheses.  After all, programs must be written for
+  people to read, and only incidentally for machines to execute.
+</p>
+<p>
+  Finally, I must emphasise that you should never deploy code like
+  this in production.  If you plan to write code like this for your
+  production CGI scripts, I implore you to add some ellipses for
+  logging.  When dung inevitably collides with the fan, you'll be
+  immensely glad you scattered some useful logs amidst the ellipses
+  that hold together your business logic.  With that small piece of
+  unsolicited advice, I'll end this brief distraction from scrolling
+  through endless arguments on Internet forums.  Happy coding, and may
+  your parentheses stay balanced (and may your ellipses be the
+  punctuation that ...
+  <!-- ).  Now, I can sleep peacefully!  -->
+</p>
+<!--
+  For the enlightened folks who are offended by the penultimate
+  paragraph, lighten up!  I am no stranger to the fine art of nested
+  parentheses.  This very blog is crafted with an abundance of them,
+  all forged through the mighty steel and bank machinery.
+-->
+<!-- ### -->
+<p>
+  <a href="https://susam.net/elliptical-python-programming.html">Read on website</a> |
+  <a href="https://susam.net/tag/python.html">#python</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/humour.html">#humour</a>
+</p>
+]]>
+</description>
+<pubDate>Thu, 10 Apr 2025 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>More Contrast, Please</title>
+<link>https://susam.net/more-contrast-please.html</link>
+<guid>https://susam.net/more-contrast-please.html</guid>
+<description>
+<![CDATA[
+<p>
+  So you have decided to go with a dark theme for your website.  Great
+  choice!  I love dark themes too!  My journey with computers began
+  with monochrome CRT monitors, where white text was displayed on dark
+  background.  I am still very fond of that colour scheme.  Done well,
+  dark themes can be elegant and easy on the eyes.  But there is a
+  common pitfall that I see all too often in modern web design &ndash;
+  the overuse of low-contrast colour schemes.  This is something worth
+  keeping in mind while crafting a new theme.
+</p>
+<p>
+  Take a look at this example where the text colour
+  is <code>#777777</code> and the background is <code>#222222</code>:
+</p>
+<p style="background: #222222; color: #777777; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  I am hoping that most people would agree that the colour contrast
+  above is too low.  I certainly find it uncomfortable to read.
+  However, the situation becomes a bit less clear with the following
+  example, where the text colour is set to <code>#A9A9B3</code> and the background
+  is <code>#2A2A2D</code>:
+</p>
+<p style="background: #2a2a2d; color: #a9a9b3; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  The above example is, in fact, based on a real website I came across
+  today.  Now this is definitely better than the first example and I
+  am sure some people would find this perfectly acceptable.  However,
+  I still find this uncomfortable to read.  In fact, I have realised
+  that as I get older, I need a higher contrast ratio to make the text
+  more comfortable to read.
+</p>
+<p>
+  I would suggest that any colour choices for foreground text and
+  background page colours should, at the very least, meet
+  the <a href="https://www.w3.org/TR/WCAG22/#contrast-enhanced">Web
+  Content Accessibility Guidelines (WCAG) Level AAA</a>
+  recommendations.  This means the contrast ratio for normal-sized
+  text against the background should be at least 7:1.  There are also
+  the slightly weaker Level AA guidelines, which require that
+  normal-sized text have a contrast ratio of at least 4.5:1.  That
+  said, I personally recommend aiming for a 7:1 contrast ratio
+  regardless.
+</p>
+<p>
+  The first example above has a contrast ratio of just 3.6:1, meaning
+  it fails to meet both the Level AA and Level AAA requirements.  The
+  second example, on the other hand, has a contrast ratio of
+  6.1:1.  While it satisfies the Level AA requirements, it still falls
+  short of meeting the Level AAA standards.
+</p>
+<p>
+  To calculate the contrast ratio according to
+  the <a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G17.html#tests">WCAG
+  contrast formula</a>, use one of these tools:
+</p>
+<ul>
+  <li>
+    <a href="contrast.html">My Colour Contrast Calculator</a>
+  </li>
+  <li>
+    <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a>
+  </li>
+</ul>
+<p>
+  If we improve the contrast for the second example above, we would
+  need to choose a brighter shade for the text, such as
+  <code>#B7B7BE</code>.  On the dark background <code>#2A2A2D</code>,
+  this results in a contrast ratio of 7.2:1.  Here is how it looks:
+</p>
+<p style="background: #2a2a2d; color: #b7b7be; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  I definitely find this much easier to read.  If you are developing a
+  dark colour theme for your web page or software, I request you to
+  run your colours through a contrast calculator tool and ensure the
+  contrast ratio is greater than 7:1.  Anything less, and the theme
+  might become uncomfortable for people like me.  Small adjustments
+  like this can significantly improve readability and comfort for your
+  readers.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/more-contrast-please.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+<pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Colour Contrast Calculator</title>
+<link>https://susam.net/contrast.html</link>
+<guid>https://susam.net/contrast.html</guid>
+<description>
+<![CDATA[
+<p>
+  A simple web-based tool to calculate the contrast between two
+  colours according to WCAG contrast formula.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/contrast.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a>
+</p>
+]]>
+</description>
+<pubDate>Sun, 06 Apr 2025 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Hacker News Hug of Deaf</title>
+<link>https://susam.net/hn-bell.html</link>
+<guid>https://susam.net/hn-bell.html</guid>
+<description>
+<![CDATA[
+<blockquote>
+  <p>
+    "It's essentially the Hacker News Hug of Deaf."
+    &ndash;
+    <a href="https://news.ycombinator.com/item?id=30146019#30147639">@TonyTrapp</a>
+  </p>
+</blockquote>
+<p>
+  About three years ago, I set up a tiny <code>netcat</code> loop on
+  one of my Debian servers to accept arbitrary connections from the
+  Hacker News (HN) community.  The loop ran for 24 hours and did
+  exactly three things whenever a client connected:
+</p>
+<ol>
+  <li>
+    Send a simple <code>ok</code> message to the client.
+  </li>
+  <li>
+    Close the connection immediately.
+  </li>
+  <li>
+    Make my terminal beep four times.
+  </li>
+</ol>
+<p>
+  That's it!  It was a playful experiment in response to a thread
+  about quirky, do-it-yourself alerting systems for friends and
+  family.  See
+  <a href="https://news.ycombinator.com/item?id=30146019#30146451">this
+  HN thread</a> for the original discussion.  Here is the exact
+  command I ran on my server:
+</p>
+<pre class="wrap"><code>while true; do (echo ok | nc -q 1 -vlp 8000 2&gt;&amp;1; echo; date -u) | tee -a beeper.log; for i in 1 2 3 4; do printf '\a'; sleep 1; done &amp; done</code></pre>
+<p>
+  The <code>nc</code> command closes the connection immediately after
+  sending the <code>ok</code> message and runs an
+  inner <code>for</code> loop in a background shell that
+  asynchronously prints the bell character to the terminal four times.
+  Meanwhile, the outer <code>while</code> command loops back quickly
+  to run a new <code>nc</code> process, thus making this one-liner
+  script instantly ready to accept the next incoming connection.
+</p>
+<p>
+  Soon after I shared this, members of the HN community began
+  connecting to the demo running on <code>susam.net:8000</code>.
+  Anyone on the Internet could use any client of their choice to
+  connect.  Here's how I explained it in the HN thread:
+</p>
+<blockquote>
+  <p>
+    Now anytime someone connects to port 8000 of my system
+    by <em>any</em> means, I will hear 4 beeps!  The other party can
+    use <em>whatever client</em> they have to connect to port 8000 of
+    my system, e.g., a web browser, <code>nc HOST
+    8000</code>, <code>curl HOST:8000</code>, or even, <code>ssh HOST
+    -p 8000</code>, <code>irssi -c HOST -p 8000</code>, etc.
+  </p>
+</blockquote>
+<p>
+  In the next 24 hours, I received over 4761 connections, each one
+  triggering four beeps.  That's a total of 19&#x202f;044 terminal
+  beeps echoing throughout the day!
+</p>
+<figure class="soft">
+  <img src="files/blog/beeper1.png" alt="Graph">
+  <figcaption>
+    Number of connections received every hour since 31 Jan 2022 10:00 UTC
+  </figcaption>
+</figure>
+<p>
+  The data for the above graph is available at
+  <a href="https://gist.github.com/susam/159c7d92659b3185eb0b0d683998a3b7">beeper.log</a>.
+  Now, 4761 isn't a huge number in the grand scheme of things, but it
+  was still pretty cool to see people notice an obscure comment buried
+  in a regular HN thread, act on it, and make my terminal beep
+  thousands of time.
+</p>
+<p>
+  At the end of the day, this was a fun experiment.  Pointless, but
+  fun!  Computing isn't always about solving problems.  Sometimes,
+  it's also about exploring quirky ideas.  The joy is in the
+  exploration, and having others join in made it even more enjoyable.
+  Activities like this keep computing fun for me!
+</p>
+<hr>
+<p id="update-2025-04-10">
+  <strong>Update on 10 Apr 2025:</strong>
+  I <a href="https://news.ycombinator.com/item?id=43642123">shared
+  this article on Hacker News</a> today and saw another surge in
+  connections to my beeper loop.
+</p>
+<figure class="soft">
+  <img src="files/blog/beeper2.png" alt="Graph">
+  <figcaption>
+    Number of connections received every hour since 10 Apr 2025 10:00 UTC
+  </figcaption>
+</figure>
+<p>
+  The data for the above graph is available at
+  <a href="https://gist.github.com/susam/3cec5db1a78a9db527327460656daeae">beeper2.log</a>.
+  The data shows a total of 352&#x202f;831 connections from 1396
+  unique client addresses over 14 hours.  That amounts to a total of
+  1&#x202f;411&#x202f;324 beeps!  Much of the traffic seems to have
+  come from persistent client loops constantly connecting to my beeper
+  loop.  In particular, the client identified by the anonymised
+  identifier C0276 made the largest number of connections by far, with
+  327&#x202f;209 total connections.  The second most active client,
+  C0595, made only 6771 connections.  There were 491 clients that
+  connected exactly once.  If you'd like to see the number of
+  connections by each client, see
+  <a href="https://gist.github.com/susam/d6766f4b722f899250a8f3da0c98f993">beeperclient2.log</a>.
+</p>
+<p>
+  In conclusion, the difference in the volume of connections between
+  the earlier experiment and today's is striking.  In the first round,
+  three years ago, there were only 4761 connections from some readers
+  of a comment thread.  But in today's round, with this post being
+  featured on the HN front page, there were 352&#x202f;831
+  connections!  It is fascinating to see how odd experiments like this
+  can find so many participants within the HN community!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/hn-bell.html">Read on website</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/shell.html">#shell</a> |
+  <a href="https://susam.net/tag/networking.html">#networking</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+<pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>More Purple Links, Please</title>
+<link>https://susam.net/more-purple-links-please.html</link>
+<guid>https://susam.net/more-purple-links-please.html</guid>
+<description>
+<![CDATA[
+<p>
+  While I am browsing the Web, one thing I always like to see is a
+  page with purple links.  Since the early days of the Web, purple has
+  has become the default colour for visited links.  Here's a relevant
+  note from the
+  <a href="https://ksi.cpsc.ucalgary.ca/archives/WWW-TALK/www-talk-1993q2.messages/47.html">changelog</a>
+  of NCSA Mosaic 0.13 (1993):
+</p>
+<blockquote>
+  Changed default anchor representations: blue and single solid
+  underline for unvisited, dark purple and single dashed underline for
+  visited.
+</blockquote>
+<p>
+  Visiting a web page and finding purple links brings a sense of ease.
+  The purple links indicate that I am familiar with some of the
+  references the web page makes to other articles.  Each purple link
+  serves as a small marker of a prior journey, a reminder that I've
+  explored certain paths before.  Purple links are like well-worn
+  books.  They show signs of use: faded covers, creased spines, and
+  dog-eared pages.  Blue links, on the other hand, are like new books,
+  still unopened and waiting to be explored.
+</p>
+<p>
+  Although I'm quite fond of purple links, I know that not everyone
+  shares this sentiment.  Modern web design trends have moved away
+  from this tradition, favouring sleek, minimalist aesthetics where
+  visited and unvisisted links look nearly the same, or even using
+  custom colours for visited links.  While this can be visually
+  appealing, it subtracts from the experience of using the Web as a
+  source of knowledge.  When links look indistinguishable or
+  unconventional, it can be hard to tell what I've already read,
+  especially when I am revisiting a topic and want to easily spot the
+  links that are new.
+</p>
+<p>
+  Now it is not hard to change the visited link style with a little
+  userscript.  For example the following userscript can override the
+  website's stylesheet to colour visited links purple again:
+</p>
+<pre>
+<code>// ==UserScript==
+// @name Purple Links
+// @match *://*/*
+// ==/UserScript==
+document.head.appendChild(document.createElement('style'))
+document.head.lastElementChild.innerHTML = 'a:visited {color: #518}'</code>
+</pre>
+<p>
+  This little userscript should work well on most web pages with light
+  backgrounds.  But if a web page uses a dark theme or a custom colour
+  scheme, then the above userscript may need adjustments to either
+  handle other colour schemes gracefully.
+</p>
+<p>
+  In the end, sticking with the default purple for visited links isn't
+  just about tradition; it is about simplicity and clarity.  It is a
+  small but reliable visual cue that makes navigating the Web easier
+  and more intuitive, for me, at least.  For me, those purple links
+  bring comfort.  They are small reminders of all the digital paths
+  I've already walked.  I wish more websites would keep them that way.
+  More purple links, please.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/more-purple-links-please.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+<pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>PDF Dimmer Bookmarklet</title>
+<link>https://susam.net/pdf-dimmer-bookmarklet.html</link>
+<guid>https://susam.net/pdf-dimmer-bookmarklet.html</guid>
+<description>
+<![CDATA[
+<p>
+  I often read PDF documents in Firefox, and sometimes I prefer to
+  work in dark mode, especially at night when the room lights are
+  dimmed.  However, the bright white background of the Firefox PDF
+  viewer can be glaring and uncomfortable when dark mode is enabled.
+  Additionally, writing a userscript to invert the background and text
+  colours in the PDF viewer does not work.  I have confirmed with
+  Firefox version 137.0 that userscripts do not run within the PDF
+  viewer.
+</p>
+<p>
+  For example, consider this simple userscript that just prints a
+  "hello" message when a web page loads:
+  <a href="code/lab/userscript/hello.js">hello.js</a>.  This script
+  works on regular web pages but does not execute when viewing a PDF
+  file in Firefox.
+  See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1454760">Bug
+  1454760</a> for more details about this restriction.
+</p>
+<p>
+  While userscripts are often my go-to solution for customisations
+  like this, for this particular problem, I resorted to writing a tiny
+  bookmarklet to work around the above limitation.  Here is the
+  bookmarklet:
+</p>
+<pre><code>javascript:(()=&gt;{['thumbnailView','viewer'].map(id=&gt;document.getElementById(id).style.filter='invert(0.9)saturate(0)')})()</code></pre>
+<p>
+  To add this to Firefox, from the Firefox menu, select "Bookmarks".
+  Then in the left sidebar, right click on either "Bookmarks Toolbar"
+  or "Bookmarks Menu", depending on where you want to add the
+  bookmarklet, and select "Add Bookmark".  Enter some name in the
+  "Name" field and then in the "URL" field, enter the above line of
+  code.  Click "Save" and you are done.  The next time you open a PDF
+  file in Firefox, find the bookmark in the bookmarks menu or toolbar,
+  click on it, and it should instantly invert the colour scheme of the
+  PDF viewer.
+</p>
+<p>
+  Alternatively, simply drag the following link and drop it onto your
+  Firefox toolbar:
+</p>
+<p class="textcenter">
+  <a href="javascript:(()=%3e%7b%5b'thumbnailView','viewer'%5d.map(id=%3edocument.getElementById(id).style.filter='invert(0.9)saturate(0)')%7d)()">Dim PDF</a>
+</p>
+<p>
+  While the default PDF viewer of Firefox does not support
+  userscripts, this bookmarklet is a simple, effective way to give
+  PDFs a darker look.  If you're like me and often read books and
+  papers in PDF format at night, you might find this handy.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/pdf-dimmer-bookmarklet.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+<pubDate>Wed, 02 Apr 2025 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>MathB 1.3.0</title>
+<link>https://susam.net/code/news/mathb/1.3.0.html</link>
+<guid>https://susam.net/code/news/mathb/1.3.0.html</guid>
+<description>
+<![CDATA[
+<p>
+  MathB 1.3.0 is likely the final update of MathB, a web-based
+  mathematics pastebin service.  The online mathematics pastebin
+  service previously hosted at <code>https://mathb.in/</code> has been
+  shut down today after 13 years of continuous service.  See the post
+  <a href="../../../mathbin-is-shutting-down.html">MathB.in Is
+  Shutting Down</a> for more details about this.  This release
+  captures the state of this project as it was today at the time of
+  shutting down the online service.
+</p>
+<p>
+  This update includes a few new features.  For example, there is now
+  a configurable runtime property named <code>:expect</code> that can
+  be used to enforce the presence of certain tokens in the posts
+  submitted by the users.  This feature was used to enforce the
+  presence of LaTeX delimiters in the online service, a measure that
+  was instrumental in reducing spam to a great extent in the last few
+  years.  There are a few other minor changes too.
+  See <a href="https://github.com/susam/mathb/blob/main/CHANGES.md">CHANGES.md</a>
+  for a detailed changelog.
+</p>
+<p>
+  The source code of MathB remains free and open-source, so anyone
+  interested in hosting their own instance can still do so.  To access
+  the source code of MathB, please visit
+  <a href="http://github.com/susam/mathb">github.com/susam/mathb</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/mathb/1.3.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+<pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>XOR Map</title>
+<link>https://susam.net/code/web/xormap.html</link>
+<guid>https://susam.net/code/web/xormap.html</guid>
+<description>
+<![CDATA[
+<p>
+  A simple HTML page that plots bitwise-XOR <em>x</em> and <em>y</em>
+  for each coordinate (<em>x</em>, <em>y</em>)</em> with the
+  coordinate (0, 0) at the bottom-left corner.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/xormap.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a>
+</p>
+]]>
+</description>
+<pubDate>Tue, 11 Mar 2025 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Lemma for FTGT</title>
+<link>https://susam.net/lemma-for-ftgt.html</link>
+<guid>https://susam.net/lemma-for-ftgt.html</guid>
+<description>
+<![CDATA[
+<h2 id="introduction">Introduction<a href="#introduction"></a></h2>
+<p>
+  This post illustrates a key lemma that is used in proving
+  the <em>fundamental theorem of Galois theory</em> (FTGT).  Note that
+  FTGT is not covered in this post.  The focus of this post is on
+  understanding and proving this lemma only.  Here is the lemma from
+  the book <em>Galois Theory</em>, 5th ed. by Stewart (2023):
+</p>
+<div class="highlight">
+  <p>
+    <strong>Lemma 12.1.</strong>
+    <em>
+      Suppose that \( L/K \) is a field extension, \( M \) is an
+      intermediate field, and \( \tau \) is a \( K \)-automorphism of \(
+      L.  \)  Then \( \tau M^* \tau^{-1} = \tau(M)^{*}.  \)
+    </em>
+  </p>
+</div>
+<p>
+  The notation \( M^* \) denotes the group of all
+  \( M \)-automorphisms of \( L \) with composition as the group
+  operation.  Note that Stewart writes \( \tau(M)^{*} = \tau M^*
+  \tau^{-1} \) while stating the lemma but I have reversed the LHS and
+  RHS to maintain consistency with the equations that appear in the
+  discussion below.
+</p>
+<p>
+  To build intuition for this lemma, I'll first present an
+  illustration, followed by a proof.  The discussion below assumes
+  familiarity with field extensions and field automorphisms, as
+  several notations and results from these areas will be used
+  implicitly without detailed justification.  This post is meant to
+  serve as a set of notes on the lemma, not a comprehensive tutorial.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#illustration">Illustration</a>
+    <ul>
+      <li><a href="#concrete-example">Concrete Example</a></li>
+      <li><a href="#lhs-subset-of-rhs">LHS &sube; RHS</a></li>
+      <li><a href="#lhs-superset-of-rhs">LHS &supe; RHS</a></li>
+      <li><a href="#lhs-equals-rhs">LHS = RHS</a></li>
+    </ul>
+  </li>
+  <li><a href="#proof">Proof</a></li>
+</ul>
+<h2 id="illustration">Illustration<a href="#illustration"></a></h2>
+<h3 id="concrete-example">Concrete Example<a href="#concrete-example"></a></h3>
+<p>
+  Let \( L = \mathbb{Q}(\sqrt{2}, \sqrt{3}), \) \( K = \mathbb{Q}, \)
+  and \( M = \mathbb{Q}(\sqrt{2}).  \)  Note that
+
+  \begin{align*}
+    L &= \{ a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6} : a, b, c, d \in \mathbb{Q} \}, \\
+    M &= \{ k + l \sqrt{2} : k, l \in \mathbb{Q} \}.
+  \end{align*}
+
+  Now the group of \( K \)-automorphisms of \( L \) is
+
+  \[
+    K^* = \{\phi_1, \phi_2, \phi_3, \phi_4 \}
+  \]
+
+  where each \( \phi_i \) is given by
+
+  \begin{align*}
+    \phi_1 &amp;:
+    a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6} \mapsto
+    a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6}, \\
+
+    \phi_2 &amp;:
+    a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6} \mapsto
+    a - b \sqrt{2} + c \sqrt{3} - d \sqrt{6}, \\
+
+    \phi_3 &amp;:
+    a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6} \mapsto
+    a + b \sqrt{2} - c \sqrt{3} - d \sqrt{6}, \\
+
+    \phi_4 &amp;:
+    a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6} \mapsto
+    a - b \sqrt{2} - c \sqrt{3} + d \sqrt{6}.
+  \end{align*}
+
+  Then \( M^* = \{ \phi_1, \phi_3 \}.  \)  Let \( \tau = \phi_2.  \)
+  Then
+
+  \begin{align*}
+  \tau(M)
+    &= \{ \tau(x) : x \in \mathbb{M} \} \\
+    &= \{ \tau(k + l \sqrt{2}) : k, l \in \mathbb{Q} \} \\
+    &= \{ k - l \sqrt{2} : k, l \in \mathbb{Q} \}.
+  \end{align*}
+
+  Note that in this case we ended up with \( \tau(M) = M \) but we
+  will be careful not to utilise this fact.  We will ensure that the
+  steps below work without assuming \( \tau(M) = M.  \)  Next we find
+
+  \begin{equation}
+    \tau(M)^* = \{ \phi_1, \phi_3 \}.
+    \label{eq-tau-m-ast}
+  \end{equation}
+
+  Now
+
+  \begin{align*}
+    \tau M^* \tau^{-1}
+    &= \{ \tau \gamma \tau^{-1} : \gamma \in {M^*} \} \\
+    &= \{ \tau \phi_1 \tau^{-1}, \tau \phi_3 \tau^{-1} \}.
+  \end{align*}
+
+  Let us now find out how each element of \( \tau M^* \tau^{-1} \)
+  transforms the elements of \( L.  \)  For all \( a + b \sqrt{2} + c
+  \sqrt{3} + d \sqrt{6} \in L, \) we get
+
+  \begin{align*}
+    (\tau \phi_1 \tau^{-1})(a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6})
+    &= (\tau \phi_1)(a - b\sqrt{2} + c\sqrt{3} - d\sqrt{6}) \\
+    &= \tau (a - b\sqrt{2} + c\sqrt{3} - d\sqrt{6}) \\
+    &= a + b\sqrt{2} + c\sqrt{3} + d\sqrt{6}).
+  \end{align*}
+
+  Therefore
+
+  \[
+    \tau \phi_1 \tau^{-1} = \phi_1.
+  \]
+
+  Similarly,
+
+  \begin{align*}
+    (\tau \phi_3 \tau^{-1})(a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6})
+    &= (\tau \phi_3)(a - b\sqrt{2} + c\sqrt{3} - d\sqrt{6}) \\
+    &= \tau (a - b\sqrt{2} - c\sqrt{3} + d\sqrt{6}) \\
+    &= a + b\sqrt{2} - c\sqrt{3} - d\sqrt{6}.
+  \end{align*}
+
+  Therefore
+
+  \[
+    \tau \phi_3 \tau^{-1} = \phi_3.
+  \]
+
+  We have shown that
+
+  \begin{equation}
+    \tau M^* \tau^{-1} = \{ \phi_1, \phi_3 \}.
+    \label{eq-tau-coset}
+  \end{equation}
+
+  From \( \eqnref{eq-tau-m-ast}{1} \) and \( \eqnref{eq-tau-coset}{2} \)
+  we see that
+
+  \[
+     \tau M^* \tau^{-1} = \tau(M)^*.
+  \]
+
+  Since we are working with a concrete example of \( \tau \) here, we
+  know exactly how it behaves, so we succeeded in demonstrating the
+  above equality.  However, in a general proof, \( \tau \) is going to
+  be an arbitrary \( K \)-automorphism of \( L, \) so we cannot know
+  exactly how it behaves and as a result, we cannot obtain the above
+  equation directly.  Therefore, in a general proof, we we will first
+  show that \( \tau M^* \tau^{-1} \subseteq \tau(M)^* \) and then we
+  will show that \( \tau M^* \tau^{-1} \supseteq \tau(M)^* \) in order
+  to prove the above equation.
+</p>
+<h3 id="lhs-subset-of-rhs">LHS &sube; RHS<a href="#lhs-subset-of-rhs"></a></h3>
+<p>
+  Once again, let us see how each element of \( \tau M^* \tau^{-1} \)
+  transforms the elements of \( \tau(M).  \)  Note that this time we
+  are not going to examine how they transform arbitrary elements of \(
+  L.  \)  We are only going to see how they transform the elements of
+  \( \tau(M).  \)  For all \( k - l \sqrt{2} \in \tau(M), \) we get
+
+  \begin{align*}
+    (\tau \phi_1 \tau^{-1})(k - l \sqrt{2})
+    &= (\tau \phi_1)(k + l \sqrt{2}) \\
+    &= \tau(k + l \sqrt{2}) \\
+    &= k - l \sqrt{2}.
+  \end{align*}
+
+  Similarly, for all \( k - l \sqrt{2} \in \tau(M), \) we get
+
+  \begin{align*}
+    (\tau \phi_3 \tau^{-1})(k - l \sqrt{2})
+    &= (\tau \phi_3)(k + l \sqrt{2}) \\
+    &= \tau(k + l \sqrt{2}) \\
+    &= k - l \sqrt{2}.
+  \end{align*}
+
+  Note above that both \( \phi_1 \) and \( \phi_3 \) fix \( k + l
+  \sqrt{2} \in M \) because \( \phi_1, \phi_2 \in M^*, \) the set of
+  \( M \)-automorphisms of \( L.  \)  This detail will be used in the
+  general proof.
+</p>
+<p>
+  Since both \( \tau \phi_1 \tau^{-1} \) and
+  \( \tau \phi_3 \tau^{-1} \) fix the elements of \( \tau(M), \) they
+  are both \( \tau(M) \)-automorphisms of \( L.  \)  Therefore \( \tau
+  M^* \tau^{-1} \subseteq \tau(M)^{*}.  \)
+</p>
+<h3 id="lhs-superset-of-rhs">LHS &supe; RHS<a href="#lhs-superset-of-rhs"></a></h3>
+<p>
+  Consider the set \( \tau^{-1} \tau(M)^* \tau \) and examine how its
+  elements transform the elements of \( M.  \)  For all \( k + l
+  \sqrt{2} \in M, \) we get
+
+  \begin{align*}
+    (\tau^{-1} \phi_1 \tau)(k + l \sqrt{2})
+    &= (\tau^{-1} \phi_1)(k - \sqrt{2}) \\
+    &= \tau^{-1}(k - \sqrt{2}) \\
+    &= k + l \sqrt{2}.
+  \end{align*}
+
+  Similarly, for all \( k + l \sqrt{2} \in M, \) we get
+
+  \begin{align*}
+    (\tau^{-1} \phi_3 \tau)(k + l \sqrt{2})
+    &= (\tau^{-1} \phi_3)(k - \sqrt{2}) \\
+    &= \tau^{-1}(k - \sqrt{2}) \\
+    &= k + l \sqrt{2}.
+  \end{align*}
+
+  Here both \( \phi_1 \) and \( \phi_3 \) fix \( k - l \sqrt{2} \in
+  \tau(M) \) because \( \phi_1, \phi_2 \in \tau(M)^*, \) the set of \(
+  \tau(M) \)-automorphisms of \( L.  \)
+</p>
+<p>
+  Since both \( \tau^{-1} \phi_1 \tau \) and
+  \( \tau^{-1} \phi_3 \tau \) fix the elements of \( M, \) they are
+  both \( M \)-automorphisms of \( L.  \)  Therefore \( \tau^{-1}
+  \tau(M)^* \tau \subseteq M^* \) which implies \( \tau M^* \tau^{-1}
+  \supseteq \tau(M)^*.  \)
+</p>
+<h3 id="lhs-equals-rhs">LHS = RHS<a href="#lhs-equals-rhs"></a></h3>
+<p>
+  The previous two sections complete the illustration of the lemma
+  with the chosen example.  We have shown that \( \tau M^* \tau^{-1}
+  \subseteq \tau(M)^{*} \) and \( \tau M^* \tau^{-1} \supseteq
+  \tau(M)^*.  \)  Therefore \( \tau M^* \tau^{-1} = \tau(M)^*.  \)
+</p>
+<h2 id="proof">Proof<a href="#proof"></a></h2>
+<p>
+  The ideas presented in the previous sections will now be extended to
+  formulate a general proof.  For clarity, the lemma is stated once
+  again below before proceeding with the proof.
+</p>
+<p>
+  <strong>Lemma 12.1.</strong>
+  <em>
+    Suppose that \( L/K \) is a field extension, \( M \) is an
+    intermediate field, and \( \tau \) is a \( K \)-automorphism of \(
+    L.  \)  Then \( \tau M^* \tau^{-1} = \tau(M)^{*}.  \)
+  </em>
+</p>
+<p>
+  <em>Proof.</em>
+
+  For all \( \gamma \in M^*, \) \( x' \in \tau(M), \) we use the
+  notation \( x = \tau^{-1}(x') \in M \) and get
+
+  \[
+    (\tau \gamma \tau^{-1})(x') = (\tau \gamma)(x) = \tau(x) = x'.
+  \]
+
+  In the second equality above, we have used the fact that \( \gamma
+  \in M^* \) which implies that \( \gamma \) is an \( M \)-automorphism
+  of \( L \) which allows us to conclude that \( \gamma(x) = x \) for
+  \( x \in M.  \)  Since every \( \tau \gamma \tau^{-1} \in \tau M^*
+  \tau^{-1} \) fixes all elements \( x' \in \tau(M), \) each \( \tau
+  \gamma \tau^{-1} \) must be a \( \tau(M) \)-automorphism of \( L.  \)
+  Thus \( \tau M^* \tau^{-1} \subseteq \tau(M)^*.  \)
+</p>
+<p>
+  Similarly, for all \( \gamma' \in \tau(M)^*, \) \( x \in M, \) we
+  use the notation \( x' = \tau(x) \in \tau(M) \) and get
+
+  \[
+  (\tau^{-1} \gamma' \tau)(x) = (\tau^{-1} \gamma')(x') = \tau^{-1}(x') = x.
+  \]
+
+  In the second equality above, we have used the fact that \( \gamma'
+  \in \tau(M)^* \) which implies that \( \gamma' \) is an
+  \( \tau(M) \)-automorphism of \( L \) which allows us to conclude
+  that \( \gamma'(x') = x' \) for \( x' \in \tau(M).  \)  Since every
+  \( \tau^{-1} \gamma' \tau \in \tau^{-1} \tau(M)^* \tau \) fixes all
+  elements \( x \in M, \) each \( \tau^{-1} \gamma' \tau \) must be an
+  \( M \)-automorphism of \( L.  \)  Thus \( \tau^{-1} \tau(M)^* \tau
+  \subseteq M^*.  \)  This implies \( \tau M^* \tau^{-1} \supseteq
+  \tau(M)^*.  \)
+</p>
+<p>
+  We have shown that \( \tau M^* \tau^{-1} \subseteq \tau(M)^* \) and
+  \( \tau M^* \tau^{-1} \supseteq \tau(M)^*.  \)  Therefore \( \tau M^*
+  \tau^{-1} = \tau(M)^*.  \)
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/lemma-for-ftgt.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+<pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>MathB.in Is Shutting Down</title>
+<link>https://susam.net/mathbin-is-shutting-down.html</link>
+<guid>https://susam.net/mathbin-is-shutting-down.html</guid>
+<description>
+<![CDATA[
+<p>
+  Thirteen years ago, on a quiet Saturday night, I sat down and began
+  developing MathB.in.  After coding all through the night, as the sun
+  rose on Sunday, 25 March 2012, the website was ready.  I registered
+  a new domain name and shared it with a few friends who loved
+  mathematics.  Back then, we spent hours discussing fascinating
+  mathematics problems, and this website became a simple way for us to
+  share snippets with each other.  Word spread quickly&mdash;my
+  friends shared it with their friends, who passed it along to others.
+  The community grew organically.  Then, one day, I announced the
+  project on the MathJax mailing list, and its reach expanded even
+  further.  Within a year, this mathematics pastebin service had users
+  from around the world.  Watching the usage of this little project
+  grow was an incredibly rewarding experience.
+</p>
+<figure class="soft">
+  <a href="files/blog/mathbin.png"><img
+     src="files/blog/mathbin.png"
+     alt="A screenshot of a mathematics pastebin service displaying Markdown and LaTeX code in the left pane and the rendered content in the right pane."></a>
+  <figcaption>
+    A screenshot of MathB.in, a mathematics pastebin service
+  </figcaption>
+</figure>
+<p>
+  The world has changed a lot since I first published MathB.in.  The
+  internet has evolved, and so have I.  Maintaining a mathematics
+  pastebin service like this single-handedly has become increasingly
+  difficult over the years.  Over the past 13 years, I have received
+  notices from regulatory authorities whenever someone submitted
+  content that triggered compliance concerns.  Each time, my server
+  would be taken offline, and I would be given a 7-day deadline to
+  boot it into rescue mode, remove the offending content, and restore
+  service.  Missing the deadline would put my server hosting account
+  at risk of cancellation.
+</p>
+<p>
+  To prevent these disruptions, I began reviewing and filtering
+  incoming content as much as possible every few days.  The
+  appreciation and positive feedback from happy users kept me going.
+  However, at this stage of my life, I can no longer afford to spend
+  time moderating user content.  On top of that, the growing
+  complexity of data protection and digital safety regulations places
+  a significant burden on me as the maintainer of this service.
+  Complying with these regulations requires considerable legal
+  expertise that I cannot afford.
+</p>
+<p>
+  Some might suggest that I could improve the spam-detection
+  capabilities of this service, and indeed, I have done so over the
+  years.  However, all anti-spam measures are inherently
+  probabilistic.  No matter how much automation is in place, a manual
+  review of every post is still necessary to guarantee that all
+  content is legitimate.  It only takes one dodgy submission to
+  trigger compliance alerts.  While I respect the need for these
+  regulations, I do not want to spend my weekends worrying about what
+  users from around the world might be posting on this little pastebin
+  service.  Nor do I want to be in a constant state of vigilance just
+  to keep my server running.  It takes up more time than I can spare.
+</p>
+<p>
+  Some have suggested forming a team of volunteers to review
+  submissions, but that does not solve the core issue: since the
+  server hosting account is in my name, I would still be responsible
+  for remediating any compliance issues or risk having my account
+  cancelled.  Another alternative is to move the service under a
+  non-profit organisation, but with increased responsibilities in
+  other areas of my life, handling the operational demands of such an
+  endeavour is far beyond what I can commit to.  After all, this was
+  meant to be a fun project built for me and my friends, not something
+  that requires me to deal with regulatory issues.
+</p>
+<p>
+  Another alternative would be to encode the content of a MathB.in
+  post and embed it into the URL, which could then be distributed with
+  others.  Upon visiting the URL, the application would read the
+  encoded content from the URL, decode it, and render it.  While this
+  eliminates the need to store user content on my server, it
+  introduces a new concern: the risk of someone sharing URLs with
+  malicious content embedded in them.  I am not comfortable with such
+  content being rendered on a page served from a domain that I am the
+  registrant of.  The regulatory implications of rendering such
+  content are also unclear.  I could still be held accountable for
+  content rendered on the website, regardless of whether it's stored
+  on the server.  This problem could be mitigated to some extent by
+  refusing to render content containing known malicious patterns but
+  no such solution can be foolproof.
+</p>
+<p>
+  As a result, after much thought, I have regrettably made the
+  decision to shut down MathB.in on Sunday, 16 March 2025.  The
+  website will go offline on that day.  If you have any important
+  posts that you would like to keep, now is the time to copy and save
+  them for yourself.
+</p>
+<p>
+  To all of you who have used this project, I want to express my
+  sincere gratitude.  Running a project that could serve you in a
+  meaningful way has given me a strong sense of accomplishment and
+  pride.  To those who are disappointed by this service's closure, I
+  am sorry.  I wish I could continue to dedicate the time and effort
+  needed to maintain and develop it, but I must acknowledge my
+  limitations and step away from a project that has become an artefact
+  of my past, not my present.
+</p>
+<p>
+  The source code for this website is available at
+  <a href="https://github.com/susam/mathb">github.com/susam/mathb</a>
+  under the MIT license.  Feel free to use the code and set up your
+  own instance if you'd like!  Alternatively, consider hosting your
+  mathematical snippets and notes on your own web space using a kit
+  like MathCask available at
+  <a href="https://github.com/susam/mathcask">github.com/susam/mathcask</a>.
+</p>
+<p>
+  Finally, I hope you'll hold no hard feelings.  If you have enjoyed
+  using MathB.in, I would love to stay connected on the Fediverse.  My
+  Mastodon handle is
+  <a href="https://mastodon.social/@susam">@susam@mastodon.social</a>.
+  See you there!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/mathbin-is-shutting-down.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+<pubDate>Sun, 23 Feb 2025 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>The IndieWeb Doesn't Need to "Take Off"</title>
+<link>https://susam.net/indieweb-does-not-need-to-take-off.html</link>
+<guid>https://susam.net/indieweb-does-not-need-to-take-off.html</guid>
+<description>
+<![CDATA[
+<p>
+  There's a corner of the Internet where people have been reclaiming
+  their digital independence by hosting their own websites and
+  promoting the idea of owning your own content&mdash;it's called the
+  IndieWeb.  This community has its
+  own <a href="https://indieweb.org/">website</a>, IRC channels,
+  social media presence, and more, all dedicated to the idea that
+  individuals should control their own digital presence through
+  personal websites.
+</p>
+<p>
+  Publishing your own website isn't a new concept.  It is the very
+  essence of the Web!  This is what the Web has always been about
+  since its early days.  But in an era where corporate-controlled
+  platforms dominate online interaction, the IndieWeb emphasises the
+  original spirit of the Web, where individuals have control over
+  their content, identities, and online spaces.  Every time this topic
+  arises in online discussions, someone inevitably claims that the
+  IndieWeb hasn't taken off!
+</p>
+<p>
+  I feel that such claims about the IndieWeb not "taking off" are
+  either stating the obvious or, if that's not the intention,
+  completely missing the point.  It's like saying that gardening
+  hasn't taken off because most people buy their vegetables at the
+  supermarket.  The IndieWeb doesn't need to "take off" to be valuable
+  to those who participate in it.  Maintaining a personal website is
+  about owning your digital presence, embracing creative freedom, and
+  expressing your individuality!  It's not about appealing to the
+  masses!
+</p>
+<p>
+  I remember how, in the early 2000s, I used to spend my spare time
+  learning HTML and writing my website, one HTML tag at a time.
+  Writing a few lines of code in a text editor and then watching the
+  browser render that code into a vibrant web page full of colours and
+  images felt like an art form.  It was doubly fun to find other
+  netizens who shared that same joy of maintaining and publishing
+  their websites.  The IndieWeb is about preserving that hacker
+  culture where websites are crafted and hosted not for mass appeal
+  but for the sheer joy of creation and sharing with like-minded
+  individuals.
+</p>
+<p>
+  The IndieWeb doesn't need to go mainstream to be meaningful.  It's a
+  celebration of a more personal, decentralised, and creative world
+  wide web.  For those of us who still care about these values, it is
+  already meaningful.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/indieweb-does-not-need-to-take-off.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+<pubDate>Sat, 22 Feb 2025 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>From Irreducible Polynomials to Simple Algebraic Extensions</title>
+<link>https://susam.net/from-irreducible-polynomial-to-simple-algebraic-extension.html</link>
+<guid>https://susam.net/from-irreducible-polynomial-to-simple-algebraic-extension.html</guid>
+<description>
+<![CDATA[
+<p>
+  Let \( m \) be a non-constant irreducible polynomial over a field \(
+  K.  \)  We will show that there exists a simple algebraic extension
+  of \( K.  \)
+</p>
+<h2 id="notation">Notation<a href="#notation"></a></h2>
+<p>
+  This article follows standard mathematical notation, particularly
+  from group theory and ring homomorphisms.  For clarity, key
+  notations are explicitly outlined below:
+</p>
+<ul>
+  <li>
+    <p>
+      The notation \( K[t] \) denotes the ring of polynomials in the
+      indeterminate \( t \) over the field \( K.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      The notation \( \langle m \rangle \) denotes the ideal of \( K[t] \)
+      generated by the polynomial \( m \in K[t], \) i.e.,
+
+      \[
+        \langle m \rangle = \{ fm : f \in K[t] \}.
+      \]
+    </p>
+  </li>
+  <li>
+    <p>
+      Let \( G \) be a group with the group operator \( + \) and a
+      subgroup \( H.  \)  The left coset of \( H \) by \( a \) is
+      defined as
+
+      \[
+        a + H = \{ a + h : h \in H \}.
+      \]
+    </p>
+  </li>
+  <li>
+    <p>
+      For a ring homomorphism \( \phi : R_1 \to R_2, \) where
+      \( 0_2 \) is the additive identity of \( R_2, \) the kernel of
+      \( \phi \) is defined as
+
+      \[
+        \operatorname{Ker}(\phi) = \{ x \in R_1 : \phi(x) = 0_2 \}.
+      \]
+    </p>
+  </li>
+</ul>
+<!--
+<h2 id="observation">Observation<a href="#observation"></a></h2>
+<p>
+  In this section, I'll make some quick observations that are not
+  essential to the remainder of this article.
+</p>
+<p>
+  The ideal \( \langle m \rangle \) happens to be a principal ideal.
+  This is easy to show.  Since \( K \) is a field and every field is a
+  commutative ring, \( K \) is a commutative ring, which implies that
+  \( K[t] \) too is a commutative ring.  Since \( K[t] \) is a
+  commutative ring and \( \langle m \rangle \) is generated by a
+  single element \( m \in K[t], \) \( \langle m \rangle \) is a
+  principal ideal.  This is merely an observation.  We are not going
+  to use any particular properties of a principal ideal in this
+  article.
+</p>
+-->
+<h2 id="known-results">Known Results<a href="#known-results"></a></h2>
+<p>
+  The following discussion relies heavily on concepts from group
+  theory and field homomorphisms.  Presenting every proof from first
+  principles would be impractical, as it would require a comprehensive
+  treatment of the subject.  To maintain brevity, we take several
+  well-established results as given.  Below is a list of key results
+  that the discussion below depends on.
+</p>
+<p id="quotient-field">
+  <strong>Proposition QF.</strong>
+  <em>
+    If \( m \in K[t] \) is a non-constant irreducible polynomial
+    (i.e., \( \partial m \gt 0 \)), then \( K[t]/\langle m \rangle \)
+    is a field.
+  </em>
+</p>
+<p id="coset-subgroup-equality">
+  <strong>Proposition CSE.</strong>
+  <em>
+    Let \( G \) be a group with the group operator \( + \) and a
+    subgroup \( H.  \)  Then \( a + H = H \) if and only if
+    \( a \in H.  \)
+  </em>
+</p>
+<p id="coset-equality">
+  <strong>Proposition CE.</strong>
+  <em>
+    Let \( G \) be a group with the group operator \( +.  \)  Let
+    \( H \) be a subgroup of \( G.  \)  Let \( a, b \in G.  \)  Then the
+    \( a + H = b + H \) if and only if \( a - b \in H.  \)
+  </em>
+</p>
+<p id="kernel-of-monomorphism">
+  <strong>Proposition KOM.</strong>
+  <em>
+    Let \( \phi \) be a ring homomorphism.  Then \( \phi \) is a
+    monomorphism if and only if&nbsp; \( \operatorname{Ker}(\phi) =
+    {0} \) where \( 0 \) is the additive identity in \( K.  \)
+  </em>
+  <!-- The &nbsp; above is necessary to prevent MathJax from sticking
+      "if" to "Ker". -->
+</p>
+<p id="polynomial-division">
+  <strong>Proposition PD.</strong>
+  <em>
+    If \( f, g \in K[t] \) and \( g \ne 0, \) then there exists a
+    unique pair of polynomials \( q, r \in K[t] \) such that \( f = gq
+    + r \) and \( \partial r \lt \partial g.  \)
+  </em>
+</p>
+<p id="coset-operations">
+  <strong>Proposition CO.</strong>
+  <em>
+    For an additive subgroup \( S \) of a ring \( R, \) and \( a, b
+    \in R, \) the addition and multiplication of cosets defined as \(
+    (a + S) + (b + S) = (a + b) + S \) and \( (a + S) \cdot (b + S) =
+    (a \cdot b) + S \) are well defined operations, i.e., they produce
+    consistent results regardless of the choice of \( a \) and
+    \( b.  \)  The \( \cdot \) symbol is often omitted to keep the
+    notation compact.
+  </em>
+</p>
+<h2 id="proof">Proof<a href="#proof"></a></h2>
+<p>
+  The proof is rather long, so it has been split into multiple
+  subsections.  For the sake of convenience, we will use the notation
+  \( I = \langle m \rangle.  \)
+</p>
+<h3 id="part-1">Part 1: Monomorphism \( \phi : K \to K[t]/I \)<a href="#part-1"></a></h3>
+<!-- TODO: Is I an additive subgroup? -->
+<p>
+  Let \( m \) be a non-constant irreducible polynomial in \( K[t].  \)
+  By <a href="#quotient-field">Proposition QF</a>, we know that \(
+  K[t]/I \) is a field.  Now we define the function
+
+  \begin{align*}
+    \phi : K &\to K[t]/I, \\
+    a &\mapsto a + I,
+  \end{align*}
+
+  where \( I = \langle m \rangle.  \)  We will now show that \( \phi \)
+  is a monomorphism.  First, we show that this is a homomorphism.  The
+  proof for this is straightforward.  Let \( a, b \in K.  \)  Then
+
+  \begin{align*}
+    \phi(a + b) &= (a + b) + I = (a + I) + (b + I) = \phi(a) + \phi(b), \\
+    \phi(a \cdot b) &= (a \cdot b) + I = (a + I) \cdot (b + I) = \phi(a) \cdot \phi(b), \\
+    \phi(1) &= 1 + I.
+  \end{align*}
+
+  Note that \( 1 + I \) is the multiplicative identity of
+  \( K[t]/I.  \)  This proves that \( \phi \) is a homomorphism.  Now,
+  since \( I \) is the additive identity of \( K[t]/I, \) we get
+
+  \begin{align*}
+    \operatorname{Ker}(\phi)
+    &= \{ a \in K : \phi(a) = I \} \\
+    &= \{ a \in K : a + I = I \} \\
+    &= \{ a \in K : a \in I \}.
+  \end{align*}
+
+  The final equality above follows from
+  <a href="#coset-subgroup-equality">Proposition CSE</a>.  There is a
+  subtle distinction between \( a \in K \) and \( a \in I, \) though
+  in most cases, this difference is inconsequential.  The notation \(
+  a \in K \) refers to an element of \( K, \) whereas \( a \in I \)
+  represents the corresponding constant polynomial in \( K[t].  \)
+  Strictly speaking, we could write the latter as \( at^0 \in I, \)
+  but such explicitness is generally considered an overkill.  However,
+  for clarity, let us rewrite the above equation using this more
+  precise notation as follows:
+
+  \[
+    \operatorname{Ker}(\phi) = \{ a \in K : at^0 \in I \}.
+  \]
+
+  To elaborate, we are looking for elements \( a \) in \( K \) such
+  that the corresponding constant polynomials \( at^0 \) belong to
+  \(I.  \)  But \( I = \langle m \rangle = \{ fm : f \in K[t] \} \)
+  where \( m \) is a non-constant polynomial.  The only possible
+  constant polynomial in \( I \) is the zero polynomial.  Therefore
+
+  \[
+    \operatorname{Ker}({\phi}) = \{ a \in K : at^0 = 0 t^0 \} = \{ 0 \}
+  \]
+
+  where the final \( 0 \) is the additive identity element of \( K, \)
+  and so is the coefficient \( 0 \) in \( 0 t^0.  \)  Now
+  by <a href="#kernel-of-monomorphism">Proposition KOM</a>, \( \phi \)
+  is a monomorphism.
+</p>
+<h3 id="part-2">Part 2: Elements of \( K[t]/I \)<a href="#part-2"></a></h3>
+<p>
+  Now we will show that every element of \( K[t]/I \) can be written
+  in the form \( r + I \) where \( r \in K[t] \) and \( \partial r \lt
+  \partial m.  \)  Consider an arbitrary element \( f + I \in K[t]/I \)
+  where \( f \in K[t].  \)  Since \( m \ne 0, \) by
+  <a href="#polynomial-division">Proposition PD</a>, we can write
+
+  \[
+    f = qm + r
+  \]
+
+  in a unique way where \( q, r \in K[t] \) and \( \partial r \lt
+  \partial m.  \)  Therefore
+
+  \[
+    f + I = (qm + r) + I = r + I.
+  \]
+
+  The second equality above follows from
+  <a href="coset-equality">Proposition CE</a> since \( (qm + r) - r =
+  qm \in I.  \)  Therefore an arbitrary element of \( K[t]/I \) may be
+  written as
+
+  \[
+    (a_0 + \dots + a_{n-1} t^{n-1}) + I
+  \]
+
+  where \( a_0, \dots, a_{n-1} \in K.  \)  Using
+  <a href="#coset-operations">Proposition CO</a> expression, we
+  can expand the above expression as
+
+  \[
+    (a_0 + I) + \dots + (a_{n-1} + I)(t + I)^{n-1}.
+  \]
+
+  <!-- TODO: Where exactly are we using Part 2? -->
+</p>
+<h3 id="part-3">Part 3: Zero of \( m \)<a href="#part-3"></a></h3>
+<p>
+  Now there is no guarantee that there is a zero of \( m \) in
+  \( K.  \)  For example consider \( m = t^3 - 2 \in \mathbb{Q}[t].  \)
+  There is no element \( \alpha \in \mathbb{Q} \) such that \(
+  m(\alpha) = 0.  \)  But remarkably, if we treat \( m \) as a
+  polynomial in \( (K[t]/I)[t], \) then we can definitely find a zero
+  of \( m \) in \( K[t]/I.  \)  For clarity, we will use the notation
+  \( m' \) when we treat \( m \) as a polynomial in \( (K[t]/I)[t].  \)
+  Let us first write the original polynomial \( m \in K[t] \) as
+
+  \[
+    m = a_0 + \dots + a_n t^n
+  \]
+
+  where \( a_0, \dots, a_n \in K.  \)  The corresponding polynomial in
+  \( (K[t]/I)[t] \) is
+
+  \[
+    m' = (a_0 + I) + \dots + (a_n + I) t^n.
+  \]
+
+  Now note that \( t + I \in K[t]/I.  \)  Evaluating the polynomial \(
+  m' \) at \( t + I \) and using
+  <a href="#coset-operations">Proposition CO</a>, we get
+
+  \begin{align*}
+    m'(t + I)
+    &= (a_0 + I) + \dots + (a_n + I)(t + I)^n \\
+    &= (a_0 + \dots + a_n t^n) + I \\
+    &= m + I \\
+    &= I.
+  \end{align*}
+
+  The last equality follows from
+  <a href="#coset-subgroup-equality">Proposition CSE</a> and the fact
+  that \( m \in \langle m \rangle = I.  \)  Since \( I \) is the
+  additive identity element of \( K[t]/I, \) we can say that \( t + I
+  \) is a zero of \( m'.  \)
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/from-irreducible-polynomial-to-simple-algebraic-extension.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+<pubDate>Tue, 18 Feb 2025 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>FXYT 0.5.0</title>
+<link>https://susam.net/code/news/fxyt/0.5.0.html</link>
+<guid>https://susam.net/code/news/fxyt/0.5.0.html</guid>
+<description>
+<![CDATA[
+<p>
+  FXYT 0.5.0 is a minor update of FXYT, a tiny, esoteric, stack-based,
+  postfix, canvas colouring language with only 36 simple commands.
+  This release fixes an annoying bug that has been affecting some
+  mobile device users for a while.  On some mobile web browsers, such
+  as Chrome on Samsung Galaxy S8, the drawing canvas would appear to
+  be larger than the viewport thus overflowing the visible screen on
+  the mobile device.  The user would then be required to manually zoom
+  out in order to use this tool conveniently.  This issue has been
+  fixed in this release.
+</p>
+<p>
+  If you follow my <a href="../../../cfrs.html">CFRS[]</a> project,
+  you might have noticed yesterday that a very similar fix has gone
+  into CFRS[] too.  For more details about that, see
+  the release page for <a href="../cfrs/0.3.0.html">CFRS[] 0.3.0</a>.
+</p>
+<p>
+  Visit <a href="../../../fxyt.html">FXYT</a> to play with FXYT and
+  draw some interesting patterns!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/fxyt/0.5.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+<pubDate>Tue, 11 Feb 2025 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>CFRS[] 0.3.0</title>
+<link>https://susam.net/code/news/cfrs/0.3.0.html</link>
+<guid>https://susam.net/code/news/cfrs/0.3.0.html</guid>
+<description>
+<![CDATA[
+<p>
+  CFRS[] 0.3.0 is a minor update of CFRS[], an extremely minimal
+  drawing language consisting of only 6 simple commands.  This update
+  fixes an annoying bug that caused CFRS[] canvas to overflow the
+  visible screen on some mobile web browsers.  In particular, this
+  issue was observed on Chrome running on Samsung Galaxy S8.
+</p>
+<p>
+  To read more about CFRS[], go to
+  <a href="https://github.com/susam/cfrs#readme">github.com/susam/cfrs</a>.
+  Also, visit <a href="../../../cfrs.html">cfrs.html</a> to play with CFRS[]
+  now and draw some nice patterns!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/cfrs/0.3.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+<pubDate>Mon, 10 Feb 2025 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>FXYT 0.4.0</title>
+<link>https://susam.net/code/news/fxyt/0.4.0.html</link>
+<guid>https://susam.net/code/news/fxyt/0.4.0.html</guid>
+<description>
+<![CDATA[
+<p>
+  FXYT 0.4.0 is a minor update of FXYT, a tiny, esoteric, stack-based,
+  postfix, canvas colouring language with only 36 simple commands.
+  This release increases the maximum allowed code length from 256
+  bytes to 1024 bytes.  This means there is now more room for writing
+  more complex FXYT programs!
+</p>
+<p>
+  Further, the maximum code length for distributable demo links has
+  been increased from 64 bytes to 256 bytes.  This allows several more
+  impressive demos to have their own distributable links.  As a
+  specific example of one such demo, take a look at
+  this <a href="https://susam.net/fxyt.html#XTsN128dN3142pN128qDN3142gbN6284dcDN1571gbN3142SdcDNN1571dlbNN3142dSdcDDN166SDpN120000qdSDpN1000qpN1000qN1000SdpN1000qN1100sN3pN25qYgNSbPN255c">animated
+  sine wave</a> developed by <a href="https://github.com/ncw">Nick
+  Craig-Wood</a>, of Rclone fame!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/fxyt/0.4.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+<pubDate>Sun, 09 Feb 2025 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Associations</title>
+<link>https://susam.net/assoc.html</link>
+<guid>https://susam.net/assoc.html</guid>
+<description>
+<![CDATA[
+<p>
+  A record of some associations between various numbers, sounds, and
+  colours that occur in my mind.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/assoc.html">Read on website</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a>
+</p>
+]]>
+</description>
+<pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Negative Lookahead Assertion</title>
+<link>https://susam.net/negative-lookahead-assertion.html</link>
+<guid>https://susam.net/negative-lookahead-assertion.html</guid>
+<description>
+<![CDATA[
+<p>
+  Here is an example of negative lookahead assertion in regular
+  expression using Python:
+</p>
+<pre>
+<code>import re
+strings = ['foo', 'bar', 'baz', 'foo-bar', 'bar-baz', 'baz-foo']
+matches = [s for s in strings if re.search('^(?!.*foo)', s)]
+print(matches)</code>
+</pre>
+<p>
+  The regular expression <code>^(?!.*foo)</code> in the above example
+  matches strings that do not contain the pattern <code>foo</code>.
+  The above code example produces the following output:
+</p>
+<pre><samp>['bar', 'baz', 'bar-baz']</samp></pre>
+<p>
+  Of course, it is much simpler to use an ordinary regular expression
+  that matches <code>foo</code> and then invert the result of the
+  match to ignore strings that contain <code>foo</code>.  For example,
+  consider the following straightforward solution:
+</p>
+<pre><code>matches = [s for s in strings if not re.search('foo', s)]</code></pre>
+<p>
+  This example produces the same result as the earlier example but
+  with less complexity.  However, there are situations where, as a
+  user of certain software tool, we might not have control over how
+  the tool applies the regular expression.  Some tools only allow us
+  to provide a pattern, and they automatically select strings that
+  match it.  In such cases, if we need to select strings that <em>do
+  not</em> match a given pattern, negative lookahead assertions become
+  quite useful, provided the regular expression flavour supported by
+  the tool allows the use of negative lookahead assertions.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/negative-lookahead-assertion.html">Read on website</a> |
+  <a href="https://susam.net/tag/python.html">#python</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+<pubDate>Wed, 20 Nov 2024 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>The SHA-256 hash of this sentence begins with 0573e7473.</title>
+<link>https://susam.net/0573e7473.html</link>
+<guid>https://susam.net/0573e7473.html</guid>
+<description>
+<![CDATA[
+<pre><code>The SHA-256 hash of this sentence begins with 0573e7473.</code></pre>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/0573e7473.html">Read on website</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+<pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Function</title>
+<link>https://susam.net/function.html</link>
+<guid>https://susam.net/function.html</guid>
+<description>
+<![CDATA[
+<p>
+  In mathematics, a function \( f \) from a set \( X \) to a set \( Y \)
+  is a relation that associates each element of \( X \) with exactly
+  one element of \( Y.  \)  This page describes the commonly used
+  notation, terminology, and concepts pertaining to functions.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#definition">Definition</a></li>
+  <li><a href="#notation">Notation</a></li>
+  <li><a href="#domain-codomain-and-image">Domain, Codomain, and Image</a></li>
+  <li><a href="#injection-surjection-and-bijection">Injection, Surjection, and Bijection</a></li>
+</ul>
+<h2 id="definition">Definition<a href="#definition"></a></h2>
+<p>
+  A function \( f \) from a set \( X \) to a set \( Y \) is a binary
+  relation \( R \) that satisfies the following conditions:
+</p>
+<ul>
+  <li>
+    \( R \subseteq \{ (x, y) \mid x \in X, y \in Y \} = X \times Y.  \)
+  </li>
+  <li>
+    For every \( x \in X, \) there exists \( y \in Y \) such that \(
+    (x, y) \in R.  \)
+  </li>
+  <li>
+    If \( (x, y) \in R \) and \( (x, z) \in R, \) then \( y = z.  \)
+  </li>
+</ul>
+<p>
+  The set \( X \) is called the domain of \( f \) and the set \( Y \)
+  is called the codomain of \( f.  \)  The relation \( R \) is also
+  known as the graph of \( f.  \)
+</p>
+<h2 id="notation">Notation<a href="#notation"></a></h2>
+<p>
+  Let \( f \) be a function from a set \( X \) to a set \( Y.  \)  Then
+  the name \( f \) represents the function and the notation \( f(x) \)
+  represents the application of the function to the argument \( x, \)
+  i.e., \( f(x) \) represents the value of \( f \) for the element \(
+  x \in X.  \)  In other words, for all \( x \in X, \) we have \( (x,
+  f(x)) \in R.  \)
+</p>
+<p>
+  A function \( f \) with domain \( X \) and codomain \( Y \) is also
+  written as \( f : X \to Y.  \)  The function \( f \) may also be
+  written as \( x \mapsto f(x).  \)  This notation specifies a function
+  that maps \( x \) to \( f(x).  \)
+</p>
+<p>
+  Formally, \( f(x) \) denotes the application of the function \( f \)
+  to the argument \( x.  \)  However, in practice, it is common to use
+  the expression \( f(x) \) to refer to both the function itself and
+  its output for a given \( x, \) which is a slight deviation from
+  strict notation.  Similarly, the function \( x \mapsto g(x) \) is
+  often written as \( f(x) = g(x).  \)  For example, the function \( x
+  \mapsto x^2 - 1 \) may also be written as \( f(x) = x^2 - 1.  \)
+</p>
+<p>
+  Consider a function \( f \) that returns the square of a real
+  number.  The following are common notations used to define this
+  function, roughly ordered from the most formal form to the least
+  formal one:
+</p>
+<ul>
+  <li>
+    \( f : \mathbb{R} \to \mathbb{R} ; \; x \mapsto x^2, \)
+  </li>
+  <li>
+    \( f : \mathbb{R} \to \mathbb{R} : x \mapsto x^2, \)
+  </li>
+  <li>
+    \( f : x \mapsto x^2, \)
+  </li>
+  <li>
+    \( f: \mathbb{R} \to \mathbb{R} \) where \( f(x) = x^2, \)
+  </li>
+  <li>
+    \( f(x) = x^2.  \)
+  </li>
+</ul>
+<h2 id="domain-codomain-and-image">Domain, Codomain, and Image<a href="#domain-codomain-and-image"></a></h2>
+<p>
+  The <em>domain</em> of a function is the set of all values for which
+  the function is defined.
+</p>
+<p>
+  A <em>codomain</em> of a function \( f \) is a set within which the
+  values \( f(x) \) for all \( x \in X \) must lie, where \( X \) is
+  the domain of \( f.  \)
+</p>
+<p>
+  The <em>image</em> of a function \( f \) is the set \( \{ f(x) \mid
+  x \in X \} \) where \( X \) is the domain of \( f.  \)
+</p>
+<p>
+  The term <em>range</em> is often used as a synonym of image.
+  However the use of this term is inconsistent across literature.
+  Some old books use the term range to mean codomain while other books
+  use this term to mean the image.  Therefore it is best to use the
+  term image because it is free from such ambiguity.
+</p>
+<h2 id="injection-surjection-and-bijection">Injection, Surjection, and Bijection<a href="#injection-surjection-and-bijection"></a></h2>
+<p>
+  A function \( f : X \to Y \) is <em>injective</em> if \( \forall a,
+  b \in X, a \neq b \implies f(a) \neq f(b).  \)  A function is
+  injective, if each element of the codomain is mapped to by <em>at
+  most</em> one element of the domain.  An injective function is also
+  known as a <em>one-to-one</em> function or an injection.
+</p>
+<p>
+  A function \( f : X \to Y \) is <em>surjective</em> if \( \forall y
+  \in Y, \exists x \in X \) such that \( y = f(x).  \)  A function is
+  surjective, if each element of the codomain is mapped to by <em>at
+  least</em> one element of the domain.  A surjective function is also
+  known as an <em>onto</em> function or a surjection.
+</p>
+<p>
+  A function \( f : X \to Y \) is <em>bijective</em> if \( \forall y
+  \in Y, \) there exists exactly one \( x \in X, \) such that \( y =
+  f(x).  \)  A function is bijective, if each element of the codomain
+  is mapped to by <em>exactly</em> one element of the domain.  A
+  bijective function is also known as a <em>one-to-one
+  correspondence</em> or bijection.  A bijection is both injective and
+  surjective.  In other words, a bijection is both <em>one-to-one and
+  onto</em>.
+</p>
+<p>
+  The function \( f : \mathbb{R} \to \mathbb{R}; \; x \mapsto e^x \)
+  is injective but not surjective.  It is injective because distinct
+  values of \( x \) produce distinct values of \( e^x.  \)  However, it
+  is not surjective as no value in the domain maps to negative numbers
+  in the codomain, leaving some elements in the codomain unmapped.
+</p>
+<p>
+  The function \( f : \mathbb{R} \to \mathbb{R}; \; x \mapsto x^3 - x \)
+  is surjective but not injective.  It is surjective because every
+  value in the codomain is mapped to by at least one value in the
+  domain.  However, it is not injective, as distinct values in the
+  domain can map to the same value in the codomain.  For example, \(
+  f(-1) = f(0) = f(1) = 0.  \)
+</p>
+<p>
+  The function \( f : \mathbb{R} \to \mathbb{R}; \; x \mapsto x + 1 \)
+  is bijective.  It is both injective and surjective.  This function
+  is invertible with the inverse given by the function \( x \mapsto x
+  - 1.  \)
+</p>
+<p>
+  The function \( f : \mathbb{R} \to \mathbb{R}; \; x \mapsto x^2 \)
+  is neither injective nor surjective.  First, the function is not
+  injective because distinct values in the domain can map to the same
+  value in the codomain.  For example, \( f(-2) = f(2) = 4.  \)
+  Additionally, the function is not surjective because no value in the
+  domain maps to the negative numbers in the codomain.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/function.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/definition.html">#definition</a>
+</p>
+]]>
+</description>
+<pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
+</item>
+
+
+</channel>
+</rss>
