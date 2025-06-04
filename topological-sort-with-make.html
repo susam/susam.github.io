@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Topological Sort with Make - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/topological-sort-with-make.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<main>
+<h1>Topological Sort with Make</h1>
+<div>By <b>Susam Pal</b> on 21 Feb 2019</div>
+<p>
+  It should be no surprise to anyone who has ever written
+  a <code>Makefile</code> that it is possible to use <code>make</code>
+  to perform topological sort.  After all, <code>make</code> is
+  typically used as a build automation tool where certain target files
+  are built based on other prerequisites.  This dependency between
+  target files and prerequisites are expressed as <em>target
+  rules</em> in the <code>Makefile</code>.  The prerequisites
+  themselves may appear as targets in other target rules.
+</p>
+<p>
+  To build a target, <code>make</code> must determine the order in
+  which the various targets should be built so that all prerequisites
+  of a target are built before building the targef itself.  If we
+  consider each target and its prerequisites to be vertices such that
+  there is a directed edge from the target to each of its vertices,
+  then we have a directed graph.  Therefore, naturally, ordering the
+  targets in such a way that the prerequisites of each target come
+  before the target is equivalent to topologically sorting the
+  directed graph.
+</p>
+<p>
+  Let us see the topological sort in action with a fictitious example.
+  Imagine its Friday and you want to complete your work and enjoy a
+  cup of tea.
+</p>
+<div>
+  <a href="comments/topological-sort-with-make.html">Comments</a> |
+  <a href="./tag/python.html">#python</a> |
+  <a href="./tag/programming.html">#programming</a> |
+  <a href="./tag/technology.html">#technology</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2025 Susam Pal</p>
+</footer>
+</body>
+</html>

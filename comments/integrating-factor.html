@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Integrating Factor - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/integrating-factor.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+  <link rel="stylesheet" href="../js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+  </style>
+  <script defer src="../js/katex/katex.min.js"></script>
+  <script defer src="../js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Comments on <a href="../integrating-factor.html">Integrating Factor</a></h1>
+<div><a href="../form/comment/?p=integrating-factor">Post Comment</a></div>
+<section id="1" class="comment visitor">
+<h2><a href="http://trettel.us/">Ben Trettel</a> said:</h2>
+<p>
+  In practice, if I get a differential equation that I don't recognize
+  and I want a closed-form solution, I check out
+  <a href="http://eqworld.ipmnet.ru/">eqworld.ipmnet.ru</a> or one of
+  the books produced by the same folks.  It is like looking up
+  integrals in an integral table.  You look up the form of the equation
+  you want, then they summarize the solution and cite the proof.
+</p>
+
+<div>
+<a href="#1">11 Nov 2021 00:17 GMT</a>
+(<a href="#1">#1 of 1 comment</a>)
+</div>
+</section>
+
+<div><a href="../form/comment/?p=integrating-factor">Post Comment</a></div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2025 Susam Pal</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,2380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="./feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam Pal</title>
+<link>https://susam.net/</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/feed.xml"/>
+<description>Susam's Feed</description>
+
+<item>
+<title>Noise From My Feeds</title>
+<link>https://susam.net/feed-noise.html</link>
+<guid isPermaLink="false">xjdrj</guid>
+<pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Hello!  If you are subscribed to this website's feeds, you may have
+  noticed something odd recently.  Your feed reader might have shown a
+  bunch of old posts as if they were published today.  If that
+  happened with your feed reader, I apologise for the noise.  I hope
+  this post will give you some clarity on why this happened.  The
+  reason for this noise is a change to the way the RSS feeds are
+  generated for this website.  Each post in the feeds includes a GUID,
+  which is used by many feed readers to decide whether a post is new
+  or if it has been seen already.  Until now, the GUID was simply the
+  post's URL, like this:
+</p>
+<pre>
+<code>&lt;url&gt;https://susam.net/product-of-additive-inverses.html&lt;/url&gt;
+&lt;guid&gt;https://susam.net/product-of-additive-inverses.html&lt;/guid&gt;</code>
+</pre>
+<p>
+  However, today this has changed to a short random string, like so:
+</p>
+<pre>
+<code>&lt;url&gt;https://susam.net/product-of-additive-inverses.html&lt;/url&gt;
+&lt;guid isPermaLink="false"&gt;rxpnz&lt;/guid&gt;</code>
+</pre>
+<p>
+  If your feed reader looks at this GUID value to decide whether a new
+  post has been published, it will show you a whole bunch of old posts
+  once again in your reader, as if they were new.  These GUIDs won't
+  change again in the future, so this is a one-time problem.  The full
+  URL of the post is still present in the feeds, as you can see in the
+  example above, so your feed reader still knows where to take you if
+  you wish to visit this website to read a post.  The short random
+  string serves as a unique identifier for each post.
+</p>
+<p>
+  This website is a passion project I work on in my spare time, and
+  sometimes, after publishing a post, I realise the title could be
+  sharper or the URL could be cleaner.  I make the necessary changes
+  and set up HTTP redirects on my web server, so that visitors using
+  the old URL are still taken to the updated location of the post.
+  Previously, however, the GUID (being the URL) changed too, which
+  caused many feed readers to treat the updated post as a new one even
+  when it wasn't.  Switching to stable, random GUIDs prevents this
+  problem from occurring again.  The GUIDs now stay the same no matter
+  what changes I make behind the scenes, which means no more
+  unnecessary noise in your feed reader.
+</p>
+<p>
+  I am sorry if this caused any confusion or clutter.  If your feed
+  reader is currently flooded with old posts appearing as new, the
+  best solution is to mark those items as read.  Thank you for your
+  patience with this issue.  I hope to keep future surprises limited
+  to content, not configuration.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/feed-noise.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Product of Additive Inverses</title>
+<link>https://susam.net/product-of-additive-inverses.html</link>
+<guid isPermaLink="false">rxpnz</guid>
+<pubDate>Thu, 29 May 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A negative number multiplied by another negative number results in a
+  positive number.  Most of us learnt this rule during our primary or
+  secondary school years.  'Negative times negative equals positive'
+  was a phrase drummed into us during mathematics lessons.  In this
+  article, we will prove this rule &mdash; not just for numbers, but
+  for any algebraic structure that, in a general sense, behaves
+  somewhat like numbers.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#illustration">Illustration</a></li>
+  <li><a href="#ring-axioms">Ring Axioms</a></li>
+  <li><a href="#closure-properties">Closure Properties</a></li>
+  <li><a href="#inverse-of-inverse">Inverse of Inverse</a></li>
+  <li><a href="#multiplication-by-zero">Multiplication by Zero</a></li>
+  <li><a href="#multiplication-by-additive-inverse">Multiplication by Additive Inverse</a></li>
+  <li><a href="#product-of-additive-inverses">Product of Additive Inverses</a></li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h2 id="illustration">Illustration<a href="#illustration"></a></h2>
+<p>
+  Let us begin with a quick illustration that shows why the product of
+  two negative numbers must be positive for arithmetic to make sense.
+  Consider
+
+  \[
+    7 \times 8 = 56.
+  \]
+
+  The above equation can also be written as
+
+  \[
+    (10 - 3) \times (10 - 2) = 56.
+  \]
+
+  Using the distributive property of multiplication over subtraction,
+  we get
+
+  \[
+    (10 - 3) \times 10 + (10 - 3) \times (-2) = 56.
+  \]
+
+  Using the distributive property again, we have
+
+  \[
+    10 \times 10 + (-3) \times 10 + 10 \times (-2) + (-3) \times (-2) = 56.
+  \]
+
+  Now, we will take it for granted that a positive times a negative is
+  negative.  We will prove all of this rigorously later, but for now,
+  we are just working through an illustration, so we will accept that
+  rule and see where it leads.  The equation becomes:
+
+  \[
+    100 + (-30) + (-20) + (-3) \times (-2) = 56.
+  \]
+
+  Adding the first three terms gives
+
+  \[
+    50 + (-3) \times (-2) = 56.
+  \]
+
+  Subtracting \( 50 \) from both sides, we get
+
+  \[
+    (-3) \times (-2) = 6.
+  \]
+
+  What we have seen here is that if we accept \( 7 \times 8 = 56, \)
+  and that positive times negative gives a negative result, then we
+  must also accept that \( (-3) \times (-2) = 6.  \)
+</p>
+<h2 id="ring-axioms">Ring Axioms<a href="#ring-axioms"></a></h2>
+<p>
+  From this section onwards, we begin to take a rigorous approach to
+  everything we discuss.  We want to show that the rule 'negative
+  times negative equals positive' holds, in a general sense, for any
+  set of elements that share certain properties with numbers.  As it
+  turns out, these elements do not need to possess all the properties
+  of complex numbers, real numbers, or even rational numbers.  In
+  fact, if they satisfy a small and specific set of properties that
+  integers have, then the rule still holds.  These properties are
+  known as the <em>ring axioms</em>.
+</p>
+<p>
+  A ring is an algebraic structure consisting of a set \( R \) with
+  two binary operations \( + \) and \( \cdot, \) called addition and
+  multiplication respectively, satisfying the following axioms:
+</p>
+<ol>
+  <li>
+    <p>
+      <strong>Associativity of addition:</strong> For all \( a, b, c
+      \in R, \) we have \( a + (b + c) = (a + b) + c.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Commutativity of addition:</strong> For all \( a, b \in
+      R, \) we have \( a + b = b + a.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Additive identity:</strong> There exists an element \( 0
+      \in R \) such that for all \( a \in R, \) we have \( a + 0 = a =
+      0 + a.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Additive inverse:</strong> For each \( a \in R, \) there
+      exists an element \( -a \in R \) such that \( a + (-a) = 0 =
+      (-a) + a.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Associativity of multiplication:</strong> For all \( a,
+      b, c \in R, \) we have \( a \cdot (b \cdot c) = (a \cdot b)
+      \cdot c.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Left distributivity of multiplication over
+      addition:</strong> For all \( a, b, c \in R, \) we have \( a
+      \cdot (b + c) = (a \cdot b) + (a \cdot c).  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Right distributivity of multiplication over
+      addition:</strong> For all \( a, b, c \in R, \) we have \( (b +
+      c) \cdot a = (b \cdot a) + (c \cdot a).  \)
+    </p>
+  </li>
+</ol>
+<p>
+  Note that we do not assume that the ring contains multiplicative
+  identity, nor do we assume that multiplication is commutative.  Many
+  familiar types of numbers form rings.  For example, the set of
+  integers forms a ring with the usual addition and multiplication
+  operations.  The sets of rational numbers, real numbers, and complex
+  numbers satisfy the ring axioms too.
+</p>
+<p>
+  Rings need not consist of numbers.  A ring may contain elements of
+  any type.  As long as a set of elements, together with suitable
+  addition and multiplication operations, satisfies the seven axioms
+  above, it forms a ring.  For example, the set of all polynomials in
+  the indeterminate \( t \) with coefficients in some ring \( R \)
+  forms a ring under the usual addition and multiplication of
+  polynomials.  Such a ring is called a <em>polynomial ring</em> and
+  it is denoted \( R[t].  \)
+</p>
+<h2 id="closure-properties">Closure Properties<a href="#closure-properties"></a></h2>
+<p>
+  Some texts include the following additional axioms for the closure
+  properties of a ring:
+</p>
+<ol>
+  <li>
+    <p>
+      <strong>Closure under addition:</strong> For all
+      \( a, b \in R, \) we have \( a + b \in R.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Closure under multiplication:</strong> For all \( a, b
+      \in R, \) we have \( a \cdot b \in R.  \)
+    </p>
+  </li>
+</ol>
+<p>
+  However, stating these axioms explicitly is usually considered
+  redundant because a binary operation is closed by definition.  A
+  binary operation \( \circ \) on a set \( M \) is defined to be a
+  function
+
+  \[
+    \circ : M \times M \to M; \quad (a, b) \mapsto a \circ b.
+  \]
+
+  This definition automatically implies the closure property, since
+  the domain and codomain are the same.  The addition and
+  multiplication operations on a ring \( R \) may be defined as
+
+  \begin{align*}
+        + &amp;: R \times R \to R; \quad (a, b) \mapsto a + b, \\
+    \cdot &amp;: R \times R \to R; \quad (a, b) \mapsto a \cdot b.
+  \end{align*}
+
+  These definitions imply that a ring is closed under addition and
+  multiplication.  In practice, while deciding if some set \( R \)
+  forms a ring, we should always verify that the addition and
+  multiplication operations indeed have \( R \) as the codomain to
+  confirm that the closure property holds.
+</p>
+<h2 id="inverse-of-inverse">Inverse of Inverse<a href="#inverse-of-inverse"></a></h2>
+<p id="theorem-1">
+  <strong>Theorem 1.</strong>
+  <em>
+    Let \( R \) be a ring with \( + \) and \( \cdot \) operations.
+    Then for all \( a \in R, \) we have
+
+    \[
+      -(-a) = a.
+    \]
+  </em>
+</p>
+<p>
+  <em>Proof.</em> Using the additive inverse axiom, we get
+
+  \[
+    a + (-a) = 0.
+  \]
+
+  Let \( b = -a \) and rewrite the equation as
+
+  \[
+    a + b = 0.
+  \]
+
+  Adding \( -b \) to both sides, we get
+
+  \[
+    (a + b) + (-b) = 0 + (-b).
+  \]
+
+  Using associativity of addition in a ring, we get
+
+  \[
+    a + (b + (-b)) = 0 + (-b).
+  \]
+
+  By the additive inverse axiom, we obtain
+
+  \[
+    a + 0 = 0 + (-b).
+  \]
+
+  Using the additive identity axiom, we get
+
+  \[
+    a = -b.
+  \]
+
+  Since \( b = -a, \) the above equation can be written as
+
+  \[
+    a = -(-a).
+  \]
+
+  This completes the proof.
+</p>
+<p>
+  Notice that this proof does not involve the multiplication operation
+  of a ring at all.  In fact, it holds true in a more general
+  algebraic structure known as a <em>group</em>, which requires only a
+  binary operation with associativity, an identity element, and
+  inverses.  A ring, under addition, is also a group.  Since the proof
+  relies solely on these additive group properties, this theorem holds
+  for all groups.  However, for brevity, and to avoid introducing
+  group axioms separately, I have stated and proved this theorem in
+  the context of rings.
+</p>
+<h2 id="multiplication-by-zero">Multiplication by Zero<a href="#multiplication-by-zero"></a></h2>
+<p id="theorem-2">
+  <strong>Theorem 2.</strong>
+  <em>
+    Let \( R \) be a ring with \( + \) and \( \cdot \) operations.  Then
+    for all \( a \in R, \) we have
+
+    \[
+      a \cdot 0 = 0 \cdot a = 0.
+    \]
+  </em>
+</p>
+<p>
+  <em>Proof.</em> Using the additive identity axiom, we get
+
+  \[
+    0 + 0 = 0.
+  \]
+
+  Multiplying both sides on the left by \( a, \) we get
+
+  \[
+    a \cdot (0 + 0) = a \cdot 0.
+  \]
+
+  Using the left distributivity axiom, we get
+
+  \[
+    a \cdot 0 + a \cdot 0 = a \cdot 0.
+  \]
+
+  Let \( b = a \cdot 0.  \)  Then
+
+  \[
+    b + b = b.
+  \]
+
+  Since a ring is closed under multiplication, \( b \in R.  \)  By the
+  additive inverse axiom, there exists \( -b \in R \) such that \( b +
+  (-b) = 0.  \)  Adding \( -b \) to both sides of the above equation,
+  we get
+
+  \[
+    (b + b) + (-b) = b + (-b).
+  \]
+
+  By associativity of addition in a ring, we get
+
+  \[
+    b + (b + (-b)) = b + (-b).
+  \]
+
+  Since \( b + (-b) = 0, \) we get
+
+  \[
+    b + 0 = 0.
+  \]
+
+  By the additive identity axiom, we get
+
+  \[
+    b = 0.
+  \]
+
+  Since \( b = a \cdot 0, \) the above equation may be written as
+
+  \[
+    a \cdot 0 = 0.
+  \]
+
+  A similar argument shows that
+
+  \[
+    0 \cdot a = 0.
+  \]
+
+  This completes the proof.
+</p>
+<h2 id="multiplication-by-additive-inverse">Multiplication by Additive Inverse<a href="#multiplication-by-additive-inverse"></a></h2>
+<p id="theorem-3">
+  <strong>Theorem 3.</strong>
+  <em>
+    Let \( R \) be a ring with \( + \) and \( \cdot \) operations.
+    Then for all \( a, b \in R, \) we have
+
+    \[
+      a \cdot (-b) = (-a) \cdot b = -(a \cdot b).
+    \]
+  </em>
+</p>
+<p>
+  <em>Proof.</em> Using the left distributivity and additive inverse
+  properties of a ring along
+  with <a href="#theorem-2">Theorem 2</a>, we get
+
+  \[
+    a \cdot b + a \cdot (-b)
+    = a \cdot (b + (-b))
+    = a \cdot 0
+    = 0.
+  \]
+
+  Adding \( -(a \cdot b) \) to both sides, we get
+
+  \[
+    -(a \cdot b) + (a \cdot b + a \cdot (-b)) = -(a \cdot b).
+  \]
+
+  By associativity of addition, we obtain
+
+  \[
+    (-(a \cdot b) + a \cdot b) + a \cdot (-b) = -(a \cdot b).
+  \]
+
+  Using commutativity of addition in a ring along with the additive
+  inverse axiom, we get
+
+  \[
+    0 + a \cdot (-b) = -(a \cdot b).
+  \]
+
+  Finally, using the additive identity axiom, we get
+
+  \[
+    a \cdot (-b) = -(a \cdot b).
+  \]
+
+  Similarly, we can show that
+
+  \[
+    (-a) \cdot b = -(a \cdot b).
+  \]
+
+  This completes the proof.
+</p>
+<h2 id="product-of-additive-inverses">Product of Additive Inverses<a href="#product-of-additive-inverses"></a></h2>
+<p>
+  <strong>Theorem 4.</strong>
+  <em>
+    Let \( R \) be a ring with \( + \) and \( \cdot \) operations.  Then
+    for all \( a, b \in R, \) we have
+
+    \[
+      (-a) \cdot (-b) = a \cdot b.
+    \]
+  </em>
+</p>
+<p>
+  <em>Proof.</em>
+  From <a href="#theorem-3">Theorem 3</a>, we know that
+
+  \[
+    a \cdot (-b) = -(a \cdot b).
+  \]
+
+  Substituting \( a \) with \( -a, \) we get
+
+  \[
+    (-a) \cdot (-b) = -((-a) \cdot b).
+  \]
+
+  Again by <a href="#theorem-3">Theorem 3</a>, we have \( (-a) \cdot b
+  = -(a \cdot b).  \)  This gives
+
+  \[
+    (-a) \cdot (-b) = -(-(a \cdot b)).
+  \]
+
+  Now using <a href="#theorem-1">Theorem 1</a>, the right-hand side
+  becomes \( a \cdot b, \) so we get
+
+  \[
+    (-a) \cdot (-b) = a \cdot b.
+  \]
+
+  This completes the proof.
+</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  Theorems 1 to 4 establish certain algebraic properties that hold in
+  any ring.  Although these results were proven abstractly for rings,
+  they reflect properties we are already familiar with from our
+  experience with numbers.  For example, in the ring of integers, we
+  observe \( -(-2) = 2 \) which is a specific case
+  of <a href="#theorem-1">Theorem 1</a>.
+</p>
+<p>
+  Similarly, <a href="#theorem-2">Theorem 2</a> confirms the
+  well-known fact that multiplying any integer by \( 0 \) yields
+  \( 0.  \)  For example, \( 2 \cdot 0 = 0.  \)
+</p>
+<p>
+  Then <a href="#theorem-3">Theorem 3</a> implies the rule that
+  multiplying a positive number by a negative number yields a negative
+  result.  For example, \( 2 \cdot (-3) = -(2 \cdot 3) = -6.  \)
+</p>
+<p>
+  Finally, <a href="#theorem-4">Theorem 4</a> implies that the product
+  of two negative numbers is positive.  For example, \( (-2) \cdot
+  (-3) = 2 \cdot 3 = 6.  \)
+</p>
+<p>
+  These familiar results are not limited to the integers.  The results
+  hold in any ring, including polynomial rings, rings of integers
+  modulo a fixed positive integer, and many other algebraic systems.
+  These results demonstrate how the ring axioms formalise familiar
+  arithmetic rules within a more general algebraic framework.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/product-of-additive-inverses.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Two Ideals of Fields</title>
+<link>https://susam.net/two-ideals-of-fields.html</link>
+<guid isPermaLink="false">xsuzd</guid>
+<pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A field has exactly two ideals: the zero ideal, which contains only
+  the additive identity, and the whole field itself.  These are known
+  as trivial ideals.  Further if a commutative ring, with distinct
+  additive and multiplicative identities, has no ideals other than the
+  trivial ones, then it must be a field.  These two facts are elegant
+  in their symmetry and simplicity.  In this article, we will explore
+  why these facts are true.  Familiarity with algebraic structures
+  such as groups, rings, and fields is assumed.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#definition-of-ideals">Definition of Ideals</a></li>
+  <li><a href="#examples-of-ideals">Examples of Ideals</a></li>
+  <li><a href="#known-results">Known Results</a></li>
+  <li><a href="#ideals-of-fields">Ideals of Fields</a></li>
+  <li><a href="#rings-with-trivial-ideals">Rings With Trivial Ideals</a></li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h2 id="definition-of-ideals">Definition of Ideals<a href="#definition-of-ideals"></a></h2>
+<p>
+  A left ideal of a ring \( R \) is a subset \( I \subseteq R \) such
+  that \( I \) is an additive subgroup of \( R, \) and for all \( a
+  \in I \) and \( r \in R, \) we have \( r \cdot a \in I.  \)  We say
+  that a left ideal absorbs multiplication from the left by any ring
+  element, or equivalently, that it is closed under left
+  multiplication by any ring element.
+</p>
+<p>
+  Similarly, a right ideal of a ring \( R \) is a subset \( I
+  \subseteq R \) such that \( I \) is an additive subgroup of \( R, \)
+  and for all \( a \in I \) and \( r \in R, \) we have \( a \cdot r
+  \in I.  \)  We say that a right ideal absorbs multiplication from the
+  right by any ring element, or equivalently, that it is closed under
+  right multiplication by any ring element.
+</p>
+<p>
+  In a commutative ring \( R, \) every left ideal is also a right
+  ideal, and vice versa.  This is because for all \( a \in I \) and \(
+  r \in R, \) we have \( r \cdot a = a \cdot r.  \)  Therefore, when
+  working with commutative rings, we do not need to distinguish
+  between left and right ideals and we simply refer to them as ideals.
+  In this case, the ideal is said to absorb multiplication by any ring
+  element, or equivalently, it is said to be closed under
+  multiplication by any ring element.
+</p>
+<h2 id="examples-of-ideals">Examples of Ideals<a href="#examples-of-ideals"></a></h2>
+<p>
+  Consider the set of even integers
+
+  \[
+    \langle 2 \rangle = \{ 2n : n \in \mathbb{Z} \}.
+  \]
+
+  This is an ideal of \( \mathbb{Z}.  \)  Indeed, if we multiply any
+  even integer by any integer, the result is an even integer.  In
+  other words, the set of even integers absorbs multiplication by any
+  integer.  Equivalently, the set of even integers is closed under
+  multiplication by any integer.
+</p>
+<p>
+  Let us see another example.  Consider the ring of polynomials in the
+  indeterminate \( t \) with integer coefficients, denoted \(
+  \mathbb{Z}[t].  \)  The set
+
+  \[
+    \langle 2, t \rangle = \{ 2f + tg : f, g \in \mathbb{Z}[t] \}
+  \]
+
+  is an ideal of \( \mathbb{Z}[t].  \)  Every element of this ideal is
+  a linear combination of \( 2 \) and \( t \) with polynomial
+  coefficients.  If we take any element \( 2f + tg \in \langle 2, t
+  \rangle \) where \( f, g \in \mathbb{Z}[t] \) and multiply it by any
+  polynomial \( h \in \mathbb{Z}[t], \) we obtain \( 2fh + tgh, \)
+  which is again an element of \( \langle 2, t \rangle.  \)  Hence \(
+  \langle 2, t \rangle \) absorbs multiplication by any element of \(
+  \mathbb{Z}[t], \) i.e., it is closed under multiplication by
+  elements of \( \mathbb{Z}[t].  \)
+</p>
+<h2 id="known-results">Known Results<a href="#known-results"></a></h2>
+<p>
+  For the sake of brevity, we assume the following standard results.
+</p>
+<p id="zero-multiplication">
+  <strong>Proposition 1.</strong>
+  <em>
+    Let \( R \) be a ring.  Then, for all \( a \in R, \) we have
+
+    \[
+      a \cdot 0 = 0 \cdot a = 0.
+    \]
+  </em>
+</p>
+<p id="principal-ideal">
+  <strong>Proposition 2.</strong>
+  <em>
+    Let \( R \) be a ring and let \( a \in R.  \)  Then
+
+    \begin{align*}
+      I_L &amp;= \{ r \cdot a : r \in R \}, \\
+      I_R &amp;= \{ a \cdot r : r \in R \}
+    \end{align*}
+
+    are, respectively, a left ideal and a right ideal of \( R.  \)  If
+    \( R \) is commutative, then \( I_L = I_R, \) and we write
+
+    \[
+      \langle a \rangle = \{ a \cdot r : r \in R \}
+    \]
+
+    and say that \( \langle a \rangle \) is an ideal of \( R \)
+    generated by \( a.  \)
+  </em>
+</p>
+<h2 id="ideals-of-fields">Ideals of Fields<a href="#ideals-of-fields"></a></h2>
+<p>
+  In this section, we show that a field \( K \) has only two ideals:
+  \( \{ 0 \} \) and \( K \) itself.
+</p>
+<p>
+  Clearly \( \{ 0 \} \) is an ideal of \( K, \) as it satisfies the
+  definition of an ideal.  It is the trivial additive subgroup of
+  \( K, \) and by <a href="#zero-multiplication">Proposition 1</a>,
+  for all \( r \in K, \) we have \( r \cdot 0 = 0 \in \{ 0 \}.  \)
+</p>
+<p>
+  Now \( K \) is also an ideal of itself.  Since \( K \) is an additive
+  group by the definition of a field, it is an additive subgroup of
+  itself.  Moreover, as a field, \( K \) is closed under
+  multiplication, so for all \( a, r \in K \) we have \( a \cdot r \in
+  K.  \)
+</p>
+<p>
+  We will now show that \( \{ 0 \} \) and \( K \) are
+  the <em>only</em> ideals of \( K.  \)  Let \( I \) be an ideal of \(
+  K.  \)  There are two cases to consider: \( I = \{ 0 \} \) and \( I
+  \ne \{ 0 \}.  \)  Suppose \( I \ne \{ 0 \}.  \)  Then there exists a
+  non-zero element \( b \in I.  \)  Since \( b \ne 0 \) and \( K \) is
+  a field, \( b \) has a multiplicative inverse \( b^{-1} \in K.  \)
+  Since \( b \in I, \) \( b^{-1} \in K, \) and \( I \) is closed under
+  multiplication by any element of \( K, \) we have
+
+  \[
+    1 = b \cdot b^{-1} \in I.
+  \]
+
+  Now, let \( c \in K.  \)  Since \( 1 \in I, \) \( c \in K, \) and \(
+  I \) is an ideal of \( K, \) we get
+
+  \[
+    c = 1 \cdot c \in I.
+  \]
+
+  Thus \( K \subseteq I, \) and since \( I \subseteq K \) by
+  definition, we conclude \( I = K.  \)  Therefore the only ideals of
+  \( K \) are \( \{ 0 \} \) and \( K \) itself.
+</p>
+<h2 id="rings-with-trivial-ideals">Rings With Trivial Ideals<a href="#rings-with-trivial-ideals"></a></h2>
+<p>
+  We now show that if \( R \) is a commutative ring with
+  \( 1 \ne 0, \) and the only ideals of \( R \) are \( \{ 0 \} \) and
+  \( R \) itself, then \( R \) must be a field.  To do this, we first
+  show that every non-zero element of \( R \) has a multiplicative
+  inverse in \( R.  \)  Let \( a \in R \) with \( a \ne 0.  \)  We now
+  show that there exists a multiplicative inverse \( a^{-1} \in R.  \)
+  By <a href="#principal-ideal">Proposition 2</a>, the set
+
+  \[
+    \langle a \rangle = \{ a \cdot r : r \in R \}.
+  \]
+
+  is an ideal of \( R.  \)  Since \( a = a \cdot 1 \in \langle a
+  \rangle, \) we have \( \langle a \rangle \ne \{ 0 \}.  \)  By
+  assumption, the only ideals of \( R \) are \( \{ 0 \} \) and
+  \( R, \) so it must be that \( \langle a \rangle = R.  \)  Therefore
+  \( 1 \in \langle a \rangle \) and
+
+  \[
+    1 = a \cdot s
+  \]
+
+  for some \( s \in R.  \)  Thus \( a \) has a multiplicative inverse
+  \( s \in R, \) and this holds for every non-zero \( a \in R.  \)
+</p>
+<p>
+  The remaining properties of fields, namely, associativity and
+  commutativity of addition and multiplication, the existence of
+  distinct additive and multiplicative identities, the existence of
+  additive inverses, and the distributivity of multiplication over
+  addition, are inherited from the ring \( R.  \)  Therefore \( R \) is
+  a field.
+</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  To summarise, any commutative ring with distinct additive and
+  multiplicative identities that has only trivial ideals is a field,
+  and every field has only trivial ideals.
+</p>
+<p>
+  Note that every field is also a commutative ring with distinct
+  additive and multiplicative identities.  Therefore, we can say that
+  every field is a commutative ring with distinct additive and
+  multiplicative identities and only trivial ideals, and vice versa.
+  It is neat how the two facts align so nicely.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/two-ideals-of-fields.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>From Finite Integral Domains to Finite Fields</title>
+<link>https://susam.net/from-finite-integral-domains-to-finite-fields.html</link>
+<guid isPermaLink="false">ojxkk</guid>
+<pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  In this article, we explore a few well-known results from abstract
+  algebra pertaining to fields and integral domains.  We ask ourselves
+  whether every field is an integral domain, and whether every
+  integral domain is a field.  We begin with the definition of an
+  integral domain, discuss a few established results, and then proceed
+  to answer these questions.  Familiarity with algebraic structures
+  such as rings and fields is assumed.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#definition-of-integral-domain">Definition of Integral Domain</a></li>
+  <li><a href="#examples-of-integral-domain">Examples of Integral Domains</a></li>
+  <li><a href="#known-results">Known Results</a></li>
+  <li><a href="#on-distinct-identities">On Distinct Identities</a></li>
+  <li><a href="#every-field-is-an-integral-domain">Every Field Is an Integral Domain</a></li>
+  <li><a href="#infinite-integral-domains">Infinite Integral Domains</a></li>
+  <li><a href="#every-finite-integral-domain-is-a-field">Every Finite Integral Domain Is a Field</a>
+    <ul>
+      <li><a href="#alternate-proof">Alternate Proof</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h2 id="definition-of-integral-domain">Definition of Integral Domain<a href="#definition-of-integral-domain"></a></h2>
+<p>
+  An <em>integral domain</em> is a commutative ring, with distinct
+  additive and multiplicative identities, in which the product of any
+  two non-zero elements is also non-zero.
+</p>
+<p>
+  Equivalently, an integral domain is a commutative ring, with
+  distinct additive and multiplicative identities, such that if the
+  product of two elements is zero, then one of the elements must be
+  zero.
+</p>
+<p>
+  Using standard notation, we can write that a commutative ring
+  \( R \) is an integral domain if \( 0 \ne 1 \) and for
+  \( a, b \in R, \)
+
+  \[
+    a \ne 0 \text{ and } b \ne 0 \implies a \cdot b \ne 0
+  \]
+
+  or equivalently,
+
+  \[
+    a \cdot b = 0 \implies a = 0 \text{ or } b = 0.
+  \]
+
+  There are many other alternative ways to define an integral domain
+  which are all equivalent.  In a ring \( R, \) a <em>zero
+  divisor</em> is a non-zero element \( a \in R \) such that there
+  exists a non-zero element \( b \in R \) with \( ab = 0.  \)  With
+  this definition of a zero divisor, we can define an integral domain
+  to be a unital commutative ring, with \( 0 \ne 1, \) that has no
+  zero divisors.
+</p>
+<h2 id="examples-of-integral-domain">Examples of Integral Domains<a href="#examples-of-integral-domain"></a></h2>
+<p>
+  The ring of integers \( \mathbb{Z} \) is an integral domain since
+  the product of two non-zero integers is non-zero.  The field of
+  rational numbers \( \mathbb{Q} \) is also an integral domain.  The
+  ring of polynomials in the indeterminate \( t \) with coefficients
+  in an integral domain \( R, \) denoted \( R[t], \) is an integral
+  domain as well.
+</p>
+<p>
+  The ring of integers modulo 5, denoted \( \mathbb{Z}_5 \) is an
+  integral domain.  However, the ring of integers modulo 6, denoted \(
+  \mathbb{Z}_6, \) is not an integral domain since \( 2 \cdot 3 = 0 \)
+  in \( \mathbb{Z}_6.  \)  In other words, \( \mathbb{Z}_6 \) has zero
+  divisors, namely \( 2 \) and \( 3, \) so it is not an integral
+  domain.  In fact, the ring of integers modulo \( n, \) denoted \(
+  \mathbb{Z}_n \) is an integral domain if and only if \( n \) is
+  prime.
+</p>
+<h2 id="known-results">Known Results<a href="#known-results"></a></h2>
+<p>
+  For the sake of brevity, we assume the following known results.
+</p>
+<p id="zero-multiplication">
+  <strong>Proposition 1.</strong>
+  <em>
+    Let \( R \) be a ring.  Then, for all \( a \in R, \) we have
+
+    \[
+      a \cdot 0 = 0 \cdot a = 0.
+    \]
+  </em>
+</p>
+<p id="cancellation-property">
+  <strong>Proposition 2.</strong>
+  <em>
+    Let \( D \) be an integral domain.  Then, for all \( a, b, c \in D \) such
+    that \( a \ne 0, \) we have
+
+    \[
+      a \cdot b = a \cdot c \implies b = c.
+    \]
+  </em>
+</p>
+<p>
+  The second result is also known as the <em>cancellation property of
+  integral domains</em>.
+</p>
+<h2 id="on-distinct-identities">On Distinct Identities<a href="#on-distinct-identities"></a></h2>
+<p>
+  We have been mentioning the distinctiveness of the additive and
+  multiplicative identities as a property of an integral domain.  Some
+  texts express this more concisely by saying that an integral domain
+  is a <em>non-zero</em> unital commutative ring without zero
+  divisors, i.e., the zero ring \( \{ 0 \} \) is excluded from the
+  definition.
+</p>
+<p>
+  This follows directly from
+  <a href="#zero-multiplication">Proposition 1</a>.  If
+  \( 0 = 1 \in R, \) then for all \( r \in R, \) we get
+
+  \[
+    r = r \cdot 1 = r \cdot 0 = 0
+  \]
+
+  which means that every element of \( R \) is zero, i.e., \( R = \{ 0
+  \}.  \)  To summarise
+
+  \[
+    0 = 1 \in R \implies R = \{ 0 \}
+  \]
+
+  or equivalently, for a ring \( R \) with unity,
+
+  \[
+    R \ne \{ 0 \} \implies 0 \ne 1.
+  \]
+
+  Further, if \( 0 \) and \( 1 \) are two distinct elements of
+  \( R, \) then \( R \) has at least two elements, so for a ring
+  \( R \) with unity,
+
+  \[
+    0 \ne 1 \implies R \ne \{ 0 \}
+  \]
+
+  Therefore, a ring with unity has distinct additive and
+  multiplicative identities if and only if it is a non-zero ring.  This
+  is why an integral domain can also be defined as a non-zero unital
+  commutative ring without zero divisors.
+</p>
+<h2 id="every-field-is-an-integral-domain">Every Field Is an Integral Domain<a href="#every-field-is-an-integral-domain"></a></h2>
+<p>
+  We now show that every field is indeed an integral domain.  Let
+  \( F \) be a field, and let \( a, b \in F \) such that \( ab = 0.  \)
+  There are two cases to consider: \( a = 0 \) and \( a \ne 0.  \)  If
+  \( a = 0, \) we are done.
+</p>
+<p>
+  Now suppose \( a \ne 0.  \)  Then by the properties of fields, there exists a
+  multiplicative inverse \( a^{-1} \in F \) such that \( a \cdot
+  a^{-1} = 1.  \)  Then using the properties of fields, we get
+
+  \[
+    b = b \cdot 1 = b \cdot (a \cdot a^{-1}) = (a \cdot b) \cdot
+    a^{-1} = 0 \cdot a^{-1} = 0.
+  \]
+
+  The last equality follows from
+  <a href="#zero-multiplication">Proposition 1</a>.  We have shown
+  that if \( ab = 0, \) then either \( a = 0 \) or \( b = 0.  \)
+  Therefore, if both \( a \ne 0 \) and \( b \ne 0, \) then it must be
+  that \( ab \ne 0.  \)  Therefore \( F \) is an integral domain.
+</p>
+<h2 id="infinite-integral-domains">Infinite Integral Domains<a href="#infinite-integral-domains"></a></h2>
+<p>
+  Now we arrive at the next natural question.  Is every integral
+  domain a field?
+</p>
+<p>
+  The ring of integers \( \mathbb{Z} \) is an integral domain but it
+  is not a field since \( 2 \in \mathbb{Z}, \) but \( 2^{-1} \notin
+  \mathbb{Z}.  \)  Therefore, \( \mathbb{Z} \) is an example of an
+  infinite integral domain that is not a field.
+</p>
+<p>
+  Next we ask ourselves: Is every infinite integral domain not a
+  field?  Not quite!  Some infinite integral domains are, in fact,
+  fields.  This follows directly from the result in the previous
+  section.  Every field is an integral domain, and there are plenty of
+  infinite fields, so they must all be integral domains too.  Consider
+  the field of rational numbers \( \mathbb{Q} \) or the field of
+  complex numbers \( \mathbb{C}.  \)  Since these are fields, they are
+  also integral domains.  So, clearly, there are infinite integral
+  domains that are also fields.
+</p>
+<h2 id="every-finite-integral-domain-is-a-field">Every Finite Integral Domain Is a Field<a href="#every-finite-integral-domain-is-a-field"></a></h2>
+<p>
+  We will now turn our attention to finite integral domains.  Is every
+  finite integral domain a field?  Yes!  This can be shown as follows.
+</p>
+<p>
+  Let \( D \) be a finite integral domain.  Let \( a \in D \) with \(
+  a \ne 0.  \)  Consider the set
+
+  \[
+    A = \{ a, a^2, a^3, \dots \}.
+  \]
+
+  Since a ring is closed under multiplication, every element of
+  \( A \) belongs to \( D, \) so \( A \subseteq D.  \)  Since \( D \)
+  is finite, \( A \) is finite too.  Therefore, by the pigeonhole
+  principle, there exist integers \( m \gt n \ge 0 \) such that
+
+  \[
+    a^m = a^n
+  \]
+
+  This equation can be rewritten as
+
+  \[
+    a \cdot a^{m - n - 1} \cdot a^n = 1 \cdot a^n.
+  \]
+
+  Since \( a \) is a non-zero element of an integral domain, it
+  follows that \( a^n \ne 0.  \)  Therefore we can use
+  <a href="#cancellation-property">Proposition 2</a> (the cancellation
+  property of integral domains) to get
+
+  \[
+    a \cdot a^{m - n - 1} = 1.
+  \]
+
+  Since a ring is closed under multiplication and since \( m - n - 1
+  \ge 0, \) it follows that \( a^{m - n - 1} \in D.  \)  Thus every
+  non-zero element \( a \in D \) has a multiplicative inverse in
+  \( D.  \)  This establishes the multiplicative inverse property of a
+  field.
+</p>
+<p>
+  Since an integral domain has distinct additive and multiplicative
+  identities, it satisfies two additional field properties: the
+  existence of an additive identity and a distinct multiplicative
+  identity.
+</p>
+<p>
+  Finally, the remaining field properties are inherited from the ring
+  structure, i.e., associativity and commutativity of addition and
+  multiplication, the existence of additive inverses, and the
+  distributivity of multiplication over addition all hold in \( D, \)
+  since they hold in any ring.  Thus, \( D \) satisfies all the field
+  properties.  Therefore \( D \) is a field.
+</p>
+<h3 id="alternate-proof">Alternate Proof<a href="#alternate-proof"></a></h3>
+<p>
+  The proof in the previous section presents what I initially came up
+  with while working through these concepts and proving these results
+  for myself.  However, I later found that there is another proof that
+  is quite popular in the literature.  This alternate proof differs in
+  one key aspect: it does not invoke the cancellation property of
+  integral domains stated in
+  <a href="#cancellation-property">Proposition 2</a>.  Let us examine
+  this alternate proof.
+</p>
+<p>
+  As before, we consider the set \( A = \{ a, a^2, a^3, \dots \}
+  \subseteq D, \) where \( a \in D \) and \( a \ne 0, \) and we obtain
+  the equation
+
+  \[
+    a^m = a^n
+  \]
+
+  for some integers \( m \gt n \ge 0.  \)  As before, we use the fact
+  that \( a \) is an element of an integral domain to conclude that \(
+  a^n \ne 0.  \)  Now adding the additive inverse of \( a^n \) to both
+  sides we get
+
+  \[
+    a^m - a^n = 0.
+  \]
+
+  Using the distributivity property of rings, we get
+
+  \[
+    a^n (a^{m - n} - 1) = 0
+  \]
+
+  Since a ring is closed under addition and multiplication, both \(
+  a^n \) and \( a^{m - n} - 1 \) belong to \( D.  \)  As \( D \) is an
+  integral domain and \( a^n \ne 0, \) we conclude that \( a^{m - n} -
+  1 = 0.  \)  Therefore \( a^{m - n} = 1.  \)  Since \( m - n \ge 1, \)
+  we can write:
+
+  \[
+    a \cdot a^{m - n - 1} = 1.
+  \]
+
+  Therefore every non-zero element \( a \in D \) has a multiplicative
+  inverse in \( D.  \)  The remaining properties of a field are
+  established in the same manner as in the previous section.  Hence,
+  if \( D \) is a finite integral domain, then it is also a field.
+</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  We now summarise all the results here before concluding the article:
+</p>
+<ul>
+  <li>
+    Every field is an integral domain.
+  </li>
+  <li>
+    Every <em>finite</em> integral domain is a field.
+  </li>
+  <li>
+    Some infinite integral domains are not fields.  A convenient
+    example is the set of integers \( \mathbb{Z}.  \)
+  </li>
+  <li>
+    Some infinite integral domains are fields.  Every infinite field,
+    such as \( \mathbb{Q}, \) \( \mathbb{R}, \) or \( \mathbb{C} \) is
+    an example.
+  </li>
+</ul>
+<p>
+  It is worth reiterating here that the fourth result in the summary
+  above follows from the fact that every field is an integral domain.
+  These results reveal how structure and size interact in algebraic
+  systems.  It is interesting how simply being finite guarantees that
+  an integral domain is a field.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/from-finite-integral-domains-to-finite-fields.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>ASCII PC</title>
+<link>https://susam.net/pc.html</link>
+<guid isPermaLink="false">mpqts</guid>
+<pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  An ASCII art depiction of a PC resting on a computer case, with a
+  classic Model M keyboard placed in front.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/pc.html">Read on website</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Elliptical Python Programming</title>
+<link>https://susam.net/elliptical-python-programming.html</link>
+<guid isPermaLink="false">tmdms</guid>
+<pubDate>Thu, 10 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  One thing I love about Python is how it comes with its very own
+  built-in zen.  In moments of tribulations, when I am wrestling with
+  crooked code and tangled thoughts, I often find solace in its
+  timeless wisdom.  Here's a glimpse of the clarity it provides:
+</p>
+<pre>
+<samp>$ <kbd>python3 -m this | grep e-</kbd>
+There should be one-- and preferably only one --obvious way to do it.</samp>
+</pre>
+<p>
+  Indeed, there is one and only one <em>obvious</em> way to write the
+  number 1 in Python, like so:
+</p>
+<pre><samp>&gt;&gt;&gt; <kbd>--(...==...)</kbd>
+1</samp></pre>
+<p>
+  You may, quite naturally, place several ones adjacently to produce
+  larger integers:
+</p>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>--(...==...)--(...==...)</kbd>
+2</samp>
+</pre>
+<p>
+  And so on, ad infinitum, or until your heap collapses like a poorly
+  made soufflé.  Now, the "pre-decrement operator" at the beginning is
+  entirely optional, much like the plus sign when you write "+5
+  biscuits" in a letter to your grandmother.  It's not wrong, but it
+  is unnecessary.  So unless you want to look peculiar to your
+  colleagues, you would likely want to adopt a more conventional
+  style, such as this:
+</p>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>(...==...)--(...==...)--(...==...)</kbd>
+3</samp>
+</pre>
+<p>
+  Now, all computer programs are, in some sense, just a long, earnest
+  stream of bits.  It is currently fashionable to bundle these bits
+  into groups of eight and write them as integers.  Following this
+  trend, we can compute absolutely anything that is computable as long
+  as we know exactly what integers to write.  Now, I wouldn't want to
+  bore you with the finer details of computer science &ndash; not in
+  this day and age &ndash; fascinating as they may be.  I trust you
+  are quite capable of drawing the rest of the
+  f... well, <em>feathered</em>, nocturnal bird.  Once you've grasped
+  the basics, a typical first Python program might look something like
+  this:
+</p>
+<pre class="wrap"><code>exec('%c'*((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))%(((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)),((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))--((...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))--((...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))--(...==...),*(((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...)),)*((...==...)--(...==...)),((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)),((...==...)--(...==...))**((...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))--((...==...)--(...==...)--(...==...)),((...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))--(...==...)))</code></pre>
+<p>
+  Now you might be wondering if this is <em>really</em> the way one
+  ought to write production Python code.  Isn't it too much trouble to
+  type those dots over and over again?  Not if you remap your
+  <kbd>tab</kbd> key to type three dots, of course.  But I understand
+  not everyone likes to remap their keys like this.  In particular,
+  there exists a peculiar species of mammal known to remap their
+  <kbd>tab</kbd> key to parentheses.  They claim it leads to
+  enlightenment.  Such enlightened living forms may find the following
+  program more convenient to type:
+</p>
+<pre class="wrap"><code>exec('%c'*((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))%(((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())),((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==()))**((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))--((()==())--(()==())),((()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())--(()==())--(()==())),((()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))--((()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))--((()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))--(()==()),*(((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==()))**((()==())--(()==())--(()==())),)*((()==())--(()==())),((()==())--(()==())--(()==()))**((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))--((()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())),((()==())--(()==()))**((()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==()))**((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))--((()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==()))**((()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==())),((()==())--(()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))--((()==())--(()==())--(()==())),((()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))--(()==())))</code></pre>
+<p>
+  This program is functionally equivalent to the earlier one.  But
+  Python isn't meant for enlightenment.  It's meant for getting things
+  done.  And to get things done, code should be readable,
+  maintainable, and ideally not resemble an ancient summoning ritual.
+  That's why I personally prefer the earlier style, the one with the
+  ellipses.  It gracefully avoids the disconcerting void that lurks
+  within the parentheses.  After all, programs must be written for
+  people to read, and only incidentally for machines to execute.
+</p>
+<p>
+  Finally, I must emphasise that you should never deploy code like
+  this in production.  If you plan to write code like this for your
+  production CGI scripts, I implore you to add some ellipses for
+  logging.  When dung inevitably collides with the fan, you'll be
+  immensely glad you scattered some useful logs amidst the ellipses
+  that hold together your business logic.  With that small piece of
+  unsolicited advice, I'll end this brief distraction from scrolling
+  through endless arguments on Internet forums.  Happy coding, and may
+  your parentheses stay balanced (and may your ellipses be the
+  punctuation that ...
+  <!-- ).  Now, I can sleep peacefully!  -->
+</p>
+<!--
+  For the enlightened folks who are offended by the penultimate
+  paragraph, lighten up!  I am no stranger to the fine art of nested
+  parentheses.  This very blog is crafted with an abundance of them,
+  all forged through the mighty steel and bank machinery.
+-->
+<!-- ### -->
+<p>
+  <a href="https://susam.net/elliptical-python-programming.html">Read on website</a> |
+  <a href="https://susam.net/tag/python.html">#python</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/humour.html">#humour</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>More Contrast, Please</title>
+<link>https://susam.net/more-contrast-please.html</link>
+<guid isPermaLink="false">ygqwk</guid>
+<pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  So you have decided to go with a dark theme for your website.  Great
+  choice!  I love dark themes too!  My journey with computers began
+  with monochrome CRT monitors, where white text was displayed on dark
+  background.  I am still very fond of that colour scheme.  Done well,
+  dark themes can be elegant and easy on the eyes.  But there is a
+  common pitfall that I see all too often in modern web design &ndash;
+  the overuse of low-contrast colour schemes.  This is something worth
+  keeping in mind while crafting a new theme.
+</p>
+<p>
+  Take a look at this example where the text colour
+  is <code>#777777</code> and the background is <code>#222222</code>:
+</p>
+<p style="background: #222222; color: #777777; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  I am hoping that most people would agree that the colour contrast
+  above is too low.  I certainly find it uncomfortable to read.
+  However, the situation becomes a bit less clear with the following
+  example, where the text colour is set to <code>#A9A9B3</code> and the background
+  is <code>#2A2A2D</code>:
+</p>
+<p style="background: #2a2a2d; color: #a9a9b3; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  The above example is, in fact, based on a real website I came across
+  today.  Now this is definitely better than the first example and I
+  am sure some people would find this perfectly acceptable.  However,
+  I still find this uncomfortable to read.  In fact, I have realised
+  that as I get older, I need a higher contrast ratio to make the text
+  more comfortable to read.
+</p>
+<p>
+  I would suggest that any colour choices for foreground text and
+  background page colours should, at the very least, meet
+  the <a href="https://www.w3.org/TR/WCAG22/#contrast-enhanced">Web
+  Content Accessibility Guidelines (WCAG) Level AAA</a>
+  recommendations.  This means the contrast ratio for normal-sized
+  text against the background should be at least 7:1.  There are also
+  the slightly weaker Level AA guidelines, which require that
+  normal-sized text have a contrast ratio of at least 4.5:1.  That
+  said, I personally recommend aiming for a 7:1 contrast ratio
+  regardless.
+</p>
+<p>
+  The first example above has a contrast ratio of just 3.6:1, meaning
+  it fails to meet both the Level AA and Level AAA requirements.  The
+  second example, on the other hand, has a contrast ratio of
+  6.1:1.  While it satisfies the Level AA requirements, it still falls
+  short of meeting the Level AAA standards.
+</p>
+<p>
+  To calculate the contrast ratio according to
+  the <a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G17.html#tests">WCAG
+  contrast formula</a>, use one of these tools:
+</p>
+<ul>
+  <li>
+    <a href="contrast.html">My Colour Contrast Calculator</a>
+  </li>
+  <li>
+    <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a>
+  </li>
+</ul>
+<p>
+  If we improve the contrast for the second example above, we would
+  need to choose a brighter shade for the text, such as
+  <code>#B7B7BE</code>.  On the dark background <code>#2A2A2D</code>,
+  this results in a contrast ratio of 7.2:1.  Here is how it looks:
+</p>
+<p style="background: #2a2a2d; color: #b7b7be; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  I definitely find this much easier to read.  If you are developing a
+  dark colour theme for your web page or software, I request you to
+  run your colours through a contrast calculator tool and ensure the
+  contrast ratio is greater than 7:1.  Anything less, and the theme
+  might become uncomfortable for people like me.  Small adjustments
+  like this can significantly improve readability and comfort for your
+  readers.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/more-contrast-please.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Colour Contrast Calculator</title>
+<link>https://susam.net/contrast.html</link>
+<guid isPermaLink="false">xmajx</guid>
+<pubDate>Sun, 06 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A simple web-based tool to calculate the contrast between two
+  colours according to WCAG contrast formula.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/contrast.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Hacker News Hug of Deaf</title>
+<link>https://susam.net/hn-bell.html</link>
+<guid isPermaLink="false">fcycm</guid>
+<pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<blockquote>
+  <p>
+    "It's essentially the Hacker News Hug of Deaf."
+    &ndash;
+    <a href="https://news.ycombinator.com/item?id=30146019#30147639">@TonyTrapp</a>
+  </p>
+</blockquote>
+<p>
+  About three years ago, I set up a tiny <code>netcat</code> loop on
+  one of my Debian servers to accept arbitrary connections from the
+  Hacker News (HN) community.  The loop ran for 24 hours and did
+  exactly three things whenever a client connected:
+</p>
+<ol>
+  <li>
+    Send a simple <code>ok</code> message to the client.
+  </li>
+  <li>
+    Close the connection immediately.
+  </li>
+  <li>
+    Make my terminal beep four times.
+  </li>
+</ol>
+<p>
+  That's it!  It was a playful experiment in response to a thread
+  about quirky, do-it-yourself alerting systems for friends and
+  family.  See
+  <a href="https://news.ycombinator.com/item?id=30146019#30146451">this
+  HN thread</a> for the original discussion.  Here is the exact
+  command I ran on my server:
+</p>
+<pre class="wrap"><code>while true; do (echo ok | nc -q 1 -vlp 8000 2&gt;&amp;1; echo; date -u) | tee -a beeper.log; for i in 1 2 3 4; do printf '\a'; sleep 1; done &amp; done</code></pre>
+<p>
+  The <code>nc</code> command closes the connection immediately after
+  sending the <code>ok</code> message and runs an
+  inner <code>for</code> loop in a background shell that
+  asynchronously prints the bell character to the terminal four times.
+  Meanwhile, the outer <code>while</code> command loops back quickly
+  to run a new <code>nc</code> process, thus making this one-liner
+  script instantly ready to accept the next incoming connection.
+</p>
+<p>
+  Soon after I shared this, members of the HN community began
+  connecting to the demo running on <code>susam.net:8000</code>.
+  Anyone on the Internet could use any client of their choice to
+  connect.  Here's how I explained it in the HN thread:
+</p>
+<blockquote>
+  <p>
+    Now anytime someone connects to port 8000 of my system
+    by <em>any</em> means, I will hear 4 beeps!  The other party can
+    use <em>whatever client</em> they have to connect to port 8000 of
+    my system, e.g., a web browser, <code>nc HOST
+    8000</code>, <code>curl HOST:8000</code>, or even, <code>ssh HOST
+    -p 8000</code>, <code>irssi -c HOST -p 8000</code>, etc.
+  </p>
+</blockquote>
+<p>
+  In the next 24 hours, I received over 4761 connections, each one
+  triggering four beeps.  That's a total of 19&#x202f;044 terminal
+  beeps echoing throughout the day!
+</p>
+<figure class="soft">
+  <img src="files/blog/beeper1.png" alt="Graph">
+  <figcaption>
+    Number of connections received every hour since 31 Jan 2022 10:00 UTC
+  </figcaption>
+</figure>
+<p>
+  The data for the above graph is available at
+  <a href="https://gist.github.com/susam/159c7d92659b3185eb0b0d683998a3b7">beeper.log</a>.
+  Now, 4761 isn't a huge number in the grand scheme of things, but it
+  was still pretty cool to see people notice an obscure comment buried
+  in a regular HN thread, act on it, and make my terminal beep
+  thousands of time.
+</p>
+<p>
+  At the end of the day, this was a fun experiment.  Pointless, but
+  fun!  Computing isn't always about solving problems.  Sometimes,
+  it's also about exploring quirky ideas.  The joy is in the
+  exploration, and having others join in made it even more enjoyable.
+  Activities like this keep computing fun for me!
+</p>
+<hr>
+<p id="update-2025-04-10">
+  <strong>Update on 10 Apr 2025:</strong>
+  I <a href="https://news.ycombinator.com/item?id=43642123">shared
+  this article on Hacker News</a> today and saw another surge in
+  connections to my beeper loop.
+</p>
+<figure class="soft">
+  <img src="files/blog/beeper2.png" alt="Graph">
+  <figcaption>
+    Number of connections received every hour since 10 Apr 2025 10:00 UTC
+  </figcaption>
+</figure>
+<p>
+  The data for the above graph is available at
+  <a href="https://gist.github.com/susam/3cec5db1a78a9db527327460656daeae">beeper2.log</a>.
+  The data shows a total of 352&#x202f;831 connections from 1396
+  unique client addresses over 14 hours.  That amounts to a total of
+  1&#x202f;411&#x202f;324 beeps!  Much of the traffic seems to have
+  come from persistent client loops constantly connecting to my beeper
+  loop.  In particular, the client identified by the anonymised
+  identifier C0276 made the largest number of connections by far, with
+  327&#x202f;209 total connections.  The second most active client,
+  C0595, made only 6771 connections.  There were 491 clients that
+  connected exactly once.  If you'd like to see the number of
+  connections by each client, see
+  <a href="https://gist.github.com/susam/d6766f4b722f899250a8f3da0c98f993">beeperclient2.log</a>.
+</p>
+<p>
+  In conclusion, the difference in the volume of connections between
+  the earlier experiment and today's is striking.  In the first round,
+  three years ago, there were only 4761 connections from some readers
+  of a comment thread.  But in today's round, with this post being
+  featured on the HN front page, there were 352&#x202f;831
+  connections!  It is fascinating to see how odd experiments like this
+  can find so many participants within the HN community!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/hn-bell.html">Read on website</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/shell.html">#shell</a> |
+  <a href="https://susam.net/tag/networking.html">#networking</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>More Purple Links, Please</title>
+<link>https://susam.net/more-purple-links-please.html</link>
+<guid isPermaLink="false">gyrti</guid>
+<pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  While I am browsing the Web, one thing I always like to see is a
+  page with purple links.  Since the early days of the Web, purple has
+  has become the default colour for visited links.  Here's a relevant
+  note from the
+  <a href="https://ksi.cpsc.ucalgary.ca/archives/WWW-TALK/www-talk-1993q2.messages/47.html">changelog</a>
+  of NCSA Mosaic 0.13 (1993):
+</p>
+<blockquote>
+  Changed default anchor representations: blue and single solid
+  underline for unvisited, dark purple and single dashed underline for
+  visited.
+</blockquote>
+<p>
+  Visiting a web page and finding purple links brings a sense of ease.
+  The purple links indicate that I am familiar with some of the
+  references the web page makes to other articles.  Each purple link
+  serves as a small marker of a prior journey, a reminder that I've
+  explored certain paths before.  Purple links are like well-worn
+  books.  They show signs of use: faded covers, creased spines, and
+  dog-eared pages.  Blue links, on the other hand, are like new books,
+  still unopened and waiting to be explored.
+</p>
+<p>
+  Although I'm quite fond of purple links, I know that not everyone
+  shares this sentiment.  Modern web design trends have moved away
+  from this tradition, favouring sleek, minimalist aesthetics where
+  visited and unvisisted links look nearly the same, or even using
+  custom colours for visited links.  While this can be visually
+  appealing, it subtracts from the experience of using the Web as a
+  source of knowledge.  When links look indistinguishable or
+  unconventional, it can be hard to tell what I've already read,
+  especially when I am revisiting a topic and want to easily spot the
+  links that are new.
+</p>
+<p>
+  Now it is not hard to change the visited link style with a little
+  userscript.  For example the following userscript can override the
+  website's stylesheet to colour visited links purple again:
+</p>
+<pre>
+<code>// ==UserScript==
+// @name Purple Links
+// @match *://*/*
+// ==/UserScript==
+document.head.appendChild(document.createElement('style'))
+document.head.lastElementChild.innerHTML = 'a:visited {color: #518}'</code>
+</pre>
+<p>
+  This little userscript should work well on most web pages with light
+  backgrounds.  But if a web page uses a dark theme or a custom colour
+  scheme, then the above userscript may need adjustments to either
+  handle other colour schemes gracefully.
+</p>
+<p>
+  In the end, sticking with the default purple for visited links isn't
+  just about tradition; it is about simplicity and clarity.  It is a
+  small but reliable visual cue that makes navigating the Web easier
+  and more intuitive, for me, at least.  For me, those purple links
+  bring comfort.  They are small reminders of all the digital paths
+  I've already walked.  I wish more websites would keep them that way.
+  More purple links, please.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/more-purple-links-please.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>PDF Dimmer Bookmarklet</title>
+<link>https://susam.net/pdf-dimmer-bookmarklet.html</link>
+<guid isPermaLink="false">bgigh</guid>
+<pubDate>Wed, 02 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I often read PDF documents in Firefox, and sometimes I prefer to
+  work in dark mode, especially at night when the room lights are
+  dimmed.  However, the bright white background of the Firefox PDF
+  viewer can be glaring and uncomfortable when dark mode is enabled.
+  Additionally, writing a userscript to invert the background and text
+  colours in the PDF viewer does not work.  I have confirmed with
+  Firefox version 137.0 that userscripts do not run within the PDF
+  viewer.
+</p>
+<p>
+  For example, consider this simple userscript that just prints a
+  "hello" message when a web page loads:
+  <a href="code/lab/userscript/hello.js">hello.js</a>.  This script
+  works on regular web pages but does not execute when viewing a PDF
+  file in Firefox.
+  See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1454760">Bug
+  1454760</a> for more details about this restriction.
+</p>
+<p>
+  While userscripts are often my go-to solution for customisations
+  like this, for this particular problem, I resorted to writing a tiny
+  bookmarklet to work around the above limitation.  Here is the
+  bookmarklet:
+</p>
+<pre><code>javascript:(()=&gt;{['thumbnailView','viewer'].map(id=&gt;document.getElementById(id).style.filter='invert(0.9)saturate(0)')})()</code></pre>
+<p>
+  To add this to Firefox, from the Firefox menu, select "Bookmarks".
+  Then in the left sidebar, right click on either "Bookmarks Toolbar"
+  or "Bookmarks Menu", depending on where you want to add the
+  bookmarklet, and select "Add Bookmark".  Enter some name in the
+  "Name" field and then in the "URL" field, enter the above line of
+  code.  Click "Save" and you are done.  The next time you open a PDF
+  file in Firefox, find the bookmark in the bookmarks menu or toolbar,
+  click on it, and it should instantly invert the colour scheme of the
+  PDF viewer.
+</p>
+<p>
+  Alternatively, simply drag the following link and drop it onto your
+  Firefox toolbar:
+</p>
+<p class="textcenter">
+  <a href="javascript:(()=%3e%7b%5b'thumbnailView','viewer'%5d.map(id=%3edocument.getElementById(id).style.filter='invert(0.9)saturate(0)')%7d)()">Dim PDF</a>
+</p>
+<p>
+  While the default PDF viewer of Firefox does not support
+  userscripts, this bookmarklet is a simple, effective way to give
+  PDFs a darker look.  If you're like me and often read books and
+  papers in PDF format at night, you might find this handy.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/pdf-dimmer-bookmarklet.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>MathB 1.3.0</title>
+<link>https://susam.net/code/news/mathb/1.3.0.html</link>
+<guid isPermaLink="false">lpjpy</guid>
+<pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  MathB 1.3.0 is likely the final update of MathB, a web-based
+  mathematics pastebin service.  The online mathematics pastebin
+  service previously hosted at <code>https://mathb.in/</code> has been
+  shut down today after 13 years of continuous service.  See the post
+  <a href="../../../mathbin-is-shutting-down.html">MathB.in Is
+  Shutting Down</a> for more details about this.  This release
+  captures the state of this project as it was today at the time of
+  shutting down the online service.
+</p>
+<p>
+  This update includes a few new features.  For example, there is now
+  a configurable runtime property named <code>:expect</code> that can
+  be used to enforce the presence of certain tokens in the posts
+  submitted by the users.  This feature was used to enforce the
+  presence of LaTeX delimiters in the online service, a measure that
+  was instrumental in reducing spam to a great extent in the last few
+  years.  There are a few other minor changes too.
+  See <a href="https://github.com/susam/mathb/blob/main/CHANGES.md">CHANGES.md</a>
+  for a detailed changelog.
+</p>
+<p>
+  The source code of MathB remains free and open-source, so anyone
+  interested in hosting their own instance can still do so.  To access
+  the source code of MathB, please visit
+  <a href="http://github.com/susam/mathb">github.com/susam/mathb</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/mathb/1.3.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>XOR Map</title>
+<link>https://susam.net/code/web/xormap.html</link>
+<guid isPermaLink="false">pevyd</guid>
+<pubDate>Tue, 11 Mar 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A simple HTML page that plots bitwise-XOR <em>x</em> and <em>y</em>
+  for each coordinate (<em>x</em>, <em>y</em>)</em> with the
+  coordinate (0, 0) at the bottom-left corner.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/xormap.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Lemma for FTGT</title>
+<link>https://susam.net/lemma-for-ftgt.html</link>
+<guid isPermaLink="false">udjib</guid>
+<pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h2 id="introduction">Introduction<a href="#introduction"></a></h2>
+<p>
+  This post illustrates a key lemma that is used in proving
+  the <em>fundamental theorem of Galois theory</em> (FTGT).  Note that
+  FTGT is not covered in this post.  The focus of this post is on
+  understanding and proving this lemma only.  Here is the lemma from
+  the book <em>Galois Theory</em>, 5th ed. by Stewart (2023):
+</p>
+<div class="highlight">
+  <p>
+    <strong>Lemma 12.1.</strong>
+    <em>
+      Suppose that \( L/K \) is a field extension, \( M \) is an
+      intermediate field, and \( \tau \) is a \( K \)-automorphism of \(
+      L.  \)  Then \( \tau M^* \tau^{-1} = \tau(M)^{*}.  \)
+    </em>
+  </p>
+</div>
+<p>
+  The notation \( M^* \) denotes the group of all
+  \( M \)-automorphisms of \( L \) with composition as the group
+  operation.  Note that Stewart writes \( \tau(M)^{*} = \tau M^*
+  \tau^{-1} \) while stating the lemma but I have reversed the LHS and
+  RHS to maintain consistency with the equations that appear in the
+  discussion below.
+</p>
+<p>
+  To build intuition for this lemma, I'll first present an
+  illustration, followed by a proof.  The discussion below assumes
+  familiarity with field extensions and field automorphisms, as
+  several notations and results from these areas will be used
+  implicitly without detailed justification.  This post is meant to
+  serve as a set of notes on the lemma, not a comprehensive tutorial.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#illustration">Illustration</a>
+    <ul>
+      <li><a href="#concrete-example">Concrete Example</a></li>
+      <li><a href="#lhs-subset-of-rhs">LHS &sube; RHS</a></li>
+      <li><a href="#lhs-superset-of-rhs">LHS &supe; RHS</a></li>
+      <li><a href="#lhs-equals-rhs">LHS = RHS</a></li>
+    </ul>
+  </li>
+  <li><a href="#proof">Proof</a></li>
+</ul>
+<h2 id="illustration">Illustration<a href="#illustration"></a></h2>
+<h3 id="concrete-example">Concrete Example<a href="#concrete-example"></a></h3>
+<p>
+  Let \( L = \mathbb{Q}(\sqrt{2}, \sqrt{3}), \) \( K = \mathbb{Q}, \)
+  and \( M = \mathbb{Q}(\sqrt{2}).  \)  Note that
+
+  \begin{align*}
+    L &= \{ a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6} : a, b, c, d \in \mathbb{Q} \}, \\
+    M &= \{ k + l \sqrt{2} : k, l \in \mathbb{Q} \}.
+  \end{align*}
+
+  Now the group of \( K \)-automorphisms of \( L \) is
+
+  \[
+    K^* = \{\phi_1, \phi_2, \phi_3, \phi_4 \}
+  \]
+
+  where each \( \phi_i \) is given by
+
+  \begin{align*}
+    \phi_1 &amp;:
+    a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6} \mapsto
+    a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6}, \\
+
+    \phi_2 &amp;:
+    a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6} \mapsto
+    a - b \sqrt{2} + c \sqrt{3} - d \sqrt{6}, \\
+
+    \phi_3 &amp;:
+    a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6} \mapsto
+    a + b \sqrt{2} - c \sqrt{3} - d \sqrt{6}, \\
+
+    \phi_4 &amp;:
+    a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6} \mapsto
+    a - b \sqrt{2} - c \sqrt{3} + d \sqrt{6}.
+  \end{align*}
+
+  Then \( M^* = \{ \phi_1, \phi_3 \}.  \)  Let \( \tau = \phi_2.  \)
+  Then
+
+  \begin{align*}
+  \tau(M)
+    &= \{ \tau(x) : x \in \mathbb{M} \} \\
+    &= \{ \tau(k + l \sqrt{2}) : k, l \in \mathbb{Q} \} \\
+    &= \{ k - l \sqrt{2} : k, l \in \mathbb{Q} \}.
+  \end{align*}
+
+  Note that in this case we ended up with \( \tau(M) = M \) but we
+  will be careful not to utilise this fact.  We will ensure that the
+  steps below work without assuming \( \tau(M) = M.  \)  Next we find
+
+  \begin{equation}
+    \tau(M)^* = \{ \phi_1, \phi_3 \}.
+    \label{eq-tau-m-ast}
+  \end{equation}
+
+  Now
+
+  \begin{align*}
+    \tau M^* \tau^{-1}
+    &= \{ \tau \gamma \tau^{-1} : \gamma \in {M^*} \} \\
+    &= \{ \tau \phi_1 \tau^{-1}, \tau \phi_3 \tau^{-1} \}.
+  \end{align*}
+
+  Let us now find out how each element of \( \tau M^* \tau^{-1} \)
+  transforms the elements of \( L.  \)  For all \( a + b \sqrt{2} + c
+  \sqrt{3} + d \sqrt{6} \in L, \) we get
+
+  \begin{align*}
+    (\tau \phi_1 \tau^{-1})(a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6})
+    &= (\tau \phi_1)(a - b\sqrt{2} + c\sqrt{3} - d\sqrt{6}) \\
+    &= \tau (a - b\sqrt{2} + c\sqrt{3} - d\sqrt{6}) \\
+    &= a + b\sqrt{2} + c\sqrt{3} + d\sqrt{6}).
+  \end{align*}
+
+  Therefore
+
+  \[
+    \tau \phi_1 \tau^{-1} = \phi_1.
+  \]
+
+  Similarly,
+
+  \begin{align*}
+    (\tau \phi_3 \tau^{-1})(a + b \sqrt{2} + c \sqrt{3} + d \sqrt{6})
+    &= (\tau \phi_3)(a - b\sqrt{2} + c\sqrt{3} - d\sqrt{6}) \\
+    &= \tau (a - b\sqrt{2} - c\sqrt{3} + d\sqrt{6}) \\
+    &= a + b\sqrt{2} - c\sqrt{3} - d\sqrt{6}.
+  \end{align*}
+
+  Therefore
+
+  \[
+    \tau \phi_3 \tau^{-1} = \phi_3.
+  \]
+
+  We have shown that
+
+  \begin{equation}
+    \tau M^* \tau^{-1} = \{ \phi_1, \phi_3 \}.
+    \label{eq-tau-coset}
+  \end{equation}
+
+  From \( \eqnref{eq-tau-m-ast}{1} \) and \( \eqnref{eq-tau-coset}{2} \)
+  we see that
+
+  \[
+     \tau M^* \tau^{-1} = \tau(M)^*.
+  \]
+
+  Since we are working with a concrete example of \( \tau \) here, we
+  know exactly how it behaves, so we succeeded in demonstrating the
+  above equality.  However, in a general proof, \( \tau \) is going to
+  be an arbitrary \( K \)-automorphism of \( L, \) so we cannot know
+  exactly how it behaves and as a result, we cannot obtain the above
+  equation directly.  Therefore, in a general proof, we we will first
+  show that \( \tau M^* \tau^{-1} \subseteq \tau(M)^* \) and then we
+  will show that \( \tau M^* \tau^{-1} \supseteq \tau(M)^* \) in order
+  to prove the above equation.
+</p>
+<h3 id="lhs-subset-of-rhs">LHS &sube; RHS<a href="#lhs-subset-of-rhs"></a></h3>
+<p>
+  Once again, let us see how each element of \( \tau M^* \tau^{-1} \)
+  transforms the elements of \( \tau(M).  \)  Note that this time we
+  are not going to examine how they transform arbitrary elements of \(
+  L.  \)  We are only going to see how they transform the elements of
+  \( \tau(M).  \)  For all \( k - l \sqrt{2} \in \tau(M), \) we get
+
+  \begin{align*}
+    (\tau \phi_1 \tau^{-1})(k - l \sqrt{2})
+    &= (\tau \phi_1)(k + l \sqrt{2}) \\
+    &= \tau(k + l \sqrt{2}) \\
+    &= k - l \sqrt{2}.
+  \end{align*}
+
+  Similarly, for all \( k - l \sqrt{2} \in \tau(M), \) we get
+
+  \begin{align*}
+    (\tau \phi_3 \tau^{-1})(k - l \sqrt{2})
+    &= (\tau \phi_3)(k + l \sqrt{2}) \\
+    &= \tau(k + l \sqrt{2}) \\
+    &= k - l \sqrt{2}.
+  \end{align*}
+
+  Note above that both \( \phi_1 \) and \( \phi_3 \) fix \( k + l
+  \sqrt{2} \in M \) because \( \phi_1, \phi_2 \in M^*, \) the set of
+  \( M \)-automorphisms of \( L.  \)  This detail will be used in the
+  general proof.
+</p>
+<p>
+  Since both \( \tau \phi_1 \tau^{-1} \) and
+  \( \tau \phi_3 \tau^{-1} \) fix the elements of \( \tau(M), \) they
+  are both \( \tau(M) \)-automorphisms of \( L.  \)  Therefore \( \tau
+  M^* \tau^{-1} \subseteq \tau(M)^{*}.  \)
+</p>
+<h3 id="lhs-superset-of-rhs">LHS &supe; RHS<a href="#lhs-superset-of-rhs"></a></h3>
+<p>
+  Consider the set \( \tau^{-1} \tau(M)^* \tau \) and examine how its
+  elements transform the elements of \( M.  \)  For all \( k + l
+  \sqrt{2} \in M, \) we get
+
+  \begin{align*}
+    (\tau^{-1} \phi_1 \tau)(k + l \sqrt{2})
+    &= (\tau^{-1} \phi_1)(k - \sqrt{2}) \\
+    &= \tau^{-1}(k - \sqrt{2}) \\
+    &= k + l \sqrt{2}.
+  \end{align*}
+
+  Similarly, for all \( k + l \sqrt{2} \in M, \) we get
+
+  \begin{align*}
+    (\tau^{-1} \phi_3 \tau)(k + l \sqrt{2})
+    &= (\tau^{-1} \phi_3)(k - \sqrt{2}) \\
+    &= \tau^{-1}(k - \sqrt{2}) \\
+    &= k + l \sqrt{2}.
+  \end{align*}
+
+  Here both \( \phi_1 \) and \( \phi_3 \) fix \( k - l \sqrt{2} \in
+  \tau(M) \) because \( \phi_1, \phi_2 \in \tau(M)^*, \) the set of \(
+  \tau(M) \)-automorphisms of \( L.  \)
+</p>
+<p>
+  Since both \( \tau^{-1} \phi_1 \tau \) and
+  \( \tau^{-1} \phi_3 \tau \) fix the elements of \( M, \) they are
+  both \( M \)-automorphisms of \( L.  \)  Therefore \( \tau^{-1}
+  \tau(M)^* \tau \subseteq M^* \) which implies \( \tau M^* \tau^{-1}
+  \supseteq \tau(M)^*.  \)
+</p>
+<h3 id="lhs-equals-rhs">LHS = RHS<a href="#lhs-equals-rhs"></a></h3>
+<p>
+  The previous two sections complete the illustration of the lemma
+  with the chosen example.  We have shown that \( \tau M^* \tau^{-1}
+  \subseteq \tau(M)^{*} \) and \( \tau M^* \tau^{-1} \supseteq
+  \tau(M)^*.  \)  Therefore \( \tau M^* \tau^{-1} = \tau(M)^*.  \)
+</p>
+<h2 id="proof">Proof<a href="#proof"></a></h2>
+<p>
+  The ideas presented in the previous sections will now be extended to
+  formulate a general proof.  For clarity, the lemma is stated once
+  again below before proceeding with the proof.
+</p>
+<p>
+  <strong>Lemma 12.1.</strong>
+  <em>
+    Suppose that \( L/K \) is a field extension, \( M \) is an
+    intermediate field, and \( \tau \) is a \( K \)-automorphism of \(
+    L.  \)  Then \( \tau M^* \tau^{-1} = \tau(M)^{*}.  \)
+  </em>
+</p>
+<p>
+  <em>Proof.</em>
+
+  For all \( \gamma \in M^*, \) \( x' \in \tau(M), \) we use the
+  notation \( x = \tau^{-1}(x') \in M \) and get
+
+  \[
+    (\tau \gamma \tau^{-1})(x') = (\tau \gamma)(x) = \tau(x) = x'.
+  \]
+
+  In the second equality above, we have used the fact that \( \gamma
+  \in M^* \) which implies that \( \gamma \) is an \( M \)-automorphism
+  of \( L \) which allows us to conclude that \( \gamma(x) = x \) for
+  \( x \in M.  \)  Since every \( \tau \gamma \tau^{-1} \in \tau M^*
+  \tau^{-1} \) fixes all elements \( x' \in \tau(M), \) each \( \tau
+  \gamma \tau^{-1} \) must be a \( \tau(M) \)-automorphism of \( L.  \)
+  Thus \( \tau M^* \tau^{-1} \subseteq \tau(M)^*.  \)
+</p>
+<p>
+  Similarly, for all \( \gamma' \in \tau(M)^*, \) \( x \in M, \) we
+  use the notation \( x' = \tau(x) \in \tau(M) \) and get
+
+  \[
+  (\tau^{-1} \gamma' \tau)(x) = (\tau^{-1} \gamma')(x') = \tau^{-1}(x') = x.
+  \]
+
+  In the second equality above, we have used the fact that \( \gamma'
+  \in \tau(M)^* \) which implies that \( \gamma' \) is an
+  \( \tau(M) \)-automorphism of \( L \) which allows us to conclude
+  that \( \gamma'(x') = x' \) for \( x' \in \tau(M).  \)  Since every
+  \( \tau^{-1} \gamma' \tau \in \tau^{-1} \tau(M)^* \tau \) fixes all
+  elements \( x \in M, \) each \( \tau^{-1} \gamma' \tau \) must be an
+  \( M \)-automorphism of \( L.  \)  Thus \( \tau^{-1} \tau(M)^* \tau
+  \subseteq M^*.  \)  This implies \( \tau M^* \tau^{-1} \supseteq
+  \tau(M)^*.  \)
+</p>
+<p>
+  We have shown that \( \tau M^* \tau^{-1} \subseteq \tau(M)^* \) and
+  \( \tau M^* \tau^{-1} \supseteq \tau(M)^*.  \)  Therefore \( \tau M^*
+  \tau^{-1} = \tau(M)^*.  \)
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/lemma-for-ftgt.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>MathB.in Is Shutting Down</title>
+<link>https://susam.net/mathbin-is-shutting-down.html</link>
+<guid isPermaLink="false">rrbdk</guid>
+<pubDate>Sun, 23 Feb 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Thirteen years ago, on a quiet Saturday night, I sat down and began
+  developing MathB.in.  After coding all through the night, as the sun
+  rose on Sunday, 25 March 2012, the website was ready.  I registered
+  a new domain name and shared it with a few friends who loved
+  mathematics.  Back then, we spent hours discussing fascinating
+  mathematics problems, and this website became a simple way for us to
+  share snippets with each other.  Word spread quickly&mdash;my
+  friends shared it with their friends, who passed it along to others.
+  The community grew organically.  Then, one day, I announced the
+  project on the MathJax mailing list, and its reach expanded even
+  further.  Within a year, this mathematics pastebin service had users
+  from around the world.  Watching the usage of this little project
+  grow was an incredibly rewarding experience.
+</p>
+<figure class="soft">
+  <a href="files/blog/mathbin.png"><img
+     src="files/blog/mathbin.png"
+     alt="A screenshot of a mathematics pastebin service displaying Markdown and LaTeX code in the left pane and the rendered content in the right pane."></a>
+  <figcaption>
+    A screenshot of MathB.in, a mathematics pastebin service
+  </figcaption>
+</figure>
+<p>
+  The world has changed a lot since I first published MathB.in.  The
+  internet has evolved, and so have I.  Maintaining a mathematics
+  pastebin service like this single-handedly has become increasingly
+  difficult over the years.  Over the past 13 years, I have received
+  notices from regulatory authorities whenever someone submitted
+  content that triggered compliance concerns.  Each time, my server
+  would be taken offline, and I would be given a 7-day deadline to
+  boot it into rescue mode, remove the offending content, and restore
+  service.  Missing the deadline would put my server hosting account
+  at risk of cancellation.
+</p>
+<p>
+  To prevent these disruptions, I began reviewing and filtering
+  incoming content as much as possible every few days.  The
+  appreciation and positive feedback from happy users kept me going.
+  However, at this stage of my life, I can no longer afford to spend
+  time moderating user content.  On top of that, the growing
+  complexity of data protection and digital safety regulations places
+  a significant burden on me as the maintainer of this service.
+  Complying with these regulations requires considerable legal
+  expertise that I cannot afford.
+</p>
+<p>
+  Some might suggest that I could improve the spam-detection
+  capabilities of this service, and indeed, I have done so over the
+  years.  However, all anti-spam measures are inherently
+  probabilistic.  No matter how much automation is in place, a manual
+  review of every post is still necessary to guarantee that all
+  content is legitimate.  It only takes one dodgy submission to
+  trigger compliance alerts.  While I respect the need for these
+  regulations, I do not want to spend my weekends worrying about what
+  users from around the world might be posting on this little pastebin
+  service.  Nor do I want to be in a constant state of vigilance just
+  to keep my server running.  It takes up more time than I can spare.
+</p>
+<p>
+  Some have suggested forming a team of volunteers to review
+  submissions, but that does not solve the core issue: since the
+  server hosting account is in my name, I would still be responsible
+  for remediating any compliance issues or risk having my account
+  cancelled.  Another alternative is to move the service under a
+  non-profit organisation, but with increased responsibilities in
+  other areas of my life, handling the operational demands of such an
+  endeavour is far beyond what I can commit to.  After all, this was
+  meant to be a fun project built for me and my friends, not something
+  that requires me to deal with regulatory issues.
+</p>
+<p>
+  Another alternative would be to encode the content of a MathB.in
+  post and embed it into the URL, which could then be distributed with
+  others.  Upon visiting the URL, the application would read the
+  encoded content from the URL, decode it, and render it.  While this
+  eliminates the need to store user content on my server, it
+  introduces a new concern: the risk of someone sharing URLs with
+  malicious content embedded in them.  I am not comfortable with such
+  content being rendered on a page served from a domain that I am the
+  registrant of.  The regulatory implications of rendering such
+  content are also unclear.  I could still be held accountable for
+  content rendered on the website, regardless of whether it's stored
+  on the server.  This problem could be mitigated to some extent by
+  refusing to render content containing known malicious patterns but
+  no such solution can be foolproof.
+</p>
+<p>
+  As a result, after much thought, I have regrettably made the
+  decision to shut down MathB.in on Sunday, 16 March 2025.  The
+  website will go offline on that day.  If you have any important
+  posts that you would like to keep, now is the time to copy and save
+  them for yourself.
+</p>
+<p>
+  To all of you who have used this project, I want to express my
+  sincere gratitude.  Running a project that could serve you in a
+  meaningful way has given me a strong sense of accomplishment and
+  pride.  To those who are disappointed by this service's closure, I
+  am sorry.  I wish I could continue to dedicate the time and effort
+  needed to maintain and develop it, but I must acknowledge my
+  limitations and step away from a project that has become an artefact
+  of my past, not my present.
+</p>
+<p>
+  The source code for this website is available at
+  <a href="https://github.com/susam/mathb">github.com/susam/mathb</a>
+  under the MIT license.  Feel free to use the code and set up your
+  own instance if you'd like!  Alternatively, consider hosting your
+  mathematical snippets and notes on your own web space using a kit
+  like MathCask available at
+  <a href="https://github.com/susam/mathcask">github.com/susam/mathcask</a>.
+</p>
+<p>
+  Finally, I hope you'll hold no hard feelings.  If you have enjoyed
+  using MathB.in, I would love to stay connected on the Fediverse.  My
+  Mastodon handle is
+  <a href="https://mastodon.social/@susam">@susam@mastodon.social</a>.
+  See you there!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/mathbin-is-shutting-down.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>The IndieWeb Doesn't Need to "Take Off"</title>
+<link>https://susam.net/indieweb-does-not-need-to-take-off.html</link>
+<guid isPermaLink="false">fgxtg</guid>
+<pubDate>Sat, 22 Feb 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  There's a corner of the Internet where people have been reclaiming
+  their digital independence by hosting their own websites and
+  promoting the idea of owning your own content&mdash;it's called the
+  IndieWeb.  This community has its
+  own <a href="https://indieweb.org/">website</a>, IRC channels,
+  social media presence, and more, all dedicated to the idea that
+  individuals should control their own digital presence through
+  personal websites.
+</p>
+<p>
+  Publishing your own website isn't a new concept.  It is the very
+  essence of the Web!  This is what the Web has always been about
+  since its early days.  But in an era where corporate-controlled
+  platforms dominate online interaction, the IndieWeb emphasises the
+  original spirit of the Web, where individuals have control over
+  their content, identities, and online spaces.  Every time this topic
+  arises in online discussions, someone inevitably claims that the
+  IndieWeb hasn't taken off!
+</p>
+<p>
+  I feel that such claims about the IndieWeb not "taking off" are
+  either stating the obvious or, if that's not the intention,
+  completely missing the point.  It's like saying that gardening
+  hasn't taken off because most people buy their vegetables at the
+  supermarket.  The IndieWeb doesn't need to "take off" to be valuable
+  to those who participate in it.  Maintaining a personal website is
+  about owning your digital presence, embracing creative freedom, and
+  expressing your individuality!  It's not about appealing to the
+  masses!
+</p>
+<p>
+  I remember how, in the early 2000s, I used to spend my spare time
+  learning HTML and writing my website, one HTML tag at a time.
+  Writing a few lines of code in a text editor and then watching the
+  browser render that code into a vibrant web page full of colours and
+  images felt like an art form.  It was doubly fun to find other
+  netizens who shared that same joy of maintaining and publishing
+  their websites.  The IndieWeb is about preserving that hacker
+  culture where websites are crafted and hosted not for mass appeal
+  but for the sheer joy of creation and sharing with like-minded
+  individuals.
+</p>
+<p>
+  The IndieWeb doesn't need to go mainstream to be meaningful.  It's a
+  celebration of a more personal, decentralised, and creative world
+  wide web.  For those of us who still care about these values, it is
+  already meaningful.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/indieweb-does-not-need-to-take-off.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>FXYT 0.5.0</title>
+<link>https://susam.net/code/news/fxyt/0.5.0.html</link>
+<guid isPermaLink="false">nwtao</guid>
+<pubDate>Tue, 11 Feb 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  FXYT 0.5.0 is a minor update of FXYT, a tiny, esoteric, stack-based,
+  postfix, canvas colouring language with only 36 simple commands.
+  This release fixes an annoying bug that has been affecting some
+  mobile device users for a while.  On some mobile web browsers, such
+  as Chrome on Samsung Galaxy S8, the drawing canvas would appear to
+  be larger than the viewport thus overflowing the visible screen on
+  the mobile device.  The user would then be required to manually zoom
+  out in order to use this tool conveniently.  This issue has been
+  fixed in this release.
+</p>
+<p>
+  If you follow my <a href="../../../cfrs.html">CFRS[]</a> project,
+  you might have noticed yesterday that a very similar fix has gone
+  into CFRS[] too.  For more details about that, see
+  the release page for <a href="../cfrs/0.3.0.html">CFRS[] 0.3.0</a>.
+</p>
+<p>
+  Visit <a href="../../../fxyt.html">FXYT</a> to play with FXYT and
+  draw some interesting patterns!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/fxyt/0.5.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CFRS[] 0.3.0</title>
+<link>https://susam.net/code/news/cfrs/0.3.0.html</link>
+<guid isPermaLink="false">ojrjp</guid>
+<pubDate>Mon, 10 Feb 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  CFRS[] 0.3.0 is a minor update of CFRS[], an extremely minimal
+  drawing language consisting of only 6 simple commands.  This update
+  fixes an annoying bug that caused CFRS[] canvas to overflow the
+  visible screen on some mobile web browsers.  In particular, this
+  issue was observed on Chrome running on Samsung Galaxy S8.
+</p>
+<p>
+  To read more about CFRS[], go to
+  <a href="https://github.com/susam/cfrs#readme">github.com/susam/cfrs</a>.
+  Also, visit <a href="../../../cfrs.html">cfrs.html</a> to play with CFRS[]
+  now and draw some nice patterns!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/cfrs/0.3.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>FXYT 0.4.0</title>
+<link>https://susam.net/code/news/fxyt/0.4.0.html</link>
+<guid isPermaLink="false">zgrko</guid>
+<pubDate>Sun, 09 Feb 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  FXYT 0.4.0 is a minor update of FXYT, a tiny, esoteric, stack-based,
+  postfix, canvas colouring language with only 36 simple commands.
+  This release increases the maximum allowed code length from 256
+  bytes to 1024 bytes.  This means there is now more room for writing
+  more complex FXYT programs!
+</p>
+<p>
+  Further, the maximum code length for distributable demo links has
+  been increased from 64 bytes to 256 bytes.  This allows several more
+  impressive demos to have their own distributable links.  As a
+  specific example of one such demo, take a look at
+  this <a href="https://susam.net/fxyt.html#XTsN128dN3142pN128qDN3142gbN6284dcDN1571gbN3142SdcDNN1571dlbNN3142dSdcDDN166SDpN120000qdSDpN1000qpN1000qN1000SdpN1000qN1100sN3pN25qYgNSbPN255c">animated
+  sine wave</a> developed by <a href="https://github.com/ncw">Nick
+  Craig-Wood</a>, of Rclone fame!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/fxyt/0.4.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Associations</title>
+<link>https://susam.net/assoc.html</link>
+<guid isPermaLink="false">rjffu</guid>
+<pubDate>Sat, 07 Dec 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A record of some associations between various numbers, sounds, and
+  colours that occur in my mind.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/assoc.html">Read on website</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a>
+</p>
+]]>
+</description>
+</item>
+
+
+</channel>
+</rss>
