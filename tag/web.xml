@@ -1,0 +1,1090 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's Web Pages</title>
+<link>https://susam.net/tag/web.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/web.xml"/>
+<description>Feed for Susam's Web Pages</description>
+
+<item>
+<title>QuickQWERTY 1.1.0</title>
+<link>https://susam.net/code/news/quickqwerty/1.1.0.html</link>
+<guid isPermaLink="false">qqooz</guid>
+<pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  There has been a new release of QuickQWERTY after over 10 years!
+  QuickQWERTY is a web-based touch typing tutor for QWERTY keyboards
+  that runs directly in the web browser.  You can try it out
+  here: <a href="../../../quickqwerty.html">quickqwerty.html</a>.
+</p>
+<p>
+  The new release, version 1.1.0 of QuickQWERTY, introduces a new
+  input command named <code>reset</code>, which is a synoymn for the
+  existing commands <code>restart</code> and <code>rst</code> used to
+  restart the current lesson.  Another input command
+  named <code>test</code> runs an internal suite of tests to validate
+  that no lesson involves keys that have not been introduced in the
+  current or prior lessons.  Further, in this release, the application
+  has been fully rewritten as a single standalone HTML file with no
+  external dependencies, and the source code has been greatly
+  simplified.
+</p>
+<p>
+  There are a number of other changes too.  Words per minute (WPM)
+  calculation has been refined so the first character, which starts
+  the timer, is not counted.  The guides have been enhanced.  Keys to
+  be pressed are now highlighted more clearly, and reminders to return
+  fingers to their home positions have been added to each guide.  The
+  confirmation dialogue for switching between 6-7 split and 5-6 split
+  styles now uses the HTML <code>&lt;dialog&gt;</code> element,
+  replacing the dated <code>window.confirm()</code> prompt.  In
+  addition, when the application is opened without a fragment
+  identifier in the URL, the most recently practised lesson loads
+  automatically.
+</p>
+<p>
+  The user interface has been simplified.  The previous and next links
+  (<code>&laquo;</code> and <code>&raquo;</code>) for navigating
+  lessons have been removed, as they added little value and made the
+  layout of the various user interface components more complex.  The
+  "Next lesson" advice link remains for moving to the next lesson when
+  the current one is completed successfully.  Tooltips showing
+  additional typing metrics have also been removed due to limited
+  usefulness.
+</p>
+<p>
+  The lessons have been updated to remove spellings specific to
+  American English.  Care has been taken to use only words that are
+  spelled the same in American and British English with one exception.
+  The word "tyre" with its British English spelling has remained in
+  the lesson by oversight.  That will be fixed in the next release.
+</p>
+<p>
+  Finally, QuickQWERTY's license has changed from the BSD-2-Clause
+  licence to the MIT licence.  The source code is available at
+  <a href="https://github.com/susam/quickqwerty">github.com/susam/quickqwerty</a>.
+  To run this release and learn touch typing on a QWERTY keyboard, go
+  to <a href="../../../quickqwerty.html">quickqwerty.html</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/quickqwerty/1.1.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Prime Number Grid Explorer</title>
+<link>https://susam.net/primegrid.html</link>
+<guid isPermaLink="false">pghtm</guid>
+<pubDate>Tue, 19 Aug 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A simple single-page HTML application to explore the distribution of
+  prime numbers in a grid.  Choose a starting number along with the
+  number of rows and columns, and the page generates the corresponding
+  grid.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/primegrid.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Miller-Rabin Speed Test</title>
+<link>https://susam.net/code/web/miller-rabin-speed-test.html</link>
+<guid isPermaLink="false">mrpst</guid>
+<pubDate>Sat, 16 Aug 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A demo page that implements the Miller-Rabin primality test to
+  accurately detect primes for all numbers less than
+  318665857834031151167461 and compare its speed against a simple
+  division based primality test algorithm.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/miller-rabin-speed-test.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>My Blogroll Is Now My Feed Reader</title>
+<link>https://susam.net/blogroll-as-feed-reader.html</link>
+<guid isPermaLink="false">mbmfr</guid>
+<pubDate>Sat, 05 Jul 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  On a particularly hot summer weekend last month, I implemented a new
+  feature for this website: a blogroll that lists recent entries from
+  my favourite blogs.  Check it out here: <a href="roll.html">roll.html</a>.
+</p>
+<p>
+  It has been nearly two weeks since I set up this blogroll, and it
+  has already changed how I keep up with my feeds.  I no longer bother
+  with feed readers or aggregators.  I could never quite make a habit
+  of using them regularly anyway.  Thanks to this simple addition to
+  my website, I find myself visiting my blogroll often.  It has earned
+  a permanent place in my bookmarks.  When I have some spare time, I
+  click on the bookmark, visit my blogroll, and when I find new posts
+  appear there, I click through them and read the full blog posts.
+</p>
+<p>
+  Credit for this nifty and surprisingly effective idea goes to Alex
+  Kladov.  It was Alex's website,
+  <a href="https://matklad.github.io/">matklad.github.io</a>, that
+  inspired me to implement my own blogroll.  It showed me that a
+  blogroll can be more than just a static list of links.  It can be a
+  regularly updated page that highlights new posts from the blogs I
+  follow.
+</p>
+<p>
+  I suspect the fact that my blogroll is generated by my own
+  handcrafted <a href="https://github.com/susam/susam.net/blob/main/roll.lisp">Common
+  Lisp program</a> plays a part in why I enjoy using it.  There is a
+  certain joy in using something you have built yourself.  At last, I
+  feel I can stay on top of my feeds!  If you maintain a personal
+  website and struggle to keep up with your feeds, I recommend this
+  approach.  Writing the blogroll generator was a fun weekend project
+  and it has greatly improved how I spend my spare time online!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/blogroll-as-feed-reader.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CSS Experiments: overflow-wrap vs word-break</title>
+<link>https://susam.net/code/web/overflow-wrap-vs-word-break.html</link>
+<guid isPermaLink="false">owvwb</guid>
+<pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  An example page demonstrating experiments with the
+  CSS <code>overflow-wrap</code> and <code>word-break</code>
+  properties.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/overflow-wrap-vs-word-break.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/css.html">#css</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Noise From My Feeds</title>
+<link>https://susam.net/feed-noise.html</link>
+<guid isPermaLink="false">xjdrj</guid>
+<pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Hello!  If you are subscribed to this website's feeds, you may have
+  noticed something odd recently.  Your feed reader might have shown a
+  bunch of old posts as if they were published today.  If that
+  happened with your feed reader, I apologise for the noise.  I hope
+  this post will give you some clarity on why this happened.  The
+  reason for this noise is a change to the way the RSS feeds are
+  generated for this website.  Each post in the feeds includes a GUID,
+  which is used by many feed readers to decide whether a post is new
+  or if it has been seen already.  Until now, the GUID was simply the
+  post's URL, like this:
+</p>
+<pre>
+<code>&lt;url&gt;https://susam.net/product-of-additive-inverses.html&lt;/url&gt;
+&lt;guid&gt;https://susam.net/product-of-additive-inverses.html&lt;/guid&gt;</code>
+</pre>
+<p>
+  However, today this has changed to a short unique string, like so:
+</p>
+<pre>
+<code>&lt;url&gt;https://susam.net/product-of-additive-inverses.html&lt;/url&gt;
+&lt;guid isPermaLink="false"&gt;rxpnz&lt;/guid&gt;</code>
+</pre>
+<p>
+  If your feed reader looks at this GUID value to decide whether a new
+  post has been published, it will show you a whole bunch of old posts
+  once again in your reader, as if they were new.  These GUIDs won't
+  change again in the future, so this is a one-time problem.  The full
+  URL of the post is still present in the feeds, as you can see in the
+  example above, so your feed reader still knows where to take you if
+  you wish to visit this website to read a post.  The short string
+  serves as a unique identifier for each post.
+</p>
+<p>
+  This website is a passion project I work on in my spare time, and
+  sometimes, after publishing a post, I realise the title could be
+  sharper or the URL could be cleaner.  I make the necessary changes
+  and set up HTTP redirects on my web server, so that visitors using
+  the old URL are still taken to the updated location of the post.
+  Previously, however, the GUID (being the URL) changed too, which
+  caused many feed readers to treat the updated post as a new one even
+  when it wasn't.  Switching to stable GUIDs prevents this problem
+  from occurring again.  The GUIDs now stay the same no matter what
+  changes I make behind the scenes, which means no more unnecessary
+  noise in your feed reader.
+</p>
+<p>
+  I am sorry if this caused any confusion or clutter.  If your feed
+  reader is currently flooded with old posts appearing as new, the
+  best solution is to mark those items as read.  Thank you for your
+  patience with this issue.  I hope to keep future surprises limited
+  to content, not configuration.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/feed-noise.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>More Contrast, Please</title>
+<link>https://susam.net/more-contrast-please.html</link>
+<guid isPermaLink="false">ygqwk</guid>
+<pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  So you have decided to go with a dark theme for your website.  Great
+  choice!  I love dark themes too!  My journey with computers began
+  with monochrome CRT monitors, where white text was displayed on dark
+  background.  I am still very fond of that colour scheme.  Done well,
+  dark themes can be elegant and easy on the eyes.  But there is a
+  common pitfall that I see all too often in modern web design &ndash;
+  the overuse of low-contrast colour schemes.  This is something worth
+  keeping in mind while crafting a new theme.
+</p>
+<p>
+  Take a look at this example where the text colour
+  is <code>#777777</code> and the background is <code>#222222</code>:
+</p>
+<p style="background: #222222; color: #777777; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  I am hoping that most people would agree that the colour contrast
+  above is too low.  I certainly find it uncomfortable to read.
+  However, the situation becomes a bit less clear with the following
+  example, where the text colour is set to <code>#A9A9B3</code> and the background
+  is <code>#2A2A2D</code>:
+</p>
+<p style="background: #2a2a2d; color: #a9a9b3; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  The above example is, in fact, based on a real website I came across
+  today.  Now this is definitely better than the first example and I
+  am sure some people would find this perfectly acceptable.  However,
+  I still find this uncomfortable to read.  In fact, I have realised
+  that as I get older, I need a higher contrast ratio to make the text
+  more comfortable to read.
+</p>
+<p>
+  I would suggest that any colour choices for foreground text and
+  background page colours should, at the very least, meet
+  the <a href="https://www.w3.org/TR/WCAG22/#contrast-enhanced">Web
+  Content Accessibility Guidelines (WCAG) Level AAA</a>
+  recommendations.  This means the contrast ratio for normal-sized
+  text against the background should be at least 7:1.  There are also
+  the slightly weaker Level AA guidelines, which require that
+  normal-sized text have a contrast ratio of at least 4.5:1.  That
+  said, I personally recommend aiming for a 7:1 contrast ratio
+  regardless.
+</p>
+<p>
+  The first example above has a contrast ratio of just 3.6:1, meaning
+  it fails to meet both the Level AA and Level AAA requirements.  The
+  second example, on the other hand, has a contrast ratio of
+  6.1:1.  While it satisfies the Level AA requirements, it still falls
+  short of meeting the Level AAA standards.
+</p>
+<p>
+  To calculate the contrast ratio according to
+  the <a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G17.html#tests">WCAG
+  contrast formula</a>, use one of these tools:
+</p>
+<ul>
+  <li>
+    <a href="contrast.html">My Colour Contrast Calculator</a>
+  </li>
+  <li>
+    <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a>
+  </li>
+</ul>
+<p>
+  If we improve the contrast for the second example above, we would
+  need to choose a brighter shade for the text, such as
+  <code>#B7B7BE</code>.  On the dark background <code>#2A2A2D</code>,
+  this results in a contrast ratio of 7.2:1.  Here is how it looks:
+</p>
+<p style="background: #2a2a2d; color: #b7b7be; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  I definitely find this much easier to read.  If you are developing a
+  dark colour theme for your web page or software, I request you to
+  run your colours through a contrast calculator tool and ensure the
+  contrast ratio is greater than 7:1.  Anything less, and the theme
+  might become uncomfortable for people like me.  Small adjustments
+  like this can significantly improve readability and comfort for your
+  readers.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/more-contrast-please.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Colour Contrast Calculator</title>
+<link>https://susam.net/contrast.html</link>
+<guid isPermaLink="false">xmajx</guid>
+<pubDate>Sun, 06 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A simple web-based tool to calculate the contrast between two
+  colours according to WCAG contrast formula.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/contrast.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>More Purple Links, Please</title>
+<link>https://susam.net/more-purple-links-please.html</link>
+<guid isPermaLink="false">gyrti</guid>
+<pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  While I am browsing the Web, one thing I always like to see is a
+  page with purple links.  Since the early days of the Web, purple has
+  has become the default colour for visited links.  Here's a relevant
+  note from the
+  <a href="https://ksi.cpsc.ucalgary.ca/archives/WWW-TALK/www-talk-1993q2.messages/47.html">changelog</a>
+  of NCSA Mosaic 0.13 (1993):
+</p>
+<blockquote>
+  Changed default anchor representations: blue and single solid
+  underline for unvisited, dark purple and single dashed underline for
+  visited.
+</blockquote>
+<p>
+  Visiting a web page and finding purple links brings a sense of ease.
+  The purple links indicate that I am familiar with some of the
+  references the web page makes to other articles.  Each purple link
+  serves as a small marker of a prior journey, a reminder that I've
+  explored certain paths before.  Purple links are like well-worn
+  books.  They show signs of use: faded covers, creased spines, and
+  dog-eared pages.  Blue links, on the other hand, are like new books,
+  still unopened and waiting to be explored.
+</p>
+<p>
+  Although I'm quite fond of purple links, I know that not everyone
+  shares this sentiment.  Modern web design trends have moved away
+  from this tradition, favouring sleek, minimalist aesthetics where
+  visited and unvisisted links look nearly the same, or even using
+  custom colours for visited links.  While this can be visually
+  appealing, it subtracts from the experience of using the Web as a
+  source of knowledge.  When links look indistinguishable or
+  unconventional, it can be hard to tell what I've already read,
+  especially when I am revisiting a topic and want to easily spot the
+  links that are new.
+</p>
+<p>
+  Now it is not hard to change the visited link style with a little
+  userscript.  For example the following userscript can override the
+  website's stylesheet to colour visited links purple again:
+</p>
+<pre>
+<code>// ==UserScript==
+// @name Purple Links
+// @match *://*/*
+// ==/UserScript==
+document.head.appendChild(document.createElement('style'))
+document.head.lastElementChild.innerHTML = 'a:visited {color: #518}'</code>
+</pre>
+<p>
+  This little userscript should work well on most web pages with light
+  backgrounds.  But if a web page uses a dark theme or a custom colour
+  scheme, then the above userscript may need adjustments to either
+  handle other colour schemes gracefully.
+</p>
+<p>
+  In the end, sticking with the default purple for visited links isn't
+  just about tradition; it is about simplicity and clarity.  It is a
+  small but reliable visual cue that makes navigating the Web easier
+  and more intuitive, for me, at least.  For me, those purple links
+  bring comfort.  They are small reminders of all the digital paths
+  I've already walked.  I wish more websites would keep them that way.
+  More purple links, please.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/more-purple-links-please.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>PDF Dimmer Bookmarklet</title>
+<link>https://susam.net/pdf-dimmer-bookmarklet.html</link>
+<guid isPermaLink="false">bgigh</guid>
+<pubDate>Wed, 02 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I often read PDF documents in Firefox, and sometimes I prefer to
+  work in dark mode, especially at night when the room lights are
+  dimmed.  However, the bright white background of the Firefox PDF
+  viewer can be glaring and uncomfortable when dark mode is enabled.
+  Additionally, writing a userscript to invert the background and text
+  colours in the PDF viewer does not work.  I have confirmed with
+  Firefox version 137.0 that userscripts do not run within the PDF
+  viewer.
+</p>
+<p>
+  For example, consider this simple userscript that just prints a
+  "hello" message when a web page loads:
+  <a href="code/lab/userscript/hello.js">hello.js</a>.  This script
+  works on regular web pages but does not execute when viewing a PDF
+  file in Firefox.
+  See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1454760">Bug
+  1454760</a> for more details about this restriction.
+</p>
+<p>
+  While userscripts are often my go-to solution for customisations
+  like this, for this particular problem, I resorted to writing a tiny
+  bookmarklet to work around the above limitation.  Here is the
+  bookmarklet:
+</p>
+<pre><code>javascript:(()=&gt;{['thumbnailView','viewer'].map(id=&gt;document.getElementById(id).style.filter='invert(0.9)saturate(0)')})()</code></pre>
+<p>
+  To add this to Firefox, from the Firefox menu, select "Bookmarks".
+  Then in the left sidebar, right click on either "Bookmarks Toolbar"
+  or "Bookmarks Menu", depending on where you want to add the
+  bookmarklet, and select "Add Bookmark".  Enter some name in the
+  "Name" field and then in the "URL" field, enter the above line of
+  code.  Click "Save" and you are done.  The next time you open a PDF
+  file in Firefox, find the bookmark in the bookmarks menu or toolbar,
+  click on it, and it should instantly invert the colour scheme of the
+  PDF viewer.
+</p>
+<p>
+  Alternatively, simply drag the following link and drop it onto your
+  Firefox toolbar:
+</p>
+<p class="textcenter">
+  <a href="javascript:(()=%3e%7b%5b'thumbnailView','viewer'%5d.map(id=%3edocument.getElementById(id).style.filter='invert(0.9)saturate(0)')%7d)()">Dim PDF</a>
+</p>
+<p>
+  While the default PDF viewer of Firefox does not support
+  userscripts, this bookmarklet is a simple, effective way to give
+  PDFs a darker look.  If you're like me and often read books and
+  papers in PDF format at night, you might find this handy.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/pdf-dimmer-bookmarklet.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>MathB 1.3.0</title>
+<link>https://susam.net/code/news/mathb/1.3.0.html</link>
+<guid isPermaLink="false">lpjpy</guid>
+<pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  MathB 1.3.0 is likely the final update of MathB, a web-based
+  mathematics pastebin service.  The online mathematics pastebin
+  service previously hosted at <code>https://mathb.in/</code> has been
+  shut down today after 13 years of continuous service.  See the post
+  <a href="../../../mathbin-is-shutting-down.html">MathB.in Is
+  Shutting Down</a> for more details about this.  This release
+  captures the state of this project as it was today at the time of
+  shutting down the online service.
+</p>
+<p>
+  This update includes a few new features.  For example, there is now
+  a configurable runtime property named <code>:expect</code> that can
+  be used to enforce the presence of certain tokens in the posts
+  submitted by the users.  This feature was used to enforce the
+  presence of LaTeX delimiters in the online service, a measure that
+  was instrumental in reducing spam to a great extent in the last few
+  years.  There are a few other minor changes too.
+  See <a href="https://github.com/susam/mathb/blob/main/CHANGES.md">CHANGES.md</a>
+  for a detailed changelog.
+</p>
+<p>
+  The source code of MathB remains free and open-source, so anyone
+  interested in hosting their own instance can still do so.  To access
+  the source code of MathB, please visit
+  <a href="http://github.com/susam/mathb">github.com/susam/mathb</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/mathb/1.3.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>XOR Map</title>
+<link>https://susam.net/code/web/xormap.html</link>
+<guid isPermaLink="false">pevyd</guid>
+<pubDate>Tue, 11 Mar 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A simple HTML page that plots bitwise-XOR <em>x</em> and <em>y</em>
+  for each coordinate (<em>x</em>, <em>y</em>)</em> with the
+  coordinate (0, 0) at the bottom-left corner.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/xormap.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>MathB.in Is Shutting Down</title>
+<link>https://susam.net/mathbin-is-shutting-down.html</link>
+<guid isPermaLink="false">rrbdk</guid>
+<pubDate>Sun, 23 Feb 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Thirteen years ago, on a quiet Saturday night, I sat down and began
+  developing MathB.in.  After coding all through the night, as the sun
+  rose on Sunday, 25 March 2012, the website was ready.  I registered
+  a new domain name and shared it with a few friends who loved
+  mathematics.  Back then, we spent hours discussing fascinating
+  mathematics problems, and this website became a simple way for us to
+  share snippets with each other.  Word spread quickly&mdash;my
+  friends shared it with their friends, who passed it along to others.
+  The community grew organically.  Then, one day, I announced the
+  project on the MathJax mailing list, and its reach expanded even
+  further.  Within a year, this mathematics pastebin service had users
+  from around the world.  Watching the usage of this little project
+  grow was an incredibly rewarding experience.
+</p>
+<figure class="soft">
+  <a href="files/blog/mathbin.png"><img
+     src="files/blog/mathbin.png"
+     alt="A screenshot of a mathematics pastebin service displaying Markdown and LaTeX code in the left pane and the rendered content in the right pane."></a>
+  <figcaption>
+    A screenshot of MathB.in, a mathematics pastebin service
+  </figcaption>
+</figure>
+<p>
+  The world has changed a lot since I first published MathB.in.  The
+  internet has evolved, and so have I.  Maintaining a mathematics
+  pastebin service like this single-handedly has become increasingly
+  difficult over the years.  Over the past 13 years, I have received
+  notices from regulatory authorities whenever someone submitted
+  content that triggered compliance concerns.  Each time, my server
+  would be taken offline, and I would be given a 7-day deadline to
+  boot it into rescue mode, remove the offending content, and restore
+  service.  Missing the deadline would put my server hosting account
+  at risk of cancellation.
+</p>
+<p>
+  To prevent these disruptions, I began reviewing and filtering
+  incoming content as much as possible every few days.  The
+  appreciation and positive feedback from happy users kept me going.
+  However, at this stage of my life, I can no longer afford to spend
+  time moderating user content.  On top of that, the growing
+  complexity of data protection and digital safety regulations places
+  a significant burden on me as the maintainer of this service.
+  Complying with these regulations requires considerable legal
+  expertise that I cannot afford.
+</p>
+<p>
+  Some might suggest that I could improve the spam-detection
+  capabilities of this service, and indeed, I have done so over the
+  years.  However, all anti-spam measures are inherently
+  probabilistic.  No matter how much automation is in place, a manual
+  review of every post is still necessary to guarantee that all
+  content is legitimate.  It only takes one dodgy submission to
+  trigger compliance alerts.  While I respect the need for these
+  regulations, I do not want to spend my weekends worrying about what
+  users from around the world might be posting on this little pastebin
+  service.  Nor do I want to be in a constant state of vigilance just
+  to keep my server running.  It takes up more time than I can spare.
+</p>
+<p>
+  Some have suggested forming a team of volunteers to review
+  submissions, but that does not solve the core issue: since the
+  server hosting account is in my name, I would still be responsible
+  for remediating any compliance issues or risk having my account
+  cancelled.  Another alternative is to move the service under a
+  non-profit organisation, but with increased responsibilities in
+  other areas of my life, handling the operational demands of such an
+  endeavour is far beyond what I can commit to.  After all, this was
+  meant to be a fun project built for me and my friends, not something
+  that requires me to deal with regulatory issues.
+</p>
+<p>
+  Another alternative would be to encode the content of a MathB.in
+  post and embed it into the URL, which could then be distributed with
+  others.  Upon visiting the URL, the application would read the
+  encoded content from the URL, decode it, and render it.  While this
+  eliminates the need to store user content on my server, it
+  introduces a new concern: the risk of someone sharing URLs with
+  malicious content embedded in them.  I am not comfortable with such
+  content being rendered on a page served from a domain that I am the
+  registrant of.  The regulatory implications of rendering such
+  content are also unclear.  I could still be held accountable for
+  content rendered on the website, regardless of whether it's stored
+  on the server.  This problem could be mitigated to some extent by
+  refusing to render content containing known malicious patterns but
+  no such solution can be foolproof.
+</p>
+<p>
+  As a result, after much thought, I have regrettably made the
+  decision to shut down MathB.in on Sunday, 16 March 2025.  The
+  website will go offline on that day.  If you have any important
+  posts that you would like to keep, now is the time to copy and save
+  them for yourself.
+</p>
+<p>
+  To all of you who have used this project, I want to express my
+  sincere gratitude.  Running a project that could serve you in a
+  meaningful way has given me a strong sense of accomplishment and
+  pride.  To those who are disappointed by this service's closure, I
+  am sorry.  I wish I could continue to dedicate the time and effort
+  needed to maintain and develop it, but I must acknowledge my
+  limitations and step away from a project that has become an artefact
+  of my past, not my present.
+</p>
+<p>
+  The source code for this website is available at
+  <a href="https://github.com/susam/mathb">github.com/susam/mathb</a>
+  under the MIT license.  Feel free to use the code and set up your
+  own instance if you'd like!  Alternatively, consider hosting your
+  mathematical snippets and notes on your own web space using a kit
+  like MathCask available at
+  <a href="https://github.com/susam/mathcask">github.com/susam/mathcask</a>.
+</p>
+<p>
+  Finally, I hope you'll hold no hard feelings.  If you have enjoyed
+  using MathB.in, I would love to stay connected on the Fediverse.  My
+  Mastodon handle is
+  <a href="https://mastodon.social/@susam">@susam@mastodon.social</a>.
+  See you there!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/mathbin-is-shutting-down.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>The IndieWeb Doesn't Need to "Take Off"</title>
+<link>https://susam.net/indieweb-does-not-need-to-take-off.html</link>
+<guid isPermaLink="false">fgxtg</guid>
+<pubDate>Sat, 22 Feb 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  There's a corner of the Internet where people have been reclaiming
+  their digital independence by hosting their own websites and
+  promoting the idea of owning your own content&mdash;it's called the
+  IndieWeb.  This community has its
+  own <a href="https://indieweb.org/">website</a>, IRC channels,
+  social media presence, and more, all dedicated to the idea that
+  individuals should control their own digital presence through
+  personal websites.
+</p>
+<p>
+  Publishing your own website isn't a new concept.  It is the very
+  essence of the Web!  This is what the Web has always been about
+  since its early days.  But in an era where corporate-controlled
+  platforms dominate online interaction, the IndieWeb emphasises the
+  original spirit of the Web, where individuals have control over
+  their content, identities, and online spaces.  Every time this topic
+  arises in online discussions, someone inevitably claims that the
+  IndieWeb hasn't taken off!
+</p>
+<p>
+  I feel that such claims about the IndieWeb not "taking off" are
+  either stating the obvious or, if that's not the intention,
+  completely missing the point.  It's like saying that gardening
+  hasn't taken off because most people buy their vegetables at the
+  supermarket.  The IndieWeb doesn't need to "take off" to be valuable
+  to those who participate in it.  Maintaining a personal website is
+  about owning your digital presence, embracing creative freedom, and
+  expressing your individuality!  It's not about appealing to the
+  masses!
+</p>
+<p>
+  I remember how, in the early 2000s, I used to spend my spare time
+  learning HTML and writing my website, one HTML tag at a time.
+  Writing a few lines of code in a text editor and then watching the
+  browser render that code into a vibrant web page full of colours and
+  images felt like an art form.  It was doubly fun to find other
+  netizens who shared that same joy of maintaining and publishing
+  their websites.  The IndieWeb is about preserving that hacker
+  culture where websites are crafted and hosted not for mass appeal
+  but for the sheer joy of creation and sharing with like-minded
+  individuals.
+</p>
+<p>
+  The IndieWeb doesn't need to go mainstream to be meaningful.  It's a
+  celebration of a more personal, decentralised, and creative world
+  wide web.  For those of us who still care about these values, it is
+  already meaningful.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/indieweb-does-not-need-to-take-off.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>FXYT 0.5.0</title>
+<link>https://susam.net/code/news/fxyt/0.5.0.html</link>
+<guid isPermaLink="false">nwtao</guid>
+<pubDate>Tue, 11 Feb 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  FXYT 0.5.0 is a minor update of FXYT, a tiny, esoteric, stack-based,
+  postfix, canvas colouring language with only 36 simple commands.
+  This release fixes an annoying bug that has been affecting some
+  mobile device users for a while.  On some mobile web browsers, such
+  as Chrome on Samsung Galaxy S8, the drawing canvas would appear to
+  be larger than the viewport thus overflowing the visible screen on
+  the mobile device.  The user would then be required to manually zoom
+  out in order to use this tool conveniently.  This issue has been
+  fixed in this release.
+</p>
+<p>
+  If you follow my <a href="../../../cfrs.html">CFRS[]</a> project,
+  you might have noticed yesterday that a very similar fix has gone
+  into CFRS[] too.  For more details about that, see
+  the release page for <a href="../cfrs/0.3.0.html">CFRS[] 0.3.0</a>.
+</p>
+<p>
+  Visit <a href="../../../fxyt.html">FXYT</a> to play with FXYT and
+  draw some interesting patterns!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/fxyt/0.5.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CFRS[] 0.3.0</title>
+<link>https://susam.net/code/news/cfrs/0.3.0.html</link>
+<guid isPermaLink="false">ojrjp</guid>
+<pubDate>Mon, 10 Feb 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  CFRS[] 0.3.0 is a minor update of CFRS[], an extremely minimal
+  drawing language consisting of only 6 simple commands.  This update
+  fixes an annoying bug that caused CFRS[] canvas to overflow the
+  visible screen on some mobile web browsers.  In particular, this
+  issue was observed on Chrome running on Samsung Galaxy S8.
+</p>
+<p>
+  To read more about CFRS[], go to
+  <a href="https://github.com/susam/cfrs#readme">github.com/susam/cfrs</a>.
+  Also, visit <a href="../../../cfrs.html">cfrs.html</a> to play with CFRS[]
+  now and draw some nice patterns!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/cfrs/0.3.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>FXYT 0.4.0</title>
+<link>https://susam.net/code/news/fxyt/0.4.0.html</link>
+<guid isPermaLink="false">zgrko</guid>
+<pubDate>Sun, 09 Feb 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  FXYT 0.4.0 is a minor update of FXYT, a tiny, esoteric, stack-based,
+  postfix, canvas colouring language with only 36 simple commands.
+  This release increases the maximum allowed code length from 256
+  bytes to 1024 bytes.  This means there is now more room for writing
+  more complex FXYT programs!
+</p>
+<p>
+  Further, the maximum code length for distributable demo links has
+  been increased from 64 bytes to 256 bytes.  This allows several more
+  impressive demos to have their own distributable links.  As a
+  specific example of one such demo, take a look at
+  this <a href="https://susam.net/fxyt.html#XTsN128dN3142pN128qDN3142gbN6284dcDN1571gbN3142SdcDNN1571dlbNN3142dSdcDDN166SDpN120000qdSDpN1000qpN1000qN1000SdpN1000qN1100sN3pN25qYgNSbPN255c">animated
+  sine wave</a> developed by <a href="https://github.com/ncw">Nick
+  Craig-Wood</a>, of Rclone fame!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/fxyt/0.4.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Guess My RGB 0.3.0</title>
+<link>https://susam.net/code/news/myrgb/0.3.0.html</link>
+<guid isPermaLink="false">shmtq</guid>
+<pubDate>Sat, 14 Sep 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  <a href="../../../myrgb.html">Guess My RGB</a>, the little colour
+  guessing game, just got a small update.  This update adds a
+  "Mode" link to the footer which can be used to toggle the game
+  between normal mode and expert mode.
+</p>
+<p>
+  The expert mode was introduced as a hidden feature five months ago
+  in the <a href="0.2.0.html">previous release</a>.  With the current
+  release, the expert mode no longer remains a hidden feature.  You
+  can simply toggle between modes via the new footer link.
+</p>
+<p>
+  Ready to test your colour skills?  Head over to
+  <a href="../../../myrgb.html">myrgb.html</a> and start playing
+  today!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/myrgb/0.3.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Guess My RGB 0.2.0</title>
+<link>https://susam.net/code/news/myrgb/0.2.0.html</link>
+<guid isPermaLink="false">vojtv</guid>
+<pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  <a href="../../../myrgb.html">Guess My RGB</a>, the little colour
+  guessing game, received a minor update today.  This update adds a
+  hidden feature that lets you play the game in <em>expert mode</em>.
+  In this mode, the match percentage for your submitted guess is not
+  shown on the screen.
+</p>
+<p>
+  Thanks to @steffahn for
+  <a href="https://lobste.rs/s/sbcayb/guess_my_rgb#c_gqrj3r">suggesting
+  this feature</a> on th Lobsters forum!
+</p>
+<p>
+  Visit <a href="../../../myrgb.html#x">myrgb.html#x</a> now to play
+  the game in the expert mode.
+</p>
+<p>
+  Alternatively, visit <a href="../../../myrgb.html">myrgb.html</a> to
+  play it in the normal mode like before.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/myrgb/0.2.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>From Web Feed Entry to 186k Hits</title>
+<link>https://susam.net/from-web-feed-to-186850-hits.html</link>
+<guid isPermaLink="false">blshr</guid>
+<pubDate>Sun, 07 Apr 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Last Sunday (31 Mar 2024), I published a tiny colour guessing game
+  called <a href="myrgb.html">Guess My RGB</a>.  I developed most of
+  it on Saturday afternoon, took a break, and revisited it later that
+  night for some final code cleanup.  Around 02:00 UTC, I uploaded the
+  game to my website.  Since the entire game is contained in a single
+  HTML file named <a href="myrgb.html">myrgb.html</a>, it was just a
+  matter of uploading this file to my web server.  Shortly after, I
+  went to bed.
+</p>
+<p>
+  I had no intention of sharing this game with a wide audience yet, as
+  it hadn't been thoroughly tested.  However, when I woke up the next
+  morning, I discovered that a Hacker News (HN) user had already found
+  and shared the game on HN in this post:
+  <a href="https://news.ycombinator.com/item?id=39882018">news.ycombinator.com/item?id=39882018</a>.
+</p>
+<p>
+  Since I had not shared this game with anyone anywhere yet, I was
+  quite surprised to wake up Sunday morning and find my game trending
+  at the top of HN.  I believe this is where maintaining an RSS feed
+  on my website might have helped.  Every new page that I publish on
+  this website also appears as an entry in the RSS feed for this
+  website.  This feed can be found here:
+  <a href="feed.xml">feed.xml</a>.  I have a few hundred subscribers
+  to this feed.  It is very likely that the HN user who shared this
+  game on HN found it through this feed.  Indeed my web server logs
+  show that the feed was fetched by a feed reader just minutes before
+  the game was posted on HN.
+</p>
+<p>
+  In the week since its HN mention, my game has received a total of
+  186,850 hits.  Not a staggering number but encouraging!  The actual
+  numbers for each day look like this:
+</p>
+<!-- 95467 + 48330 + 22305 + 10189 + 4685 + 2101 + 3773 = 186850 -->
+<table class="grid center textcenter">
+  <tr>
+    <th>Date</th>
+    <th>Hits</th>
+  </tr>
+  <tr>
+    <td>31 Mar 2024</td>
+    <td>95467</td>
+  </tr>
+  <tr>
+    <td>01 Apr 2024</td>
+    <td>48330</td>
+  </tr>
+  <tr>
+    <td>02 Apr 2024</td>
+    <td>22305</td>
+  </tr>
+  <tr>
+    <td>03 Apr 2024</td>
+    <td>10189</td>
+  </tr>
+  <tr>
+    <td>04 Apr 2024</td>
+    <td>4685</td>
+  </tr>
+  <tr>
+    <td>05 Apr 2024</td>
+    <td>2101</td>
+  </tr>
+  <tr>
+    <td>06 Mar 2024</td>
+    <td>3773</td>
+  </tr>
+</table>
+<p>
+  So the next time someone tells you that RSS is dead, remember how an
+  RSS feed entry helped my little game get discovered.  It took only
+  one entry in my web feed, one kind feed subscriber, and a few kind
+  HN upvoters to reach a large audience!  It is a testament to the
+  enduring value of simple, open web technologies that can amplify
+  your content and connect you with a passionate audience.
+</p>
+<p>
+  To all visitors of this website who played this game and shared this
+  game with others, thank you!  Crafting
+  <a href="https://github.com/susam?tab=repositories&amp;sort=stargazers">tiny
+  software tools</a> like this is a creative outlet for me.  To know
+  that there are others out there who enjoyed this game brings me joy!
+  To play this game now, visit <a href="myrgb.html">myrgb.html</a> and
+  guess some colours!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/from-web-feed-to-186850-hits.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+
+
+</channel>
+</rss>
