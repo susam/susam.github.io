@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's Game Pages</title>
+<link>https://susam.net/tag/game.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/game.xml"/>
+<description>Feed for Susam's Game Pages</description>
+
+<item>
+<title>Guess My RGB</title>
+<link>https://susam.net/myrgb.html</link>
+<guid isPermaLink="false">uiorn</guid>
+<pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A tiny, web-based, RGB colour guessing game.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/myrgb.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/game.html">#game</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Andromeda Invaders</title>
+<link>https://susam.net/invaders.html</link>
+<guid isPermaLink="false">bffow</guid>
+<pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A 1980s-arcade-style game written using HTML5, Canvas, and Web
+  Audio.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/invaders.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/game.html">#game</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+
+
+</channel>
+</rss>
