@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Emacs Info Expressions - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/emacs-info-expressions.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../emacs-info-expressions.html"><em>Emacs Info Expressions</em></a></strong></div>
+<div><a href="../form/comment/?p=emacs-info-expressions">Post Comment</a></div>
+<!-- Comment 1 of 5 -->
+<section id="1" class="comment visitor">
+<h2><a href="https://karthinks.com">Karthink</a> wrote:</h2>
+<p>
+  You can use a prefix arg of 0 in the info node &mdash; <code>C-0
+  c</code> or <code>C-u 0 c</code> &mdash; to copy the full info
+  expression, i.e., <code>(info "(emacs) Branches")</code> instead
+  of <code>"(emacs) Branches"</code>.
+</p>
+<div>
+<a href="#1">13 Apr 2024 22:44 UTC</a> |
+<a href="#1">#1 of 5 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 5 -->
+<section id="2" class="comment visitor">
+<h2>Joost wrote:</h2>
+<p>
+  There's an easier way: In an info buffer, type <code>M-0 c</code>
+  instead of just <code>c</code>, and Emacs will put the info node's
+  name inside a call to <code>info</code> (i.e., you get <code>(info
+  "(dir) Top")</code> in the kill ring.)
+</p>
+<div>
+<a href="#2">14 Apr 2024 08:46 UTC</a> |
+<a href="#2">#2 of 5 comments</a>
+</div>
+</section>
+<!-- Comment 3 of 5 -->
+<section id="3" class="comment visitor">
+<h2><a href="https://mastodon.social/@mekeor@catgirl.cloud">Mekeor Melire</a> wrote:</h2>
+<p>
+  Do you know about the zero-prefix for <code>c</code> (or
+  equally <code>w</code>) in <code>Info-mode</code>?  It puts the <code>info</code>
+  <code>s-expression</code> into the kill ring, e.g., personally I
+  always type: <code>C-0 w</code>.
+</p>
+<div>
+<a href="#3">14 Apr 2024 15:05 UTC</a> |
+<a href="#3">#3 of 5 comments</a>
+</div>
+</section>
+<!-- Comment 4 of 5 -->
+<section id="4" class="comment author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Thank you, Karthink, Joost, and Mekeor for the comments!  Indeed,
+  with the zero prefix argument, the <code>c</code> key copies the
+  complete <code>info</code> expression!  I have added a new section
+  to the post to include this, with credits to you.
+</p>
+<div>
+<a href="#4">14 Apr 2024 19:02 UTC</a> |
+<a href="#4">#4 of 5 comments</a>
+</div>
+</section>
+<!-- Comment 5 of 5 -->
+<section id="5" class="comment visitor">
+<h2><a href="https://github.com/rswgnu">Robert (rsw)</a> wrote:</h2>
+<p>
+  Just load the Hyperbole package and remove the space between the
+  manual and node name.
+</p>
+<p>
+  Then in any Emacs buffer you can add <code>"(manual)node"</code> in
+  double quotes, press <code>M-RET</code> with point on that string
+  and display the associated node.  This works for Info index entries
+  as well.  Keep it simple.
+</p>
+<div>
+<a href="#5">17 Apr 2024 18:54 UTC</a> |
+<a href="#5">#5 of 5 comments</a>
+</div>
+</section>
+
+<div><a href="../form/comment/?p=emacs-info-expressions">Post Comment</a></div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../maze.html">Maze</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2025 Susam Pal</p>
+</footer>
+</body>
+</html>

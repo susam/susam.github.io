@@ -1,0 +1,70 @@
+form {
+  margin: 1em 0;
+}
+input, textarea, button {
+  color: #333;
+  border-color: #999;
+  font-family: georgia, serif;
+  font-size: 1em;
+  margin-top: 1em;
+}
+input:first-child {
+  margin-top: 0;
+}
+input, textarea {
+  border: thin solid #999;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5em;
+}
+textarea {
+  min-height: 10em;
+}
+button {
+  min-width: 75%;
+  min-height: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+button:active {
+  background: #eee;
+}
+.privacy {
+  text-align: center;
+}
+.status {
+  display: none;
+}
+.status.success, .status.error {
+  display: block;
+  border-width: medium;
+  border-style: double;
+  margin: 1em 0;
+}
+.status.success {
+  color: #060;
+  border-color: #060;
+}
+.status.error {
+  color: #900;
+  border-color: #900;
+}
+@media (prefers-color-scheme: dark) {
+  input, textarea, button {
+    background: #000;
+    color: #bbb;
+    border-color: #666;
+  }
+  button:active {
+    background: #333;
+  }
+  .status.error {
+    color: #f99;
+    border-color: #f99;
+  }
+  .status.success {
+    color: #3c6;
+    border-color: #3c6;
+  }
+}
