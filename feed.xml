@@ -1,0 +1,4970 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="./feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam Pal</title>
+<link>https://susam.net/</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/feed.xml"/>
+<description>Susam's Feed</description>
+
+<item>
+<title>.</title>
+<link>https://susam.net/a4.html</link>
+<guid isPermaLink="false">afour</guid>
+<pubDate>Fri, 07 Nov 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Hello.
+</p>
+<figure class="soft darkinvert">
+  <img src="files/blog/a4.svg">
+  <figcaption>
+    Fig
+  </figcaption>
+</figure>
+<figure class="soft darkinvert">
+  <img src="files/blog/aspect.svg">
+  <figcaption>
+    Fig
+  </figcaption>
+</figure>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/a4.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Nerd Quiz</title>
+<link>https://susam.net/nq.html</link>
+<guid isPermaLink="false">nqhtm</guid>
+<pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A nerdy, handcrafted quiz built from everyday moments of reading,
+  writing, thinking, learning and exploring.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/nq.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>QuickQWERTY 1.2.0</title>
+<link>https://susam.net/code/news/quickqwerty/1.2.0.html</link>
+<guid isPermaLink="false">qqotz</guid>
+<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  QuickQWERTY 1.2.0 is now available.  QuickQWERTY is a web-based
+  touch typing tutor for QWERTY keyboards that runs directly in the
+  web browser.
+</p>
+<p>
+  This release brings small improvements to make the typing tutor
+  smoother and the lessons more accurate.  When you return to the
+  application, it no longer needlessly redirects you back to Unit 1.1
+  if that was the last lesson you practised.
+</p>
+<p>
+  Several lessons have received minor corrections.  Units 7.2 and 7.3
+  no longer include the word "tyre", avoiding a preference for either
+  British or American spelling.  Units 9.2 and 9.3 now spell
+  "orwellian" correctly.  A factual error in Unit 17.4 has been fixed
+  too.  It previously said "89 is one more than 99", which now
+  correctly reads "89 is one more than 88".
+</p>
+<p>
+  Finally, switching between the 5-6 and 6-7 split layouts is now more
+  reliable.  In the previous release, pressing <kbd>Esc</kbd> to
+  cancel the confirmation dialogue still caused the switch to go
+  through.  Now pressing <kbd>Esc</kbd> properly cancels the switch as
+  expected.
+</p>
+<p>
+  To try out the new release of QuickQWERTY, go to
+  <a href="../../../quickqwerty.html">quickqwerty.html</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/quickqwerty/1.2.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>I Reinstated My Guestbook After 20 Years</title>
+<link>https://susam.net/reinstated-guestbook.html</link>
+<guid isPermaLink="false">gbret</guid>
+<pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I have reinstated the <a href="guestbook.html">guestbook</a> on this
+  website after 20 years!  As I have written in the
+  <a href="about.html">About</a> page, this website began its life as
+  an intranet portal in my university network back in 2001–2005.  That
+  portal first ran on Microsoft Personal Web Server (PWS) and later on
+  Microsoft Internet Information Services (IIS), with the guestbook
+  data stored in a Microsoft Access database.  At the same time, I
+  also maintained a small public website on the Internet, hosted on a
+  subdomain provided by a free hosting service, where I published a
+  subset of the articles from the intranet portal.  Both the intranet
+  portal and the public website had guestbooks.  The guestbook on the
+  public website was powered by a CGI script provided by the hosting
+  service, which inserted each comment directly into the guestbook
+  HTML page.  As some of you might guess, yes, it was vulnerable to
+  cross-site scripting, but that's beside the point.
+</p>
+<p>
+  After leaving the university, I registered my own domain name and
+  set up my current website on the World Wide Web and included some of
+  the content from both the original intranet portal and the old
+  public website.  For some reason, though, I never thought to include
+  a guestbook.  And so this website went on without a guestbook for
+  the next 20 years.  Finally, in June 2025, I decided to bring the
+  guestbook back.  I already had a commenting system implemented for
+  this website using Common Lisp and Hunchentoot, so I simply reused
+  it for the guestbook.  The
+  <a href="https://github.com/susam/susam.net/blob/0.3.0/form.lisp">server program</a>
+  accepts POST requests to receive comments and writes them to text
+  files on the web server for manual review.  The comments are then
+  rendered as static HTML pages by my static site generator.  In a
+  way, it is less a comment system and more a static comment pages
+  generator.
+</p>
+<p>
+  Unfortunately, I could not restore all the comments from the
+  original guestbooks.  The ASP source code of my intranet portal as
+  well as the guestbook database are now lost to time.  Note that what
+  I refer to as ASP here is now known as Classic ASP, to avoid
+  confusion with ASP.NET.  A CD-ROM backup eventually succumbed to
+  disc rot and with it vanished the source code and the database.  But
+  a handful of comments had survived because they had found their way
+  into other files and correspondence and I have now included them
+  here.  I had better luck with the guestbook of the old public
+  website, from which I was able to recover a greater number of
+  comments.  It is still only a small fraction of what once existed,
+  but it feels good to have even those fragments preserved.  The new
+  guestbook is now available here:
+  <a href="guestbook.html">Guestbook</a>.
+</p>
+<p>
+  I wasn't expecting anybody to notice the new guestbook.  It is only
+  mentioned in the <a href="about.html">About</a> and
+  <a href="links.html">Links</a> pages, neither of which see much
+  traffic.  Here are a few examples:
+</p>
+<blockquote>
+  <p>
+    I love that your website has a guestbook!  :D
+  </p>
+</blockquote>
+<blockquote>
+  <p>
+    Love the guestbook!  We need more of these.  Makes you feel
+    invited.
+  </p>
+</blockquote>
+<p>
+  It's a small addition to my website, but after two decades, it feels
+  good to see the guestbook alive again and even better to see
+  visitors enjoying it!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/reinstated-guestbook.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>QuickQWERTY 1.1.0</title>
+<link>https://susam.net/code/news/quickqwerty/1.1.0.html</link>
+<guid isPermaLink="false">qqooz</guid>
+<pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  There has been a new release of QuickQWERTY after over 10 years!
+  QuickQWERTY is a web-based touch typing tutor for QWERTY keyboards
+  that runs directly in the web browser.  You can try it out
+  here: <a href="../../../quickqwerty.html">quickqwerty.html</a>.
+</p>
+<p>
+  The new release, version 1.1.0 of QuickQWERTY, introduces a new
+  input command named <code>reset</code>, which is a synoymn for the
+  existing commands <code>restart</code> and <code>rst</code> used to
+  restart the current lesson.  Another input command
+  named <code>test</code> runs an internal suite of tests to validate
+  that no lesson involves keys that have not been introduced in the
+  current or prior lessons.  Further, in this release, the application
+  has been fully rewritten as a single standalone HTML file with no
+  external dependencies and the source code has been greatly
+  simplified.
+</p>
+<p>
+  There are a number of other changes too.  Words per minute (WPM)
+  calculation has been refined so the first character, which starts
+  the timer, is not counted.  The guides have been enhanced.  Keys to
+  be pressed are now highlighted more clearly and reminders to return
+  fingers to their home positions have been added to each guide.  The
+  confirmation dialogue for switching between 6-7 split and 5-6 split
+  styles now uses the HTML <code>&lt;dialog&gt;</code> element,
+  replacing the dated <code>window.confirm()</code> prompt.  In
+  addition, when the application is opened without a fragment
+  identifier in the URL, the most recently practised lesson loads
+  automatically.
+</p>
+<p>
+  The user interface has been simplified.  The previous and next links
+  (<code>&laquo;</code> and <code>&raquo;</code>) for navigating
+  lessons have been removed, as they added little value and made the
+  layout of the various user interface components more complex.  The
+  "Next lesson" advice link remains for moving to the next lesson when
+  the current one is completed successfully.  Tooltips showing
+  additional typing metrics have also been removed due to limited
+  usefulness.
+</p>
+<p>
+  The lessons have been updated to remove spellings specific to
+  American English.  Care has been taken to use only words that are
+  spelled the same in American and British English with one exception.
+  The word "tyre", in its British English spelling, was mistakenly
+  left in the lesson.  That will be fixed in the next release.
+</p>
+<p>
+  Finally, QuickQWERTY's licence has changed from the BSD-2-Clause
+  licence to the MIT licence.  The source code is available at
+  <a href="https://github.com/susam/quickqwerty">github.com/susam/quickqwerty</a>.
+  To run this release and learn touch typing on a QWERTY keyboard, go
+  to <a href="../../../quickqwerty.html">quickqwerty.html</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/quickqwerty/1.1.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>My Lobsters Interview</title>
+<link>https://susam.net/my-lobsters-interview.html</link>
+<guid isPermaLink="false">lbstr</guid>
+<pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I recently had an engaging conversation with Alex
+  (<a href="https://lobste.rs/~veqq">@veqq</a>) from the
+  <a href="https://lobste.rs/">Lobsters</a> community about computing,
+  mathematics and a range of related topics.  Our conversation was
+  later published on the community website as
+  <a href="https://lobste.rs/s/kltoas">Lobsters Interview with
+  Susam</a>.
+</p>
+<p>
+  I should mention the sections presented in that post are not in the
+  same order in which we originally discussed them.  The sections were
+  edited and rearranged by Alex to improve the flow and avoid
+  repetition of similar topics too close to each other.
+</p>
+<p>
+  This page preserves a copy of our discussion as edited by Alex, so I
+  can keep an archived version on my website.  In my copy, I have
+  added a table of contents to make it easier to navigate to specific
+  sections.  The interview itself follows the table of contents.  I
+  hope you enjoy reading it.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ol>
+  <li><a href="#lisp-and-other-things">Lisp and Other Things</a></li>
+  <li><a href="#lisp-emacs-and-mathematics">Lisp, Emacs and Mathematics</a></li>
+  <li><a href="#interests-and-exploration">Interests and Exploration</a></li>
+  <li><a href="#computing-for-fun">Computing for Fun</a></li>
+  <li><a href="#computing-activities">Computing Activities</a></li>
+  <li><a href="#programming-vs-domains">Programming vs Domains</a></li>
+  <li><a href="#old-functionality-and-new-problems">Old Functionality and New Problems</a></li>
+  <li><a href="#designing-for-composability">Designing for Composability</a></li>
+  <li><a href="#small-vs-large-functions">Small vs Large Functions</a></li>
+  <li><a href="#domains-and-projects">Domains and Projects</a></li>
+  <li><a href="#double-spacing-and-touch-typing">Double Spacing and Touch Typing</a></li>
+  <li><a href="#approach-to-learning">Approach to Learning</a></li>
+  <li><a href="#managing-time-and-distractions">Managing Time and Distractions</a></li>
+  <li><a href="#blogging">Blogging</a></li>
+  <li><a href="#forums">Forums</a></li>
+  <li><a href="#mathb-moderation-problems">MathB Moderation Problems</a></li>
+  <li><a href="#favourite-mathematics-textbooks">Favourite Mathematics Textbooks</a></li>
+  <li><a href="#mathematics-and-computing">Mathematics and Computing</a></li>
+</ol>
+<h2 id="conversation">Our Conversation<a href="#conversation"></a></h2>
+<!-- Lisp and other things -->
+<p class="question" id="lisp-and-other-things">
+  Hi <a href="https://lobste.rs/~susam">@susam</a>, I primarily know
+  you as a Lisper, what other things do you use?
+</p>
+<p>
+  Yes, I use Lisp extensively for my personal projects and much of
+  what I do in my leisure is built on it.  I ran
+  a <a href="https://github.com/susam/mathb">mathematics pastebin</a>
+  for close to thirteen years.  It was quite popular on some IRC
+  channels.  The pastebin was written in Common Lisp.
+  My <a href="https://susam.net/">personal website</a> and blog are
+  generated using a tiny static site generator written in Common Lisp.
+  Over the years I have built several other personal tools in it as
+  well.
+</p>
+<p>
+  I am an active Emacs Lisp programmer too.  Many of my software tools
+  are in fact Emacs Lisp functions that I invoke with convenient key
+  sequences.  They help me automate repetitive tasks as well as
+  improve my text editing and task management experience.
+</p>
+<p>
+  I use plenty of other tools as well.  In my early adulthood, I spent
+  many years working with C, C++, Java and PHP.  My
+  <a href="https://issues.apache.org/jira/browse/NUTCH-559">first
+  substantial open source contribution</a> was to the Apache Nutch
+  project which was in Java and one of my early original open source
+  projects was <a href="https://github.com/susam/uncap">Uncap</a>, a C
+  program to remap keys on Windows.
+</p>
+<p>
+  These days I use a lot of Python, along with some Go and Rust, but
+  Lisp remains important to my personal work.  I also enjoy writing
+  small standalone tools directly in HTML and JavaScript, often with
+  all the code in a single file in a readable, unminified form.
+</p>
+<!-- Lisp, Emacs and mathematics -->
+<p class="question" id="lisp-emacs-and-mathematics">
+  How did you first discover computing, then end up with Lisp, Emacs
+  and mathematics?
+</p>
+<p>
+  I got introduced to computers through the Logo programming language
+  as a kid.  Using simple arithmetic, geometry, logic and code to
+  manipulate a two-dimensional world had a lasting effect on me.
+</p>
+<p>
+  I still vividly remember how I ended up with Lisp.  It was at an
+  airport during a long layover in 2007.  I wanted to use the time to
+  learn something, so I booted my laptop
+  running <a href="https://www.debian.org/">Debian</a> GNU/Linux 4.0
+  (Etch) and then started
+  <a href="https://www.gnu.org/software/clisp/">GNU CLISP</a> 2.41.
+  In those days, Wi-Fi in airports was uncommon.  Smartphones and
+  mobile data were also uncommon.  So it was fortunate that I had
+  CLISP already installed on my system and my laptop was ready for
+  learning Common Lisp.  I had it installed because I had wanted to
+  learn Common Lisp for some time.  I was especially attracted by its
+  simplicity, by the fact that the entire language can be built up
+  from a very small set of special forms.  I
+  use <a href="https://www.sbcl.org/">SBCL</a> these days, by the way.
+</p>
+<p>
+  I discovered Emacs through Common Lisp.  Several sources recommended
+  using the <a href="https://slime.common-lisp.dev/">Superior Lisp
+  Interaction Mode for Emacs (SLIME)</a> for Common Lisp programming,
+  so that's where I began.  For many years I continued to use Vim as
+  my primary editor, while relying on Emacs and SLIME for Lisp
+  development.  Over time, as I learnt more about Emacs itself, I grew
+  fond of Emacs Lisp and eventually made Emacs my primary editor and
+  computing environment.
+</p>
+<p>
+  I have loved mathematics since my childhood days.  What has always
+  fascinated me is how we can prove deep and complex facts using first
+  principles and clear logical steps.  That feeling of certainty and
+  rigour is unlike anything else.
+</p>
+<p>
+  Over the years, my love for the subject has been rekindled many
+  times.  As a specific example, let me share how I got into number
+  theory.  One day I decided to learn the RSA cryptosystem.  As I was
+  working through the
+  <a href="https://people.csail.mit.edu/rivest/Rsapaper.pdf">RSA
+  paper</a>, I stumbled upon the Euler totient function
+  \( \varphi(n) \) which gives the number of positive integers not
+  exceeding n that are relatively prime to n.  The paper first states
+  that
+
+  \[
+    \varphi(p) = p - 1
+  \]
+
+  for prime numbers \( p.  \)  That was obvious since \( p \) has no
+  factors other than \( 1 \) and itself, so every integer from \( 1 \)
+  up to \( p - 1 \) must be relatively prime to it.  But then it
+  presents
+
+  \[
+    \varphi(pq) = \varphi(p) \cdot \varphi(q) = (p - 1)(q - 1)
+  \]
+
+  for primes \( p \) and \( q.  \)  That was not immediately obvious to
+  me back then.  After a few minutes of thinking, I managed to prove
+  it from scratch.  By the inclusion-exclusion principle, we count how
+  many integers from \( 1 \) up to \( pq \) are not divisible by
+  \(p \) or \( q.  \)  There are \( pq \) integers in total.  Among
+  them, there are \( q \) integers divisible by \( p \) and \( p \)
+  integers divisible by \( q.  \)  So we need to subtract \( p + q \)
+  from \(pq.  \)  But since one integer (\( pq \) itself) is counted in
+  both groups, we add \( 1 \) back.  Therefore
+
+  \[
+    \varphi(pq) = pq - (p + q) + 1 = (p - 1)(q - 1).
+  \]
+
+  Next I could also obtain the general formula for \( \varphi(n) \)
+  for an arbitrary positive integer \( n \) using the same idea.
+  There are several other proofs too, but that is how I derived the
+  general formula for \( \varphi(n) \) when I first encountered it.
+  And just like that, I had begun to learn number theory!
+</p>
+<!-- Computing for fun -->
+<p class="question" id="computing-for-fun">
+  You've said you prefer computing for fun.  What is fun to you?  Do
+  you have an idea of what makes something fun or not?
+</p>
+<p>
+  For me, fun in computing began when I first learnt IBM/LCSI PC Logo
+  when I was nine years old.  I had very limited access to computers
+  back then, perhaps only about two hours per <em>month</em> in the
+  computer laboratory at my primary school.  Most of my Logo
+  programming happened with pen and paper at home.  I would "test" my
+  programs by tracing the results on graph paper.  Eventually I would
+  get about thirty minutes of actual computer time in the lab to run
+  them for real.
+</p>
+<p>
+  So back then, most of my computing happened without an actual
+  computer.  But even with that limited access to computers, a whole
+  new world opened up for me: one that showed me the joy of computing
+  and more importantly, the joy of sharing my little programs with my
+  friends and teachers.  One particular Logo program I still remember
+  very well drew a house with animated dashed lines, where the dashes
+  moved around the outline of the house.  Everyone around me loved it,
+  copied it and tweaked it to change the colours, alter the details
+  and add their own little touches.
+</p>
+<p>
+  For me, fun in computing comes from such exploration and sharing.  I
+  enjoy asking "what happens if" and then seeing where it leads me.
+  My Emacs package
+  <a href="https://elpa.nongnu.org/nongnu/devil.html">devil-mode</a>
+  comes from such exploration.  It came from asking, "What happens if
+  we avoid using the <kbd>ctrl</kbd> and <kbd>meta</kbd> modifier keys
+  and use <kbd>,</kbd> (the comma key) or another suitable key as a
+  leader key instead?  And can we still have a non-modal editing
+  experience?"
+</p>
+<p>
+  Sometimes computing for fun may mean crafting a minimal esoteric
+  drawing language, making a small game or building a tool that solves
+  an interesting problem elegantly.  It is a bonus if the exploration
+  results in something working well enough that I can share with
+  others on the World Wide Web and others find it fun too.
+</p>
+<!-- Pursuits -->
+<p class="question" id="interests-and-exploration">
+  How do you choose what to investigate?  Which most interest you,
+  with what commonalities?
+</p>
+<p>
+  For me, it has always been one exploration leading to another.
+</p>
+<p>
+  For example, I originally built
+  <a href="https://github.com/susam/mathb">MathB</a> for my friends
+  and myself who were going through a phase in our lives when we used
+  to challenge each other with mathematical puzzles.  This tool became
+  a nice way to share solutions with each other.  Its use spread from
+  my friends to their friends and colleagues, then to schools and
+  universities and eventually to IRC channels.
+</p>
+<p>
+  Similarly, I built <a href="https://github.com/susam/texme">TeXMe</a>
+  when I was learning neural networks and taking a lot of notes on the
+  subject.  I was not ready to share the notes online, but I did want
+  to share them with my friends and colleagues who were also learning
+  the same topic.  Normally I would write my notes in LaTeX, compile
+  them to PDF and share the PDF, but in this case, I wondered, what if
+  I took some of the code from MathB and created a tool that would let
+  me write plain Markdown
+  (<a href="https://github.github.com/gfm/">GFM</a>) + LaTeX
+  (<a href="https://www.mathjax.org/">MathJax</a>) in
+  a <code>.html</code> file and have the tool render the file as soon
+  as it was opened in a web browser?  That resulted in TeXMe, which
+  has surprisingly become one of my most popular projects, receiving
+  millions of hits in some months according to the CDN statistics.
+</p>
+<p>
+  Another example is <a href="https://susam.github.io/muboard/">Muboard</a>,
+  which is a bit like an interactive mathematics chalkboard.  I built
+  this when I was hosting an
+  <a href="journey-to-prime-number-theorem.html">analytic number
+  theory book club</a> and I needed a way to type LaTeX snippets live
+  on screen and see them immediately rendered.  That made me wonder:
+  what if I took TeXMe, made it interactive and gave it a chalkboard
+  look-and-feel?  That led to Muboard.
+</p>
+<p>
+  So we can see that sharing mathematical notes and snippets has been
+  a recurring theme in several of my projects.  But that is only a
+  small fraction of my interests.  I have a wide variety of interests
+  in computing.  I also engage in random explorations, like writing
+  IRC clients
+  (<a href="https://github.com/susam/nimb">NIMB</a>,
+  <a href="https://github.com/susam/tzero">Tzero</a>),
+  ray tracing
+  (<a href="https://github.com/susam/pov25">POV-Ray</a>,
+  <a href="https://github.com/spxy/java-ray-tracing">Java ray tracer</a>),
+  writing Emacs guides
+  (<a href="https://github.com/susam/emacs4cl">Emacs4CL</a>,
+  <a href="https://github.com/susam/emfy">Emfy</a>),
+  developing small single-file HTML games
+  (<a href="invaders.html">Andromeda Invaders</a>,
+  <a href="myrgb.html">Guess My RGB</a>),
+  purely recreational programming
+  (<a href="fxyt.html">FXYT</a>,
+  <a href="https://github.com/susam/may4">may4.fs</a>,
+  <a href="self-printing-machine-code.html">self-printing machine code</a>,
+  <a href="primegrid.html">prime number grid explorer</a>)
+  and so on.  The list goes on.  When it comes to hobby computing, I
+  don't think I can pick just one domain and say it interests me the
+  most.  I have a lot of interests.
+</p>
+<!-- What is computing?  -->
+<p class="question" id="computing-activities">
+  What is computing, to you?
+</p>
+<p>
+  Computing, to me, covers a wide range of activities: programming a
+  computer, using a computer, understanding how it works, even
+  building one.  For example, I once built a tiny 16-bit CPU along
+  with a small main memory that could hold only eight 16-bit
+  instructions, using VHDL and a Xilinx CPLD kit.  The design was
+  based on the Mano CPU introduced in the book <em>Computer System
+  Architecture</em> (3rd ed.) by M. Morris Mano.  It was incredibly
+  fun to enter instructions into the main memory, one at a time, by
+  pushing DIP switches up and down and then watch the CPU I had built
+  execute an entire program.  For someone like me, who usually works
+  with software at higher levels of abstraction, that was a thrilling
+  experience!
+</p>
+<p>
+  Beyond such experiments, computing also includes more practical and
+  concrete activities, such as installing and using my favourite Linux
+  distribution (Debian), writing software tools in languages like
+  Common Lisp, Emacs Lisp, Python and the shell command language or
+  customising my Emacs environment to automate repetitive tasks.
+</p>
+<p>
+  To me, computing also includes the abstract stuff like spending time
+  with abstract algebra and number theory and getting a deeper
+  understanding of the results pertaining to groups, rings and fields,
+  as well as numerous number-theoretic results.  Browsing the
+  <a href="https://oeis.org/">On-Line Encyclopedia of Integer
+  Sequences</a> (OEIS), writing small programs to explore interesting
+  sequences or just thinking about them is computing too.  I think
+  many of the interesting results in computer science have deep
+  mathematical foundations.  I believe much of computer science is
+  really discrete mathematics in action.
+</p>
+<p>
+  And if we dive all the way down from the CPU to the level of
+  transistors, we encounter continuous mathematics as well, with
+  non-linear voltage-current relationships and analogue behaviour that
+  make digital computing possible.  It is fascinating how, as a
+  relatively new species on this planet, we have managed to take sand
+  and find a way to use continuous voltages and currents in electronic
+  circuits built with silicon and convert them into the discrete
+  operations of digital logic.  We have machines that can simulate
+  themselves!
+</p>
+<p>
+  To me, all of this is fun.  To study and learn about these things,
+  to think about them, to understand them better and to accomplish
+  useful or amusing results with this knowledge is all part of the
+  fun.
+</p>
+<!-- Programming vs domains -->
+<p class="question" id="programming-vs-domains">
+  How do you view programming vs. domains?
+</p>
+<p>
+  I focus more on the domain than the tool.  Most of the time it is a
+  problem that catches my attention and then I explore it to
+  understand the domain and arrive at a solution.  The problem itself
+  usually points me to one of the tools I already know.
+</p>
+<p>
+  For example, if it is about working with text files, I might write
+  an Emacs Lisp function.  If it involves checking large sets of
+  numbers rapidly for patterns, I might choose C++ or Rust.  But if I
+  want to share interactive visualisations of those patterns with
+  others, I might rewrite the solution in HTML and JavaScript,
+  possibly with the use of the Canvas API, so that I can share the
+  work as a self-contained file that others can execute easily within
+  their web browsers.  When I do that, I prefer to keep the HTML neat
+  and readable, rather than bundled or minified, so that people who
+  like to 'View Source' can copy, edit and customise the code
+  themselves to immediately see their changes take effect.
+</p>
+<p>
+  Let me share a specific example.  While working on a web-based game, I first
+  used <code>CanvasRenderingContext2D</code>'s <code>fillText()</code>
+  to display text on the game canvas.  However, dissatisfied with the
+  text rendering quality, I began looking for IBM PC OEM fonts and
+  similar retro fonts online.  After downloading a few font packs, I
+  wrote a little Python script to convert them to bitmaps (arrays of
+  integers) and then used the bitmaps to draw text on the canvas using
+  JavaScript, one cell at a time, to get pixel-perfect results!  These
+  tiny Python and JavaScript tools were good enough that I felt
+  comfortable sharing them together as a tiny toolkit called
+  <a href="https://susam.github.io/pcface/src/demo.html">PCFace</a>.
+  This toolkit offers JavaScript bitmap arrays and tiny JavaScript
+  rendering functions, so that someone else who wants to display text
+  on their game canvas using PC fonts and nothing but plain HTML and
+  JavaScript can do so without having to solve the problem from
+  scratch!
+</p>
+<!-- Applicability of old functionality for new problems -->
+<p class="question" id="old-functionality-and-new-problems">
+  Has the rate of your making new Emacs functions has diminished over
+  time (as if everything's covered) or do the widening domains lead to
+  more?  I'm curious how applicable old functionality is for new
+  problems and how that impacts the APIs!
+</p>
+<p>
+  My rate of making new Emacs functions has definitely decreased.
+  There are two reasons.  One is that over the years my computing
+  environment has converged into a comfortable, stable setup I am very
+  happy with.  The other is that at this stage of life I simply cannot
+  afford the time to endlessly tinker with Emacs as I did in my
+  younger days.
+</p>
+<p>
+  More generally, when it comes to APIs, I find that well-designed
+  functionality tends to remain useful even when new problems appear.
+  In Emacs, for example, many of my older functions continue to serve
+  me well because they were written in a composable way.  New problems
+  can often be solved with small wrappers or combinations of existing
+  functions.  I think APIs that consist of functions that are simple,
+  orthogonal and flexible age well.  If each function in an API does
+  one thing and does it well (the Unix philosophy), it will have
+  long-lasting utility.
+</p>
+<p>
+  Of course, new domains and problems do require new functions and
+  extensions to an API, but I think it is very important to not give
+  in to the temptation of enhancing the existing functions by making
+  them more complicated with optional parameters, keyword arguments,
+  nested branches and so on.  Personally, I have found that it is much
+  better to implement new functions that are small, orthogonal and
+  flexible, each doing one thing and doing it well.
+</p>
+<p class="question" id="designing-for-composability">
+  What design methods or tips do you have, to increase composability?
+</p>
+<p>
+  For me, good design starts with good vocabulary.  Clear vocabulary
+  makes abstract notions concrete and gives collaborators a shared
+  language to work with.  For example, while working on a network
+  events database many years ago, we collected data minute by minute
+  from network devices.  We decided to call each minute of data from a
+  single device a "nugget".  So if we had 15 minutes of data from 10
+  devices, that meant 150 nuggets.
+</p>
+<p>
+  Why "nugget"?  Because it was shorter and more convenient than
+  repeatedly saying "a minute of data from one device".  Why not
+  something less fancy like "chunk"?  Because we reserved "chunk" for
+  subdivisions within a nugget.  Perhaps there were better choices,
+  but "nugget" was the term we settled on and it quickly became shared
+  terminology between the collaborators.  Good terminology naturally
+  carries over into code.  With this vocabulary in place, function
+  names like <code>collect_nugget()</code>,
+  <code>open_nugget()</code>, <code>parse_chunk()</code>,
+  <code>index_chunk()</code>, <code>skip_chunk()</code>,
+  etc. immediately become meaningful to everyone involved.
+</p>
+<p>
+  Thinking about the vocabulary also ensures that we are thinking
+  about the data, concepts and notions we are working with in a
+  deliberate manner and that kind of thinking also helps when we
+  design the architecture of software.
+</p>
+<p>
+  Too often I see collaborators on software projects jump straight
+  into writing functions that take some input and produce some desired
+  effect, with variable names and function names decided on the fly.
+  To me, this feels backwards.  I prefer the opposite approach.
+  Define the terms first and let the code follow from them.
+</p>
+<p>
+  I also prefer developing software in a layered manner, where complex
+  functionality is built from simpler, well-named building blocks.  It
+  is especially important to avoid <em>layer violations</em>, where
+  one complex function invokes another complex function.  That creates
+  tight coupling between two complex functions.  If one function
+  changes in the future, we have to reason carefully about how it
+  affects the other.  Since both are already complex, the cognitive
+  burden is high.  A better approach, I think, is to identify the
+  common functionality they share and factor that out into smaller,
+  simpler functions.
+</p>
+<p>
+  To summarise, I like to develop software with a clear vocabulary,
+  consistent use of that vocabulary, a layered design where complex
+  functions are built from simpler ones and by avoiding layer
+  violations.  I am sure none of this is new to the Lobsters
+  community.  Some of these ideas also occur
+  in <a href="https://en.wikipedia.org/wiki/Domain-driven_design">domain-driven
+  design</a> (DDD).  DDD defines the term <em>ubiquitous language</em>
+  to mean, "A language structured around the domain model and used by
+  all team members within a bounded context to connect all the
+  activities of the team with the software."  If I could call this
+  approach of software development something, I would simply call it
+  "vocabulary-driven development" (VDD), though of course DDD is the
+  more comprehensive concept.
+</p>
+<p>
+  Like I said, none of this is likely new to the Lobsters community.
+  In particular, I suspect Forth programmers would find it too
+  obvious.  In Forth, it is very difficult to begin with a long,
+  poorly thought-out monolithic word and then break it down into
+  smaller ones later.  The stack effects quickly become too hard to
+  track mentally with that approach.  The only viable way to develop
+  software in Forth is to start with a small set of words that
+  represent the important notions of the problem domain, test them
+  immediately and then compose higher-level words from the lower-level
+  ones.  Forth naturally encourages a layered style of development,
+  where the programmer thinks carefully about the domain, invents
+  vocabulary and expresses complex ideas in terms of simpler ones,
+  almost in a mathematical fashion.  In my experience, this kind of
+  deliberate design produces software that remains easy to understand
+  and reason about even years after it was written.
+</p>
+<!-- Small vs large functions -->
+<p class="question" id="small-vs-large-functions">
+  Not enhancing existing functions but adding new small ones seems
+  quite lovely, but how do you come back to such a codebase later with
+  many tiny functions?  At points, I've advocated for very large
+  functions, particularly traumatized by Java-esque 1000 functions in
+  1000 files approaches.  When you had time, would you often
+  rearchitecture the conceptual space of all of those functions?
+</p>
+<p>
+  The famous quote from Alan J. Perlis comes to mind:
+</p>
+<blockquote>
+  <p>
+    It is better to have 100 functions operate on one data structure
+    than 10 functions on 10 data structures.
+  </p>
+</blockquote>
+<p>
+  Personally, I enjoy working with a codebase that has thousands of
+  functions, provided most of them are small, well-scoped and do one
+  thing well.  That said, I am not dogmatically opposed to large
+  functions.  It is always a matter of taste and judgement.  Sometimes
+  one large, cohesive function is clearer than a pile of tiny ones.
+</p>
+<p>
+  For example, when I worked on parser generators, I often found that
+  lexers and finite state machines benefited from a single top-level
+  function containing the full tokenisation logic or the full state
+  transition logic in one place.  That function could call smaller
+  helpers for specific tasks, but we still need the overall
+  <code>switch</code>-<code>case</code> or
+  <code>if</code>-<code>else</code> or <code>cond</code> ladder
+  somewhere.  I think trying to split that ladder into smaller
+  functions would only make the code harder to follow.
+</p>
+<p>
+  So while I lean towards small, composable functions, the real goal
+  is to strike a balance that keeps code maintainable in the long run.
+  Each function should be as small as it can reasonably be and no
+  smaller.
+</p>
+<!-- Domains -->
+<p class="question" id="domains-and-projects">
+  Like you, I program as a tool to explore domains.  Which do you know
+  the most about?
+</p>
+<p>
+  For me too, the appeal of computer programming lies especially in
+  how it lets me explore different domains.  There are two kinds of
+  domains in which I think I have gained good expertise.  The first
+  comes from years of developing software for businesses, which has
+  included solving problems such as network events parsing, indexing
+  and querying, packet decoding, developing parser generators,
+  database session management and TLS certificate lifecycle
+  management.  The second comes from areas I pursue purely out of
+  curiosity or for hobby computing.  This is the kind I am going to
+  focus on in our conversation.
+</p>
+<p>
+  Although computing and software are serious business today, for me,
+  as for many others, computing is also a hobby.
+</p>
+<p>
+  Personal hobby projects often lead me down various rabbit holes and
+  I end up learning new domains along the way.  For example, although
+  I am not a web developer, I learnt to build small, interactive
+  single-page tools in plain HTML, CSS and JavaScript simply because I
+  needed them for my hobby projects over and over again.  An early
+  example is <a href="quickqwerty.html">QuickQWERTY</a>, which I built
+  to teach myself and my friends touch-typing on QWERTY keyboards.
+  Another example is <a href="cfrs.html">CFRS[]</a>, which I created
+  because I wanted to make a total (non-Turing complete) drawing
+  language that has turtle graphics like Logo but is absolutely
+  minimal like P&prime;&prime;.
+</p>
+<!-- Double spacing -->
+<p class="question" id="double-spacing-and-touch-typing">
+  You use double spaces after periods which I'd only experienced from
+  people who learned touch typing on typewriters, unexpected!
+</p>
+<p>
+  Yes, I do separate sentences by double spaces.  It is interesting
+  that you noticed this.
+</p>
+<p>
+  I once briefly learnt touch typing on typewriters as a kid, but
+  those lessons did not stick with me.  It was much later, when I used
+  a Java applet-based touch typing tutor that I found online about two
+  decades ago, that the lessons really stayed with me.  Surprisingly,
+  that application taught me to type with a single space between
+  sentences.  By the way, I disliked installing Java plugins into the
+  web browser, so I wrote <a href="quickqwerty.html">QuickQWERTY</a>
+  as a similar touch typing tutor in plain HTML and JavaScript for
+  myself and my friends.
+</p>
+<p>
+  I learnt to use double spaces between sentences first with Vim and
+  then later again with Emacs.  For example, in Vim,
+  the <code>joinspaces</code> option is on by default, so when we join
+  sentences with the normal mode command <code>J</code> or format
+  paragraphs with <code>gqap</code>, Vim inserts two spaces after full
+  stops.  We need to disable that behaviour with <code>:set
+  nojoinspaces</code> if we want single spacing.
+</p>
+<p>
+  It is similar in Emacs.  In Emacs, the
+  <code>delete-indentation</code> command (<code>M-^</code>) and
+  the <code>fill-paragraph</code> command (<code>M-q</code>) both
+  insert two spaces between sentences by default.  Single spacing can
+  be enabled with <code>(setq sentence-end-double-space nil)</code>.
+</p>
+<p>
+  Incidentally, I spend a good portion of the README for my Emacs
+  quick-start DIY kit named
+  <a href="https://github.com/susam/emfy">Emfy</a> discussing sentence
+  spacing conventions under the section
+  <a href="https://github.com/susam/emfy#single-space-for-sentence-spacing">Single
+  Space for Sentence Spacing</a>.  There I explain how to configure
+  Emacs to use single spaces, although I use double spaces myself.
+  That's because many new Emacs users prefer single spacing.
+</p>
+<p>
+  The defaults in Vim and Emacs made me adopt double spacing.  The
+  double spacing convention is also widespread across open source
+  software.  If we look at the Vim help pages, Emacs built-in
+  documentation or the Unix and Linux man pages, double spacing is the
+  norm.  Even inline comments in traditional open source projects
+  often use it.  For example, see Vim's
+  <a href="https://github.com/vim/vim/blob/v9.1.1752/runtime/doc/usr_01.txt">:h usr_01.txt</a>,
+  Emacs's
+  <a href="https://cgit.git.savannah.gnu.org/cgit/emacs.git/tree/doc/emacs/emacs.texi?h=emacs-30.2#n1556">(info "(emacs) Intro")</a>
+  or the comments in the <a href="https://gcc.gnu.org/git/?p=gcc.git;f=gcc/cfg.cc;hb=releases/gcc-15.2.0">GCC source code</a>.
+</p>
+<!-- Learning -->
+<p class="question" id="approach-to-learning">
+  How do you approach learning a new domain?
+</p>
+<p>
+  When I take on a new domain, there is of course a lot of reading
+  involved from articles, books and documentation.  But as I read, I
+  constantly try to test what I learn.  Whenever I see a claim, I ask
+  myself, "If this claim were wrong, how could I demonstrate it?"
+  Then I design a little experiment, perhaps write a snippet of code
+  or run a command or work through a concrete example, with the goal
+  of checking the claim in practice.
+</p>
+<p>
+  Now I am not genuinely hoping to prove a claim wrong.  It is just a
+  way to engage with the material.  To illustrate, let me share an
+  extremely simple and generic example without going into any
+  particular domain.  Suppose I learn that Boolean operations in
+  Python short-circuit.  I might write out several experimental
+  snippets like the following:
+</p>
+<pre><code class="language-python">def t(): print('t'); return True
+def f(): print('f'); return False
+f() or t() or f()
+</code></pre>
+<p>
+  And then confirm that the results do indeed confirm short-circuit
+  evaluation (<code>f</code> followed by <code>t</code> in this case).
+</p>
+<p>
+  At this point, one could say, "Well, you just confirmed what the
+  documentation already told you."  And that's true.  But for me, the
+  value lies in trying to test it for myself.  Even if the claim
+  holds, the act of checking forces me to see the idea in action.
+  That not only reinforces the concept but also helps me build a much
+  deeper intuition for it.
+</p>
+<p>
+  Sometimes these experiments also expose gaps in my own
+  understanding.  Suppose I didn't properly know what "short-circuit"
+  means.  Then the results might contradict my expectations.  That
+  contradiction would push me to correct my misconception and that's
+  where the real learning happens.
+</p>
+<p>
+  Occasionally, this process even uncovers subtleties I didn't expect.
+  For example, while learning socket programming, I discovered that a
+  client can successfully receive data using <code>recv()</code> even
+  after calling <code>shutdown()</code>, contrary to what I had first
+  inferred from the specifications.  See my Stack Overflow post
+  <a href="https://stackoverflow.com/q/39698037/303363">Why can recv()
+  receive messages after the client has invoked shutdown()?</a> for
+  more details if you are curious.
+</p>
+<p>
+  Now this method cannot always be applied, especially if it is very
+  expensive or unwieldy to do so.  For example, if I am learning
+  something in the finance domain, it is not always possible to
+  perform an actual transaction.  One can sometimes use simulation
+  software, mock environments or sandbox systems to explore ideas
+  safely.  Still, it is worth noting that this method has its
+  limitations.
+</p>
+<p>
+  In mathematics, though, I find this method highly effective.  When I
+  study a new branch of mathematics, I try to come up with examples
+  and counterexamples to test what I am learning.  Often, failing to
+  find a counterexample helps me appreciate more deeply why a claim
+  holds and why no counterexamples exist.
+</p>
+<!-- Distraction -->
+<p class="question" id="managing-time-and-distractions">
+  Do you have trouble not getting distracted with so much on your
+  plate?  I'm curious how you balance the time commitments of
+  everything!
+</p>
+<p>
+  Indeed, it is very easy to get distracted.  One thing that has
+  helped over the years is the increase in responsibilities in other
+  areas of my life.  These days I also spend some of my free time
+  studying mathematics textbooks.  With growing responsibilities and
+  the time I devote to mathematics, I now get at most a few hours each
+  week for hobby computing.  This automatically narrows down my
+  options.  I can explore perhaps one or at most two ideas in a month
+  and that constraint makes me very deliberate about choosing my
+  pursuits.
+</p>
+<p>
+  Many of the explorations do not evolve into something solid that I
+  can share.  They remain as little experimental code snippets or
+  notes archived in a private repository.  But once in a while, an
+  exploration grows into something concrete and feels worth sharing on
+  the Web.  That becomes a short-term hobby project.  I might work on
+  it over a weekend if it is small or for a few weeks if it is more
+  complex.  When that happens, the goal of sharing the project helps
+  me focus.
+</p>
+<p>
+  I try not to worry too much about making time.  After all, this is
+  just a hobby.  Other areas of my life have higher priority.  I also
+  want to devote a good portion of my free time to learning more
+  mathematics, which is another hobby I am passionate about.  Whatever
+  little spare time remains after attending to the higher-priority
+  aspects of my life goes into my computing projects, usually a couple
+  of hours a week, most of it on weekends.
+</p>
+<!-- Blogging -->
+<p class="question" id="blogging">
+  How does blogging mix in?  What's the development like of a single
+  piece of curiosity through wrestling with the domain, learning and
+  sharing it etc.?
+</p>
+<p>
+  Maintaining my personal website is another aspect of computing that
+  I find very enjoyable.  My website began as a loose collection of
+  pages on a LAN site during my university days.  Since then I have
+  been adding pages to it to write about various topics that I find
+  interesting.  It acquired its blog shape and form much later when
+  blogging became fashionable.
+</p>
+<p>
+  I usually write a new blog post when I feel like there is some piece
+  of knowledge or some exploration that I want to archive in a
+  persistent format.  Now what the development of a post looks like
+  depends very much on the post.  So let me share two opposite
+  examples to describe what the development of a single piece looks
+  like.
+</p>
+<p>
+  One of my most frequently visited posts
+  is <a href="lisp-in-vim.html">Lisp in Vim</a>.  It started when I
+  was hosting a Common Lisp programming club for beginners.  Although
+  I have always used Emacs and SLIME for Common Lisp programming
+  myself, many in the club used Vim, so I decided to write a short
+  guide on setting up something SLIME-like there.  As a former
+  long-time Vim user myself, I wanted to make the Lisp journey easier
+  for Vim users too.  I thought it would be a 30-minute exercise where
+  I write up a README that explains how to install
+  <a href="https://github.com/kovisoft/slimv">Slimv</a> and how to set
+  it up in Vim.  But then I discovered a newer plugin called
+  <a href="https://github.com/vlime/vlime">Vlime</a> that also offered
+  SLIME-like features in Vim!  That detail sent me down a very deep
+  rabbit hole.  Now I needed to know how the two packages were
+  different, what their strengths and weaknesses were, how routine
+  operations were performed in both and so on.  What was meant to be a
+  short note turned into a nearly 10,000-word article.  As I was
+  comparing the two SLIME-like packages for Vim, I also found a few
+  bugs in Slimv and contributed fixes for them
+  (<a href="https://github.com/kovisoft/slimv/pull/87">#87</a>,
+  <a href="https://github.com/kovisoft/slimv/pull/88">#88</a>,
+  <a href="https://github.com/kovisoft/slimv/pull/89">#89</a>,
+  <a href="https://github.com/kovisoft/slimv/pull/90">#90</a>).
+  Writing this blog post turned into a month-long project!
+</p>
+<p>
+  At the opposite extreme is a post like
+  <a href="elliptical-python-programming.html">Elliptical
+  Python Programming</a>.  I stumbled upon Python's
+  <a href="https://docs.python.org/3/library/constants.html#Ellipsis">Ellipsis</a>
+  while reviewing someone's code.  It immediately caught my attention.
+  I wondered if, combined with some standard obfuscation techniques,
+  one could write arbitrary Python programs that looked almost like
+  Morse code.  A few minutes of experimentation showed that a
+  genuinely Morse code-like appearance was not possible, but something
+  close could be achieved.  So I wrote what I hope is a humorous post
+  demonstrating that arbitrary Python programs can be written using a
+  very restricted set of symbols, one of which is the ellipsis.  It
+  took me less than an hour to write this post.  The final result
+  doesn't look quite like Morse code as I had imagined, but it is
+  quite amusing nevertheless!
+</p>
+<!-- Forums -->
+<p class="question" id="forums">
+  What draws you to post and read online forums?  How do you balance
+  or allot time for reading technical articles, blogs etc.?
+</p>
+<p>
+  The exchange of ideas!  Just as I enjoy sharing my own
+  computing-related thoughts, ideas and projects, I also find joy in
+  reading what others have to share.
+</p>
+<p>
+  Other areas of my life take precedence over hobby projects and hobby
+  projects take precedence over technical forums.
+</p>
+<p>
+  After I've given time to the higher-priority parts of my life and to
+  my own technical explorations, I use whatever spare time remains to
+  read articles, follow technical discussions and occasionally add
+  comments.
+</p>
+<!-- MathB.in -->
+<p class="question" id="mathb-moderation-problems">
+  When you decided to stop with MathB due to moderation burdens, I
+  offered to take over/help and you mentioned others had too.  Did
+  anyone end up forking it, to your knowledge?
+</p>
+<p>
+  I first thought of shutting down the
+  <a href="https://github.com/susam/mathb">MathB</a>-based pastebin
+  website in November 2019.  The website had been running for seven
+  years at that time.  When I announced my thoughts to the IRC
+  communities that would be affected, I received a lot of support and
+  encouragement.  A few members even volunteered to help me out with
+  moderation.  That support and encouragement kept me going for
+  another six years.  However, the volunteers eventually became busy
+  with their own lives and moved on.  After all, moderating user
+  content for an open pastebin that anyone in the world can post to is
+  a thankless and tiring activity.  So most of the moderation activity
+  fell back on me.  Finally, in February 2025, I realised that I no
+  longer want to spend time on this kind of work.
+</p>
+<p>
+  I developed MathB with a lot of passion for myself and my friends.
+  I had no idea at the time that this little project would keep a
+  corner of my mind occupied even during weekends and holidays.  There
+  was always a nagging worry.  What if someone posted content that
+  triggered compliance concerns and my server was taken offline while
+  I was away?  I no longer wanted that kind of burden in my life.  So
+  I finally decided to shut it down.  I've written more about this
+  in <a href="mathbin-is-shutting-down.html">MathB.in Is Shutting
+  Down</a>.
+</p>
+<p>
+  To my knowledge, no one has forked it, but others have developed
+  alternatives.  Further, the
+  <a href="https://wiki.archiveteam.org/">Archive Team</a> has
+  <a href="https://web.archive.org/web/*/https://mathb.in/">archived</a>
+  all posts from the now-defunct MathB-based website.  A member of the
+  Archive Team reached out to me over IRC and we worked together for
+  about a week to get everything successfully archived.
+</p>
+<!-- Textbooks -->
+<p class="question" id="favourite-mathematics-textbooks">
+  What're your favorite math textbooks?
+</p>
+<p>
+  I have several favourite mathematics books, but let me share three I
+  remember especially fondly.
+</p>
+<p>
+  The first is <em>Advanced Engineering Mathematics</em> by Erwin
+  Kreyszig.  I don't often see this book recommended online, but for
+  me it played a major role in broadening my horizons.  I think I
+  studied the 8th edition back in the early 2000s.  It is a hefty book
+  with over a thousand pages and I remember reading it cover to cover,
+  solving every exercise problem along the way.  It gave me a solid
+  foundation in routine areas like differential equations, linear
+  algebra, vector calculus and complex analysis.  It also introduced
+  me to Fourier transforms and Laplace transforms, which I found
+  fascinating.
+</p>
+<p>
+  Of course, the Fourier transform has a wide range of applications in
+  signal processing, communications, spectroscopy and more.  But I
+  want to focus on the fun and playful part.  In the early 2000s, I
+  was also learning to play the piano as a hobby.  I used to record my
+  amateur music compositions with
+  <a href="https://github.com/audacity/audacity">Audacity</a> by
+  connecting my digital piano to my laptop with a line-in cable.  It
+  was great fun to plot the spectrum of my music on Audacity, apply
+  high-pass and low-pass filters and observe how the Fourier transform
+  of the audio changed and then hear the effect on the music.  That
+  kind of hands-on tinkering made Fourier analysis intuitive for me
+  and I highly recommend it to anyone who enjoys both music and
+  mathematics.
+</p>
+<p>
+  The second book is <em>Introduction to Analytic Number Theory</em>
+  by Tom M.  Apostol.  As a child I was intrigued by the prime number
+  theorem but lacked the mathematical maturity to understand its
+  proof.  Years later, as an adult, I finally taught myself the proof
+  from Apostol's book.  It was a fantastic journey that began with
+  simple concepts like the Möbius function and Dirichlet products and
+  ended with quite clever contour integrals that proved the theorem.
+  The complex analysis I had learnt from Kreyszig turned out to be
+  crucial for understanding those integrals.  Along the way I gained a
+  deeper understanding of the Riemann zeta function \( \zeta(s).  \)
+  The book discusses zero-free regions where \( \zeta(s) \) does not
+  vanish, which I found especially fascinating.  Results like \(
+  \zeta(-1) = -1/12, \) which once seemed mysterious, became obvious
+  after studying this book.
+</p>
+<p>
+  The third is <em>Galois Theory</em> by Ian Stewart.  It introduced
+  me to field extensions, field homomorphisms and solubility by
+  radicals.  I had long known that not all quintic equations are
+  soluble by radicals, but I didn't know why.  Stewart's book taught
+  me exactly why.  In particular, it demonstrated that the polynomial
+  \( t^5 - 6t + 3 \) over the field of rational numbers is not soluble
+  by radicals.  This particular result, although fascinating, is just
+  a small part of a much larger body of work, which is even more
+  remarkable.  To arrive at this result, the book takes us through a
+  wonderful journey that includes the theory of polynomial rings,
+  algebraic and transcendental field extensions, impossibility proofs
+  for ruler-and-compass constructions, the Galois correspondence and
+  much more.
+</p>
+<p>
+  One of the most rewarding aspects of reading books like these is how
+  they open doors to new knowledge, including things I didn't even
+  know that I didn't know.
+</p>
+<!-- Mathematics and computing -->
+<p class="question" id="mathematics-and-computing">
+  How does the newer math jell with or inform past or present
+  computing, compared to much older stuff?
+</p>
+<p>
+  I don't always think explicitly about how mathematics informs
+  computing, past or present.  Often the textbooks I pick feel very
+  challenging to me, so much so that all my energy goes into simply
+  mastering the material.  It is arduous but enjoyable.  I do it
+  purely for the fun of learning without worrying about applications.
+</p>
+<p>
+  Of course, a good portion of pure mathematics probably has no
+  real-world applications.  As G. H. Hardy famously wrote in <em>A
+  Mathematician's Apology</em>:
+</p>
+<blockquote>
+  <p>
+    I have never done anything 'useful'.  No discovery of mine has
+    made or is likely to make, directly or indirectly, for good or
+    ill, the least difference to the amenity of the world.
+  </p>
+</blockquote>
+<p>
+  But there is no denying that some of it does find applications.
+  Were Hardy alive today, he might be disappointed that number theory,
+  his favourite field of "useless" mathematics, is now a crucial part
+  of modern cryptography.  Electronic commerce wouldn't likely exist
+  without it.
+</p>
+<p>
+  Similarly, it is amusing how something as abstract as abstract
+  algebra finds very concrete applications in coding theory.  Concepts
+  such as polynomial rings, finite fields and cosets of subspaces in
+  vector spaces over finite fields play a crucial role in
+  error-correcting codes, without which modern data transmission and
+  storage would not be possible.
+</p>
+<p>
+  On a more personal note, some simpler areas of mathematics have been
+  directly useful in my own work.  While solving problems for
+  businesses, information entropy, combinatorics and probability
+  theory were crucial when I worked on gesture-based authentication
+  about one and a half decades ago.
+</p>
+<p>
+  Similarly, when I was developing Bloom filter-based indexing and
+  querying for a network events database, again, probability theory
+  was crucial in determining the parameters of the Bloom filters (such
+  as the number of hash functions, bits per filter and elements per
+  filter) to ensure that the false positive rate remained below a
+  certain threshold.  Subsequent testing with randomly sampled network
+  events confirmed that the observed false positive rate matched the
+  theoretical estimate quite well.  It was very satisfying to see
+  probability theory and the real world agreeing so closely.
+</p>
+<p>
+  Beyond these specific examples, studying mathematics also influences
+  the way I think about problems.  Embarking on journeys like analytic
+  number theory or Galois theory is humbling.  There are times when I
+  struggle to understand a small paragraph of the book and it takes me
+  several hours (or even days) to work out the arguments in detail
+  with pen and paper (lots of it) before I really grok them.  That
+  experience of grappling with dense reasoning teaches humility and
+  also makes me sceptical of complex, hand-wavy logic in day-to-day
+  programming.
+</p>
+<p>
+  Several times I have seen code that bundles too many decisions into
+  one block of logic, where it is not obvious whether it would behave
+  correctly in all circumstances.  Explanations may sometimes be
+  offered about why it works for reasonable inputs, but the reasoning
+  is often not watertight.  The experience of working through
+  mathematical proofs, writing my own, making mistakes and then
+  correcting them has taught me that if the reasoning for correctness
+  is not clear and rigorous, something could be wrong.  In my
+  experience, once such code sees real-world usage, a bug is nearly
+  always found.
+</p>
+<p>
+  That's why I usually insist either on simplifying the logic or on
+  demonstrating correctness in a clear, rigorous way.  Sometimes this
+  means doing a case-by-case analysis for different types of inputs or
+  conditions and showing that the code behaves correctly in each case.
+  There is also a bit of an art to reducing what seem like numerous or
+  even infinitely many cases to a small, manageable set of cases by
+  spotting structure, such as symmetries, invariants or natural
+  partitions of the input space.  Alternatively, one can look for a
+  simpler argument that covers all cases.  These are techniques we
+  employ routinely in mathematics and I think that kind of thinking
+  and reasoning is quite valuable in software development too.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/my-lobsters-interview.html">Read on website</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Prime Number Grid Explorer</title>
+<link>https://susam.net/primegrid.html</link>
+<guid isPermaLink="false">pghtm</guid>
+<pubDate>Tue, 19 Aug 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A simple single-page HTML application to explore the distribution of
+  prime numbers in a grid.  Choose a starting number along with the
+  number of rows and columns and the page generates the corresponding
+  grid.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/primegrid.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Miller-Rabin Speed Test</title>
+<link>https://susam.net/code/web/miller-rabin-speed-test.html</link>
+<guid isPermaLink="false">mrpst</guid>
+<pubDate>Sat, 16 Aug 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A demo page that implements the Miller-Rabin primality test to
+  accurately detect primes for all numbers less than
+  318665857834031151167461 and compare its speed against a simple
+  division based primality test algorithm.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/miller-rabin-speed-test.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Mutually Attacking Knights</title>
+<link>https://susam.net/mutually-attacking-knights.html</link>
+<guid isPermaLink="false">makcf</guid>
+<pubDate>Mon, 11 Aug 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  How many different ways can we place two identical knights on an \(
+  n \times n \) chessboard so that they attack each other?  Can we
+  find a closed-form expression that gives this number?  This is the
+  problem we explore in this article.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#counting-placements-as-the-board-grows">Counting Placements as the Board Grows</a>
+    <ul>
+      <li><a href="#type-a-squares">Type A Squares</a></li>
+      <li><a href="#type-b-squares">Type B Squares</a></li>
+      <li><a href="#type-c-squares">Type C Squares</a></li>
+      <li><a href="#type-d-squares">Type D Squares</a></li>
+      <li><a href="#closed-form-expression-1">Closed Form Expression</a></li>
+    </ul>
+  </li>
+  <li><a href="#counting-placements-for-each-square">Counting Placements for Each Square</a>
+    <ul>
+      <li><a href="#attacking-degrees-of-squares">Attacking Degrees of Squares</a></li>
+      <li><a href="#from-attacking-degrees-to-counting-placements">From Attacking Degrees to Counting Placements</a></li>
+      <li><a href="#closed-form-expression-2">Closed Form Expression</a></li>
+    </ul>
+  </li>
+  <li><a href="#counting-placements-from-minimal-attack-sections">Counting Placements From Minimal Attack Sections</a>
+    <ul>
+      <li><a href="#minimal-attack-sections">Minimal Attack Sections</a></li>
+      <li><a href="#closed-form-expression-3">Closed Form Expression</a></li>
+    </ul>
+  </li>
+  <li><a href="#reference">References</a></li>
+</ul>
+<h2 id="introduction">Introduction<a href="#introduction"></a></h2>
+<p>
+  A knight moves two squares in one direction, then one square
+  perpendicular to it, forming an L-shaped path.  If a piece occupies
+  the destination square, the knight captures it.  If two knights are
+  placed such that each can capture the other in a single move, then
+  we say the knights attack each other.  We want to determine the
+  number of ways to place two identical knights on an \( n \times n \)
+  chessboard so that they attack each other.
+</p>
+<figure>
+  <table class="chess odd">
+    <tr>
+      <td class="black knight"></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="black knight"></td>
+      <td></td>
+    </tr>
+  </table>
+  <figcaption>
+    Two knights attacking each other
+  </figcaption>
+</figure>
+<p>
+  The above illustration shows just one of several ways two knights
+  can attack each other on a \( 3 \times 3 \) board.  There are, in
+  fact, a total of eight such placements, shown below.
+</p>
+<figure style="text-align: center">
+  <!-- 1 -->
+  <table class="chess odd inline">
+    <tr>
+      <td class="black knight"></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="black knight"></td>
+      <td></td>
+    </tr>
+  </table>
+  <!-- 2 -->
+  <table class="chess odd inline">
+    <tr>
+      <td></td>
+      <td class="black knight"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="black knight"></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <!-- 3 -->
+  <table class="chess odd inline">
+    <tr>
+      <td></td>
+      <td class="black knight"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td class="black knight"></td>
+    </tr>
+  </table>
+  <!-- 4 -->
+  <table class="chess odd inline">
+    <tr>
+      <td></td>
+      <td></td>
+      <td class="black knight"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="black knight"></td>
+      <td></td>
+    </tr>
+  </table>
+  <!-- 5 -->
+  <table class="chess odd inline">
+    <tr>
+      <td class="black knight"></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td class="black knight"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <!-- 6 -->
+  <table class="chess odd inline">
+    <tr>
+      <td></td>
+      <td></td>
+      <td class="black knight"></td>
+    </tr>
+    <tr>
+      <td class="black knight"></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <!-- 7 -->
+  <table class="chess odd inline">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="black knight"></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td class="black knight"></td>
+    </tr>
+  </table>
+  <!-- 8 -->
+  <table class="chess odd inline">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td class="black knight"></td>
+    </tr>
+    <tr>
+      <td class="black knight"></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <figcaption>
+    All \( 8 \) ways two identical knights can attack each other on a
+    \( 3 \times 3 \) board.
+  </figcaption>
+</figure>
+<p>
+  Let \( f(n) \) denote the number of ways we can place two identical
+  knights on an \( n \times n \) chessboard such that they attack each
+  other, where \( n \ge 1.  \)
+</p>
+<p>
+  A \( 1 \times 1 \) board has room for only one knight, so we define
+  \( f(1) = 0.  \)  On a \( 2 \times 2 \) board, a knight cannot move
+  two squares in any direction and therefore cannot attack.
+  Therefore, \( f(2) = 0.  \)  To summarise,
+
+  \[
+    f(1) = f(2) = 0.
+  \]
+
+  From the illustration above, we see that \( f(3) = 8.  \)  We want to
+  find a closed-form expression for \( f(n).  \)
+</p>
+<p>
+  We will analyse this problem from various perspectives.  We begin
+  with a couple of needlessly complicated approaches, followed by a
+  simple and elegant solution.  While I personally enjoy these
+  long-winded explorations, if you prefer a more direct solution,
+  please skip ahead
+  to <a href="#counting-placements-from-minimal-attack-sections">Counting
+  Placements From Minimal Attack Sections</a>.
+</p>
+<p>
+  Before we proceed, let us introduce the term <em>mutually attacking
+  knight placement</em> to mean a placement of two knights on the
+  chessboard such that they attack each other.  Unless stated
+  otherwise, the two knights are identical.  This term will serve as a
+  convenient shorthand for referring to such placements.
+</p>
+<h2 id="counting-placements-as-the-board-grows">Counting Placements as the Board Grows<a href="#counting-placements-as-the-board-grows"></a></h2>
+<p>
+  We now turn to the needlessly complicated solution promised in the
+  previous section.  We analyse the <em>new</em> mutually attacking
+  knight placements introduced when an existing board is enlarged by
+  adding a row and a column.
+</p>
+<p>
+  Let us define
+
+  \[
+    \Delta f(n) = f(n) - f(n - 1)
+  \]
+
+  for \( n \ge 2, \) so that \( \Delta f(n) \) denotes the new
+  mutually attacking knight placements introduced when an \( (n - 1)
+  \times (n - 1) \) board is expanded to size \( n \times n \) by
+  adding one row and one column.
+</p>
+<p>
+  For brevity, we will avoid restating the process of enlarging an \(
+  (n - 1) \times (n - 1) \) board to an \( n \times n \) board by
+  adding one row and one column whenever we refer to new placements.
+  Instead, we use the term <em>new placements</em> on an
+  \( n \times n \) board to refer to \( \Delta f(n).  \)  It is to be
+  understood that these new placements are the mutually attacking
+  knight placements introduced by enlarging the board from size \( (n
+  - 1) \times (n - 1) \) to \( n \times n.  \)
+</p>
+<p>
+  Without loss of generality, suppose the new row and column are added
+  to the bottom and right respectively.  We already know that
+
+  \begin{align*}
+    \Delta f(2) &amp; = f(2) - f(1) = 0 - 0 = 0, \\
+    \Delta f(3) &amp; = f(3) - f(2) = 8 - 0 = 8.  \\
+  \end{align*}
+
+  We will now find \( \Delta f(n) \) for \( n \ge 4.  \)  To do this,
+  we first categorise the newly added squares due to board expansion,
+  into four types, as illustrated below.
+</p>
+<figure>
+  <table class="chess">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em">A</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em">B</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em">C</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em">C</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em">D</td>
+    </tr>
+    <tr>
+      <td class="em">A</td>
+      <td class="em">B</td>
+      <td class="em">C</td>
+      <td class="em">C</td>
+      <td class="em">D</td>
+      <td class="em">A</td>
+    </tr>
+  </table>
+  <figcaption>
+    New squares, labelled by type, as the board size increases from \(
+    5 \times 5 \) to \( 6 \times 6 \)
+  </figcaption>
+</figure>
+<p>
+  Here is a brief description of each square type:
+</p>
+<ul>
+  <li>
+    Type A squares are the three new corner squares.
+  </li>
+  <li>
+    Type B squares are the two new squares adjacent to type A squares
+    at the top and left edges.
+  </li>
+  <li>
+    Type C squares are the new squares that are <em>not</em> adjacent
+    to any type A square.  If the new board has dimensions \( n \times
+    n, \) where \( n \ge 4, \) then there are exactly \( 2n - 8 \)
+    squares of type C.
+  </li>
+  <li>
+    Type D squares are the two new squares adjacent to the
+    bottom-right type A square.
+  </li>
+</ul>
+<p>
+  We now calculate how many new mutually attacking knight placements
+  are introduced by these additional squares as the board expands.  We
+  proceed with a case-by-case analysis for each square type.
+</p>
+<h3 id="type-a-squares">Type A Squares<a href="#type-a-squares"></a></h3>
+<p>
+  There are three squares of type A.  If we place one knight on a type
+  A square, there are two positions for the second knight such that
+  the two knights attack each other.
+</p>
+<figure>
+  <table class="chess odd">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="black knight em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>&cross;</td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>&cross;</td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td class="black knight em"></td>
+      <td class="em"></td>
+      <td class="em"></td>
+      <td class="em"></td>
+      <td class="black knight em"></td>
+    </tr>
+  </table>
+  <figcaption>
+    Knights on type A squares, with squares attacked by the top knight
+    marked with crosses
+  </figcaption>
+</figure>
+<p>
+  Since there are three such squares, we get a total of \( 3 \times 2
+  = 6 \) new mutually attacking knight placements.
+</p>
+<h3 id="type-b-squares">Type B Squares<a href="#type-b-squares"></a></h3>
+<p>
+  There are two squares of type B.  If we place one knight on a type B
+  square, there are three positions for the second knight such that
+  the two knights attack each other.
+</p>
+<figure>
+  <table class="chess odd">
+    <tr>
+      <td></td>
+      <td></td>
+      <td>&cross;</td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="black knight em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>&cross;</td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>&cross;</td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td class="em"></td>
+      <td class="black knight em"></td>
+      <td class="em"></td>
+      <td class="em"></td>
+      <td class="em"></td>
+    </tr>
+  </table>
+  <figcaption>
+    Knights on type B squares, with squares attacked by the top knight
+    marked with crosses
+  </figcaption>
+</figure>
+<p>
+  Since there are two such squares, we get a total of \( 2 \times 3 =
+  6 \) new mutually attacking knight placements.
+</p>
+<h3 id="type-c-squares">Type C Squares<a href="#type-c-squares"></a></h3>
+<p>
+  The number of type C squares depends on the board size.  When we
+  increase the size of a board from \( (n - 1) \times (n - 1) \) to
+  \(n \times n, \) where \( n \ge 4, \) we add \( n^2 - (n - 1)^2 = 2n
+  - 1 \) new squares.  Among these, \( 3 \) are of type A, \( 2 \) are
+  of type B and \( 2 \) are of type D.  That gives us a total of \(
+  7 \) squares of type A, B or D.  The remaining \( 2n - 1 - 7 = 2n -
+  8 \) squares are therefore of type C.  Note that when the board size
+  increases from \( 3 \times 3 \) to \( 4 \times 4, \) there are \( 2
+  \times 4 - 8 = 0 \) squares of type C.
+</p>
+<figure>
+  <table class="chess">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em">A</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em">B</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em">D</td>
+    </tr>
+    <tr>
+      <td class="em">A</td>
+      <td class="em">B</td>
+      <td class="em">D</td>
+      <td class="em">A</td>
+    </tr>
+  </table>
+  <figcaption>
+    A \( 4 \times 4 \) board has no type C squares.
+  </figcaption>
+</figure>
+<p>
+  However, for a board of size \( 5 \times 5 \) or greater, there is a
+  positive number of type C squares since \( 2n - 8 \gt 0 \) if and
+  only if \( n \gt 4.  \)
+</p>
+<figure>
+  <table class="chess">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em">A</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em">B</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em">C</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em">D</td>
+    </tr>
+    <tr>
+      <td class="em">A</td>
+      <td class="em">B</td>
+      <td class="em">C</td>
+      <td class="em">D</td>
+      <td class="em">A</td>
+    </tr>
+  </table>
+  <figcaption>
+    A \( 5 \times 5 \) board has one type C square.
+  </figcaption>
+</figure>
+<p>
+  If we place one knight on a type C square, there are four positions
+  for the second knight such that the two knights attack each other.
+</p>
+<figure>
+  <table class="chess odd">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>&cross;</td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>&cross;</td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="black knight em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>&cross;</td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td class="em"></td>
+      <td class="em"></td>
+      <td class="black knight em"></td>
+      <td class="em">&cross;</td>
+      <td class="em"></td>
+    </tr>
+  </table>
+  <figcaption>
+    Knights on type C squares, with squares attacked by the top knight
+    marked with crosses
+  </figcaption>
+</figure>
+<p>
+  Since there are \( 2n - 8 \) such squares, we get a total of \( 4(2n
+  - 8) = 8(n - 4) \) new mutually attacking knight placements.
+</p>
+<h3 id="type-d-squares">Type D Squares<a href="#type-d-squares"></a></h3>
+<p>
+  There are two squares of type D.  As with type B squares, placing
+  one knight on a type D square yields three positions for the second
+  knight such that the two knights attack each other.  This gives \( 2
+  \times 3 = 6 \) <em>potentially</em> new placements.
+</p>
+<figure>
+  <table class="chess odd">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>&cross;</td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>&cross;</td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="black knight em"></td>
+    </tr>
+    <tr>
+      <td class="em"></td>
+      <td class="em"></td>
+      <td class="em">&cross;</td>
+      <td class="black knight em"></td>
+      <td class="em"></td>
+    </tr>
+  </table>
+  <figcaption>
+    Knights on type D squares, with squares attacked by the top knight
+    marked with crosses
+  </figcaption>
+</figure>
+<p>
+  However, unlike type B squares, not all of these placements are
+  <em>new</em>.  The two placements where one knight is on the right
+  edge and the other on the bottom edge were already counted in a
+  previous subsection.
+</p>
+<figure>
+  <table class="chess inline">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="black knight em"></td>
+    </tr>
+    <tr>
+      <td class="em"></td>
+      <td class="black knight em"></td>
+      <td class="em"></td>
+      <td class="em"></td>
+    </tr>
+  </table>
+  <table class="chess inline">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="black knight em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td class="em"></td>
+      <td class="em"></td>
+      <td class="black knight em"></td>
+      <td class="em"></td>
+    </tr>
+  </table>
+  <figcaption>
+    Placements already counted while analysing placements involving a
+    knight on a type B square of the \( 4 \times 4 \) board
+  </figcaption>
+</figure>
+<p>
+  For example, when we increase the board size from \( 3 \times 3 \)
+  to \( 4 \times 4, \) both the placements described in the previous
+  paragraph appear while analysing the placements with a knight on a
+  type B square.  More generally, for any board of size
+  \( n \times n \) with \( n \ge 5, \) these placements occur while
+  analysing the placements with a knight on a type C square.
+  Therefore the total number of new mutually attacking knight
+  placements is \( 2 \times 3 - 2 = 4.  \)
+</p>
+<figure>
+  <table class="chess odd inline">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="black knight em"></td>
+    </tr>
+    <tr>
+      <td class="em"></td>
+      <td class="em"></td>
+      <td class="black knight em"></td>
+      <td class="em"></td>
+      <td class="em"></td>
+    </tr>
+  </table>
+  <table class="chess odd inline">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="black knight em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="em"></td>
+      <td class="em"></td>
+      <td class="em"></td>
+      <td class="black knight em"></td>
+      <td class="em"></td>
+    </tr>
+  </table>
+  <figcaption>
+    Placements already counted while analysing placements involving a
+    knight on a type C square of an \( n \times n \) board, where \( n
+    \ge 5 \)
+  </figcaption>
+</figure>
+<p>
+  Another way to describe this result is to observe that when one
+  knight is placed on a type D square, only two positions for the
+  second knight yield <em>new</em> mutually attacking knight
+  placements.  Since there are two type \( D \) squares, we get a
+  total of \( 2 \times 2 = 4 \) new mutually attacking knight
+  placements.
+</p>
+<figure>
+  <table class="chess odd">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>&cross;</td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>&cross;</td>
+      <td></td>
+      <td class="em"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td class="black knight em"></td>
+    </tr>
+    <tr>
+      <td class="em"></td>
+      <td class="em"></td>
+      <td class="em"></td>
+      <td class="black knight em"></td>
+      <td class="em"></td>
+    </tr>
+  </table>
+  <figcaption>
+    Knights on type D squares, with squares attacked by the top knight
+    that yield <em>new</em> mutually attacking knight placements
+    marked with crosses
+  </figcaption>
+</figure>
+<h3 id="closed-form-expression-1">Closed Form Expression<a href="#closed-form-expression-1"></a></h3>
+<p>
+  If we add the number of new mutually attacking knight placements
+  found in each of the cases above, we get
+
+  \[
+    \Delta f(n) = 6 + 6 + 8(n - 4) + 4 = 8(n - 2)
+  \]
+
+  new mutually attacking knight placements as the board size increases
+  from \( (n - 1) \times (n - 1) \) to \( n \times n, \) where \( n
+  \ge 4.  \)  We already know that \( \Delta f(2) = 0 \) and \( \Delta
+  f(3) = 8.  \)  Surprisingly, the above formula produces the correct
+  values for those cases as well.  Therefore, we can generalise this
+  result as
+
+  \[
+    \Delta f(n) = 8(n - 2)
+  \]
+
+  for all \( n \ge 2.  \)  We can now calculate \( f(n) \) for \( n \ge
+  1 \) as follows:
+
+  \begin{align*}
+    f(n)
+    &amp; = \sum_{k = 1}^n f(k) - \sum_{k = 1}^{n - 1} f(k) \\
+    &amp; = \sum_{k = 1}^n f(k) - \sum_{k = 2}^n f(k - 1) \\
+    &amp; = f(1) + \sum_{k = 2}^n (f(k) - f(k - 1)) \\
+    &amp; = f(1) + \sum_{k = 2}^n \Delta f(k) \\
+    &amp; = 0 + \sum_{k = 2}^n 8(k - 2) \\
+    &amp; = 8 \sum_{k = 0}^{n - 2} k \\
+    &amp; = \frac{8(n - 2)(n - 1)}{2} \\
+    &amp; = 4(n - 1)(n - 2).
+  \end{align*}
+
+  To summarise, we now have a closed form expression for \( f(n).  \)
+  For all \( n \ge 1, \) we have
+
+  \[
+    f(n) = 4(n - 1)(n - 2).
+  \]
+</p>
+<h2 id="counting-placements-for-each-square">Counting Placements for Each Square<a href="#counting-placements-for-each-square"></a></h2>
+<p>
+  The previous section took a long-winded path to arrive at a closed
+  form expression for \( f(n).  \)  In this section, we will reach the
+  same result that is still a bit drawn out, but not quite as much as
+  before.
+</p>
+<p>
+  This time, instead of looking only at the new squares created when
+  the board grows, we consider <em>every</em> square on the board.  To
+  make the counting easier, we no longer treat the knights as
+  identical.  We first work with two distinct knights, count the
+  mutually attacking knight placements and then divide the total by \(
+  2 \) to get the result for identical knights.
+</p>
+<h3 id="attacking-degrees-of-squares">Attacking Degrees of Squares<a href="#attacking-degrees-of-squares"></a></h3>
+<p>
+  Here, we introduce the term <em>attacking degree of a square</em> to
+  mean the number of squares a knight can move to from that square in
+  a single move.  In other words, the attacking degree of a square is
+  the number of squares that would be attacked if a knight were placed
+  on it.  For example, the corner squares have an attacking degree of
+  \( 2.  \)
+</p>
+<figure>
+  <table class="chess">
+    <tr>
+      <td class="black knight"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>&cross;</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>&cross;</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <figcaption>
+    The attacking degree of a corner square is \( 2 \) since a knight
+    can attack two squares from it
+  </figcaption>
+</figure>
+<p>
+  Let us now label each square with its attacking degree.  A \( 1
+  \times 1 \) board has only one square of attacking degree \( 0 \)
+  since a knight placed on it has nothing to attack.  Similarly, each
+  square of a \( 2 \times 2 \) board has attacking degree \( 0 \) too.
+</p>
+<figure>
+  <table class="chess odd inline">
+    <tr>
+      <td>0</td>
+    </tr>
+  </table>
+  <table class="chess inline">
+    <tr>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </table>
+  <figcaption>
+    Attacking degrees of all squares are zero on \( 1 \times 1 \) and
+    \( 2 \times 2 \) boards
+  </figcaption>
+</figure>
+<p>
+  On a \( 3 \times 3 \) board, all squares have attacking degree
+  \( 2 \) except the centre square, whose attacking degree is \( 0.  \)
+  In other words, placing a knight on any square other than the middle
+  one gives exactly two possible positions for the other knight so
+  that they attack each other.
+</p>
+<figure>
+  <table class="chess odd">
+    <tr>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+  </table>
+  <figcaption>
+    Attacking degrees of all squares on a \( 3 \times 3 \) board
+  </figcaption>
+</figure>
+<p>
+  With eight such squares, we get \( 8 \times 2 = 16 \) mutually
+  attacking knight placements when the two knights are distinct.  If
+  we divide this number by \( 2, \) we get \( 8 \) which is indeed the
+  number of mutually attacking knight placements on a \( 3 \times 3 \)
+  board when the two knights are identical.  This matches the earlier
+  result \( f(3) = 8.  \)
+</p>
+<h3 id="from-attacking-degrees-to-counting-placements">From Attacking Degrees to Counting Placements<a href="#from-attacking-degrees-to-counting-placements"></a></h3>
+<p>
+  Let \( g(n) \) be the number of mutually attacking knight placements
+  on an \( n \times n \) board when the knights are distinct.  Then \(
+  g(n) \) is simply the sum of the attacking degrees of all squares on
+  the board.  As before, let \( f(n) \) denote the number of mutually
+  attacking knight placements on an \( n \times n \) board when the
+  two knights are identical.  We will now show that
+  \( f(n) = g(n)/2.  \)
+</p>
+<p>
+  Label all squares of the \( n \times n \) board as \( S_1, S_2,
+  \dots, S_{n^2} \) in any fixed order.  Label the two distinct
+  knights as \( N_1 \) and \( N_2.  \)  We represent each mutually
+  attacking knight placement as an ordered pair \( (S_i, S_j) \) if \(
+  N_1 \) is on \( S_i \) and \( N_2 \) is on \( S_j, \) with the two
+  knights attacking each other.  Here \( 1 \le i, j \le n^2 \) and \(
+  i \ne j.  \)
+</p>
+<p>
+  Let \( M \) be the set of all mutually attacking knight placements
+  for distinct knights on an \( n \times n \) board.  Then
+
+  \[
+    g(n) = \lvert M \rvert.
+  \]
+
+  If \( (S_i, S_j) \) is a mutually attacking knight placement of the
+  distinct knights \( N_1 \) and \( N_2 \) for some \( i \) and
+  \( j \) with \( 1 \le i, j \le n^2 \) and \( i \ne j, \) then \(
+  (S_j, S_i) \) is also a mutually attacking knight placement, since
+  swapping the positions of the two mutually attacking knights still
+  yields a valid mutually attacking placement.  Therefore
+
+  \[
+    (S_i, S_j) \in M \iff (S_j, S_i) \in M.
+  \]
+
+  Each ordered placement \( (S_i, S_j) \) in \( M \) is thus paired
+  with the ordered placement \( (S_j, S_i).  \)  When the knights are
+  identical, the two arrangements are indistinguishable and count as
+  one placement.  Hence, the number of mutually attacking placements
+  for identical knights is exactly half of the number for distinct
+  knights, i.e.
+
+  \[
+    f(n) = \frac{g(n)}{2}.
+  \]
+
+  The next subsection focuses on calculating \( g(n), \) from which \(
+  f(n) \) follows immediately by the above formula.
+</p>
+<h3 id="closed-form-expression-2">Closed Form Expression<a href="#closed-form-expression-2"></a></h3>
+<p>
+  As noted in the previous section, the number of mutually attacking
+  knight placements for two distinct knights on an \( n \times n \)
+  board is simply the sum of attacking degrees of all squares on the
+  board.  If we label each square as discussed in the previous section
+  and use the notation \( \deg(S_i) \) for the attacking degree of the
+  square labelled \( S_i, \) where \( 1 \le i \le n^2, \) then
+
+  \[
+    g(n) = \sum_{i=1}^{n^2} \deg(S_i).
+  \]
+
+  Recall that the attacking degree of a square is the number of
+  squares a knight could attack if it were placed there.  Earlier, we
+  saw that on a \( 3 \times 3 \) board, all squares except the centre
+  one have attacking degree \( 2, \) which gives \( g(3) = 8 \times 2
+  = 16 \) and \( f(3) = g(3)/2 = 8.  \)  Let us now write down the
+  attacking degrees of all squares on a \( 4 \times 4 \) board.
+</p>
+<figure>
+  <table class="chess">
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+  </table>
+  <figcaption>
+    Attacking degrees of all squares on a \( 4 \times 4 \) board
+  </figcaption>
+</figure>
+<p>
+  From the above illustration we get
+
+  \begin{align*}
+    g(4) &amp; = 4 \times 2 + 8 \times 3 + 4 \times 4 = 48, \\
+    f(4) &amp; = g(4)/2 = 24.
+  \end{align*}
+
+  A more general pattern emerges if we consider a larger board, such
+  as a \( 6 \times 6 \) board.
+</p>
+<figure>
+  <table class="chess">
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td>6</td>
+      <td>6</td>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>6</td>
+      <td>8</td>
+      <td>8</td>
+      <td>6</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>6</td>
+      <td>8</td>
+      <td>8</td>
+      <td>6</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td>6</td>
+      <td>6</td>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+  </table>
+  <figcaption>
+    Attacking degrees of all squares on a \( 6 \times 6 \) board
+  </figcaption>
+</figure>
+<p>
+  From this illustration, we get
+
+  \begin{align*}
+    g(6) &amp; = 4 \times 2 + 8 \times 3 + 12 \times 4 + 8 \times 6 + 4 \times 8 = 160.  \\
+    f(6) &amp; = g(6)/2 = 80.
+  \end{align*}
+
+  Let us find a general formula now for \( n \ge 4.  \)  We introduce
+  one more notation.  Let \( D_k(n) \) denote the sum of the attacking
+  degrees of all squares of attacking degree \( k \) on an \( n \times
+  n \) board, i.e.
+
+  \[
+    D_k(n) = \sum_{\mathclap{\deg(S_i) = k}} \deg(S_i).
+  \]
+
+  Since the only attacking degrees the squares can have are \( 2, 3,
+  4, 6 \) and \( 8, \) the sum of the attacking degrees of all squares
+  can be written as
+
+  \[
+    g(n) = D_2(n) + D_3(n) + D_4(n) + D_6(n) + D_8(n).
+  \]
+
+  There are exactly four squares of attacking degree \( 2.  \)  These
+  are the corner ones.  Therefore,
+
+  \[
+    D_2(n) = 4 \times 2 = 8.
+  \]
+
+  The eight squares adjacent to the corner squares have attacking
+  degree \( 3.  \)  Therefore,
+
+  \[
+    D_3(n) = 8 \times 3 = 24.
+  \]
+
+  Let us define an <em>inner corner square</em> as one that shares a
+  corner with a corner square but not an edge with it.  There are four
+  inner corner squares and each has attacking degree \( 4.  \)
+  Further, each row and column on the outer edge contains \( n - 4 \)
+  additional squares with attacking degree \( 4.  \)  Therefore,
+
+  \[
+    D_4(n) = (4 + 4(n - 4))(4) = 16(n - 3).
+  \]
+
+  Consider a row or column that contains two inner corner squares of
+  attacking degree \( 4.  \)  All \( n - 4 \) squares between the inner
+  corner squares have attacking degree \( 6.  \)  There are two such
+  rows and two such columns.  Therefore,
+
+  \[
+    D_6(n) = 4(n - 4)(6) = 24(n - 4).
+  \]
+
+  We have counted the attacking degrees of all squares in the first
+  two columns and rows as well as the last two columns and rows.  We
+  are left with \( (n - 4)^2 \) squares in the middle and they all
+  have attacking degree \( 8.  \)  Therefore,
+
+  \[
+    D_8(n) = 8(n - 4)^2.
+  \]
+
+  Therefore,
+
+  \begin{align*}
+    g(n)
+    &amp; = D_2(n) + D_3(n) + D_4(n) + D_6(n) + D_8(n) \\
+    &amp; = 8 + 24 + 16(n - 3) + 24(n - 4) + 8(n - 4)^2 \\
+    &amp; = 8(n - 1)(n - 2).
+  \end{align*}
+
+  Even though we assumed \( n \ge 4 \) while obtaining the above
+  formula, remarkably, it gives us the correct values for \( n = 1,
+  2 \) and \( 3.  \)  The number of mutually attacking knight
+  placements for distinct knights on an \( n \times n \) board is \(
+  0 \) if \( n = 1 \) or \( 2.  \)  It is \( 16 \) if \( n = 3.  \)
+  Indeed the above formula gives us
+
+  \[
+    g(1) = g(2) = 0, \quad g(3) = 16.
+  \]
+
+  Therefore, we can now generalise the above result as
+
+  \[
+    g(n) = 8(n - 1)(n - 2)
+  \]
+
+  for all \( n \ge 1.  \)  Therefore, for all \( n \ge 1, \)
+
+  \[
+    f(n) = \frac{g(n)}{2} = 4(n - 1)(n - 2).
+  \]
+</p>
+<h2 id="counting-placements-from-minimal-attack-sections">Counting Placements From Minimal Attack Sections<a href="#counting-placements-from-minimal-attack-sections"></a></h2>
+<p>
+  Finally, in this section, we take a look at a simple and elegant
+  solution that arrives at the closed-form solution in a more direct
+  manner.  The analysis begins by looking at the smallest section of
+  the board where two knights can attack each other.
+</p>
+<h3 id="minimal-attack-sections">Minimal Attack Sections<a href="#minimal-attack-sections"></a></h3>
+<p>
+  Consider a \( 2 \times 3 \) section of a board of size
+  \( 3 \times 3 \) or larger.  Such a section has exactly two mutually
+  attacking knight placements.
+</p>
+<figure>
+  <table class="chess inline">
+    <tr>
+      <td class="black knight"></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td class="black knight"></td>
+    </tr>
+  </table>
+  <table class="chess inline">
+    <tr>
+      <td></td>
+      <td></td>
+      <td class="black knight"></td>
+    </tr>
+    <tr>
+      <td class="black knight"></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <figcaption>
+    Two mutually attacking knight placements on a \( 2 \times 3 \)
+    section of a board
+  </figcaption>
+</figure>
+<p>
+  Similarly, a \( 3 \times 2 \) section of a board also has exactly
+  two mutually attacking knight placements.
+</p>
+<figure>
+  <table class="chess odd inline">
+    <tr>
+      <td class="black knight"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="black knight"></td>
+    </tr>
+  </table>
+  <table class="chess odd inline">
+    <tr>
+      <td></td>
+      <td class="black knight"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="black knight"></td>
+      <td></td>
+    </tr>
+  </table>
+  <figcaption>
+    Two mutually attacking knight placements on a \( 3 \times 2 \)
+    section of a board
+  </figcaption>
+</figure>
+<p>
+  We call these \( 2 \times 3 \) and \( 3 \times 2 \) sections
+  the <em>minimal attack sections</em> of a board, since no smaller
+  section can contain a mutually attacking knight placement.
+</p>
+<p>
+  Two distinct \( 2 \times 3 \) sections can share at most a \( 1
+  \times 3 \) section, which is smaller than a minimal attack section.
+  Consequently, no mutually attacking knight placement can be common
+  to two distinct \( 2 \times 3 \) sections of a board.
+</p>
+<p>
+  Similarly, two distinct \( 3 \times 2 \) sections can share at most
+  a \( 3 \times 1 \) section, again too small to contain a minimal
+  attack section.  Therefore, they share no mutually attacking knight
+  placement.
+</p>
+<p>
+  A \( 2 \times 3 \) section and a \( 3 \times 2 \) section can share
+  at most a \( 2 \times 2 \) section, which is still smaller than a
+  minimal attack section, so they share no mutually attacking knight
+  placement either.
+</p>
+<p>
+  To summarise, any two minimal attack sections of the board yield
+  distinct pairs of mutually attacking knight placements.  The total
+  number of such placements is therefore exactly twice the number of
+  minimal attack sections on the board.
+</p>
+<h3 id="closed-form-expression-3">Closed Form Expression<a href="#closed-form-expression-3"></a></h3>
+<p>
+  In an \( n \times n \) board where \( n \ge 3, \) the left edge of a
+  \( 2 \times 3 \) section can be placed in any one of the first \( n
+  - 2 \) columns of the board.  Similarly, the top edge of such a
+  section can be placed in any one of the first \( n - 1 \) rows of
+  the board.  Therefore, the total number of distinct \( 2 \times 3 \)
+  sections on the board is \( (n - 2)(n - 1).  \)
+</p>
+<p>
+  By similar reasoning, the number of distinct \( 3 \times 2 \)
+  sections on an \( n \times n \) board, where \( n \ge 3, \) is also
+  \( (n - 1)(n - 2).  \)
+</p>
+<p>
+  Let \( h(n) \) be the total number of minimal attack sections we can
+  find on an \( n \times n \) board where \( n \ge 1.  \)  From the
+  discussion in the previous two paragraphs, we know that \( h(n) =
+  2(n - 1)(n - 2) \) for \( n \ge 3.  \)  Further, this formula for \(
+  h(n) \) works for \( n = 1 \) and \( n = 2 \) as well since \( h(1)
+  = h(2) = 0 \) and indeed a \( 1 \times 1 \) board or a
+  \( 2 \times 2 \) board is too small to contain any minimal attack
+  sections.  Therefore, for all \( n \ge 1, \) we get
+
+  \[
+    h(n) = 2(n - 1)(n - 2).
+  \]
+
+  Since each minimal attack section yields two mutually attacking
+  knight placements, the total number of mutually attacking knight
+  placements on an \( n \times n \) board is
+
+  \[
+    f(n) = 2h(n) = 4(n - 1)(n - 2)
+  \]
+
+  for all \( n \ge 1.  \)
+</p>
+<h2 id="reference">References<a href="#reference"></a></h2>
+<ul>
+  <li>
+    <a href="https://cses.fi/problemset/task/1072">Two Knights</a>
+    from the CSES Problem Set
+  </li>
+  <li>
+    <a href="https://mathworld.wolfram.com/KnightGraph.html">Knight Graph</a>
+    by Eric W. Weisstein
+  </li>
+  <li>
+    <a href="https://oeis.org/A033996">OEIS Entry A033996</a>
+    by N. J. A. Sloane
+  </li>
+  <li>
+    <a href="https://oeis.org/A172132">OEIS Entry A172132</a>
+    by Vaclav Kotesovec
+  </li>
+</ul>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/mutually-attacking-knights.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Zigzag Number Spiral</title>
+<link>https://susam.net/zigzag-number-spiral.html</link>
+<guid isPermaLink="false">znscf</guid>
+<pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<div style="display: none">
+  \[
+    \gdef\lf{\hspace{-5mm}\leftarrow\hspace{-5mm}}
+    \gdef\rt{\hspace{-5mm}\rightarrow\hspace{-5mm}}
+    \gdef\up{\uparrow}
+    \gdef\dn{\downarrow}
+    \gdef\sp{}
+    \gdef\cd{\cdots}
+    \gdef\vd{\vdots}
+    \gdef\dd{\ddots}
+    \gdef\arraystretch{1.2}
+    \gdef\hl{\small\blacktriangleright}
+  \]
+</div>
+<p>
+  Consider the following infinite grid of numbers, where the numbers
+  are arranged in a spiral-like manner, but the spiral reverses
+  direction each time it reaches the edge of the grid:
+
+  \begin{array}{rcrcrcrcrl}
+      1 &amp; \rt &amp;   2 &amp; \sp &amp;   9 &amp; \rt &amp;  10 &amp; \sp &amp;  25 &amp; \cd \\
+    \sp &amp; \sp &amp; \dn &amp; \sp &amp; \up &amp; \sp &amp; \dn &amp; \sp &amp; \up &amp; \sp \\
+      4 &amp; \lf &amp;   3 &amp; \sp &amp;   8 &amp; \sp &amp;  11 &amp; \sp &amp;  24 &amp; \cd \\
+    \dn &amp; \sp &amp; \sp &amp; \sp &amp; \up &amp; \sp &amp; \dn &amp; \sp &amp; \up &amp; \sp \\
+      5 &amp; \rt &amp;   6 &amp; \rt &amp;   7 &amp; \sp &amp;  12 &amp; \sp &amp;  23 &amp; \cd \\
+    \sp &amp; \sp &amp; \sp &amp; \sp &amp; \sp &amp; \sp &amp; \dn &amp; \sp &amp; \up &amp; \sp \\
+     16 &amp; \lf &amp;  15 &amp; \lf &amp;  14 &amp; \lf &amp;  13 &amp; \sp &amp;  22 &amp; \cd \\
+    \dn &amp; \sp &amp; \sp &amp; \sp &amp; \sp &amp; \sp &amp; \sp &amp; \sp &amp; \up &amp; \sp \\
+     17 &amp; \rt &amp;  18 &amp; \rt &amp;  19 &amp; \rt &amp;  20 &amp; \rt &amp;  21 &amp; \cd \\
+    \vd &amp; \sp &amp; \vd &amp; \sp &amp; \vd &amp; \sp &amp; \vd &amp; \sp &amp; \vd &amp; \dd
+  \end{array}
+
+  Can we find a closed-form expression that tells us the number at the
+  \( m \)th row and \( n \)th column?
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#patterns-on-the-edges">Patterns on the Edges</a>
+    <ul>
+      <li><a href="#computing-edge-numbers">Computing Edge Numbers</a></li>
+      <li><a href="#computing-all-grid-numbers-1">Computing All Grid Numbers</a></li>
+      <li><a href="#closed-form-expression-1">Closed Form Expression</a></li>
+    </ul>
+  </li>
+  <li><a href="#patterns-on-the-diagonal">Patterns on the Diagonal</a>
+    <ul>
+      <li><a href="#computing-diagonal-numbers">Computing Diagonal Numbers</a></li>
+      <li><a href="#computing-all-grid-numbers-2">Computing All Grid Numbers</a></li>
+      <li><a href="#closed-form-expression-2">Closed Form Expression</a></li>
+    </ul>
+  </li>
+  <li><a href="#references">References</a></li>
+</ul>
+<h2 id="introduction">Introduction<a href="#introduction"></a></h2>
+<p>
+  Before we explore this problem further, let us rewrite the zigzag
+  number spiral grid in a cleaner form, omitting the arrows:
+
+  \begin{array}{rrrrrl}
+      1 &amp;   2 &amp;   9  &amp;  10 &amp;  25 &amp; \cd \\
+      4 &amp;   3 &amp;   8  &amp;  11 &amp;  24 &amp; \cd \\
+      5 &amp;   6 &amp;   7  &amp;  12 &amp;  23 &amp; \cd \\
+     16 &amp;  15 &amp;  14  &amp;  13 &amp;  22 &amp; \cd \\
+     17 &amp;  18 &amp;  19  &amp;  20 &amp;  21 &amp; \cd \\
+    \vd &amp; \vd &amp; \vd  &amp; \vd &amp; \vd &amp; \dd
+  \end{array}
+
+  Let \( f(m, n) \) denote the number at the \( m \)th row and
+  \( n \)th column.  For example, \( f(1, 1) = 1 \) and \( f(2, 5) =
+  24.  \)  We want to find a closed-form expression for \( f(m, n).  \)
+</p>
+<p>
+  Let us first clarify what we mean by a <em>closed-form
+  expression</em>.  There is no universal definition of a closed-form
+  expression, but the term typically refers to a mathematical
+  expression involving variables and constants, built using a finite
+  combination of basic operations: addition, subtraction,
+  multiplication, division, integer exponents, roots with integer
+  index and functions such as exponentials, logarithms and
+  trigonometric functions.
+</p>
+<p>
+  In this article, however, we need only addition, subtraction,
+  division, squares and square roots.  This may be a bit of a spoiler,
+  but I must mention that the \( \max \) function appears in the
+  closed-form expressions we are about to see.  If you are concerned
+  about whether functions like \( \max \) and \( \min \) are permitted
+  in such expressions, note that
+
+  \begin{align*}
+    \max(m, n) &amp; = \frac{m + n + \sqrt{(m - n)^2}}{2}, \\
+    \min(m, n) &amp; = \frac{m + n - \sqrt{(m - n)^2}}{2}.
+  \end{align*}
+
+  So \( \max \) and \( \min \) are simply shorthand for expressions
+  involving addition, subtraction, division, squares and square roots.
+  In the discussion that follows, we will use only the \( \max \)
+  function.
+</p>
+<h2 id="patterns-on-the-edges">Patterns on the Edges<a href="#patterns-on-the-edges"></a></h2>
+<p>
+  Let us begin by analysing the edge numbers.  Number the rows as \(
+  1, 2, 3 \dots \) and the columns likewise.  Observe where the spiral
+  touches the left edge and changes direction.  This happens only on
+  even-numbered rows.  Similarly, each time the spiral touches the top
+  edge and changes direction, it does so on odd-numbered columns.  In
+  the following subsections, we take a closer look at this behaviour
+  of the spiral.
+</p>
+<p>
+  I should mention that this section takes a rather long path to
+  arrive at the closed-form solution.  Personally, I enjoy such long
+  tours.  If you prefer a more direct approach, feel free to skip
+  ahead to
+  <a href="#patterns-on-the-diagonal">Patterns on the Diagonal</a> for
+  a shorter discussion that reaches the same result.
+</p>
+<h3 id="computing-edge-numbers">Computing Edge Numbers<a href="#computing-edge-numbers"></a></h3>
+<p>
+  Each time the spiral reaches the left edge of the grid, it does so
+  at some \( m \)th row where \( m \) is even.  The \( m \times m \)
+  subgrid formed by the first \( m \) rows and the first \( m \)
+  columns contains \( m^2 \) consecutive numbers.  Since the numbers
+  strictly increase as the spiral grows, the largest of these
+  \( m^2 \) numbers must appear at the position where the spiral
+  touches the left edge.  This is illustrated in the figure below.
+</p>
+<figure>
+  \begin{array}{rrrr:rl}
+     1     &amp;   2 &amp;   9  &amp;  10 &amp;  25 &amp; \cd \\
+     4     &amp;   3 &amp;   8  &amp;  11 &amp;  24 &amp; \cd \\
+     5     &amp;   6 &amp;   7  &amp;  12 &amp;  23 &amp; \cd \\
+    \hl 16 &amp;  15 &amp;  14  &amp;  13 &amp;  22 &amp; \cd \\
+    \hdashline
+    17     &amp;  18 &amp;  19  &amp;  20 &amp;  21 &amp; \cd \\
+    \vd    &amp; \vd &amp; \vd  &amp; \vd &amp; \vd &amp; \dd
+  \end{array}
+  <figcaption>
+    The spiral touches the left edge on the \( 4 \)th row where the
+    number is \( 4^2 \)
+  </figcaption>
+</figure>
+<p>
+  Whenever the spiral touches the left edge at the \( m \)th row
+  (where \( m \) is even), the number in the first column of that row
+  is \( m^2.  \)  Hence, we conclude that \( f(m, 1) = m^2 \) when \( m
+  \) is even.  Immediately after touching the left edge, the spiral
+  turns downwards into the first column of the next row.  Thus, in the
+  next row, i.e. in the \( (m + 1) \)th row, we have \( f(m + 1, 1) =
+  m^2 + 1, \) where \( m + 1 \) is odd.  This can be restated as \(
+  f(m, 1) = (m - 1)^2 + 1 \) when \( m \) is odd.  Since \( f(1, 1) =
+  1, \) we can summarise the two formulas we have found here as:
+
+  \[
+    f(m, 1) =
+      \begin{cases}
+        m^2           &amp; \text{if } m \equiv 0 \pmod{2}, \\
+        (m - 1)^2 + 1 &amp; \text{if } m \equiv 1 \pmod{2}.
+      \end{cases}
+  \]
+</p>
+<p>
+  We can perform a similar analysis for the numbers at the top edge
+  and note that whenever the spiral touches the top edge at the
+  \( n \)th column (where \( n \) is odd), the number in the first row
+  of that column is \( n^2.  \)  This is illustrated below.
+</p>
+<figure>
+  \begin{array}{rrr:rrl}
+     1 &amp;   2 &amp; \hl 9 &amp;  10 &amp;  25 &amp; \cd \\
+     4 &amp;   3 &amp;     8 &amp;  11 &amp;  24 &amp; \cd \\
+     5 &amp;   6 &amp;     7 &amp;  12 &amp;  23 &amp; \cd \\
+    \hdashline
+    16 &amp;  15 &amp;    14 &amp;  13 &amp;  22 &amp; \cd \\
+    17 &amp;  18 &amp;    19 &amp;  20 &amp;  21 &amp; \cd \\
+    \vd &amp; \vd &amp;  \vd &amp; \vd &amp; \vd &amp; \dd
+  \end{array}
+  <figcaption>
+    The spiral touches the top edge on the \( 3 \)rd column where the
+    number is \( 3^2 \)
+  </figcaption>
+</figure>
+<p>
+  Immediately after touching the top edge, the spiral turns right into
+  the next column.  These observations give us the following formula
+  for the numbers at the top edge:
+
+  \[
+    f(1, n) =
+      \begin{cases}
+        n^2           &amp; \text{if } n \equiv 1 \pmod{2}, \\
+        (n - 1)^2 + 1 &amp; \text{if } n \equiv 0 \pmod{2}.
+      \end{cases}
+  \]
+
+  Next we will find a formula for any arbitrary number anywhere in the
+  grid.
+</p>
+<h3 id="computing-all-grid-numbers-1">Computing All Grid Numbers<a href="#computing-all-grid-numbers-1"></a></h3>
+<p>
+ Since the spiral touches the left edge on even-numbered rows, then
+ turns downwards into the next (odd-numbered) row and then starts
+ moving right until the diagonal (where it changes direction again),
+ the following two rules hold:
+</p>
+<ul>
+  <li>
+    On every odd-numbered row, as we go from left to right, the
+    numbers increase until we reach the diagonal.
+  </li>
+  <li>
+    On every even-numbered row, as we go from left to right, the
+    numbers decrease until we reach the diagonal.
+  </li>
+</ul>
+<p>
+  Note that all the numbers we considered in the above two points lie
+  on or below the diagonal (or equivalently, on or to the left of the
+  diagonal).  Therefore, on an odd-numbered row, we can find the
+  numbers on or below the diagonal using the formula \( f(m, n) = f(m,
+  1) + (n - 1), \) where \( m \) is odd.  Similarly, on even-numbered
+  rows, we can find the numbers on or below the diagonal using the
+  formula \( f(m, n) = f(m, 1) - (n - 1), \) where \( m \) is even.
+</p>
+<p>
+  By a similar analysis, the following rules hold when we consider the
+  numbers in a column:
+</p>
+<ul>
+  <li>
+    On every even-numbered column, as we go from top to bottom, the
+    numbers increase until we reach the diagonal.
+  </li>
+  <li>
+    On every odd-numbered column, as we go from top to bottom, the
+    numbers decrease until we reach the diagonal.
+  </li>
+</ul>
+<p>
+  Now the numbers on or above the diagonal can be found using the
+  formula \( f(m, n) = f(1, n) - (m - 1) \) when \( n \) is odd and \(
+  f(m, n) = f(1, n) + (m - 1), \) when \( n \) is even.
+</p>
+<p>
+  Can we determine from the values of \( m \) and \( n \) if the
+  number \( f(m, n) \) is above the diagonal or below it?  Yes, if \(
+  m \le n, \) then \( f(m, n) \) lies on or above the diagonal.
+  However, if \( m \ge n, \) then \( f(m, n) \) lies on or below the
+  diagonal.
+</p>
+<p>
+  We now have everything we need to write a general formula for
+  finding the numbers anywhere in the grid.  Using the four formulas
+  and the two inequalities obtained in this section, we get
+
+  \[
+    f(m, n) =
+      \begin{cases}
+        f(1, n) + (m - 1)
+        &amp; \text{if } m \le n \text{ and } n \equiv 0 \pmod{2}, \\
+        f(1, n) - (m - 1)
+        &amp; \text{if } m \le n \text{ and } n \equiv 1 \pmod{2}, \\
+        f(m, 1) - (n - 1)
+        &amp; \text{if } m \ge n \text{ and } m \equiv 0 \pmod{2}, \\
+        f(m, 1) + (n - 1)
+        &amp; \text{if } m \ge n \text{ and } m \equiv 1 \pmod{2}.  \\
+      \end{cases}
+  \]
+
+  Using the equations for \( f(1, n) \) and \( f(m, 1) \) from the
+  previous section, the above formulas can be rewritten as
+
+  \[
+    f(m, n) =
+      \begin{cases}
+        (n - 1)^2 + 1 + (m - 1)
+        &amp; \text{if } m \le n \text{ and } n \equiv 0 \pmod{2}, \\
+        n^2 - (m - 1)
+        &amp; \text{if } m \le n \text{ and } n \equiv 1 \pmod{2}, \\
+        m^2 - (n - 1)
+        &amp; \text{if } m \ge n \text{ and } m \equiv 0 \pmod{2}, \\
+        (m - 1)^2 + 1 + (n - 1)
+        &amp; \text{if } m \ge n \text{ and } m \equiv 1 \pmod{2}.  \\
+      \end{cases}
+  \]
+
+  Simplifying the expressions on the right-hand side, we get
+
+  \[
+    f(m, n) =
+      \begin{cases}
+        (n - 1)^2 + m
+        &amp; \text{if } m \le n \text{ and } n \equiv 0 \pmod{2}, \\
+        n^2 - m + 1
+        &amp; \text{if } m \le n \text{ and } n \equiv 1 \pmod{2}, \\
+        m^2 - n + 1
+        &amp; \text{if } m \ge n \text{ and } m \equiv 0 \pmod{2}, \\
+        (m - 1)^2 + n
+        &amp; \text{if } m \ge n \text{ and } m \equiv 1 \pmod{2}.  \\
+      \end{cases}
+  \]
+
+  This is pretty good.  We now have a piecewise formula that works for
+  any position in the grid.  Let us now explore whether we can express
+  it as a single closed-form expression.
+</p>
+<h3 id="closed-form-expression-1">Closed Form Expression<a href="#closed-form-expression-1"></a></h3>
+<p>
+  First, we will rewrite the piecewise formula from the previous
+  section in the following form:
+
+  \[
+    f(m, n) =
+      \begin{cases}
+        (n^2 - n + 1) + (m - n)
+        &amp; \text{if } m \le n \text{ and } n \equiv 0 \pmod{2}, \\
+        (n^2 - n + 1) - (m - n)
+        &amp; \text{if } m \le n \text{ and } n \equiv 1 \pmod{2}, \\
+        (m^2 - m + 1) + (m - n)
+        &amp; \text{if } m \ge n \text{ and } m \equiv 0 \pmod{2}, \\
+        (m^2 - m + 1) - (m - n)
+        &amp; \text{if } m \ge n \text{ and } m \equiv 1 \pmod{2}.  \\
+      \end{cases}
+  \]
+
+  This is the same formula, rewritten to reveal common patterns
+  between the four expressions on the right-hand side.  In each
+  expression, one variable plays the dominant role, occurring several
+  times, while the other appears only once.  For example, in the first
+  two expressions, \( n \) plays the dominant role whereas \( m \)
+  occurs only once.  If we look closely, we realise that it is the
+  variable that is greater than or equal to the other that plays the
+  dominant role.  Therefore the first and third expressions may be
+  written as
+
+  \[
+    \left( (\max(m, n))^2 - \max(m, n) + 1 \right) + (m - n).
+  \]
+
+  Similarly, the second and fourth expressions may be written as
+
+  \[
+    \left( (\max(m, n))^2 - \max(m, n) + 1 \right) - (m - n).
+  \]
+
+  We have made some progress towards a closed-form expression.  We
+  have collapsed the four expressions in the piecewise formula to just
+  two.  The only difference between them lies in the sign of the
+  second term: it is positive when the dominant variable is even and
+  negative when it is odd.  This observation allows us to unify both
+  cases into a single expression:
+
+  \[
+    f(m, n) = (\max(m, n))^2 - \max(m, n) + 1 + (-1)^{\max(m, n)} (m - n).
+  \]
+
+  Now we have a closed-form expression for \( f(m, n) \) that gives
+  the number at any position in the grid.
+</p>
+<h2 id="patterns-on-the-diagonal">Patterns on the Diagonal<a href="#patterns-on-the-diagonal"></a></h2>
+<p>
+  As mentioned earlier, there is a shorter route to the same
+  closed-form expression.  This alternative approach is based on
+  analysing the numbers along the diagonal of the grid.  We still need
+  to examine the edge numbers, but not all of them as we did in the
+  previous section.  Some of the reasoning about edge values will be
+  repeated here to ensure this section is self-contained.
+</p>
+<h3 id="computing-diagonal-numbers">Computing Diagonal Numbers<a href="#computing-diagonal-numbers"></a></h3>
+<p>
+  A number on the diagonal has the same row number and column number.
+  In other words, a diagonal number has the value \( f(n, n) \) for
+  some positive integer \( n.  \)  Consider the case when \( n \) is
+  even.  In this case, the diagonal number is on a segment of the
+  spiral that is moving to the left.  The \( n \times n \) subgrid
+  formed by the first \( n \) rows and the first \( n \) columns
+  contains exactly \( n^2 \) consecutive numbers.  Since the diagonal
+  number is on the last row of this subgrid and the numbers in this
+  row increase as we move from right to left, the largest number in
+  the subgrid must be on the left edge of this row.  Therefore the
+  number at the left edge is \( f(n, 1) = n^2, \) where \( n \) is
+  even.  This is illustrated below.
+</p>
+<figure>
+  \begin{array}{rrrr:rl}
+     1     &amp;   2 &amp;   9  &amp;     10 &amp;  25 &amp; \cd \\
+     4     &amp;   3 &amp;   8  &amp;     11 &amp;  24 &amp; \cd \\
+     5     &amp;   6 &amp;   7  &amp;     12 &amp;  23 &amp; \cd \\
+    \hl 16 &amp;  15 &amp;  14  &amp; \hl 13 &amp;  22 &amp; \cd \\
+    \hdashline
+    17     &amp;  18 &amp;  19  &amp;     20 &amp;  21 &amp; \cd \\
+    \vd    &amp; \vd &amp; \vd  &amp;    \vd &amp; \vd &amp; \dd
+  \end{array}
+  <figcaption>
+    The spiral touches the left edge on the \( 4 \)th row where the
+    number is \( 4^2 \)
+  </figcaption>
+</figure>
+<p>
+  From the diagonal to the edge of the subgrid, there are \( n \)
+  consecutive numbers.  In a sequence of \( n \) consecutive numbers,
+  the difference between the maximum number and the minimum number is
+  \( n - 1.  \)  Therefore, \( n^2 - f(n, n) = n - 1.  \)  This gives us
+
+  \[
+    f(n, n) = n^2 - n + 1 \quad \text{if } n \equiv 0 \pmod{2}.
+  \]
+</p>
+<p>
+  Now consider the case when \( n \) is odd.
+</p>
+<figure>
+  \begin{array}{rrr:rrl}
+     1 &amp;   2 &amp; \hl 9 &amp;  10 &amp;  25 &amp; \cd \\
+     4 &amp;   3 &amp;     8 &amp;  11 &amp;  24 &amp; \cd \\
+     5 &amp;   6 &amp; \hl 7 &amp;  12 &amp;  23 &amp; \cd \\
+    \hdashline
+    16 &amp;  15 &amp;    14 &amp;  13 &amp;  22 &amp; \cd \\
+    17 &amp;  18 &amp;    19 &amp;  20 &amp;  21 &amp; \cd \\
+    \vd &amp; \vd &amp;  \vd &amp; \vd &amp; \vd &amp; \dd
+  \end{array}
+  <figcaption>
+    The spiral touches the top edge on the \( 3 \)rd column where the
+    number is \( 3^2 \)
+  </figcaption>
+</figure>
+<p>
+  By a similar reasoning, for odd \( n, \) the \( n \)th column has
+  numbers that increase as we move up from the diagonal number towards
+  the top edge.  Therefore \( f(1, n) = n^2 \) and since \( n^2 - f(n,
+  n) = n - 1, \) we again obtain
+
+  \[
+    f(n, n) = n^2 - n + 1 \quad \text{if } n \equiv 1 \pmod{2}.
+  \]
+
+  Since \( f(n, n) \) takes the same form for both odd and even
+  \( n, \) we can write
+
+  \[
+    f(n, n) = n^2 - n + 1
+  \]
+
+  for all positive integers \( n.  \)
+</p>
+<h3 id="computing-all-grid-numbers-2">Computing All Grid Numbers<a href="#computing-all-grid-numbers-2"></a></h3>
+<p>
+  If \( m \le n, \) then the number \( f(m, n) \) lies on or above the
+  diagonal number \( f(n, n).  \)  If \( n \) is even, then the numbers
+  decrease as we go from the diagonal up to the top edge.  Therefore
+  \( f(m, n) \le f(n, n) \) and \( f(m, n) = f(n, n) - (n - m).  \)  If
+  \( n \) is odd, then the numbers increase as we go from the diagonal
+  up to the top edge and therefore \( f(m, n) \ge f(n, n) \) and \(
+  f(m, n) = f(n, n) + (n - m).  \)
+</p>
+<p>
+  If \( m \ge n, \) then the number \( f(m, n) \) lies on or below the
+  diagonal number \( f(m, m).  \)  By a similar analysis, we find that
+  \( f(m, n) = f(m, m) + (m - n) \) if \( n \) is even and \( f(m, n)
+  = f(m, m) - (m - n) \) if \( n \) is odd.  We summarise these
+  results as follows:
+
+  \[
+    f(m, n) =
+      \begin{cases}
+        f(n, n) - (n - m)
+        &amp; \text{if } m \le n \text{ and } n \equiv 0 \pmod{2}, \\
+        f(n, n) + (n - m)
+        &amp; \text{if } m \le n \text{ and } n \equiv 1 \pmod{2}, \\
+        f(m, m) + (m - n)
+        &amp; \text{if } m \ge n \text{ and } m \equiv 0 \pmod{2}, \\
+        f(m, m) - (m - n)
+        &amp; \text{if } m \ge n \text{ and } m \equiv 1 \pmod{2}.  \\
+      \end{cases}
+  \]
+
+  Note that the above formula can be rewritten as
+
+  \[
+    f(m, n) =
+      \begin{cases}
+        f(n, n) + (m - n)
+        &amp; \text{if } m \le n \text{ and } n \equiv 0 \pmod{2}, \\
+        f(n, n) - (m - n)
+        &amp; \text{if } m \le n \text{ and } n \equiv 1 \pmod{2}, \\
+        f(m, m) + (m - n)
+        &amp; \text{if } m \ge n \text{ and } m \equiv 0 \pmod{2}, \\
+        f(m, m) - (m - n)
+        &amp; \text{if } m \ge n \text{ and } m \equiv 1 \pmod{2}.  \\
+      \end{cases}
+  \]
+</p>
+<h3 id="closed-form-expression-2">Closed Form Expression<a href="#closed-form-expression-2"></a></h3>
+<p>
+  If we take a close look at the last formula in the previous section,
+  we find that in each expression, one variable plays a dominant role,
+  i.e. it occurs more frequently in the expression than the other.  In
+  the first two expressions \( n \) plays the dominant role whereas in
+  the last two expressions \( m \) plays the dominant role.  In fact,
+  in each expression, the dominant variable is the one that is greater
+  than or equal to the other.  With this in mind, we can rewrite the
+  above formula as
+
+  \[
+    f(m, n) =
+      \begin{cases}
+        f(\max(m, n), \max(m, n)) + (m - n)
+        &amp; \text{if } \max(m, n) \equiv 0 \pmod{2}, \\
+        f(\max(m, n), \max(m, n)) - (m - n)
+        &amp; \text{if } \max(m, n) \equiv 1 \pmod{2}.  \\
+      \end{cases}
+  \]
+
+  The only difference between the expressions is the sign of the
+  second term: it is positive when \( \max(m, n) \) is even and
+  negative when \( \max(m, n) \) is odd.  As a result, we can rewrite
+  the above formula as a single expression like this:
+
+  \[
+    f(m, n) = f(\max(m, n), \max(m, n)) + (-1)^{\max(m, n)} (m - n).
+  \]
+
+  Using the formula \( f(n, n) = n^2 - n + 1 \) from the previous
+  section, we get
+
+  \[
+    f(m, n) = (\max(m, n))^2 - \max(m, n) + 1 + (-1)^{\max(m, n)} (m - n).
+  \]
+
+  We arrive again at the same closed-form expression, this time by
+  focusing on the diagonal of the grid.
+</p>
+<h2 id="references">References<a href="#references"></a></h2>
+<ul>
+  <li>
+    <a href="https://cses.fi/problemset/task/1071">Number Spiral</a>
+    from the CSES Problem Set
+  </li>
+  <li>
+    <a href="https://mathworld.wolfram.com/Closed-FormSolution.html">Closed-Form Solution</a>
+    by Christopher Stover and Eric W. Weisstein
+  </li>
+  <li>
+    <a href="https://mathworld.wolfram.com/PiecewiseFunction.html">Piecewise Function</a>
+    by Eric W. Weisstein
+  </li>
+</ul>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/zigzag-number-spiral.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>My Blogroll Is Now My Feed Reader</title>
+<link>https://susam.net/blogroll-as-feed-reader.html</link>
+<guid isPermaLink="false">mbmfr</guid>
+<pubDate>Sat, 05 Jul 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  On a particularly hot summer weekend last month, I implemented a new
+  feature for this website: a blogroll that lists recent entries from
+  my favourite blogs.  Check it out here: <a href="roll.html">roll.html</a>.
+</p>
+<p>
+  It has been nearly two weeks since I set up this blogroll and it has
+  already changed how I keep up with my feeds.  I no longer bother
+  with feed readers or aggregators.  I could never quite make a habit
+  of using them regularly anyway.  Thanks to this simple addition to
+  my website, I find myself visiting my blogroll often.  It has earned
+  a permanent place in my bookmarks.  When I have some spare time, I
+  click on the bookmark, visit my blogroll and, when I find new posts
+  appear there, I click through and read the full blog posts.
+</p>
+<p>
+  Credit for this nifty and surprisingly effective idea goes to Alex
+  Kladov.  It was Alex's website,
+  <a href="https://matklad.github.io/">matklad.github.io</a>, that
+  inspired me to implement my own blogroll.  It showed me that a
+  blogroll can be more than just a static list of links.  It can be a
+  regularly updated page that highlights new posts from the blogs I
+  follow.
+</p>
+<p>
+  I suspect the fact that my blogroll is generated by my own
+  handcrafted <a href="https://github.com/susam/susam.net/blob/main/roll.lisp">Common
+  Lisp program</a> plays a part in why I enjoy using it.  There is a
+  certain joy in using something you have built yourself.  At last, I
+  feel I can stay on top of my feeds!  If you maintain a personal
+  website and struggle to keep up with your feeds, I recommend this
+  approach.  Writing the blogroll generator was a fun weekend project
+  and it has greatly improved how I spend my spare time online!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/blogroll-as-feed-reader.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Million Times Million</title>
+<link>https://susam.net/million-times-million.html</link>
+<guid isPermaLink="false">milln</guid>
+<pubDate>Thu, 03 Jul 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Is a million times a million a <em>billion</em> or is it
+  a <em>trillion</em>?  For my entire childhood, it was a billion,
+  only for me to grow up and realise, as an adult, that it had better
+  be a trillion!
+</p>
+<h2 id="growing-up-with-the-long-scale">Growing Up With the Long Scale<a href="#growing-up-with-the-long-scale"></a></h2>
+<p>
+  As a child, I stumbled upon an old dictionary lying around our house
+  and that was where I discovered the names of large numbers.  The
+  dictionary used the long scale system, which is based on powers of a
+  million.  According to the long scale system,
+</p>
+<ul>
+  <li>
+    a million times a million is a billion,
+  </li>
+  <li>
+    a million times a million times a million is a trillion,
+  </li>
+  <li>
+    a million multiplied by itself four times is a quadrillion,
+  </li>
+  <li>
+    multiply it five times and we get a quintillion
+  </li>
+  <li>
+    and so on.
+  </li>
+</ul>
+<p>
+  These long scale names made a lot of sense to me.  Each name told us
+  exactly how many times we multiplied a million by itself.  The
+  little prefix at the start, like <em>bi-</em>, <em>tri-</em>,
+  <em>quadri-</em>, <em>quinti-</em>, etc. matched the number of times
+  a million appeared in the multiplication: twice for a billion, three
+  times for a trillion and so on.  If I came across a number like
+  quintillion, I immediately knew it meant a million multiplied by
+  itself five times, so a quintillion had to be \( (10^6)^5 =
+  10^{30}.  \)  It was simple and intuitive.
+</p>
+<p>
+  Now imagine my disappointment when I left home for university, got
+  access to computers and the World Wide Web and discovered that the
+  names I had learnt were off by several orders of magnitude compared
+  with what everyone else was using.  The long scale names I had grown
+  up with were irrelevant in this new world I was stepping into.  It
+  was the short scale that had taken over most of the technology
+  world, especially in computing.  In the short scale, a million times
+  a million is no longer a billion.  Instead, somehow, it is a
+  trillion!  Similarly, a million multiplied three times is no longer
+  a trillion.  It is a quintillion!  What on earth was going on?
+</p>
+<p>
+  Naturally, I had to go through a period of adjustment, letting go of
+  my old intuition for the long scale names and getting used to the
+  short scale ones.  At the same time, I found a way to trick my mind
+  into making sense of the short scale.  Before I get into the mental
+  gymnastics that made the short scale click for me, let us first take
+  a quick look at the long scale and short scale names side by side.
+</p>
+<h2 id="same-names-different-numbers">Same Names, Different Numbers<a href="#same-names-different-numbers"></a></h2>
+<p>
+  The long scale and short scale are simply two different ways of
+  naming large numbers.  To see how they differ, here is a table
+  showing what each name corresponds to in the two systems.
+</p>
+<table class="grid center">
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Long Scale</th>
+      <th>Short Scale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\( 10^6 \)</td>
+      <td>Million</td>
+      <td>Million</td>
+    </tr>
+    <tr>
+      <td>\( 10^9 \)</td>
+      <td>Milliard</td>
+      <td>Billion</td>
+    </tr>
+    <tr>
+      <td>\( 10^{12} \)</td>
+      <td>Billion</td>
+      <td>Trillion</td>
+    </tr>
+    <tr>
+      <td>\( 10^{15} \)</td>
+      <td>Billiard</td>
+      <td>Quadrillion</td>
+    </tr>
+    <tr>
+      <td>\( 10^{18} \)</td>
+      <td>Trillion</td>
+      <td>Quintillion</td>
+    </tr>
+    <tr>
+      <td>\( 10^{21} \)</td>
+      <td>Trilliard</td>
+      <td>Sextillion</td>
+    </tr>
+    <tr>
+      <td>\( 10^{24} \)</td>
+      <td>Quadrillion</td>
+      <td>Septillion</td>
+    </tr>
+    <tr>
+      <td>\( 10^{27} \)</td>
+      <td>Quadrilliard</td>
+      <td>Octillion</td>
+    </tr>
+    <tr>
+      <td>\( 10^{30} \)</td>
+      <td>Quintillion</td>
+      <td>Nonillion</td>
+    </tr>
+    <tr>
+      <td>\( 10^{33} \)</td>
+      <td>Quintilliard</td>
+      <td>Decillion</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  As the table shows, the two systems agree on the value of a million,
+  but diverge immediately after.  From that point on, the same names
+  represent increasingly different magnitudes.
+</p>
+<h2 id="making-sense-of-the-short-scale">Making Sense of the Short Scale<a href="#making-sense-of-the-short-scale"></a></h2>
+<p>
+  I used to quite like the long scale names because the prefix in each
+  name is determined by how many times we multiply a million by
+  itself.  Each prefix reflects the value of \( n \) in the number \(
+  10^{6n}, \) where \( n \) is a positive integer.  For example, if \(
+  n = 3, \) we get \( 10^{18}, \) which in the long scale is called
+  a <em>trillion</em>.  But in the short scale, the same number is
+  called a <em>quintillion</em>.  How can we make sense of it?
+</p>
+<p>
+  One way to interpret the short scale is to count how many additional
+  thousands are multiplied onto one thousand.  A thousand is, of
+  course, just <em>one thousand</em>.  Multiply it by another thousand
+  and we get a <em>million</em>.  Multiply that by another thousand
+  and we get a <em>billion</em>.  One more multiplication gives us
+  a <em>trillion</em> and so on.  I do not find this quite as neat as
+  the long scale but it works.
+</p>
+<p>
+  In effect, the prefix in the short scale corresponds to \( n \) of
+  the integer \( 1000 \times 1000^n, \) where \( n \) is a positive
+  integer.  Stated more succinctly, it represents \( n \) of \(
+  10^{3(n + 1)}.  \)  So for example, if \( n = 5, \) then
+
+  \[
+    10^{3(n + 1)} = 10^{18},
+  \]
+
+  which is called a <em>quintillion</em> in the short scale.  The
+  <em>quinti-</em> prefix still represents five but now it is tied to
+  the number of additional thousands we multiplied to the first
+  thousand.  It is not quite the elegant pattern I grew up with but
+  this is the convention that dominates today.  In the world of
+  technology, computing and finance, as well as in most
+  English-speaking contexts, the short scale has prevailed.
+</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  Today, of course, I use only the short scale, because that is the
+  convention adopted by the part of the world relevant to me.  I no
+  longer use the long scale.  But it remains in memory, simply because
+  I spent a large part of my early life with it.  It still lives in
+  some corner of my heart, partly out of nostalgia and partly due to
+  its elegance.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/million-times-million.html">Read on website</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Blogroll</title>
+<link>https://susam.net/roll.html</link>
+<guid isPermaLink="false">bgrll</guid>
+<pubDate>Sat, 21 Jun 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h1>Blogroll</h1>
+<p>
+  The blogroll is available in the online copy of this website at
+  <a href="https://susam.net/roll.html">susam.net/roll.html</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/roll.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CSS Experiments: overflow-wrap vs word-break</title>
+<link>https://susam.net/code/web/overflow-wrap-vs-word-break.html</link>
+<guid isPermaLink="false">owvwb</guid>
+<pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  An example page demonstrating experiments with the
+  CSS <code>overflow-wrap</code> and <code>word-break</code>
+  properties.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/overflow-wrap-vs-word-break.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/css.html">#css</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Noise From My Feeds</title>
+<link>https://susam.net/feed-noise.html</link>
+<guid isPermaLink="false">xjdrj</guid>
+<pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Hello!  If you are subscribed to this website's feeds, you may have
+  noticed something odd recently.  Your feed reader might have shown a
+  bunch of old posts as if they were published today.  If that
+  happened with your feed reader, I apologise for the noise.  I hope
+  this post will give you some clarity on why this happened.  The
+  reason for this noise is a change to the way the RSS feeds are
+  generated for this website.  Each post in the feeds includes a GUID,
+  which is used by many feed readers to decide whether a post is new
+  or if it has been seen already.  Until now, the GUID was simply the
+  post's URL, like this:
+</p>
+<pre>
+<code>&lt;url&gt;https://susam.net/product-of-additive-inverses.html&lt;/url&gt;
+&lt;guid&gt;https://susam.net/product-of-additive-inverses.html&lt;/guid&gt;</code>
+</pre>
+<p>
+  However, today this has changed to a short unique string, like so:
+</p>
+<pre>
+<code>&lt;url&gt;https://susam.net/product-of-additive-inverses.html&lt;/url&gt;
+&lt;guid isPermaLink="false"&gt;rxpnz&lt;/guid&gt;</code>
+</pre>
+<p>
+  If your feed reader looks at this GUID value to decide whether a new
+  post has been published, it will show you a whole bunch of old posts
+  once again in your reader, as if they were new.  These GUIDs won't
+  change again in the future, so this is a one-time problem.  The full
+  URL of the post is still present in the feeds, as you can see in the
+  example above, so your feed reader still knows where to take you if
+  you wish to visit this website to read a post.  The short string
+  serves as a unique identifier for each post.
+</p>
+<p>
+  This website is a passion project I work on in my spare time.
+  Sometimes, after publishing a post, I realise the title could be
+  sharper or the URL could be cleaner.  I make the necessary changes
+  and set up HTTP redirects on my web server, so that visitors using
+  the old URL are still taken to the updated location of the post.
+  Previously, however, the GUID (being the URL) changed too, which
+  caused many feed readers to treat the updated post as a new one even
+  when it wasn't.  Switching to stable GUIDs prevents this problem
+  from occurring again.  The GUIDs now stay the same no matter what
+  changes I make behind the scenes, which means no more unnecessary
+  noise in your feed reader.
+</p>
+<p>
+  I am sorry if this caused any confusion or clutter.  If your feed
+  reader is currently flooded with old posts appearing as new, the
+  best solution is to mark those items as read.  Thank you for your
+  patience with this issue.  I hope to keep future surprises limited
+  to content, not configuration.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/feed-noise.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Product of Additive Inverses</title>
+<link>https://susam.net/product-of-additive-inverses.html</link>
+<guid isPermaLink="false">rxpnz</guid>
+<pubDate>Thu, 29 May 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A negative number multiplied by another negative number results in a
+  positive number.  Most of us learnt this rule during our primary or
+  secondary school years.  'Negative times negative equals positive'
+  was a phrase drummed into us during mathematics lessons.  In this
+  article, we will prove this rule, not just for numbers but for any
+  algebraic structure that, in a general sense, behaves somewhat like
+  numbers.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#illustration">Illustration</a></li>
+  <li><a href="#ring-axioms">Ring Axioms</a></li>
+  <li><a href="#closure-properties">Closure Properties</a></li>
+  <li><a href="#inverse-of-inverse">Inverse of Inverse</a></li>
+  <li><a href="#multiplication-by-zero">Multiplication by Zero</a></li>
+  <li><a href="#multiplication-by-additive-inverse">Multiplication by Additive Inverse</a></li>
+  <li><a href="#product-of-additive-inverses">Product of Additive Inverses</a></li>
+  <li><a href="#alternate-proof">Alternate Proof</a></li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h2 id="illustration">Illustration<a href="#illustration"></a></h2>
+<p>
+  Let us begin with a quick illustration that shows why the product of
+  two negative numbers must be positive for arithmetic to make sense.
+  Consider
+
+  \[
+    7 \times 8 = 56.
+  \]
+
+  The above equation can also be written as
+
+  \[
+    (10 - 3) \times (10 - 2) = 56.
+  \]
+
+  Using the distributive property of multiplication over subtraction,
+  we get
+
+  \[
+    (10 - 3) \times 10 + (10 - 3) \times (-2) = 56.
+  \]
+
+  Using the distributive property again, we have
+
+  \[
+    10 \times 10 + (-3) \times 10 + 10 \times (-2) + (-3) \times (-2) = 56.
+  \]
+
+  Now, we will take it for granted that a positive times a negative is
+  negative.  We will prove all of this rigorously later, but for now,
+  we are just working through an illustration, so we will accept that
+  rule and see where it leads.  The equation becomes:
+
+  \[
+    100 + (-30) + (-20) + (-3) \times (-2) = 56.
+  \]
+
+  Adding the first three terms gives
+
+  \[
+    50 + (-3) \times (-2) = 56.
+  \]
+
+  Subtracting \( 50 \) from both sides, we get
+
+  \[
+    (-3) \times (-2) = 6.
+  \]
+
+  What we have seen here is that if we accept \( 7 \times 8 = 56 \)
+  and that positive times negative gives a negative result, then we
+  must also accept that \( (-3) \times (-2) = 6.  \)
+</p>
+<h2 id="ring-axioms">Ring Axioms<a href="#ring-axioms"></a></h2>
+<p>
+  From this section onwards, we take a rigorous approach.  We want to
+  show that the rule 'negative times negative equals positive' holds,
+  in a general sense, for any set of elements that share certain
+  properties with numbers.  As it turns out, these elements do not
+  need to possess all the properties of complex numbers, real numbers
+  or even rational numbers.  In fact, if they satisfy a small and
+  specific set of properties held by the integers, then the rule still
+  holds.  These properties are known as the <em>ring axioms</em>.
+</p>
+<p>
+  A ring is an algebraic structure consisting of a set \( R \) with
+  two binary operations \( + \) and \( \cdot, \) called addition and
+  multiplication respectively, satisfying the following axioms:
+</p>
+<ol>
+  <li>
+    <p>
+      <strong>Associativity of addition:</strong> For all \( a, b, c
+      \in R, \) we have \( a + (b + c) = (a + b) + c.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Commutativity of addition:</strong> For all \( a, b \in
+      R, \) we have \( a + b = b + a.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Additive identity:</strong> There exists an element \( 0
+      \in R \) such that for all \( a \in R, \) we have \( a + 0 = a =
+      0 + a.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Additive inverse:</strong> For each \( a \in R, \) there
+      exists an element \( -a \in R \) such that \( a + (-a) = 0 =
+      (-a) + a.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Associativity of multiplication:</strong> For all \( a,
+      b, c \in R, \) we have \( a \cdot (b \cdot c) = (a \cdot b)
+      \cdot c.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Left distributivity of multiplication over
+      addition:</strong> For all \( a, b, c \in R, \) we have \( a
+      \cdot (b + c) = (a \cdot b) + (a \cdot c).  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Right distributivity of multiplication over
+      addition:</strong> For all \( a, b, c \in R, \) we have \( (b +
+      c) \cdot a = (b \cdot a) + (c \cdot a).  \)
+    </p>
+  </li>
+</ol>
+<p>
+  Note that we do not assume that the ring contains multiplicative
+  identity, nor do we assume that multiplication is commutative.  Many
+  familiar types of numbers form rings.  For example, the set of
+  integers forms a ring with the usual addition and multiplication
+  operations.  The sets of rational numbers, real numbers and complex
+  numbers satisfy the ring axioms too.
+</p>
+<p>
+  Rings need not consist of numbers; they may contain elements
+  of <em>any</em> type.  As long as a set of elements, together with
+  suitable addition and multiplication operations, satisfies the seven
+  axioms above, it forms a ring.  For example, the set of all
+  polynomials in the indeterminate \( t \) with coefficients in some
+  ring \( R \) forms a ring under the usual addition and
+  multiplication of polynomials.  Such a ring is called
+  a <em>polynomial ring</em> and it is denoted \( R[t].  \)
+</p>
+<h2 id="closure-properties">Closure Properties<a href="#closure-properties"></a></h2>
+<p>
+  Some texts include the following additional axioms for the closure
+  properties of a ring:
+</p>
+<ol>
+  <li>
+    <p>
+      <strong>Closure under addition:</strong> For all
+      \( a, b \in R, \) we have \( a + b \in R.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Closure under multiplication:</strong> For all \( a, b
+      \in R, \) we have \( a \cdot b \in R.  \)
+    </p>
+  </li>
+</ol>
+<p>
+  However, stating these axioms explicitly is usually considered
+  redundant because a binary operation is closed by definition.  A
+  binary operation \( \circ \) on a set \( M \) is defined to be a
+  function
+
+  \[
+    \circ : M \times M \to M; \quad (a, b) \mapsto a \circ b.
+  \]
+
+  This definition automatically implies the closure property, since
+  the domain and codomain are the same.  The addition and
+  multiplication operations on a ring \( R \) may be defined as
+
+  \begin{align*}
+        + &amp;: R \times R \to R; \quad (a, b) \mapsto a + b, \\
+    \cdot &amp;: R \times R \to R; \quad (a, b) \mapsto a \cdot b.
+  \end{align*}
+
+  These definitions imply that a ring is closed under addition and
+  multiplication.  In practice, while deciding if some set \( R \)
+  forms a ring, we should always verify that the addition and
+  multiplication operations indeed have \( R \) as the codomain to
+  confirm that the closure property holds.
+</p>
+<h2 id="inverse-of-inverse">Inverse of Inverse<a href="#inverse-of-inverse"></a></h2>
+<p id="theorem-1">
+  <strong>Theorem 1.</strong>
+  <em>
+    Let \( R \) be a ring with \( + \) and \( \cdot \) operations.
+    Then for all \( a \in R, \) we have
+
+    \[
+      -(-a) = a.
+    \]
+  </em>
+</p>
+<p>
+  <em>Proof.</em> This result follows directly from the additive
+  inverse axiom.  First, observe that
+
+  \[
+    a + (-a) = 0.
+  \]
+
+  Therefore \( a \) is an additive inverse of \( -a, \) i.e.
+
+  \[
+    -(-a) = a.
+  \]
+
+  This completes the proof.
+</p>
+<p>
+  Notice that this proof does not involve the multiplication operation
+  of a ring at all.  In fact, it holds true in a more general
+  algebraic structure known as a <em>group</em>, which requires only a
+  binary operation with associativity, an identity element and
+  inverses.  A ring, under addition, is also a group.  Since the proof
+  relies solely on these additive group properties, this theorem holds
+  for all groups.  However, for brevity and to avoid introducing group
+  axioms separately, I have stated and proved this theorem in the
+  context of rings.
+</p>
+<p>
+  It is also worth noting that the additive identity is unique in a
+  ring (as well as in any group), but since this fact is not needed
+  for later results, its proof has been omitted.  Even if,
+  hypothetically, there were two distinct additive identities, \( 0 \)
+  and \( 0', \) in a ring (there are not, of course), the arguments
+  below would still hold if we simply focus on \( 0.  \)
+</p>
+<h2 id="multiplication-by-zero">Multiplication by Zero<a href="#multiplication-by-zero"></a></h2>
+<p id="theorem-2">
+  <strong>Theorem 2.</strong>
+  <em>
+    Let \( R \) be a ring with \( + \) and \( \cdot \) operations.  Then
+    for all \( a \in R, \) we have
+
+    \[
+      a \cdot 0 = 0 \cdot a = 0.
+    \]
+  </em>
+</p>
+<p>
+  <em>Proof.</em> Using the additive identity axiom, we get
+
+  \[
+    0 + 0 = 0.
+  \]
+
+  Multiplying both sides on the left by \( a, \) we get
+
+  \[
+    a \cdot (0 + 0) = a \cdot 0.
+  \]
+
+  Using the left distributivity axiom, we get
+
+  \[
+    a \cdot 0 + a \cdot 0 = a \cdot 0.
+  \]
+
+  Let \( b = a \cdot 0.  \)  Then
+
+  \[
+    b + b = b.
+  \]
+
+  Since a ring is closed under multiplication, \( b \in R.  \)  By the
+  additive inverse axiom, there exists \( -b \in R \) such that \( b +
+  (-b) = 0.  \)  Adding \( -b \) to both sides of the above equation,
+  we get
+
+  \[
+    (b + b) + (-b) = b + (-b).
+  \]
+
+  By associativity of addition in a ring, we get
+
+  \[
+    b + (b + (-b)) = b + (-b).
+  \]
+
+  Since \( b + (-b) = 0, \) the above equation becomes
+
+  \[
+    b + 0 = 0.
+  \]
+
+  By the additive identity axiom, we get
+
+  \[
+    b = 0.
+  \]
+
+  Since \( b = a \cdot 0, \) the above equation may be written as
+
+  \[
+    a \cdot 0 = 0.
+  \]
+
+  A similar argument shows that
+
+  \[
+    0 \cdot a = 0.
+  \]
+
+  This completes the proof.
+</p>
+<h2 id="multiplication-by-additive-inverse">Multiplication by Additive Inverse<a href="#multiplication-by-additive-inverse"></a></h2>
+<p id="theorem-3">
+  <strong>Theorem 3.</strong>
+  <em>
+    Let \( R \) be a ring with \( + \) and \( \cdot \) operations.
+    Then for all \( a, b \in R, \) we have
+
+    \begin{align*}
+      a \cdot (-b) &amp;= -(a \cdot b), \\
+      (-a) \cdot b &amp;= -(a \cdot b).
+    \end{align*}
+    </em>
+</p>
+<p>
+  <em>Proof.</em> Using the left distributivity and additive inverse
+  properties of a ring along with <a href="#theorem-2">Theorem 2</a>,
+  we get
+
+  \[
+    a \cdot b + a \cdot (-b)
+    = a \cdot (b + (-b))
+    = a \cdot 0
+    = 0.
+  \]
+
+  Therefore \( a \cdot (-b) \) is an additive inverse of \( a \cdot b
+ , \) i.e.
+
+  \[
+    -(a \cdot b) = a \cdot (-b).
+  \]
+
+  Similarly
+
+  \[
+    a \cdot b + (-a) \cdot b
+    = (a + (-a)) \cdot b
+    = 0 \cdot b
+    = 0
+  \]
+
+  and thus
+
+  \[
+    -(a \cdot b) = (-a) \cdot b.
+  \]
+
+  This completes the proof.
+</p>
+<h2 id="product-of-additive-inverses">Product of Additive Inverses<a href="#product-of-additive-inverses"></a></h2>
+<p>
+  <strong>Theorem 4.</strong>
+  <em>
+    Let \( R \) be a ring with \( + \) and \( \cdot \) operations.  Then
+    for all \( a, b \in R, \) we have
+
+    \[
+      (-a) \cdot (-b) = a \cdot b.
+    \]
+  </em>
+</p>
+<p>
+  <em>Proof.</em>
+  From <a href="#theorem-3">Theorem 3</a>, we know that
+
+  \[
+    a \cdot (-b) = -(a \cdot b).
+  \]
+
+  Substituting \( a \) with \( -a, \) we get
+
+  \[
+    (-a) \cdot (-b) = -((-a) \cdot b).
+  \]
+
+  Again by <a href="#theorem-3">Theorem 3</a>, we have \( (-a) \cdot b
+  = -(a \cdot b).  \)  Substituting this in the above equation, we
+  obtain
+
+  \[
+    (-a) \cdot (-b) = -(-(a \cdot b)).
+  \]
+
+  Now using <a href="#theorem-1">Theorem 1</a>, the right-hand side
+  becomes \( a \cdot b, \) so we get
+
+  \[
+    (-a) \cdot (-b) = a \cdot b.
+  \]
+
+  This completes the proof.
+</p>
+<h2 id="alternate-proof">Alternate Proof<a href="#alternate-proof"></a></h2>
+<p>
+  The above sequence of theorems is not the only way to arrive
+  at <a href="#theorem-4">Theorem 4</a>.  There are other ways to
+  reach this result as well.  Let us briefly discuss another such
+  proof.  From <a href="#theorem-3">Theorem 3</a> we know that \( a
+  \cdot b \) is the additive inverse of \( a \cdot (-b).  \)  In a very
+  similar way, we can show that \( (-a) \cdot (-b) \) is also the
+  additive inverse of \( a \cdot (-b).  \)  The proof goes as follows:
+
+  \[
+    (-a) \cdot (-b) + a \cdot (-b)
+    = (-a + a) \cdot (-b)
+    = 0 \cdot (-b)
+    = 0.
+  \]
+
+  Note that we used <a href="#theorem-2">Theorem 2</a> again for the
+  last equality.  So now we know that both \( (-a) \cdot (-b) \) and
+  \( a \cdot b \) are additive inverses of \( a \cdot (-b).  \)  Does
+  this mean that \( (-a) \cdot (-b) = a \cdot b?  \)  Yes, since the
+  additive inverse of an element is unique in a ring.  Let us prove
+  this now.
+
+  Let \( b \) and \( c \) be additive inverses of \( a.  \)  Then \( a
+  + b = b + a = 0 \) and \( a + c = c + a = 0.  \)  Using this, we get
+
+  \[
+    b = b + 0 = b + (a + c) = (b + a) + c = 0 + c = c.
+  \]
+
+  Since \( (-a) \cdot (-b) \) and \( a \cdot b \) are additive
+  inverses of the same element \(a \cdot (-b) \) and since the
+  additive inverse of an element is unique in a ring, it follows that
+
+  \[
+    (-a) \cdot (-b) = a \cdot b.
+  \]
+
+  Note that we do not need <a href="#theorem-1">Theorem 1</a> in this
+  alternate proof but we introduced a new theorem about the uniqueness
+  of the additive inverse to complete this proof.
+</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  Theorems 1 to 4 establish certain algebraic properties that hold in
+  any ring.  Although these results were proven abstractly for rings,
+  they reflect properties we are already familiar with from our
+  experience with numbers.  For example, in the ring of integers, we
+  observe \( -(-2) = 2 \) which is a specific case
+  of <a href="#theorem-1">Theorem 1</a>.
+</p>
+<p>
+  Similarly, <a href="#theorem-2">Theorem 2</a> confirms the
+  well-known fact that multiplying any integer by \( 0 \) yields
+  \( 0.  \)  For example, \( 2 \cdot 0 = 0.  \)
+</p>
+<p>
+  Then <a href="#theorem-3">Theorem 3</a> implies the rule that
+  multiplying a positive number by a negative number yields a negative
+  result.  For example, \( 2 \cdot (-3) = -(2 \cdot 3) = -6.  \)
+</p>
+<p>
+  Finally, <a href="#theorem-4">Theorem 4</a> implies that the product
+  of two negative numbers is positive.  For example, \( (-2) \cdot
+  (-3) = 2 \cdot 3 = 6.  \)
+</p>
+<p>
+  These familiar results are not limited to the ring of integers.  The
+  results hold in any ring, including polynomial rings, rings of
+  integers modulo a fixed positive integer and many other algebraic
+  systems.  These results demonstrate how the ring axioms formalise
+  familiar arithmetic rules within a more general algebraic framework.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/product-of-additive-inverses.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Two Ideals of Fields</title>
+<link>https://susam.net/two-ideals-of-fields.html</link>
+<guid isPermaLink="false">xsuzd</guid>
+<pubDate>Tue, 27 May 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A field has exactly two ideals: the zero ideal, which contains only
+  the additive identity and the whole field itself.  These are known
+  as trivial ideals.  Further if a commutative ring, with distinct
+  additive and multiplicative identities, has no ideals other than the
+  trivial ones, then it must be a field.  These two facts are elegant
+  in their symmetry and simplicity.  In this article, we will explore
+  why these facts are true.  Familiarity with algebraic structures
+  such as groups, rings and fields is assumed.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#definition-of-ideals">Definition of Ideals</a></li>
+  <li><a href="#examples-of-ideals">Examples of Ideals</a></li>
+  <li><a href="#known-results">Known Results</a></li>
+  <li><a href="#ideals-of-fields">Ideals of Fields</a></li>
+  <li><a href="#rings-with-trivial-ideals">Rings With Trivial Ideals</a></li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h2 id="definition-of-ideals">Definition of Ideals<a href="#definition-of-ideals"></a></h2>
+<p>
+  A left ideal of a ring \( R \) is a subset \( I \subseteq R \) such
+  that \( I \) is an additive subgroup of \( R \) and for all \( a \in
+  I \) and \( r \in R, \) we have \( r \cdot a \in I.  \)  We say that
+  a left ideal absorbs multiplication from the left by any ring
+  element; or equivalently, that it is closed under left
+  multiplication by any ring element.
+</p>
+<p>
+  Similarly, a right ideal of a ring \( R \) is a subset \( I
+  \subseteq R \) such that \( I \) is an additive subgroup of \( R \)
+  and for all \( a \in I \) and \( r \in R, \) we have \( a \cdot r
+  \in I.  \)  We say that a right ideal absorbs multiplication from the
+  right by any ring element; or equivalently, that it is closed under
+  right multiplication by any ring element.
+</p>
+<p>
+  In a commutative ring \( R, \) every left ideal is also a right
+  ideal and vice versa.  This is because for all \( a \in I \) and \(
+  r \in R, \) we have \( r \cdot a = a \cdot r.  \)  Therefore, when
+  working with commutative rings, we do not need to distinguish
+  between left and right ideals and we simply refer to them as ideals.
+  In this case, the ideal is said to absorb multiplication by any ring
+  element; or equivalently, it is said to be closed under
+  multiplication by any ring element.
+</p>
+<h2 id="examples-of-ideals">Examples of Ideals<a href="#examples-of-ideals"></a></h2>
+<p>
+  Consider the set of even integers
+
+  \[
+    \langle 2 \rangle = \{ 2n : n \in \mathbb{Z} \}.
+  \]
+
+  This is an ideal of \( \mathbb{Z}.  \)  Indeed, if we multiply any
+  even integer by any integer, the result is an even integer.  In
+  other words, the set of even integers absorbs multiplication by any
+  integer.  Equivalently, the set of even integers is closed under
+  multiplication by any integer.
+</p>
+<p>
+  Let us see another example.  Consider the ring of polynomials in the
+  indeterminate \( t \) with integer coefficients, denoted \(
+  \mathbb{Z}[t].  \)  The set
+
+  \[
+    \langle 2, t \rangle = \{ 2f + tg : f, g \in \mathbb{Z}[t] \}
+  \]
+
+  is an ideal of \( \mathbb{Z}[t].  \)  Every element of this ideal is
+  a linear combination of \( 2 \) and \( t \) with polynomial
+  coefficients.  If we take any element \( 2f + tg \in \langle 2, t
+  \rangle \) where \( f, g \in \mathbb{Z}[t] \) and multiply it by any
+  polynomial \( h \in \mathbb{Z}[t], \) we obtain \( 2fh + tgh, \)
+  which is again an element of \( \langle 2, t \rangle.  \)  Hence \(
+  \langle 2, t \rangle \) absorbs multiplication by any element of \(
+  \mathbb{Z}[t], \) i.e. it is closed under multiplication by elements
+  of \( \mathbb{Z}[t].  \)
+</p>
+<h2 id="known-results">Known Results<a href="#known-results"></a></h2>
+<p>
+  For the sake of brevity, we assume the following standard results.
+</p>
+<p id="zero-multiplication">
+  <strong>Proposition 1.</strong>
+  <em>
+    Let \( R \) be a ring.  Then, for all \( a \in R, \) we have
+
+    \[
+      a \cdot 0 = 0 \cdot a = 0.
+    \]
+  </em>
+</p>
+<p id="principal-ideal">
+  <strong>Proposition 2.</strong>
+  <em>
+    Let \( R \) be a ring and let \( a \in R.  \)  Then
+
+    \begin{align*}
+      I_L &amp;= \{ r \cdot a : r \in R \}, \\
+      I_R &amp;= \{ a \cdot r : r \in R \}
+    \end{align*}
+
+    are respectively a left ideal and a right ideal of \( R.  \)  If \(
+    R \) is commutative, then \( I_L = I_R \) and we write
+
+    \[
+      \langle a \rangle = \{ a \cdot r : r \in R \}
+    \]
+
+    and say that \( \langle a \rangle \) is an ideal of \( R \)
+    generated by \( a.  \)
+  </em>
+</p>
+<h2 id="ideals-of-fields">Ideals of Fields<a href="#ideals-of-fields"></a></h2>
+<p>
+  In this section, we show that a field \( K \) has only two ideals:
+  \( \{ 0 \} \) and \( K \) itself.
+</p>
+<p>
+  Clearly \( \{ 0 \} \) is an ideal of \( K, \) as it satisfies the
+  definition of an ideal.  It is the trivial additive subgroup of \(
+  K \) and by <a href="#zero-multiplication">Proposition 1</a>, for
+  all \( r \in K, \) we have \( r \cdot 0 = 0 \in \{ 0 \}.  \)
+</p>
+<p>
+  Now \( K \) is also an ideal of itself.  Since \( K \) is an additive
+  group by the definition of a field, it is an additive subgroup of
+  itself.  Moreover, as a field, \( K \) is closed under
+  multiplication, so for all \( a, r \in K \) we have \( a \cdot r \in
+  K.  \)
+</p>
+<p>
+  We will now show that \( \{ 0 \} \) and \( K \) are
+  the <em>only</em> ideals of \( K.  \)  Let \( I \) be an ideal of \(
+  K.  \)  There are two cases to consider: \( I = \{ 0 \} \) and \( I
+  \ne \{ 0 \}.  \)  Suppose \( I \ne \{ 0 \}.  \)  Then there exists a
+  non-zero element \( b \in I.  \)  Since \( b \ne 0 \) and \( K \) is
+  a field, \( b \) has a multiplicative inverse \( b^{-1} \in K.  \)
+  Since \( b \in I, \) \( b^{-1} \in K \) and \( I \) is closed under
+  multiplication by any element of \( K, \) we have
+
+  \[
+    1 = b \cdot b^{-1} \in I.
+  \]
+
+  Now, let \( c \in K.  \)  Since \( 1 \in I, \) \( c \in K \) and \(
+  I \) is an ideal of \( K, \) we get
+
+  \[
+    c = 1 \cdot c \in I.
+  \]
+
+  Thus \( K \subseteq I \) and since \( I \subseteq K \) by
+  definition, we conclude \( I = K.  \)  Therefore the only ideals of
+  \( K \) are \( \{ 0 \} \) and \( K \) itself.
+</p>
+<h2 id="rings-with-trivial-ideals">Rings With Trivial Ideals<a href="#rings-with-trivial-ideals"></a></h2>
+<p>
+  We now show that if \( R \) is a commutative ring with \( 1 \ne 0 \)
+  and the only ideals of \( R \) are \( \{ 0 \} \) and \( R \) itself,
+  then \( R \) must be a field.  To do this, we first show that every
+  non-zero element of \( R \) has a multiplicative inverse in \( R.  \)
+  Let \( a \in R \) with \( a \ne 0.  \)  We now show that there exists
+  a multiplicative inverse \( a^{-1} \in R.  \)
+  By <a href="#principal-ideal">Proposition 2</a>, the set
+
+  \[
+    \langle a \rangle = \{ a \cdot r : r \in R \}.
+  \]
+
+  is an ideal of \( R.  \)  Since \( a = a \cdot 1 \in \langle a
+  \rangle, \) we have \( \langle a \rangle \ne \{ 0 \}.  \)  By
+  assumption, the only ideals of \( R \) are \( \{ 0 \} \) and
+  \( R, \) so it must be that \( \langle a \rangle = R.  \)  Therefore
+  \( 1 \in \langle a \rangle \) and
+
+  \[
+    1 = a \cdot s
+  \]
+
+  for some \( s \in R.  \)  Thus \( a \) has a multiplicative inverse
+  \( s \in R \) and this holds for every non-zero \( a \in R.  \)
+</p>
+<p>
+  The remaining properties of fields, namely, associativity and
+  commutativity of addition and multiplication, the existence of
+  distinct additive and multiplicative identities, the existence of
+  additive inverses and the distributivity of multiplication over
+  addition, are inherited from the ring \( R.  \)  Therefore \( R \) is
+  a field.
+</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  To summarise, any commutative ring with distinct additive and
+  multiplicative identities that has only trivial ideals is a field
+  and every field has only trivial ideals.
+</p>
+<p>
+  Note that every field is also a commutative ring with distinct
+  additive and multiplicative identities.  Therefore, we can say that
+  every field is a commutative ring with distinct additive and
+  multiplicative identities and only trivial ideals and vice versa.
+  It is neat how the two facts align so nicely.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/two-ideals-of-fields.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>From Finite Integral Domains to Finite Fields</title>
+<link>https://susam.net/from-finite-integral-domains-to-finite-fields.html</link>
+<guid isPermaLink="false">ojxkk</guid>
+<pubDate>Sun, 25 May 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  In this article, we explore a few well-known results from abstract
+  algebra pertaining to fields and integral domains.  We ask ourselves
+  whether every field is an integral domain and whether every integral
+  domain is a field.  We begin with the definition of an integral
+  domain, discuss a few established results and then proceed to answer
+  these questions.  Familiarity with algebraic structures such as
+  rings and fields is assumed.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#definition-of-integral-domain">Definition of Integral Domain</a></li>
+  <li><a href="#examples-of-integral-domain">Examples of Integral Domains</a></li>
+  <li><a href="#known-results">Known Results</a></li>
+  <li><a href="#on-distinct-identities">On Distinct Identities</a></li>
+  <li><a href="#every-field-is-an-integral-domain">Every Field Is an Integral Domain</a></li>
+  <li><a href="#infinite-integral-domains">Infinite Integral Domains</a></li>
+  <li><a href="#every-finite-integral-domain-is-a-field">Every Finite Integral Domain Is a Field</a>
+    <ul>
+      <li><a href="#alternate-proof">Alternate Proof</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h2 id="definition-of-integral-domain">Definition of Integral Domain<a href="#definition-of-integral-domain"></a></h2>
+<p>
+  An <em>integral domain</em> is a commutative ring, with distinct
+  additive and multiplicative identities, in which the product of any
+  two non-zero elements is also non-zero.
+</p>
+<p>
+  Equivalently, an integral domain is a commutative ring, with
+  distinct additive and multiplicative identities, such that if the
+  product of two elements is zero, then one of the elements must be
+  zero.
+</p>
+<p>
+  Using standard notation, we can write that a commutative ring
+  \( R \) is an integral domain if \( 0 \ne 1 \) and for
+  \( a, b \in R, \)
+
+  \[
+    a \ne 0 \text{ and } b \ne 0 \implies a \cdot b \ne 0
+  \]
+
+  or equivalently,
+
+  \[
+    a \cdot b = 0 \implies a = 0 \text{ or } b = 0.
+  \]
+
+  There are many other alternative ways to define an integral domain
+  which are all equivalent.  In a ring \( R, \) a <em>zero
+  divisor</em> is a non-zero element \( a \in R \) such that there
+  exists a non-zero element \( b \in R \) with \( ab = 0.  \)  With
+  this definition of a zero divisor, we can define an integral domain
+  to be a unital commutative ring, with \( 0 \ne 1, \) that has no
+  zero divisors.
+</p>
+<h2 id="examples-of-integral-domain">Examples of Integral Domains<a href="#examples-of-integral-domain"></a></h2>
+<p>
+  The ring of integers \( \mathbb{Z} \) is an integral domain since
+  the product of two non-zero integers is non-zero.  The field of
+  rational numbers \( \mathbb{Q} \) is also an integral domain.  The
+  ring of polynomials in the indeterminate \( t \) with coefficients
+  in an integral domain \( R, \) denoted \( R[t], \) is an integral
+  domain as well.
+</p>
+<p>
+  The ring of integers modulo 5, denoted \( \mathbb{Z}_5 \) is an
+  integral domain.  However, the ring of integers modulo 6, denoted \(
+  \mathbb{Z}_6, \) is not an integral domain since \( 2 \cdot 3 = 0 \)
+  in \( \mathbb{Z}_6.  \)  In other words, \( \mathbb{Z}_6 \) has zero
+  divisors, namely \( 2 \) and \( 3, \) so it is not an integral
+  domain.  In fact, the ring of integers modulo \( n, \) denoted \(
+  \mathbb{Z}_n \) is an integral domain if and only if \( n \) is
+  prime.
+</p>
+<h2 id="known-results">Known Results<a href="#known-results"></a></h2>
+<p>
+  For the sake of brevity, we assume the following known results.
+</p>
+<p id="zero-multiplication">
+  <strong>Proposition 1.</strong>
+  <em>
+    Let \( R \) be a ring.  Then, for all \( a \in R, \) we have
+
+    \[
+      a \cdot 0 = 0 \cdot a = 0.
+    \]
+  </em>
+</p>
+<p id="cancellation-property">
+  <strong>Proposition 2.</strong>
+  <em>
+    Let \( D \) be an integral domain.  Then, for all \( a, b, c \in D \) such
+    that \( a \ne 0, \) we have
+
+    \[
+      a \cdot b = a \cdot c \implies b = c.
+    \]
+  </em>
+</p>
+<p>
+  The second result is also known as the <em>cancellation property of
+  integral domains</em>.
+</p>
+<h2 id="on-distinct-identities">On Distinct Identities<a href="#on-distinct-identities"></a></h2>
+<p>
+  We have been mentioning the distinctiveness of the additive and
+  multiplicative identities as a property of an integral domain.  Some
+  texts express this more concisely by saying that an integral domain
+  is a <em>non-zero</em> unital commutative ring without zero
+  divisors, i.e. the zero ring \( \{ 0 \} \) is excluded from the
+  definition.
+</p>
+<p>
+  This follows directly from
+  <a href="#zero-multiplication">Proposition 1</a>.  If
+  \( 0 = 1 \in R, \) then for all \( r \in R, \) we get
+
+  \[
+    r = r \cdot 1 = r \cdot 0 = 0
+  \]
+
+  which means that every element of \( R \) is zero, i.e. \( R = \{ 0
+  \}.  \)  To summarise
+
+  \[
+    0 = 1 \in R \implies R = \{ 0 \}
+  \]
+
+  or equivalently, for a ring \( R \) with unity,
+
+  \[
+    R \ne \{ 0 \} \implies 0 \ne 1.
+  \]
+
+  Further, if \( 0 \) and \( 1 \) are two distinct elements of
+  \( R, \) then \( R \) has at least two elements, so for a ring
+  \( R \) with unity,
+
+  \[
+    0 \ne 1 \implies R \ne \{ 0 \}
+  \]
+
+  Therefore, a ring with unity has distinct additive and
+  multiplicative identities if and only if it is a non-zero ring.  This
+  is why an integral domain can also be defined as a non-zero unital
+  commutative ring without zero divisors.
+</p>
+<h2 id="every-field-is-an-integral-domain">Every Field Is an Integral Domain<a href="#every-field-is-an-integral-domain"></a></h2>
+<p>
+  We now show that every field is indeed an integral domain.  Let
+  \(F \) be a field and let \( a, b \in F \) such that \( ab = 0.  \)
+  There are two cases to consider: \( a = 0 \) and \( a \ne 0.  \)  If
+  \( a = 0, \) we are done.
+</p>
+<p>
+  Now suppose \( a \ne 0.  \)  Then by the properties of fields, there exists a
+  multiplicative inverse \( a^{-1} \in F \) such that \( a \cdot
+  a^{-1} = 1.  \)  Then using the properties of fields, we get
+
+  \[
+    b = b \cdot 1 = b \cdot (a \cdot a^{-1}) = (a \cdot b) \cdot
+    a^{-1} = 0 \cdot a^{-1} = 0.
+  \]
+
+  The last equality follows from
+  <a href="#zero-multiplication">Proposition 1</a>.  We have shown
+  that if \( ab = 0, \) then either \( a = 0 \) or \( b = 0.  \)
+  Therefore, if both \( a \ne 0 \) and \( b \ne 0, \) then it must be
+  that \( ab \ne 0.  \)  Therefore \( F \) is an integral domain.
+</p>
+<h2 id="infinite-integral-domains">Infinite Integral Domains<a href="#infinite-integral-domains"></a></h2>
+<p>
+  Now we arrive at the next natural question.  Is every integral
+  domain a field?
+</p>
+<p>
+  The ring of integers \( \mathbb{Z} \) is an integral domain but it
+  is not a field since \( 2 \in \mathbb{Z}, \) but \( 2^{-1} \notin
+  \mathbb{Z}.  \)  Therefore, \( \mathbb{Z} \) is an example of an
+  infinite integral domain that is not a field.
+</p>
+<p>
+  Next we ask ourselves: Is every infinite integral domain not a
+  field?  Not quite!  Some infinite integral domains are, in fact,
+  fields.  This follows directly from the result in the previous
+  section.  Every field is an integral domain and there are plenty of
+  infinite fields, so they must all be integral domains too.  Consider
+  the field of rational numbers \( \mathbb{Q} \) or the field of
+  complex numbers \( \mathbb{C}.  \)  Since these are fields, they are
+  also integral domains.  So, clearly, there are infinite integral
+  domains that are also fields.
+</p>
+<h2 id="every-finite-integral-domain-is-a-field">Every Finite Integral Domain Is a Field<a href="#every-finite-integral-domain-is-a-field"></a></h2>
+<p>
+  We will now turn our attention to finite integral domains.  Is every
+  finite integral domain a field?  Yes!  This can be shown as follows.
+</p>
+<p>
+  Let \( D \) be a finite integral domain.  Let \( a \in D \) with \(
+  a \ne 0.  \)  Consider the set
+
+  \[
+    A = \{ a, a^2, a^3, \dots \}.
+  \]
+
+  Since a ring is closed under multiplication, every element of
+  \( A \) belongs to \( D, \) so \( A \subseteq D.  \)  Since \( D \)
+  is finite, \( A \) is finite too.  Therefore, by the pigeonhole
+  principle, there exist integers \( m \gt n \ge 0 \) such that
+
+  \[
+    a^m = a^n
+  \]
+
+  This equation can be rewritten as
+
+  \[
+    a \cdot a^{m - n - 1} \cdot a^n = 1 \cdot a^n.
+  \]
+
+  Since \( a \) is a non-zero element of an integral domain, it
+  follows that \( a^n \ne 0.  \)  Therefore we can use
+  <a href="#cancellation-property">Proposition 2</a> (the cancellation
+  property of integral domains) to get
+
+  \[
+    a \cdot a^{m - n - 1} = 1.
+  \]
+
+  Since a ring is closed under multiplication and since \( m - n - 1
+  \ge 0, \) it follows that \( a^{m - n - 1} \in D.  \)  Thus every
+  non-zero element \( a \in D \) has a multiplicative inverse in
+  \( D.  \)  This establishes the multiplicative inverse property of a
+  field.
+</p>
+<p>
+  Since an integral domain has distinct additive and multiplicative
+  identities, it satisfies two additional field properties: the
+  existence of an additive identity and a distinct multiplicative
+  identity.
+</p>
+<p>
+  Finally, the remaining field properties are inherited from the ring
+  structure, i.e. associativity and commutativity of addition and
+  multiplication, the existence of additive inverses and the
+  distributivity of multiplication over addition all hold in \( D, \)
+  since they hold in any ring.  Thus, \( D \) satisfies all the field
+  properties.  Therefore \( D \) is a field.
+</p>
+<h3 id="alternate-proof">Alternate Proof<a href="#alternate-proof"></a></h3>
+<p>
+  The proof in the previous section presents what I initially came up
+  with while working through these concepts and proving these results
+  for myself.  However, I later found that there is another proof that
+  is quite popular in the literature.  This alternate proof differs in
+  one key aspect: it does not invoke the cancellation property of
+  integral domains stated in
+  <a href="#cancellation-property">Proposition 2</a>.  Let us examine
+  this alternate proof.
+</p>
+<p>
+  As before, we consider the set \( A = \{ a, a^2, a^3, \dots \}
+  \subseteq D, \) where \( a \in D \) and \( a \ne 0 \) and we obtain
+  the equation
+
+  \[
+    a^m = a^n
+  \]
+
+  for some integers \( m \gt n \ge 0.  \)  As before, we use the fact
+  that \( a \) is an element of an integral domain to conclude that \(
+  a^n \ne 0.  \)  Now adding the additive inverse of \( a^n \) to both
+  sides we get
+
+  \[
+    a^m - a^n = 0.
+  \]
+
+  Using the distributivity property of rings, we get
+
+  \[
+    a^n (a^{m - n} - 1) = 0
+  \]
+
+  Since a ring is closed under addition and multiplication, both \(
+  a^n \) and \( a^{m - n} - 1 \) belong to \( D.  \)  As \( D \) is an
+  integral domain and \( a^n \ne 0, \) we conclude that \( a^{m - n} -
+  1 = 0.  \)  Therefore \( a^{m - n} = 1.  \)  Since \( m - n \ge 1, \)
+  we can write:
+
+  \[
+    a \cdot a^{m - n - 1} = 1.
+  \]
+
+  Therefore every non-zero element \( a \in D \) has a multiplicative
+  inverse in \( D.  \)  The remaining properties of a field are
+  established in the same manner as in the previous section.  Hence,
+  if \( D \) is a finite integral domain, then it is also a field.
+</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  We now summarise all the results here before concluding the article:
+</p>
+<ul>
+  <li>
+    Every field is an integral domain.
+  </li>
+  <li>
+    Every <em>finite</em> integral domain is a field.
+  </li>
+  <li>
+    Some infinite integral domains are not fields.  A convenient
+    example is the set of integers \( \mathbb{Z}.  \)
+  </li>
+  <li>
+    Some infinite integral domains are fields.  Every infinite field,
+    such as \( \mathbb{Q}, \) \( \mathbb{R} \) or \( \mathbb{C} \) is
+    an example.
+  </li>
+</ul>
+<p>
+  It is worth reiterating here that the fourth result in the summary
+  above follows from the fact that every field is an integral domain.
+  These results reveal how structure and size interact in algebraic
+  systems.  It is interesting how simply being finite guarantees that
+  an integral domain is a field.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/from-finite-integral-domains-to-finite-fields.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>ASCII PC</title>
+<link>https://susam.net/pc.html</link>
+<guid isPermaLink="false">mpqts</guid>
+<pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  An ASCII art depiction of a PC resting on a computer case, with a
+  classic Model M keyboard placed in front.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/pc.html">Read on website</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Elliptical Python Programming</title>
+<link>https://susam.net/elliptical-python-programming.html</link>
+<guid isPermaLink="false">tmdms</guid>
+<pubDate>Thu, 10 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  One thing I love about Python is how it comes with its very own
+  built-in zen.  In moments of tribulations, when I am wrestling with
+  crooked code and tangled thoughts, I often find solace in its
+  timeless wisdom.  Here's a glimpse of the clarity it provides:
+</p>
+<pre>
+<samp>$ <kbd>python3 -m this | grep e-</kbd>
+There should be one-- and preferably only one --obvious way to do it.</samp>
+</pre>
+<p>
+  Indeed, there is one and only one <em>obvious</em> way to write the
+  number 1 in Python, like so:
+</p>
+<pre><samp>&gt;&gt;&gt; <kbd>--(...==...)</kbd>
+1</samp></pre>
+<p>
+  You may, quite naturally, place several ones adjacently to produce
+  larger integers:
+</p>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>--(...==...)--(...==...)</kbd>
+2</samp>
+</pre>
+<p>
+  And so on ad infinitum or until your heap collapses like a poorly
+  made souffl&eacute;.  Now, the "pre-decrement operator" at the
+  beginning is entirely optional, much like the plus sign when you
+  write "+5 biscuits" in a letter to your grandmother.  It's not
+  wrong, but it is unnecessary.  So unless you want to look peculiar
+  to your colleagues, you would likely want to adopt a more
+  conventional style, such as this:
+</p>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>(...==...)--(...==...)--(...==...)</kbd>
+3</samp>
+</pre>
+<p>
+  Now, all computer programs are, in some sense, just a long, earnest
+  stream of bits.  It is currently fashionable to bundle these bits
+  into groups of eight and write them as integers.  Following this
+  trend, we can compute absolutely anything that is computable as long
+  as we know exactly what integers to write.  Now, I wouldn't want to
+  bore you with the finer details of computer science, not in this day
+  and age, fascinating as they may be.  I trust you are quite capable
+  of drawing the rest of the f... well, <em>feathered</em>, nocturnal
+  bird.  Once you've grasped the basics, a typical first Python
+  program might look something like this:
+</p>
+<pre class="wrap"><code>exec('%c'*((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))%(((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)),((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))--((...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))--((...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))--(...==...),*(((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...)),)*((...==...)--(...==...)),((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)),((...==...)--(...==...))**((...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))--((...==...)--(...==...)--(...==...)),((...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))--(...==...)))</code></pre>
+<p>
+  Now you might be wondering if this is <em>really</em> the way one
+  ought to write production Python code.  Isn't it too much trouble to
+  type those dots over and over again?  Not if you remap your
+  <kbd>tab</kbd> key to type three dots, of course.  But I understand
+  not everyone likes to remap their keys like this.  In particular,
+  there exists a peculiar species of mammal known to remap their
+  <kbd>tab</kbd> key to parentheses.  They claim it leads to
+  enlightenment.  Such enlightened living forms may find the following
+  program more convenient to type:
+</p>
+<pre class="wrap"><code>exec('%c'*((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))%(((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())),((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==()))**((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))--((()==())--(()==())),((()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())--(()==())--(()==())),((()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))--((()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))--((()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))--(()==()),*(((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==()))**((()==())--(()==())--(()==())),)*((()==())--(()==())),((()==())--(()==())--(()==()))**((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))--((()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())),((()==())--(()==()))**((()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==()))**((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))--((()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==()))**((()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==())),((()==())--(()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))--((()==())--(()==())--(()==())),((()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))--(()==())))</code></pre>
+<p>
+  This program is functionally equivalent to the earlier one.  But
+  Python isn't meant for enlightenment.  It's meant for getting things
+  done.  And to get things done, code should be readable, maintainable
+  and ideally not resemble an ancient summoning ritual.  That's why I
+  personally prefer the earlier style, the one with the ellipses.  It
+  gracefully avoids the disconcerting void that lurks within the
+  parentheses.  After all, programs must be written for people to read
+  and only incidentally for machines to execute.
+</p>
+<p>
+  Finally, I must emphasise that you should never deploy code like
+  this in production.  If you plan to write code like this for your
+  production CGI scripts, I implore you to add some ellipses for
+  logging.  When dung inevitably collides with the fan, you'll be
+  immensely glad you scattered some useful logs amidst the ellipses
+  that hold together your business logic.  With that small piece of
+  unsolicited advice, I'll end this brief distraction from scrolling
+  through endless arguments on Internet forums.  Happy coding and may
+  your parentheses stay balanced (and may your ellipses be the
+  punctuation that ...
+  <!-- ).  Now, I can sleep peacefully!  -->
+</p>
+<!--
+  For the enlightened folks who are offended by the penultimate
+  paragraph, lighten up!  I am no stranger to the fine art of nested
+  parentheses.  This very blog is crafted with an abundance of them,
+  all forged through the mighty steel and bank machinery.
+-->
+<!-- ### -->
+<p>
+  <a href="https://susam.net/elliptical-python-programming.html">Read on website</a> |
+  <a href="https://susam.net/tag/python.html">#python</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/humour.html">#humour</a>
+</p>
+]]>
+</description>
+</item>
+
+
+</channel>
+</rss>
