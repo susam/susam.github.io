@@ -1,0 +1,2342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's DOS Pages</title>
+<link>https://susam.net/tag/dos.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/dos.xml"/>
+<description>Feed for Susam's DOS Pages</description>
+
+<item>
+<title>Good Quality DOSBox Video Capture</title>
+<link>https://susam.net/good-quality-dosbox-video-capture.html</link>
+<guid isPermaLink="false">dyzhs</guid>
+<pubDate>Tue, 01 Sep 2020 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h2 id="vintage-dos-programs">Vintage DOS Programs<a href="#vintage-dos-programs"></a></h2>
+<p>
+  Once in a while, I fire up one of the vintage DOS games or language
+  interpreters in DOSBox for nostalgia's sake.  DOSBox is an emulator
+  program that emulates IBM PC compatible computers running DOS.
+  Trying my hands on these antiquated DOS programs now evokes old
+  memories from my childhood days days when I first came across
+  computers as part of our primary school curriculum.
+</p>
+<p>
+  Computers were much simpler in those days.  The ones in our school
+  were IBM PC compatible computers with mostly monochrome displays.  A
+  couple of them had support for a very limited number of colours
+  provided by CGA or EGA graphics cards.  The ability to boot a
+  computer using a 5&frac14;-inch floppy disk containing MS-DOS, load
+  a Logo or BASIC interpreter or a computer game from another floppy
+  disk and then write some programs or play a few games without any
+  distraction had its own charm that I find missing from modern day
+  computing.
+</p>
+<p>
+  Often while using old DOS programs with DOSBox in this day and age,
+  I want to take screenshot captures or video captures of the DOSBox
+  sessions and share them with my friends.  In this article, I will
+  explain how I create good quality screenshot captures and video
+  captures of DOSBox sessions in formats that I can share with others.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#vintage-dos-programs">Vintage DOS Programs</a></li>
+  <li><a href="#software-versions">Software Versions</a></li>
+  <li><a href="#ibm-pc-logo-in-dosbox">IBM PC Logo in DOSBox</a></li>
+  <li><a href="#digger-in-dosbox">Digger in DOSBox</a></li>
+  <li><a href="#dosbox-screenshot-capture">DOSBox Screenshot Capture</a></li>
+  <li><a href="#dosbox-video-capture">DOSBox Video Capture</a></li>
+  <li><a href="#dosbox-audio-video-capture">DOSBox Audio/Video Capture</a></li>
+  <li><a href="#dosbox-gif-animation">DOSBox GIF Animation</a></li>
+  <li><a href="#references">References</a></li>
+</ul>
+<h2 id="software-versions">Software Versions<a href="#software-versions"></a></h2>
+<p>
+  Since this article involves several pieces of software, some of what
+  is written here may not hold good in future if the behaviour of any
+  of these software tools change in future.  The list below contains
+  the versions of all software tools that were used to test the
+  commands provided in this article:
+</p>
+<ol>
+  <li>macOS High Sierra 10.13.6</li>
+  <li>DOSBox 0.74-3</li>
+  <li>FFmpeg 4.3.1</li>
+  <li>ImageMagick 7.0.10-28</li>
+  <li>IBM Personal Computer Logo Version 1.00</li>
+  <li>Digger (Original PC booter version by Windmill Software)</li>
+</ol>
+<p>
+  Note that both Logo and Digger programs in the list above are DOS
+  programs that were released in 1983.  They cannot be run directly on
+  modern computers but they can be run with DOSBox since it emulates
+  old IBM PC compatible computers.
+</p>
+<h2 id="ibm-pc-logo-in-dosbox">IBM PC Logo in DOSBox<a href="#ibm-pc-logo-in-dosbox"></a></h2>
+<p>
+  IBM Personal Computer Logo developed by Logo Computer Systems Inc.
+  (LCSI) in 1983 was the first piece of software I got introduced to
+  while learning computers as a kid.  I came across it at the age of 8
+  when I was in Class 4 and our school had a 5&frac14;-inch floppy
+  disk with IBM PC Logo on it.  As a result, Logo was the first
+  programming language I learnt in my life.  About 20 years later, I
+  would realise that the first programming language I learnt is a
+  dialect of Lisp.  How wonderful!
+</p>
+<figure id="logo-welcome-screenshot">
+  <a href="files/blog/dosbox-logo-0.png"><img
+     src="files/blog/dosbox-logo-0.png"
+     alt="A screenshot of IBM Personal Computer Logo with copyright notices of IBM and LCSI, welcome message and question mark prompt"></a>
+  <figcaption>
+    Welcome screen of IBM Personal Computer Logo
+  </figcaption>
+</figure>
+<p>
+  If the Logo interpreter program <code>LOGO.COM</code> exists in the
+  current directory, it can be run with DOSBox using the following
+  command:
+</p>
+<pre><code>dosbox LOGO.COM</code></pre>
+<p>
+  One of the things I enjoyed drawing with Logo was a grid of
+  overlapping circles like this:
+</p>
+<figure id="logo-program-screenshot">
+  <a href="files/blog/dosbox-logo-1.png"><img
+     src="files/blog/dosbox-logo-1.png"
+     alt="A grid made with 20 circles along with Logo source code for it"></a>
+  <figcaption>
+    Grid of circles drawn with IBM Personal Computer Logo
+  </figcaption>
+</figure>
+<p>
+  Here is the Logo source code for the above output:
+</p>
+<pre><code>REPEAT 20 [REPEAT 180 [FD 1 RT 2] RT 18]</code></pre>
+<h2 id="digger-in-dosbox">Digger in DOSBox<a href="#digger-in-dosbox"></a></h2>
+<p>
+  At around the same time I learnt Logo, I also came across Digger, a
+  computer game for IBM PC developed by Windmill Software in 1983.
+</p>
+<figure id="digger-welcome-screenshot">
+  <a href="files/blog/dosbox-digger-0.png"><img
+     src="files/blog/dosbox-digger-0.png"
+     alt="A screenshot of Digger welcome screen with the names and pictures of various game characters with a copyright notice of Windmill Software"></a>
+  <figcaption>
+    Welcome screen of Digger
+  </figcaption>
+</figure>
+<p>
+  If the Digger program <code>DIGGER.COM</code> exists in the
+  directory, it can be run using DOSBox with the following command:
+</p>
+<pre><code>dosbox DIGGER.COM -c "config -set cpu cycles=500" -machine cga</code></pre>
+<p>
+  The <code>-machine cga</code> option emulates a machine with Colour
+  Graphics Adapter (CGA) because Digger requires a machine of this
+  type to run correctly.  The <code>cycles=500</code> configuration
+  option slows down the speed at which DOSBox emulates instructions in
+  order to emulate the slow machines of olden days.  Without this
+  option, Digger runs too fast to be able to be conveniently playable.
+</p>
+<figure id="digger-game-screenshot">
+  <a href="files/blog/dosbox-digger-1.png"><img
+     src="files/blog/dosbox-digger-1.png"
+     alt="A screenshot of underground maze in the game of Digger"></a>
+  <figcaption>
+    A game of Digger that has just begun
+  </figcaption>
+</figure>
+<p>
+  Digger has an excellent gameplay where the player digs through
+  underground tunnels to pick up emeralds, drop gold bags to release
+  the gold or squash nobbins and hobbins, collect the released gold to
+  earn more points and so on.  It uses bright and attractive colours.
+  The music is great.  When Digger was released in 1983, it was quite
+  advanced for its time.
+</p>
+<h2 id="dosbox-screenshot-capture">DOSBox Screenshot Capture<a href="#dosbox-screenshot-capture"></a></h2>
+<p>
+  The screenshots above were obtained by running IBM PC Logo and the
+  original 1983 PC booter version of Digger on DOSBox and then
+  resizing the screenshots such that their aspect ratio matches the
+  aspect ratio of old CRT computer monitors.
+</p>
+<p>
+  To obtain the screenshots, we first press
+  <kbd>ctrl</kbd>+<kbd>f5</kbd> while DOSBox is running.  The paths of
+  the screenshots appear in the console output at the terminal where
+  DOSBox was launched.  For example:
+</p>
+<pre>
+<samp>Capturing Screenshot to /Users/susam/Library/Preferences/capture/logo_000.png
+Capturing Screenshot to /Users/susam/Library/Preferences/capture/logo_001.png</samp>
+</pre>
+<pre>
+<samp>Capturing Screenshot to /Users/susam/Library/Preferences/capture/digger_000.png
+Capturing Screenshot to /Users/susam/Library/Preferences/capture/digger_001.png</samp>
+</pre>
+<p>
+  The screenshots obtained in this manner have an aspect ratio of 8:5
+  which makes the output look stretched horizontally.  The old CRT
+  computer monitors for which these old DOS programs were written had
+  an aspect ratio of 4:3 instead.  This stretched look can be fixed by
+  resizing the images to an aspect ratio of 4:3.  Here are the
+  commands used to fix the aspect ratio and produce the images:
+</p>
+<pre>
+<code>convert logo_000.png -sample '1920x1440!' dosbox-logo-0.png
+convert logo_001.png -sample '1920x1440!' dosbox-logo-1.png</code>
+</pre>
+<pre>
+<code>convert digger_000.png -sample '1920x1440!' dosbox-digger-0.png
+convert digger_001.png -sample '1920x1440!' dosbox-digger-1.png</code>
+</pre>
+<!--
+According to Screen Resolution Statistics for January 2020 by
+w3schools.com, here are the statistics of browser resolutions:
+
+Resolution   %age  Cumulative
+
+Lower         9.0    9.0
+1280 x  720   3.9   12.9
+1024 x  768   1.4   14.3
+1360 x  768   1.0   15.3
+1366 x  768  27.6   42.9
+1280 x  800   1.8   44.7
+1536 x  864   9.8   54.5
+1440 x  900   5.6   60.1
+1600 x  900   4.1   64.2
+1280 x 1024   2.4   66.6
+1680 x 1050   2.6   69.2
+1920 x 1080  20.3   89.5
+1920 x 1200   1.5   91.0
+2560 x 1440   1.7   92.7
+Other High    7.3  100.0
+
+1440 x 1080 is strictly larger than 54.5% displays.
+1600 x 1200 is strictly larger than 66.6% displays.
+1920 x 1440 is strictly larger than 91.0% displays.
+x 1080 is larger than 89.5% displays
+x 1200 is larger than 91.0% displays.
+x 1440 is larger than 92.7% displays
+-->
+<p>
+  The <code>convert</code> program comes with ImageMagick.  There are
+  a few things worth noting here:
+</p>
+<ul>
+  <li>
+    We use the <code>-sample</code> option here to resize the image as
+    opposed to using <code>-resize</code> or <code>-scale</code>.  The
+    <code>-resize</code> or <code>-scale</code> option would smooth
+    the jagged edges in the text and graphics by introducing
+    additional colours.  The <code>-resize</code> option is great for
+    real world images where we do want the edges to be smooth while
+    scaling up or down but in these screenshots we want to retain the
+    crisp and jagged edges that is typical of DOSBox and the old CRT
+    monitors.  Therefore we use the <code>-sample</code> option that
+    does not introduce any new colours.  Instead it uses
+    nearest-neighbour interpolation (point sampling) to decide the
+    colours of the scaled image.
+  </li>
+  <li>
+    The <code>!</code> flag is used to ignore the aspect ratio of the
+    original image.  Without this flag, the output files would be
+    1920x1200 in size, that is, the largest size with an aspect ratio
+    of 8:5 that fits in a 1920x1440 box.  With this flag, the original
+    aspect ratio of 8:5 is ignored and the output is exactly 1920x1440
+    in size.
+  </li>
+</ul>
+<h2 id="dosbox-video-capture">DOSBox Video Capture<a href="#dosbox-video-capture"></a></h2>
+<p>
+  To start capturing video of DOSBox, we
+  press <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>f5</kbd>.  The same key
+  combination stops capturing video.  The following output appears in
+  the console output to show where the video file is saved:
+</p>
+<pre>
+<samp>Capturing Video to /Users/susam/Library/Preferences/capture/logo_000.avi
+Stopped capturing video.</samp>
+</pre>
+<p>
+  Say, I want to share a video capture of DOSBox with Logo running on
+  it with my friends who might be on devices that do not support
+  playing AVI files.  The following FFmpeg command converts the video
+  to a format that can be distributed widely and played on a wide
+  range of devices and players:
+</p>
+<pre>
+<code>ffmpeg -i logo_000.avi -an -c:v libx264 -preset veryslow \
+       -crf 17 -vf format=yuv420p,scale=1920:1440:flags=neighbor,fps=30 \
+       dosbox-logo.mp4</code>
+</pre>
+<p>
+  Here is what the output looks like:
+</p>
+<figure id="logo-video">
+  <video controls>
+    <source src="files/blog/dosbox-logo.mp4" type="video/mp4">
+  </video>
+  <figcaption>
+    Video capture of IBM Personal Computer Logo
+    [<a href="files/blog/dosbox-logo.mp4">MP4</a>]
+  </figcaption>
+</figure>
+<p>
+  Let us briefly discuss the various FFmpeg options used here:
+</p>
+<ul>
+  <li>
+    <p>
+      <code>-i logo_000.avi</code>
+    </p>
+    <p>
+      This, of course, specifies the input file.
+    </p>
+  </li>
+  <li>
+    <p>
+      <code>-an</code>
+    </p>
+    <p>
+      The audio is silent in this video, so we reduce the file size a
+      little by disabling the audio stream with this option.  For
+      example, without this option the output file size was 317 KB but
+      with this option it turned out to be 282 KB.
+    </p>
+    <p>
+      This option should not be specified if the audio stream needs to
+      preserved, for example, with DOS games that have audio.  We will
+      see an example of this in the next section.
+    </p>
+  </li>
+  <li>
+    <p>
+      <code>-c:v libx264</code>
+    </p>
+    <p>
+      This option selects the x264 encoder to encode the video stream
+      into H.264 format.  H.264 is also known as MPEG-4 Part 10,
+      Advanced Video Coding (MPEG-4 AVC).  Currently, it is the most
+      popular format for recording, compression and distribution of
+      video content.
+    </p>
+  </li>
+  <li>
+    <p>
+      <code>-crf 17</code>
+    </p>
+    <p>
+      This option provides visually lossless output, that is, high
+      quality output without any loss in quality that can be perceived
+      by human eyes.  For completely lossless output, we need to use
+      the <code>-crf 0</code> option.  However, this option sets the
+      video profile to <code>High 4:4:4 Predictive</code> which
+      prevents the video from playing in some video players.  This
+      issue is discussed in more detail in the point
+      about <code>yuv420p</code> pixel format that comes later in this
+      list.  Since <code>-crf 0</code> cannot be used due to this
+      issue, the next best option is
+      <code>-crf 1</code> which while not completely lossless is much
+      better than visually lossless.  Since it trades quality for
+      output size, the output file turns out to be 319 KB in size.  The
+      <code>-crf 51</code> option produces the most lossy output, that
+      is, the worst quality output with a file size of 159 KB.
+    </p>
+  </li>
+  <li>
+    <p>
+      <code>-preset veryslow</code>
+    </p>
+    <p>
+      This option provides better compression at the cost of encoding
+      speed.  For example, without this option it produces an output
+      of size 355 KB in about 16 seconds on my system but with this
+      option it produces an output of size 282 KB in about 31 seconds
+      on the same system.
+    </p>
+  </li>
+  <li>
+    <p>
+      <code>-vf format=yuv420p</code>
+    </p>
+    <p>
+      This video filter option ensures that the output video file can
+      be run in a wide range of devices and players.
+    </p>
+    <p>
+      For example, without this video filter option, we get the output
+      in the YUV 4:4:4 planar format.  I found that QuickTime Player
+      version 10.4 on macOS High Sierra as well as Android 9.0.0 was
+      unable to play this format.
+    </p>
+<pre>
+<samp>$ <kbd>ffmpeg -v quiet -i logo_000.avi -an -c:v libx264 dosbox-logo.mp4</kbd>
+$ <kbd>ffprobe -v error -show_entries stream=codec_name,profile,pix_fmt dosbox-logo.mp4</kbd>
+[STREAM]
+codec_name=h264
+profile=High 4:4:4 Predictive
+pix_fmt=yuv444p
+[/STREAM]</samp>
+</pre>
+    <p>
+      With this video filter option, we get the output in the YUV
+      4:2:0 planar format.  Now both QuickTime Player version 10.4 as
+      well as Android 9.0.0 could play this format.
+    </p>
+<pre>
+<samp>$ <kbd>ffmpeg -v quiet -i logo_000.avi -an -c:v libx264 -vf format=yuv420p dosbox-logo.mp4</kbd>
+$ <kbd>ffprobe -v error -show_entries stream=codec_name,profile,pix_fmt dosbox-logo.mp4</kbd>
+[STREAM]
+codec_name=h264
+profile=High
+pix_fmt=yuv420p
+[/STREAM]</samp>
+</pre>
+    <p>
+      For maximum compatibility with very old or obsolete devices, we
+      could add the <code>-profile:v baseline</code> option that setst
+      the video profile to <code>Constrained Baseline</code>.  This
+      option is not recommended unless we really need to support old
+      or obsolete devices.  We also need to keep in mind that the
+      baseline profile does not support lossless encoding with
+      the <code>-crf 0</code> option.  The least lossy encoding option
+      we can specify with this profile is <code>-crf 1</code> which
+      while not technically lossless is much better than visually
+      lossless.
+    </p>
+<pre>
+<samp>$ <kbd>ffmpeg -v quiet -i logo_000.avi -an -c:v libx264 -vf format=yuv420p -profile:v baseline dosbox-logo.mp4</kbd>
+$ <kbd>ffprobe -v error -show_entries stream=codec_name,profile,pix_fmt dosbox-logo.mp4</kbd>
+[STREAM]
+codec_name=h264
+profile=Constrained Baseline
+pix_fmt=yuv420p
+[/STREAM]</samp>
+</pre>
+  </li>
+  <li>
+    <p>
+      <code>scale=1920:1440:flags=neighbor</code>
+    </p>
+    <p>
+      With this video filter option, we resize the video to maintain
+      an aspect ratio of 4:3, that is, the aspect ratio of the old CRT
+      computer monitors, so that the output looks similar to how it
+      used to look on those monitors.
+    </p>
+    <p>
+      The <code>neighbor</code> flag ensures that the nearest-neighbor
+      interpolation (point sampling) is used to decide the colours of
+      the scaled image.  Without this option, the default bicubic
+      interpolation algorithm is used.  It has the effect of smoothing
+      the edges by introducing new colours such as new shades of grey
+      for this example video.  While such smoothing of edges is good
+      for scaling pictures of the real world, in this case, it spoils
+      the crisp and jagged edges that is typical of output visible in
+      DOSBox or the old CRT monitors.  With the <code>neighbor</code>
+      option, we retain the crisp and jagged edges visible in the
+      original video capture.
+    </p>
+  </li>
+  <li>
+    <p>
+      <code>fps=30</code>
+    </p>
+    <p>
+      This video filter option sets the frame rate to 30 frames per
+      second (FPS).  Without this option, the output video has a frame
+      rate of 70.09 FPS and file size of 558 KB.  With this option the
+      output frame rate is 30 FPS and the file size is 282 KB.
+    </p>
+    <p>
+      The default value of <code>machine</code> configuration variable
+      of DOSBox v0.74-3 is <code>svga_s3</code>, so by default it
+      emulates a machine with SVGA card.  While emulating a machine
+      with SVGA card, DOSBox creates video capture files with frame
+      rate of 70.09 FPS.  When it emulates a machine with CGA card,
+      such as when the its <code>machine</code> configuration variable
+      is set to <code>cga</code> or when DOSBox is run with
+      the <code>-machine cga</code> option, it creates video captures
+      files with frame rate of 59.92 FPS.
+    </p>
+    <p>
+      For the <a href="#logo-video">Logo video capture</a>, there is
+      no high-speed motion going on in the video, so we don't need a
+      high frame rate.  A lower frame rate of 30 FPS looks just as
+      good.
+    </p>
+  </li>
+</ul>
+<h2 id="dosbox-audio-video-capture">DOSBox Audio/Video Capture<a href="#dosbox-audio-video-capture"></a></h2>
+<p>
+  The video capture of Digger game is processed similarly, however,
+  there are a few additional things we need to take care of.  We want
+  to include the game audio in the output file.  We also want a higher
+  frame rate because games may sometimes have high-speed motion.
+</p>
+<p>
+  Like before, we use <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>f5</kbd> to
+  start capturing the video.  The same key combination stops capturing
+  video.  The following output appears in the console output to show
+  where the video file is saved:
+</p>
+<pre>
+<samp>Capturing Video to /Users/susam/Library/Preferences/capture/digger_000.avi
+Stopped capturing video.</samp>
+</pre>
+<p>
+  Here is the command to convert the video capture of Digger to a
+  distributable format:
+</p>
+<pre>
+<code>ffmpeg -i digger_000.avi -c:a aac -b:a 256k -c:v libx264 -preset veryslow \
+       -crf 17 -vf format=yuv420p,scale=1920:1440:flags=neighbor,fps=50 \
+       dosbox-digger.mp4</code>
+</pre>
+<p>
+  Here is the output:
+</p>
+<figure id="digger-video">
+  <video controls>
+    <source src="files/blog/dosbox-digger.mp4" type="video/mp4">
+  </video>
+  <figcaption>
+    Video capture of Digger
+    [<a href="files/blog/dosbox-digger.mp4">MP4</a>]
+  </figcaption>
+</figure>
+<p>
+  Most of the FFmpeg options used in the command above have been
+  discussed in the previous section.  Let us discuss the new options
+  used here that have not been discussed earlier:
+</p>
+<ul>
+  <li>
+    <p>
+      <code>-c:a aac</code>
+    </p>
+    <p>
+      This option selects the native FFmpeg AAC encoder to encode the
+      audio stream to Advanced Audio Coding (AAC) format.  It is a
+      very popular format for audio streams in MP4 files.
+    </p>
+  </li>
+  <li>
+    <p>
+      <code>-b:a 256k</code>
+    </p>
+    <p>
+      This sets the audio bitrate high enough to ensure that we get
+      good quality audio in the output.  We don't need to worry about
+      our specified bitrate being too high.  If the audio can be
+      encoded with a lower bitrate without compromising on quality,
+      the output audio stream is encoded at a lower bitrate.  For
+      example, for this specific video, the actual audio bitrate in
+      the output file turns out to be 245k because that is enough to
+      encode the audio stream in the input file.
+    </p>
+<pre>
+<samp>$ <kbd>ffprobe -v error -select_streams a -show_entries stream=bit_rate dosbox-digger.mp4</kbd>
+[STREAM]
+bit_rate=245184
+[/STREAM]</samp>
+</pre>
+  </li>
+  <li>
+    <p>
+      <code>fps=50</code>
+    </p>
+    <p>
+      If we set the frame rate to a lower value like 30 FPS like we
+      did in the previous section, we still get pretty good output,
+      however, certain parts of the output video look slightly choppy.
+      For example, at 7 seconds into the video when the player is the
+      pushing up against the gold bag, the video becomes slightly
+      choppy if we generate the output with a frame rate of 30 FPS.  A
+      higher frame rate such as 50 FPS prevents this problem.
+    </p>
+    <p>
+      If we omit this option entirely, we get an output video that has
+      the same frame rate as that of the input video, that is, 59.92
+      FPS, with an output file size of 4.6 MB.  With this option, we
+      get an output video that has a frame rate of 50 FPS and a file
+      size of 4.2 MB.
+    </p>
+  </li>
+</ul>
+<p>
+  If we look at the output video above closely enough, we see that the
+  colours don't look as crisp as they do in
+  the <a href="#digger-game-screenshot">Digger game screenshot</a>.
+  The <code>neighbor</code> flag was very effective at maintaining the
+  crisp and jagged edges in the <a href="#logo-video">Logo video
+  capture</a> but it does not produce perfect results for
+  the <a href="#digger-video">Digger video capture</a> in this
+  section.  Despite the imperfection, it is still necessary to specify
+  the <code>neighbor</code> option because without this option, the
+  output video looks even worse.  We can use a different pixel format
+  like <code>yuv444p</code> instead of <code>yuv420p</code> to work
+  around this issue.  Using the <code>yuv444p</code> format indeed
+  results in perfect nearest-neighbour interpolation which helps in
+  retaining the crisp and jagged edges in the video accurately but as
+  explained in the previous section, many media players currently
+  cannot play this pixel format, so we stick to using
+  the <code>yuv420p</code> format in this article.
+</p>
+<h2 id="dosbox-gif-animation">DOSBox GIF Animation<a href="#dosbox-gif-animation"></a></h2>
+<p>
+  Now just for fun, let us see if we can convert the video captures
+  into GIF animations.  This can be done quite easily with FFmpeg.
+  Here are the commands to convert the Logo video capture to GIF
+  animation:
+</p>
+<pre>
+<samp>ffmpeg -i logo_000.avi -vf palettegen palette.png
+ffmpeg -i logo_000.avi -i palette.png \
+       -lavfi 'scale=1920:1440:flags=neighbor,paletteuse,fps=30' \
+       dosbox-logo.gif</samp>
+</pre>
+<p>
+  The first command generates a colour palette from the video capture.
+  The second command uses this colour palette to generate a GIF
+  animation.  Like before, we use the <code>neighbor</code> flag to
+  retain the crisp and jagged edges.  Here is the output:
+</p>
+<figure id="logo-gif">
+  <a href="files/blog/dosbox-logo.gif"><img
+      src="files/blog/dosbox-logo.gif"
+       alt="An animated image of programming in Logo"></a>
+  <figcaption>
+    GIF animation of IBM Personal Computer Logo
+  </figcaption>
+</figure>
+<p>
+  Here are the commands to convert the Digger video capture to GIF
+  animation:
+</p>
+<pre>
+<samp>ffmpeg -i digger_000.avi -vf palettegen palette.png
+ffmpeg -i digger_000.avi -i palette.png \
+       -lavfi 'scale=1920:1440:flags=neighbor,paletteuse,fps=50' \
+       dosbox-digger.gif</samp>
+</pre>
+<figure id="digger-gif">
+  <a href="files/blog/dosbox-digger.gif"><img
+      src="files/blog/dosbox-digger.gif"
+       alt="An animated image of a game of Digger"></a>
+  <figcaption>
+    GIF animation of a game of Digger
+  </figcaption>
+</figure>
+<h2 id="references">References<a href="#references"></a></h2>
+<p>
+  Here is a bunch of references that contains more details about the
+  commands used in this article:
+</p>
+<ul>
+  <li><a href="https://www.dosbox.com/wiki/Special_Keys">DOSBox Special Keys</a></li>
+  <li><a href="https://www.imagemagick.org/Usage/resize/">ImageMagick Examples: Resize or Scaling</a></li>
+  <li><a href="https://www.imagemagick.org/Usage/filter/">ImageMagick Examples: Resampling Filters</a></li>
+  <li><a href="https://trac.ffmpeg.org/wiki/Encode/H.264">FFmpeg H.264 Video Encoding Guide</a></li>
+  <li><a href="https://trac.ffmpeg.org/wiki/Scaling">FFmpeg Scaling Guide</a></li>
+  <li><a href="https://www.ffmpeg.org/ffmpeg-scaler.html">FFmpeg Scaler Documentation</a></li>
+  <li><a href="https://ffmpeg.org/ffmpeg-filters.html">FFmpeg Filters Documentation</a></li>
+</ul>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/good-quality-dosbox-video-capture.html">Read on website</a> |
+  <a href="https://susam.net/tag/dos.html">#dos</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>FD 100</title>
+<link>https://susam.net/fd-100.html</link>
+<guid isPermaLink="false">qzsnh</guid>
+<pubDate>Mon, 28 Oct 2019 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I learnt how to write computer programs in IBM/LCSI PC Logo.  That
+  was back in the year 1992.  Computers were much simpler in those
+  days.  The ones in our school were IBM PC compatible computers with
+  mostly monochrome displays.  The ability to boot a computer using a
+  5¼-inch floppy disk containing MS-DOS, load a Logo interpreter and
+  then write some programs without any distraction had its own charm
+  that I find missing from modern day computing.
+</p>
+<h2 id="the-first-line-of-code">The First Line of Code<a href="#the-first-line-of-code"></a></h2>
+<p>
+  The first line of code I ever wrote was:
+</p>
+<!--
+ K   4  88-89
+ 1   5  89-90
+ 2   6  90-91
+ 3   7  91-92
+ 4   8  92-93
+ 5   9  93-94
+ 6  10  94-95
+ 7  11  95-96
+ 8  12  96-97
+ 9  13  97-98
+10  14  98-99
+-->
+<pre><code>FD 100</code></pre>
+<p>
+  Here is how the output looks:
+</p>
+<figure>
+  <a href="files/blog/logo-line.png"><img
+      src="files/blog/logo-line.png"
+      alt="A vertical line drawn with Logo along with Logo source code for it"></a>
+  <figcaption>
+    The first Logo program
+  </figcaption>
+</figure>
+<p>
+  That is the "hello, world" of turtle graphics in Logo.  That simple
+  line of code changed my world.  I could make stuff happen in an
+  otherwise mostly blank monochrome CRT display.  Until then I had
+  seen CRTs in televisions where I had very little control on what I
+  see on the screen.  But now, I had control!  The turtle became my
+  toy and I could make it draw anything on a 320 &times; 250 canvas.
+</p>
+<h2 id="polygons">Polygons<a href="#polygons"></a></h2>
+<p>
+  With a little knowledge of geometry, one could draw polygons.  Often
+  the first polygon one would learn to draw was a square.  It involves
+  making the turtle walk forward 100 steps, then turn right 90&deg;
+  and repeat these two operations four times in a loop.  Here is the
+  code:
+</p>
+<pre><code>REPEAT 4 [FD 100 RT 90]</code></pre>
+<p>
+  Here is the output:
+</p>
+<figure>
+  <a href="files/blog/logo-square.png"><img
+      src="files/blog/logo-square.png"
+      alt="A square drawn with Logo along with source code"></a>
+  <figcaption>
+    A square drawn with IBM Personal Computer Logo
+  </figcaption>
+</figure>
+<p>
+  Similarly, one could draw other polygons.  The only thing my
+  nine-year-old self then needed to understand was that after drawing
+  an entire polygon, the turtle is back to its original position
+  having completed one full turn.  Therefore to draw a polygon with \(
+  n \) sides, the turtle needs to turn by \( 360 / n \) degrees after
+  drawing each side.  Drawing a pentagon is as simple as:
+</p>
+<pre><code>REPEAT 5 [FD 80 RT 72]</code></pre>
+<p>
+  Here is the output:
+</p>
+<figure>
+  <a href="files/blog/logo-pentagon.png"><img
+      src="files/blog/logo-pentagon.png"
+      alt="A pentagon drawn with Logo along with source code"></a>
+  <figcaption>
+    A pentagon drawn with IBM Personal Computer Logo
+  </figcaption>
+</figure>
+<p>
+  The same approach works for drawing a regular five-pointed star too.
+  The only new thing we need to consider here is that as the turtle
+  draws the shape, it makes two full turns.  Therefore, it must turn
+  by \( 720 / 5 \) degrees after drawing each side.  Here is the code:
+</p>
+<pre><code>REPEAT 5 [FD 100 RT 144]</code></pre>
+<p>
+  Here is the output:
+</p>
+<figure>
+  <a href="files/blog/logo-star.png"><img
+      src="files/blog/logo-star.png"
+      alt="A pentagram drawn with Logo along with source code"></a>
+  <figcaption>
+    A pentagram drawn with IBM Personal Computer Logo
+  </figcaption>
+</figure>
+<p>
+  I remember feeling uneasy about the lopsided appearance of the
+  polygons above and then trying to please my sense of aesthetics by
+  centring these polygons horizontally on the screen and having them
+  stand firmly on an imaginary horizontal line so that they look
+  balanced.  I won't include the code and output for that on this page
+  for the sake of brevity of this post but here are links to some
+  screenshots I have kept that show a few of several ways to do it:
+  <a href="files/blog/logo-square-centre.png">logo-square-centre.png</a>,
+  <a href="files/blog/logo-pentagon-centre.png">logo-pentagon-centre.png</a>
+  and <a href="files/blog/logo-star-centre.png">logo-star-centre.png</a>.
+</p>
+<h2 id="circles">Circles<a href="#circles"></a></h2>
+<p>
+  Going from polygons to circles was especially fun.  Here is the
+  first piece of code one would normally write to learn to draw a
+  circle:
+</p>
+<pre><code>REPEAT 360 [FD 1 RT 1]</code></pre>
+<p>
+  Here is the output:
+</p>
+<figure>
+  <a href="files/blog/logo-circle.png"><img
+      src="files/blog/logo-circle.png"
+      alt="A circle drawn with Logo along with source code"></a>
+  <figcaption>
+    A circle drawn with IBM Personal Computer Logo
+  </figcaption>
+</figure>
+<p>
+  Now precisely speaking, this is not exactly a circle.  This is a
+  triacosiahexeacontagon, i.e. a 360-gon.  It is an approximation of a
+  circle with 360 very short line segments.  Nevertheless it was
+  enough to get a young child who had just begun to learn using the
+  computer excited about programming.  It showed me how control flow
+  could be used elegantly to express complex ideas in a simple
+  expression.  By the way, here is one way to centre that circle
+  horizontally on the
+  screen: <a href="files/blog/logo-circle-centre.png">logo-circle-centre.png</a>.
+</p>
+<p>
+  Soon after learning to draw a circle, I learnt to write this:
+</p>
+<pre><code>REPEAT 20 [REPEAT 180 [FD 1 RT 2] RT 18]</code></pre>
+<p>
+  This code draws 20 overlapping circles.  The output looks like this:
+</p>
+<figure>
+  <a href="files/blog/logo-circles.png"><img
+      src="files/blog/logo-circles.png"
+      alt="A grid made with 20 circles along with Logo source code for it"></a>
+  <figcaption>
+    Grid of circles drawn with IBM Personal Computer Logo
+  </figcaption>
+</figure>
+<h2 id="a-lasting-effect">A Lasting Effect<a href="#a-lasting-effect"></a></h2>
+<p>
+  There is a lot more to Logo than turtle graphics.  Logo gave me a
+  brief taste of functional programming even though back then I did
+  not know the term "functional programming".  I discovered the same
+  simplicity and elegance in Lisp about 15 years later.  After all,
+  Logo can be thought of as a dialect of Lisp without parentheses that
+  controls a turtle.
+</p>
+<p>
+  At an impressionable age of nine, reading and writing code like this
+  and using simple arithmetic, geometry, logic and code to manipulate
+  a two-dimensional world had a lasting effect on me.  Back in those
+  days, I used to find joy in sharing some of my interesting Logo
+  programs with my teachers and friends.  I like to believe that my
+  passion for software engineering as well as my love for writing
+  code, sharing code and open source development are a result of
+  coming across these beautiful code examples early in my life.
+</p>
+<p>
+  FD 100&mdash;it is a tiny piece of code, but it changed my world!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/fd-100.html">Read on website</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/dos.html">#dos</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Self-Printing Machine Code</title>
+<link>https://susam.net/self-printing-machine-code.html</link>
+<guid isPermaLink="false">uabwv</guid>
+<pubDate>Thu, 27 Oct 2005 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  The following 12-byte program composed of pure x86 machine code
+  writes itself to standard output when executed in a DOS environment:
+</p>
+<pre><code>fc b1 0c ac 92 b4 02 cd 21 e2 f8 c3</code></pre>
+<p>
+  We can write these bytes to a file with the .COM extension and
+  execute it in DOS.  It runs successfully in MS-DOS 6.22, Windows 98,
+  as well as in DOSBox and writes a copy of itself to standard output.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#demo">Demo</a></li>
+  <li><a href="#quine-conundrums">Quine Conundrums</a></li>
+  <li><a href="#proper-quines">Proper Quines</a></li>
+  <li><a href="#a-note-on-dos-services">A Note on DOS Services</a></li>
+  <li><a href="#writing-to-video-memory-directly">Writing to Video Memory Directly</a></li>
+  <li><a href="#boot-program">Boot Program</a></li>
+</ul>
+<h2 id="demo">Demo<a href="#demo"></a></h2>
+<p>
+  On a Unix or Linux system, the following commands demonstrate this
+  program with the help of DOSBox:
+</p>
+<pre>
+<code>echo fc b1 0c ac 92 b4 02 cd 21 e2 f8 c3 | xxd -r -p &gt; foo.com
+dosbox -c 'MOUNT C .' -c 'C:\FOO &gt; C:\OUT.COM' -c 'EXIT'
+diff foo.com OUT.COM</code>
+</pre>
+<p>
+  The <code>diff</code> command should produce no output confirming
+  that the output of the program is identical to the program itself.
+  On an actual MS-DOS 6.22 system or a Windows 98 system, we can
+  demonstrate this program in the following manner:
+</p>
+<pre>
+<samp>C:\&gt;<kbd>DEBUG</kbd>
+-<kbd>E 100 fc b1 0c ac 92 b4 02 cd 21 e2 f8 c3</kbd>
+-<kbd>N</kbd> FOO.COM
+-<kbd>R CX</kbd>
+CX 0000
+:<kbd>C</kbd>
+-<kbd>W</kbd>
+Writing 0000C bytes
+-<kbd>Q</kbd>
+
+C:\&gt;<kbd>FOO &gt; OUT.COM</kbd>
+
+C:\&gt;<kbd>FC FOO.COM OUT.COM</kbd>
+Comparing files FOO.COM and OUT.COM
+FC: no differences encountered</samp>
+</pre>
+<p>
+  In the <code>DEBUG</code> session shown above, we use the debugger
+  command <code>E</code> to enter the machine code at offset 0x100 of
+  the code segment.  Then we use the <code>N</code> command to name
+  the file we want to write this machine code to.  The command <code>R
+  CX</code> is used to specify that we want to write 0xC (decimal 12)
+  bytes to this file.  The <code>W</code> command writes the 12 bytes
+  entered at offset 0x100.  The <code>Q</code> command quits the
+  debugger.  Then we run the new <code>FOO.COM</code> program while
+  redirecting its output to <code>OUT.COM</code>.  Finally, we use
+  the <code>FC</code> command to compare the two files and confirm
+  that they are exactly the same.
+</p>
+<p>
+  Let us disasssemble this program now and see what it does.  The
+  output below is generated using the Netwide Disassembler (NDISASM),
+  a tool that comes with Netwide Assembler (NASM):
+</p>
+<pre>
+<samp>$ <kbd>ndisasm -o 0x100 foo.com</kbd>
+00000100  FC                cld
+00000101  B10C              mov cl,0xc
+00000103  AC                lodsb
+00000104  92                xchg ax,dx
+00000105  B402              mov ah,0x2
+00000107  CD21              int 0x21
+00000109  E2F8              loop 0x103
+0000010B  C3                ret</samp>
+</pre>
+<p>
+  When DOS executes a program in .COM file, it loads the machine code
+  in the file at offset 0x100 of the code segment chosen by DOS.  That
+  is why we ask the disassembler to assume a load address of 0x100
+  with the <code>-o</code> command line option.  The first instruction
+  clears the direction flag.  The purpose of this instruction is
+  explained later.  The next instruction sets the register CL to 0xc
+  (decimal 12).  The register CH is already set to 0 by default when a
+  .COM program starts.  Thus setting the register CL to 0xc
+  effectively sets the entire register CX to 0xc.  The register CX is
+  used as a loop counter for the <code>loop 0x103</code> instruction
+  that comes later.  Everytime this loop instruction executes, it
+  decrements CX and makes a near jump to offset 0x103 if CX is not 0.
+  This results in 12 iterations of the loop.
+</p>
+<p>
+  In each iteration of the loop, the instructions from offset 0x103 to
+  offset 0x109 are executed.  The <code>lodsb</code> instruction loads
+  a byte from address DS:SI into AL.  When DOS starts executing this
+  program, DS and SI are set to CS and 0x100 by default, so at the
+  beginning DS:SI points to the first byte of the program.
+  The <code>xchg</code> instruction exchanges the values in AX and DX.
+  Thus the byte we just loaded into AL ends up in DL.  Then we set AH
+  to 2 and generate the software interrupt 0x21 (decimal 33) to write
+  the byte in DL to standard output.  This is how each iteration reads
+  a byte of this program and writes it to standard output.
+</p>
+<p>
+  The <code>lodsb</code> instruction increments or decrements SI
+  depending on the state of the direction flag (DF).  When DF is
+  cleared, it increments SI.  If DF is set, it decrements SI.  We use
+  the <code>cld</code> instruction at the beginning to clear DF, so
+  that in each iteration of the loop, SI moves forward to point to the
+  next byte of the program.  This is how the 12 iterations of the loop
+  write 12 bytes of the program to standard output.  In many DOS
+  environments, the DF flag is already in cleared state when a .COM
+  program starts, so the CLD instruction could be omitted in such
+  environments.  However, there are some environments where DF may not
+  be in cleared state when our program starts, so it is a best
+  practice to clear DF before relying on it.
+</p>
+<p>
+  Finally, when the loop terminates, we execute the <code>RET</code>
+  instruction to terminate the program.
+</p>
+<h2 id="quine-conundrums">Quine Conundrums<a href="#quine-conundrums"></a></h2>
+<p>
+  While reading the description of the self-printing program presented
+  earlier, one might wonder if it is a quine.  While there is no
+  standardised definition of the term <em>quine</em>, it is generally
+  accepted that a quine is a computer program that takes no input and
+  produces an exact copy of its own source code as its output.  Since
+  a quine cannot take any input, tricks involving reading its own
+  source code or evaluating itself are ruled out.
+</p>
+<p>
+  For example, this shell script is a valid quine:
+</p>
+<pre><code>s='s=\47%s\47;printf "$s" "$s"\n';printf "$s" "$s"</code></pre>
+<p>
+  However, the following shell script is not considered a proper
+  quine:
+</p>
+<pre><code>cat $0</code></pre>
+<p>
+  The shell script above reads its own source code which is considered
+  cheating.  Improper quines like this are often called <em>cheating
+  quines</em>.
+</p>
+<p>
+  Is our 12-byte x86 program a quine?  It turns out that we have a
+  conundrum.  There is no notion of source code for our program.
+  There would have been one if we had written out the source code of
+  this program in assembly language.  In such a case we would first
+  need to choose an assembler and a proper quine would need to produce
+  an exact copy of the assembly language source code (not the machine
+  code bytes) for the chosen assembler.  But we are not doing that
+  here.  We want the machine code to produce an exact copy of itself.
+  There is no source code involved.  We only have machine code.  So we
+  could argue that the whole notion of machine code quine is nonsense.
+  No machine code quine can exist because there is no source code to
+  produce as output.
+</p>
+<p>
+  However, we could also argue that the machine code is the input for
+  the CPU that the CPU fetches, decodes and converts to a sequence of
+  state changes in the CPU.  If we define a machine code quine to be a
+  machine code program that writes its own bytes, then we could say
+  that we have a machine code quine here.
+</p>
+<p>
+  Let us now entertain the thought that our 12-byte program is indeed
+  a machine code quine.  Now we have a new conundrum.  Is it a proper
+  quine?  This program reads its own bytes from memory and writes
+  them.  Does that make it a cheating quine?  What would a proper
+  quine written in pure machine code even look like?  If we look at
+  the shell script quine above, we see that it contains parts of the
+  executable part of the script code embedded in a string as data.
+  Then we format the string cleverly to produce a new string that
+  looks exactly like the entire shell script.  It is a common pattern
+  followed in many quines.  The quine does not read its own code but
+  it reads some data defined by the code and formats that data to look
+  like its own code.  However, in pure machine code like this the
+  lines between data and code are blurred.  Even if we try to keep the
+  bytes we want to read at a separate place in the memory and treat it
+  like data, they would look exactly like machine instructions, so one
+  might wonder if there is any point in trying to make a machine quine
+  that does not read its own bytes.  Nevertheless the next section
+  shows how to accomplish this.
+</p>
+<h2 id="proper-quines">Proper Quines<a href="#proper-quines"></a></h2>
+<p>
+  If the thought of a machine code quine program reading its own bytes
+  from the memory makes you uncomfortable, here is an adapation of the
+  previous program that keeps the machine instructions to be executed
+  separate from the data bytes to be read by the program.
+</p>
+<pre>
+<code>fc b3 02 b1 14 be 14 01 ac 92 b4 02 cd 21 e2 f8 4b 75 f0 c3
+fc b3 02 b1 14 be 14 01 ac 92 b4 02 cd 21 e2 f8 4b 75 f0 c3</code>
+</pre>
+<p>
+  Here is how we can demonstrate this 40-byte program:
+</p>
+<pre>
+<code>echo fc b3 02 b1 14 be 14 01 ac 92 b4 02 cd 21 e2 f8 4b 75 f0 c3 | xxd -r -p &gt; foo.com
+echo fc b3 02 b1 14 be 14 01 ac 92 b4 02 cd 21 e2 f8 4b 75 f0 c3 | xxd -r -p &gt;&gt; foo.com
+dosbox -c 'MOUNT C .' -c 'C:\FOO &gt; C:\OUT.COM' -c 'EXIT'
+diff foo.com OUT.COM</code>
+</pre>
+<p>
+  Here is the disassembly:
+</p>
+<pre>
+<samp>$ <kbd>ndisasm -o 0x100 foo.com</kbd>
+00000100  FC                cld
+00000101  B302              mov bl,0x2
+00000103  B114              mov cl,0x14
+00000105  BE1401            mov si,0x114
+00000108  AC                lodsb
+00000109  92                xchg ax,dx
+0000010A  B402              mov ah,0x2
+0000010C  CD21              int 0x21
+0000010E  E2F8              loop 0x108
+00000110  4B                dec bx
+00000111  75F0              jnz 0x103
+00000113  C3                ret
+00000114  FC                cld
+00000115  B302              mov bl,0x2
+00000117  B114              mov cl,0x14
+00000119  BE1401            mov si,0x114
+0000011C  AC                lodsb
+0000011D  92                xchg ax,dx
+0000011E  B402              mov ah,0x2
+00000120  CD21              int 0x21
+00000122  E2F8              loop 0x11c
+00000124  4B                dec bx
+00000125  75F0              jnz 0x117
+00000127  C3                ret</samp>
+</pre>
+<p>
+  The first 20 bytes is the executable part of the program.  The next
+  20 bytes is the data read by the program.  The executable bytes are
+  identical to the data bytes.  The executable part of the program has
+  an outer loop that iterates twice.  In each iteration, it reads the
+  data bytes and writes them to standard output.  Therefore, in two
+  iterations of the outer loop, it writes the data bytes twice.  In
+  this manner, the output is identical to the program itself.
+</p>
+<p>
+  Here is another simpler 32-byte quine based on this approach:
+</p>
+<pre>
+<code>b8 23 09 fe c0 a2 20 01 ba 10 01 cd 21 cd 21 c3
+b8 23 09 fe c0 a2 20 01 ba 10 01 cd 21 cd 21 c3</code>
+</pre>
+<p>
+  Here are the commands to demostrate this quine:
+</p>
+<pre>
+<code>echo b8 23 09 fe c0 a2 20 01 ba 10 01 cd 21 cd 21 c3 | xxd -r -p &gt; foo.com
+echo b8 23 09 fe c0 a2 20 01 ba 10 01 cd 21 cd 21 c3 | xxd -r -p &gt;&gt; foo.com
+dosbox -c 'MOUNT C .' -c 'C:\FOO &gt; C:\OUT.COM' -c 'EXIT'
+diff foo.com OUT.COM</code>
+</pre>
+<p>
+  Here is the disassembly:
+</p>
+<pre>
+<samp>$ <kbd>ndisasm -o 0x100 foo.com</kbd>
+00000100  B82309            mov ax,0x923
+00000103  FEC0              inc al
+00000105  A22001            mov [0x120],al
+00000108  BA1001            mov dx,0x110
+0000010B  CD21              int 0x21
+0000010D  CD21              int 0x21
+0000010F  C3                ret
+00000110  B82309            mov ax,0x923
+00000113  FEC0              inc al
+00000115  A22001            mov [0x120],al
+00000118  BA1001            mov dx,0x110
+0000011B  CD21              int 0x21
+0000011D  CD21              int 0x21
+0000011F  C3                ret</samp>
+</pre>
+<p>
+  This example too has two parts.  The first half has the executable
+  bytes and the second half has the data bytes.  Both parts are
+  identical.  This example sets AH to 9 in the first instruction and
+  then later uses <code>int 0x21</code> to invoke the DOS service that
+  prints a dollar-terminated string beginning at the address specifed
+  in DS:DX.  When a .COM program starts, DS already points to the
+  current code segment, so we don't have to set it explicitly.  The
+  dollar symbol has an ASCII code of 0x24 (decimal 36).  We need to be
+  careful about not having this value anywhere within the the data
+  bytes or this DOS function would prematurely stop printing our data
+  bytes as soon as it encounters this value.  That is why we set AL to
+  0x23 in the first instruction, then increment it to 0x24 in the
+  second instruction and then copy this value to the end of the data
+  bytes in the third instruction.  Finally, we execute <code>int
+  0x21</code> twice to write the data bytes twice to standard output,
+  so that the output matches the program itself.
+</p>
+<p>
+  While both these programs take care not to read the same memory
+  region that is being executed by the CPU, the data bytes they read
+  look exactly like the executable bytes.  This is what I meant when I
+  mentioned earlier that the lines between code and data are blurred
+  in an exercise like this.  This is why I don't really see a point in
+  keeping the executable bytes separate from the data bytes while
+  writing machine code quines.
+</p>
+<h2 id="a-note-on-dos-services">A Note on DOS Services<a href="#a-note-on-dos-services"></a></h2>
+<p>
+  The self-printing programs presented above use <code>int 0x21</code>
+  which offers DOS services that support various input/output
+  functions.  In the first two programs, we selected the function to
+  write a character to standard output by setting AH to 2 before
+  invoking this software interrupt.  In the next program, we selected
+  the function to write a dollar-terminated string to standard output
+  by setting AH to 9.
+</p>
+<p>
+  The <code>ret</code> instruction in the end too relies on DOS
+  services.  When a .COM program starts, the register SP contains
+  0xfffe.  The stack memory locations at offset 0xfffe and 0xffff
+  contain 0x00 and 0x00 respectively.  Further, the memory address at
+  offset 0x0000 contains the instruction <code>int 0x20</code> which
+  is a DOS service that terminates the program.  As a result,
+  executing the <code>ret</code> instruction pops 0x0000 off the stack
+  at 0xfffe and loads it into IP.  This results in the
+  instruction <code>int 0x20</code> at offset 0x0000 getting executed.
+  This instruction terminates the program and returns to DOS.
+</p>
+<p>
+  Relying on DOS services gives us a comfortable environment to work
+  with.  In particular, DOS implements the notion of <em>standard
+  output</em> which lets us redirect standard output to a file.  This
+  lets us conveniently compare the original program file and the
+  output file with the <code>FC</code> command and confirm that they
+  are identical.
+</p>
+<p>
+  But one might wonder if we could avoid relying on DOS services
+  completely and still write a program that prints its own bytes to
+  screen.  We definitely can.  We could write directly to video memory
+  at address 0xb800:0x0000 and show the bytes of the program on
+  screen.  We could also forgo DOS completely and let BIOS load our
+  program from the boot sector and execute it.  The next two sections
+  discuss these things.
+</p>
+<h2 id="writing-to-video-memory-directly">Writing to Video Memory Directly<a href="#writing-to-video-memory-directly"></a></h2>
+<p>
+  Here is an example of an 18-byte self-printing program that writes
+  directly to the video memory at address 0xb800:0x0000.
+</p>
+<pre><code>fc b4 b8 8e c0 31 ff b1 12 b4 0a ac ab e2 fc f4 eb fd</code></pre>
+<p>
+  Here are the commands to create and run this program:
+</p>
+<pre>
+<code>echo fc b4 b8 8e c0 31 ff b1 12 b4 0a ac ab e2 fc f4 eb fd | xxd -r -p &gt; foo.com
+dosbox foo.com</code>
+</pre>
+<p>
+  With the default code page active, i.e. with code page 437 active,
+  the program should display an output that looks approximately like
+  the following and halt:
+</p>
+<pre><samp>&#x207F;&#x2524;&#x2555;&#xC4;&#x2514;&#x31;&#xA0;&#x2592;&#x2195;&#x2524;&#x25D9;&#xBC;&#xBD;&#x393;&#x207F;&#x2320;&#x3B4;&#xB2;</samp></pre>
+<p>
+  Now of course this type of output looks gibberish but there is a
+  quick and dirty way to confirm that this output indeed represents
+  the bytes of our program.  We can use the <code>TYPE</code> command
+  of DOS to print the program and check if the symbols that appear in
+  its output seem consistent with the output above.  Here is an
+  example:
+</p>
+<pre>
+<samp>C:\&gt;<kbd>TYPE FOO.COM</kbd>
+&#x207F;&#x2524;&#x2555;&#xC4;&#x2514;&#x31;&#xA0;&#x2592;&#x2195;&#x2524;
+          &#xBC;&#xBD;&#x393;&#x207F;&#x2320;&#x3B4;&#xB2;
+C:\&gt;</samp>
+</pre>
+<p>
+  This output looks very similar to the previous one except that the
+  byte value 0x0a is rendered as a line break in this output whereas
+  in the previous output this byte value is represented as a circle in
+  a box.  This method of visually inspecting the output would not have
+  worked very well if there were any control characters such as
+  backspace or carriage return that result in characters being erased
+  in the displayed output.
+</p>
+<p>
+  A proper way to verify that the output of the program represents the
+  bytes of the program would be to take each symbol from the output of
+  the program, then look it up in a chart for code page 437 and
+  confirm that the byte value of each symbol matches each byte value
+  that makes the program.  Here is one such chart that approximates
+  the symbols in code page 437 with Unicode
+  symbols: <a href="code/cp437/cp437.html">cp437.html</a>.
+</p>
+<p>
+  Here is the disassembly of the above program:
+</p>
+<pre>
+<samp>$ <kbd>ndisasm -o 0x100 foo.com</kbd>
+00000100  FC                cld
+00000101  B4B8              mov ah,0xb8
+00000103  8EC0              mov es,ax
+00000105  31FF              xor di,di
+00000107  B112              mov cl,0x12
+00000109  B40A              mov ah,0xa
+0000010B  AC                lodsb
+0000010C  AB                stosw
+0000010D  E2FC              loop 0x10b
+0000010F  F4                hlt
+00000110  EBFD              jmp short 0x10f</samp>
+</pre>
+<p>
+  This program sets ES to 0xb800 and DI to 0.  Thus ES:DI points to
+  the video memory at address 0xb800:0x0000.  DS:SI points to the
+  first instruction of this program by default.  Further AH is set to
+  0xa.  This is used to specify the colour attribute of the text to be
+  displayed on screen.  Each iteration of the loop in this program
+  loads a byte of the program and writes it along with the colour
+  attribute to video memory.  The <code>lodsb</code> instruction loads
+  a byte of the program from the memory address specified by DS:SI
+  into AL and increments SI by 1.  AH is already set to 0xa.  The
+  value 0xa (binary 00001010) here specifies black as the background
+  colour and bright green as the foreground colour.
+  The <code>stosw</code> instruction stores a word from AX to the
+  memory address specified by ES:DI and increments DI by 2.  In this
+  manner, the byte in AL and its colour attribute in AH gets copied to
+  the video memory.
+</p>
+<p>
+  Once again, if you are not happy about the program reading its own
+  executable bytes, we can keep the bytes we read separate from the
+  bytes the CPU executes.  Here is a 54-byte program that does this:
+</p>
+<pre>
+<code>fc b3 02 b4 b8 8e c0 31 ff be 1b 01 b9 1b 00 b4
+0a ac ab e2 fc 4b 75 f1 f4 eb fd fc b3 02 b4 b8
+8e c0 31 ff be 1b 01 b9 1b 00 b4 0a ac ab e2 fc
+4b 75 f1 f4 eb fd</code>
+</pre>
+<p>
+  Here is how we can create and run this program:
+</p>
+<pre>
+<code>echo fc b3 02 b4 b8 8e c0 31 ff be 1b 01 b9 1b 00 b4 | xxd -r -p &gt; foo.com
+echo 0a ac ab e2 fc 4b 75 f1 f4 eb fd fc b3 02 b4 b8 | xxd -r -p &gt;&gt; foo.com
+echo 8e c0 31 ff be 1b 01 b9 1b 00 b4 0a ac ab e2 fc | xxd -r -p &gt;&gt; foo.com
+echo 4b 75 f1 f4 eb fd | xxd -r -p &gt;&gt; foo.com
+dosbox foo.com</code>
+</pre>
+<p>
+  With code page 437 active, the output should look approximately like
+  this:
+</p>
+<pre><samp>&#x207F;&#x2502;&#x263B;&#x2524;&#x2555;&#xC4;&#x2514;&#x31;&#xA0;&#x255B;&#x2190;&#x263A;&#x2563;&#x2190;&#x20;&#x2524;&#x25D9;&#xBC;&#xBD;&#x393;&#x207F;&#x4B;&#x75;&#xB1;&#x2320;&#x3B4;&#xB2;&#x207F;&#x2502;&#x263B;&#x2524;&#x2555;&#xC4;&#x2514;&#x31;&#xA0;&#x255B;&#x2190;&#x263A;&#x2563;&#x2190;&#x20;&#x2524;&#x25D9;&#xBC;&#xBD;&#x393;&#x207F;&#x4B;&#x75;&#xB1;&#x2320;&#x3B4;&#xB2;</samp></pre>
+<p>
+  We can clearly see in this output that the first 27 bytes of output
+  are identical to the next 27 bytes of the output.  Like the proper
+  quines discussed earlier, this one too has two halves that are
+  identical to each other.  The executable code in the first half
+  reads the data bytes from the second half and prints the data bytes
+  twice so that the output bytes is an exact copy of all 54 bytes in
+  the program.  Here is the disassembly:
+</p>
+<pre>
+<samp>$ <kbd>ndisasm -o 0x100 foo.com</kbd>
+00000100  FC                cld
+00000101  B302              mov bl,0x2
+00000103  B4B8              mov ah,0xb8
+00000105  8EC0              mov es,ax
+00000107  31FF              xor di,di
+00000109  BE1B01            mov si,0x11b
+0000010C  B91B00            mov cx,0x1b
+0000010F  B40A              mov ah,0xa
+00000111  AC                lodsb
+00000112  AB                stosw
+00000113  E2FC              loop 0x111
+00000115  4B                dec bx
+00000116  75F1              jnz 0x109
+00000118  F4                hlt
+00000119  EBFD              jmp short 0x118
+0000011B  FC                cld
+0000011C  B302              mov bl,0x2
+0000011E  B4B8              mov ah,0xb8
+00000120  8EC0              mov es,ax
+00000122  31FF              xor di,di
+00000124  BE1B01            mov si,0x11b
+00000127  B91B00            mov cx,0x1b
+0000012A  B40A              mov ah,0xa
+0000012C  AC                lodsb
+0000012D  AB                stosw
+0000012E  E2FC              loop 0x12c
+00000130  4B                dec bx
+00000131  75F1              jnz 0x124
+00000133  F4                hlt
+00000134  EBFD              jmp short 0x133</samp>
+</pre>
+<p>
+  This disassembly is rather long but we can clearly see that the
+  bytes from offset 0x100 to offset 0x11a are identical to the bytes
+  from offset 0x11b to 0x135.  These are the bytes we see in the
+  output of the program too.
+</p>
+<h2 id="boot-program">Boot Program<a href="#boot-program"></a></h2>
+<p>
+  The 32-byte program below writes itself to video memory when
+  executed from the boot sector:
+</p>
+<pre><code>ea 05 7c 00 00 fc b8 00 b8 8e c0 8c c8 8e d8 31
+ff be 00 7c b9 20 00 b4 0a ac ab e2 fc f4 eb fd</code></pre>
+<p>
+  We can create a boot image that contains these bytes, write it to
+  the boot sector of a drive and boot an IBM PC compatible computer
+  with it.  On booting, this program prints its own bytes on the
+  screen.
+</p>
+<p>
+  On a Unix or Linux system, the following commands can be used to
+  create a boot image with the above program:
+</p>
+<pre>
+<code>echo ea 05 7c 00 00 fc b8 00 b8 8e c0 8c c8 8e d8 31 | xxd -r -p &gt; boot.img
+echo ff be 00 7c b9 20 00 b4 0a ac ab e2 fc f4 eb fd | xxd -r -p &gt;&gt; boot.img
+echo 55 aa | xxd -r -p | dd seek=510 bs=1 of=boot.img</code>
+</pre>
+<p>
+  Now we can test this boot image using DOSBox with the following
+  command:
+</p>
+<pre><code>dosbox -c cls -c 'boot boot.img'</code></pre>
+<p>
+  We can also test this image using QEMU x86 system emulator as
+  follows:
+</p>
+<pre><code>qemu-system-i386 -fda boot.img</code></pre>
+<p>
+  We could also write this image to the boot sector of an actual
+  physical storage device, such as a USB flash drive and then boot the
+  computer with it.  Here is an example command that writes the boot
+  image to the drive represented by the device
+  path <code>/dev/sdx</code>.
+</p>
+<pre><code>cp a.img /dev/sdx</code></pre>
+<p>
+  <em>
+    CAUTION: You need to be absolutely sure of the device path of the
+    device being written to.  The device path <code>/dev/sdx</code> is
+    only an example here.  If the boot image is written to the wrong
+    device, access to the data on that would be lost.
+  </em>
+</p>
+<p>
+  On testing this boot image with an emulator or a real computer, the
+  output should look approximately like this:
+</p>
+<pre><samp>&#x3A9;&#x2663;&#x7C;&#x20;&#x20;&#x207F;&#x2555;&#x20;&#x2555;&#xC4;&#x2514;&#xEE;&#x255A;&#xC4;&#x256A;&#x31;&#xA0;&#x255B;&#x20;&#x7C;&#x2563;&#x20;&#x20;&#x2524;&#x25D9;&#xBC;&#xBD;&#x393;&#x207F;&#x2320;&#x3B4;&#xB2;</samp></pre>
+<p>
+  This looks like gibberish, however every symbol in the above output
+  corresponds to a byte of the program mentioned earlier.  For
+  example, the first symbol (omega) represents the byte value 0xea,
+  the second symbol (club) represents the byte value 0x05 and so on.
+  The chart at <a href="code/cp437/cp437.html">cp437.html</a> can be
+  used to confirm that every symbol in the output indeed represents
+  every byte of the program.
+</p>
+<p>
+  Here is the disassembly of the program:
+</p>
+<pre>
+<samp>$ <kbd>ndisasm -o 0x7c00 boot.img</kbd>
+00007C00  EA057C0000        jmp 0x0:0x7c05
+00007C05  FC                cld
+00007C06  B800B8            mov ax,0xb800
+00007C09  8EC0              mov es,ax
+00007C0B  8CC8              mov ax,cs
+00007C0D  8ED8              mov ds,ax
+00007C0F  31FF              xor di,di
+00007C11  BE007C            mov si,0x7c00
+00007C14  B92000            mov cx,0x20
+00007C17  B40A              mov ah,0xa
+00007C19  AC                lodsb
+00007C1A  AB                stosw
+00007C1B  E2FC              loop 0x7c19
+00007C1D  F4                hlt
+00007C1E  EBFD              jmp short 0x7c1d
+00007C20  0000              add [bx+si],al
+00007C22  0000              add [bx+si],al
+...</samp>
+</pre>
+<p>
+  The ellipsis in the end represents the remainder of the bytes that
+  contains zeroes and the boot sector magic bytes 0x55 and 0xaa in the
+  end.  They have been omitted here for the sake of brevity.
+</p>
+<p>
+  When a computer boots, the BIOS reads the boot sector code from the
+  first sector of the boot device into the memory at physical address
+  0x7c00 and jumps to this address.  Most BIOS implementations jump to
+  0x0000:0x7c00 but there are some implementations that jump to
+  0x07c0:0x0000 instead.  Both these jumps are jumps to the same
+  physical address 0x7c00 but this difference poses a problem for us
+  because the offsets in our program depend on which jump the BIOS
+  executed.  In order to ensure that our program can run with both
+  types of BIOS implementations, we use a popular trick of having the
+  first instruction of our program execute a jump to address
+  0x0000:0x7c05 in order to reach the second instruction.  This sets
+  the register CS to 0 and IP to 0x7c05 and we don't have to worry
+  about the differences between BIOS implementations anymore.  We can
+  now pretend as if a BIOS implementation that jumps to 0x0000:0x7c00
+  is going to load our program.
+</p>
+<p>
+  The remainder of the program is similar to the one in the previous
+  section.  However, there are some small but important differences.
+  While the DOS environment guarantees that AH and CH are initialised
+  to 0 when a .COM program starts, the BIOS offers no such guarantee
+  while loading and executing a boot program.  This is why we use the
+  registers AX and CX (as opposed to only AH and CL) in
+  the <code>mov</code> instructions to initialise them.  Similarly,
+  while DOS initialises SI to 0x100 when a .COM program starts, for a
+  boot program, we set the register SI ourselves.
+</p>
+<p>
+  If you feel uncomfortable about calling the above program a quine
+  because it reads its own bytes from the memory, we could have the
+  program read the bytes it needs to print from a separate place in
+  memory.  We do not execute these bytes.  We only read them and copy
+  them to video memory.  The following 76-byte program does this:
+</p>
+<pre>
+<code>ea 05 7c 00 00 fc bb 02 00 b8 00 b8 8e c0 8c c8
+8e d8 31 ff be 26 7c b9 26 00 b4 0a ac ab e2 fc
+4b 75 f1 f4 eb fd ea 05 7c 00 00 fc bb 02 00 b8
+00 b8 8e c0 8c c8 8e d8 31 ff be 26 7c b9 26 00
+b4 0a ac ab e2 fc 4b 75 f1 f4 eb fd</code>
+</pre>
+<p>
+  Here is how we can create a boot image with this:
+</p>
+<pre>
+<code>echo ea 05 7c 00 00 fc bb 02 00 b8 00 b8 8e c0 8c c8 | xxd -r -p &gt; boot.img
+echo 8e d8 31 ff be 26 7c b9 26 00 b4 0a ac ab e2 fc | xxd -r -p &gt;&gt; boot.img
+echo 4b 75 f1 f4 eb fd ea 05 7c 00 00 fc bb 02 00 b8 | xxd -r -p &gt;&gt; boot.img
+echo 00 b8 8e c0 8c c8 8e d8 31 ff be 26 7c b9 26 00 | xxd -r -p &gt;&gt; boot.img
+echo b4 0a ac ab e2 fc 4b 75 f1 f4 eb fd | xxd -r -p &gt;&gt; boot.img
+echo 55 aa | xxd -r -p | dd seek=510 bs=1 of=boot.img</code>
+</pre>
+<p>
+  Here are the commands to test this boot image:
+</p>
+<pre><code>dosbox -c cls -c 'boot boot.img'
+qemu-system-i386 -fda boot.img</code></pre>
+<p>
+  The output should look like this:
+</p>
+<pre><samp>&#x3A9;&#x2663;&#x7C;&#x20;&#x20;&#x207F;&#x2557;&#x263B;&#x20;&#x2555;&#x20;&#x2555;&#xC4;&#x2514;&#xEE;&#x255A;&#xC4;&#x256A;&#x31;&#xA0;&#x255B;&#x26;&#x7C;&#x2563;&#x26;&#x20;&#x2524;&#x25D9;&#xBC;&#xBD;&#x393;&#x207F;&#x4B;&#x75;&#xB1;&#x2320;&#x3B4;&#xB2;&#x3A9;&#x2663;&#x7C;&#x20;&#x20;&#x207F;&#x2557;&#x263B;&#x20;&#x2555;&#x20;&#x2555;&#xC4;&#x2514;&#xEE;&#x255A;&#xC4;&#x256A;&#x31;&#xA0;&#x255B;&#x26;&#x7C;&#x2563;&#x26;&#x20;&#x2524;&#x25D9;&#xBC;&#xBD;&#x393;&#x207F;&#x4B;&#x75;&#xB1;&#x2320;&#x3B4;&#xB2;</samp></pre>
+<p>
+  Here is the disassembly of this program:
+</p>
+<pre>
+<samp>$ <kbd>ndisasm -o 0x7c00 boot.img</kbd>
+00007C00  EA057C0000        jmp 0x0:0x7c05
+00007C05  FC                cld
+00007C06  BB0200            mov bx,0x2
+00007C09  B800B8            mov ax,0xb800
+00007C0C  8EC0              mov es,ax
+00007C0E  8CC8              mov ax,cs
+00007C10  8ED8              mov ds,ax
+00007C12  31FF              xor di,di
+00007C14  BE267C            mov si,0x7c26
+00007C17  B92600            mov cx,0x26
+00007C1A  B40A              mov ah,0xa
+00007C1C  AC                lodsb
+00007C1D  AB                stosw
+00007C1E  E2FC              loop 0x7c1c
+00007C20  4B                dec bx
+00007C21  75F1              jnz 0x7c14
+00007C23  F4                hlt
+00007C24  EBFD              jmp short 0x7c23
+00007C26  EA057C0000        jmp 0x0:0x7c05
+00007C2B  FC                cld
+00007C2C  BB0200            mov bx,0x2
+00007C2F  B800B8            mov ax,0xb800
+00007C32  8EC0              mov es,ax
+00007C34  8CC8              mov ax,cs
+00007C36  8ED8              mov ds,ax
+00007C38  31FF              xor di,di
+00007C3A  BE267C            mov si,0x7c26
+00007C3D  B92600            mov cx,0x26
+00007C40  B40A              mov ah,0xa
+00007C42  AC                lodsb
+00007C43  AB                stosw
+00007C44  E2FC              loop 0x7c42
+00007C46  4B                dec bx
+00007C47  75F1              jnz 0x7c3a
+00007C49  F4                hlt
+00007C4A  EBFD              jmp short 0x7c49
+00007C4C  0000              add [bx+si],al
+00007C4E  0000              add [bx+si],al
+...</samp></pre>
+<p>
+  This program has two identical halves.  The first half from offset
+  0x7c00 to offset 0x7c25 are executable bytes.  The second half from
+  offset 0x7c26 to 0x7c4b are the data bytes read by the executable
+  bytes.  The executable part of the code has an outer loop that uses
+  the register BX as the counter variable.  It sets BX to 2 so that
+  the outer loop iterates twice.  In each iteration, it reads data
+  bytes from the second half of the program and prints them.  The code
+  to read bytes and print them is very similar to our earlier program.
+  Since the data bytes in the second half are identical to the
+  executable bytes in the first half, printing the data bytes twice
+  amounts to printing all bytes of the program.
+</p>
+<p>
+  While this program does avoid reading the bytes that the CPU
+  executes, the data bytes look exactly like the executable bytes.
+  Although I do not see any point in trying to avoid reading
+  executable bytes in an exercise like, this program serves as an
+  example of a self-printing boot program that does not execute the
+  bytes it reads.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/self-printing-machine-code.html">Read on website</a> |
+  <a href="https://susam.net/tag/assembly.html">#assembly</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/dos.html">#dos</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Rebooting With JMP Instruction</title>
+<link>https://susam.net/rebooting-with-jmp-instruction.html</link>
+<guid isPermaLink="false">mqkfs</guid>
+<pubDate>Sun, 02 Mar 2003 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  While learning about x86 microprocessors, I realised that it is
+  possible to reboot a computer running MS-DOS or Windows 98 by
+  jumping to the memory address FFFF:0000.  Here is an
+  example <code>DEBUG.EXE</code> session from MS-DOS 6.22:
+</p>
+<pre>
+<samp>C:\&gt;<kbd>DEBUG</kbd>
+<kbd>G =FFFF:0000</kbd></samp>
+</pre>
+<p>
+  In the above example, we start the DOS debugger and then enter
+  the <code>G</code> (go) command to execute the program at FFFF:0000.
+  Just doing this simple operation should reboot the system
+  immediately.
+</p>
+<p>
+  When the computer boots, the x86 microprocessor starts in real mode
+  and executes the instruction at FFFF:0000.  This is an address in
+  the BIOS ROM that contains a far jump instruction to go to another
+  address, typically F000:E05B.
+</p>
+<pre>
+<samp>C:\&gt;<kbd>DEBUG</kbd>
+-<kbd>U FFFF:0000 4</kbd>
+FFFF:0000 EA5BE000F0    JMP     F000:E05B</samp>
+</pre>
+<p>
+  The address F000:E05B contains the BIOS start-up program which
+  performs a power-on self-test (POST), initialises the peripheral
+  devices, loads the boot sector code and executes it.  These
+  operations complete the booting sequence.
+</p>
+<p>
+  The important point worth noting here is that the very first
+  instruction the microprocessor executes after booting is the
+  instruction at FFFF:0000.  We can use this fact to create a tiny
+  executable program that can be used to reboot the computer.  Of
+  course, we can always perform a soft reboot using the key
+  sequence <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>del</kbd>.  However,
+  just for fun, let us create a program to reboot the computer with
+  a <code>JMP FFFF:0000</code> instruction.
+</p>
+<h2 id="reboot-program">Reboot Program<a href="#reboot-program"></a></h2>
+<p>
+  Here is a complete <code>DEBUG.EXE</code> session that shows how we
+  could write a simple reboot program:
+</p>
+<pre>
+<samp>C:\&gt;<kbd>DEBUG</kbd>
+-<kbd>A</kbd>
+1165:0100 <kbd>JMP FFFF:0000</kbd>
+1165:0105
+-<kbd>N REBOOT.COM</kbd>
+-<kbd>R CX</kbd>
+CX 0000
+:<kbd>5</kbd>
+-<kbd>W</kbd>
+Writing 00005 bytes
+-<kbd>Q</kbd>
+
+C:\&gt;</samp>
+</pre>
+<p>
+  Note that the <code>N</code> (name) command specifies the name of
+  the file where we write the binary machine code to.  Also, note that
+  the <code>W</code> (write) command expects the registers BX and CX
+  to contain the number of bytes to be written to the file.  When the
+  DOS debugger starts, it already initialises BX to 0 automatically,
+  so we only set the register CX to 5 with the <code>R CX</code>
+  command above.
+</p>
+<p>
+  Now we can execute this 5-byte program like this:
+</p>
+<pre><samp>C:&gt;<kbd>REBOOT</kbd></samp></pre>
+<h2 id="debugger-scripting">Debugger Scripting<a href="#debugger-scripting"></a></h2>
+<p>
+  In the previous section, we saw how we can start
+  <code>DEBUG.EXE</code> and type the debugger commands and the
+  assembly language instruction to jump to FFFF:0000.  We can also keep
+  these debugger inputs in a separate text file and feed that to the
+  debugger.  Here is how the content of such a text file would look:
+</p>
+<pre>
+<code>A
+JMP FFFF:0000
+
+N REBOOT.COM
+R CX
+5
+W
+Q</code>
+</pre>
+<p>
+  If the above input is saved in a file, say, <code>REBOOT.TXT</code>,
+  then we can run the DOS command <code>DEBUG &lt; REBOOT.TXT</code>
+  to assemble the program and create the binary executable file.  The
+  following DOS session example shows how this command behaves:
+</p>
+<pre>
+<samp>C:\&gt;<kbd>DEBUG &lt; REBOOT.TXT</kbd>
+-A
+1165:0100 JMP FFFF:0000
+1165:0105
+-N REBOOT.COM
+-R CX
+CX 0000
+:5
+-W
+Writing 00005 bytes
+-Q
+
+C:&gt;</samp>
+</pre>
+<h2 id="disassembly">Disassembly<a href="#disassembly"></a></h2>
+<p>
+  Here is a quick demonstration of how we can disassemble the
+  executable code:
+</p>
+<pre>
+<samp>C:\&gt;<kbd>DEBUG REBOOT.COM</kbd>
+-<kbd>U 100 104</kbd>
+117C:0100 EA0000FFFF    JMP     FFFF:0000</samp>
+</pre>
+<p>
+  While we did not really need to disassemble this tiny program, the
+  above example shows how we can use the debugger
+  command <code>U</code> (unassemble) to translate machine code to
+  assembly language mnemonics.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/rebooting-with-jmp-instruction.html">Read on website</a> |
+  <a href="https://susam.net/tag/assembly.html">#assembly</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/dos.html">#dos</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Programming With DOS Debugger</title>
+<link>https://susam.net/programming-with-dos-debugger.html</link>
+<guid isPermaLink="false">tkxiv</guid>
+<pubDate>Tue, 11 Feb 2003 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h2 id="introduction">Introduction<a href="#introduction"></a></h2>
+<p>
+  MS-DOS as well as Windows 98 come with a debugger program
+  named <code>DEBUG.EXE</code> that can be used to work with assembly
+  language instructions and machine code.  In MS-DOS version 6.22, this
+  program is named <code>DEBUG.EXE</code> and it is typically present
+  at <code>C:\DOS\DEBUG.EXE</code>.  On Windows 98, this program is
+  usually present at <code>C:\Windows\Command\Debug.exe</code>.  It is
+  a line-oriented debugger that supports various useful features to
+  work with and debug binary executable programs consisting of machine
+  code.
+</p>
+<p>
+  In this post, we see how we can use this debugger program to
+  assemble a few minimal programs that print some characters to
+  standard output.  We first create a 7-byte program that prints a
+  single character.  Then we create a 23-byte program that prints the
+  "hello, world" string.  All the steps provided in this post work well
+  with Windows 98 too.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#print-character">Print Character</a></li>
+  <li><a href="#hello-world">Hello, World</a></li>
+  <li><a href="#debugger-scripting">Debugger Scripting</a></li>
+  <li><a href="#disassembly">Disassembly</a></li>
+  <li><a href="#int-20-vs-ret">INT 20 vs RET</a></li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h2 id="print-character">Print Character<a href="#print-character"></a></h2>
+<p>
+  Let us first see how to create a tiny 7-byte program that prints the
+  character <code>A</code> to standard output.  The
+  following <code>DEBUG.EXE</code> session shows how we do it.
+</p>
+<pre>
+<samp>C:\&gt;<kbd>DEBUG</kbd>
+-<kbd>A</kbd>
+1165:0100 <kbd>MOV AH, 2</kbd>
+1165:0102 <kbd>MOV DL, 41</kbd>
+1165:0104 <kbd>INT 21</kbd>
+1165:0106 <kbd>RET</kbd>
+1165:0107
+-<kbd>G</kbd>
+A
+Program terminated normally
+-<kbd>N A.COM</kbd>
+-<kbd>R CX</kbd>
+CX 0000
+:<kbd>7</kbd>
+-<kbd>W</kbd>
+Writing 00007 bytes
+-<kbd>Q</kbd>
+
+C:\&gt;</samp>
+</pre>
+<p>
+  Now we can execute this program as follows:
+</p>
+<pre>
+<samp>C:\&gt;<kbd>A</kbd>
+A
+C:\&gt;</samp>
+</pre>
+<p>
+  The debugger command <code>A</code> creates machine executable code
+  from assembly language instructions.  The machine code created is
+  written to the main memory at address CS:0100 by default.  The first
+  three instructions generate the software interrupt 0x21 (decimal 33)
+  with AH set to 2 and DL set to 0x41 (decimal 65) which happens to be
+  the ASCII code of the character <code>A</code>.  Interrupt 0x21
+  offers a wide variety of DOS services.  Setting AH to 2 tells this
+  interrupt to invoke the function that prints a single character to
+  standard output.  This function expects DL to be set to the ASCII
+  code of the character we want to print.
+</p>
+<p>
+  The command <code>G</code> executes the program in memory from the
+  current location.  The current location is defined by the current
+  value of CS:IP which is CS:0100 by default.  We use this command to
+  confirm that the program runs as expected.
+</p>
+<p>
+  Next we prepare to write the machine code to a binary executable
+  file.  The command <code>N</code> is used to specify the name of the
+  file.  The command <code>W</code> is used to write the machine code
+  to the file.  This command expects the registers BX and CX to contain
+  the number of bytes to be written to the file.  When the DOS debugger
+  starts, BX is already initialised to 0, so we only set the register
+  CX to 7 with the <code>R CX</code> command.  Finally, we use the
+  command <code>Q</code> to quit the debugger and return to MS-DOS.
+</p>
+<h2 id="hello-world">Hello, World<a href="#hello-world"></a></h2>
+<p>
+  The following <code>DEBUG.EXE</code> session shows how to create a
+  program that prints a string.
+</p>
+<pre>
+<samp>C:\&gt;<kbd>DEBUG</kbd>
+-<kbd>A</kbd>
+1165:0100 <kbd>MOV AH, 9</kbd>
+1165:0102 <kbd>MOV DX, 108</kbd>
+1165:0105 <kbd>INT 21</kbd>
+1165:0107 <kbd>RET</kbd>
+1165:0108 <kbd>DB 'hello, world', D, A, '$'</kbd>
+1165:0117
+-<kbd>G</kbd>
+hello, world
+
+Program terminated normally
+-<kbd>N HELLO.COM</kbd>
+-<kbd>R CX</kbd>
+CX 0000
+:<kbd>17</kbd>
+-<kbd>W</kbd>
+Writing 00017 bytes
+-<kbd>Q</kbd>
+
+C:\&gt;</samp>
+</pre>
+<p>
+  Now we can execute this 23-byte program like this:
+</p>
+<pre>
+<samp>C:\&gt;<kbd>HELLO</kbd>
+hello, world
+
+C:\&gt;</samp>
+</pre>
+<p>
+  In the program above we use the pseudo-instruction <code>DB</code>
+  to define the bytes of the string we want to print.  We add the
+  trailing bytes 0xD and 0xA to print the carriage return (CR) and the
+  line feed (LF) characters so that the string is terminated with a
+  newline.  Finally, the string is terminated with the byte for dollar
+  sign (<code>'$'</code>) because the software interrupt we generate
+  next expects the string to be terminated with this symbol's byte
+  value.
+</p>
+<p>
+  We use the software interrupt 0x21 again.  However, this time we set
+  AH to 9 to invoke the function that prints a string.  This function
+  expects DS:DX to point to the address of a string terminated with
+  the byte value of <code>'$'</code>.  The register <code>DS</code> has
+  the same value as that of <code>CS</code>, so we only
+  set <code>DX</code> to the offset at which the string begins.
+</p>
+<h2 id="debugger-scripting">Debugger Scripting<a href="#debugger-scripting"></a></h2>
+<p>
+  We have already seen above how to assemble a "hello, world" program
+  in the previous section.  We started the debugger program, typed
+  some commands and typed assembly language instructions to create our
+  program.  It is also possible to prepare a separate input file with
+  all the debugger commands and assembly language instructions in it.
+  We then feed this file to the debugger program.  This can be useful
+  while writing more complex programs where we cannot afford to lose
+  our assembly language source code if we inadvertently crash the
+  debugger by executing an illegal instruction.
+</p>
+<p>
+  To create a separate input file that can be fed to the debugger, we
+  may use the DOS command <code>EDIT HELLO.TXT</code> to open a new
+  file with MS-DOS Editor, then type in the following debugger
+  commands and then save and exit the editor.
+</p>
+<pre>
+<code>A
+MOV AH, 9
+MOV DX, 108
+INT 21
+RET
+DB 'hello, world', D, A, '$'
+
+N HELLO.COM
+R CX
+17
+W
+Q</code>
+</pre>
+<p>
+  This is almost the same as the inputs we typed into the debugger in
+  the previous section.  The only difference from the previous section
+  is that we omit the <code>G</code> command here because we don't
+  really need to run the program while assembling it, although we
+  could do so if we really wanted to.
+</p>
+<p>
+  Then we can run the DOS command <code>DEBUG &lt; HELLO.TXT</code> to
+  assemble the program and create the binary executable file.  Here is
+  a DOS session example that shows what the output of this command
+  looks like:
+</p>
+<pre>
+<samp>C:\&gt;<kbd>DEBUG &lt; HELLO.TXT</kbd>
+-A
+1165:0100 MOV AH, 9
+1165:0102 MOV DX, 108
+1165:0105 INT 21
+1165:0107 RET
+1165:0108 DB 'hello, world', D, A, '$'
+1165:0117
+-N HELLO.COM
+-R CX
+CX 0000
+:17
+-W
+Writing 00017 bytes
+-Q
+
+C:\&gt;</samp>
+</pre>
+<p>
+  The output is in fact very similar to the debugger session in the
+  previous section.
+</p>
+<h2 id="disassembly">Disassembly<a href="#disassembly"></a></h2>
+<p>
+  Now that we have seen how to assemble simple programs into binary
+  executable files using the debugger, we will now briefly see how to
+  disassemble the binary executable files.  This could be useful when
+  we want to debug an existing program.
+</p>
+<pre>
+<samp>C:\&gt;<kbd>DEBUG A.COM</kbd>
+-<kbd>U 100 106</kbd>
+117C:0100 B402          MOV     AH,02
+117C:0102 B241          MOV     DL,41
+117C:0104 CD21          INT     21
+117C:0106 C3            RET</samp>
+</pre>
+<p>
+  The debugger command <code>U</code> (unassemble) is used to
+  translate the binary machine code to assembly language mnemonics.
+</p>
+<pre>
+<samp>C:\&gt;<kbd>DEBUG HELLO.COM</kbd>
+-<kbd>U 100 116</kbd>
+117C:0100 B409          MOV     AH,09
+117C:0102 BA0801        MOV     DX,0108
+117C:0105 CD21          INT     21
+117C:0107 C3            RET
+117C:0108 68            DB      68
+117C:0109 65            DB      65
+117C:010A 6C            DB      6C
+117C:010B 6C            DB      6C
+117C:010C 6F            DB      6F
+117C:010D 2C20          SUB     AL,20
+117C:010F 776F          JA      0180
+117C:0111 726C          JB      017F
+117C:0113 64            DB      64
+117C:0114 0D0A24        OR      AX,240A
+-<kbd>D 100 116</kbd>
+117C:0100  B4 09 BA 08 01 CD 21 C3-68 65 6C 6C 6F 2C 20 77   ......!.hello, w
+117C:0110  6F 72 6C 64 0D 0A 24                              orld..$</samp>
+</pre>
+<h2 id="int-20-vs-ret">INT 20 vs RET<a href="#int-20-vs-ret"></a></h2>
+<p>
+  Another way to terminate a .COM program is to simply use the
+  instruction <code>INT 20</code>.  This consumes two bytes in the
+  machine code: <code>CD 20</code>.  While producing the smallest
+  possible executables was not really the goal of this post, the code
+  examples above indulge in a little bit of size reduction by using
+  the <code>RET</code> instruction to terminate the program.  This
+  consumes only one byte: <code>C3</code>.  This works because when a
+  .COM file starts, the register SP contains FFFE.  The stack memory
+  locations at offset FFFE and FFFF contain 00 and 00 respectively.
+  Further, the memory address offset 0000 contains the
+  instruction <code>INT 20</code>.  Here is a demonstration of these
+  facts using the debugger program:
+</p>
+<pre>
+<samp>C:\&gt;<kbd>DEBUG HELLO.COM</kbd>
+-<kbd>R SP</kbd>
+SP FFFE
+:
+-<kbd>D FFFE</kbd>
+117C:FFF0                                            00 00
+-<kbd>U 0 1</kbd>
+117C:0000 CD20          INT     20</samp>
+</pre>
+<p>
+  As a result, executing the <code>RET</code> instruction pops 0000
+  off the stack at FFFE and loads it into IP.  This results in the
+  instruction <code>INT 20</code> at offset 0000 getting executed
+  which leads to program termination.
+</p>
+<p>
+  While both <code>INT 20</code> and <code>RET</code> lead to
+  successful program termination both in DOS as well as while
+  debugging with <code>DEBUG.EXE</code>, there is some difference
+  between them which affects the debugging experience.  Terminating the
+  program with <code>INT 20</code> allows us to run the program
+  repeatedly within the debugger by repeated applications of
+  the <code>G</code> debugger command.  But when we terminate the
+  program with <code>RET</code>, we cannot run the program repeatedly
+  in this manner.  The program runs and terminates successfully the
+  first time we run it in the debugger but the stack does not get
+  reinitialised with zeros to prepare it for another execution of the
+  program within the debugger.  Therefore when we try to run the
+  program the second time using the <code>G</code> command, the
+  program does not terminate successfully.  It hangs instead.  It is
+  possible to work around this by reinitialising the stack with the
+  debugger command <code>E FFFE 0 0</code> before
+  running <code>G</code> again.
+</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  Although the DOS debugger is very limited in features in comparison
+  with sophisticated assemblers like NASM, MASM, etc., this humble
+  program can perform some of the basic operations involved in working
+  with assembly language and machine code.  It can read and write
+  binary executable files, examine memory, execute machine
+  instructions in memory, modify registers, edit binary files, etc.
+  The fact that this debugger program is always available with MS-DOS
+  or Windows 98 system means that these systems are ready for some
+  rudimentary assembly language programming without requiring any
+  additional tools.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/programming-with-dos-debugger.html">Read on website</a> |
+  <a href="https://susam.net/tag/assembly.html">#assembly</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/dos.html">#dos</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Editing Binaries in DOS</title>
+<link>https://susam.net/editing-binaries-in-dos.html</link>
+<guid isPermaLink="false">xomdn</guid>
+<pubDate>Thu, 18 Jul 2002 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Both MS-DOS and Windows 98 come with a debugger program
+  named <code>DEBUG.EXE</code> that make it possible to edit binary
+  files without requiring additional tools.  Although the primary
+  purpose of this program is to test and debug executable files, it
+  can be used to edit binary files too.  Two examples of this are
+  shown in this post.  The first example edits a string of bytes in an
+  executable file.  The second one edits machine instructions to alter
+  the behaviour of the program.  Both examples provided in the next
+  two sections can be reproduced on MS-DOS version 6.22.  These
+  examples can be performed on Windows 98 too after minor adjustments.
+</p>
+<h2 id="editing-data">Editing Data<a href="#editing-data"></a></h2>
+<p>
+  Let us first see an example of editing an error message produced by
+  the <code>MODE</code> command.  This DOS command is used for
+  displaying and reconfiguring system settings.  For example, the
+  following command sets the display to show 40 characters per line:
+</p>
+<pre><samp>C:\&gt;<kbd>MODE 40</kbd></samp></pre>
+<p>
+  The following command reverts the display to show 80 characters per
+  line:
+</p>
+<pre><samp>C:\&gt;<kbd>MODE 80</kbd></samp></pre>
+<p>
+  Here is another example of this command that shows the current
+  settings for serial port COM1:
+</p>
+<pre>
+<samp>C:\&gt;<kbd>MODE COM1</kbd>
+
+Status for device COM1:
+-----------------------
+Retry=NONE
+
+C:\&gt;</samp>
+</pre>
+<p>
+  An invalid parameter leads to an error like this:
+</p>
+<pre>
+<samp>C:\&gt;<kbd>MODE 0</kbd>
+
+Invalid parameter - 0
+
+C:\&gt;</samp>
+</pre>
+<p>
+  We will edit this error message to be slightly more helpful.  The
+  following debugger session shows how.
+</p>
+<pre>
+<samp>C:\&gt;<kbd>DEBUG C:\DOS\MODE.COM</kbd>
+-<kbd>S 0 FFFF 'Invalid parameter'</kbd>
+117C:19D1
+-<kbd>D 19D0 19FF</kbd>
+117C:19D0  13 49 6E 76 61 6C 69 64-20 70 61 72 61 6D 65 74   .Invalid paramet
+117C:19E0  65 72 0D 0A 20 0D 0A 49-6E 76 61 6C 69 64 20 6E   er.. ..Invalid n
+117C:19F0  75 6D 62 65 72 20 6F 66-20 70 61 72 61 6D 65 74   umber of paramet
+-<kbd>E 19D0 12 'No soup for you!' D A</kbd>
+-<kbd>D 19D0 19FF</kbd>
+117C:19D0  12 4E 6F 20 73 6F 75 70-20 66 6F 72 20 79 6F 75   .No soup for you
+117C:19E0  21 0D 0A 0A 20 0D 0A 49-6E 76 61 6C 69 64 20 6E   !... ..Invalid n
+117C:19F0  75 6D 62 65 72 20 6F 66-20 70 61 72 61 6D 65 74   umber of paramet
+-<kbd>N SOUP.COM</kbd>
+-<kbd>W</kbd>
+Writing 05C11 bytes
+-<kbd>Q</kbd>
+
+C:\&gt;</samp>
+</pre>
+<p>
+  We first open <code>MODE.COM</code> with the debugger.  When we do
+  so, the entire program is loaded into offset 0x100 of the code
+  segment (CS).  Then we use the <code>S</code> debugger command to
+  search for the string "Invalid parameter".  This prints the offset
+  at which this string occurs in memory.
+</p>
+<p>
+  We use the <code>D</code> command to dump the bytes around that
+  offset.  In the first row of the output, the byte value 13 (decimal
+  19) represents the length of the string that follows it.  Indeed
+  there are 19 bytes in the string composed of the text <code>"Invalid
+  parameter"</code> and the following carriage return (CR) and line
+  feed (LF) characters.  The CR and LF characters have ASCII codes 0xD
+  (decimal 13) and 0xA (decimal 10).  These values can be seen at the
+  third and fourth places of the second row of the output of this
+  command.
+</p>
+<p>
+  Then we use the <code>E</code> command to enter a new string length
+  followed by a new string to replace the existing error message.
+  Note that we enter a string length of 0x12 (decimal 18) which is
+  indeed the length of the string that follows it.  After entering the
+  new string, we dump the memory again with <code>D</code> to verify
+  that the new string is now present in memory.
+</p>
+<p>
+  After confirming that the edited string looks good, we use
+  the <code>N</code> command to specify the name of the file we want
+  to write the edited binary to.  This command starts writing the
+  bytes from offset 0x100 to the named file.  It reads the number of
+  bytes to be written to the file from the BX and CX registers.  These
+  registers are already initialised to the length of the file when we
+  load a file in the debugger.  Since we have not modified these
+  registers ourselves, we don't need to set them again.  In case you
+  do need to set the BX and CX registers in a different situation, the
+  commands to do so are <code>R BX</code> and <code>R CX</code>
+  respectively.
+</p>
+<p>
+  Finally, the <code>W</code> command writes the file and
+  the <code>Q</code> command quits the debugger.  Now we can test the
+  new program as follows:
+</p>
+<pre>
+<samp>
+C:\&gt;<kbd>SOUP 0</kbd>
+
+No soup for you! - 0
+
+C:\&gt;</samp>
+</pre>
+<h2 id="editing-machine-instructions">Editing Machine Instructions<a href="#editing-machine-instructions"></a></h2>
+<p>
+  In this section, we will see how to edit the binary we created in
+  the previous section further to add our own machine instructions to
+  print a welcome message when the program starts.  Here is an example
+  debugger session that shows how to do it.
+</p>
+<pre>
+<samp>C:\&gt;<kbd>DEBUG SOUP.COM</kbd>
+-<kbd>U</kbd>
+117C:0100 E99521        JMP     2298
+117C:0103 51            PUSH    CX
+117C:0104 8ACA          MOV     CL,DL
+117C:0106 D0E1          SHL     CL,1
+117C:0108 32ED          XOR     CH,CH
+117C:010A 80CD03        OR      CH,03
+117C:010D D2E5          SHL     CH,CL
+117C:010F 2E            CS:
+117C:0110 222E7D01      AND     CH,[017D]
+117C:0114 2E            CS:
+117C:0115 890E6402      MOV     [0264],CX
+117C:0119 59            POP     CX
+117C:011A 7505          JNZ     0121
+117C:011C EA39E700F0    JMP     F000:E739
+-<kbd>D 300</kbd>
+117C:0300  07 1F C3 18 18 18 18 18-00 00 00 00 00 00 00 00   ................
+117C:0310  00 00 FF 00 00 00 00 00-FF 00 00 00 00 00 00 00   ................
+117C:0320  00 00 00 00 00 00 00 00-00 00 FF FF 90 00 40 00   ..............@.
+117C:0330  00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00   ................
+117C:0340  00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00   ................
+117C:0350  00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00   ................
+117C:0360  00 00 00 FF 00 00 00 00-00 00 00 00 00 00 00 00   ................
+117C:0370  02 00 2B C0 8E C0 A0 71-03 A2 BA 07 A2 BC 07 3C   ..+....q.......<
+-<kbd>A</kbd>
+117C:0100 <kbd>JMP 330</kbd>
+117C:0103
+-<kbd>A 330</kbd>
+117C:0330 <kbd>MOV AH, 9</kbd>
+117C:0332 <kbd>MOV DX, 33A</kbd>
+117C:0335 <kbd>INT 21</kbd>
+117C:0337 <kbd>JMP 2298</kbd>
+117C:033A <kbd>DB 'Welcome to Soup Kitchen!', D, A, '$'</kbd>
+117C:0355
+-<kbd>W</kbd>
+Writing 05C11 bytes
+-<kbd>Q</kbd>
+
+C:\&gt;</samp>
+</pre>
+<p>
+  At the beginning, we use the debugger command <code>U</code> to
+  unassemble (disassemble) some bytes at the top of the program to see
+  what they look like.  We see that the very first instruction is a
+  jump to offset 0x2298.  The debugger command <code>D 300</code>
+  shows that there are contiguous zero bytes around offset 0x330.  We
+  replace some of these zero bytes with new machine instructions that
+  print our welcome message.  To do this, we first replace the jump
+  instruction at the top with a jump instruction to offset 0x330 where
+  we then place the machine code for our welcome message.  This new
+  machine code prints the welcome message and then jumps to offset
+  0x2298 allowing the remainder of the program to execute as usual.
+</p>
+<p>
+  The debugger command <code>A</code> is used to assemble the machine
+  code for the altered jump instruction at the top.  By default it
+  writes the assembled machine code to CS:0100 which is the address at
+  which DOS loads executable programs.  Then we use the debugger
+  command <code>A 330</code> to add new machine code at offset 0x330.
+  We try not to go beyond the region with contiguous zeroes while
+  writing our machine instructions.  Fortunately for us, our entire
+  code for the welcome message occupies 37 bytes and and the last byte
+  of our code lands at offset 0x354.
+</p>
+<p>
+  Finally, we write the updated program in memory back to the file
+  named <code>SOUP.COM</code>.  Since the debugger was used to load
+  the file named <code>SOUP.COM</code>, we do not need to use
+  the <code>N</code> command to specify the name of the file again.
+  When a file has just been loaded into the debugger, by default
+  the <code>W</code> command writes the program in memory back to the
+  same file that was loaded into the memory.
+</p>
+<p>
+  Now our updated program should behave as shown below:
+</p>
+<pre>
+<samp>C:\&gt;<kbd>SOUP COM1</kbd>
+Welcome to Soup Kitchen!
+
+Status for device COM1:
+-----------------------
+Retry=NONE
+
+C:\&gt;<kbd>SOUP 0</kbd>
+Welcome to Soup Kitchen!
+
+No soup for you! - 0
+
+C:\&gt;</samp>
+</pre>
+<p>
+  That's our modified program that prints a welcome message and our
+  own error message created with the humble DOS debugger.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/editing-binaries-in-dos.html">Read on website</a> |
+  <a href="https://susam.net/tag/assembly.html">#assembly</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/dos.html">#dos</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+
+
+</channel>
+</rss>
