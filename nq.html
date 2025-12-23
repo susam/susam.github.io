@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Susam's Nerd Quiz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        font-family: georgia, serif;
+        font-size: large;
+        line-height: 1.5;
+        margin: 0 auto;
+        max-width: 40em;
+        overflow-wrap: break-word;
+        padding: 0 1em;
+      }
+      body, dialog {
+        color: #333;
+      }
+      dialog {
+        max-width: 40em;
+        text-align: center;
+      }
+      dialog div:nth-of-type(2) {
+        text-align: left;
+      }
+      dialog button {
+        min-width: 10em;
+      }
+      h1, h2, h3 {
+        margin: 1em 0 0.5em 0;
+        text-align: center;
+      }
+      a:link { color: #00e }
+      a:visited { color: #518 }
+      a:focus, a:hover { color: #03f }
+      a:active { color: #a00 }
+      blockquote, pre, kbd {
+        background: #eee;
+      }
+      input {
+        margin-right: 1em;
+      }
+      label {
+        align-items: flex-start;
+        display: flex;
+        margin-bottom: 0.5em;
+      }
+      button {
+        display: block;
+        font-family: georgia, serif;
+        font-size: 1em;
+        margin: 1em auto 0 auto;
+        min-height: 2em;
+        min-width: 50%;
+      }
+      blockquote {
+        border-left: thick solid #ccc;
+        margin: 1em 0;
+      }
+      pre {
+        overflow: auto;
+      }
+      pre, code, samp {
+        font-family: monospace,monospace;
+        font-size: 0.9em;
+      }
+      pre code {
+        font-size: 1.0em;
+      }
+      code {
+        color: #050;
+      }
+      samp {
+        color: #730;
+      }
+      blockquote, pre {
+        padding: 0.5em;
+      }
+      dialog::backdrop {
+        background: #000;
+        opacity: 0.7;
+      }
+      footer {
+        text-align: center;
+      }
+      footer hr {
+        border: 0;
+        border-bottom: 0.15em dotted #999;
+        margin: 2.5em auto 1.5em auto;
+      }
+      nav a {
+        line-height: 2.5;
+        margin-right: 1.5em;
+      }
+      nav a:last-child  {
+        margin-right: 0;
+      }
+      .error {
+        border: medium double #c00;
+        color: #c00;
+        display: block;
+        padding: 1em;
+        text-align: center;
+      }
+      .card, .explanation {
+        border: thin solid #666;
+        padding: 1em;
+      }
+      .card {
+        margin: 2em 0;
+      }
+      .explanation {
+        margin-top: 1em;
+      }
+      .award {
+        border: thick double #666;
+        padding: 1em 1em 2em 1em;
+        text-align: center;
+      }
+      .award p {
+        font-size: 1.25em;
+        margin: 0.5em 0;
+      }
+      .award p:first-child {
+        font-size: 2.5em;
+        margin: 0;
+      }
+      .award p strong {
+        white-space: pre;
+      }
+      blockquote > :first-child,
+      dialog > :first-child,
+      .card > :first-child,
+      .explanation > :first-child,
+      .award > :first-child {
+        margin-top: 0;
+      }
+      blockquote > :last-child,
+      dialog > :last-child,
+      .card > :last-child,
+      .explanation > :last-child,
+      .award > :last-child {
+        margin-bottom: 0;
+      }
+      .skipped.card {
+        background: #eee;
+      }
+      .new label {
+        cursor: pointer;
+      }
+      .new label:hover {
+        background: #ddd;
+      }
+      label.correct {
+        background: #9d9;
+      }
+      .correct.card, .correct .explanation {
+        background: #efe;
+        border-color: #090;
+      }
+      label.incorrect {
+        background: #fbb;
+      }
+      .incorrect.card, .incorrect .explanation {
+        background: #fee;
+        border-color: #900;
+      }
+      .meta {
+        display: flex;
+        align-items: center;
+      }
+      .skipped .meta, .correct .meta, .incorrect .meta {
+        margin-top: 1em;
+      }
+      .result {
+        flex: 1;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .info {
+        cursor: pointer;
+        flex: 1;
+        font-size: small;
+        text-align: right;
+      }
+      .score {
+        margin: 2em auto;
+        display: inline-block;
+        border: thin solid red;
+      }
+      .screen h1, .screen h2 {
+        text-align: left;
+      }
+      footer, .hidden {
+        display: none;
+      }
+      @media (prefers-color-scheme: dark) {
+        body, dialog {
+          background: #111;
+          color: #ccc;
+        }
+        a:link { color: #9bf }
+        a:visited { color: #a9f }
+        a:focus, a:hover { color: #9cf }
+        a:active { color: #f99 }
+        button {
+          background: #000;
+          border-color: #666;
+          color: #bbb;
+        }
+        button:disabled {
+          background: #222;
+          color: #999;
+        }
+        blockquote, pre, kbd {
+          background: #000;
+          box-shadow: 0 0 0.5em #333;
+        }
+        blockquote {
+          border-left-color: #333;
+        }
+        code, pre kbd {
+          color: #9c6;
+        }
+        samp {
+          color: #db0;
+        }
+        .new label:hover {
+          background: #333;
+        }
+        .card, .explanation {
+          border-color: #666;
+        }
+        .skipped.card {
+          background: #222;
+        }
+        label.correct {
+          background: #040;
+        }
+        .award {
+          border-color: #999;
+        }
+        .correct.card, .correct .explanation {
+          background: #121;
+          border-color: #262;
+        }
+        label.incorrect {
+          background: #600;
+        }
+        .incorrect.card, .incorrect .explanation {
+          background: #211;
+          border-color: #622;
+        }
+        .error {
+          border-color: #f99;
+          color: #f99;
+        }
+        footer hr {
+          border-bottom-color: #666;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="js/katex/katex.min.css">
+    <style>
+      .katex {font-size: 1.1em }
+      .katex a:link {text-decoration: none}
+      .katex-display {overflow: auto hidden}
+    </style>
+    <script defer src="js/katex/katex.min.js"></script>
+    <script defer src="js/katex/contrib/auto-render.min.js"></script>
+    <script>
+      const LOGGING = true
+      const SCREENS = {}
+      const CARDS_PER_SET = 5
+      let models
+      let answering
+      let docTitle
+
+      function init () {
+        log('initialising')
+        for (const screen of ['about']) {
+          SCREENS[screen] = document.getElementById(screen).innerHTML
+          SCREENS[screen].className = 'screen'
+        }
+        docTitle = document.title
+        setupPage()
+        document.querySelector('footer').style.display = 'block'
+        window.addEventListener('hashchange', setupPage)
+        log('initialised')
+      }
+
+      function setupPage () {
+        log('setting up page')
+        const maxSet = Math.floor(CARDS.length / CARDS_PER_SET)
+        let hash = window.location.hash.slice(1)
+        let revealing = false
+
+        if (hash.slice(-1) === 'r') {
+          hash = hash.slice(0, -1)
+          revealing = true
+        }
+
+        if (/^q[\d,]+$/.test(hash)) {
+          const qids = unique(hash.slice(1).split(',').map(Number).filter(Boolean))
+          for (const qid of qids) {
+            if (qid < 1 || qid > CARDS.length) {
+              setupError('Question #' + qid + ' does not exist.')
+              return
+            }
+          }
+          models = createModels(qids)
+          setupQuiz(models, revealing, null)
+        } else if (/^\d+$/.test(hash)) {
+          const n = parseInt(hash)
+          if (n < 1 || n > maxSet) {
+            setupError('Quiz set #' + n + ' does not exist.')
+            return
+          }
+          models = createModels(
+            range(CARDS_PER_SET * (n - 1) + 1, CARDS_PER_SET * n + 1)
+          )
+          setupQuiz(models, revealing, n)
+        } else if (hash in SCREENS) {
+          setupScreen(hash)
+        } else {
+          window.location.hash = '#' + maxSet
+        }
+        log('set up page')
+      }
+
+      function createModels (qids) {
+        log('creating models')
+        const models = []
+        for (const qid of qids) {
+          models.push(createModel(qid))
+        }
+        log('created models')
+        return models
+      }
+
+      function createModel (qid) {
+        const card = CARDS[qid - 1]
+        const [options, answer] = shuffleOptions(card.options)
+        const model = Object.assign({}, card)
+        model.qid = qid.toString()
+        model.options = []
+        for (let i = 0; i < options.length; i++) {
+          const option = {}
+          option.oid = qid + '.' + (i + 1)
+          option.text = options[i]
+          option.correct = i === answer
+          model.options.push(option)
+        }
+        model.points = 1
+        model.penalty = -1 / (options.length - 1)
+        return model
+      }
+
+      function setupQuiz (models, revealing, quizNum) {
+        log('setting up quiz')
+        answering = false
+
+        // Set up title.
+        let titleSuffix = ''
+        if (quizNum !== null) {
+          // Quiz set.
+          titleSuffix = ' #' + quizNum
+        } else if (models.length === 1) {
+          // Single question.
+          titleSuffix = ' - Question #' + models[0].qid
+        } else {
+          // Assorted questions.
+          titleSuffix = ' - Assorted'
+        }
+        const h1 = document.createElement('h1')
+        h1.textContent = 'Nerd Quiz' + titleSuffix
+        document.title = docTitle + titleSuffix
+
+        // Set up the quiz cards and the form.
+        const form = document.createElement('form')
+        form.id = 'form'
+        for (let i = 0; i < models.length; i++) {
+          form.append(setupCard(models[i]))
+        }
+
+        // Set up reveal/try link, prompt and submit button.
+        const prompt = document.createElement('p')
+        const reveal = document.createElement('p')
+        const anchor = document.createElement('a')
+        const submit = document.createElement('button')
+        prompt.id = 'prompt'
+        reveal.id = 'reveal'
+        submit.id = 'submit'
+        prompt.style.textAlign = 'center'
+        reveal.style.textAlign = 'center'
+        submit.style.display = 'none'
+        reveal.append(anchor)
+        if (revealing) {
+          anchor.href = window.location.hash.replace('r', '')
+          anchor.textContent = 'Try Quiz'
+          prompt.style.display = 'none'
+        } else {
+          anchor.href = window.location.hash + 'r'
+          anchor.textContent = 'Reveal ' + plural(models, 'Answer', 'Answers')
+          prompt.textContent = 'Select an answer to begin the quiz.'
+          prompt.style.fontStyle = 'italic'
+          prompt.style.textAlign = 'center'
+        }
+        form.append(prompt, reveal, submit)
+
+        // Add a blank dialog to the document to be triggered later.
+        const dialog = document.createElement('dialog')
+        dialog.id = 'dialog'
+
+        // Set up the main section and scroll to top.
+        const main = document.querySelector('main')
+        main.replaceChildren(h1, form, dialog)
+        log('scrolling to top immediately')
+        window.scroll({ top: 0 })
+        renderKaTeX()
+
+        // Reveal cards if requested.
+        if (revealing) {
+          answerCards()
+          markCards(false)
+        }
+        log('set up quiz')
+      }
+
+      function setupError (msg) {
+        log('setting up error')
+        const main = document.querySelector('main')
+        const h1 = document.createElement('h1')
+        const div = document.createElement('div')
+        document.title = docTitle
+        h1.textContent = 'Nerd Quiz'
+        div.className = 'error'
+        div.textContent = msg
+        main.replaceChildren(h1, div)
+        log('setup error')
+      }
+
+      function setupCard (model) {
+        const card = document.createElement('div')
+        card.id = 'c' + model.qid
+        card.className = 'card new'
+
+        const h2 = document.createElement('h2')
+        h2.textContent = model.title
+        card.append(h2)
+
+        const p = document.createElement('p')
+        p.innerHTML = model.question
+        card.append(p)
+
+        for (let n = 0; n < model.options.length; n++) {
+          const option = model.options[n]
+          const label = document.createElement('label')
+          const radio = document.createElement('input')
+          const spanForRadio = document.createElement('span')
+          const spanForOption = document.createElement('span')
+          label.id = 'l' + option.oid
+          radio.type = 'radio'
+          radio.name = 'q' + model.qid
+          radio.id = 'r' + option.oid
+          radio.addEventListener('change', handleRadio)
+          spanForRadio.append(radio)
+          spanForOption.innerHTML = option.text
+          label.append(spanForRadio, spanForOption)
+          card.append(label)
+        }
+
+        card.append(setupMeta(model))
+        return card
+      }
+
+      function setupMeta (model) {
+        const score = document.createElement('span')
+        score.id = 's' + model.qid
+        score.textContent = 'Penalty: ' + model.penalty.toFixed(2)
+
+        const text = 'Q#' + model.qid + ' | ' + formatDate(model.date) + ' | '
+        const info = document.createElement('div')
+        info.className = 'info'
+        info.append(text, score)
+        info.addEventListener('click', function () {
+          showInfoDialog(model)
+        })
+
+        const meta = document.createElement('div')
+        meta.className = 'meta'
+        meta.id = 'm' + model.qid
+        meta.append(info)
+        return meta
+      }
+
+      function showInfoDialog (model) {
+        // Set up header.
+        const h3 = document.createElement('h3')
+        const by = document.createElement('div')
+        h3.textContent = 'Question #' + model.qid
+        by.innerHTML = 'By ' + formatAuthors(model.authors) + ' on ' + formatDate(model.date)
+
+        // Set up text content.
+        const div = document.createElement('div')
+        let html = '<p>This question has the following '
+        html += plural(model.tags, 'tag', 'tags') + ': '
+        html += formatTags(model.tags) + '.  '
+        html += 'You score ' + model.points + ' for a correct answer and lose '
+        html += (-model.penalty).toFixed(2) + ' for an incorrect one.</p>'
+        div.innerHTML = html
+
+        // Initialise dialog box.
+        const dialog = document.getElementById('dialog')
+        dialog.replaceChildren(h3, by, div)
+
+        // Set up buttons.
+        const form = document.createElement('form')
+        form.method = 'dialog'
+        if (models.length > 1) {
+          const div = document.createElement('div')
+          const visit = document.createElement('a')
+          visit.href = '#q' + model.qid
+          visit.textContent = 'Visit Question'
+          div.append(visit)
+          dialog.append(div)
+        }
+
+        const close = document.createElement('button')
+        close.value = 'close'
+        close.textContent = 'Close'
+        form.append(close)
+        dialog.append(form)
+        dialog.showModal()
+        close.focus()
+      }
+
+      function handleRadio () {
+        if (!answering) {
+          log('switching to answering mode')
+          const prompt = document.getElementById('prompt')
+          const reveal = document.getElementById('reveal')
+          const submit = document.getElementById('submit')
+          submit.textContent = 'Submit ' + plural(models, 'Answer', 'Answers')
+          submit.addEventListener('click', markAnswers)
+          prompt.style.display = 'none'
+          reveal.style.display = 'none'
+          submit.style.display = 'block'
+          answering = true
+        }
+      }
+
+      function answerCards () {
+        log('revealing card answers')
+        for (const model of models) {
+          answerCard(model)
+        }
+        log('revealed card answers')
+      }
+
+      function answerCard (model) {
+        for (const option of model.options) {
+          const radio = document.getElementById('r' + option.oid)
+          if (option.correct) {
+            radio.checked = true
+          }
+        }
+      }
+
+      function markAnswers (e) {
+        e.preventDefault()
+        markCards(true)
+      }
+
+      function markCards (scoring) {
+        log('marking cards')
+        let points = 0
+        for (const model of models) {
+          points += markCard(model, scoring)
+          explainAnswer(model, points)
+        }
+        if (scoring) {
+          document.getElementById('submit').disabled = true
+          showAward(points)
+        }
+        renderKaTeX()
+        log('scrolling to top smoothly')
+        window.scroll({ top: 0, behavior: 'smooth' })
+        log('marked cards')
+      }
+
+      function markCard (model, scoring) {
+        const TICK_MARK = '\u00a0\u00a0\u2713'
+        const CROSS_MARK = '\u00a0\u00a0\u2717'
+        const card = document.getElementById('c' + model.qid)
+        const meta = document.getElementById('m' + model.qid)
+        const score = document.getElementById('s' + model.qid)
+        let result = 'Skipped'
+        card.className = 'skipped card'
+        let points = 0
+        for (const option of model.options) {
+          const label = document.getElementById('l' + option.oid)
+          const radio = document.getElementById('r' + option.oid)
+          radio.disabled = true
+          label.className = ''
+          if (radio.checked) {
+            if (option.correct) {
+              result = 'Correct'
+              card.className = 'correct card'
+              label.className = 'correct'
+              points = model.points
+              label.append(TICK_MARK)
+            } else {
+              result = 'Incorrect'
+              card.className = 'incorrect card'
+              label.className = 'incorrect'
+              points = model.penalty
+              label.append(CROSS_MARK)
+            }
+          } else if (option.correct) {
+            label.className = 'correct'
+            label.append(TICK_MARK)
+          }
+        }
+        if (scoring) {
+          const div = document.createElement('div')
+          div.className = 'result'
+          div.textContent = result
+          meta.prepend(div)
+          score.textContent = 'Scored: ' + formatScore(points)
+        }
+        return points
+      }
+
+      function explainAnswer (model, points) {
+        const card = document.getElementById('c' + model.qid)
+        const div = document.createElement('div')
+        div.className = 'explanation'
+        div.innerHTML = formatParagraphs(model.explanation)
+        card.append(div)
+      }
+
+      function showAward (points) {
+        const DOUGHNUT = '\u{1f369}'
+        const BEVERAGE = '\u2615'
+        const STAR = '\u2605'
+        const maxScore = models.length
+        const grade = Math.max(0, Math.floor(5 * points / maxScore))
+        const messages = [
+          grade === 0
+            ? DOUGHNUT
+            : (grade === 1 ? BEVERAGE : STAR.repeat(grade))
+        ]
+        messages.push('You scored ' + formatTotalScore(points) +
+                      ' out of ' + maxScore + '.')
+        messages.push('You have been deemed ' + [
+          'a <strong>Neophyte</strong>',
+          'a <strong>Nerdling</strong>',
+          'an <strong>Apprentice Nerd</strong>',
+          'a <strong>Pro Nerd</strong>',
+          'an <strong>Elite Nerd</strong>',
+          'the <strong>Ultimate Nerd</strong>'
+        ][grade] + '.')
+        messages.push([
+          'Every great nerd starts somewhere.',
+          'A spark of nerdiness has been lit.',
+          'The path to greatness has begun.',
+          'A splending performance worthy of a seasoned nerd.',
+          'A dazzling performance from a nerd in finest form.',
+          'A flawless display of unmatched brilliance!'
+        ][grade])
+        const form = document.getElementById('form')
+        const div = document.createElement('div')
+        div.className = 'award level' + grade
+        for (const message of messages) {
+          const p = document.createElement('p')
+          p.innerHTML = message
+          div.append(p)
+        }
+        form.prepend(div)
+      }
+
+      function setupScreen (name) {
+        log('setting up screen', name)
+        const div = document.createElement('div')
+        div.className = 'screen'
+        div.innerHTML = SCREENS[name]
+        document.querySelector('main').replaceChildren(div)
+        log('scrolling to top immediately')
+        window.scroll({ top: 0 })
+        log('set up screen', name)
+      }
+
+      function range (m, n) {
+        const result = []
+        for (let i = m; i < n; i++) {
+          result.push(i)
+        }
+        return result
+      }
+
+      function shuffleOptions (options) {
+        let aota = null
+        let nota = null
+        const others = []
+        for (let i = 0; i < options.length; i++) {
+          const option = options[i]
+          if (option.toLowerCase().startsWith('all of the above')) {
+            aota = option
+          } else if (option.toLowerCase().startsWith('none of the above')) {
+            nota = option
+          } else {
+            others.push(option)
+          }
+        }
+        const shuffled = shuffle(others)
+        if (aota !== null) {
+          shuffled.push(aota)
+        }
+        if (nota !== null) {
+          shuffled.push(nota)
+        }
+        for (let i = 0; i < shuffled.length; i++) {
+          if (shuffled[i] === options[0]) {
+            return [shuffled, i]
+          }
+        }
+      }
+
+      function shuffle (items) {
+        items = items.slice()
+        for (let n = items.length - 1; n >= 1; n--) {
+          const m = Math.floor(Math.random() * (n + 1));
+          [items[m], items[n]] = [items[n], items[m]]
+        }
+        return items
+      }
+
+      function formatAuthors (authors) {
+        return joinAnd(unique(authors).map(x => '<strong>' + x + '</strong>'))
+      }
+
+      function formatTags (tags) {
+        return joinAnd(unique(tags).map(x => '<em>' + x + '</em>'))
+      }
+
+      function formatDate (dateStr) {
+        const date = new Date(dateStr)
+        const day = String(date.getDate()).padStart(2, '0')
+        const month = [
+          'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+          'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+        ][date.getMonth()]
+        const year = date.getFullYear()
+        return day + ' ' + month + ' ' + year
+      }
+
+      function formatParagraphs (s) {
+        s = s.replaceAll('\n\n', '</p><p>')
+        return '<p>' + s + '</p>'
+      }
+
+      function formatScore (n) {
+        if (n === 0) {
+          return '0'
+        } else if (n > 0) {
+          return '+' + n
+        } else {
+          return n.toFixed(2)
+        }
+      }
+
+      function formatTotalScore (n) {
+        return (Math.round(n * 100) / 100).toString()
+      }
+
+      function joinAnd (items) {
+        if (items.length <= 1) {
+          return items.join()
+        }
+        return items.slice(0, -1).join(', ') + ' and ' + items.slice(-1)
+      }
+
+      function unique (items) {
+        return Array.from(new Set(items))
+      }
+
+      function plural (items, singular, plural) {
+        return items.length === 1 ? singular : plural
+      }
+
+      function renderKaTeX () {
+        log('rendering katex')
+        window.renderMathInElement(document.body, {
+          delimiters: [
+            { left: '\\(', right: '\\)', display: false },
+            { left: '\\[', right: '\\]', display: true },
+            { left: '\\begin{equation}', right: '\\end{equation}', display: true },
+            { left: '\\begin{align}', right: '\\end{align}', display: true },
+            { left: '\\begin{align*}', right: '\\end{align*}', display: true },
+            { left: '\\begin{alignat}', right: '\\end{alignat}', display: true },
+            { left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true },
+            { left: '\\begin{array}', right: '\\end{array}', display: true }
+          ],
+          macros: {
+            '\\eqnref': '\\href{###1}{(\\text{#2})}',
+            '\\label': '\\htmlId{#1}{}'
+          },
+          throwOnError: false,
+          trust: function (context) {
+            return ['\\htmlId', '\\href'].includes(context.command)
+          }
+        })
+      }
+
+      function log () {
+        if (LOGGING) {
+          const args = Array.prototype.slice.call(arguments)
+          console.log('[log] ' + args.join(' '))
+        }
+      }
+
+      window.addEventListener('load', init)
+
+      const CARDS = [
+        {
+          date: '2025-10-10',
+          title: 'Integral Domain and Field',
+          tags: [
+            'Abstract Algebra',
+            'Mathematics'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'An integral domain is a non-trivial commutative ring in which the\nproduct of any two non-zero elements is non-zero.  Which of the\nfollowing statements is true?',
+          options: [
+            'Every finite integral domain is a field.',
+            'Every integral domain is a field.',
+            'Every infinite integral domain is a field.',
+            'All of the above.',
+            'None of the above.'
+          ],
+          explanation: 'Every infinite integral domain is not a field.  For example, the set\nof all integers is an integral domain but it is not a field.  As a\nresult, every integral domain is not a field either.\n\nIn fact, every finite integral domain is a field.  This can be shown\nas follows.\n\nLet \\( R \\) be a finite integral domain.  Let \\( a \\in R \\) such that\n\\( a \\ne 0 \\).  Consider the set\n\\[\n  A = \\{ a, a^2, a^3, \\dots \\}.\n\\]\nSince a ring is closed under multiplication, every element of \\( A \\)\nis also an element of \\( R \\).  Therefore \\( A \\subseteq R \\).  Since\n\\( R \\) is finite, \\( A \\) is finite too.  Therefore there must be\npositive integers \\( m \\) and \\( n \\) such that \\( m \\gt n \\) and\n\\[\n  a^m = a^n\n\\]\nFrom the above equation, we get\n\\[\n  a \\cdot a^{m - n - 1} \\cdot a^n = 1 \\cdot a^n.\n\\]\nBy the cancellation property of integral domain,\n\\[\n  a \\cdot a^{m - n - 1} = 1.\n\\]\nSince a ring is closed under multiplication and since \\( m - n - 1 \\ge\n0 \\), we get \\( a^{m - n - 1} \\in R \\).\n\nThus every non-zero \\( a \\in R \\) has a multiplicative inverse in\n\\( R \\).'
+        },
+        {
+          date: '2025-10-11',
+          title: 'False Friends',
+          tags: [
+            'Linguistics',
+            'Terminology'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'Which pair of words below are false friends?',
+          options: [
+            'English <em>gift</em> and German <em>Gift</em>.',
+            'English <em>hand</em> and German <em>Hand</em>.',
+            'English <em>hotel</em> and French <em>hôtel</em>.',
+            'English <em>minute</em> and French <em>minute</em>.',
+            'All of the above.'
+          ],
+          explanation: 'False friends are pairs of words in two languages that look or sound\nsimilar but have different meanings.  English <em>gift</em> and German\n<em>Gift</em> are false friends, since the English word means a\npresent while the German word means <em>poison</em>.  Other pairs of\nwords in this quiz are not false friends because they share the same\nmeaning.'
+        },
+        {
+          date: '2025-10-12',
+          title: 'Lat Pull-Down',
+          tags: [
+            'Health',
+            'Terminology'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'What does lat refer to in the strength training exercise called\n<em>lat pull-down</em>?',
+          options: [
+            'Latissimus dorsi',
+            'Lateral deltoid',
+            'Lateral stabilisation',
+            'Latent strength',
+            'Trapezius'
+          ],
+          explanation: 'The term \'lat\' is short for <em>latissimus dorsi</em>, a pair of\nlarge, flat muscles on either side of the back.  The <em>lat\npull-down</em> is a seated exercise that targets the latissimus dorsi\nby pulling a bar from above down to the upper chest, then slowly\nextending the arms back to the starting position.  The latissimus\ndorsi is also known as \'lats\' among bodybuilders and gym-goers.\n\nThe <em>lateral deltoid</em> is one of the three heads of the deltoid\nmuscle.  It is located on the outer side of the shoulder and is\nresponsible for lifting the arm away from the body.  Exercises such as\nlateral raises target this muscle.\n\nThe <em>trapezius</em> is a large, triangular muscle that extends from\nthe base of the skull down to the middle of the back.  It plays a key\nrole in moving, rotating and stabilising the shoulder blades.  Common\nexercises targeting the trapezius include shrugs and upright rows.\n\n<em>Lateral stabilisation</em> is a generic term with different\nmeanings depending on the field.  In human anatomy, it can refer to\nthe body\'s ability to maintain balance and control of side-to-side\nmovements.  In construction and engineering, it can refer to the\ncapacity of a structure to resist horizontal forces such as wind or\nseismic activity.  This term is not directly related to the lat\npull-down exercise.\n\n<em>Latent strength</em> is a pure distractor in the quiz options.  It\nis not a recognised strength training concept, although it may be used\ninformally to describe untapped potential strength.'
+        },
+        {
+          date: '2025-10-14',
+          title: 'Chess-Playing Computer',
+          tags: [
+            'Chess',
+            'Computing',
+            'History'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'In which year did a chess-playing computer first win a game against a\nreigning world champion under normal tournament conditions with\nclassical time controls?',
+          options: [
+            '1996',
+            '1948',
+            '1956',
+            '1997',
+            '2016'
+          ],
+          explanation: 'The first game of the 1996 Kasparov-Deep Blue match, which took place\non 10 Feb 1996, marked the first time a computer defeated a reigning\nworld champion in a single game under normal tournament conditions\nwith classical time controls.  Kasparov eventually won the match 4–2,\nbut the first game of the 1996 match was a historic milestone in\ncomputer chess.\n\nLater, in the 1997 rematch held from 03 May to 11 May 1997, an\nimproved version of Deep Blue won 3&frac12;–2&frac12, becoming the\nfirst computer to defeat a reigning world champion in a full match.\n\nThe other years mentioned in the quiz options are also notable in the\ndevelopment of computer programs playing board games against humans.\n\nIn 1948, Alan Turing and David Champernowne developed a chess program\nknown as <em>Turochamp</em>.  The name comes from the surnames of the\ntwo inventors.  The program was not implemented on an actual computer\nduring Turing\'s lifetime.  However, it was used to play against humans\nby simulating the algorithm on paper.\n\nIn 1956, <em>Los Alamos chess</em> became the first program to play a\nchess-like game.  Los Alamos chess is a variant of chess played without\nbishops on a 6×6 board.  The program was written at Los Alamos\nScientific Laboratory by Paul Stein and Mark Wells for the\nMathematical Analyser Numerical Integrator and Automatic Computer\nModel I (MANIAC I).\n\nOn 09 Mar 2016, a computer program named AlphaGo, developed by\nDeepMind (a British AI company acquired by Google in 2014), won a game\nagainst Lee Sedol and became the first program to defeat a human\nprofessional Go player on a full-sized 19x19 board without\nhandicaps.  In the five-game match between AlphaGo and Sedol, held\nuntil 15 Mar 2016, AlphaGo won 4–1.'
+        },
+        {
+          date: '2025-10-16',
+          title: 'Phosphor',
+          tags: [
+            'Chemistry',
+            'Physics'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'Which of the following statements is true about <em>phosphor</em>?',
+          options: [
+            'Electrons in it are excited to higher energy states when exposed to\nradiation.',
+            'When exposed to air, it glows faintly due to oxidation.',
+            'It is a chemical element with atomic number 15.',
+            'It is used as a filament in incandescent lamps.',
+            'All of the above.'
+          ],
+          explanation: 'A <em>phosphor</em> is a substance that exhibits the phenomenon of\nphosphorescence or fluorescence.  When exposed to certain forms of\nradiation (such as ultraviolet light or electron beams), electrons in\nits crystal lattice or molecules are excited to higher energy states.\nAs they return to their ground state, they emit visible light.  If the\nsubstance stops glowing almost immediately once the radiation is\nturned off, it is said to be <em>fluorescent</em>.  If it continues to\nglow for some time after the radiation is removed, it is said to\nbe <em>phosphorescent</em>.\n\nFluorescent materials are used in fluorescent lamps, where phosphor\ncoatings convert ultraviolet light into visible light.  In cathode-ray\ntube (CRT) displays, electron beams excite the phosphor coating on the\ninner surface of the screen to produce images.  Phosphorescent\nmaterials are commonly used in glow-in-the-dark watch dials, safety\nsigns and toys.\n\nThe chemical element with atomic number 15 is <em>phosphorus</em> (not\nphosphor).  White phosphorus glows faintly when exposed to oxygen, but\nthis glow is caused by oxidation, not phosphorescence.  This\nphenomenon is known as <em>chemiluminescence</em>, the emission of\nlight as a result of a chemical reaction.  The chemiluminescence of\nwhite phosphorus originally inspired the term phosphorescence,\nalthough the two are unrelated phenomena.\n\nFinally, neither phosphor nor phosphorus is used as a filament in\nincandescent lamps.  Filaments in such lamps are typically made of\ntungsten.  As mentioned earlier, phosphors may be used as coatings in\nfluorescent lamps, but they do not serve as filaments.'
+        },
+        {
+          date: '2025-10-25',
+          title: 'Royal Fork',
+          tags: [
+            'Chess',
+            'Terminology'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'Which of the following statements is true about a <em>royal fork</em>\nin chess?',
+          options: [
+            'It is a double attack on the opponent\'s king and queen by a single piece.',
+            'It is a double attack on two pieces of the opponent by the queen.',
+            'It is an opening tactic where the queen and bishop coordinate to\ndeliver checkmate on f7 by White or on f2 by Black.',
+            'It is an endgame pattern where two queens coordinate to checkmate the\nopponent\'s king.',
+            'It is a tactic in which a piece is attacked but cannot move because\ndoing so would expose its king to check.'
+          ],
+          explanation: 'When two attacks are made with one move, it is called a <em>double\nattack</em>.  If both attacks are made by the same piece, it is called\na <em>fork</em>.  In other words, a fork occurs when one piece attacks\ntwo or more of the opponent\'s pieces at the same time.\n\nA <em>royal fork</em> is a special type of fork in which a single\npiece attacks the opponent\'s king and queen at the same time.  Since\nthe opponent must respond to the check against the king, the queen is\nusually captured on the following move, making this the highest\nmaterial-gaining fork possible.\n\nA fork involving the queen attacking two of the opponent\'s pieces is\nsimply called a <em>queen fork</em>, not a royal fork.\n\nThe opening tactic where the queen and bishop coordinate to deliver\ncheckmate on f7 by White or on f2 by Black is called the Scholar\'s\nMate.  Despite being a quick and threatening attack, it is easy to\ndefend against by developing minor pieces and defending the vulnerable\nf7 or f2 square early.  For this reason, it is rarely seen in serious\nplay.\n\nCheckmating with two queens is an elementary endgame pattern that\nrelies on restricting the opposing king\'s mobility and coordinating\nboth queens to force checkmate.  This pattern is unrelated to fork.\n\nIf a defending piece cannot move because doing so would expose a more\nvaluable piece behind it to attack, the situation is called a\n<em>pin</em>.  If the more valuable piece is the king, the pin is\ncalled an <em>absolute pin</em>.'
+        },
+        {
+          date: '2025-11-07',
+          title: 'Number of Simple, Undirected Graphs',
+          tags: [
+            'Graph Theory',
+            'Mathematics'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'How many simple, undirected graphs can be formed with \\( n \\)\nvertices?',
+          options: [
+            '\\( 2^{n(n - 1)/2} \\)',
+            '\\( 2^{n(n - 1)} \\)',
+            '\\( 2^{n^2} \\)',
+            '\\( n!   \\)',
+            '\\( (n!)!  \\)'
+          ],
+          explanation: 'A <em>simple graph</em> is one in which no vertex is connected to\nitself and no two vertices are joined by more than one edge.  In other\nwords, it has no loops or multiple edges.\n\nAn <em>undirected graph</em> is one in which edges have no direction.\nAn edge is represented simply as an unordered pair of vertices.\n\nFor a set of \\( n \\) vertices, each possible pair of distinct vertices\nmay either be connected by an edge or left unconnected.  The total\nnumber of such pairs is given by the binomial coefficient\n\\[\n  \\binom{n}{2} = \\frac{n(n - 1)}{2}.\n\\]\nEach pair of vertices gives two possibilites: an edge present between\nthem or no edge at all.  Therefore the total number of distinct\nsimple, undirected graphs that can be formed with \\( n \\) vertices is:\n\\[\n  2^{n(n - 1)/2}.\n\\]\nThis number represents all possible edge configurations in simple,\nundirected graphs.  Such graphs can be used to model symmetric\nrelationships such as mutual friendships, research collaboration\nnetworks and molecular structures.'
+        },
+        {
+          date: '2025-11-08',
+          title: 'Spelling Alphabet',
+          tags: [
+            'Communication',
+            'Linguistics'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'Which sport occurs in the International Radiotelephony Spelling Alphabet?',
+          options: [
+            'Golf',
+            'Football',
+            'Hockey',
+            'Polo',
+            'Tennis'
+          ],
+          explanation: 'The <em>International Radiotelephony Spelling Alphabet</em> assigns a\nunique word to each letter of the English alphabet to ensure clarity\nin spoken communication, especially over radio or telephone, where\nsignals may be noisy or distorted.  It is the standard used by the\nInternational Civil Aviation Organisation (ICAO), the North Atlantic\nTreaty Organisation (NATO) and several other organisations for\ncommunication over radio or telephone.  Therefore, it is also commonly\nknown as the NATO spelling alphabet or the ICAO spelling alphabet.\n\nIn this alphabet, each letter of the alphabet is represented by a code\nword.  The complete list of code words is: Alfa, Bravo, Charlie,\nDelta, Echo, Foxtrot, Golf, Hotel, India, Juliett, Kilo, Lima, Mike,\nNovember, Oscar, Papa, Quebec, Romeo, Sierra, Tango, Uniform, Victor,\nWhiskey, Xray, Yankee, Zulu.\n\nGolf is the only sport that appears in this list of code words.'
+        },
+        {
+          date: '2025-11-09',
+          title: 'Diskette',
+          tags: [
+            'Computing'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'If a floppy disk manufacturer were to make a 3&frac12; inch floppy\ndisk case measuring exactly 3&frac12; by 3&frac12; inches, would it be\nlarger or smaller than the standard 3&frac12; inch floppy disk\nspecification?',
+          options: [
+            'Smaller',
+            'Larger',
+            'Exactly the same size as specified in the 3&frac12; inch floppy disk\nspecification',
+            'Cannot be determined',
+            'No such floppy disk specification exists'
+          ],
+          explanation: 'The ECMA-147 standard specifies that a 3&frac12; inch floppy disk case\nmust have an external height of 94.0 mm (&pm;0.3 mm) and an external\nwidth of 90.0 mm (&plus;0.4 mm/&minus;0.1 mm).  The minimum permitted\nheight and width are therefore 93.7 mm and 89.9 mm respectively.\nConverted to inches, these minimums are approximately 3.69 by 3.54\ninches.  A case measuring exactly 3.5 by 3.5 inches would therefore be\nsmaller than the dimensions required by the standard.\n\nThe term \'3&frac12; inch\' is only a nominal size.  It does not\ndescribe any physical measurement in the specification.  The actual\ndimensions are defined entirely in millimetres.  As a result, the\nactual size of the standard case differs from the nominal inch-based\ndesignation.'
+        },
+        {
+          date: '2025-11-18',
+          title: 'Indonesia and Monaco',
+          tags: [
+            'Flag'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'The national flags of Indonesia and Monaco are very similar, each\nshowing a red band over a white band.  What is the primary difference\nbetween the two flags?',
+          options: [
+            'Their proportions differ.  Indonesia\'s is 2:3 but Monaco\'s is 4:5.',
+            'The shade of red differs.  Monaco\'s flag uses a darker shade of red.',
+            'One includes a coat of arms while the other does not.',
+            'One has a a white crescent moon facing a pentagon of five small white\nfive-pointed stars while the other does not.',
+            'None of the above.  Both flags are identical.'
+          ],
+          explanation: 'Although the flags of Indonesia and Monaco share a red-over-white\nbicolour design and look very similar, the principal difference lies\nin their proportions.  Indonesia specifies a ratio of 2:3 while Monaco\nuses 4:5.  The shade of red does differ slightly.  Monaco\'s flag has a\ndarker shade of red.  However, the difference in proportion is the\ndefinitive and formally specified distinction.\n\nNeither flag includes a coat of arms or any other emblem.\nIncidentally, the flag of Singapore also features a red-and-white\ndesign, yet it is easily distinguished by its white crescent moon\nfacing a pentagon of five small white stars.'
+        },
+        {
+          date: '2025-12-20',
+          title: 'The Mother of All Demos',
+          tags: [
+            'Computing',
+            'History'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: '<em>The Mother of All Demos</em> is regarded as a landmark computer\ndemonstration that featured the introduction of a particular computer\nhardware and software system.  Who delivered this demo?',
+          options: [
+            'Douglas Engelbart',
+            'Steve Jobs',
+            'Alan Kay',
+            'Tim Berners-Lee',
+            'Adele Goldberg'
+          ],
+          explanation: '<em>The Mother of All Demos </em> was a live computer demonstration\npresented on 09 Dec 1968 at the Fall Joint Computer Conference in San\nFrancisco.  During this 90 minute presentation, a wide range of\ngroundbreaking concepts were shown that would later become central to\nmodern computing.\n\nThe demonstration introduced ideas such as the computer mouse,\nwindowed graphical interfaces, hypertext, real time text editing,\nvideo conferencing and collaborative work on networked computers.\nThese concepts were decades ahead of what was commonly available at\nthe time and profoundly influenced the future of human computer\ninteraction.\n\nThe presentation was delivered by Douglas Engelbart, a computer\nscientist at the Stanford Research Institute, who led the team that\ndeveloped the system used in the demonstration.'
+        },
+        {
+          date: '2025-12-20',
+          title: 'Triangle-Free Line Graph',
+          tags: [
+            'Graph Theory',
+            'Mathematics'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'If the line graph \\( L(X) \\) of a graph \\( X \\) has no triangle, what\ndoes this imply about \\( X \\)?',
+          options: [
+            '\\( X \\) has no vertices of degree at least \\( 3 \\).',
+            '\\( X \\) has no vertices of degree at least \\( 2 \\).\n',
+            '\\( X \\) does not contain a cycle.',
+            '\\( X \\) is a path.',
+            '\\( X \\) is a cycle.'
+          ],
+          explanation: 'The line graph \\( L(X) \\) has a vertex for each edge of \\( X \\), with\ntwo vertices adjacent if the corresponding edges in \\( X \\) share a\ncommon vertex.  A triangle in \\( L(X) \\) corresponds to three edges in\n\\( X \\) that are pairwise adjacent, which happens exactly when those\nthree edges meet at a single vertex.  Therefore, if \\( L(X) \\) has no\ntriangle, the graph \\( X \\) cannot have any vertex incident to three\nor more edges.  Equivalently, every vertex of \\( X \\) has degree at\nmost \\( 2 \\), so \\( X \\) is a disjoint union of paths and cycles.  No\nvertex has degree greater than or equal to \\( 3 \\).'
+        },
+        {
+          date: '2025-12-20',
+          title: 'PostgreSQL Origin',
+          tags: [
+            'Computing',
+            'History'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'The popular free and open-source relational database management system\nnamed PostgreSQL was originally named POSTGRES.  What did that name\nmean?',
+          options: [
+            'The name POSTGRES referred to its origin as a successor to the INGRES\ndatabase from University of California, Berkeley.',
+            'The name POSTGRES was an acronym formed from the initials of its\noriginal developers.',
+            'The name POSTGRES described a database management for postgraduate\nresearch.',
+            'The name POSTGRES referred to its use of a relational data model based\non extended relational algebra.',
+            'The name POSTGRES referred to a database system intended to be used\nonly after all other databases had failed.'
+          ],
+          explanation: 'POSTGRES stood for "post Ingres".  It was a research project led by\nMichael Stonebraker at the University of California, Berkeley,\nintended as a successor to the earlier INGRES database system.\nVersion 1 was released to a small number of users in Jun 1989.  After\nthe release of version 4.2 in Jun 1994, the project was released under\nan MIT Licence variant.\n\nAt that time, the database system used a query language named\nPOSTQUEL.  In 1994, Berkeley graduate students Andrew Yu and Jolly\nChen developed support for Structured Query Language (SQL) to replace\nPOSTQUEL.  This led to the release of a new project named Postgres95\nin 1995.  Finally, in 1996, the project was renamed to PostgreSQL to\nreflect its support for SQL.'
+        },
+        {
+          date: '2025-12-23',
+          title: 'A Dozen Dozen',
+          tags: [
+            'Miscellaneous',
+            'Terminology'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'What is a dozen dozen also known as?',
+          options: [
+            'Gross',
+            'Score',
+            'Baker\'s dozen',
+            'Quire',
+            'Ream'
+          ],
+          explanation: 'A <em>dozen</em> is a group of twelve items.  A <em>dozen dozen</em>\ntherefore equals 144.  A dozen dozen is also known as a\n<em>gross</em>.\n\nA <em>score</em> refers to a group of twenty items.  A baker\'s dozen\nrefers to thirteen items.  This term originated from the practice\namong bakers including a thirteenth piece of bread when selling a\ndozen to err on the side of caution to ensure that minimum weight\nrequirements were being met.\n\nThe terms <em>quire</em> and <em>ream</em> refer to quantities of\npaper.  A quire is typically 25 sheets of paper.  In an older system,\na quire referred to 24 sheets.  A ream is 20 quires.'
+        },
+        {
+          date: '2025-12-23',
+          title: 'NR vs FNR',
+          tags: [
+            'Computing',
+            'Unix'
+          ],
+          authors: [
+            'Susam Pal'
+          ],
+          question: 'In the Unix <code>awk</code> command, what is the difference between\nthe <code>NR</code> and <code>FNR</code> variables?',
+          options: [
+            '<code>NR</code> is the ordinal number of the current record across all\ninput whereas <code>FNR</code> is the ordinal number of the current\nrecord in the current input file.',
+            '<code>NR</code> is the ordinal number of the current record across all\ninput whereas <code>FNR</code> is the ordinal number of the current\nfile in the list of input files.',
+            '<code>NR</code> is the number of lines across all input whereas\n<code>FNR</code> is the number of lines in the current file.\n',
+            '<code>NR</code> is the ordinal number of the current record in the\ninput whereas <code>FNR</code> is the ordinal number of the current\nrecord in the input subtracted from the total number of records in the\ninput.',
+            'None of the above; <code>NR</code> and <code>FNR</code> are synonyms.'
+          ],
+          explanation: 'Both <code>NR</code> and <code>FNR</code> represent ordinal numbers of\nrecords.  <code>NR</code> is the ordinal number of the current record\nacross all input files processed so far.  <code>FNR</code> is the\nordinal number of the current record in the current input file.  For\nexample, consider the following sequence of commands:\n\n<pre>\n<code>printf \'foo\\nbar\\n\' > foo.txt\nprintf \'baz\\nqux\\nquz\\n\' > baz.txt\nawk \'{print NR, FNR, $0}\' foo.txt baz.txt</code>\n</pre>\n\nThe above sequence of commands prints the following output:\n\n<pre>\n<samp>1 1 foo\n2 2 bar\n3 1 baz\n4 2 qux\n5 3 quz</samp>\n</pre>\n\n<code>FNR</code> is reset to 1 each time <code>awk</code> begins\nreading a new file.  <code>NR</code> increases monotonically as\n<code>awk</code> reads successive records, even when moving from one\ninput file to the next.'
+        }
+      ]
+    </script>
+  </head>
+  <body>
+    <main>
+      <noscript>
+        <h1>Nerd Quiz</h1>
+        <div class="error">JavaScript is required to use this application.</div>
+      </noscript>
+      <div id="about" class="hidden">
+        <h1>About Nerd Quiz</h1>
+        <h2>Introduction</h2>
+        <p>
+          Hi!  I am Susam Pal, the developer and maintainer
+          of <a href="#">Nerd Quiz</a>.
+        </p>
+        <p>
+          Every question in this quiz comes from my own everyday
+          moments of reading, writing, thinking, learning and
+          exploring.  Sometimes, when I come across something curious
+          or fascinating, I turn it into a quiz question and share it
+          here.  Each question includes a footer that shows when I
+          wrote the question as well as the penalty score if you
+          answer it incorrectly.
+        </p>
+        <p>
+          New quizzes are published whenever I have five fresh
+          questions ready.  There is no fixed schedule.
+        </p>
+        <h2>URL Tricks</h2>
+        <p>
+          The hash value in the URL determines the quiz presented to
+          you.  If it is an integer like <a href="#1">#1</a>,
+          <a href="#2">#2</a>, etc., then the corresponding quiz with a set
+          of five questions is loaded.  However, if the hash value
+          starts with the prefix "q", like <a href="#q1">#q1</a>,
+          <a href="#q2">#q2</a>, etc., then a specific question is
+          loaded.  You can also mix and match questions to form a
+          custom quiz.  To do so, use the prefix "q" followed by
+          comma-separated integers as the hash value, e.g.
+          <a href="#q1,3,5">#q1,3,5</a>.
+        </p>
+        <p>
+          This is a very new project, so currently there is only one
+          quiz.  As more quizzes are added, a few navigation links
+          will be added too to make it easy to to explore the
+          collection, jump to a random quiz or generate a custom set
+          of questions on the fly.
+        </p>
+        <h2>Issues</h2>
+        <p>
+          If you find any errors in the answers or the explanations or
+          bugs in the software, please report it either on
+          <a href="https://github.com/susam/nq/issues">GitHub issues</a> or on
+          <a href="https://codeberg.org/susam/nq/issues">Codeberg issues</a>.
+        </p>
+        <h2>Community</h2>
+        <p>
+          If you would like to discuss the quiz questions with other
+          quizzers, the following channels are available for you:
+        </p>
+        <ul>
+          <li>
+            Website: <a href="https://susam.net/comments/nq.html">Discuss Nerd Quiz</a>
+          </li>
+          <li>
+            IRC: <a href="https://web.libera.chat/#susam">#susam:libera.chat</a>
+          </li>
+        </ul>
+        <h2>Enjoy</h2>
+        <p>
+          Go to <a href="#">Nerd Quiz</a> now and try the latest quiz.
+          This project is meant to be simple, light-hearted and fun.
+          Whether you are here to test what you already know or to
+          discover something new, I hope it adds a bit of curiosity to
+          your day.  I also hope you will enjoy uncovering these
+          little nuggets of knowledge as much as I enjoyed finding
+          them.
+        </p>
+      </div>
+    </main>
+    <footer>
+      <hr>
+      <nav>
+        <a href="#">Quiz</a>
+        <a href="#about">About</a>
+        <a href="https://susam.net/comments/nq.html">Comments</a>
+        <a href="https://github.com/susam/nq">GitHub</a>
+        <a href="https://mastodon.social/@susam">Mastodon</a>
+        <p>&copy; 2025 Susam Pal</p>
+      </nav>
+    </footer>
+  </body>
+</html>

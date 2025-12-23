@@ -1,0 +1,963 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's Protocol Pages</title>
+<link>https://susam.net/tag/protocol.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/protocol.xml"/>
+<description>Feed for Susam's Protocol Pages</description>
+
+<item>
+<title>Toy Traceroute With Ping</title>
+<link>https://susam.net/toy-traceroute-with-ping.html</link>
+<guid isPermaLink="false">fdvfj</guid>
+<pubDate>Tue, 01 Feb 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Here is an example of a toy traceroute using <code>ping</code> on
+  Linux:
+</p>
+<pre>
+<samp>$ <kbd>for ttl in {1..30}; do ping -4 -c 1 -t $ttl example.com &amp;&amp; break; done | grep -i from | nl -s ' ' -w 2</kbd>
+ 1 From router1-lon.linode.com (212.111.33.229) icmp_seq=1 Time to live exceeded
+ 2 From if-0-1-0-0-0.gw1.lon1.gb.linode.com (109.74.207.10) icmp_seq=1 Time to live exceeded
+ 3 From be5787.rcr51.lon10.atlas.cogentco.com (204.68.252.58) icmp_seq=1 Time to live exceeded
+ 4 From be2589.ccr41.lon13.atlas.cogentco.com (154.54.59.37) icmp_seq=1 Time to live exceeded
+ 5 From be2099.ccr31.bos01.atlas.cogentco.com (154.54.82.34) icmp_seq=1 Time to live exceeded
+ 6 From verizondms.bos01.atlas.cogentco.com (154.54.11.54) icmp_seq=1 Time to live exceeded
+ 7 From ae-66.core1.bsa.edgecastcdn.net (152.195.233.129) icmp_seq=1 Time to live exceeded
+ 8 64 bytes from 93.184.216.34 (93.184.216.34): icmp_seq=1 ttl=57 time=63.0 ms</samp>
+</pre>
+<p>
+  The output above was obtained on a Debian GNU/Linux 11.2 (bullseye)
+  system.  The above loop sends multiple ICMP echo requests with
+  different Time to Live (TTL) values to reach the host
+  for <code>example.com</code>.  The TTL occurs as an 8-bit field in
+  the Internet Protocol (IP) header of each packet.  It is the 9th
+  octet in an IPv4 header and the 8th octet in an IPv6 header.
+</p>
+<p>
+  When a router on the path to the destination receives a packet, it
+  decrements the TTL value in the IP header by one.  If the TTL value
+  becomes 0 after the decrement operation, the router responds with a
+  "time-to-live exceeded" ICMP message.  Thus an echo request with TTL
+  value set to 1 gets us an ICMP "time-to-live exceeded" message from
+  the first router in the path, the next echo request with TTL value 2
+  gets us a similar ICMP message from the second router in the path
+  and so on.  The traceroute is complete when we receive a successful
+  ICMP echo reply.
+</p>
+<p>
+  For comparison, here is the output of the
+  actual <code>traceroute</code> command:
+</p>
+<pre>
+<samp>$ <kbd>traceroute example.com</kbd>
+traceroute to example.com (93.184.216.34), 30 hops max, 60 byte packets
+ 1  router1-lon.linode.com (212.111.33.229)  0.602 ms  1.202 ms  1.326 ms
+ 2  if-0-1-0-1-0.gw1.lon1.gb.linode.com (109.74.207.14)  0.502 ms if-11-1-0-0-0.gw2.lon1.gb.linode.com (109.74.207.26)  0.401 ms if-11-0-0-0-0.gw2.lon1.gb.linode.com (109.74.207.30)  0.379 ms
+ 3  be5787.rcr51.lon10.atlas.cogentco.com (204.68.252.58)  0.573 ms  0.563 ms  0.566 ms
+ 4  be2589.ccr41.lon13.atlas.cogentco.com (154.54.59.37)  1.271 ms  1.311 ms ldn-bb1-link.ip.twelve99.net (62.115.122.188)  1.400 ms
+ 5  be2099.ccr31.bos01.atlas.cogentco.com (154.54.82.34)  63.511 ms  63.540 ms nyk-bb1-link.ip.twelve99.net (62.115.112.244)  73.397 ms
+ 6  nyk-b1-link.ip.twelve99.net (62.115.135.131)  70.113 ms verizondms.bos01.atlas.cogentco.com (154.54.11.54)  63.657 ms nyk-b1-link.ip.twelve99.net (62.115.135.131)  70.190 ms
+ 7  ae-66.core1.bsa.edgecastcdn.net (152.195.233.129)  63.535 ms edgecast-ic317659-nyk-b6.ip.twelve99-cust.net (62.115.147.199)  77.802 ms ae-66.core1.bsa.edgecastcdn.net (152.195.233.129)  63.582 ms
+ 8  93.184.216.34 (93.184.216.34)  62.895 ms ae-71.core1.nyb.edgecastcdn.net (152.195.69.139)  72.312 ms ae-70.core1.nyb.edgecastcdn.net (152.195.68.141)  69.419 ms
+ 9  93.184.216.34 (93.184.216.34)  70.827 ms  62.896 ms  73.342 ms</samp>
+</pre>
+<p>
+  Each line in the output above corresponds to a hop.  Each line shows
+  one or more addresses.  A maximum of three addresses can be seen in
+  the result for each hop.  That is because there are multiple paths
+  to the destination and the <code>traceroute</code> command sends 3
+  UDP probe packets by default for each hop.  In this manner, it ends
+  up discovering multiple routes to the destination.  It is worth
+  noting here that by default <code>traceroute</code> sends UDP
+  packets, not ICMP echo requests, with different TTL values as probe
+  packets.  But the route discovery mechanism remains the same.  After
+  sending each probe packet, it waits for ICMP "time-to-live exceeded
+  messages" from the routers that fall in the path to the destination.
+</p>
+<p>
+  By comparing the two outputs above, we can see that the route found
+  by the toy traceroute using <code>ping</code> is one of the several
+  routes found by the <code>traceroute</code> command.
+</p>
+<p>
+  For those on macOS, the <code>ping</code> command options need to be
+  modified as follows:
+</p>
+<pre>
+<samp><kbd>for ttl in {1..30}; do ping -c 1 -t 1 -m $ttl example.com &amp;&amp; break; done | grep -i from | nl -s ' ' -w 2</kbd></samp>
+</pre>
+<p>
+  On macOS, the <code>-t</code> option of the <code>ping</code>
+  command specifies a timeout (not IP TTL) that prevents it from
+  waiting for too long for a successful echo reply which we don't
+  expect to receive.  Further, on macOS, the <code>-m</code> option of
+  the <code>ping</code> command specifies the IP TTL.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/toy-traceroute-with-ping.html">Read on website</a> |
+  <a href="https://susam.net/tag/networking.html">#networking</a> |
+  <a href="https://susam.net/tag/protocol.html">#protocol</a> |
+  <a href="https://susam.net/tag/shell.html">#shell</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Simplicity of IRC</title>
+<link>https://susam.net/simplicity-of-irc.html</link>
+<guid isPermaLink="false">spdvn</guid>
+<pubDate>Sun, 09 Jan 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  During discussions with my friends and colleagues, whenever the
+  topic of chat protocols comes up, I often remark how simple the
+  Internet Relay Chat (IRC) protocol is and how this simplicity has
+  fostered creativity in the lives of many young computer hobbyists
+  growing up in the late 1990s and early 2000s.  For many of us who
+  were introduced to the Internet during that time, writing an IRC bot
+  turned out to be one of our first few non-trivial hobby programming
+  projects that involved network sockets, did something meaningful and
+  served actual users.
+</p>
+<h2 id="simplicity">Simplicity<a href="#simplicity"></a></h2>
+<p>
+  The underlying payloads that IRC servers and clients exchange during
+  an IRC session are quite simple to read manually and understand.
+  While implementing IRC servers still involves significant work to
+  keep track of users and channels as well as exchanging network state
+  and messages between servers, implementing IRC clients can often be
+  quite simple.  With a convenient programming language, one can
+  develop all kinds of fun tools and bots pretty quickly.  Only
+  creativity is the limit!
+</p>
+<p>
+  In the early days of IRC, it was quite common for someone with basic
+  programming skills to write a simple IRC bot within a matter of
+  hours.  Such IRC bots typically responded to requests from users,
+  answered frequently asked questions, hosted trivia quiz, etc.  The
+  simplicity of the protocol made it very enticing to write programs
+  that could talk to IRC servers directly.  In fact, many people chose
+  to write the code to parse and create IRC payloads from scratch.
+  Observing the TCP/IP packets with a packet analyser such as
+  Wireshark or Tcpdump was all one needed to learn about the various
+  payload formats.  Additionally, back then
+  <a href="https://www.rfc-editor.org/rfc/rfc1459">RFC 1459</a> served
+  as a good reference to learn the IRC specification.
+</p>
+<p>
+  As a result of the simplicity of the IRC protocol, sometimes when I
+  wanted to join an IRC channel, say to seek some technical help, from
+  a system without an IRC client installed, I would often just start
+  a <code>telnet</code>, <code>nc</code> or <code>openssl</code>
+  connection directly to my favourite IRC network and type out IRC
+  protocol commands by hand to join channels and talk to users.
+</p>
+<h2 id="session">Session<a href="#session"></a></h2>
+<p>
+  To illustrate how simple the IRC protocol is, here is an example of
+  a minimal IRC session that involves joining a channel and posting a
+  message:
+</p>
+<pre>
+<samp>$ <kbd>nc irc.libera.chat 6667</kbd>
+:strontium.libera.chat NOTICE * :*** Checking Ident
+:strontium.libera.chat NOTICE * :*** Looking up your hostname...
+:strontium.libera.chat NOTICE * :*** Couldn't look up your hostname
+:strontium.libera.chat NOTICE * :*** No Ident response
+<kbd>NICK humpty</kbd>
+<kbd>USER humpty humpty irc.libera.chat :Humpty Dumpty</kbd>
+:strontium.libera.chat 001 humpty :Welcome to the Libera.Chat Internet Relay Chat Network humpty
+:strontium.libera.chat 002 humpty :Your host is strontium.libera.chat[204.225.96.123/6667], running version solanum-1.0-dev
+:strontium.libera.chat 003 humpty :This server was created Sat Oct 30 2021 at 17:56:22 UTC
+:strontium.libera.chat 004 humpty strontium.libera.chat solanum-1.0-dev DGQRSZaghilopsuwz CFILMPQSTbcefgijklmnopqrstuvz bkloveqjfI
+:strontium.libera.chat 005 humpty MONITOR=100 CALLERID=g WHOX FNC ETRACE KNOCK SAFELIST ELIST=CMNTU CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQSTcgimnprstuz :are supported by this server
+:strontium.libera.chat 005 humpty CHANLIMIT=#:250 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=Libera.Chat STATUSMSG=@+ CASEMAPPING=rfc1459 NICKLEN=16 MAXNICKLEN=16 CHANNELLEN=50 TOPICLEN=390 DEAF=D :are supported by this server
+:strontium.libera.chat 005 humpty TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,ajrxz :are supported by this server
+:strontium.libera.chat 251 humpty :There are 66 users and 48644 invisible on 25 servers
+:strontium.libera.chat 252 humpty 35 :IRC Operators online
+:strontium.libera.chat 253 humpty 11 :unknown connection(s)
+:strontium.libera.chat 254 humpty 21561 :channels formed
+:strontium.libera.chat 255 humpty :I have 3117 clients and 1 servers
+:strontium.libera.chat 265 humpty 3117 4559 :Current local users 3117, max 4559
+:strontium.libera.chat 266 humpty 48710 50463 :Current global users 48710, max 50463
+:strontium.libera.chat 250 humpty :Highest connection count: 4560 (4559 clients) (301752 connections received)
+:strontium.libera.chat 375 humpty :- strontium.libera.chat Message of the Day -
+:strontium.libera.chat 372 humpty :- Welcome to Libera Chat, the IRC network for
+:strontium.libera.chat 372 humpty :- free &amp; open-source software and peer directed projects.
+:strontium.libera.chat 372 humpty :-
+:strontium.libera.chat 372 humpty :- Use of Libera Chat is governed by our network policies.
+:strontium.libera.chat 372 humpty :-
+:strontium.libera.chat 372 humpty :- To reduce network abuses we perform open proxy checks
+:strontium.libera.chat 372 humpty :- on hosts at connection time.
+:strontium.libera.chat 372 humpty :-
+:strontium.libera.chat 372 humpty :- Please visit us in #libera for questions and support.
+:strontium.libera.chat 372 humpty :-
+:strontium.libera.chat 372 humpty :- Website and documentation:  https://libera.chat
+:strontium.libera.chat 372 humpty :- Webchat:                    https://web.libera.chat
+:strontium.libera.chat 372 humpty :- Network policies:           https://libera.chat/policies
+:strontium.libera.chat 372 humpty :- Email:                      support@libera.chat
+:strontium.libera.chat 376 humpty :End of /MOTD command.
+:humpty MODE humpty :+iw
+<kbd>JOIN #test</kbd>
+:humpty!~humpty@178.79.176.169 JOIN #test
+:strontium.libera.chat 353 humpty = #test :humpty susam coolnickname ptl-tab edcragg
+:strontium.libera.chat 366 humpty #test :End of /NAMES list.
+<kbd>PRIVMSG #test :Hello, World!</kbd>
+:susam!~susam@user/susam PRIVMSG #test :Hello, Humpty!
+<kbd>PART #test</kbd>
+:humpty!~humpty@178.79.176.169 PART #test
+<kbd>QUIT</kbd>
+:humpty!~humpty@178.79.176.169 QUIT :Client Quit
+ERROR :Closing Link: 178.79.176.169 (Client Quit)</samp>
+</pre>
+<p>
+  In the above session, the user connects to the Libera Chat network
+  with the nickname <code>humpty</code>, joins a channel
+  named <code>#test</code> and posts a message.
+</p>
+<p>
+  Note that the above session is not encrypted.  By convention, IRC
+  port 6667 is used for cleartext connections.  A separate port, such
+  as port 6697, is available for encrypted connections.  Here is an
+  example of an encrypted IRC session established with the OpenSSL
+  command line tool:
+</p>
+<pre>
+<samp>$ <kbd>openssl s_client -quiet -connect irc.libera.chat:6697 2&gt; /dev/null</kbd>
+:strontium.libera.chat NOTICE * :*** Checking Ident
+:strontium.libera.chat NOTICE * :*** Looking up your hostname...
+:strontium.libera.chat NOTICE * :*** Couldn't look up your hostname
+:strontium.libera.chat NOTICE * :*** No Ident response
+NICK humpty
+USER humpty humpty irc.libera.chat :Humpty Dumpty
+:strontium.libera.chat 001 humpty :Welcome to the Libera.Chat Internet Relay Chat Network humpty
+...</samp>
+</pre>
+<p>
+  The ellipsis denotes lines omitted for the sake of brevity.  The
+  remainder of the session is quite similar to the first example in
+  this post.
+</p>
+<p>
+  It is worth noting here that although the payload format of IRC
+  protocol is quite simple, as one starts writing IRC clients, one
+  would stumble upon several tiny details about the protocol that
+  needs to be taken care of, e.g. authenticating to the network,
+  responding to <code>PING</code> messages from the server to avoid
+  ping timeouts, splitting messages into shorter messages so that the
+  overall payload does not exceed the message length limit of 512
+  characters, etc.  For a serious IRC client, relying on a suitable
+  library that already solves these problems and implements the IRC
+  specification accurately is of course going to be useful.  But for a
+  hobbyist who wants to understand the protocol and write some tools
+  for fun, the textual nature of the IRC protocol and its simplicity
+  offers a fertile ground for experimentation and creativity.
+</p>
+<h2 id="join">Join<a href="#join"></a></h2>
+<p>
+  In case you have never used IRC but this post has piqued your
+  interest and you want to try it out, you probably don't want to be
+  typing out IRC payloads by hand.  You would want a good IRC client
+  instead.  Let me share some convenient ways to connect to the Libera
+  Chat network.  Say, you want to join the <code>#python</code>
+  channel on Libera Chat network.  Here are some ways to do it:
+</p>
+<ul>
+  <li>
+    <p>
+      Join via web interface:
+      <a href="https://web.libera.chat/#python">web.libera.chat/#python</a>.
+    </p>
+  </li>
+  <li>
+    <p>
+      Join using Irssi: On macOS, run <code>brew install irssi</code>
+      to install it.  On Debian, Ubuntu or a Debian-based Linux
+      system, run <code>sudo apt-get install irssi</code>.  Then
+      enter <code>irssi -c irc.libera.chat</code> to connect to Libera
+      Chat.  Then within Irssi, type <code>/join #python</code>.
+    </p>
+  </li>
+</ul>
+<p>
+  There are numerous other ways to join IRC networks.  There are GUI
+  desktop clients, web browser plugins, Emacs plugins, web-based
+  services, bouncers, etc. that let users connect to IRC networks in
+  various ways.  On Libera Chat, there are various channels for open
+  source projects (<code>#emacs</code>, <code>#linux</code>, etc.),
+  communities around specific subjects (<code>##math</code>,
+  <code>#physics</code>, etc.), programming languages
+  (<code>#c</code>, <code>#c++</code>, <code>#commonlisp</code>,
+  etc.).  Type the <code>/join</code> command followed by a space and
+  the channel name to join a channel and start posting and reading
+  messages there.  It is also possible to search for channels by
+  channel names.  For example, on Libera Chat, to search for all
+  channels with 'python' in its name, enter the IRC
+  command: <code>/msg alis list python</code>.
+</p>
+<p>
+  Although I have used Libera Chat in the examples above, there are
+  plenty of other IRC networks too such as EFNet, DALNet, OFTC, etc.
+  Libera Chat happens to be one of the very popular and active
+  networks for open source projects and topic based communities.  I
+  use it everyday, so I chose it for the examples here.  There are
+  many tight-knit communities on Libera Chat.  Some of my favourite
+  ones are <code>#commonlisp</code>, <code>#emacs</code>,
+  <code>#python</code>, etc.  All of these have very nice and active
+  communities with great attitudes towards beginners.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/simplicity-of-irc.html">Read on website</a> |
+  <a href="https://susam.net/tag/irc.html">#irc</a> |
+  <a href="https://susam.net/tag/networking.html">#networking</a> |
+  <a href="https://susam.net/tag/protocol.html">#protocol</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/retrospective.html">#retrospective</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Sinkholed</title>
+<link>https://susam.net/sinkholed.html</link>
+<guid isPermaLink="false">rhbww</guid>
+<pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h2 id="introduction">Introduction<a href="#introduction"></a></h2>
+<p>
+  On 26 Nov 2019 at 14:55 UTC, I logged into my server that hosts my
+  website to perform a simple maintenance activity.  Merely three
+  minutes later, at 14:58 UTC, the domain
+  name <a href="https://susam.in/">susam.in</a> used to host this
+  website was transferred to another registrant without any
+  authorisation by me or without any notification sent to me.  Since
+  the DNS results for this domain name was cached on my system, I was
+  unaware of this issue at that time.  It would take me three days to
+  realise that I had lost control of the domain name I had been using
+  for my website for the last 12 years.  This blog post documents when
+  this happened, how this happened and what it took to regain control
+  of this domain name.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#domain-name-transfer">Domain Name Transfer</a></li>
+  <li><a href="#avalanche-botnet">Avalanche Botnet</a></li>
+  <li><a href="#support-ticket">Support Ticket</a></li>
+  <li><a href="#tweets-and-retweets">Tweets and Retweets</a></li>
+  <li><a href="#domain-name-return">Domain Name Return</a></li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h2 id="domain-name-transfer">Domain Name Transfer<a href="#domain-name-transfer"></a></h2>
+<p>
+  On 29 Nov 2019 at 19:00 UTC, when I visited my website hosted at
+  <a href="https://susam.in">https://susam.in/</a>, I found that a
+  zero-byte file was being served at this URL.  My website was
+  missing.  In fact, the domain name resolved to an IPv4 address I was
+  unfamiliar with.  It did not resolve to the address of my Linode
+  server anymore.
+</p>
+<p>
+  I checked the WHOIS records for this domain name.  To my
+  astonishment, I found that I was no longer the registrant of this
+  domain.  An entity named The Verden Public Prosecutor's Office was
+  the new registrant of this domain.  The WHOIS records showed that
+  the domain name was transferred to this organisation on 26 Nov 2019
+  at 14:58 UTC, merely three minutes after I had performed my
+  maintenance activity on the same day.  Here is a snippet of the
+  WHOIS records that I found:
+</p>
+<pre id="whois">
+<samp>Domain Name: susam.in
+Registry Domain ID: D2514002-IN
+Registrar WHOIS Server:
+Registrar URL:
+Updated Date: 2019-11-26T14:58:00Z
+Creation Date: 2007-05-15T07:19:26Z
+Registry Expiry Date: 2020-05-15T07:19:26Z
+Registrar: NIXI Special Projects
+Registrar IANA ID: 700066
+Registrar Abuse Contact Email:
+Registrar Abuse Contact Phone:
+Domain Status: clientTransferProhibited http://www.icann.org/epp#clientTransferProhibited
+Domain Status: serverRenewProhibited http://www.icann.org/epp#serverRenewProhibited
+Domain Status: serverDeleteProhibited http://www.icann.org/epp#serverDeleteProhibited
+Domain Status: serverUpdateProhibited http://www.icann.org/epp#serverUpdateProhibited
+Domain Status: serverTransferProhibited http://www.icann.org/epp#serverTransferProhibited
+Registry Registrant ID:
+Registrant Name:
+Registrant Organization: The Verden Public Prosecutor's Office
+Registrant Street:
+Registrant Street:
+Registrant Street:
+Registrant City:
+Registrant State/Province: Niedersachsen
+...
+Name Server: sc-c.sinkhole.shadowserver.org
+Name Server: sc-d.sinkhole.shadowserver.org
+Name Server: sc-a.sinkhole.shadowserver.org
+Name Server: sc-b.sinkhole.shadowserver.org
+...</samp>
+</pre>
+<p>
+  The ellipsis denotes some records I have omitted for the sake of
+  brevity.  There were three things that stood out in these records:
+</p>
+<ol>
+  <li>
+    The registrar was changed from eNom, Inc. to NIXI Special Projects.
+  </li>
+  <li>
+    The registrant was changed from Susam Pal to The Verden Public
+    Prosecutor's Office.
+  </li>
+  <li>
+    The name servers were changed from Linode's servers to
+    Shadowserver's sinkholes.
+  </li>
+</ol>
+<h2 id="avalanche-botnet">Avalanche Botnet<a href="#avalanche-botnet"></a></h2>
+<p>
+  On searching more about the new registrant on the web, I realised
+  that it was a German criminal justice body that was involved in the
+  takedown of the <a href="https://en.wikipedia.org/wiki/Avalanche_(phishing_group)">Avalanche</a>
+  malware-hosting network.  It took a four-year concerted effort by
+  INTERPOL, Europol, the Shadowserver Foundation, Eurojust, the
+  Luneberg Police and several other international organisations to
+  finally destroy the Avalanche botnet on 30 Nov 2016.  In this list
+  of organisations, one name caught my attention immediately: The
+  Shadowserver Foundation.  The WHOIS name server records pointed to
+  Shadowserver's sinkholes.
+</p>
+<p>
+  The fact that the domain name was transferred to another
+  organisation merely three minutes after I had performed a simple
+  maintenance activity got me worried.  Was the domain name hijacked?
+  Did my maintenance activity on the server have anything to do with
+  it?  What kind of attack one might have pulled off to hijack the
+  domain name?  I checked all the logs and there was no evidence that
+  anyone other than me had logged into the server or executed any
+  command or code on it.  Further, a domain name transfer usually
+  involves email notification and authorisation.  None of that had
+  happened.  It increasingly looked like that the three minute
+  interval between the maintenance activity and the domain name
+  transfer was merely a coincidence.
+</p>
+<p>
+  More questions sprang up as I thought about it.  The Avalanche
+  botnet was destroyed in 2016.  What has that got to do with the
+  domain name being transferred in 2019?  Did my server somehow become
+  part of the Avalanche botnet?  My server ran a minimal installation
+  of the latest Debian GNU/Linux system.  It was always kept
+  up-to-date to minimise the risk of malware infection or security
+  breach.  It hosted a static website composed of static HTML files
+  served with Nginx.  I found no evidence of unauthorised access of my
+  server while inspecting the logs.  I could not find any malware on
+  the system.
+</p>
+<p>
+  The presence of Shadowserver sinkhole name servers in the WHOIS
+  records was a good clue.  Sinkholing of a domain name can be done
+  both malicously as well as constructively.  In this case, it looked
+  like the Shadowserver Foundation intended to sinkhole the domain
+  name constructively, so that any malware client trying to connect to
+  my server nefariously would end up connecting to a sinkhole address
+  instead.  My domain name was sinkholed!  The question now was: Why
+  was it sinkholed?
+</p>
+<h2 id="support-ticket">Support Ticket<a href="#support-ticket"></a></h2>
+<p>
+  On 29 Nov 2019 at 19:29 UTC, I submitted a support ticket to
+  Namecheap to report this issue.  At 21:05 UTC, I received a response
+  from Namecheap support that they have contacted Enom, their upstream
+  registrar, to discuss the issue.  There was no estimate for when a
+  resolution might be available.
+</p>
+<p>
+  At 21:21 UTC, I submitted a domain name
+  <a href="https://forms.icann.org/en/resources/compliance/complaints/transfer/form">transfer complaint</a>
+  to the Internet Corporation for Assigned Names and Numbers (ICANN).  I
+  was not expecting any response from ICANN because they do not have any
+  contractual authority on a country code top-level domain (ccTLD).
+</p>
+<p>
+  At 21:23 UTC, I emailed National Internet Exchange of India (NIXI).
+  NIXI is the ccTLD manager for .IN domain and they have authority on
+  it.  I found their contact details from
+  the <a href="https://www.iana.org/domains/root/db/in.html">IANA
+  Delegation Record for .IN</a>.  Again, I was not expecting a
+  response from NIXI because they do not have any contractual
+  relationship directly with me.  They have a contractual relationship
+  with Namecheap, so any communication from them would be received by
+  Namecheap and Namecheap would have to pass that on to me.
+</p>
+<p>
+  At 21:30 UTC, ICANN responded and said that I should contact the
+  ccTLD manager directly.  Like I explained in the previous paragraph,
+  I had already done that, so there was nothing more for me to do
+  except wait for Namecheap to provide an update after their
+  investigation.  By the way, NIXI never replied to my email.
+</p>
+<h2 id="tweets-and-retweets">Tweets and Retweets<a href="#tweets-and-retweets"></a></h2>
+<p>
+  On 30 Nov 2019 at 07:30 UTC, I
+  <a href="https://twitter.com/susam/status/1200678538254393345">shared
+  this issue on Twitter</a>.  I was hoping that someone who had been
+  through a similar experience could offer some advice.  In fact, soon
+  after I posted the tweet, a kind person named Max from Germany
+  generously
+  <a href="https://twitter.com/LTE_Max/status/1200699507631112193">offered
+  to help</a> by writing a letter in German addressed to the new
+  registrant which was a German organisation.  The reason for
+  sinkholing my domain name was still unclear.  I hoped that with
+  enough number of retweets someone closer to the source of truth
+  could shed some light on why and how this happened.
+</p>
+<p>
+  At 09:54 UTC, Richard Kirkendall, founder and CEO of Namecheap,
+  <a href="https://twitter.com/NamecheapCEO/status/1200714718610153472">responded</a>
+  to my tweet and informed that they were contacting NIXI regarding
+  the issue.  This seemed like a good step towards resolution.  After
+  all, the domain name was no longer under their upstream registrar
+  named Enom.  The domain name was now with NIXI as evident from
+  the <a href="#whois">WHOIS records</a>.
+</p>
+<p>
+  Several other users tweeted about my issue, added more information
+  about what might have happened and retweeted my tweet.
+</p>
+<p>
+  On 1 Dec 2019 at 11:48 UTC, Benedict Addis from the Shadowserver
+  Foundation contacted me by email.  He said that they had begun
+  looking into this issue as soon as one of the tweets about this
+  issue had referred to their organisation.  He explained in his email
+  that my domain name was sinkholed accidentally as part of their
+  Avalanche operation.  Although it is now three years since the
+  initial takedown of the botnet, they still see over 3.5 million
+  unique IP addresses connecting to their sinkholes everyday.
+  Unfortunately, their operation inadvertently flagged my domain name
+  as one of the domain names to be sinkholed because it matched the
+  pattern of command and control (C2) domain names generated by a
+  malware family named Nymaim, one of the malware families hosted on
+  Avalanche.  Although, they had validity checks to avoid sinkholing
+  false-positives, my domain name unfortunately slipped through those
+  checks.  Benedict mentioned that he had just raised this issue with
+  NIXI and requested them to return the domain name to me as soon as
+  possible.
+</p>
+<h2 id="domain-name-return">Domain Name Return<a href="#domain-name-return"></a></h2>
+<p>
+  On 2 Dec 2019 at 04:00 UTC, when I looked up the WHOIS records for
+  the domain name, I found that it had been returned to me already.
+  At 08:37 UTC, Namecheap support responded to my support ticket to
+  say that they had been informed that NIXI had returned the domain
+  name to its original state.  At 09:55 UTC, Juliya Zinovjeva, Domains
+  Product Manager of Namecheap,
+  <a href="https://twitter.com/JuliyaZinovjeva/status/1201439676118290432">commented
+  on Twitter</a> and confirmed the same thing.
+</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  Despite the successful resolution, it was still quite unsettling
+  that a domain name could be transferred to another registrant and
+  sinkholed for some perceived violation.  I thought there would be
+  more checks in place to confirm that a perceived violation was real
+  before a domain name could be transferred.  Losing a domain name I
+  have been using actively for 12 years was an unpleasant experience.
+  Losing a domain name accidentally should have been a lot harder than
+  this.  Benedict from the Shadowserver Foundation assured me that my
+  domain name would be excluded from future sinkholing for this
+  particular case.  However, the possibility that this could happen
+  again due to another unrelated operation by another organisation in
+  future is disconcerting.
+</p>
+<p>
+  I also wondered if a domain name under a country code top-level
+  domain (ccTLD) like .in is more susceptible to this kind of
+  sinkholing than a domain name under a generic top-level domain
+  (gTLD) like .com.  I asked Benedict if it is worth migrating my
+  website from .in to .com.  He replied that in his personal opinion,
+  NIXI runs an excellent, clean registry and are very responsive in
+  resolving issues when they arise.  He also added that domain
+  generation algorithms (DGAs) of malware are equally or possibly even
+  more problematic for .com domains.  He advised against migrating my
+  website.
+</p>
+<p>
+  Thanks to everyone who retweeted my
+  <a href="https://twitter.com/susam/status/1200678538254393345">tweet</a>
+  on this issue.  Also, thanks to Richard Kirkendall (CEO of
+  Namecheap), Namecheap support team and Benedict Addis from the
+  Shadowserver Foundation for contacting NIXI to resolve this issue.
+</p>
+<hr>
+<p>
+  <em>
+    <strong>Update on 06 Jan 2022:</strong> Nearly two years after
+    this incident, I eventually moved this website to
+    <a href="https://susam.net/">susam.net</a>.  The decision to do
+    so was not influenced by this incident.  I wanted this domain name
+    since 2006 but it was unavailable back then.  This domain name
+    became available only very recently and I moved my website to this
+    domain as soon as it became available.
+  </em>
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/sinkholed.html">Read on website</a> |
+  <a href="https://susam.net/tag/networking.html">#networking</a> |
+  <a href="https://susam.net/tag/protocol.html">#protocol</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>File Transfer with SSH, Tee and Base64</title>
+<link>https://susam.net/file-transfer-with-ssh-tee-and-base64.html</link>
+<guid isPermaLink="false">ngbfb</guid>
+<pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Computer servers deployed in a secure environment may allow SSH
+  sessions but forbid SCP, SFTP and execution of remote commands
+  without a login shell.  Such restricted access is typically enforced
+  with SSH gateways and firewalls.  An SSH gateway provides controlled
+  access to the remote system.  A firewall can ensure that only an SSH
+  gateway can connect to the remote system.  Thus, users can be forced
+  to connect to the remote system only via the SSH gateway which can
+  now control what is allowed and what isn't.
+</p>
+<p>
+  Even if SCP, SFTP, port forwarding and remote command execution
+  without a login shell are forbidden, as long as we get a login shell
+  on our terminal and we can print data on the terminal, we are
+  already able to transfer data from the remote system to our local
+  system.  The data is in the terminal.  It is now only a matter of
+  figuring out how to copy that data to a file.
+</p>
+<div class="highlight">
+  <p>
+    <strong>Note:</strong> Various readers of this post notice that
+    SCP or SFTP is not allowed and immediately begin suggesting me a
+    solution similar to one of the following ones:
+  </p>
+  <ul>
+    <li><code>ssh HOST cat file &gt; file</code></li>
+    <li><code>ssh HOST tar cf - file | tar xf -</code></li>
+  </ul>
+  <p>
+    Note that these solutions and other similar solutions are not
+    going to work because the SSH gateway described in the previous
+    two paragraphs forbids remote command execution without a login
+    shell.  It also blocks port forwarding, so any solution involving
+    port forwarding is not going to work either.
+  </p>
+</div>
+<p>
+  Assuming that both the remote and local systems are Unix-like, the
+  following steps show one way to accomplish copying a file from the
+  remote system to our local system:
+</p>
+<ol>
+  <li>
+    <p>
+      Connect to the remote system with <code>ssh</code> and pipe the
+      output to <code>tee</code> to write the entire session to a text
+      file on the local system.
+    </p>
+    <pre><code>ssh HOST | tee ssh.txt</code></pre>
+    <p>
+      This type of pipeline works as intended even while connecting to
+      a remote system via a jumphost or an SSH gateway.
+    </p>
+  </li>
+  <li>
+    <p>
+      In the remote system, create a 10 MB file to serve as an example
+      payload to be transferred.
+    </p>
+    <pre><code>head -c 10485760 /dev/urandom &gt; /tmp/payload</code></pre>
+    <p>
+      You probably already have a meaningful payload that you want to
+      copy, so in that case, you would skip this step.
+    </p>
+  </li>
+  <li>
+    <p>
+      Compute checksum on the file.  This will be used later to verify
+      that the entire file is transferred correctly.
+    </p>
+    <pre><code>sha1sum /tmp/payload</code></pre>
+  </li>
+  <li>
+    <p>
+      Print Base64 representation of the file.
+    </p>
+    <pre><code>base64 /tmp/payload</code></pre>
+    <p>
+      Depending on the Internet bandwidth, this can take a few seconds
+      to a few minutes to complete.
+    </p>
+  </li>
+  <li>
+    <p>
+      End the SSH session.
+    </p>
+    <pre><code>exit</code></pre>
+  </li>
+  <li>
+    <p>
+      On the local system, extract the Base64 encoded payload and
+      decode it.  Assuming the shell prompt on the remote system ends
+      with the dollar sign (i.e. <code>$</code>), the following
+      command does this.
+    </p>
+    <pre><code>sed '1,/$ base64/d;/$ exit/,$d' ssh.txt | base64 --decode &gt; payload</code></pre>
+  </li>
+  <li>
+    <p>
+      Extract the checksum computed on the original file.
+    </p>
+    <pre><code>grep -A 1 sha1sum ssh.txt</code></pre>
+  </li>
+  <li>
+    <p>
+      Compute checksum on the decoded payload.
+    </p>
+    <pre><code>sha1sum payload</code></pre>
+    <p>
+      Ensure that the checksum in this step matches the checksum in
+      the previous step.
+    </p>
+  </li>
+</ol>
+<p>
+  The steps above assume the use of the <code>sha1sum</code> command
+  to compute checksum.  If this command is unavailable, use
+  <code>sha1</code>, <code>shasum</code> or something else that serves
+  this purpose well.  If you are worried about collision attacks, you
+  might want <code>sha256sum</code>, <code>sha256</code>, <code>shasum
+  -a 256</code>, etc. instead.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/file-transfer-with-ssh-tee-and-base64.html">Read on website</a> |
+  <a href="https://susam.net/tag/networking.html">#networking</a> |
+  <a href="https://susam.net/tag/protocol.html">#protocol</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>AUTH CRAM-MD5</title>
+<link>https://susam.net/auth-cram-md5.html</link>
+<guid isPermaLink="false">jcrvn</guid>
+<pubDate>Mon, 07 Nov 2011 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h2 id="introduction">Introduction<a href="#introduction"></a></h2>
+<p>
+  Last night, while I was setting up my SMTP server, I decided to dig
+  deeper into CRAM-MD5 authentication mechanism.  It is a
+  challenge-response authentication mechanism and involves HMAC-MD5.
+  We don't use SSL/TLS in the SMTP session examples below in order to
+  show the underlying protocol in clear.  In practice, any email
+  program should be configured to use SSL/TLS while having a session
+  with an SMTP server.  We will first see a few examples of other
+  authentication mechanisms before discussing the CRAM-MD5 mechanism.
+</p>
+<h2 id="auth-plain">AUTH PLAIN<a href="#auth-plain"></a></h2>
+<p>
+  Here is an example of a session that uses the PLAIN authentication
+  mechanism:
+</p>
+<pre>
+<samp>$ <kbd>telnet susam.in 25</kbd>
+Trying 106.187.41.241...
+Connected to susam.in.
+Escape character is '^]'.
+220 tesseract.susam.in ESMTP Exim 4.72 Mon, 07 Nov 2011 20:27:56 +0530
+<kbd>EHLO nifty.localdomain</kbd>
+250-tesseract.susam.in Hello nifty.localdomain [122.167.80.194]
+250-SIZE 52428800
+250-PIPELINING
+250-AUTH PLAIN LOGIN CRAM-MD5
+250-STARTTLS
+250 HELP
+<kbd>AUTH PLAIN AGFsaWNlAHdvbmRlcmxhbmQ=</kbd>
+235 Authentication succeeded
+<kbd>MAIL FROM:&lt;alice@susam.in&gt;</kbd>
+250 OK
+<kbd>RCPT TO:&lt;example.recipient@gmail.com&gt;</kbd>
+250 Accepted
+<kbd>DATA</kbd>
+354 Enter message, ending with "." on a line by itself
+<kbd>Date: Mon, 07 Nov 2011 20:28:00 +0530
+From: Alice &lt;alice@susam.in&gt;
+To: Example Recipient &lt;example.recipient@gmail.com&gt;
+Subject: Test email
+
+This is a test email.
+.</kbd>
+250 OK id=1RNQef-0004e7-7s
+<kbd>QUIT</kbd>
+221 tesseract.susam.in closing connection
+Connection closed by foreign host.</samp>
+</pre>
+<p>
+  The string <code>"AGFsaWNlAHdvbmRlcmxhbmQ="</code> in the <code>AUTH
+  PLAIN</code> command is the the base64 encoding of the string
+  <code>"\0alice\0wonderland"</code> where <code>"\0"</code> indicates
+  a null character, <code>"alice"</code> is the sender's user name and
+  <code>"wonderland"</code> is the sender's password.  If an
+  eavesdropper intercepts this traffic, he or she can easily find the
+  user's password by simply decoding the base64 response sent by the
+  client.  Here is an example of decoding the base64 response with
+  Python 2.7:
+</p>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>'AGFsaWNlAHdvbmRlcmxhbmQ='.decode('base64')</kbd>
+'\x00alice\x00wonderland'</samp>
+</pre>
+<p>
+  This is also susceptible to replay attacks as the eavesdropper can
+  use the <code>AUTH PLAIN</code> line containing the base64 encoded
+  credentials to log into the server in future.  This is why it is
+  very important to secure the connection with SSL/TLS while having a
+  session with the SMTP server.
+</p>
+<h2 id="auth-login">AUTH LOGIN<a href="#auth-login"></a></h2>
+<p>
+  Here is another example snippet that shows the LOGIN mechanism:
+</p>
+<pre>
+<samp><kbd>AUTH LOGIN</kbd>
+334 VXNlcm5hbWU6
+<kbd>YWxpY2U=</kbd>
+334 UGFzc3dvcmQ6
+<kbd>d29uZGVybGFuZA==</kbd>
+235 Authentication succeeded</samp>
+</pre>
+<p>
+  Here are the base64 responses decoded with Python 2.7:
+</p>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>'VXNlcm5hbWU6'.decode('base64')</kbd>
+'Username:'
+&gt;&gt;&gt; <kbd>'YWxpY2U='.decode('base64')</kbd>
+'alice'
+&gt;&gt;&gt; <kbd>'UGFzc3dvcmQ6'.decode('base64')</kbd>
+'Password:'
+&gt;&gt;&gt; <kbd>'d29uZGVybGFuZA=='.decode('base64')</kbd>
+'wonderland'</samp>
+</pre>
+<p>
+  If the session isn't encrypted, LOGIN authentication mechanism is
+  susceptible to the same problems that PLAIN authentication mechanism
+  is susceptible to.
+</p>
+<h2 id="auth-cram-md5">AUTH CRAM-MD5<a href="#auth-cram-md5"></a></h2>
+<p>
+  Let us take a look at the CRAM-MD5 authentication mechanism now.
+  When the client selects the CRAM-MD5 authentication mechanism, the
+  server sends a base64 encoded challenge like this:
+</p>
+<pre>
+<samp><kbd>AUTH CRAM-MD5</kbd>
+334 PDE3ODkzLjEzMjA2NzkxMjNAdGVzc2VyYWN0LnN1c2FtLmluPg==</samp>
+</pre>
+<p>
+  An HMAC is calculated for this challenge with the password as the
+  key and MD5 as the hash function.  A string is formed by
+  concatenating the user name, a space and the hexadecimal
+  representation of the HMAC.  The base64 encoding of this string is
+  sent as the response by the client.  The following statements in
+  Python 2.7 show how a response can be formed for the above
+  challenge:
+</p>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>'PDE3ODkzLjEzMjA2NzkxMjNAdGVzc2VyYWN0LnN1c2FtLmluPg=='.decode('base64')</kbd>
+'&lt;17893.1320679123@tesseract.susam.in&gt;'
+&gt;&gt;&gt; <kbd>import hmac, hashlib</kbd>
+&gt;&gt;&gt; <kbd>hmac.new('wonderland', '&lt;17893.1320679123@tesseract.susam.in&gt;', hashlib.md5).hexdigest()</kbd>
+'64b2a43c1f6ed6806a980914e23e75f0'
+&gt;&gt;&gt; <kbd>'alice 64b2a43c1f6ed6806a980914e23e75f0'.encode('base64')</kbd>
+'YWxpY2UgNjRiMmE0M2MxZjZlZDY4MDZhOTgwOTE0ZTIzZTc1ZjA=\n'</samp>
+</pre>
+<p>
+  Of course, this can be written as a small function:
+</p>
+<pre>
+<code>import hmac, hashlib
+def cram_md5_response(username, password, base64challenge):
+    return (username + ' ' +
+            hmac.new(password,
+                     base64challenge.decode('base64'),
+                     hashlib.md5).hexdigest()).encode('base64')</code>
+</pre>
+<p>
+  The following snippet shows the SMTP server accepting the
+  client-response:
+</p>
+<pre>
+<samp><kbd>AUTH CRAM-MD5</kbd>
+334 PDE3ODkzLjEzMjA2NzkxMjNAdGVzc2VyYWN0LnN1c2FtLmluPg==
+<kbd>YWxpY2UgNjRiMmE0M2MxZjZlZDY4MDZhOTgwOTE0ZTIzZTc1ZjA=</kbd>
+235 Authentication succeeded</samp>
+</pre>
+<p>
+  When the connection is not secured, CRAM-MD5 authentication
+  mechanism is relatively more secure than the other two mechanisms
+  because the password cannot be retrieved by decoding the base64
+  encoded response from the client.  The password is used as the key
+  to calculate the HMAC but the password itself is not present in the
+  response.  It prevents replay attacks too because the server sends
+  an unpredictable challenge for every authentication.  The response
+  sent by the client for a certain challenge is invalid for another
+  instance of authentication because the other instance would involve
+  a different unpredictable challenge.
+</p>
+<h2 id="further-reading">Further Reading<a href="#further-reading"></a></h2>
+<p>
+  Here is a list of hyperlinks for further reading:
+</p>
+<ol>
+<li><a href="https://www.rfc-editor.org/rfc/rfc4954">RFC 4954</a>:
+    SMTP Service Extension for Authentication
+</li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc4616">RFC 4616</a>:
+    The PLAIN Simple Authentication and Security Layer (SASL) Mechanism
+</li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc2195">RFC 2195</a>:
+    IMAP/POP AUTHorize Extension for Simple Challenge/Response
+</li>
+<li><a href="https://www.rfc-editor.org/rfc/rfc2104">RFC 2104</a>:
+    HMAC: Keyed-Hashing for Message Authentication</li>
+</ol>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/auth-cram-md5.html">Read on website</a> |
+  <a href="https://susam.net/tag/networking.html">#networking</a> |
+  <a href="https://susam.net/tag/protocol.html">#protocol</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+
+
+</channel>
+</rss>

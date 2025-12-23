@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's Game Pages</title>
+<link>https://susam.net/tag/game.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/game.xml"/>
+<description>Feed for Susam's Game Pages</description>
+
+<item>
+<title>Nerd Quiz #3</title>
+<link>https://susam.net/code/news/nq/3.0.0.html</link>
+<guid isPermaLink="false">nqthr</guid>
+<pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Nerd Quiz #3 is the third release of Nerd Quiz, a single-page HTML
+  application that invites you to test your nerd level through a short
+  quiz.  Each question is inspired by everyday moments of reading,
+  writing, thinking, learning and exploring.
+</p>
+<p>
+  This release introduces five new questions drawn from a range of
+  topics, including computing history, graph theory and Unix.
+  Visit <a href="../../../nq.html#3">Nerd Quiz</a> to try the quiz.
+</p>
+<p>
+  A community discussion page is available at
+  <a href="../../../comments/nq.html">Discuss Nerd Quiz</a>.  You are
+  very welcome to share your score or discuss the questions there.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/nq/3.0.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a> |
+  <a href="https://susam.net/tag/game.html">#game</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Nerd Quiz #2</title>
+<link>https://susam.net/code/news/nq/2.0.0.html</link>
+<guid isPermaLink="false">nqtwo</guid>
+<pubDate>Tue, 18 Nov 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Nerd Quiz #2 is the second release of Nerd Quiz, a single-page HTML
+  application that invites you to gauge your nerd level through short,
+  focused quiz sets.  Each question is carefully crafted from everyday
+  moments of reading, writing, thinking, learning and exploring.
+</p>
+<p>
+  This release introduces five new questions drawn from a range of
+  topics such as chess, graph theory and linguistics.  To try the
+  quiz, visit <a href="../../../nq.html#2">nq.html</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/nq/2.0.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a> |
+  <a href="https://susam.net/tag/game.html">#game</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Nerd Quiz #1</title>
+<link>https://susam.net/code/news/nq/1.0.0.html</link>
+<guid isPermaLink="false">nqone</guid>
+<pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Nerd Quiz #1 is the first release of Nerd Quiz, a single-page HTML
+  application that lets you test your nerd level through short,
+  focused quiz sets.  Each question in the quiz is handcrafted from
+  everyday moments of reading, writing, thinking, learning and
+  exploring.
+</p>
+<p>
+  To try the quiz now, visit <a href="../../../nq.html">nq.html</a>.
+</p>
+<p>
+  The source code of Nerd Quiz is available at
+  <a href="https://github.com/susam/nq#readme">github.com/susam/nq</a>
+  under the terms of the MIT licence.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/nq/1.0.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a> |
+  <a href="https://susam.net/tag/game.html">#game</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Guess My RGB</title>
+<link>https://susam.net/myrgb.html</link>
+<guid isPermaLink="false">uiorn</guid>
+<pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A tiny, web-based, RGB colour guessing game.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/myrgb.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/game.html">#game</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Andromeda Invaders</title>
+<link>https://susam.net/invaders.html</link>
+<guid isPermaLink="false">bffow</guid>
+<pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A 1980s-arcade-style game written using HTML5, Canvas and Web Audio.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/invaders.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/game.html">#game</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+
+
+</channel>
+</rss>
