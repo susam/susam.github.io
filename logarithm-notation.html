@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Logarithm Notation - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/logarithm-notation.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="./js/katex/katex.min.js"></script>
+  <script defer src="./js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Logarithm Notation</h1>
+<div>By <b>Susam Pal</b> on 05 Apr 2024</div>
+<p>
+  We know that the natural logarithm of a number \( x, \) i.e. the
+  logarithm of \( x \) to the base \( e, \) is sometimes denoted as \(
+  \ln x.  \)  It has other notations too.  For example, many
+  mathematics textbooks just use the notation \( \log x \) after
+  establishing once that this notation denotes the natural logarithm.
+  The most descriptive notation is perhaps \( \log_e x \) but this is
+  most definitely an overkill.  I have never seen any serious textbook
+  use this notation.
+</p>
+<p>
+  Let us focus on \( \ln x \) again.  Is it not peculiar?  What does
+  \( \ln \) stand for really?  Logarithm natural?  Sounds very unnatural.
+</p>
+<p>
+  Well, as a kid I learnt that \( \ln \) here stands for the Latin
+  phrase "logarithmus naturalis".  It is only recently that I bothered
+  to verify if this expansion of \( \ln x \) that I learnt as a kid is
+  really true.  The most credible discussion of this that I could find
+  online is this thread on Mathematics Stack Exchange:
+  <a href="https://math.stackexchange.com/q/1694">math.stackexchange.com/q/1694</a>.
+  The answer by Dan Velleman points us to page 277 of an 1875
+  book <em>Lehrbuch der Mathematik</em> by Anton Steinhauser.  Quoting
+  the relevant portion from the page:
+</p>
+<blockquote>
+  Man pflegt nun, um Verwechslungen dieser beiden Systeme vorzubeugen,
+  mit log.nat. a (gesprochen: logarithmus naturalis a) oder ln. a,
+  oder am einfachsten mit la den natürlichen, mit log.brigg. a
+  (gesprochen: Logarithmus briggus a) oder log.a, oder am einfachsten
+  mit lg. a den gemeinen Logarithmus (von a) zu bezeichnen.
+</blockquote>
+<p>
+  Translated to English, it says:
+</p>
+<blockquote>
+  One is accustomed now, in order to prevent confusion between these
+  two systems, to use log.nat. a (pronounced: logarithmus naturalis a)
+  or ln. a, or most simply la for the natural, and log.brigg. a
+  (pronounced: logarithmus briggus a) or log. a, or most simply lg. a
+  to denote the common logarithm (of a).
+</blockquote>
+<p>
+  So it does look like what I learnt as a kid is correct and the
+  earliest possible reference of this the Internet is able to find for
+  us is the 1875 book quoted above.
+</p>
+<div>
+  <a href="comments/logarithm-notation.html">Comments</a> |
+  <a href="./tag/mathematics.html">#mathematics</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

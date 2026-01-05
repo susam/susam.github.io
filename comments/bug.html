@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Report Bug - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/bug.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+  <link rel="stylesheet" href="../js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="../js/katex/katex.min.js"></script>
+  <script defer src="../js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Report Bug</h1>
+<nav><a href="../form/comment/?p=bug">Post Comment</a></nav>
+<!-- Comment 1 of 3 -->
+<section id="1" class="visitor">
+<h2>Ikiatl wrote:</h2>
+<p>
+  Loved your <a href="../langford-pairing.html">Langford Pairing</a>
+  blog post.  Found a small error in the proof of sufficiency.  I
+  think the value of \( c \) should be \( 4x - 1 \) and not \( 4x - 3
+ .  \)  Great blog post though!
+</p>
+<div>
+<a href="#1">18 May 2023 19:09 UTC</a> |
+<a href="#1">#1 of 3 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 3 -->
+<section id="2" class="visitor">
+<h2><a href="https://www.youtube.com/MindYourDecisions">Presh</a> wrote:</h2>
+<p>
+  Wonderful <a href="../langford-pairing.html">Langford Pairing</a>
+  post.  By the way, I believe there is a small typo in the formula
+  for \( c.  \)  It should be \( c = 4x - 1.  \)
+</p>
+<div>
+<a href="#2">05 Jun 2023 22:40 UTC</a> |
+<a href="#2">#2 of 3 comments</a>
+</div>
+</section>
+<!-- Comment 3 of 3 -->
+<section id="3" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Thank you, Ikiatl and Presh, for your comments.  The formula for \(
+  c \) indeed had a typo.  Although I wrote the correct values for \(
+  c \) obtained from the formula \( c = 4x - 1 \) in the examples, the
+  formula itself was written incorrectly as \( c = 4x - 3.  \)  I have
+  corrected <a href="../langford-pairing.html">Langford Pairing</a> to
+  use \( c = 4x - 1 \) now.
+</p>
+<div>
+<a href="#3">12 Jun 2023 07:18 UTC</a> |
+<a href="#3">#3 of 3 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=bug">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

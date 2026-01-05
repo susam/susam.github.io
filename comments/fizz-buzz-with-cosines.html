@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Fizz Buzz with Cosines - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/fizz-buzz-with-cosines.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+  <link rel="stylesheet" href="../css/extra.css">
+  <link rel="stylesheet" href="../js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="../js/katex/katex.min.js"></script>
+  <script defer src="../js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../fizz-buzz-with-cosines.html"><em>Fizz Buzz with Cosines</em></a></strong></div>
+<nav><a href="../form/comment/?p=fizz-buzz-with-cosines">Post Comment</a></nav>
+<!-- Comment 1 of 10 -->
+<section id="1" class="visitor">
+<h2>Isogash wrote:</h2>
+<p>
+  Gonna memorize this for my next technical interview so I can say
+  "and then we apply the FizzBuzz formula".
+</p>
+<div>
+<a href="#1">21 Nov 2025 10:53 UTC</a> |
+<a href="#1">#1 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 10 -->
+<section id="2" class="visitor">
+<h2>Cosmic wrote:</h2>
+<p>
+  This is grotesque.  Love it!  &lt;3
+</p>
+
+<div>
+<a href="#2">21 Nov 2025 11:58 UTC</a> |
+<a href="#2">#2 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 3 of 10 -->
+<section id="3" class="visitor">
+<h2>Tri wrote:</h2>
+<p>
+  Great!  Can it be extended to print 'Jazz' if the number is
+  divisible by 7?
+</p>
+<div>
+<a href="#3">21 Nov 2025 12:11 UTC</a> |
+<a href="#3">#3 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 4 of 10 -->
+<section id="4" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Yes, it is quite straightforward to extend the solution to include
+  numbers divisible by 7.  The new indicator function can be defined
+  like this:
+
+  \[
+    I_7(n)
+    = \frac{1}{7} \sum_{k = 0}^6 e^{2 \pi i k n/7}
+    = \frac{1}{7} + \frac{2}{7} \cos \left( \frac{2 \pi n}{7} \right) +
+                    \frac{2}{7} \cos \left( \frac{4 \pi n}{7} \right) +
+                    \frac{2}{7} \cos \left( \frac{6 \pi n}{7} \right).
+  \]
+
+  The new Fourier series is going to be:
+
+  \[
+    g(n) = I_3(n) + 2 \, I_5(n) + 4 \, I_7(n) = f(n) + 4 \, I_7(n).
+  \]
+
+  So we only need to add the new term \( 4 \, I_7(n) \) to \( f(n), \)
+  which gives the new Fourier series
+
+  \begin{align*}
+    g(n) = \frac{137}{105}
+           &amp;+ \frac{2}{3} \cos \left( \frac{2 \pi n}{3} \right)
+           + \frac{4}{5} \cos \left( \frac{2 \pi n}{5} \right)
+           + \frac{4}{5} \cos \left( \frac{4 \pi n}{5} \right) \\
+           &amp;+ \frac{8}{7} \cos \left( \frac{2 \pi n}{7} \right)
+           + \frac{8}{7} \cos \left( \frac{4 \pi n}{7} \right)
+           + \frac{8}{7} \cos \left( \frac{6 \pi n}{7} \right).
+  \end{align*}
+
+  The indicators-based solution simply becomes:
+</p>
+<pre>
+<code>from math import cos, pi
+for n in range(1, 1001):
+    s = [n, 'Fizz', 'Buzz', 'FizzBuzz', 'Jazz', 'FizzJazz', 'BuzzJazz', 'FizzBuzzJazz']
+    i = (n % 3 == 0) + 2 * (n % 5 == 0) + 4 * (n % 7 == 0)
+    print(s[i])</code>
+</pre>
+<p>
+  The cosine-based solution becomes:
+</p>
+<pre>
+<code>from math import cos, pi
+for n in range(1, 1001):
+    s = [n, 'Fizz', 'Buzz', 'FizzBuzz', 'Jazz', 'FizzJazz', 'BuzzJazz', 'FizzBuzzJazz']
+    i = round((137 / 105) + (2 / 3) * cos(2 * pi * n / 3)
+                          + (4 / 5) * cos(2 * pi * n / 5)
+                          + (4 / 5) * cos(4 * pi * n / 5)
+                          + (8 / 7) * cos(2 * pi * n / 7)
+                          + (8 / 7) * cos(4 * pi * n / 7)
+                          + (8 / 7) * cos(6 * pi * n / 7))
+    print(s[i])</code>
+</pre>
+<p>
+  The value of \( g(n) \) in the formula above (or equivalently the
+  value of the variable <code>i</code> in the code) can be viewed as a
+  flag in which each bit corresponds to whether \( \mathtt{Fizz}, \)
+  \( \mathtt{Buzz} \) or \( \mathtt{Jazz} \) appears in the \( n \)th
+  term of the sequence.  All other details follow from this idea.
+</p>
+<div>
+<a href="#4">21 Nov 2025 12:28 UTC</a> |
+<a href="#4">#4 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 5 of 10 -->
+<section id="5" class="visitor">
+<h2>Omepiet wrote:</h2>
+<p>
+  This is morally degenerate.  Also, it works.
+</p>
+<div>
+<a href="#5">21 Nov 2025 12:34 UTC</a> |
+<a href="#5">#5 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 6 of 10 -->
+<section id="6" class="visitor">
+<h2>ByTheNumbers10 wrote:</h2>
+<p>
+  The things you have to do with low-level languages like math and
+  VHDL.
+</p>
+<div>
+<a href="#6">21 Nov 2025 13:40 UTC</a> |
+<a href="#6">#6 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 7 of 10 -->
+<section id="7" class="visitor">
+<h2>Jose wrote:</h2>
+<p>
+  This was a beautiful reading.  Thanks.
+</p>
+<div>
+<a href="#7">21 Nov 2025 16:54 UTC</a> |
+<a href="#7">#7 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 8 of 10 -->
+<section id="8" class="visitor">
+<h2>Wayne wrote:</h2>
+<p>
+  Thanks, I enjoyed that!
+</p>
+<div>
+<a href="#8">22 Nov 2025 11:06 UTC</a> |
+<a href="#8">#8 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 9 of 10 -->
+<section id="9" class="visitor">
+<h2>Jwosty wrote:</h2>
+<p>
+  This is the exactly kind of thing that should win an obfuscation
+  contest.  I hate it but also I love it.
+</p>
+<div>
+<a href="#9">22 Nov 2025 20:52 UTC</a> |
+<a href="#9">#9 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 10 of 10 -->
+<section id="10" class="visitor">
+<h2>Rowan wrote:</h2>
+<p>
+  If we don't do the simplification to make the function real valued
+  based on \( n \) being an integer but instead focus on the
+  complex-valued functions through to the final function (which
+  coincides for integers), and plot the path in the complex plane
+  (Argand diagram), we get something pretty cool and spirally that
+  satisfied my need for more "intuition" on why this works.
+</p>
+<p>
+  Even better than the static complex plane path: an animated web page
+  with \( 6 \) arms rotating at different rates drawing out the path.
+  Really explains why it's periodic.  It hits \( 3 \) exactly when all
+  the arms are in alignment forming a straight line.
+</p>
+<div>
+<a href="#10">30 Nov 2025 02:55 UTC</a> |
+<a href="#10">#10 of 10 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=fizz-buzz-with-cosines">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

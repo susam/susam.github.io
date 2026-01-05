@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Mutually Attacking Knights - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/mutually-attacking-knights.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+  <link rel="stylesheet" href="../css/chess.css">
+  <link rel="stylesheet" href="../css/extra.css">
+  <link rel="stylesheet" href="../js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="../js/katex/katex.min.js"></script>
+  <script defer src="../js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../mutually-attacking-knights.html"><em>Mutually Attacking Knights</em></a></strong></div>
+<nav><a href="../form/comment/?p=mutually-attacking-knights">Post Comment</a></nav>
+<!-- Comment 1 of 2 -->
+<section id="1" class="visitor">
+<h2>James Camacho wrote:</h2>
+<p>
+  There is a simpler solution.  First place a \( 2 \times 3 \) or \( 3
+  \times 2 \) rectangle, then choose a pair of corners in this
+  rectangle to place the knights.  There are \( n - 1 \) choices for
+  the column and \( n - 2 \) choices for the row of a \( 2 \times 3 \)
+  rectangle, and the same number but with the axes flipped for a \( 3
+  \times 2 \) rectangle.  In total, there are \( 2 \times 2 \times
+  (n-1) \times (n - 2) = 4(n-1)(n-2) \) ways to place the knights.
+</p>
+<div>
+<a href="#1">21 Nov 2025 18:54 UTC</a> |
+<a href="#1">#1 of 2 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 2 -->
+<section id="2" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Hi James!  Did you read the section
+  <a href="../mutually-attacking-knights.html#counting-placements-from-minimal-attack-sections">Counting Placements from Minimal Attack Sections</a>?
+  The simpler solution you present is exactly the simple solution
+  already discussed in that section.
+</p>
+<div>
+<a href="#2">22 Nov 2025 13:08 UTC</a> |
+<a href="#2">#2 of 2 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=mutually-attacking-knights">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

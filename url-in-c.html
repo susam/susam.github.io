@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>URL in C - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/url-in-c.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<main>
+<h1>URL in C</h1>
+<div>By <b>Susam Pal</b> on 03 Jun 2011</div>
+<p>
+  Here is a silly little C puzzle:
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    https://susam.net/
+    printf("hello, world\n");
+    return 0;
+}</code>
+</pre>
+<p>
+  This code compiles and runs successfully.
+</p>
+<pre>
+<samp>$ <kbd>c99 hello.c &amp;&amp; ./a.out</kbd>
+hello, world</samp>
+</pre>
+<p>
+  However, the
+  <a href="http://www.open-std.org/JTC1/SC22/WG14/www/docs/n1256.pdf">C99
+  standard draft</a> does not mention anywhere that a URL is a valid
+  syntactic element in C.  How does this code work then?
+</p>
+<p>
+  <em><strong>Update on 04 Jun 2011:</strong> The puzzle has been
+  solved in the <a href="comments/url-in-c.html">comments</a> section.
+  If you want to think about the problem before you see the solutions,
+  this is a good time to pause and think about it.  There are spoilers
+  ahead.</em>
+</p>
+<p>
+  The code works fine because <code>https:</code> is a label and
+  <code>//</code> following it begins a comment.  In case, you are
+  wondering if <code>//</code> is indeed a valid comment in C, yes, it
+  is, since C99.  Download the
+  <a href="http://www.open-std.org/JTC1/SC22/WG14/www/docs/n1256.pdf">C99
+  standard draft</a>, go to section 6.4.9 (Comments) and read the
+  second point which mentions this:
+</p>
+<blockquote>
+  Except within a character constant, a string literal, or a comment,
+  the characters <code>//</code> introduce a comment that includes all
+  multibyte characters up to, but not including, the next new-line
+  character.  The contents of such a comment are examined only to
+  identify multibyte characters and to find the terminating new-line
+  character.
+</blockquote>
+<div>
+  <a href="comments/url-in-c.html">Comments</a> |
+  <a href="./tag/absurd.html">#absurd</a> |
+  <a href="./tag/c.html">#c</a> |
+  <a href="./tag/programming.html">#programming</a> |
+  <a href="./tag/technology.html">#technology</a> |
+  <a href="./tag/puzzle.html">#puzzle</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

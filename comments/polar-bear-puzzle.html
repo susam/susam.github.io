@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Polar Bear Puzzle - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/polar-bear-puzzle.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+  <link rel="stylesheet" href="../js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="../js/katex/katex.min.js"></script>
+  <script defer src="../js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../polar-bear-puzzle.html"><em>Polar Bear Puzzle</em></a></strong></div>
+<nav><a href="../form/comment/?p=polar-bear-puzzle">Post Comment</a></nav>
+<!-- Comment 1 of 1 -->
+<section id="1" class="visitor">
+<h2>Arnar Birgisson wrote:</h2>
+<p>
+  The places near the South Pole are infinitely many.  Some of them
+  lie on the circle that is \( \left(1 + \frac{1}{2\pi} \right) \) km
+  from the pole.  Then you'll walk 1 km towards the pole, then circle
+  it (1 km) and walk back 1 km in the same track away from the pole.
+  Some other of them lie on the circle that is \( \left( 1 +
+  \frac{1}{4\pi} \right) \) km, you do the same but you circle the
+  pole twice.  Thus the starting point could be the North Pole or any
+  point that is \( \left( 1 + \frac{1}{2n\pi} \right) \) km from the
+  South Pole, for any positive integer \( n.  \)
+</p>
+<div>
+<a href="#1">10 Mar 2011 10:02 UTC</a> |
+<a href="#1">#1 of 1 comment</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=polar-bear-puzzle">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../maze.html">Maze</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

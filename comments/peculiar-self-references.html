@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Peculiar Self-References - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/peculiar-self-references.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../peculiar-self-references.html"><em>Peculiar Self-References</em></a></strong></div>
+<nav><a href="../form/comment/?p=peculiar-self-references">Post Comment</a></nav>
+<!-- Comment 1 of 21 -->
+<section id="1" class="visitor">
+<h2>XG15 wrote:</h2>
+<p>
+  This is an interesting example that the internal models of two
+  programming languages can be quite different, even if they
+  ostensibly support the same features.
+</p>
+<p>
+  <code>a = a['k'] = {}</code> is also valid JavaScript syntax,
+  however running it throws an exception and generally works as OP
+  probably expected the statement to work.  The reason is that in JS,
+  the statement is parsed as
+</p>
+<pre><code>a = (a['k'] = {})</code></pre>
+<p>
+  where <code>(a['k'] = {})</code> is executed first and also returns
+  the assigned value.  Meanwhile in Python, apparently
+  multi-assignment is a grammar production of its own, so the above
+  would be parsed as sort of:
+</p>
+<pre><code>multi-assign(a, a['k']) = {}</code></pre>
+<p>
+  and therefore first assign to <code>a</code>, then
+  to <code>a['k']</code>.
+</p>
+<div>
+<a href="#1">12 Nov 2021 21:07 UTC</a> |
+<a href="#1">#1 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 21 -->
+<section id="2" class="visitor">
+<h2>JWMH wrote:</h2>
+<p>
+  In my opinion, it would make more sense to just treat assignments as
+  expressions, as is done in C-like languages.  Maybe I'm just more
+  accustomed to C-like languages, though.
+</p>
+<p>
+  I think that one thing that makes the statement confusing is that
+  the first equals sign serves a purpose completely different from the
+  second equals sign, but both of them are represented by the same
+  character.
+</p>
+<div>
+<a href="#2">12 Nov 2021 22:57 UTC</a> |
+<a href="#2">#2 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 3 of 21 -->
+<section id="3" class="visitor">
+<h2>Oshiar wrote:</h2>
+<p>
+  XG15, Yet another reason is all the references in LHS expressions
+  are resolved before the inner expression is executed.  Thus
+</p>
+<pre><code>a['k'] = a = {}</code></pre>
+<p>
+  won't still work.
+</p>
+<div>
+<a href="#3">13 Nov 2021 03:03 UTC</a> |
+<a href="#3">#3 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 4 of 21 -->
+<section id="4" class="visitor">
+<h2>o11c wrote:</h2>
+<p>
+  Yeah, Python really messed up the order of multiple assignments.
+  This could be fixed by deprecating arbitrary multiple assignments.
+  Instead, only allow:
+</p>
+<ul>
+  <li>
+    any number of assignments to simple variable names (whether local,
+    nonlocal, or global - I'm pretty sure these all are safe), or
+  </li>
+  <li>
+    only one assignment to an arbitrary lvalue.
+  </li>
+</ul>
+<p>
+  Use of "or" rather than "and" is deliberate, to fix an obscure edge
+  case.  We can't even limit the restriction to "assignments involving
+  a function call".  Notably, <code>self.a = a = {}</code> is not
+  always the same as <code>a = self.a = {}</code>.  Proof:
+</p>
+<pre>
+<code>#!/usr/bin/env python3
+
+class Foo:
+    def __init__(self):
+        self.get_a = lambda: a
+        a = 1
+        a = self.a = 2
+        a = 3
+        self.a = a = 4
+
+    def __setattr__(self, name, val):
+        if name != 'get_a':
+            print(self.get_a())
+        self.__dict__[name] = val
+
+if __name__ == '__main__':
+    Foo()</code>
+</pre>
+<div>
+<a href="#4">13 Nov 2021 16:35 UTC</a> |
+<a href="#4">#4 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 5 of 21 -->
+<section id="5" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  For those who are wondering what the code in the previous comment
+  does, here is its output:
+</p>
+<pre>
+<samp>2
+3</samp>
+</pre>
+<p>
+  When <code>a = self.a = 2</code> is evaluated, the assignment
+  to <code>self.a</code> triggers the <code>__setattr__</code> call
+  which tells us that the <code>__init__</code> method's local
+  variable <code>a</code> has already been updated to <code>2</code>.
+  That's the first line of output.
+</p>
+<p>
+  When <code>self.a = a = 4</code> is evaluated, once again the
+  assignment to <code>self.a</code> triggers
+  the <code>__setattr__</code> call which tells us that the value of
+  local <code>a</code> is still <code>3</code>.  It has not been
+  updated to <code>4</code> yet.  It gets updated to <code>4</code>
+  after the assignment to <code>self.a</code> completes.
+</p>
+<p>
+  Both lines of output demonstrate the left-to-right assignment quite
+  clearly.
+</p>
+<div>
+<a href="#5">13 Nov 2021 20:13 UTC</a> |
+<a href="#5">#5 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 6 of 21 -->
+<section id="6" class="visitor">
+<h2><a href="https://kaushikghose.wordpress.com/">Kaushik Ghose</a> wrote:</h2>
+<p>
+  This is very neat, but I would like to approach it a bit
+  differently.  Python allows self-referential objects and is able to
+  handle this gracefully while printing them.
+</p>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>a = {}</kbd>
+&gt;&gt;&gt; <kbd>a['self'] = a</kbd>
+&gt;&gt;&gt; <kbd>a</kbd>
+{'self': {...}}
+&gt;&gt;&gt; <kbd>a['self']</kbd>
+{'self': {...}}
+&gt;&gt;&gt; <kbd>a['self']['self']</kbd>
+{'self': {...}}</samp>
+</pre>
+<p>
+  Python also allows chained assignments.
+</p>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>a = b = c = d = 23.4567</kbd>
+&gt;&gt;&gt; <kbd>a</kbd>
+23.4567
+&gt;&gt;&gt; <kbd>b</kbd>
+23.4567
+&gt;&gt;&gt; <kbd>c</kbd>
+23.4567
+&gt;&gt;&gt; <kbd>d</kbd>
+23.4567</samp>
+</pre>
+<p>
+  Also, a dictionary has to be initialized before a key access.
+</p>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>a['k'] = {}</kbd>
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+NameError: name 'a' is not defined</samp>
+</pre>
+<p>
+  So what the following example teaches us is how Python goes about
+  allocating things in a chained assignment.
+</p>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>a = a['k'] = {}</kbd>
+&gt;&gt;&gt; <kbd>a</kbd>
+{'k': {...}}</samp>
+</pre>
+<p>
+  Let us look at something else with recursion which is easier for me
+  to illustrate
+</p>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>a = a[0] = [0, 1]</kbd>
+&gt;&gt;&gt; <kbd>a</kbd>
+[[...], 1]</samp>
+</pre>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>a = a[1] = [0, 1]</kbd>
+&gt;&gt;&gt; <kbd>a</kbd>
+[0, [...]]</samp></pre>
+<p>
+The operations look like following:
+</p>
+<pre>
+<code>[0, 1] &rarr; a
+a &rarr; a[0]</code>
+</pre>
+<p>
+  If we extend the chain (<code>a = b = c = d = ...</code>) what is
+  the pattern?
+</p>
+<p>
+  I could not think of a test that would let me dissociate if what is
+  happening is
+</p>
+<pre>
+<code>a = x
+b = a
+c = a
+d = a</code>
+</pre>
+or
+<pre>
+<code>a = x
+b = a
+c = b
+d = c</code>
+</pre>
+<p>
+  I might think of something tomorrow.
+</p>
+<div>
+<a href="#6">14 Nov 2021 02:31 UTC</a> |
+<a href="#6">#6 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 7 of 21 -->
+<section id="7" class="visitor">
+<h2><a href="https://github.com/carlmjohnson">Carl M. Johnson</a> wrote:</h2>
+<p>
+  Every Python object has an infinitely recursive set of attributes
+  because methods are functions and functions are objects and all
+  objects have methods.  It is a fun way to hit a stack overflow
+  chasing them down.
+</p>
+<div>
+<a href="#7">14 Nov 2021 03:52 UTC</a> |
+<a href="#7">#7 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 8 of 21 -->
+<section id="8" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Carl, Yes, indeed!
+</p>
+<pre>
+<code>None.__eq__.__eq__.__eq__.__eq__.__eq__ # and so on ...</code>
+</pre>
+<div>
+<a href="#8">14 Nov 2021 07:02 UTC</a> |
+<a href="#8">#8 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 9 of 21 -->
+<section id="9" class="visitor">
+<h2>Blind Mathematician wrote:</h2>
+<p>
+  This looks like a big oops in language design.  Time to upgrade to
+  Python4 for a fix!
+</p>
+<div>
+<a href="#9">18 Nov 2021 13:36 UTC</a> |
+<a href="#9">#9 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 10 of 21 -->
+<section id="10" class="visitor">
+<h2>Knome wrote:</h2>
+<p>
+  Wow.  That is surprising.  It makes sense but strikes me as the
+  exact opposite of what I would expect looking at the code.  I would
+  definitely have expected the binding order to be the more common
+  right-to-left and for the original code to generate a name error,
+  rather than the latter.
+</p>
+<div>
+<a href="#10">18 Nov 2021 13:36 UTC</a> |
+<a href="#10">#10 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 11 of 21 -->
+<section id="11" class="visitor">
+<h2>Knome wrote:</h2>
+<pre><code>a = a[len(a)] = a[len(a)] = a[len(a)] = a[len(a)] = a[len(a)] = a[len(a)] = {}</code></pre>
+<p>
+  This is knowledge that should have remained hidden.
+</p>
+<div>
+<a href="#11">18 Nov 2021 13:41 UTC</a> |
+<a href="#11">#11 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 12 of 21 -->
+<section id="12" class="visitor">
+<h2>Ayra wrote:</h2>
+<p>
+  <strong><sup>a<sup>a<sup>a<sup>a<sup>a<sup>a<sup>a<sup>a<sup>a<sup>a<sup>a<sup>a<sup>a<sup>a<sup>a<sup>a</sup></sup></sup></sup></sup></sup></sup></sup></sup></sup></sup></sup></sup></sup></sup></sup></strong>
+</p>
+<div>
+<a href="#12">18 Nov 2021 13:44 UTC</a> |
+<a href="#12">#12 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 13 of 21 -->
+<section id="13" class="visitor">
+<h2>Shellac wrote:</h2>
+<blockquote>
+  Knome: ...  It makes sense ...
+</blockquote>
+<p>
+  Knome,
+</p>
+<p>
+  I think you are overstating that.  It is not outright crazy or
+  inconsistent, but I quibble with it being sensible.
+</p>
+<div>
+<a href="#13">18 Nov 2021 14:06 UTC</a> |
+<a href="#13">#13 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 14 of 21 -->
+<section id="14" class="visitor">
+<h2>Piu Tevon wrote:</h2>
+<p>
+  The thing I learned today is that multiple assignments are evaluated
+  left-to-right.  I assumed it would be the other way around.
+  Like <code>a[0] = a = [0]</code> would have been a lot less
+  surprising.
+</p>
+<div>
+<a href="#14">18 Nov 2021 17:36 UTC</a> |
+<a href="#14">#14 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 15 of 21 -->
+<section id="15" class="visitor">
+<h2>Anitil wrote:</h2>
+<p>
+  I am amazed at how long I have been working in Python and never
+  known that assignment works in this way.  I suppose I just avoid
+  parts of the language that I do not understand.
+</p>
+<p>
+  Looking through the archives, it is a really interesting blog in
+  general.
+</p>
+<div>
+<a href="#15">18 Nov 2021 22:06 UTC</a> |
+<a href="#15">#15 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 16 of 21 -->
+<section id="16" class="visitor">
+<h2>Kache wrote:</h2>
+<p>
+  I think it would be elegant to let assignments be expressions, and
+  from that simple core rule, your parsing naturally follows.
+</p>
+<p>
+  I find it irksome that Python makes a distinction between statements
+  and expressions, instead.
+</p>
+<div>
+<a href="#16">18 Nov 2021 22:24 UTC</a> |
+<a href="#16">#16 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 17 of 21 -->
+<section id="17" class="visitor">
+<h2>Oliver wrote:</h2>
+<p>
+  It is a fallout of the fact that assignment must be a statement, and
+  cannot be an expression.  For example, this is wrong in Python,
+  while it would be allowed in C-like languages:
+</p>
+<pre><code>print(a = 5)</code></pre>
+<div>
+<a href="#17">18 Nov 2021 23:54 UTC</a> |
+<a href="#17">#17 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 18 of 21 -->
+<section id="18" class="visitor">
+<h2><a href="https://github.com/orf/">Tom Forbes</a> wrote:</h2>
+<p>
+  Oliver, It is possible now with the walrus operator though:
+</p>
+<pre><code>print(a := 5)</code></pre>
+<div>
+<a href="#18">18 Nov 2021 23:57 UTC</a> |
+<a href="#18">#18 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 19 of 21 -->
+<section id="19" class="visitor">
+<h2>Heavyset Go wrote:</h2>
+<p>
+  Some languages wear the things that make you go WTF on their
+  sleeves.  In contrast, Python's surprises pop up slowly over time,
+  and in places where you'd least expect them.
+</p>
+<div>
+<a href="#19">19 Nov 2021 01:20 UTC</a> |
+<a href="#19">#19 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 20 of 21 -->
+<section id="20" class="visitor">
+<h2>Solar Fields wrote:</h2>
+<p>
+  Heavyset, I wonder if it's because of their subtlety.  I assume you
+  are referencing JavaScript, where the warts are impossible to ignore
+  because you can't write an everyday program as a beginner without
+  running into them.  This sort of thing from the article is just not
+  something I would typically be trying to do in the normal course of
+  shuffling data around.
+</p>
+<div>
+<a href="#20">19 Nov 2021 05:22 UTC</a> |
+<a href="#20">#20 of 21 comments</a>
+</div>
+</section>
+<!-- Comment 21 of 21 -->
+<section id="21" class="visitor">
+<h2>Malf wrote:</h2>
+<p>
+  This is the first true "PHPism" I have seen in a "real language".
+  (Is there a name for "we did not want the general thing (e.g.,
+  assignment expressions) but we wanted one narrow subset of it
+  (serial assignment), so we implemented that, but with different
+  semantics for no good reason"?)
+</p>
+<div>
+<a href="#21">20 Nov 2021 22:41 UTC</a> |
+<a href="#21">#21 of 21 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=peculiar-self-references">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

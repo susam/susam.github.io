@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Langford Pairing - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/langford-pairing.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+  <link rel="stylesheet" href="../js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="../js/katex/katex.min.js"></script>
+  <script defer src="../js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../langford-pairing.html"><em>Langford Pairing</em></a></strong></div>
+<nav><a href="../form/comment/?p=langford-pairing">Post Comment</a></nav>
+<!-- Comment 1 of 3 -->
+<section id="1" class="visitor">
+<h2>Ikiatl wrote:</h2>
+<p>
+  I loved your blog post.  It is the only convincing explanation and
+  the best explanation that I could find on the web.  If I write a
+  blog post about this topic in the near future, I would definitely
+  add a link to your post.  Really great work!
+</p>
+<div>
+<a href="#1">18 May 2023 19:11 UTC</a> |
+<a href="#1">#1 of 3 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 3 -->
+<section id="2" class="visitor">
+<h2><a href="https://www.youtube.com/MindYourDecisions">Presh</a> wrote:</h2>
+<p>
+  Wonderful post!  I am preparing a video on Langford pairings and
+  your proof was incredibly helpful and written in great detail.  Many
+  articles come to the necessary condition and just assume sufficiency
+  which is wrong.  Yours is the only article that proves both the
+  necessity and the sufficiency of the condition.  The construction of
+  the sequence in your post is wonderful.
+</p>
+<p>
+  I found another blog post that references your post:
+  <a href="https://vamshij.com/blog/linear-optimization/langford-problem/">https://vamshij.com/blog/linear-optimization/langford-problem/</a>.
+</p>
+<div>
+<a href="#2">05 Jun 2023 22:45 UTC</a> |
+<a href="#2">#2 of 3 comments</a>
+</div>
+</section>
+<!-- Comment 3 of 3 -->
+<section id="3" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Thank you, Ikiatl and Presh, for your comments.  The formula for \(
+  c \) indeed had a typo.  Although I wrote the correct values for \(
+  c \) obtained from the formula \( c = 4x - 1 \) in the examples, the
+  formula itself was written incorrectly as \( c = 4x - 3.  \)  I have
+  corrected this to \( c = 4x - 1 \) now.  Also, thank you both for
+  your kind words about this post!
+</p>
+<div>
+<a href="#3">12 Jun 2023 07:18 UTC</a> |
+<a href="#3">#3 of 3 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=langford-pairing">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

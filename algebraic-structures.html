@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Algebraic Structures - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/algebraic-structures.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="./js/katex/katex.min.js"></script>
+  <script defer src="./js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Algebraic Structures</h1>
+<div>By <b>Susam Pal</b> on 21 Oct 2024 [draft]</div>
+<p>
+  An algebraic structure consists of a nonempty set, a collection of
+  operations on the set and a finite set of axioms that the operations
+  must satisfy.  This page describes some commonly used algebraic
+  structures.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#magma">Magma</a>
+    <ul>
+      <li><a href="#magma-definition">Magma Definition</a></li>
+      <li><a href="#magma-closure-property">Magma Closure Property</a></li>
+      <li><a href="#magma-terminology">Magma Terminology</a></li>
+      <li><a href="#magma-variations">Magma Variations</a></li>
+    </ul>
+  </li>
+  <li><a href="#semigroup">Semigroup</a>
+    <ul>
+      <li><a href="#semigroup-axioms">Semigroup Definition</a></li>
+      <li><a href="#semigroup-closure-property">Semigroup Closure Property</a></li>
+      <li><a href="#semigroup-variations">Semigroup Variations</a></li>
+    </ul>
+  </li>
+  <li><a href="#monoid">Monoid</a>
+    <ul>
+      <li><a href="#monoid-definition">Monoid Definition</a></li>
+      <li><a href="#monoid-closure-property">Monoid Closure Property</a></li>
+      <li><a href="#monoid-variations">Monoid Variations</a></li>
+    </ul>
+  </li>
+  <li><a href="#group">Group</a>
+    <ul>
+      <li><a href="#group-axioms">Group Axioms</a></li>
+      <li><a href="#group-closure-property">Group Closure Property</a></li>
+      <li><a href="#group-variations">Group Variations</a></li>
+      <li><a href="#group-terminology">Group Terminology</a></li>
+      <li><a href="#group-examples">Group Examples</a></li>
+    </ul>
+  </li>
+  <li><a href="#ring">Ring</a>
+    <ul>
+      <li><a href="#ring-axioms">Ring Axioms</a></li>
+      <li><a href="#ring-closure-properties">Ring Closure Properties</a></li>
+      <li><a href="#ring-definition-alternatives">Ring Definition Alternatives</a></li>
+      <li><a href="#ring-variations">Ring Variations</a></li>
+      <li><a href="#ring-examples">Ring Examples</a></li>
+    </ul>
+  </li>
+  <li><a href="#field">Field</a>
+    <ul>
+      <li><a href="#field-axioms">Field Axioms</a></li>
+      <li><a href="#field-closure-properties">Field Closure Properties</a></li>
+      <li><a href="#field-definition-alternatives">Field Definition Alternatives</a></li>
+      <li><a href="#field-examples">Field Examples</a></li>
+    </ul>
+  </li>
+</ul>
+<!--
+  Order of presentation:
+  Definition, Closure, Alternative Definitions, Variations, Examples.
+-->
+<h2 id="magma">Magma<a href="#magma"></a></h2>
+<h3 id="magma-definition">Magma Definition<a href="#magma-definition"></a></h3>
+<p>
+  A magma is an ordered pair \( (M, \cdot) \) where \( M \) is a set
+  and \( \cdot \) is a binary operation on \( M.  \)
+</p>
+<h3 id="magma-closure-property">Magma Closure Property<a href="#magma-closure-property"></a></h3>
+<p>
+  Some texts explicitly specify the closure property, i.e. for all \(
+  a, b \in M, \) we must have \( a \cdot b \in M.  \)  However, stating
+  this propery explicity is redundant because a binary operation is
+  closed by definition.  A binary operation \( \cdot \) on a set \(
+  M \) is defined to be a function
+
+  \[
+    \cdot : M \times M \to M; \; (x, y) \mapsto x \cdot y.
+  \]
+
+  This definition automatically implies the closure property.  In
+  practice, we should always verify that the binary operation defined
+  does indeed have the codomain \( M \) to confirm that the closure
+  property holds.
+</p>
+<h3 id="magma-terminology">Magma Terminology<a href="#magma-terminology"></a></h3>
+<p>
+  A magma is also known as <em>binar</em>.  The term <em>groupoid</em>
+  was used to refer to magma in early texts but this term is also used
+  in category theory to refer to a category in which all morphisms are
+  invertible.  This term has also been used in early texts to refer to
+  a set with a partial binary operation.  Due to the ambiguity
+  associated with this term, it is better to use the
+  term <em>magma</em> to refer to a set along with its binary
+  operation.
+</p>
+<h3 id="magma-variations">Magma Variations<a href="#magma-variations"></a></h3>
+<p>
+  A magma may satisfy the following additional properties:
+</p>
+<ul>
+  <li>
+    <p>
+      <strong>Commutativity:</strong> For all \( a, b \in M, \) we
+      have \( a \cdot b = b \cdot a.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Identity:</strong> There exists an element \( e \in M \)
+      such that for all \( a \in M, \) we have \( a \cdot e = a = e
+      \cdot a.  \)
+    </p>
+  </li>
+</ul>
+<p>
+  A magma satisfying the commutativity property is known as
+  a <em>commutative magma</em>.  A magma satisfying the identity
+  property is known as a <em>unital magma</em>.  A magma satisfying
+  both properties is known as <em>commutative unital magma</em>.
+</p>
+<h2 id="semigroup">Semigroup<a href="#semigroup"></a></h2>
+<h3 id="semigroup-axioms">Semigroup Definition<a href="#semigroup-axioms"></a></h3>
+<p>
+  A semigroup is an ordered pair \( (S, \cdot) \) where \( S \) is a
+  set and \( \cdot \) is a binary operation on \( M \) satisfying the
+  following property:
+</p>
+<p>
+  <strong>Associativity:</strong> For all \( a, b, c \in S, \) we have
+  \( (a \cdot b) \cdot c = a \cdot (b \cdot c).  \)
+</p>
+<h3 id="semigroup-closure-property">Semigroup Closure Property<a href="#semigroup-closure-property"></a></h3>
+<p>
+  Some texts explicitly specify the closure property, i.e. for all \(
+  a, b \in S, \) we must have \( a \cdot b \in S.  \)  However, stating
+  this propery explicity is redundant because a binary operation is
+  closed by definition.
+</p>
+<h3 id="semigroup-variations">Semigroup Variations<a href="#semigroup-variations"></a></h3>
+<p>
+  A semigroup may satisfy the following additional properties:
+</p>
+<ul>
+  <li>
+    <p>
+      <strong>Commutativity:</strong> For all \( a, b \in S, \) we
+      have \( a \cdot b = b \cdot a.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Identity:</strong> There exists an element \( e \in S \)
+      such that for all \( a \in S, \) we have \( a \cdot e = a = e
+      \cdot a.  \)
+    </p>
+  </li>
+</ul>
+<p>
+  A semigroup satisfying the commutativity property is known as
+  a <em>commutative semigroup</em> or <em>abelian semigroup</em>.  A
+  semigroup satisfying the identity property is known as
+  a <em>monoid</em>.  A semigroup satisfying both properties is known
+  as a <em>commutative monoid</em>.  Monoid is discussed in detail in
+  the next section.
+</p>
+<h2 id="monoid">Monoid<a href="#monoid"></a></h2>
+<h3 id="monoid-definition">Monoid Definition<a href="#monoid-definition"></a></h3>
+<p>
+  A monoid is an ordered pair \( (S, \cdot) \) where \( S \) is a set
+  and \( \cdot \) is a binary operation on \( S \) satisfying the
+  following properties:
+</p>
+<ol>
+  <li>
+    <p>
+      <strong>Associativity:</strong> For all \( a, b, c \in S, \) we
+      have \( (a \cdot b) \cdot c = a \cdot (b \cdot c).  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Identity:</strong> There exists an element \( e \in S \)
+      such that for all \( a \in S, \) we have \( a \cdot e = a = e
+      \cdot a.  \)
+    </p>
+  </li>
+</ol>
+<h3 id="monoid-closure-property">Monoid Closure Property<a href="#monoid-closure-property"></a></h3>
+<p>
+  Some texts explicitly specify the closure property, i.e. for all \(
+  a, b \in S, \) we must have \( a \cdot b \in S.  \)  However, stating
+  this propery explicity is redundant because a binary operation is
+  closed by definition.
+</p>
+<h3 id="monoid-variations">Monoid Variations<a href="#monoid-variations"></a></h3>
+<p>
+  A monoid may satisfy the following additional property:
+</p>
+<p>
+  <strong>Commutativity:</strong> For all \( a, b \in S, \) we have \(
+  a \cdot b = b \cdot a.  \)
+</p>
+<p>
+  A monoid satisfying the commutative property is known
+  as <em>commutative monoid</em> or, less commonly, <em>abelian
+  monoid</em>.
+<h2 id="group">Group<a href="#group"></a></h2>
+<h3 id="group-axioms">Group Axioms<a href="#group-axioms"></a></h3>
+<p>
+  A group is an ordered pair \( (G, \cdot) \) where \( G \) is a set
+  and \( \cdot \) is a binary operation on \( G \) satisfying the
+  following properties:
+</p>
+<ol>
+  <li>
+    <p>
+      <strong>Associativity:</strong> For all \( a, b, c \in G, \) we
+      have \( (a \cdot b) \cdot c = a \cdot (b \cdot c).  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Identity:</strong> There exists an element \( e \in G \)
+      such that for all \( a \in G, \) we have \( a \cdot e = a = e
+      \cdot a.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Inverse:</strong> For each \( a \in G, \) there exists
+      \( a^{-1} \in G \) such that \( a \cdot a^{-1} = e = a^{-1}
+      \cdot a.  \)
+    </p>
+</ol>
+<h3 id="group-closure-property">Group Closure Property<a href="#group-closure-property"></a></h3>
+<p>
+  Some texts explicitly specify the closure property, i.e. for all \(
+  a, b \in G, \) we must have \( a \cdot b \in G.  \)  However, stating
+  this propery explicity is redundant because a binary operation is
+  closed by definition.
+</p>
+<h3 id="group-variations">Group Variations<a href="#group-variations"></a></h3>
+<p>
+  If a group satisfies the following additional axiom, then it is
+  called an <em>abelian group</em>:
+</p>
+<ul>
+  <li>
+    <p>
+      <strong>Commutativity:</strong> For all \( a, b \in G, \) we
+      have \( a \cdot b = b \cdot a.  \)
+    </p>
+  </li>
+</ul>
+<h3 id="group-terminology">Group Terminology<a href="#group-terminology"></a></h3>
+<p>
+  The binary operation \( \cdot \) is called the <em>group
+  operation</em> or <em>group law</em>.  The set \( G \) is called
+  the <em>underlying set</em> of the group.  The set \( G \) is also
+  called a group <em>under</em> the binary operation.
+</p>
+<h3 id="group-examples">Group Examples<a href="#group-examples"></a></h3>
+<p>
+  The ordered pair \( (\mathbb{Z}, +) \) forms a group, i.e. the set
+  of integers form a group under addition.  In fact, it is an abelian
+  group.  However it does not form a group under multiplication, i.e.
+  \( (\mathbb{Z}, \cdot) \) does not form a group since there is no
+  multiplicative inverse of \( 2 \) in the set of integers.
+</p>
+<h2 id="ring">Ring<a href="#ring"></a></h2>
+<h3 id="ring-axioms">Ring Axioms<a href="#ring-axioms"></a></h3>
+<p>
+  A ring is a triple \( (R, +, \cdot), \) where \( R \) is a set and
+  \( + \) and \( \cdot \) are binary operations on \( R \) called
+  addition and multiplication respectively, that satisfies the
+  following properties:
+</p>
+<ol>
+  <li>
+    <p>
+      <strong>Associativity of addition:</strong> For all \( a, b, c
+      \in R, \) we have \( a + (b + c) = (a + b) + c.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Commutativity of addition:</strong> For all \( a, b \in
+      R, \) we have \( a + b = b + a.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Additive identity:</strong> There exists an element \( 0
+      \in R \) such that for all \( a \in R, \) we have \( a + 0 = a.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Additive inverse:</strong> For each \( a \in R, \) there
+      exists an element \( -a \in R \) such that \( a + (-a) = 0.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Associativity of multiplication:</strong> For all \( a,
+      b, c \in R, \) we have \( a \cdot (b \cdot c) = (a \cdot b)
+      \cdot c.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Left distributivity of multiplication over
+      addition:</strong> For all \( a, b, c \in R, \) we have \( a
+      \cdot (b + c) = (a \cdot b) + (a \cdot c).  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Right distributivity of multiplication over
+      addition:</strong> For all \( a, b, c \in R, \) we have \( (b +
+      c) \cdot a = (b \cdot a) + (c \cdot a).  \)
+    </p>
+  </li>
+</ol>
+<p>
+  The ring defined in this section is also called <em>noncommutative,
+  non-unital ring</em> or <em>noncommutative pseudo-ring</em>
+  or <em>rng</em> (i.e. "ring" without "i", signifying the missing
+  requirement for multiplicative identity).
+</p>
+<h3 id="ring-closure-properties">Ring Closure Properties<a href="#ring-closure-properties"></a></h3>
+<p>
+  Some texts include the following additional axioms for the closure
+  properties:
+</p>
+<ol>
+  <li>
+    <p>
+      <strong>Closure under additon:</strong> For all \( a, b \in R, \)
+      we have \( a + b \in R.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Closure under multiplication:</strong> For all \( a, b
+      \in R, \) we have \( a \cdot b \in R.  \)
+    </p>
+  </li>
+</ol>
+<p>
+  However many texts omit these two axioms because these axioms are
+  already implied by the fact that \( + \) and \( \cdot \) are binary
+  operations on \( R.  \)
+</p>
+<!--
+<h3 id="ring-definition-alternatives">Ring Definition Alternatives<a href="#ring-definition-alternatives"></a></h3>
+<p>
+</p>
+-->
+<h3 id="ring-variations">Ring Variations<a href="#ring-variations"></a></h3>
+<p>
+  In addition to the ring axioms defined earlier, a ring may be
+  defined to have one or more of the following optional properties:
+</p>
+<ol>
+  <li>
+    <p>
+      <strong>Multiplicative identity:</strong> There exists an
+      element \( 1 \in R \) such that for all \( a \in R, \) we have
+      \( a \cdot 1 = a = 1 \cdot a.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Commutativity of multiplication:</strong> For all \( a,
+      b \in R, \) we have \( a \cdot b = b \cdot a.  \)
+    </p>
+  </li>
+</ol>
+<p>
+  A ring satisfying the first property mentioned here is
+  called <em>unit ring</em> or <em>unital ring</em> or <em>ring with
+  unity</em> or <em>ring with identity</em> or <em>ring with 1</em>.
+  A ring satisfying the second property mentioned here is
+  called <em>commutative ring</em>.
+</p>
+<p>
+  Many texts define ring to have the multiplicative identity property,
+  so such texts mean unit ring when they refer to ring.  Some texts
+  define ring to have both the multiplicative identity property and
+  the commutative property, so such texts mean commutative unit ring
+  when they refer to ring.
+</p>
+<p>
+  Note that when a ring is defined to be commutative, the right
+  distributivity property does not need to be explicitly spelled out
+  since that is automatically implied by commutativity of
+  multiplication.
+</p>
+<h3 id="ring-examples">Ring Examples<a href="#ring-examples"></a></h3>
+<p>
+  The triple \( (\mathbb{Z}, +, \cdot) \) is an obvious example of a
+  ring.  In fact, this is a commutative unit ring.
+</p>
+<p>
+  The triple \( (2\mathbb{Z}, +, \cdot) \) where \( 2\mathbb{Z} \)
+  represents the set of all even integers, is a commutative non-unital
+  ring.
+</p>
+<h2 id="field">Field<a href="#field"></a></h2>
+<h3 id="field-axioms">Field Axioms<a href="#field-axioms"></a></h3>
+<p>
+  A field is a triple \( (F, +, \cdot), \) where \( F \) is a set and
+  \( + \) and \( \cdot \) are binary operations on \( F \) called
+  addition and multiplication respectively, that satisfies the
+  following properties:
+</p>
+<ol>
+  <li>
+    <p>
+      <strong>Associativity of addition:</strong> For all \( a, b, c
+      \in F, \) we have \( a + (b + c) = (a + b) + c.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Commutativity of addition:</strong> For all \( a, b \in
+      F, \) we have \( a + b = b + a.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Additive identity:</strong> There exists an element \( 0
+      \in F \) such that for all \( a \in F, \) we have \( a + 0 = a.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Additive inverse:</strong> For each \( a \in F, \) there
+      exists an element \( -a \in F \) such that \( a + (-a) = 0.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Associativity of multiplication:</strong> For all \( a,
+      b, c \in F, \) we have \( a \cdot (b \cdot c) = (a \cdot b)
+      \cdot c.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Commutativity of multiplication:</strong> For all \( a,
+      b \in F, \) we have \( a \cdot b = b \cdot a.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Multiplicative identity:</strong> There exists an
+      element \( 1 \in F \) such that \( 1 \ne 0 \) and for all \( a
+      \in F, \) we have \( a \cdot 1 = a.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Multiplicative inverse:</strong> For each \( a \neq 0
+      \in F, \) there exists an element \( a^{-1} \in F \) such that
+      \( a \cdot a^{-1} = 1.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Distributivity of multiplication over addition:</strong>
+      For all \( a, b, c \in F, \) we have \( a \cdot (b + c) = (a
+      \cdot b) + (a \cdot c).  \)
+    </p>
+  </li>
+</ol>
+<h3 id="field-closure-properties">Field Closure Properties<a href="#field-closure-properties"></a></h3>
+<p>
+  Some texts include the following additional axioms for the closure
+  properties:
+</p>
+<ol>
+  <li>
+    <p>
+      <strong>Closure under additon:</strong> For all \( a, b \in F \)
+      we have \( a + b \in F.  \)
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>Closure under multiplication:</strong> For all \( a, b
+      \in F, \) we have \( a \cdot b \in F.  \)
+    </p>
+  </li>
+</ol>
+<p>
+  However many texts omit these two axioms because these axioms are
+  already implied by the fact that \( + \) and \( \cdot \) are binary
+  operations on \( F.  \)
+</p>
+<h3 id="field-definition-alternatives">Field Definition Alternatives<a href="#field-definition-alternatives"></a></h3>
+<p>
+  A field is a triple consisting of a set and two binary operations,
+  called addition and multiplication, such that the set is an abelian
+  group under addition, the nonzero elements of the set form an
+  abelian group under multplication and multiplication distributes
+  over addition.
+</p>
+<p>
+  Here, by <em>nonzero elements</em>, we mean the elements that are
+  unequal to the additive identity.
+</p>
+<h3 id="field-examples">Field Examples<a href="#field-examples"></a></h3>
+<p>
+  The triple \( (\mathbb{Q}, +, \cdot) \) is a field where \(
+  \mathbb{Q} \) denotes the set of all rational numbers.  However \(
+  \mathbb{Z}, +, \cdot \) is not a field because there is no
+  multiplicative inverse of \( 2 \) in the set of integers.
+</p>
+<p>
+  In fact, a field is informally described as a set along with two
+  binary operations satisfying properties analogous to those of
+  addition and multiplication of rational numbers or real numbers.
+</p>
+<!--
+<p>
+  TODO: Uniqueness of the identity element.
+  TODO: What if 0 = 1?
+  TODO: Elaborate additive identity for vector spaces post.
+</p>
+-->
+<div>
+  <a href="comments/algebraic-structures.html">Comments</a> |
+  <a href="./tag/mathematics.html">#mathematics</a> |
+  <a href="./tag/definition.html">#definition</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

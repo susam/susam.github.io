@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pointers in K&amp;R - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/pointers-in-knr.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<main>
+<h1>Pointers in K&amp;R</h1>
+<div>By <b>Susam Pal</b> on 05 Sep 2020</div>
+<p>
+  I learnt C from the book <em>The C Programming Language, 2nd
+  ed.</em> (K&amp;R) written by Brian Kernighan and Dennis Ritchie
+  about 18 years ago during my engineering studies.  The subject of
+  pointers was generally believed to be scary among fellow students
+  and many of them bought pretty fat books that were dedicated solely
+  to the topic of pointers.  However, when I reached Chapter 5 of the
+  book , I found that it did a wonderful job at teaching pointers in
+  merely 34 pages.  The chapter opens with this sentence:
+</p>
+<blockquote>
+  A pointer is a variable that contains the address of a variable.
+</blockquote>
+<p>
+  The exact point at which the whole topic of pointers became crystal
+  clear was when I encountered this sentence in &sect; 5.3 Pointers
+  and Arrays:
+</p>
+<blockquote>
+  Rather more surprising, at first sight, is the fact that a reference
+  to <code>a[i]</code> can also be written as <code>*(a+i)</code>.
+</blockquote>
+<p>
+  Indeed, it was easy to confirm that by compiling and running the
+  following program:
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a[] = {2, 3, 5, 7, 11};
+    printf("%d\n", *(a + 2));
+    printf("%d\n", a[2]);
+    printf("%d\n", 2[a]);
+    return 0;
+}</code>
+</pre>
+<p>
+  The output is:
+</p>
+<pre>
+<samp>5
+5
+5</samp>
+</pre>
+<p>
+  C was the first serious programming language I was learning back
+  then and at that time, I don't think I could have come across a
+  better book than K&amp;R to learn this subject.  Like many others, I
+  too feel that this book is a model for technical writing.  I wish
+  more technical books were written like this with clear presentation
+  and concise treatment.
+</p>
+<div>
+  <a href="comments/pointers-in-knr.html">Comments</a> |
+  <a href="./tag/c.html">#c</a> |
+  <a href="./tag/programming.html">#programming</a> |
+  <a href="./tag/technology.html">#technology</a> |
+  <a href="./tag/book.html">#book</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

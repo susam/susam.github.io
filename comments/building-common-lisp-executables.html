@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Building Common Lisp Executables - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/building-common-lisp-executables.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../building-common-lisp-executables.html"><em>Building Common Lisp Executables</em></a></strong></div>
+<nav><a href="../form/comment/?p=building-common-lisp-executables">Post Comment</a></nav>
+<!-- Comment 1 of 2 -->
+<section id="1" class="visitor">
+<h2><a href="https://github.com/hectormonacci">Héctor</a> wrote:</h2>
+<p>
+  You can greatly reduce the executable size when compiling with SBCL
+  by adding
+</p>
+<pre><code>:compression t</code></pre>
+<p>
+  to the following:
+</p>
+<pre>
+<code>(sb-ext:save-lisp-and-die "hello" :executable t :toplevel #'main)</code>
+</pre>
+<div>
+<a href="#1">09 Apr 2023 04:59 UTC</a> |
+<a href="#1">#1 of 2 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 2 -->
+<section id="2" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Thank you, Héctor, for your comment!  I updated the example program
+  in this post as follows to test the compression feature:
+</p>
+<pre>
+<code>(defun main ()
+  (format t "hello, world~%"))
+(sb-ext:save-lisp-and-die "hello" :executable t :compression t :toplevel #'main)</code>
+</pre>
+<p>
+  Indeed this created an executable that was only 8.1 MB in size
+  whereas without compression the executable size is 35 MB.
+</p>
+<div>
+<a href="#2">10 Apr 2023 07:23 UTC</a> |
+<a href="#2">#2 of 2 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=building-common-lisp-executables">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../maze.html">Maze</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

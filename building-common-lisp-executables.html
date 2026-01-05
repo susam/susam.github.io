@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Building Common Lisp Executables - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/building-common-lisp-executables.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<main>
+<h1>Building Common Lisp Executables</h1>
+<div>By <b>Susam Pal</b> on 10 May 2018</div>
+<p>
+  Since Common Lisp is a language standard (not an implementation) it
+  is hard to provide a single set of instructions or guidelines that
+  would work for all implementations.  There are various
+  implementations of Common Lisp that target native machine code, C
+  code, bytecode, JVM, etc.  So the build instructions, project
+  structure, etc. depend on the target.
+</p>
+<h2 id="using-sbcl">Using SBCL<a href="#using-sbcl"></a></h2>
+<p>
+  Here is a minimal example that builds a Lisp program into a binary
+  executable with SBCL:
+</p>
+<pre>
+<code>(defun main ()
+  (format t "hello, world~%"))
+(sb-ext:save-lisp-and-die "hello" :executable t :toplevel #'main)</code>
+</pre>
+<p>
+  The SBCL-specific <code>save-lisp-and-die</code> function saves the
+  Lisp process as a core image.  The <code>:executable t</code>
+  keyword argument includes the SBCL runtime in the image to ensure
+  that the image is a standalone executable.  This is why the
+  executable for even a simple hello-world program tends to be quite
+  large (30 MB to 50 MB)!  The <code>:toplevel</code> argument
+  specifies the function to run when the core file is run.
+</p>
+<p>
+  Here are some example commands to get you started:
+</p>
+<pre>
+<samp>$ <kbd>cat hello.lisp</kbd>
+(defun main ()
+  (format t "hello, world~%"))
+(sb-ext:save-lisp-and-die "hello" :executable t :toplevel #'main)
+$ <kbd>sbcl --load hello.lisp</kbd>
+$ <kbd>./hello</kbd>
+hello, world</samp>
+</pre>
+
+<h2 id="moving-unportable-code-to-command-line-argument">Moving Unportable Code to Command Line Argument<a href="#moving-unportable-code-to-command-line-argument"></a></h2>
+<p>
+  If you would rather not have SBCL specific code in the Lisp source
+  code file, then you could move
+  the <code>sb-ext:save-lisp-and-die</code> call out of your source
+  file to the SBCL command invocation.  The source code now looks like
+  this:
+</p>
+<pre>
+<code>(defun main ()
+  (format t "hello, world~%"))</code>
+</pre>
+<p>
+  The shell commands now look like this:
+</p>
+<pre>
+<samp>$ <kbd>cat hello.lisp</kbd>
+(defun main ()
+  (format t "hello, world~%"))
+$ <kbd>sbcl --load hello.lisp --eval "(sb-ext:save-lisp-and-die \"hello\" :executable t :toplevel #'main)"</kbd>
+$ <kbd>./hello</kbd>
+hello, world</samp>
+</pre>
+
+<h2 id="using-buildapp">Using Buildapp<a href="#using-buildapp"></a></h2>
+<p>
+  By the way, there is also
+  <a href="https://www.xach.com/lisp/buildapp/">Buildapp</a> that
+  provides a layer of abstraction for building executables from Lisp
+  programs.  It works with SBCL and CCL.  It requires the toplevel
+  function to be called with an argument though.  Therefore the source
+  code needs to be modified to the following:
+</p>
+<pre>
+<code>(defun main (argv)
+  (declare (ignore argv))
+  (format t "hello, world~%"))</code>
+</pre>
+<p>
+Then Buildapp can be invoked like this:
+</p>
+<pre>
+<samp>$ <kbd>cat hello.lisp</kbd>
+(defun main (argv)
+  (declare (ignore argv))
+  (format t "hello, world~%"))
+$ <kbd>buildapp --load hello.lisp --entry main --output hello</kbd>
+;; loading file #P"/Users/susam/hello.lisp"
+$ <kbd>./hello</kbd>
+hello, world</samp>
+</pre>  
+<div>
+  <a href="comments/building-common-lisp-executables.html">Comments</a> |
+  <a href="./tag/lisp.html">#lisp</a> |
+  <a href="./tag/programming.html">#programming</a> |
+  <a href="./tag/technology.html">#technology</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

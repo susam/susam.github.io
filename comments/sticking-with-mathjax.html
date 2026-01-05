@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Sticking With MathJax - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/sticking-with-mathjax.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../sticking-with-mathjax.html"><em>Sticking With MathJax</em></a></strong></div>
+<nav><a href="../form/comment/?p=sticking-with-mathjax">Post Comment</a></nav>
+<!-- Comment 1 of 4 -->
+<section id="1" class="visitor">
+<h2>Esperent wrote:</h2>
+<p>
+  For some reason in KaTeX you have to use
+  <code>\begin{aligned}</code> instead of
+  <code>\begin{align}</code> but it works.
+</p>
+<div>
+<a href="#1">11 Oct 2020 11:52 UTC</a> |
+<a href="#1">#1 of 4 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 4 -->
+<section id="2" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Yes, the <code>aligned</code> environment is a different
+  environment.  The <code>aligned</code> environment is available in
+  MathJax too.  This environment is meant to be a part of a larger
+  displayed math block, i.e. it goes between <code>\[</code>
+  and <code>\]</code> or <code>$$</code> and <code>$$</code>.  The
+  <code>align</code> environment, on the other hand, is a standalone
+  environment that can be used outside displayed math block.
+</p>
+<p>
+  While the <code>aligned</code> environment is supported by both
+  MathJax and KaTeX, the <code>align</code> environment is supported
+  by MathJax only.
+</p>
+<div>
+<a href="#2">11 Oct 2020 12:37 UTC</a> |
+<a href="#2">#2 of 4 comments</a>
+</div>
+</section>
+<!-- Comment 3 of 4 -->
+<section id="3" class="visitor">
+<h2>Esperent wrote:</h2>
+<p>
+  Huh, I never knew that.  Well in any case the differences are minor
+  so you can just replace align with aligned.
+</p>
+<div>
+<a href="#3">11 Oct 2020 13:01 UTC</a> |
+<a href="#3">#3 of 4 comments</a>
+</div>
+</section>
+<!-- Comment 4 of 4 -->
+<section id="4" class="visitor">
+<h2>Vcxy wrote:</h2>
+<p>
+  Esperent, Isn't the big difference equation numbering?  If you
+  actually like to label and eqref stuff, it's not really a
+  replacement.  You can get around this I guess, but for me, it's much
+  easier if my basic LaTeX stuff works the same everywhere.
+</p>
+<div>
+<a href="#4">11 Oct 2020 14:21 UTC</a> |
+<a href="#4">#4 of 4 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=sticking-with-mathjax">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../maze.html">Maze</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

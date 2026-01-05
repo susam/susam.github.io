@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Lisp in Vim - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/lisp-in-vim.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+  <link rel="stylesheet" href="../css/extra.css">
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../lisp-in-vim.html"><em>Lisp in Vim</em></a></strong></div>
+<nav><a href="../form/comment/?p=lisp-in-vim">Post Comment</a></nav>
+<!-- Comment 1 of 9 -->
+<section id="1" class="visitor">
+<h2>dcassett wrote:</h2>
+<p>
+  IMHO a very well-written article with great attention to detail.  I
+  especially liked the section on paredit with its step-by-step
+  explanation.
+</p>
+<div>
+<a href="#1">08 Dec 2019 14:55 UTC</a> |
+<a href="#1">#1 of 9 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 9 -->
+<section id="2" class="visitor">
+<h2>lancebeet wrote:</h2>
+<p>
+  I wonder why the author doesn't mention the plugin
+  <a href="https://github.com/jpalardy/vim-slime">vim-slime</a>, given
+  that it seems to be more popular than either Slimv or Vlime on
+  GitHub.  From what I can gather, Slimv and Vlime are more focused on
+  Lisp with built-in completion and debugging whereas vim-slime is
+  language agnostic and simply recreates just the "connected REPL"
+  behavior of Slime.
+</p>
+<div>
+<a href="#2">08 Dec 2019 15:56 UTC</a> |
+<a href="#2">#2 of 9 comments</a>
+</div>
+</section>
+<!-- Comment 3 of 9 -->
+<section id="3" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  The "vim-slime" plugin is not appropriate for my blog post because
+  it is nothing like SLIME.  In fact, the word "slime" in "vim-slime"
+  is poorly chosen.  It supports none of the SLIME features.  It does
+  not even provide the "connected REPL" experience like SLIME, Slimv
+  or Vlime does.  Here are the major reasons why vim-slime is very
+  limited and insufficient as a Lisp development environment when
+  compared to SLIME, Slimv or Vlime:
+</p>
+<ol>
+  <li>
+    <p>
+      It does not understand s-expressions.  It can only send the
+      current text paragraph or text selected in visual mode to a
+      terminal running in GNU Screen, tmux, Neovim, etc.  Therefore,
+      it cannot send, say, only the current expression or an entire
+      function definition or a top-level form to the terminal.
+    </p>
+  </li>
+  <li>
+    <p>
+      Since it is language-agnostic and really only sends text from a
+      buffer to a terminal, it does not care whether the text is code
+      or prose.  It also does not care if the terminal is running a
+      Unix shell or a REPL.  It is the user's responsibility to ensure
+      that the correct REPL is running on the terminal and the
+      corresponding code is being sent from Vim using vim-slime.
+    </p>
+  </li>
+  <li>
+    <p>
+      Since it does not implement the client-server architecture that
+      SLIME and Swank implement together, it has none of the
+      interactive debugging features of SLIME.  It cannot
+      automatically launch the integrated Slime Debugger (SLDB) when
+      an unhandled condition occurs.  As a result, all debugging
+      features like inspecting code, inspecting variables, etc. are
+      missing.
+    </p>
+  </li>
+  <li>
+    <p>
+      Almost all of the SLIME features are missing from it.  It does
+      not support displaying argument lists as we type function calls,
+      Common Lisp HyperSpec (CLHS) lookup and completion, describing
+      symbols, cross-referencing, etc.
+    </p>
+  </li>
+  <li>
+    <p>
+      It does not provide any key-bindings for common tasks such as
+      macro expansion, function tracing, etc.
+    </p>
+  </li>
+</ol>
+<p>
+  Swank server is an integral component of SLIME.  It is essential to
+  the way SLIME works.  A plugin that does not talk to Swank server
+  can hardly be anything like SLIME.  Slimv and Vlime on the other
+  hand talk to the same Swank server that SLIME talks to.  Slimv and
+  Vlime are re-implementations of the client component of SLIME.  They
+  send SLIME commands to Swank just like SLIME does.  As a result,
+  Slimv and Vlime are able to support a good portion of the features
+  available in SLIME.
+</p>
+<div>
+<a href="#3">08 Dec 2019 18:32 UTC</a> |
+<a href="#3">#3 of 9 comments</a>
+</div>
+</section>
+<!-- Comment 4 of 9 -->
+<section id="4" class="visitor">
+<h2>lancebeet wrote:</h2>
+<p>
+  Thank you for the explanation.
+</p>
+<div>
+<a href="#4">08 Dec 2019 19:49 UTC</a> |
+<a href="#4">#4 of 9 comments</a>
+</div>
+</section>
+<!-- Comment 5 of 9 -->
+<section id="5" class="visitor">
+<h2><a href="https://stackoverflow.com/users/4393254/">Dennis Ng</a> wrote:</h2>
+<p>
+  Such a great article.
+</p>
+<p>
+  I really wish though there is a button to turn on and off so one can
+  read only about Slimv or Vlime or both.
+</p>
+<div>
+<a href="#5">20 Apr 2021 04:10 UTC</a> |
+<a href="#5">#5 of 9 comments</a>
+</div>
+</section>
+<!-- Comment 6 of 9 -->
+<section id="6" class="visitor">
+<h2>Aqezz wrote:</h2>
+<p>
+  This is great!  I just recently started using Vlime and had been
+  starting SBCL externally but
+  your <kbd>\</kbd><kbd>r</kbd><kbd>r</kbd> hotkey has just saved me
+  lots of annoyance!
+</p>
+<p>
+  Same with the interactive debugging, I didn't know you could inspect
+  the call stack like that and evaluate stuff!  I only knew about
+  choosing restarts.  Thanks for this write up!
+</p>
+<div>
+<a href="#6">09 Jan 2022 01:03 UTC</a> |
+<a href="#6">#6 of 9 comments</a>
+</div>
+</section>
+<!-- Comment 7 of 9 -->
+<section id="7" class="visitor">
+<h2>Goutham Bharadwaj wrote:</h2>
+<p>
+  This is a great article!  Thank you so much!
+</p>
+<div>
+<a href="#7">22 Aug 2022 16:23 UTC</a> |
+<a href="#7">#7 of 9 comments</a>
+</div>
+</section>
+<!-- Comment 8 of 9 -->
+<section id="8" class="visitor">
+<h2>Cassepipe wrote:</h2>
+<p>
+  I <em>love</em> the level of details of this write-up.
+</p>
+<p>
+  It assumes nothing and tries really hard to avoid you any papercuts.
+  I wish I had found when I tried to learn Lisp.  Between learning the
+  language and all the papercuts I just gave up like I did for so many
+  other niche things that caught my interest.
+</p>
+<div>
+<a href="#8">24 Feb 2024 16:34 UTC</a> |
+<a href="#8">#8 of 9 comments</a>
+</div>
+</section>
+<!-- Comment 9 of 9 -->
+<section id="9" class="visitor">
+<h2>Aweso wrote:</h2>
+<p>
+  Still the best article on setting up Vim with Lisp in 2024.  Great
+  resource!
+</p>
+<div>
+<a href="#9">25 Feb 2024 04:04 UTC</a> |
+<a href="#9">#9 of 9 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=lisp-in-vim">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

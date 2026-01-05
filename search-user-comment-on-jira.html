@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Search User Comment on Jira - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/search-user-comment-on-jira.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<main>
+<h1>Search User Comment on Jira</h1>
+<div>By <b>Susam Pal</b> on 20 Feb 2024</div>
+<p>
+  I have been using Jira for a very long time now.  I first came
+  across it while contributing to Apache projects in 2006.  I find the
+  search features of Jira to be remarkably clumsy and inadequate.
+  Nevertheless, very recently I learnt to solve a common problem of
+  mine.  Let us say, I know a user named <code>jdoe</code> has
+  commented about a specific topic in some Jira ticket.  How do I find
+  that ticket?  Here is the search filter for it:
+</p>
+<pre><code>issueFunction in commented("by jdoe") and comment ~ "hello"</code></pre>
+<p>
+  The above example would search all comments by
+  user <code>jdoe</code> that contains the
+  string <code>"hello"</code>.  However one limitation of this
+  solution is that the <code>issueFunction</code> field is provided by
+  ScriptRunner for Jira, so you need this app to be available on your
+  Jira for this solution to work.
+</p>
+<div>
+  <a href="comments/search-user-comment-on-jira.html">Comments</a> |
+  <a href="./tag/technology.html">#technology</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

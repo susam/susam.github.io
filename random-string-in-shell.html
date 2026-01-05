@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Random String in Shell - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/random-string-in-shell.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<main>
+<h1>Random String in Shell</h1>
+<div>By <b>Susam Pal</b> on 11 Aug 2011</div>
+<p>
+  Here is a quick way to generate a random alphanumeric string in the
+  shell:
+</p>
+<pre><code>LC_CTYPE=C tr -dc '[:alnum:]' &lt; /dev/urandom | head -c 20; echo</code></pre>
+<p>
+  Here is an example output:
+</p>
+<pre><samp>GrWPmvF1oOmbeUzyJwC3</samp></pre>
+<p>
+  The command works both on macOS as well as Linux.
+  The <code>LC_CTYPE=C</code> environment variable is set specifically
+  to make the command work successfully on macOS.  Without
+  it <code>tr</code> may report an "Illegal byte sequence" error.
+</p>
+<div>
+  <a href="comments/random-string-in-shell.html">Comments</a> |
+  <a href="./tag/unix.html">#unix</a> |
+  <a href="./tag/shell.html">#shell</a> |
+  <a href="./tag/technology.html">#technology</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

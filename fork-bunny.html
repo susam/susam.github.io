@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Fork Bunny - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/fork-bunny.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<main>
+<h1>Fork Bunny</h1>
+<div>By <b>Susam Pal</b> on 11 Jun 2006</div>
+<p>
+  Have a close look at this line of shell command that can be executed
+  on Bash, Zsh and most POSIX or POSIX-like shells:
+</p>
+<pre><code>: () { : | : &amp; } ; :</code></pre>
+<p>
+  Beware!  Don't execute it on your system without understanding the
+  consequences completely.  If the command above looks puzzling, that
+  is because it is deliberately obfuscated.  Let us simplify it.
+</p>
+<p>
+  The <code>:</code> is a function name.  It could very well have
+  been <code>f</code>.  Let us replace <code>:</code>
+  with <code>f</code> and see what the code now looks like.
+</p>
+<pre><code>f () { f | f &amp; } ; f</code></pre>
+<p>
+  Now it looks familiar.  We have two commands separated by a
+  semicolon.  Written in a more legible manner, the code would look
+  like this:
+</p>
+<pre>
+<code>f()
+{
+    f | f &amp;
+}
+
+f</code>
+</pre>
+<p>
+  It creates a function <code>f</code> and then executes it.  This
+  function calls itself twice recursively.  The control
+  operator <code>&amp;</code> executes the recursive calls
+  to <code>f</code> asynchronously, i.e. in the background.  The
+  number of instances of the function executing keeps growing
+  exponentially thereby depleting CPU cycles and memory.  The system
+  is rendered unusable soon.
+</p>
+<p>
+  This type of denial-of-service attack by self-replication is also
+  known as a <em>fork bunny</em> which is a specific type
+  of <em>wabbit</em>.  See the following entry in the Jargon File for
+  more information on this:
+  <a href="http://catb.org/~esr/jargon/html/W/wabbit.html">wabbit</a>.
+</p>
+<div>
+  <a href="comments/fork-bunny.html">Comments</a> |
+  <a href="./tag/unix.html">#unix</a> |
+  <a href="./tag/shell.html">#shell</a> |
+  <a href="./tag/technology.html">#technology</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

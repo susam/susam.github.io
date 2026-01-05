@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's Quote Pages</title>
+<link>https://susam.net/tag/quote.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/quote.xml"/>
+<description>Feed for Susam's Quote Pages</description>
+
+<item>
+<title>Thurston's Paean</title>
+<link>https://susam.net/thurstons-paean.html</link>
+<guid isPermaLink="false">iipnj</guid>
+<pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I recently came across a beautiful and thoughtful answer on
+  MathOverflow by the late mathematician William Thurston.  A brief
+  background about him from
+  the <a href="https://en.wikipedia.org/wiki/William_Thurston">Wikipedia
+  article</a> about him:
+</p>
+<blockquote>
+  <p>
+    William Paul Thurston (October 30, 1946 &ndash; August 21, 2012)
+    was an American mathematician.  He was a pioneer in the field of
+    low-dimensional topology and was awarded the Fields Medal in 1982
+    for his contributions to the study of 3-manifolds.
+  </p>
+  <p>
+    Thurston was a professor of mathematics at Princeton University,
+    University of California at Davis and Cornell University.  He was
+    also a director of the Mathematical Sciences Research Institute.
+  </p>
+</blockquote>
+<p>
+  MathOverflow makes all answers posted to the website available under
+  a Creative Commons licence.  In particular, all answers posted
+  before 08 Apr 2011 (UTC) are available under the terms of the
+  Creative Commons Attribution-ShareAlike 2.5 Generic (CC BY-SA 2.5)
+  licence.  Thurston wrote the answer I am about to share on 30 Oct
+  2010.  Due to the licence terms, this post too is available under
+  the terms of the same licence.
+</p>
+<p>
+  Thurston posted his answer while replying to a MathOverflow
+  question:
+  <a href="https://mathoverflow.net/q/43690"><em>What's a
+  mathematician to do?</em></a>.  The question enquires about how an
+  ordinary mathematician can contribute to mathematics.  Thurston's
+  answer
+  from <a href="https://mathoverflow.net/a/44213">mathoverflow.net/a/44213</a>
+  is reproduced below:
+</p>
+<blockquote>
+  <p>
+    It's not <em>mathematics</em> that you need to contribute to.
+    It's deeper than that: how might you contribute to humanity, and
+    even deeper, to the well-being of the world, by pursuing
+    mathematics?  Such a question is not possible to answer in a
+    purely intellectual way, because the effects of our actions go far
+    beyond our understanding.  We are deeply social and deeply
+    instinctual animals, so much that our well-being depends on many
+    things we do that are hard to explain in an intellectual way.
+    That is why you do well to follow your heart and your passion.
+    Bare reason is likely to lead you astray.  None of us are smart
+    and wise enough to figure it out intellectually.
+  </p>
+  <p>
+    The product of mathematics is clarity and understanding.  Not
+    theorems, by themselves.  Is there, for example any real reason
+    that even such famous results as Fermat's Last Theorem, or the
+    Poincar&eacute; conjecture, really matter?  Their real importance
+    is not in their specific statements, but their role in challenging
+    our understanding, presenting challenges that led to mathematical
+    developments that increased our understanding.
+  </p>
+  <p>
+    The world does not suffer from an oversupply of clarity and
+    understanding (to put it mildly).  How and whether specific
+    mathematics might lead to improving the world (whatever that
+    means) is usually impossible to tease out, but mathematics
+    collectively is extremely important.
+  </p>
+  <p>
+    I think of mathematics as having a large component of psychology,
+    because of its strong dependence on human minds.  Dehumanized
+    mathematics would be more like computer code, which is very
+    different.  Mathematical ideas, even simple ideas, are often hard
+    to transplant from mind to mind.  There are many ideas in
+    mathematics that may be hard to get, but are easy once you get
+    them.  Because of this, mathematical understanding does not expand
+    in a monotone direction.  Our understanding frequently
+    deteriorates as well.  There are several obvious mechanisms of
+    decay.  The experts in a subject retire and die, or simply move on
+    to other subjects and forget.  Mathematics is commonly explained
+    and recorded in symbolic and concrete forms that are easy to
+    communicate, rather than in conceptual forms that are easy to
+    understand once communicated.  Translation in the direction
+    conceptual -&gt; concrete and symbolic is much easier than
+    translation in the reverse direction, and symbolic forms often
+    replaces the conceptual forms of understanding.  And mathematical
+    conventions and taken-for-granted knowledge change, so older texts
+    may become hard to understand.
+  </p>
+  <p>
+    In short, mathematics only exists in a living community of
+    mathematicians that spreads understanding and breaths life into
+    ideas both old and new.  The real satisfaction from mathematics is
+    in learning from others and sharing with others.  All of us have
+    clear understanding of a few things and murky concepts of many
+    more.  There is no way to run out of ideas in need of
+    clarification.  The question of who is the first person to ever
+    set foot on some square meter of land is really secondary.
+    Revolutionary change does matter, but revolutions are few, and
+    they are not self-sustaining --- they depend very heavily on the
+    community of mathematicians.
+  </p>
+</blockquote>
+<p>
+  In the comments to the answer, one of the commenters
+  was <a href="https://users.cs.utah.edu/~suresh/">Suresh
+  Venkatasubramanian</a> who was a professor in the School of
+  Computing at the University of Utah back then.  He
+  is <a href="https://vivo.brown.edu/display/suresh">now</a> a
+  professor of Computer Science and Data Science at Brown University.
+  In his <a href="https://mathoverflow.net/questions/43690/whats-a-mathematician-to-do/44213#comment271029_44213">comment</a>,
+  Suresh proposed that this answer be called <em>Thurston's
+  Paean</em>.  Here is his complete comment:
+</p>
+<blockquote>
+  <p>
+    This seems like an ideal counterpoint to Hardy's Lament.  I'm
+    calling it Thurston's Paean :).  Seems poignant now that he has
+    passed.
+  </p>
+</blockquote>
+<p>
+  Thurston's answer does appear to be a perfect complement to Hardy's
+  lament in the 1940 essay <em>A Mathematician's Apology</em>.  While
+  Hardy's lament is remarkably beautiful and introspective, it may
+  also feel a little depressing at places.  Thurston's post on the
+  other hand is full of hope and purpose that goes beyond the actual
+  work of doing mathematics.  Indeed <em>Thurston's Paean</em> is a
+  befitting title for his answer.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/thurstons-paean.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a> |
+  <a href="https://susam.net/tag/quote.html">#quote</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Grothendieck Prime</title>
+<link>https://susam.net/grothendieck-prime.html</link>
+<guid isPermaLink="false">bijxn</guid>
+<pubDate>Fri, 28 Aug 2020 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Quoting from the article
+  <a href="https://www.ams.org/notices/200410/fea-grothendieck-part2.pdf">Comme
+  Appelé du Néant&mdash;As If Summoned from the Void: The Life of
+  Alexandre Grothendieck</a> by Allyn Jackson published in <em>Notices
+  of the AMS, Volume 51, Number 10</em>:
+</p>
+<blockquote>
+  One striking characteristic of Grothendieck's mode of thinking is
+  that it seemed to rely so little on examples.  This can be seen in
+  the legend of the so-called "Grothendieck prime".  In a mathematical
+  conversation, someone suggested to Grothendieck that they should
+  consider a particular prime number.  "You mean an actual number?"
+  Grothendieck asked.  The other person replied, yes, an actual prime
+  number.  Grothendieck suggested, "All right, take 57."
+</blockquote>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/grothendieck-prime.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/quote.html">#quote</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Microcentury</title>
+<link>https://susam.net/microcentury.html</link>
+<guid isPermaLink="false">upszl</guid>
+<pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h2 id="optimal-lecture-time">Optimal Lecture Time<a href="#optimal-lecture-time"></a></h2>
+<p>
+  I recently found this interesting paragraph from an article titled
+  <a href="https://www.ams.org/notices/199701/comm-rota.pdf">Ten
+  Lessons I Wish I Had Been Taught</a> that is based on a talk
+  presented by Gian-Carlo Rota in Apr 1996:
+</p>
+<blockquote>
+  Running overtime is the one unforgivable error a lecturer can make.
+  After fifty minutes (one microcentury as von Neumann used to say)
+  everybody's attention will turn elsewhere even if we are trying to
+  prove the Riemann hypothesis.  One minute overtime can destroy the
+  best of lectures.
+</blockquote>
+<p>
+  That's fine advice.  In fact, the whole article is full of good
+  advice like this.  Although it was written primarily for
+  mathematicians, a lot of what is said in the article applies quite
+  well to professionals in other fields too.
+</p>
+<p>
+  The excerpt I have quoted above got me thinking about exactly how
+  long a microcentury is.  It couldn't be exactly 50 minutes, could
+  it?
+</p>
+<h2 id="wiktionary-on-microcentury">Wiktionary on Microcentury<a href="#wiktionary-on-microcentury"></a></h2>
+<p>
+  The English Wiktionary entry for
+  <a href="https://en.wiktionary.org/wiki/microcentury">microcentury</a>
+  (as of
+  <a href="https://en.wiktionary.org/w/index.php?title=microcentury&amp;oldid=59316064">revision
+  59316064</a> on 7 May 2020) mentions:
+</p>
+<blockquote>
+  A time period of a millionth of a century, equal to 52 minutes and
+  34 seconds.
+</blockquote>
+<blockquote>
+  Not a standard unit of measurement and used mostly humorously to
+  denote the maximum length of a lecture.
+</blockquote>
+<p>
+  This looks incorrect to me.  This is based on the oversimplified
+  assumption that a century contains 36500 days, that is, it assumes
+  that a century is a span of 100 years where each year has exactly
+  365 days.  If a century were to have exactly 36500 days, then indeed
+  it would have 3&#8239;153&#8239;600&#8239;000 seconds and one
+  millionth of it would be 3153.6 seconds which is equivalent to 52
+  minutes 33.6 seconds.  This looks consistent with the Wiktionary
+  entry.  However, an actual century on the calendar does not have
+  exactly 36500 days.  Some years are leap years, so the actual number
+  of days in a century is more than that.
+</p>
+<h2 id="assumptions">Assumptions<a href="#assumptions"></a></h2>
+<p>
+  Let us find out how long a microcentury is as accurately as
+  possible.  We will count the leap years.  We will ignore leap
+  seconds because they are irregularly spaced and unpredictable.  We
+  will also ignore the following gap between 2 Sep 1752 and 14 Sep
+  1752 when the British Empire switched from the Julian calendar to
+  the Gregorian calendar:
+</p>
+<pre>
+<samp>$ <kbd>cal 9 1752</kbd>
+   September 1752
+Su Mo Tu We Th Fr Sa
+       1  2 14 15 16
+17 18 19 20 21 22 23
+24 25 26 27 28 29 30</samp>
+</pre>
+<p>
+  The above output can be obtained by running the <code>cal</code>
+  command as shown above on a Unix or Linux system.  Ignoring this gap
+  is equivalent to assuming that we are working with the Gregorian
+  calender since the year 1 AD.
+</p>
+<p>
+  We will call a year that is a multiple of 100 to be a <em>centurial
+  year</em>.  Further, we will not debate whether a centurial year
+  begins a new century or ends one, that is, we don't care whether the
+  current century runs from 2001 to 2100 or if it runs from 2000 to
+  2099.  The computation presented in the next section works equally
+  well for any span of 100 years.
+</p>
+<h2 id="computation">Computation<a href="#computation"></a></h2>
+<p>
+  Any span of 100 years contains exactly one centurial year, that is,
+  a year that is a multiple of 100.  A centurial year is a leap
+  year <em>if and only if</em> it is also a multiple of 400.  Apart
+  from the centurial year, a century contains 24 occurrences of years
+  that are multiples of 4 and these are all leap years.  From these
+  facts, we can conclude that a span of 100 years contains:
+</p>
+<ul>
+  <li>
+    Exactly 25 leap years if the centurial year within the span is a
+    multiple of 400.
+  </li>
+  <li>
+    Exactly 24 leap years, otherwise.
+  </li>
+</ul>
+<p>
+  Therefore a century has either 36524 days or 36525 days.  In other
+  words, a century has either 3&#8239;155&#8239;673&#8239;600 seconds
+  or 3&#8239;155&#8239;760&#8239;000 seconds.  Here is a quick
+  demonstration of this with a simple Python program:
+</p>
+<pre>
+<code>#!/usr/bin/env python3
+
+import datetime
+
+for year in range(1, 2400, 100):
+    delta = datetime.date(year + 100, 1, 1) - datetime.date(year, 1, 1)
+    print('{:04}-{:04}: {} d = {} s'
+          .format(year, year + 99, delta.days, delta.total_seconds()))</code>
+</pre>
+<p>
+  Here is the output of this program:
+</p>
+<pre>
+<samp>0001-0100: 36524 d = 3155673600.0 s
+0101-0200: 36524 d = 3155673600.0 s
+0201-0300: 36524 d = 3155673600.0 s
+0301-0400: 36525 d = 3155760000.0 s
+0401-0500: 36524 d = 3155673600.0 s
+0501-0600: 36524 d = 3155673600.0 s
+0601-0700: 36524 d = 3155673600.0 s
+0701-0800: 36525 d = 3155760000.0 s
+0801-0900: 36524 d = 3155673600.0 s
+0901-1000: 36524 d = 3155673600.0 s
+1001-1100: 36524 d = 3155673600.0 s
+1101-1200: 36525 d = 3155760000.0 s
+1201-1300: 36524 d = 3155673600.0 s
+1301-1400: 36524 d = 3155673600.0 s
+1401-1500: 36524 d = 3155673600.0 s
+1501-1600: 36525 d = 3155760000.0 s
+1601-1700: 36524 d = 3155673600.0 s
+1701-1800: 36524 d = 3155673600.0 s
+1801-1900: 36524 d = 3155673600.0 s
+1901-2000: 36525 d = 3155760000.0 s
+2001-2100: 36524 d = 3155673600.0 s
+2101-2200: 36524 d = 3155673600.0 s
+2201-2300: 36524 d = 3155673600.0 s
+2301-2400: 36525 d = 3155760000.0 s</samp>
+</pre>
+<p>
+  Thus one millionth of a century has 3155.6736 or 3155.7600 seconds,
+  that is 52 minutes 35.6736 seconds or 52 minutes 35.7600 seconds.
+</p>
+<h2 id="Conclusion">Conclusion<a href="#Conclusion"></a></h2>
+<p>
+  If we round off the number of seconds in a microcentury to one
+  decimal place, we can say that a microcentury has 52 minutes 35.7
+  seconds.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/microcentury.html">Read on website</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a> |
+  <a href="https://susam.net/tag/quote.html">#quote</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Good Blessings</title>
+<link>https://susam.net/good-blessings.html</link>
+<guid isPermaLink="false">tbvps</guid>
+<pubDate>Sun, 11 Dec 2016 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Back in 2009, I had completed a year working for RSA Security.  I
+  was then looking for more intellectually stimulating work where I
+  could work on projects involving mathematics and algorithms.  While
+  I had talked to senior leaders of the organisation about my
+  aspirations, nothing concrete had materialised for several weeks.
+  Then something interesting happened.  One fine Monday morning, as I
+  walked into the office and began to settle at my desk, the head of
+  our research and development division came to my desk looking for
+  me.  He said, "Burt is here.  He wants to talk to you."
+</p>
+<p>
+  There was no Burt in that office as far as I knew, so I became a
+  little confused.  I was led into a conference room where I could
+  meet him.  Mildly disoriented, I opened the conference room door.
+  Then I saw Burt, the person I was about to meet.  As soon as I saw
+  him, I immediately recognised who he was.  He was Dr Burt Kaliski,
+  the Chief Scientist of RSA Laboratories.  He had flown in that
+  morning to meet certain teams in our office.  During his visit, he
+  had carved out some time from his schedule to meet me.
+</p>
+<p>
+  I had never met or talked to Dr Kaliski before.  But I was very well
+  aware of his work and his accomplishments many years before joining
+  RSA.  At a previous job, while implementing digital signatures for a
+  banking product, I had spent a lot of time reading the RFCs for
+  <a href="https://www.rfc-editor.org/rfc/rfc3447">PKCS #1</a>,
+  <a href="https://www.rfc-editor.org/rfc/rfc2898">PKCS #5</a> and
+  <a href="https://www.rfc-editor.org/rfc/rfc2315">PKCS #7</a>,
+  which were all authored by Dr Kaliski.  It was an honour to
+  meet the person whose work had taught me a lot and helped me begin
+  my career as a software developer in the area of information
+  security.
+</p>
+<p>
+  He began the meeting by explaining that he happened to learn about
+  my wish to work on more challenging projects.  He enquired about the
+  type of projects I desired to work on.  He listened to my thoughts
+  patiently.  He offered some advice and then wished me the best for
+  my future.  Little did I know back then that the short 30 minute
+  interaction I had with him would end up changing the trajectory of
+  my career.
+</p>
+<p>
+  Soon after the meeting, I followed his advice, talked to several
+  teams, found out what they were working on and finally decided to
+  join a team that worked on a network security product.  It turned
+  out to be the best decision of my career!  While working on that
+  product, I learnt to design and implement efficient algorithms for
+  petabytes of data.  Some parts of the project relied heavily on
+  probability theory, so it was a joy to be able to take a subject
+  that was a hobby until then and apply it to solve actual real-world
+  problems.  Working on that product offered the intellectual
+  challenges that my younger self yearned for back then.  I think the
+  most interesting experience there was my work on parser generators.
+  It involved writing algorithms in C++ to parse a formally specified
+  language which in turn was used to generate in-memory FSMs to parse
+  and analyse network packets and events.  Parsing one language and
+  generating in-memory parsers for another language proved to be
+  intellectually demanding as well as satisfying.  I have fond
+  memories of my time there working on parser generators alongside
+  remarkably skilled engineers from whom I learnt a lot.
+</p>
+<p>
+  All of that happened seven years ago.  A couple of months ago, while
+  recounting that 30 minute meeting with Dr Kaliski, I could not
+  recall if I had ever thanked him properly for his kindness and
+  generosity.  Seven years ago, there was no compelling reason for him
+  to meet me.  I was then just a regular software engineer who was
+  hired into the company a year ago.  We had never talked before.  But
+  he took the time to offer me help, suggestions and advice on how I
+  could make a good career.  Unsure if I had expressed my gratitude to
+  him for how he helped me sculpt my career, I wrote to him recently
+  to thank him and explain how that one meeting had a large and
+  positive impact on my life.
+</p>
+<p>
+  Dr Kaliski replied a few days later and he expressed his happiness
+  to know that the steps I took in the subsequent years worked out
+  well for me.  Before ending his message, he wrote a little
+  heart-warming note that I am going to remember forever.  Quoting it
+  verbatim here:
+</p>
+<blockquote>
+  &ldquo;One of my goals is to be able to provide encouragement to
+  others who are developing their careers, just as others have
+  invested in mine, passing good blessings from one generation to
+  another.&rdquo;
+</blockquote>
+<!-- Quote from 11 Oct 2016 03:50  UTC -->
+<p>
+  Thank you, Burt!  I will do likewise.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/good-blessings.html">Read on website</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a> |
+  <a href="https://susam.net/tag/quote.html">#quote</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Keep Fun in Computing</title>
+<link>https://susam.net/keep-fun-in-computing.html</link>
+<guid isPermaLink="false">nhhzx</guid>
+<pubDate>Tue, 18 Aug 2009 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Here is a famous quote by Alan J. Perlis taken from
+  the <em>Dedication</em> section of the book <em>Structure and
+  Interpretation of Computer Programs</em>, 2nd ed. (1996) written by
+  Harold Abelson, Gerald Jay Sussman and Julie Sussman.
+</p>
+<blockquote>
+  I think that it's extraordinarily important that we in computer
+  science keep fun in computing.  When it started out, it was an awful
+  lot of fun.  Of course, the paying customers got shafted every now
+  and then, and after a while we began to take their complaints
+  seriously.  We began to feel as if we really were responsible for
+  the successful, error-free perfect use of these machines.  I don't
+  think we are.  I think we're responsible for stretching them,
+  setting them off in new directions, and keeping fun in the house.  I
+  hope the field of computer science never loses its sense of fun.
+</blockquote>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/keep-fun-in-computing.html">Read on website</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/quote.html">#quote</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>From Perl to Pi</title>
+<link>https://susam.net/from-perl-to-pi.html</link>
+<guid isPermaLink="false">jelap</guid>
+<pubDate>Tue, 15 Apr 2008 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I was learning Perl last weekend from the book <em>Learning
+  Perl</em>, 3rd Edition by Randal L. Schwartz and Tom Phoenix.  While
+  reading the book, I came across these lines:
+</p>
+<blockquote>
+  It's easier to type <code>$pi</code> than \( \pi, \) especially if
+  you don't have Unicode.  And it will be easy to maintain the program
+  in case the value of \( \pi \) ever changes.<sup>379</sup>
+</blockquote>
+<p>
+  The corresponding footnote mentions:
+</p>
+<blockquote>
+  <em>
+    <sup>379</sup> It nearly did change by a legislative act in the
+    state of Indiana.
+    <a href="http://www.urbanlegends.com/legal/pi_indiana.htm">http://www.urbanlegends.com/legal/pi_indiana.htm</a>
+  </em>
+</blockquote>
+<p>
+  I searched the web and found that the original urbanlegends.com
+  website is no longer there.  However while searching for it, I came
+  across this brilliant piece of humour archived in the article titled
+  <a href="https://www.snopes.com/fact-check/alabamas-slice-of-pi/">Alabama's
+  Slice of Pi</a> on Snopes.  It is a fictitious report on a state
+  legislature redefining the value of \( \pi \) to 3.
+</p>
+<p>
+  The Snopes article mentions that this piece of humour was first
+  posted in a newsgroup.  Then people started circulating it as hoax
+  from there.  Here are some of the intriguing and funny bits from it:
+</p>
+<blockquote>
+  Lawson called into question the usefulness of any number that cannot
+  be calculated exactly, and suggested that never knowing the exact
+  answer could harm students' self-esteem.
+</blockquote>
+<blockquote>
+  Scientists have arbitrarily assumed that space is Euclidean, he
+  says.  He points out that a circle drawn on a spherical surface has
+  a different value for the ratio of circumfence to diameter.
+</blockquote>
+<p>
+  In fact, with a little geometry we can see that if a
+  <a href="https://en.wikipedia.org/wiki/Flatland">flatlander</a>
+  living on a globe with diameter \( D \) draws a circle of diameter
+  \( d \) assuming that he is on a flat surface, then the ratio of the
+  circumference \( c \) to the diameter \( d \) is
+
+  \[
+    \frac{c}{d} = \frac{\pi D}{d} \sin{\frac{d}{D}}.
+  \]
+
+  Here are a few more excerpts from the Snopes article:
+</p>
+<blockquote>
+  "These nabobs waltzed into the capital with an arrogance that was
+  breathtaking," Learned said.  "Their prefatorial deficit resulted in
+  a polemical stance at absolute contraposition to the legislature's
+  puissance."
+</blockquote>
+<blockquote>
+  One member of the state school board, Lily Ponja, is anxious to get
+  the new value of pi into the state's math textbooks, but thinks that
+  the old value should be retained as an alternative.  She said, "As
+  far as I am concerned, the value of pi is only a theory, and we
+  should be open to all interpretations."  She looks forward to
+  students having the freedom to decide for themselves what value pi
+  should have.
+</blockquote>
+<p>
+  By the way, the real event that the footnote in the
+  <em>Learning Perl</em> book mentioned is
+  the <a href="http://en.wikipedia.org/wiki/Indiana_Pi_Bill">Indiana
+  Pi Bill</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/from-perl-to-pi.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/book.html">#book</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/quote.html">#quote</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Very Remote Debugging</title>
+<link>https://susam.net/very-remote-debugging.html</link>
+<guid isPermaLink="false">gsoqd</guid>
+<pubDate>Mon, 03 Sep 2007 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  There is a wonderful story about a legendary Lisp debugging story in
+  the <a href="https://gigamonkeys.com/book/lather-rinse-repeat-a-tour-of-the-repl.html">second
+  chapter</a> of the book <em>Practical Common Lisp</em> by Peter
+  Seibel.  Quoting the story here:
+</p>
+<blockquote>
+  <p>
+    An even more impressive instance of remote debugging occurred on
+    NASA's 1998 Deep Space 1 mission.  A half year after the space
+    craft launched, a bit of Lisp code was going to control the
+    spacecraft for two days while conducting a sequence of
+    experiments.  Unfortunately, a subtle race condition in the code
+    had escaped detection during ground testing and was already in
+    space.  When the bug manifested in the wild--100 million miles
+    away from Earth--the team was able to diagnose and fix the running
+    code, allowing the experiments to complete.  One of the
+    programmers described it as follows:
+  </p>
+  <blockquote>
+    <p>
+      Debugging a program running on a $100M piece of hardware that is
+      100 million miles away is an interesting experience.  Having a
+      read-eval-print loop running on the spacecraft proved invaluable
+      in finding and fixing the problem.
+    </p>
+  </blockquote>
+</blockquote>
+<p>
+  The original source of this story is an article
+  called <a href="https://flownet.com/gat/jpl-lisp.html">Lisping at
+  JPL</a> written by Ron Garret in 2002.  This story occurs in the
+  section called <em>1994-1999 - Remote Agent</em> of the article.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/very-remote-debugging.html">Read on website</a> |
+  <a href="https://susam.net/tag/lisp.html">#lisp</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/quote.html">#quote</a>
+</p>
+]]>
+</description>
+</item>
+
+
+</channel>
+</rss>

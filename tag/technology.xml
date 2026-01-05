@@ -1,0 +1,3275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's Technology Pages</title>
+<link>https://susam.net/tag/technology.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/technology.xml"/>
+<description>Feed for Susam's Technology Pages</description>
+
+<item>
+<title>My Coding Adventures in 2025</title>
+<link>https://susam.net/code-2025.html</link>
+<guid isPermaLink="false">cdtwf</guid>
+<pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  In this post, I return with a retrospective on my coding adventures,
+  where I summarise my hobby projects and recreational programming
+  activities from the current year.  I did the last such retrospective
+  in <a href="code-2023.html">2023</a>.  So I think this is a good
+  time to do another retrospective.
+</p>
+<p>
+  At the outset, I should mention that I have done less hobby
+  computing this year than in the past few, largely because I spent a
+  substantial portion of my leisure time studying Galois theory and
+  algebraic graph theory.  In case you are wondering where I am
+  learning these subjects from, the books are <em>Galois Theory</em>,
+  5th ed. by Ian Stewart and <em>Algebraic Graph Theory</em> by Godsil
+  and Royle.  Both are absolutely fascinating subjects and the two
+  books I mentioned are quite good as well.  I highly recommend them.
+</p>
+<p>
+  Now back to the coding adventures.  Here they go:
+</p>
+<ul>
+  <li>
+    <p>
+      <a href="https://github.com/susam/mathb">MathB</a>: The year
+      began not with the release of a new project but with the
+      opposite: discontinuing a project I had maintained for 13 years.
+      MathB.in, a mathematics pastebin service, was discontinued early
+      this year.  This is a project I developed in 2012 for myself and
+      my friends.  Although a rather simple project, it was close to
+      my heart, as I have many fond memories of exchanging
+      mathematical puzzles and solutions with my friends using this
+      service.  Over time, the project grew quite popular on IRC
+      networks, as well as in some schools and universities, where IRC
+      users, learners and students used the service to share problems
+      and solutions with one another, much as my friends and I had
+      done in its early days.
+    </p>
+    <p>
+      I shut it down this year because I wanted to move on from the
+      project.  Before the shutdown, a kind member of the
+      <a href="https://wiki.archiveteam.org/">Archive Team</a> worked
+      with me to
+      <a href="https://web.archive.org/web/*/https://mathb.in/">archive</a>
+      all posts from the now-defunct website.  Although shutting down
+      this service was a bittersweet event for me, I feel relieved
+      that I no longer have to run a live service in my spare time.
+      While this was a good hobby ten years ago, it no longer is.  See
+      my blog post
+      <a href="mathbin-is-shutting-down.html">MathB.in Is Shutting
+      Down</a> for more details on the reasons behind this decision.
+      The source code of this project remains open source and
+      available at
+      <a href="https://github.com/susam/mathb">github.com/susam/mathb</a>.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="https://github.com/susam/quickqwerty">QuickQWERTY</a>:
+      This is a touch-typing tutor that runs in a web browser.  I
+      originally developed it in 2008 for myself and my friends.
+      While I learnt touch typing on an actual typewriter as a child,
+      those lessons did not stick with me.  Much later, while I was at
+      university, I came across a Java applet-based touch-typing tutor
+      that finally helped me learn touch typing properly.  I disliked
+      installing Java plugins in the web browser, which is why I later
+      developed this project in plain HTML and JavaScript.  This year,
+      I carried out a major refactoring to collapse the entire project
+      into a single standalone HTML file with no external
+      dependencies.  The source code has been greatly simplified as
+      well.
+    </p>
+    <p>
+      When I was younger and more naive, inspired by the complexity
+      and multiple layers of abstraction I saw in popular open source
+      and professional projects, I tended to introduce similar
+      abstractions and complexity into my personal projects.  Over
+      time, however, I began to appreciate simplicity.  The new code
+      for this project is smaller and simpler.  I am quite happy with
+      the end result.  You can take a look at the code here:
+      <a href="https://github.com/susam/quickqwerty/blob/main/quickqwerty.html">quickqwerty.html</a>.
+      If you want to use the typing tutor, go here:
+      <a href="quickqwerty.html">QuickQWERTY</a>.  Unfortunately, it
+      does not support keyboard layouts other than QWERTY.  When I
+      originally developed this project, my view of the computing
+      world was rather limited.  I was not even aware that other
+      keyboard layouts existed.  You are, however, very welcome to
+      fork the project and adapt the lessons for other layouts.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="https://github.com/susam/cfrs">CFRS[]</a>: This project
+      was my first contribution to the quirky world of esolangs.
+      CFRS[] is an extremely minimal drawing language consisting of
+      only six simple commands: <code>C</code>, <code>F</code>,
+      <code>R</code>, <code>S</code>, <code>[</code> and
+      <code>]</code>.  I developed it in 2023 and have since been
+      maintaining it with occasional bug fixes.  This year, I
+      <a href="https://github.com/susam/cfrs/commit/9bae21f">fixed an
+      annoying bug</a> that caused the drawing canvas to overflow on
+      some mobile web browsers.  A new demo also arrived from the
+      community this year and has now been added to the community demo
+      page.  See
+      <a href="https://susam.github.io/cfrs/demo.html#glimmering-galaxy">Glimmering
+      Galaxy</a> for the new demo.  If you want to play with CFRS[]
+      now, visit <a href="cfrs.html">CFRS[]</a>.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="https://github.com/susam/fxyt">FXYT</a>: This is
+      another esolang project of mine.  This too is a minimal drawing
+      language, though not as minimal as CFRS[].  Instead, it is a
+      stack-based, postfix canvas colouring language with only 36
+      simple commands.  The canvas overflow bug described in the
+      previous entry affected this project as well.  That has now been
+      fixed.  Further, by popular demand, the maximum allowed code
+      length has been increased from 256 bytes to 1024 bytes.  This
+      means there is now more room for writing more complex FXYT
+      programs.  Additionally, the maximum code length for
+      distributable demo links has been increased from 64 bytes to 256
+      bytes.  This allows several more impressive demos to have their
+      own distributable links.  Visit <a href="fxyt.html">FXYT</a> to
+      try it out now.  See also the
+      <a href="https://susam.github.io/fxyt/demo.html">Community Demos</a> to
+      view some fascinating artwork created by the community.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="https://github.com/susam/nq">Nerd Quiz</a>: This is a
+      new project I created a couple of months ago.  It is a simple
+      HTML tool that lets you test your nerdiness through short
+      quizzes.  Each question is drawn from my everyday moments of
+      reading, writing, thinking, learning and exploring.  The project
+      is meant to serve as a repository of interesting facts I come
+      across in daily life, captured in the form of quiz questions.
+      Go here to try it out: <a href="nq.html">Nerd Quiz</a>.  I hope
+      you will enjoy these little bits of knowledge as much as I
+      enjoyed discovering them.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="primegrid.html">Prime Number Grid Explorer</a>: This is
+      a simple prime number grid visualiser I wrote for fun.  It plots
+      the prime numbers in a grid where you can set the number of rows
+      and the number of columns.  It uses the Miller-Rabin primality
+      test with bases drawn from
+      <a href="https://oeis.org/A014233">oeis.org/A014233</a> to
+      determine whether a number is prime.  This allows it to
+      accurately test whether a number is prime up to
+      3317044064679887385961980.  For example,
+      <a href="primegrid.html#3317044064679887385961781-20-10">this
+      grid</a> shows the upper limit of the numbers this tool can
+      check.  The three circles displayed there represent the prime
+      numbers 3317044064679887385961783, 3317044064679887385961801 and
+      3317044064679887385961813.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="https://github.com/susam/mvs">Mark V. Shaney
+      Junior</a>: Finally, I have my own Markov gibberish generator.
+      Always wanted to have one.  The project is inspired by the
+      legendary Usenet bot named Mark V. Shaney that used to post
+      messages to various newsgroups in the 1980s.  My Markov chain
+      program is written in about 30 lines of Python.  I ran it on my
+      24 years of blog posts consisting of over 200 posts and about
+      200,000 words and it generated some pretty interesting
+      gibberish.  See my blog post
+      <a href="fed-24-years-of-posts-to-markov-model.html">Fed 24
+      Years of My Posts to Markov Model</a> to see the examples.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="elliptical-python-programming.html">Elliptical Python
+      Programming</a>: If the previous item was not silly enough, this
+      one surely is.  Earlier this year, I wrote a blog post
+      describing the fine art of Python programming using copious
+      amounts of ellipses.  I will not discuss it further here to
+      avoid spoilers.  I'll just say that any day I'm able to do
+      something pointless, whimsical and fun with computers is a good
+      day for me.  And it was a good day when I wrote this post.
+      Please visit the link above to read the post.  I hope you find
+      it fun.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="fizz-buzz-with-cosines.html">Fizz Buzz with
+      Cosines</a>: Another silly post in which I explain how to
+      compute the discrete Fourier transform of the Fizz Buzz sequence
+      and derive a closed-form expression that can be used to print
+      the sequence.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="fizz-buzz-in-css.html">Fizz Buzz in CSS</a>: Yet
+      another Fizz Buzz implementation, this time using just four
+      lines of CSS.
+    </p>
+  </li>
+</ul>
+<p>
+  That wraps up my coding adventures for this year.  There were fewer
+  hobby projects than usual but I enjoyed spending more time learning
+  new things and revisiting old ones.  One long-running project came
+  to an end, another was cleaned up and a few small new ideas appeared
+  along the way.  Looking forward to what the next year brings.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code-2025.html">Read on website</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/retrospective.html">#retrospective</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Mark V. Shaney Junior 0.2.0</title>
+<link>https://susam.net/code/news/mvs/0.2.0.html</link>
+<guid isPermaLink="false">mvszt</guid>
+<pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Mark V. Shaney Junior 0.2.0 is the second release of this little
+  Markov gibberish generator.  This release brings two small changes.
+  First, it now reads the training data from standard input instead of
+  a hardcoded file.  Second, the program filename has been changed
+  from <code>mvs.py</code> to <code>mvs</code> to reflect that it is
+  an executable file and can be run as <code>./mvs</code> on most Unix
+  and Linux systems.
+</p>
+<p>
+  The source and a detailed documentation for this project are
+  available at <a href="https://github.com/susam/mvs">github.com/susam/mvs</a>.
+</p>
+<p>
+  See also
+  <a href="https://susam.net/fed-24-years-of-posts-to-markov-model.html">this
+  related blog post</a> and a
+  <a href="https://news.ycombinator.com/item?id=46257607">discussion
+  on Hacker News</a> about it.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/mvs/0.2.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/python.html">#python</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Fed 24 Years of My Blog Posts to a Markov Model</title>
+<link>https://susam.net/fed-24-years-of-posts-to-markov-model.html</link>
+<guid isPermaLink="false">mgtfy</guid>
+<pubDate>Sat, 13 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Yesterday I shared a little program called <em>Mark V. Shaney
+  Junior</em> at
+  <a href="https://github.com/susam/mvs">github.com/susam/mvs</a>.  It
+  is a minimal implementation of a Markov text generator inspired by
+  the legendary Mark V. Shaney program from the 1980s.  Mark V. Shaney
+  was a synthetic Usenet user that posted messages to various
+  newsgroups using text generated by a Markov model.  See the
+  Wikipedia article
+  <a href="https://en.wikipedia.org/wiki/Mark_V._Shaney">Mark
+  V. Shaney</a> for more details about it.  In this post, I will
+  discuss my implementation of the model, explain how it works and
+  share some of the results produced by it.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#recreational-programming">Recreational Programming</a></li>
+  <li><a href="#gibberish">Gibberish</a></li>
+  <li><a href="#markov-property">The Markov Property</a></li>
+  <li><a href="#some-more-gibberish">Some More Gibberish</a></li>
+</ul>
+<h2 id="recreational-programming">Recreational Programming<a href="#recreational-programming"></a></h2>
+<p>
+  The program I shared yesterday has only about
+  <a href="https://github.com/susam/mvs/blob/main/mvs">30 lines of
+  Python</a> and favours simplicity over efficiency.  Even if you have
+  never worked with Markov models before, as long as you know some
+  Python programming, I am quite confident that it will take you less
+  than 20 minutes to understand the whole program and make complete
+  sense of it.  I also offer an explanation
+  <a href="#the-markov-property">further below</a> in this post.
+</p>
+<p>
+  As a hobby, I often engage in exploratory programming where I write
+  computer programs not to solve a specific problem but simply to
+  explore a particular idea or topic for the sole purpose of
+  recreation.  I must have written small programs to explore Markov
+  chains for various kinds of state spaces over a dozen times by now.
+  Every time, I just pick my last experimental code and edit it to
+  encode the new state space I am exploring.  That's usually my
+  general approach to such one-off programs.  I have hundreds of tiny
+  little experimental programs lying on my disk at any given time.
+</p>
+<p>
+  Once in a while, I get the itch to take one of those exploratory
+  programs, give it some finishing touches, wrap it up in a nice Git
+  repo along with a <code>README.md</code>, <code>CHANGES.md</code>
+  and the whole shebang and share it on
+  <a href="https://github.com/susam">github.com/susam</a> and
+  <a href="https://codeberg.org/susam">codeberg.org/susam</a>.  The
+  Mark V. Shaney Junior program that I shared yesterday happened to be
+  one such exercise.
+</p>
+<h2 id="gibberish">Gibberish<a href="#gibberish"></a></h2>
+<p>
+  If you scroll down the
+  <a href="https://github.com/susam/mvs#readme">README</a> of this
+  project, you'll find some nice examples of the gibberish produced by
+  this program.  The first few examples there are the result of
+  training the model on <em>A Christmas Carol</em> by Charles Dickens,
+  one of my favourite authors.  It is often said that Dickens never
+  used fewer words when more would suffice.  So I thought there
+  couldn't be a better piece of text when it comes to testing out my
+  tiny Markov model.  I'll not reproduce the generated text examples
+  here for the sake of brevity.  If you are interested to take a look,
+  just head over to the
+  <a href="https://github.com/susam/mvs#gibberish">Gibberish</a>
+  section of the README.
+</p>
+<p>
+  Soon after sharing the project, I wondered what kind of gibberish it
+  would produce if I fed all 24 years of my blog
+  <a href="pages.html">posts and pages</a> into the program.
+  Well, here's one of the results:
+</p>
+<pre>
+<samp>$ <kbd>./mvs &lt; susam.txt</kbd>
+while a query replace operation is approved by the user. The above
+variable defines the build job. It can be incredibly useful while
+working on assembly language and machine code. In fact, all internal
+resources like the result to refine the search prompt changes from
+bck-i-search: to fwd-i-search:. Now type C-SPC (i.e. ctrl+space) to
+set a mark causes Emacs to use 32-bit registers like EBP, ESP,
+etc. Thus the behaviour is undefined. Such code may behave differently
+when compiled with the readily available GNU tools like the shape
+of 8. Flipping "P" horizontally makes it a proper quine: cat $0</samp>
+</pre>
+<p>
+  This is the text that comes out after the program consumes over 200
+  posts consisting of about 200,000 words.  My blog also has
+  a <a href="comments/">comments section</a> with over 500
+  comments consisting of about 40,000 words.  All comments were
+  excluded while training the model.  Here is another output example:
+</p>
+<pre>
+<samp>$ <kbd>./mvs &lt; susam.txt</kbd>
+enjoy asking "what happens if" and then type M-x zap-up-to-char RET
+b. The buffer for this specific video, the actual fare for 8.3 km and
+11 are all written from scratch. No prior knowledge is expected to
+slow down in future. For now, I will add a statement like x =
+0.999..., the inner corner square as discussed in the code segment
+into the REPL window. Unlike Slimv, Vlime can work with and debug
+executable files, it can be more convenient. M-x: Execute Extended
+Command The key sequence M-q invokes the command cat and type TAB to
+indent the current</samp>
+</pre>
+<p>
+  Here is a particularly incoherent but amusing one:
+</p>
+<pre>
+<samp>$ <kbd>./mvs &lt; susam.txt</kbd>
+Then open a new Lisp source file and the exact answer could harm
+students' self-esteem. Scientists have arbitrarily assumed that an
+integral domain. However, the string and comment text. To demonstrate
+how a build job can trigger itself, pass input to standard output or
+standard error), Eshell automatically runs the following command in
+Vim and Emacs will copy the message length limit of 512 characters,
+etc. For example, while learning to play the game between normal mode
+to move the point is on an old dictionary lying around our house and
+that is moving to the small and supportive community</samp>
+</pre>
+<p>
+  No, I have never said anywhere that opening a Lisp source file could
+  harm anyone's self-esteem.  The text generator has picked up the
+  'Lisp source file' phrase from my
+  <a href="lisp-in-vim.html">Lisp in Vim</a> post and the
+  'self-esteem' bit from the <a href="from-perl-to-pi.html">From Perl
+  to Pi</a> post.
+</p>
+<h2 id="markov-property">The Markov Property<a href="#markov-property"></a></h2>
+<p>
+  By default, this program looks at trigrams (all sequences of three
+  adjacent words) and creates a map where the first two words of the
+  trigram are inserted as the key and the third word is appended to
+  its list value.  This map is the model.  In this way, the model
+  captures each pair of adjacent words along with the words that
+  immediately follow each pair.  The text generator first chooses a
+  key (a pair of words) at random and selects a word that follows.  If
+  there are multiple followers, it picks one uniformly at random.  It
+  then repeats this process with the most recent pair of words,
+  consisting of one word from the previous pair and the word that was
+  just picked.  It continues to do this until it can no longer find a
+  follower or a fixed word limit (100 by default) is reached.  That is
+  pretty much the whole algorithm.  There isn't much more to it.  It
+  is as simple as it gets.  For that reason, I often describe a simple
+  Markov model like this as the 'hello, world' for language models.
+</p>
+<p>
+  If the same trigram occurs multiple times in the training data, the
+  model records the follower word (the third word) multiple times in
+  the list associated with the key (the first two words).  This
+  representation can be optimised, of course, by keeping frequencies
+  of the follower words rather than duplicating them in the list, but
+  that is left as an exercise to the reader.  In any case, when the
+  text generator chooses a follower for a given pair of words, a
+  follower that occurs more frequently after that pair has a higher
+  probability of being chosen.  In effect, the next word is sampled
+  based only on the previous two words and not on the full history of
+  the generated text.  This memoryless dependence on the current state
+  is what makes the generator Markov.  Formally, for a discrete-time
+  stochastic process, the Markov property can be expressed as
+
+  \[
+    P(X_{n+1} \mid X_n, X_{n-1}, \ldots, X_1) = P(X_{n+1} \mid X_n).
+  \]
+
+  where \( X_n \) represents the \( n \)th state.  In our case, each
+  state \( X_n \) is a pair of words \( (w_{n-1}, w_{n}) \) but the
+  state space could just as well consist of other objects, such as a
+  pair of characters, pixel values or musical notes.  The sequence of
+  states \( (X_1, X_2, \dots) \) visited by the program forms a Markov
+  chain.  The left-hand side of the equation denotes the conditional
+  distribution of the next state \( X_{n+1} \) given the entire
+  history of states \( X_1, X_2, \dots, X_n, \) while the right-hand
+  side conditions only on the current state \( X_n.  \)  When both are
+  equal, it means that the probability of the next state depends only
+  on the current state and not on the earlier states.  This is the
+  Markov property.  It applies to the text generation process only,
+  not the training data.  The training data is used only to estimate
+  the transition probabilities of the model.
+</p>
+<h2 id="some-more-gibberish">Some More Gibberish<a href="#some-more-gibberish"></a></h2>
+<p>
+  In 2025, given the overwhelming popularity of large language models
+  (LLMs), Markov models like this look unimpressive.  Unlike LLMs, a
+  simple Markov model cannot capture global structure or long-range
+  dependencies within the text.  It relies entirely on local word
+  transition statistics.  Also, these days, one hardly needs a Markov
+  model to generate gibberish; social media provides an ample supply.
+  Nevertheless, I think the simplicity of its design and
+  implementation serves as a good entry point into language models.
+</p>
+<p>
+  In my implementation, the number of words in the key of the map can
+  be set via command line arguments.  By default, it is 2 as described
+  above.  This value is also known as the order of the model.  So by
+  default the order is 2.  If we increase it to, say, 3 or 4, the
+  generated text becomes a little more coherent.  Here is one such
+  example:
+</p>
+<pre>
+<samp>$ <kbd>./mvs 4 &lt; susam.txt</kbd>
+It is also possible to search for channels by channel names. For
+example, on Libera Chat, to search for all channels with 'python' in
+its name, enter the IRC command: /msg alis list python. Although I
+have used Libera Chat in the examples above, there are plenty of
+infinite fields, so they must all be integral domains too. Consider
+the field of rational numbers Q. Another quick way to arrive at this
+fact is to observe that when one knight is placed on a type D square,
+only two positions for the second knight such that the two knights
+attack</samp>
+</pre>
+<p>
+  Except for a couple of abrupt and meaningless transitions, the text
+  is mostly coherent.  We need to be careful about not increasing the
+  order too much.  In fact, if we increase the order of the model to
+  5, the generated text becomes very dry and factual because it begins
+  to quote large portions of the blog posts verbatim.  Not much fun
+  can be had with that.
+</p>
+<p>
+  Before I end this post, let me present one final example where I ask
+  it to generate text from an initial prompt:
+</p>
+<pre>
+<samp>$ <kbd>./mvs 2 100 'Finally we' &lt; susam.txt</kbd>
+Finally we divide this number by a feed aggregrator for Emacs-related
+blogs. The following complete key sequences describe the effects of
+previous evaluations shall have taken a simple and small to contain
+bad content. This provides an interactive byte-compiled Lisp function
+in MATLAB and GNU bash 5.1.4 on Debian is easily reproducible in
+Windows XP. Older versions might be able to run that server for me it
+played a significant burden on me as soon as possible. C-u F: Visit
+the marked files or directories in the sense that it was already
+initiated and we were to complete the proof.</samp>
+</pre>
+<p>
+  Apparently, this is how I would sound if I ever took up speaking
+  gibberish!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/fed-24-years-of-posts-to-markov-model.html">Read on website</a> |
+  <a href="https://susam.net/tag/python.html">#python</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Mark V. Shaney Junior 0.1.0</title>
+<link>https://susam.net/code/news/mvs/0.1.0.html</link>
+<guid isPermaLink="false">mvszo</guid>
+<pubDate>Fri, 12 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Mark V. Shaney Junior is a minimal implementation of a Markov
+  gibberish generator inspired by the legendary Mark V. Shaney program
+  from the 1980s.  Mark V. Shaney was a synthetic Usenet user in the
+  1980s that posted messages to newsgroups using text generated by a
+  Markov chain program.  See the Wikipedia
+  article <a href="https://en.wikipedia.org/wiki/Mark_V._Shaney">Mark
+  V. Shaney</a> for more details.
+</p>
+<p>
+  This release introduces the program
+  <a href="https://github.com/susam/mvs/blob/main/mvs.py">mvs.py</a>
+  that implements a similar Markov text generator.  It reads a text
+  corpus of text from standard input, build an internal Markov model
+  and then generate text using the model.
+</p>
+<p>
+  Please visit
+  <a href="https://github.com/susam/mvs">github.com/susam/mvs</a>
+  for the source code and some output examples.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/mvs/0.1.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/python.html">#python</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Fizz Buzz in CSS</title>
+<link>https://susam.net/fizz-buzz-in-css.html</link>
+<guid isPermaLink="false">fzcps</guid>
+<pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  How many CSS selectors and declarations do we need to produce the
+  Fizz Buzz sequence?  Of course we could do this with no CSS at all
+  simply by placing the entire sequence as text in the HTML body.  So
+  to make the problem precise as well as to keep it interesting, we
+  require that all text that appears in the Fizz Buzz sequence comes
+  directly from the CSS.  Placing any part of the output numbers or
+  words outside the stylesheet is not allowed.  JavaScript is not
+  allowed either.  With these constraints, I think we need at least
+  four CSS selectors along with four declarations to solve this
+  puzzle, as shown below:
+</p>
+<pre>
+<code>li { counter-increment: n }
+li:not(:nth-child(5n))::before { content: counter(n) }
+li:nth-child(3n)::before { content: "Fizz" }
+li:nth-child(5n)::after { content: "Buzz" }</code>
+</pre>
+<p>
+  Here is a complete working example:
+  <a href="css-fizz-buzz.html">css-fizz-buzz.html</a>.
+</p>
+<p>
+  The above solution contains four CSS rules with one selector and one
+  declaration in each rule.  For example,
+  <code>li { counter-increment: n }</code> is one rule consisting of
+  the selector <code>li</code> and the declaration
+  <code>counter-increment: n</code>.
+</p>
+<p>
+  Seasoned code golfers looking for a challenge can probably shrink
+  this solution further.  A common trick to solve this problem is to
+  use an ordered list (<code>&lt;ol&gt;</code>) which provides the
+  integers in the form of list markers automatically, thereby
+  eliminating the need to maintain a counter in the stylesheet.
+  However, this violates the requirement set out in the introduction.
+  We want every integer to be produced directly by the stylesheet.
+  Treating the integers in the list markers as part of the output
+  sequence breaks this rule.  Not to mention the output looks untidy
+  because of the unnecessary dot after each marker and also because
+  the numbers and words appear misaligned.  See an example of that
+  trick here:
+  <a href="code/web/css-fizz-buzz-ol.html">css-fizz-buzz-ol.html</a>.
+  Correcting the misaligned output calls for extra code that cancels
+  out the number of declarations saved.  In any case, the requirement
+  that all integers of the output must come directly from the
+  stylesheet prevents untidy solutions like this and also forces us to
+  rely on the capabilities of CSS to solve this puzzle.
+</p>
+<p>
+  The intention here was to obtain the smallest possible code in terms
+  of the number of CSS declarations.  This example is not crafted to
+  minimise bytes, but for code golfers who enjoy reducing byte count,
+  here is the number of bytes this solution consumes after removing
+  all whitespace:
+</p>
+<pre><code>$ curl -sS https://susam.net/css-fizz-buzz.html | sed -n '/counter/,/after/p' | tr -d '[:space:]' | wc -c
+152</code></pre>
+<p>
+  Further reduction in byte count can be achieved by using the
+  <code>&lt;p&gt;</code> element instead of <code>&lt;li&gt;</code>,
+  nesting CSS selectors, etc.  I'll leave that as an exercise for the
+  reader.  Returning to the focus of this post as well as to summarise
+  it, the solution here uses four CSS rules consisting of four
+  selectors and four declarations to render the Fizz Buzz sequence.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/fizz-buzz-in-css.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/css.html">#css</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Emacs Info Expressions</title>
+<link>https://susam.net/emacs-info-expression.html</link>
+<guid isPermaLink="false">eminf</guid>
+<pubDate>Wed, 03 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  On <code>#emacs</code> IRC or Matrix channels, we often share
+  references to the built-in Emacs documentation as Elisp expressions
+  that look like this:
+</p>
+<pre><code>(info "(emacs) Basic Undo")</code></pre>
+<p>
+  Here is another example:
+</p>
+<pre><code>(info "(emacs) Word Search")</code></pre>
+<p>
+  This is a common practice in the Emacs community even though all of
+  the Emacs manual is available on the World Wide Web too.  For
+  example, the section referred to in the above expression eis
+  available
+  here: <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Word-Search.html">GNU
+  Emacs Manual: Word Search</a>.  The reason for sharing Elisp
+  expressions like this is likely partly tradition and partly
+  convenience.  Many Emacs users are logged into IRC networks via
+  Emacs itself, so once the recipient sees an Elisp expression like
+  the above one in their chat buffer, visiting the corresponding
+  manual page is a simple matter of placing the cursor right after the
+  closing parenthesis and typing <code>C-x C-e</code>.
+</p>
+<p>
+  But isn't it clumsy for the sender to type Elisp expressions like
+  this merely to share a pointer to a section of a manual with others?
+  Turns out, it is not.  This is Emacs!  So of course there are
+  key-bindings to do this.
+</p>
+<p>
+  Say, while helping another Emacs user we type <code>M-x info-apropos
+  RET version control RET</code> and land on the section "Branches"
+  and realise that this is the section that the person we are trying
+  to help should read.  Now when we are on this section, we can simply
+  type <code>c</code> and Emacs will copy the name of the current Info
+  node to the kill ring.  The name looks like this:
+</p>
+<pre><code>(emacs) Branches</code></pre>
+<p>
+  While this is handy in some situations, it isn't the
+  <code>info</code> expression we want.  It's just the Info node name.
+  To copy the complete <code>info</code> expression with the node
+  name, we need to use the zero prefix argument with
+  the <code>c</code> key.  So when we are on the section "Branches",
+  if we type <code>C-0 c</code>, the following expression is copied to
+  the kill ring:
+</p>
+<pre><code>(info "(emacs) Branches")</code></pre>
+<p>
+  The person who receives this <code>info</code> expression can visit
+  the corresponding section of the manual simply by evaluating it.
+  For example, after copying the expression in Emacs, they could
+  type <code>C-y C-x C-e</code> to paste the expression into a buffer
+  and evaluate it immediately.  Alternatively, they might want to
+  type <code>M-: C-y RET</code> to bring the
+  <code>eval-expression</code> minibuffer, paste the expression there
+  and evaluate it.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/emacs-info-expression.html">Read on website</a> |
+  <a href="https://susam.net/tag/emacs.html">#emacs</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Fizz Buzz with Cosines</title>
+<link>https://susam.net/fizz-buzz-with-cosines.html</link>
+<guid isPermaLink="false">fzbzz</guid>
+<pubDate>Thu, 20 Nov 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Fizz Buzz is a counting game that has become oddly popular in the
+  world of computer programming as a simple test of basic programming
+  skills.  The rules of the game are straightforward.  Players say the
+  numbers aloud in order beginning with one.  Whenever a number is
+  divisible by 3, they say 'Fizz' instead.  If it is divisible by 5,
+  they say 'Buzz'.  If it is divisible by both 3 and 5, the player
+  says both 'Fizz' and 'Buzz'.  Here is a typical Python program that
+  prints this sequence:
+</p>
+<pre><code>for n in range(1, 101):
+    if n % 15 == 0:
+        print('FizzBuzz')
+    elif n % 3 == 0:
+        print('Fizz')
+    elif n % 5 == 0:
+        print('Buzz')
+    else:
+        print(n)</code>
+</pre>
+<p>
+  Here is the output:
+  <a href="files/blog/fizz-buzz.txt">fizz-buzz.txt</a>.  Can we make
+  the program more complicated?  The words 'Fizz', 'Buzz' and
+  'FizzBuzz' repeat in a periodic manner throughout the sequence.
+  What else is periodic?  Trigonometric functions!  Perhaps we can use
+  trigonometric functions to encode all four rules of the sequence in
+  a single closed-form expression.  That is what we are going to
+  explore in this article, for fun and no profit.
+</p>
+<p>
+  By the end, we will obtain a discrete Fourier series that can take
+  any integer \( n \) and select the corresponding text to be printed.
+  In fact, we will derive it using two different methods.  First, we
+  will follow a long-winded but hopefully enjoyable approach that
+  relies on a basic understanding of complex exponentiation, geometric
+  series and trigonometric functions.  Then, we will obtain the same
+  result through a direct application of the discrete Fourier
+  transform.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#definitions">Definitions</a>
+    <ul>
+      <li><a href="#symbol-functions">Symbol Functions</a></li>
+      <li><a href="#index-function">Index Function</a></li>
+      <li><a href="#fizz-buzz-sequence">Fizz Buzz Sequence</a></li>
+    </ul>
+  </li>
+  <li><a href="#from-indicator-functions-to-cosines">From Indicator Functions to Cosines</a>
+    <ul>
+      <li><a href="#indicator-functions">Indicator Functions</a></li>
+      <li><a href="#complex-exponentials">Complex Exponentials</a></li>
+      <li><a href="#cosines">Cosines</a></li>
+    </ul>
+  </li>
+  <li><a href="#dft">Discrete Fourier Transform</a>
+    <ul>
+      <li><a href="#one-period-of-fizz-buzz">One Period of Fizz Buzz</a></li>
+      <li><a href="#fourier-coefficients">Fourier Coefficients</a></li>
+      <li><a href="#inverse-transform">Inverse Transform</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h2 id="definitions">Definitions<a href="#definitions"></a></h2>
+<p>
+  Before going any further, we establish a precise mathematical
+  definition for the Fizz Buzz sequence.  We begin by introducing a
+  few functions that will help us define the Fizz Buzz sequence later.
+</p>
+<h3 id="symbol-functions">Symbol Functions<a href="#symbol-functions"></a></h3>
+<p>
+  We define a set of four functions \( \{ s_0, s_1, s_2, s_3 \} \) for
+  integers \( n \) by:
+
+  \begin{align*}
+    s_0(n) &amp;= n, \\
+    s_1(n) &amp;= \mathtt{Fizz}, \\
+    s_2(n) &amp;= \mathtt{Buzz}, \\
+    s_3(n) &amp;= \mathtt{FizzBuzz}.
+  \end{align*}
+
+  We call these the symbol functions because they produce every term
+  that appears in the Fizz Buzz sequence.  The symbol function \( s_0
+  \) returns \( n \) itself.  The functions \( s_1, \) \( s_2 \) and
+  \( s_3 \) are constant functions that always return the literal
+  words \( \mathtt{Fizz}, \) \( \mathtt{Buzz} \) and \(
+  \mathtt{FizzBuzz} \) respectively, no matter what the value of \( n
+  \) is.
+</p>
+<h3 id="index-function">Index Function<a href="#index-function"></a></h3>
+<p>
+  We define a function \( f(n) \) for integer \( n \) by
+
+  \[
+    f(n) = \begin{cases}
+      1 &amp; \text{if } 3 \mid n \text{ and } 5 \nmid n, \\
+      2 &amp; \text{if } 3 \nmid n \text{ and } 5 \mid n, \\
+      3 &amp; \text{if } 3 \mid n \text{ and } 5 \mid n, \\
+      0 &amp; \text{otherwise}.
+    \end{cases}
+  \]
+
+  The notation \( m \mid n \) means that the integer \( m \) divides
+  the integer \( n, \) i.e. \( n \) is a multiple of \( m.  \)
+  Equivalently, there exists an integer \( c \) such that \( n = cm
+ .  \)  Similarly, \( m \nmid n \) means that \( m \) does not divide
+  \( n, \) i.e. \( n \) is not a multiple of \( m.  \)
+</p>
+<p>
+  This function covers all four conditions involved in choosing the \(
+  n \)th item of the Fizz Buzz sequence.  As we will soon see, this
+  function tells us which of the four symbol functions produces the \(
+  n \)th item of the Fizz Buzz sequence.  For this reason, we call \(
+  f(n) \) the index function.
+</p>
+<h3 id="fizz-buzz-sequence">Fizz Buzz Sequence<a href="#fizz-buzz-sequence"></a></h3>
+<p>
+  We now define the Fizz Buzz sequence as the sequence
+
+  \[
+    (s_{f(n)}(n))_{n = 1}^{\infty}
+  \]
+
+  We can expand the first few terms of the sequence explicitly as
+  follows:
+
+  \begin{align*}
+    (s_{f(n)}(n))_{n = 1}^{\infty}
+    &amp;= (s_{f(1)}(1), \; s_{f(2)}(2), \; s_{f(3)}(3), \; s_{f(4)}(4), \;
+            s_{f(5)}(5), \; s_{f(6)}(6), \; s_{f(7)}(7), \; \dots) \\
+    &amp;= (s_0(1), \; s_0(2), \; s_1(3), \; s_0(4),
+            s_2(5), \; s_1(6), \; s_0(7), \; \dots) \\
+    &amp;= (1, \; 2, \; \mathtt{Fizz}, \; 4, \;
+            \mathtt{Buzz}, \; \mathtt{Fizz}, \; 7, \; \dots).
+  \end{align*}
+
+  Note how the function \( f(n) \) produces an index \( i \) which we
+  then use to select the symbol function \( s_i(n) \) to produce the
+  \( n \)th term of the sequence.  This is precisely why we decided to
+  call \( f(n) \) the index function while defining it in the previous
+  section.
+</p>
+<h2 id="from-indicator-functions-to-cosines">From Indicator Functions to Cosines<a href="#from-indicator-functions-to-cosines"></a></h2>
+<p>
+  Here we discuss the first method of deriving our closed form
+  expression, starting with indicator functions and rewriting them
+  using complex exponentials and cosines.
+</p>
+<h3 id="indicator-functions">Indicator Functions<a href="#indicator-functions"></a></h3>
+<p>
+  Here is the index function \( f(n) \) from the previous section with
+  its cases and conditions rearranged to make it easier to spot
+  interesting patterns:
+
+  \[
+    f(n) = \begin{cases}
+      0 &amp; \text{if } 5 \nmid n \text{ and } 3 \nmid n, \\
+      1 &amp; \text{if } 5 \nmid n \text{ and } 3 \mid n, \\
+      2 &amp; \text{if } 5 \mid n \text{ and } 3 \nmid n, \\
+      3 &amp; \text{if } 5 \mid n \text{ and } 3 \mid n.
+    \end{cases}
+  \]
+
+  This function helps us select another function \( s_{f(n)}(n) \)
+  which in turn determines the \( n \)th term of the Fizz Buzz
+  sequence.  Our goal now is to replace this piecewise formula with a
+  single closed-form expression.  To do so, we first define indicator
+  functions \( I_m(n) \) as follows:
+
+  \[
+    I_m(n) = \begin{cases}
+      1 &amp; \text{if } m \mid n, \\
+      0 &amp; \text{if } m \nmid n.
+    \end{cases}
+  \]
+
+  The formula for \( f(n) \) can now be written as:
+
+  \[
+    f(n) = \begin{cases}
+      0 &amp; \text{if } I_5(n) = 0 \text{ and } I_3(n) = 0, \\
+      1 &amp; \text{if } I_5(n) = 0 \text{ and } I_3(n) = 1, \\
+      2 &amp; \text{if } I_5(n) = 1 \text{ and } I_3(n) = 0, \\
+      3 &amp; \text{if } I_5(n) = 1 \text{ and } I_3(n) = 1.
+    \end{cases}
+  \]
+
+  Do you see a pattern?  Here is the same function written as a table:
+</p>
+<table class="grid center textcenter">
+  <tr>
+    <th>\( I_5(n) \)</th>
+    <th>\( I_3(n) \)</th>
+    <th>\( f(n) \)</th>
+  </tr>
+  <tr>
+    <td>\( 0 \)</td>
+    <td>\( 0 \)</td>
+    <td>\( 0 \)</td>
+  </tr>
+  <tr>
+    <td>\( 0 \)</td>
+    <td>\( 1 \)</td>
+    <td>\( 1 \)</td>
+  </tr>
+  <tr>
+    <td>\( 1 \)</td>
+    <td>\( 0 \)</td>
+    <td>\( 2 \)</td>
+  </tr>
+  <tr>
+    <td>\( 1 \)</td>
+    <td>\( 1 \)</td>
+    <td>\( 3 \)</td>
+  </tr>
+</table>
+<p>
+  Do you see it now?  If we treat the values in the first two columns
+  as binary digits and the values in the third column as decimal
+  numbers, then in each row the first two columns give the binary
+  representation of the number in the third column.  For example, \(
+  3_{10} = 11_2 \) and indeed in the last row of the table, we see the
+  bits \( 1 \) and \( 1 \) in the first two columns and the number \(
+  3 \) in the last column.  In other words, writing the binary digits
+  \( I_5(n) \) and \( I_3(n) \) side by side gives us the binary
+  representation of \( f(n).  \)  Therefore
+
+  \[
+    f(n) = 2 \, I_5(n) + I_3(n).
+  \]
+
+  We can now write a small program to demonstrate this formula:
+</p>
+<pre>
+<code>for n in range(1, 101):
+    s = [n, 'Fizz', 'Buzz', 'FizzBuzz']
+    i = (n % 3 == 0) + 2 * (n % 5 == 0)
+    print(s[i])</code>
+</pre>
+<p>
+  We can make it even shorter at the cost of some clarity:
+</p>
+<pre>
+<code>for n in range(1, 101):
+    print([n, 'Fizz', 'Buzz', 'FizzBuzz'][(n % 3 == 0) + 2 * (n % 5 == 0)])</code>
+</pre>
+<p>
+  What we have obtained so far is pretty good.  While there is no
+  universal definition of a closed-form expression, I think most
+  people would agree that the indicator functions as defined above are
+  simple enough to be permitted in a closed-form expression.
+</p>
+<h3 id="complex-exponentials">Complex Exponentials<a href="#complex-exponentials"></a></h3>
+<p>
+  In the previous section, we obtained the formula
+
+  \[
+    f(n) = I_3(n) + 2 \, I_5(n)
+  \]
+
+  which we then used as an index to look up the text to be printed.
+  We also argued that this is a pretty good closed-form expression
+  already.
+</p>
+<p>
+  However, in the interest of making things more complicated, we must
+  ask ourselves: What if we are not allowed to use the indicator
+  functions?  What if we must adhere to the commonly accepted meaning
+  of a closed-form expression which allows only finite combinations of
+  basic operations such as addition, subtraction, multiplication,
+  division, integer exponents and roots with integer index as well as
+  functions such as exponentials, logarithms and trigonometric
+  functions.  It turns out that the above formula can be rewritten
+  using only addition, multiplication, division and the cosine
+  function.  Let us begin the translation.  Consider the sum
+
+  \[
+    S_m(n) = \sum_{k = 0}^{m - 1} e^{i 2 \pi k n / m},
+  \]
+
+  where \( i \) is the imaginary unit and \( n \) and \( m \) are
+  integers.  This is a geometric series in the complex plane with
+  ratio \( r = e^{i 2 \pi n / m}.  \)  If \( n \) is a multiple of \( m
+ , \) then \( n = cm \) for some integer \( c \) and we get
+
+  \[
+    r
+    = e^{i 2 \pi n / m}
+    = e^{i 2 \pi c}
+    = 1.
+  \]
+
+  Therefore, when \( n \) is a multiple of \( m, \) we get
+
+  \[
+    S_m(n)
+    = \sum_{k = 0}^{m - 1} e^{i 2 \pi k n / m}
+    = \sum_{k = 0}^{m - 1} 1^k
+    = m.
+  \]
+
+  If \( n \) is not a multiple of \( m, \) then \( r \ne 1 \) and the
+  geometric series becomes
+
+  \[
+    S_m(n)
+    = \frac{r^m - 1}{r - 1}
+    = \frac{e^{i 2 \pi n} - 1}{e^{i 2 \pi n / m} - 1}
+    = 0.
+  \]
+
+  Therefore,
+
+  \[
+    S_m(n) = \begin{cases}
+      m &amp; \text{if } m \mid n, \\
+      0 &amp; \text{if } m \nmid n.
+    \end{cases}
+  \]
+
+  Dividing both sides by \( m, \) we get
+
+  \[
+    \frac{S_m(n)}{m} = \begin{cases}
+      1 &amp; \text{if } m \mid n, \\
+      0 &amp; \text{if } m \nmid n.
+    \end{cases}
+  \]
+
+  But the right-hand side is \( I_m(n).  \)  Therefore
+
+  \[
+    I_m(n)
+    = \frac{S_m(n)}{m}
+    = \frac{1}{m} \sum_{k = 0}^{m - 1} e^{i 2 \pi k n / m}.
+  \]
+</p>
+<h3 id="cosines">Cosines<a href="#cosines"></a></h3>
+<p>
+  We begin with Euler's formula
+
+  \[
+    e^{i x} = \cos x + i \sin x
+  \]
+
+  where \( x \) is a real number.  From this formula, we get
+
+  \[
+    e^{i x} + e^{-i x} = 2 \cos x.
+  \]
+
+  Therefore
+
+  \begin{align*}
+    I_3(n)
+    &amp;= \frac{1}{3} \sum_{k = 0}^2 e^{i 2 \pi k n / 3} \\
+    &amp;= \frac{1}{3} \left( 1 + e^{i 2 \pi n / 3} +
+                                  e^{i 4 \pi n / 3} \right) \\
+    &amp;= \frac{1}{3} \left( 1 + e^{i 2 \pi n / 3} +
+                                  e^{-i 2 \pi n / 3} \right) \\
+    &amp;= \frac{1}{3} + \frac{2}{3} \cos \left( \frac{2 \pi n}{3} \right).
+  \end{align*}
+
+  The third equality above follows from the fact that \( e^{i 4 \pi n
+  / 3} = e^{i 6 \pi n / 3} e^{-i 2 \pi n / 3} = e^{i 2 \pi n} e^{-i 2
+  \pi n/3} = e^{-i 2 \pi n / 3} \) when \( n \) is an integer.
+</p>
+<p>
+  The function above is defined for integer values of \( n \) but we
+  can extend its formula to real \( x \) and plot it to observe its
+  shape between integers.  As expected, the function takes the value
+  \( 1 \) whenever \( x \) is an integer multiple of \( 3 \) and \( 0
+  \) whenever \( x \) is an integer not divisible by \( 3.  \)
+</p>
+<figure class="soft">
+  <img src="files/blog/fizz-buzz-i3.png" alt="Graph">
+  <figcaption>
+    Graph of \( \frac{1}{3} + \frac{2}{3} \cos \left( \frac{2 \pi x}{3} \right) \)
+  </figcaption>
+</figure>
+<p>
+  Similarly,
+
+  \begin{align*}
+    I_5(n)
+    &amp;= \frac{1}{5} \sum_{k = 0}^4 e^{i 2 \pi k n / 5} \\
+    &amp;= \frac{1}{5} \left( 1 + e^{i 2 \pi n / 5}
+                                + e^{i 4 \pi n / 5}
+                                + e^{i 6 \pi n / 5}
+                                + e^{i 8 \pi n / 5} \right) \\
+    &amp;= \frac{1}{5} \left( 1 + e^{i 2 \pi n / 5}
+                                + e^{i 4 \pi n / 5}
+                                + e^{-i 4 \pi n / 5}
+                                + e^{-i 2 \pi n / 5} \right) \\
+    &amp;= \frac{1}{5} + \frac{2}{5} \cos \left( \frac{2 \pi n}{5} \right)
+                       + \frac{2}{5} \cos \left( \frac{4 \pi n}{5} \right).
+  \end{align*}
+
+  Extending this expression to real values of \( x \) allows us to
+  plot its shape as well.  Once again, the function takes the value \(
+  1 \) at integer multiples of \( 5 \) and \( 0 \) at integers not
+  divisible by \( 5.  \)
+</p>
+<figure class="soft">
+  <img src="files/blog/fizz-buzz-i5.png" alt="Graph">
+  <figcaption>
+    Graph of \(
+      \frac{1}{5}
+      + \frac{2}{5} \cos \left( \frac{2 \pi x}{5} \right)
+      + \frac{2}{5} \cos \left( \frac{4 \pi x}{5} \right)
+    \)
+  </figcaption>
+</figure>
+<p>
+  Recall that we expressed \( f(n) \) as
+
+  \[
+    f(n) = I_3(n) + 2 \, I_5(n).
+  \]
+
+  Substituting these trigonometric expressions yields
+
+  \[
+    f(n)
+    = \frac{1}{3}
+      + \frac{2}{3} \cos \left( \frac{2 \pi n}{3} \right)
+      + 2 \cdot \left(
+        \frac{1}{5}
+        + \frac{2}{5} \cos \left( \frac{2 \pi n}{5} \right)
+        + \frac{2}{5} \cos \left( \frac{4 \pi n}{5} \right)
+      \right).
+  \]
+
+  A straightforward simplification gives
+
+  \[
+    f(n)
+    = \frac{11}{15}
+      + \frac{2}{3} \cos \left( \frac{2 \pi n}{3} \right)
+      + \frac{4}{5} \cos \left( \frac{2 \pi n}{5} \right)
+      + \frac{4}{5} \cos \left( \frac{4 \pi n}{5} \right).
+  \]
+
+  We can extend this expression to real \( x \) and plot it as well.
+  The resulting curve takes the values \( 0, 1, 2 \) and \( 3 \) at
+  integer points, as desired.
+</p>
+<figure class="soft">
+  <img src="files/blog/fizz-buzz-f.png" alt="Graph">
+  <figcaption>
+    Graph of \(
+      \frac{11}{15} +
+      \frac{2}{3} \cos \left( \frac{2 \pi x}{3} \right) +
+      \frac{4}{5} \cos \left( \frac{2 \pi x}{5} \right) +
+      \frac{4}{5} \cos \left( \frac{4 \pi x}{5} \right)
+    \)
+  </figcaption>
+</figure>
+<p>
+  Now we can write our Python program as follows:
+</p>
+<pre>
+<code>from math import cos, pi
+for n in range(1, 101):
+    s = [n, 'Fizz', 'Buzz', 'FizzBuzz']
+    i = round(11 / 15 + (2 / 3) * cos(2 * pi * n / 3)
+                      + (4 / 5) * cos(2 * pi * n / 5)
+                      + (4 / 5) * cos(4 * pi * n / 5))
+    print(s[i])</code>
+</pre>
+<h2 id="dft">Discrete Fourier Transform<a href="#dft"></a></h2>
+<p>
+  The keen-eyed might notice that the expression we obtained for \(
+  f(n) \) is a discrete Fourier series.  This is not surprising, since
+  the output of a Fizz Buzz program depends only on \( n \bmod 15.  \)
+  Any function on a finite cyclic group can be written exactly as a
+  finite Fourier expansion.  In this section, we obtain \( f(n) \)
+  using the discrete Fourier transform.  It is worth mentioning that
+  the calculations presented here are quite tedious to do by hand.
+  Nevertheless, this section offers a glimpse of how such calculations
+  are performed.  By the end, we will arrive at exactly the same \(
+  f(n) \) as before.  There is nothing new to discover here.  We
+  simply obtain the same result by a more direct but more laborious
+  method.  If this doesn't sound interesting, you may safely skip the
+  subsections that follow.
+</p>
+<h3 id="one-period-of-fizz-buzz">One Period of Fizz Buzz<a href="#one-period-of-fizz-buzz"></a></h3>
+<div style="display: none">\( \gdef\arraystretch{1.2} \)</div>
+<p>
+  We know that \( f(n) \) is a periodic function with period \( 15.  \)
+  To apply the discrete Fourier transform, we look at one complete
+  period of the function using the values \( n = 0, 1, \dots, 14.  \)
+  Over this period, we have:
+
+  \begin{array}{c|ccccccccccccccc}
+      n &amp;  0 &amp;  1 &amp;  2 &amp;  3 &amp;  4
+        &amp;  5 &amp;  6 &amp;  7 &amp;  8 &amp;  9
+        &amp; 10 &amp; 11 &amp; 12 &amp; 13 &amp; 14 \\
+    \hline
+    f(n) &amp; 3 &amp;  0 &amp;  0 &amp;  1 &amp;  0
+         &amp; 2 &amp;  1 &amp;  0 &amp;  0 &amp;  1
+         &amp; 2 &amp;  0 &amp;  1 &amp;  0 &amp;  0
+  \end{array}
+
+  The discrete Fourier series of \( f(n) \) is
+
+  \[
+    f(n) = \sum_{k = 0}^{14} c_k \, e^{i 2 \pi k n / 15}
+  \]
+
+  where the Fourier coefficients \( c_k \) are given by the discrete
+  Fourier transform
+
+  \[
+    c_k = \frac{1}{15} \sum_{n = 0}^{14} f(n) e^{-i 2 \pi k n / 15}.
+  \]
+
+  for \( k = 0, 1, \dots, 14.  \)  The formula for \( c_k \) is called
+  the discrete Fourier transform (DFT).  The formula for \( f(n) \) is
+  called the inverse discrete Fourier transform (IDFT).
+</p>
+<h3 id="fourier-coefficients">Fourier Coefficients<a href="#fourier-coefficients"></a></h3>
+<p>
+  Let \( \omega = e^{-i 2 \pi / 15}.  \)  Then using the values of \(
+  f(n) \) from the table above, the DFT becomes:
+
+  \[
+    c_k = \frac{3 + \omega^{3k} + 2 \omega^{5k} + \omega^{6k}
+                  + \omega^{9k} + 2 \omega^{10k} + \omega^{12k}}{15}.
+  \]
+
+  Substituting \( k = 0, 1, 2, \dots, 14 \) into the above equation
+  gives us the following Fourier coefficients:
+
+  \begin{align*}
+    c_{0}  &amp;= \frac{11}{15}, \\
+    c_{3}  &amp;= c_{6} = c_{9} = c_{12} = \frac{2}{5}, \\
+    c_{5}  &amp;= c_{10} = \frac{1}{3}, \\
+    c_{1}  &amp;= c_{2} = c_{4} = c_{7} = c_{8} = c_{11} = c_{13} = c_{14} = 0.
+  \end{align*}
+
+  Calculating these Fourier coefficients by hand can be rather
+  tedious.  In practice they are almost always calculated using
+  numerical software, computer algebra systems or even simple code
+  such as the example here:
+  <a href="code/fizz-buzz-fourier/fizz-buzz-fourier.py">fizz-buzz-fourier.py</a>.
+</p>
+<h3 id="inverse-transform">Inverse Transform<a href="#inverse-transform"></a></h3>
+<p>
+  Once the coefficients are known, we can substitute them into the
+  inverse transform introduced earlier to obtain
+
+  \begin{align*}
+    f(n)
+    &amp;= \sum_{k = 0}^{14} c_k \, e^{i 2 \pi k n / 15} \\[1.5em]
+    &amp;= \frac{11}{15}
+           + \frac{2}{5} \left(
+             e^{i 2 \pi \cdot 3n / 15}
+             + e^{i 2 \pi \cdot 6n / 15}
+             + e^{i 2 \pi \cdot 9n / 15}
+             + e^{i 2 \pi \cdot 12n / 15}
+           \right) \\
+           &amp; \phantom{=\frac{11}{15}}
+           + \frac{1}{3} \left(
+             e^{i 2 \pi \cdot 5n / 15}
+             + e^{i 2 \pi \cdot 10n / 15}
+           \right) \\[1em]
+    &amp;= \frac{11}{15}
+           + \frac{2}{5} \left(
+             e^{i 2 \pi \cdot 3n / 15}
+             + e^{i 2 \pi \cdot 6n / 15}
+             + e^{-i 2 \pi \cdot 6n / 15}
+             + e^{-i 2 \pi \cdot 3n / 15}
+           \right) \\
+           &amp; \phantom{=\frac{11}{15}}
+           + \frac{1}{3} \left(
+             e^{i 2 \pi \cdot 5n / 15}
+             + e^{-i 2 \pi \cdot 5n / 15}
+           \right) \\[1em]
+    &amp;= \frac{11}{15}
+       + \frac{2}{5} \left(
+         2 \cos \left( \frac{2 \pi n}{5} \right)
+         + 2 \cos \left( \frac{4 \pi n}{5} \right)
+       \right) \\
+       &amp; \phantom{=\frac{11}{15}}
+       + \frac{1}{3} \left(
+         2 \cos \left( \frac{2 \pi n}{3} \right)
+       \right) \\[1em]
+    &amp;= \frac{11}{15} +
+       \frac{4}{5} \cos \left( \frac{2 \pi n}{5} \right) +
+       \frac{4}{5} \cos \left( \frac{4 \pi n}{5} \right) +
+       \frac{2}{3} \cos \left( \frac{2 \pi n}{3} \right).
+  \end{align*}
+
+  This is exactly the same expression for \( f(n) \) we obtained in
+  the previous section.  We see that the Fizz Buzz index function \(
+  f(n) \) can be expressed precisely using the machinery of Fourier
+  analysis.
+</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  To summarise, we have defined the Fizz Buzz sequence as
+
+  \[
+    (s_{f(n)}(n))_{n = 1}^{\infty}
+  \]
+
+  where
+
+  \[
+    f(n)
+    = \frac{11}{15} +
+      \frac{2}{3} \cos \left( \frac{2 \pi n}{3} \right) +
+      \frac{4}{5} \cos \left( \frac{2 \pi n}{5} \right) +
+      \frac{4}{5} \cos \left( \frac{4 \pi n}{5} \right).
+  \]
+
+  and \( s_0(n) = n, \) \( s_1(n) = \mathtt{Fizz}, \) \( s_2(n) =
+  \mathtt{Buzz} \) and \( s_3(n) = \mathtt{FizzBuzz}.  \)  A Python
+  program to print the Fizz Buzz sequence based on this definition was
+  presented earlier.  That program can be written more succinctly as
+  follows:
+</p>
+<pre>
+<code>from math import cos, pi
+for n in range(1, 101):
+    print([n, 'Fizz', 'Buzz', 'FizzBuzz'][round(11 / 15 + (2 / 3) * cos(2 * pi * n / 3) + (4 / 5) * (cos(2 * pi * n / 5) + cos(4 * pi * n / 5)))])</code>
+</pre>
+<p>
+  We can also wrap this up nicely in a shell one-liner, in case you
+  want to share it with your friends and family and surprise them:
+</p>
+<pre><code>python3 -c 'from math import cos, pi; [print([n, "Fizz", "Buzz", "FizzBuzz"][round(11/15 + (2/3) * cos(2*pi*n/3) + (4/5) * (cos(2*pi*n/5) + cos(4*pi*n/5)))]) for n in range(1, 101)]'</code></pre>
+<p>
+  We have taken a simple counting game and turned it into a
+  trigonometric construction consisting of a discrete Fourier series
+  with three cosine terms and four coefficients.  None of this makes
+  Fizz Buzz any easier.  Quite the contrary.  But it does show that
+  every \( \mathtt{Fizz} \) and \( \mathtt{Buzz} \) now owes its
+  existence to a particular set of Fourier coefficients.  We began
+  with the modest goal of making this simple problem more complicated.
+  I think it is safe to say that we did not fall short.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/fizz-buzz-with-cosines.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/python.html">#python</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Nerd Quiz</title>
+<link>https://susam.net/nq.html</link>
+<guid isPermaLink="false">nqhtm</guid>
+<pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A nerdy, handcrafted quiz built from everyday moments of reading,
+  writing, thinking, learning and exploring.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/nq.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Reinstated My Guestbook After 20 Years</title>
+<link>https://susam.net/reinstated-guestbook.html</link>
+<guid isPermaLink="false">gbret</guid>
+<pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I have reinstated the <a href="comments/guestbook.html">guestbook</a>
+  on this website after 20 years!  As I have written in the
+  <a href="about.html">About</a> page, this website began its life as
+  an intranet portal in my university network back in 2001–2005.  That
+  portal first ran on Microsoft Personal Web Server (PWS) and later on
+  Microsoft Internet Information Services (IIS), with the guestbook
+  data stored in a Microsoft Access database.  At the same time, I
+  also maintained a small public website on the Internet, hosted on a
+  subdomain provided by a free hosting service, where I published a
+  subset of the articles from the intranet portal.  Both the intranet
+  portal and the public website had guestbooks.  The guestbook on the
+  public website was powered by a CGI script provided by the hosting
+  service, which inserted each comment directly into the guestbook
+  HTML page.  As some of you might guess, yes, it was vulnerable to
+  cross-site scripting, but that's beside the point.
+</p>
+<p>
+  After leaving the university, I registered my own domain name and
+  set up my current website on the World Wide Web and included some of
+  the content from both the original intranet portal and the old
+  public website.  For some reason, though, I never thought to include
+  a guestbook.  And so this website went on without a guestbook for
+  the next 20 years.  Finally, in June 2025, I decided to bring the
+  guestbook back.  I already had a commenting system implemented for
+  this website using Common Lisp and Hunchentoot, so I simply reused
+  it for the guestbook.  The
+  <a href="https://github.com/susam/susam.net/blob/0.3.0/form.lisp">server program</a>
+  accepts POST requests to receive comments and writes them to text
+  files on the web server for manual review.  The comments are then
+  rendered as static HTML pages by my static site generator.  In a
+  way, it is less a comment system and more a static comment pages
+  generator.
+</p>
+<p>
+  Unfortunately, I could not restore all the comments from the
+  original guestbooks.  The ASP source code of my intranet portal as
+  well as the guestbook database are now lost to time.  Note that what
+  I refer to as ASP here is now known as Classic ASP, to avoid
+  confusion with ASP.NET.  A CD-ROM backup eventually succumbed to
+  disc rot and with it vanished the source code and the database.  But
+  a handful of comments had survived because they had found their way
+  into other files and correspondence and I have now included them
+  here.  I had better luck with the guestbook of the old public
+  website, from which I was able to recover a greater number of
+  comments.  It is still only a small fraction of what once existed,
+  but it feels good to have even those fragments preserved.  The new
+  guestbook is now available here:
+  <a href="comments/guestbook.html">Guestbook</a>.
+</p>
+<p>
+  I wasn't expecting anybody to notice the new guestbook.  It is only
+  mentioned in the <a href="about.html">About</a> and
+  <a href="links.html">Links</a> pages, neither of which see much
+  traffic.  Here are a few examples:
+</p>
+<blockquote>
+  <p>
+    I love that your website has a guestbook!  :D
+  </p>
+</blockquote>
+<blockquote>
+  <p>
+    Love the guestbook!  We need more of these.  Makes you feel
+    invited.
+  </p>
+</blockquote>
+<p>
+  It's a small addition to my website, but after two decades, it feels
+  good to see the guestbook alive again and even better to see
+  visitors enjoying it!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/reinstated-guestbook.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>My Lobsters Interview</title>
+<link>https://susam.net/my-lobsters-interview.html</link>
+<guid isPermaLink="false">lbstr</guid>
+<pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I recently had an engaging conversation with Alex
+  (<a href="https://lobste.rs/~veqq">@veqq</a>) from the
+  <a href="https://lobste.rs/">Lobsters</a> community about computing,
+  mathematics and a range of related topics.  Our conversation was
+  later published on the community website as
+  <a href="https://lobste.rs/s/kltoas">Lobsters Interview with
+  Susam</a>.
+</p>
+<p>
+  I should mention the sections presented in that post are not in the
+  same order in which we originally discussed them.  The sections were
+  edited and rearranged by Alex to improve the flow and avoid
+  repetition of similar topics too close to each other.
+</p>
+<p>
+  This page preserves a copy of our discussion as edited by Alex, so I
+  can keep an archived version on my website.  In my copy, I have
+  added a table of contents to make it easier to navigate to specific
+  sections.  The interview itself follows the table of contents.  I
+  hope you enjoy reading it.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ol>
+  <li><a href="#lisp-and-other-things">Lisp and Other Things</a></li>
+  <li><a href="#lisp-emacs-and-mathematics">Lisp, Emacs and Mathematics</a></li>
+  <li><a href="#interests-and-exploration">Interests and Exploration</a></li>
+  <li><a href="#computing-for-fun">Computing for Fun</a></li>
+  <li><a href="#computing-activities">Computing Activities</a></li>
+  <li><a href="#programming-vs-domains">Programming vs Domains</a></li>
+  <li><a href="#old-functionality-and-new-problems">Old Functionality and New Problems</a></li>
+  <li><a href="#designing-for-composability">Designing for Composability</a></li>
+  <li><a href="#small-vs-large-functions">Small vs Large Functions</a></li>
+  <li><a href="#domains-and-projects">Domains and Projects</a></li>
+  <li><a href="#double-spacing-and-touch-typing">Double Spacing and Touch Typing</a></li>
+  <li><a href="#approach-to-learning">Approach to Learning</a></li>
+  <li><a href="#managing-time-and-distractions">Managing Time and Distractions</a></li>
+  <li><a href="#blogging">Blogging</a></li>
+  <li><a href="#forums">Forums</a></li>
+  <li><a href="#mathb-moderation-problems">MathB Moderation Problems</a></li>
+  <li><a href="#favourite-mathematics-textbooks">Favourite Mathematics Textbooks</a></li>
+  <li><a href="#mathematics-and-computing">Mathematics and Computing</a></li>
+</ol>
+<h2 id="conversation">Our Conversation<a href="#conversation"></a></h2>
+<!-- Lisp and other things -->
+<p class="question" id="lisp-and-other-things">
+  Hi <a href="https://lobste.rs/~susam">@susam</a>, I primarily know
+  you as a Lisper, what other things do you use?
+</p>
+<p>
+  Yes, I use Lisp extensively for my personal projects and much of
+  what I do in my leisure is built on it.  I ran
+  a <a href="https://github.com/susam/mathb">mathematics pastebin</a>
+  for close to thirteen years.  It was quite popular on some IRC
+  channels.  The pastebin was written in Common Lisp.
+  My <a href="https://susam.net/">personal website</a> and blog are
+  generated using a tiny static site generator written in Common Lisp.
+  Over the years I have built several other personal tools in it as
+  well.
+</p>
+<p>
+  I am an active Emacs Lisp programmer too.  Many of my software tools
+  are in fact Emacs Lisp functions that I invoke with convenient key
+  sequences.  They help me automate repetitive tasks as well as
+  improve my text editing and task management experience.
+</p>
+<p>
+  I use plenty of other tools as well.  In my early adulthood, I spent
+  many years working with C, C++, Java and PHP.  My
+  <a href="https://issues.apache.org/jira/browse/NUTCH-559">first
+  substantial open source contribution</a> was to the Apache Nutch
+  project which was in Java and one of my early original open source
+  projects was <a href="https://github.com/susam/uncap">Uncap</a>, a C
+  program to remap keys on Windows.
+</p>
+<p>
+  These days I use a lot of Python, along with some Go and Rust, but
+  Lisp remains important to my personal work.  I also enjoy writing
+  small standalone tools directly in HTML and JavaScript, often with
+  all the code in a single file in a readable, unminified form.
+</p>
+<!-- Lisp, Emacs and mathematics -->
+<p class="question" id="lisp-emacs-and-mathematics">
+  How did you first discover computing, then end up with Lisp, Emacs
+  and mathematics?
+</p>
+<p>
+  I got introduced to computers through the Logo programming language
+  as a kid.  Using simple arithmetic, geometry, logic and code to
+  manipulate a two-dimensional world had a lasting effect on me.
+</p>
+<p>
+  I still vividly remember how I ended up with Lisp.  It was at an
+  airport during a long layover in 2007.  I wanted to use the time to
+  learn something, so I booted my laptop
+  running <a href="https://www.debian.org/">Debian</a> GNU/Linux 4.0
+  (Etch) and then started
+  <a href="https://www.gnu.org/software/clisp/">GNU CLISP</a> 2.41.
+  In those days, Wi-Fi in airports was uncommon.  Smartphones and
+  mobile data were also uncommon.  So it was fortunate that I had
+  CLISP already installed on my system and my laptop was ready for
+  learning Common Lisp.  I had it installed because I had wanted to
+  learn Common Lisp for some time.  I was especially attracted by its
+  simplicity, by the fact that the entire language can be built up
+  from a very small set of special forms.  I
+  use <a href="https://www.sbcl.org/">SBCL</a> these days, by the way.
+</p>
+<p>
+  I discovered Emacs through Common Lisp.  Several sources recommended
+  using the <a href="https://slime.common-lisp.dev/">Superior Lisp
+  Interaction Mode for Emacs (SLIME)</a> for Common Lisp programming,
+  so that's where I began.  For many years I continued to use Vim as
+  my primary editor, while relying on Emacs and SLIME for Lisp
+  development.  Over time, as I learnt more about Emacs itself, I grew
+  fond of Emacs Lisp and eventually made Emacs my primary editor and
+  computing environment.
+</p>
+<p>
+  I have loved mathematics since my childhood days.  What has always
+  fascinated me is how we can prove deep and complex facts using first
+  principles and clear logical steps.  That feeling of certainty and
+  rigour is unlike anything else.
+</p>
+<p>
+  Over the years, my love for the subject has been rekindled many
+  times.  As a specific example, let me share how I got into number
+  theory.  One day I decided to learn the RSA cryptosystem.  As I was
+  working through the
+  <a href="https://people.csail.mit.edu/rivest/Rsapaper.pdf">RSA
+  paper</a>, I stumbled upon the Euler totient function
+  \( \varphi(n) \) which gives the number of positive integers not
+  exceeding n that are relatively prime to n.  The paper first states
+  that
+
+  \[
+    \varphi(p) = p - 1
+  \]
+
+  for prime numbers \( p.  \)  That was obvious since \( p \) has no
+  factors other than \( 1 \) and itself, so every integer from \( 1 \)
+  up to \( p - 1 \) must be relatively prime to it.  But then it
+  presents
+
+  \[
+    \varphi(pq) = \varphi(p) \cdot \varphi(q) = (p - 1)(q - 1)
+  \]
+
+  for primes \( p \) and \( q.  \)  That was not immediately obvious to
+  me back then.  After a few minutes of thinking, I managed to prove
+  it from scratch.  By the inclusion-exclusion principle, we count how
+  many integers from \( 1 \) up to \( pq \) are not divisible by
+  \(p \) or \( q.  \)  There are \( pq \) integers in total.  Among
+  them, there are \( q \) integers divisible by \( p \) and \( p \)
+  integers divisible by \( q.  \)  So we need to subtract \( p + q \)
+  from \(pq.  \)  But since one integer (\( pq \) itself) is counted in
+  both groups, we add \( 1 \) back.  Therefore
+
+  \[
+    \varphi(pq) = pq - (p + q) + 1 = (p - 1)(q - 1).
+  \]
+
+  Next I could also obtain the general formula for \( \varphi(n) \)
+  for an arbitrary positive integer \( n \) using the same idea.
+  There are several other proofs too, but that is how I derived the
+  general formula for \( \varphi(n) \) when I first encountered it.
+  And just like that, I had begun to learn number theory!
+</p>
+<!-- Computing for fun -->
+<p class="question" id="computing-for-fun">
+  You've said you prefer computing for fun.  What is fun to you?  Do
+  you have an idea of what makes something fun or not?
+</p>
+<p>
+  For me, fun in computing began when I first learnt IBM/LCSI PC Logo
+  when I was nine years old.  I had very limited access to computers
+  back then, perhaps only about two hours per <em>month</em> in the
+  computer laboratory at my primary school.  Most of my Logo
+  programming happened with pen and paper at home.  I would "test" my
+  programs by tracing the results on graph paper.  Eventually I would
+  get about thirty minutes of actual computer time in the lab to run
+  them for real.
+</p>
+<p>
+  So back then, most of my computing happened without an actual
+  computer.  But even with that limited access to computers, a whole
+  new world opened up for me: one that showed me the joy of computing
+  and more importantly, the joy of sharing my little programs with my
+  friends and teachers.  One particular Logo program I still remember
+  very well drew a house with animated dashed lines, where the dashes
+  moved around the outline of the house.  Everyone around me loved it,
+  copied it and tweaked it to change the colours, alter the details
+  and add their own little touches.
+</p>
+<p>
+  For me, fun in computing comes from such exploration and sharing.  I
+  enjoy asking "what happens if" and then seeing where it leads me.
+  My Emacs package
+  <a href="https://elpa.nongnu.org/nongnu/devil.html">devil-mode</a>
+  comes from such exploration.  It came from asking, "What happens if
+  we avoid using the <kbd>ctrl</kbd> and <kbd>meta</kbd> modifier keys
+  and use <kbd>,</kbd> (the comma key) or another suitable key as a
+  leader key instead?  And can we still have a non-modal editing
+  experience?"
+</p>
+<p>
+  Sometimes computing for fun may mean crafting a minimal esoteric
+  drawing language, making a small game or building a tool that solves
+  an interesting problem elegantly.  It is a bonus if the exploration
+  results in something working well enough that I can share with
+  others on the World Wide Web and others find it fun too.
+</p>
+<!-- Pursuits -->
+<p class="question" id="interests-and-exploration">
+  How do you choose what to investigate?  Which most interest you,
+  with what commonalities?
+</p>
+<p>
+  For me, it has always been one exploration leading to another.
+</p>
+<p>
+  For example, I originally built
+  <a href="https://github.com/susam/mathb">MathB</a> for my friends
+  and myself who were going through a phase in our lives when we used
+  to challenge each other with mathematical puzzles.  This tool became
+  a nice way to share solutions with each other.  Its use spread from
+  my friends to their friends and colleagues, then to schools and
+  universities and eventually to IRC channels.
+</p>
+<p>
+  Similarly, I built <a href="https://github.com/susam/texme">TeXMe</a>
+  when I was learning neural networks and taking a lot of notes on the
+  subject.  I was not ready to share the notes online, but I did want
+  to share them with my friends and colleagues who were also learning
+  the same topic.  Normally I would write my notes in LaTeX, compile
+  them to PDF and share the PDF, but in this case, I wondered, what if
+  I took some of the code from MathB and created a tool that would let
+  me write plain Markdown
+  (<a href="https://github.github.com/gfm/">GFM</a>) + LaTeX
+  (<a href="https://www.mathjax.org/">MathJax</a>) in
+  a <code>.html</code> file and have the tool render the file as soon
+  as it was opened in a web browser?  That resulted in TeXMe, which
+  has surprisingly become one of my most popular projects, receiving
+  millions of hits in some months according to the CDN statistics.
+</p>
+<p>
+  Another example is <a href="https://susam.github.io/muboard/">Muboard</a>,
+  which is a bit like an interactive mathematics chalkboard.  I built
+  this when I was hosting an
+  <a href="journey-to-prime-number-theorem.html">analytic number
+  theory book club</a> and I needed a way to type LaTeX snippets live
+  on screen and see them immediately rendered.  That made me wonder:
+  what if I took TeXMe, made it interactive and gave it a chalkboard
+  look-and-feel?  That led to Muboard.
+</p>
+<p>
+  So we can see that sharing mathematical notes and snippets has been
+  a recurring theme in several of my projects.  But that is only a
+  small fraction of my interests.  I have a wide variety of interests
+  in computing.  I also engage in random explorations, like writing
+  IRC clients
+  (<a href="https://github.com/susam/nimb">NIMB</a>,
+  <a href="https://github.com/susam/tzero">Tzero</a>),
+  ray tracing
+  (<a href="https://github.com/susam/pov25">POV-Ray</a>,
+  <a href="https://github.com/spxy/java-ray-tracing">Java ray tracer</a>),
+  writing Emacs guides
+  (<a href="https://github.com/susam/emacs4cl">Emacs4CL</a>,
+  <a href="https://github.com/susam/emfy">Emfy</a>),
+  developing small single-file HTML games
+  (<a href="invaders.html">Andromeda Invaders</a>,
+  <a href="myrgb.html">Guess My RGB</a>),
+  purely recreational programming
+  (<a href="fxyt.html">FXYT</a>,
+  <a href="https://github.com/susam/may4">may4.fs</a>,
+  <a href="self-printing-machine-code.html">self-printing machine code</a>,
+  <a href="primegrid.html">prime number grid explorer</a>)
+  and so on.  The list goes on.  When it comes to hobby computing, I
+  don't think I can pick just one domain and say it interests me the
+  most.  I have a lot of interests.
+</p>
+<!-- What is computing?  -->
+<p class="question" id="computing-activities">
+  What is computing, to you?
+</p>
+<p>
+  Computing, to me, covers a wide range of activities: programming a
+  computer, using a computer, understanding how it works, even
+  building one.  For example, I once built a tiny 16-bit CPU along
+  with a small main memory that could hold only eight 16-bit
+  instructions, using VHDL and a Xilinx CPLD kit.  The design was
+  based on the Mano CPU introduced in the book <em>Computer System
+  Architecture</em> (3rd ed.) by M. Morris Mano.  It was incredibly
+  fun to enter instructions into the main memory, one at a time, by
+  pushing DIP switches up and down and then watch the CPU I had built
+  execute an entire program.  For someone like me, who usually works
+  with software at higher levels of abstraction, that was a thrilling
+  experience!
+</p>
+<p>
+  Beyond such experiments, computing also includes more practical and
+  concrete activities, such as installing and using my favourite Linux
+  distribution (Debian), writing software tools in languages like
+  Common Lisp, Emacs Lisp, Python and the shell command language or
+  customising my Emacs environment to automate repetitive tasks.
+</p>
+<p>
+  To me, computing also includes the abstract stuff like spending time
+  with abstract algebra and number theory and getting a deeper
+  understanding of the results pertaining to groups, rings and fields,
+  as well as numerous number-theoretic results.  Browsing the
+  <a href="https://oeis.org/">On-Line Encyclopedia of Integer
+  Sequences</a> (OEIS), writing small programs to explore interesting
+  sequences or just thinking about them is computing too.  I think
+  many of the interesting results in computer science have deep
+  mathematical foundations.  I believe much of computer science is
+  really discrete mathematics in action.
+</p>
+<p>
+  And if we dive all the way down from the CPU to the level of
+  transistors, we encounter continuous mathematics as well, with
+  non-linear voltage-current relationships and analogue behaviour that
+  make digital computing possible.  It is fascinating how, as a
+  relatively new species on this planet, we have managed to take sand
+  and find a way to use continuous voltages and currents in electronic
+  circuits built with silicon and convert them into the discrete
+  operations of digital logic.  We have machines that can simulate
+  themselves!
+</p>
+<p>
+  To me, all of this is fun.  To study and learn about these things,
+  to think about them, to understand them better and to accomplish
+  useful or amusing results with this knowledge is all part of the
+  fun.
+</p>
+<!-- Programming vs domains -->
+<p class="question" id="programming-vs-domains">
+  How do you view programming vs. domains?
+</p>
+<p>
+  I focus more on the domain than the tool.  Most of the time it is a
+  problem that catches my attention and then I explore it to
+  understand the domain and arrive at a solution.  The problem itself
+  usually points me to one of the tools I already know.
+</p>
+<p>
+  For example, if it is about working with text files, I might write
+  an Emacs Lisp function.  If it involves checking large sets of
+  numbers rapidly for patterns, I might choose C++ or Rust.  But if I
+  want to share interactive visualisations of those patterns with
+  others, I might rewrite the solution in HTML and JavaScript,
+  possibly with the use of the Canvas API, so that I can share the
+  work as a self-contained file that others can execute easily within
+  their web browsers.  When I do that, I prefer to keep the HTML neat
+  and readable, rather than bundled or minified, so that people who
+  like to 'View Source' can copy, edit and customise the code
+  themselves to immediately see their changes take effect.
+</p>
+<p>
+  Let me share a specific example.  While working on a web-based game, I first
+  used <code>CanvasRenderingContext2D</code>'s <code>fillText()</code>
+  to display text on the game canvas.  However, dissatisfied with the
+  text rendering quality, I began looking for IBM PC OEM fonts and
+  similar retro fonts online.  After downloading a few font packs, I
+  wrote a little Python script to convert them to bitmaps (arrays of
+  integers) and then used the bitmaps to draw text on the canvas using
+  JavaScript, one cell at a time, to get pixel-perfect results!  These
+  tiny Python and JavaScript tools were good enough that I felt
+  comfortable sharing them together as a tiny toolkit called
+  <a href="https://susam.github.io/pcface/src/demo.html">PCFace</a>.
+  This toolkit offers JavaScript bitmap arrays and tiny JavaScript
+  rendering functions, so that someone else who wants to display text
+  on their game canvas using PC fonts and nothing but plain HTML and
+  JavaScript can do so without having to solve the problem from
+  scratch!
+</p>
+<!-- Applicability of old functionality for new problems -->
+<p class="question" id="old-functionality-and-new-problems">
+  Has the rate of your making new Emacs functions has diminished over
+  time (as if everything's covered) or do the widening domains lead to
+  more?  I'm curious how applicable old functionality is for new
+  problems and how that impacts the APIs!
+</p>
+<p>
+  My rate of making new Emacs functions has definitely decreased.
+  There are two reasons.  One is that over the years my computing
+  environment has converged into a comfortable, stable setup I am very
+  happy with.  The other is that at this stage of life I simply cannot
+  afford the time to endlessly tinker with Emacs as I did in my
+  younger days.
+</p>
+<p>
+  More generally, when it comes to APIs, I find that well-designed
+  functionality tends to remain useful even when new problems appear.
+  In Emacs, for example, many of my older functions continue to serve
+  me well because they were written in a composable way.  New problems
+  can often be solved with small wrappers or combinations of existing
+  functions.  I think APIs that consist of functions that are simple,
+  orthogonal and flexible age well.  If each function in an API does
+  one thing and does it well (the Unix philosophy), it will have
+  long-lasting utility.
+</p>
+<p>
+  Of course, new domains and problems do require new functions and
+  extensions to an API, but I think it is very important to not give
+  in to the temptation of enhancing the existing functions by making
+  them more complicated with optional parameters, keyword arguments,
+  nested branches and so on.  Personally, I have found that it is much
+  better to implement new functions that are small, orthogonal and
+  flexible, each doing one thing and doing it well.
+</p>
+<p class="question" id="designing-for-composability">
+  What design methods or tips do you have, to increase composability?
+</p>
+<p>
+  For me, good design starts with good vocabulary.  Clear vocabulary
+  makes abstract notions concrete and gives collaborators a shared
+  language to work with.  For example, while working on a network
+  events database many years ago, we collected data minute by minute
+  from network devices.  We decided to call each minute of data from a
+  single device a "nugget".  So if we had 15 minutes of data from 10
+  devices, that meant 150 nuggets.
+</p>
+<p>
+  Why "nugget"?  Because it was shorter and more convenient than
+  repeatedly saying "a minute of data from one device".  Why not
+  something less fancy like "chunk"?  Because we reserved "chunk" for
+  subdivisions within a nugget.  Perhaps there were better choices,
+  but "nugget" was the term we settled on and it quickly became shared
+  terminology between the collaborators.  Good terminology naturally
+  carries over into code.  With this vocabulary in place, function
+  names like <code>collect_nugget()</code>,
+  <code>open_nugget()</code>, <code>parse_chunk()</code>,
+  <code>index_chunk()</code>, <code>skip_chunk()</code>,
+  etc. immediately become meaningful to everyone involved.
+</p>
+<p>
+  Thinking about the vocabulary also ensures that we are thinking
+  about the data, concepts and notions we are working with in a
+  deliberate manner and that kind of thinking also helps when we
+  design the architecture of software.
+</p>
+<p>
+  Too often I see collaborators on software projects jump straight
+  into writing functions that take some input and produce some desired
+  effect, with variable names and function names decided on the fly.
+  To me, this feels backwards.  I prefer the opposite approach.
+  Define the terms first and let the code follow from them.
+</p>
+<p>
+  I also prefer developing software in a layered manner, where complex
+  functionality is built from simpler, well-named building blocks.  It
+  is especially important to avoid <em>layer violations</em>, where
+  one complex function invokes another complex function.  That creates
+  tight coupling between two complex functions.  If one function
+  changes in the future, we have to reason carefully about how it
+  affects the other.  Since both are already complex, the cognitive
+  burden is high.  A better approach, I think, is to identify the
+  common functionality they share and factor that out into smaller,
+  simpler functions.
+</p>
+<p>
+  To summarise, I like to develop software with a clear vocabulary,
+  consistent use of that vocabulary, a layered design where complex
+  functions are built from simpler ones and by avoiding layer
+  violations.  I am sure none of this is new to the Lobsters
+  community.  Some of these ideas also occur
+  in <a href="https://en.wikipedia.org/wiki/Domain-driven_design">domain-driven
+  design</a> (DDD).  DDD defines the term <em>ubiquitous language</em>
+  to mean, "A language structured around the domain model and used by
+  all team members within a bounded context to connect all the
+  activities of the team with the software."  If I could call this
+  approach of software development something, I would simply call it
+  "vocabulary-driven development" (VDD), though of course DDD is the
+  more comprehensive concept.
+</p>
+<p>
+  Like I said, none of this is likely new to the Lobsters community.
+  In particular, I suspect Forth programmers would find it too
+  obvious.  In Forth, it is very difficult to begin with a long,
+  poorly thought-out monolithic word and then break it down into
+  smaller ones later.  The stack effects quickly become too hard to
+  track mentally with that approach.  The only viable way to develop
+  software in Forth is to start with a small set of words that
+  represent the important notions of the problem domain, test them
+  immediately and then compose higher-level words from the lower-level
+  ones.  Forth naturally encourages a layered style of development,
+  where the programmer thinks carefully about the domain, invents
+  vocabulary and expresses complex ideas in terms of simpler ones,
+  almost in a mathematical fashion.  In my experience, this kind of
+  deliberate design produces software that remains easy to understand
+  and reason about even years after it was written.
+</p>
+<!-- Small vs large functions -->
+<p class="question" id="small-vs-large-functions">
+  Not enhancing existing functions but adding new small ones seems
+  quite lovely, but how do you come back to such a codebase later with
+  many tiny functions?  At points, I've advocated for very large
+  functions, particularly traumatized by Java-esque 1000 functions in
+  1000 files approaches.  When you had time, would you often
+  rearchitecture the conceptual space of all of those functions?
+</p>
+<p>
+  The famous quote from Alan J. Perlis comes to mind:
+</p>
+<blockquote>
+  <p>
+    It is better to have 100 functions operate on one data structure
+    than 10 functions on 10 data structures.
+  </p>
+</blockquote>
+<p>
+  Personally, I enjoy working with a codebase that has thousands of
+  functions, provided most of them are small, well-scoped and do one
+  thing well.  That said, I am not dogmatically opposed to large
+  functions.  It is always a matter of taste and judgement.  Sometimes
+  one large, cohesive function is clearer than a pile of tiny ones.
+</p>
+<p>
+  For example, when I worked on parser generators, I often found that
+  lexers and finite state machines benefited from a single top-level
+  function containing the full tokenisation logic or the full state
+  transition logic in one place.  That function could call smaller
+  helpers for specific tasks, but we still need the overall
+  <code>switch</code>-<code>case</code> or
+  <code>if</code>-<code>else</code> or <code>cond</code> ladder
+  somewhere.  I think trying to split that ladder into smaller
+  functions would only make the code harder to follow.
+</p>
+<p>
+  So while I lean towards small, composable functions, the real goal
+  is to strike a balance that keeps code maintainable in the long run.
+  Each function should be as small as it can reasonably be and no
+  smaller.
+</p>
+<!-- Domains -->
+<p class="question" id="domains-and-projects">
+  Like you, I program as a tool to explore domains.  Which do you know
+  the most about?
+</p>
+<p>
+  For me too, the appeal of computer programming lies especially in
+  how it lets me explore different domains.  There are two kinds of
+  domains in which I think I have gained good expertise.  The first
+  comes from years of developing software for businesses, which has
+  included solving problems such as network events parsing, indexing
+  and querying, packet decoding, developing parser generators,
+  database session management and TLS certificate lifecycle
+  management.  The second comes from areas I pursue purely out of
+  curiosity or for hobby computing.  This is the kind I am going to
+  focus on in our conversation.
+</p>
+<p>
+  Although computing and software are serious business today, for me,
+  as for many others, computing is also a hobby.
+</p>
+<p>
+  Personal hobby projects often lead me down various rabbit holes and
+  I end up learning new domains along the way.  For example, although
+  I am not a web developer, I learnt to build small, interactive
+  single-page tools in plain HTML, CSS and JavaScript simply because I
+  needed them for my hobby projects over and over again.  An early
+  example is <a href="quickqwerty.html">QuickQWERTY</a>, which I built
+  to teach myself and my friends touch-typing on QWERTY keyboards.
+  Another example is <a href="cfrs.html">CFRS[]</a>, which I created
+  because I wanted to make a total (non-Turing complete) drawing
+  language that has turtle graphics like Logo but is absolutely
+  minimal like P&prime;&prime;.
+</p>
+<!-- Double spacing -->
+<p class="question" id="double-spacing-and-touch-typing">
+  You use double spaces after periods which I'd only experienced from
+  people who learned touch typing on typewriters, unexpected!
+</p>
+<p>
+  Yes, I do separate sentences by double spaces.  It is interesting
+  that you noticed this.
+</p>
+<p>
+  I once briefly learnt touch typing on typewriters as a kid, but
+  those lessons did not stick with me.  It was much later, when I used
+  a Java applet-based touch typing tutor that I found online about two
+  decades ago, that the lessons really stayed with me.  Surprisingly,
+  that application taught me to type with a single space between
+  sentences.  By the way, I disliked installing Java plugins into the
+  web browser, so I wrote <a href="quickqwerty.html">QuickQWERTY</a>
+  as a similar touch typing tutor in plain HTML and JavaScript for
+  myself and my friends.
+</p>
+<p>
+  I learnt to use double spaces between sentences first with Vim and
+  then later again with Emacs.  For example, in Vim,
+  the <code>joinspaces</code> option is on by default, so when we join
+  sentences with the normal mode command <code>J</code> or format
+  paragraphs with <code>gqap</code>, Vim inserts two spaces after full
+  stops.  We need to disable that behaviour with <code>:set
+  nojoinspaces</code> if we want single spacing.
+</p>
+<p>
+  It is similar in Emacs.  In Emacs, the
+  <code>delete-indentation</code> command (<code>M-^</code>) and
+  the <code>fill-paragraph</code> command (<code>M-q</code>) both
+  insert two spaces between sentences by default.  Single spacing can
+  be enabled with <code>(setq sentence-end-double-space nil)</code>.
+</p>
+<p>
+  Incidentally, I spend a good portion of the README for my Emacs
+  quick-start DIY kit named
+  <a href="https://github.com/susam/emfy">Emfy</a> discussing sentence
+  spacing conventions under the section
+  <a href="https://github.com/susam/emfy#single-space-for-sentence-spacing">Single
+  Space for Sentence Spacing</a>.  There I explain how to configure
+  Emacs to use single spaces, although I use double spaces myself.
+  That's because many new Emacs users prefer single spacing.
+</p>
+<p>
+  The defaults in Vim and Emacs made me adopt double spacing.  The
+  double spacing convention is also widespread across open source
+  software.  If we look at the Vim help pages, Emacs built-in
+  documentation or the Unix and Linux man pages, double spacing is the
+  norm.  Even inline comments in traditional open source projects
+  often use it.  For example, see Vim's
+  <a href="https://github.com/vim/vim/blob/v9.1.1752/runtime/doc/usr_01.txt">:h usr_01.txt</a>,
+  Emacs's
+  <a href="https://cgit.git.savannah.gnu.org/cgit/emacs.git/tree/doc/emacs/emacs.texi?h=emacs-30.2#n1556">(info "(emacs) Intro")</a>
+  or the comments in the <a href="https://gcc.gnu.org/git/?p=gcc.git;f=gcc/cfg.cc;hb=releases/gcc-15.2.0">GCC source code</a>.
+</p>
+<!-- Learning -->
+<p class="question" id="approach-to-learning">
+  How do you approach learning a new domain?
+</p>
+<p>
+  When I take on a new domain, there is of course a lot of reading
+  involved from articles, books and documentation.  But as I read, I
+  constantly try to test what I learn.  Whenever I see a claim, I ask
+  myself, "If this claim were wrong, how could I demonstrate it?"
+  Then I design a little experiment, perhaps write a snippet of code
+  or run a command or work through a concrete example, with the goal
+  of checking the claim in practice.
+</p>
+<p>
+  Now I am not genuinely hoping to prove a claim wrong.  It is just a
+  way to engage with the material.  To illustrate, let me share an
+  extremely simple and generic example without going into any
+  particular domain.  Suppose I learn that Boolean operations in
+  Python short-circuit.  I might write out several experimental
+  snippets like the following:
+</p>
+<pre><code class="language-python">def t(): print('t'); return True
+def f(): print('f'); return False
+f() or t() or f()
+</code></pre>
+<p>
+  And then confirm that the results do indeed confirm short-circuit
+  evaluation (<code>f</code> followed by <code>t</code> in this case).
+</p>
+<p>
+  At this point, one could say, "Well, you just confirmed what the
+  documentation already told you."  And that's true.  But for me, the
+  value lies in trying to test it for myself.  Even if the claim
+  holds, the act of checking forces me to see the idea in action.
+  That not only reinforces the concept but also helps me build a much
+  deeper intuition for it.
+</p>
+<p>
+  Sometimes these experiments also expose gaps in my own
+  understanding.  Suppose I didn't properly know what "short-circuit"
+  means.  Then the results might contradict my expectations.  That
+  contradiction would push me to correct my misconception and that's
+  where the real learning happens.
+</p>
+<p>
+  Occasionally, this process even uncovers subtleties I didn't expect.
+  For example, while learning socket programming, I discovered that a
+  client can successfully receive data using <code>recv()</code> even
+  after calling <code>shutdown()</code>, contrary to what I had first
+  inferred from the specifications.  See my Stack Overflow post
+  <a href="https://stackoverflow.com/q/39698037/303363">Why can recv()
+  receive messages after the client has invoked shutdown()?</a> for
+  more details if you are curious.
+</p>
+<p>
+  Now this method cannot always be applied, especially if it is very
+  expensive or unwieldy to do so.  For example, if I am learning
+  something in the finance domain, it is not always possible to
+  perform an actual transaction.  One can sometimes use simulation
+  software, mock environments or sandbox systems to explore ideas
+  safely.  Still, it is worth noting that this method has its
+  limitations.
+</p>
+<p>
+  In mathematics, though, I find this method highly effective.  When I
+  study a new branch of mathematics, I try to come up with examples
+  and counterexamples to test what I am learning.  Often, failing to
+  find a counterexample helps me appreciate more deeply why a claim
+  holds and why no counterexamples exist.
+</p>
+<!-- Distraction -->
+<p class="question" id="managing-time-and-distractions">
+  Do you have trouble not getting distracted with so much on your
+  plate?  I'm curious how you balance the time commitments of
+  everything!
+</p>
+<p>
+  Indeed, it is very easy to get distracted.  One thing that has
+  helped over the years is the increase in responsibilities in other
+  areas of my life.  These days I also spend some of my free time
+  studying mathematics textbooks.  With growing responsibilities and
+  the time I devote to mathematics, I now get at most a few hours each
+  week for hobby computing.  This automatically narrows down my
+  options.  I can explore perhaps one or at most two ideas in a month
+  and that constraint makes me very deliberate about choosing my
+  pursuits.
+</p>
+<p>
+  Many of the explorations do not evolve into something solid that I
+  can share.  They remain as little experimental code snippets or
+  notes archived in a private repository.  But once in a while, an
+  exploration grows into something concrete and feels worth sharing on
+  the Web.  That becomes a short-term hobby project.  I might work on
+  it over a weekend if it is small or for a few weeks if it is more
+  complex.  When that happens, the goal of sharing the project helps
+  me focus.
+</p>
+<p>
+  I try not to worry too much about making time.  After all, this is
+  just a hobby.  Other areas of my life have higher priority.  I also
+  want to devote a good portion of my free time to learning more
+  mathematics, which is another hobby I am passionate about.  Whatever
+  little spare time remains after attending to the higher-priority
+  aspects of my life goes into my computing projects, usually a couple
+  of hours a week, most of it on weekends.
+</p>
+<!-- Blogging -->
+<p class="question" id="blogging">
+  How does blogging mix in?  What's the development like of a single
+  piece of curiosity through wrestling with the domain, learning and
+  sharing it etc.?
+</p>
+<p>
+  Maintaining my personal website is another aspect of computing that
+  I find very enjoyable.  My website began as a loose collection of
+  pages on a LAN site during my university days.  Since then I have
+  been adding pages to it to write about various topics that I find
+  interesting.  It acquired its blog shape and form much later when
+  blogging became fashionable.
+</p>
+<p>
+  I usually write a new blog post when I feel like there is some piece
+  of knowledge or some exploration that I want to archive in a
+  persistent format.  Now what the development of a post looks like
+  depends very much on the post.  So let me share two opposite
+  examples to describe what the development of a single piece looks
+  like.
+</p>
+<p>
+  One of my most frequently visited posts
+  is <a href="lisp-in-vim.html">Lisp in Vim</a>.  It started when I
+  was hosting a Common Lisp programming club for beginners.  Although
+  I have always used Emacs and SLIME for Common Lisp programming
+  myself, many in the club used Vim, so I decided to write a short
+  guide on setting up something SLIME-like there.  As a former
+  long-time Vim user myself, I wanted to make the Lisp journey easier
+  for Vim users too.  I thought it would be a 30-minute exercise where
+  I write up a README that explains how to install
+  <a href="https://github.com/kovisoft/slimv">Slimv</a> and how to set
+  it up in Vim.  But then I discovered a newer plugin called
+  <a href="https://github.com/vlime/vlime">Vlime</a> that also offered
+  SLIME-like features in Vim!  That detail sent me down a very deep
+  rabbit hole.  Now I needed to know how the two packages were
+  different, what their strengths and weaknesses were, how routine
+  operations were performed in both and so on.  What was meant to be a
+  short note turned into a nearly 10,000-word article.  As I was
+  comparing the two SLIME-like packages for Vim, I also found a few
+  bugs in Slimv and contributed fixes for them
+  (<a href="https://github.com/kovisoft/slimv/pull/87">#87</a>,
+  <a href="https://github.com/kovisoft/slimv/pull/88">#88</a>,
+  <a href="https://github.com/kovisoft/slimv/pull/89">#89</a>,
+  <a href="https://github.com/kovisoft/slimv/pull/90">#90</a>).
+  Writing this blog post turned into a month-long project!
+</p>
+<p>
+  At the opposite extreme is a post like
+  <a href="elliptical-python-programming.html">Elliptical
+  Python Programming</a>.  I stumbled upon Python's
+  <a href="https://docs.python.org/3/library/constants.html#Ellipsis">Ellipsis</a>
+  while reviewing someone's code.  It immediately caught my attention.
+  I wondered if, combined with some standard obfuscation techniques,
+  one could write arbitrary Python programs that looked almost like
+  Morse code.  A few minutes of experimentation showed that a
+  genuinely Morse code-like appearance was not possible, but something
+  close could be achieved.  So I wrote what I hope is a humorous post
+  demonstrating that arbitrary Python programs can be written using a
+  very restricted set of symbols, one of which is the ellipsis.  It
+  took me less than an hour to write this post.  The final result
+  doesn't look quite like Morse code as I had imagined, but it is
+  quite amusing nevertheless!
+</p>
+<!-- Forums -->
+<p class="question" id="forums">
+  What draws you to post and read online forums?  How do you balance
+  or allot time for reading technical articles, blogs etc.?
+</p>
+<p>
+  The exchange of ideas!  Just as I enjoy sharing my own
+  computing-related thoughts, ideas and projects, I also find joy in
+  reading what others have to share.
+</p>
+<p>
+  Other areas of my life take precedence over hobby projects and hobby
+  projects take precedence over technical forums.
+</p>
+<p>
+  After I've given time to the higher-priority parts of my life and to
+  my own technical explorations, I use whatever spare time remains to
+  read articles, follow technical discussions and occasionally add
+  comments.
+</p>
+<!-- MathB.in -->
+<p class="question" id="mathb-moderation-problems">
+  When you decided to stop with MathB due to moderation burdens, I
+  offered to take over/help and you mentioned others had too.  Did
+  anyone end up forking it, to your knowledge?
+</p>
+<p>
+  I first thought of shutting down the
+  <a href="https://github.com/susam/mathb">MathB</a>-based pastebin
+  website in November 2019.  The website had been running for seven
+  years at that time.  When I announced my thoughts to the IRC
+  communities that would be affected, I received a lot of support and
+  encouragement.  A few members even volunteered to help me out with
+  moderation.  That support and encouragement kept me going for
+  another six years.  However, the volunteers eventually became busy
+  with their own lives and moved on.  After all, moderating user
+  content for an open pastebin that anyone in the world can post to is
+  a thankless and tiring activity.  So most of the moderation activity
+  fell back on me.  Finally, in February 2025, I realised that I no
+  longer want to spend time on this kind of work.
+</p>
+<p>
+  I developed MathB with a lot of passion for myself and my friends.
+  I had no idea at the time that this little project would keep a
+  corner of my mind occupied even during weekends and holidays.  There
+  was always a nagging worry.  What if someone posted content that
+  triggered compliance concerns and my server was taken offline while
+  I was away?  I no longer wanted that kind of burden in my life.  So
+  I finally decided to shut it down.  I've written more about this
+  in <a href="mathbin-is-shutting-down.html">MathB.in Is Shutting
+  Down</a>.
+</p>
+<p>
+  To my knowledge, no one has forked it, but others have developed
+  alternatives.  Further, the
+  <a href="https://wiki.archiveteam.org/">Archive Team</a> has
+  <a href="https://web.archive.org/web/*/https://mathb.in/">archived</a>
+  all posts from the now-defunct MathB-based website.  A member of the
+  Archive Team reached out to me over IRC and we worked together for
+  about a week to get everything successfully archived.
+</p>
+<!-- Textbooks -->
+<p class="question" id="favourite-mathematics-textbooks">
+  What're your favorite math textbooks?
+</p>
+<p>
+  I have several favourite mathematics books, but let me share three I
+  remember especially fondly.
+</p>
+<p>
+  The first is <em>Advanced Engineering Mathematics</em> by Erwin
+  Kreyszig.  I don't often see this book recommended online, but for
+  me it played a major role in broadening my horizons.  I think I
+  studied the 8th edition back in the early 2000s.  It is a hefty book
+  with over a thousand pages and I remember reading it cover to cover,
+  solving every exercise problem along the way.  It gave me a solid
+  foundation in routine areas like differential equations, linear
+  algebra, vector calculus and complex analysis.  It also introduced
+  me to Fourier transforms and Laplace transforms, which I found
+  fascinating.
+</p>
+<p>
+  Of course, the Fourier transform has a wide range of applications in
+  signal processing, communications, spectroscopy and more.  But I
+  want to focus on the fun and playful part.  In the early 2000s, I
+  was also learning to play the piano as a hobby.  I used to record my
+  amateur music compositions with
+  <a href="https://github.com/audacity/audacity">Audacity</a> by
+  connecting my digital piano to my laptop with a line-in cable.  It
+  was great fun to plot the spectrum of my music on Audacity, apply
+  high-pass and low-pass filters and observe how the Fourier transform
+  of the audio changed and then hear the effect on the music.  That
+  kind of hands-on tinkering made Fourier analysis intuitive for me
+  and I highly recommend it to anyone who enjoys both music and
+  mathematics.
+</p>
+<p>
+  The second book is <em>Introduction to Analytic Number Theory</em>
+  by Tom M.  Apostol.  As a child I was intrigued by the prime number
+  theorem but lacked the mathematical maturity to understand its
+  proof.  Years later, as an adult, I finally taught myself the proof
+  from Apostol's book.  It was a fantastic journey that began with
+  simple concepts like the Möbius function and Dirichlet products and
+  ended with quite clever contour integrals that proved the theorem.
+  The complex analysis I had learnt from Kreyszig turned out to be
+  crucial for understanding those integrals.  Along the way I gained a
+  deeper understanding of the Riemann zeta function \( \zeta(s).  \)
+  The book discusses zero-free regions where \( \zeta(s) \) does not
+  vanish, which I found especially fascinating.  Results like \(
+  \zeta(-1) = -1/12, \) which once seemed mysterious, became obvious
+  after studying this book.
+</p>
+<p>
+  The third is <em>Galois Theory</em> by Ian Stewart.  It introduced
+  me to field extensions, field homomorphisms and solubility by
+  radicals.  I had long known that not all quintic equations are
+  soluble by radicals, but I didn't know why.  Stewart's book taught
+  me exactly why.  In particular, it demonstrated that the polynomial
+  \( t^5 - 6t + 3 \) over the field of rational numbers is not soluble
+  by radicals.  This particular result, although fascinating, is just
+  a small part of a much larger body of work, which is even more
+  remarkable.  To arrive at this result, the book takes us through a
+  wonderful journey that includes the theory of polynomial rings,
+  algebraic and transcendental field extensions, impossibility proofs
+  for ruler-and-compass constructions, the Galois correspondence and
+  much more.
+</p>
+<p>
+  One of the most rewarding aspects of reading books like these is how
+  they open doors to new knowledge, including things I didn't even
+  know that I didn't know.
+</p>
+<!-- Mathematics and computing -->
+<p class="question" id="mathematics-and-computing">
+  How does the newer math jell with or inform past or present
+  computing, compared to much older stuff?
+</p>
+<p>
+  I don't always think explicitly about how mathematics informs
+  computing, past or present.  Often the textbooks I pick feel very
+  challenging to me, so much so that all my energy goes into simply
+  mastering the material.  It is arduous but enjoyable.  I do it
+  purely for the fun of learning without worrying about applications.
+</p>
+<p>
+  Of course, a good portion of pure mathematics probably has no
+  real-world applications.  As G. H. Hardy famously wrote in <em>A
+  Mathematician's Apology</em>:
+</p>
+<blockquote>
+  <p>
+    I have never done anything 'useful'.  No discovery of mine has
+    made or is likely to make, directly or indirectly, for good or
+    ill, the least difference to the amenity of the world.
+  </p>
+</blockquote>
+<p>
+  But there is no denying that some of it does find applications.
+  Were Hardy alive today, he might be disappointed that number theory,
+  his favourite field of "useless" mathematics, is now a crucial part
+  of modern cryptography.  Electronic commerce wouldn't likely exist
+  without it.
+</p>
+<p>
+  Similarly, it is amusing how something as abstract as abstract
+  algebra finds very concrete applications in coding theory.  Concepts
+  such as polynomial rings, finite fields and cosets of subspaces in
+  vector spaces over finite fields play a crucial role in
+  error-correcting codes, without which modern data transmission and
+  storage would not be possible.
+</p>
+<p>
+  On a more personal note, some simpler areas of mathematics have been
+  directly useful in my own work.  While solving problems for
+  businesses, information entropy, combinatorics and probability
+  theory were crucial when I worked on gesture-based authentication
+  about one and a half decades ago.
+</p>
+<p>
+  Similarly, when I was developing Bloom filter-based indexing and
+  querying for a network events database, again, probability theory
+  was crucial in determining the parameters of the Bloom filters (such
+  as the number of hash functions, bits per filter and elements per
+  filter) to ensure that the false positive rate remained below a
+  certain threshold.  Subsequent testing with randomly sampled network
+  events confirmed that the observed false positive rate matched the
+  theoretical estimate quite well.  It was very satisfying to see
+  probability theory and the real world agreeing so closely.
+</p>
+<p>
+  Beyond these specific examples, studying mathematics also influences
+  the way I think about problems.  Embarking on journeys like analytic
+  number theory or Galois theory is humbling.  There are times when I
+  struggle to understand a small paragraph of the book and it takes me
+  several hours (or even days) to work out the arguments in detail
+  with pen and paper (lots of it) before I really grok them.  That
+  experience of grappling with dense reasoning teaches humility and
+  also makes me sceptical of complex, hand-wavy logic in day-to-day
+  programming.
+</p>
+<p>
+  Several times I have seen code that bundles too many decisions into
+  one block of logic, where it is not obvious whether it would behave
+  correctly in all circumstances.  Explanations may sometimes be
+  offered about why it works for reasonable inputs, but the reasoning
+  is often not watertight.  The experience of working through
+  mathematical proofs, writing my own, making mistakes and then
+  correcting them has taught me that if the reasoning for correctness
+  is not clear and rigorous, something could be wrong.  In my
+  experience, once such code sees real-world usage, a bug is nearly
+  always found.
+</p>
+<p>
+  That's why I usually insist either on simplifying the logic or on
+  demonstrating correctness in a clear, rigorous way.  Sometimes this
+  means doing a case-by-case analysis for different types of inputs or
+  conditions and showing that the code behaves correctly in each case.
+  There is also a bit of an art to reducing what seem like numerous or
+  even infinitely many cases to a small, manageable set of cases by
+  spotting structure, such as symmetries, invariants or natural
+  partitions of the input space.  Alternatively, one can look for a
+  simpler argument that covers all cases.  These are techniques we
+  employ routinely in mathematics and I think that kind of thinking
+  and reasoning is quite valuable in software development too.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/my-lobsters-interview.html">Read on website</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Prime Number Grid Explorer</title>
+<link>https://susam.net/primegrid.html</link>
+<guid isPermaLink="false">pghtm</guid>
+<pubDate>Tue, 19 Aug 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A simple single-page HTML application to explore the distribution of
+  prime numbers in a grid.  Choose a starting number along with the
+  number of rows and columns and the page generates the corresponding
+  grid.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/primegrid.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Miller-Rabin Speed Test</title>
+<link>https://susam.net/code/web/miller-rabin-speed-test.html</link>
+<guid isPermaLink="false">mrpst</guid>
+<pubDate>Sat, 16 Aug 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A demo page that implements the Miller-Rabin primality test to
+  accurately detect primes for all numbers less than
+  318665857834031151167461 and compare its speed against a simple
+  division based primality test algorithm.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/miller-rabin-speed-test.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>My Blogroll Is Now My Feed Reader</title>
+<link>https://susam.net/blogroll-as-feed-reader.html</link>
+<guid isPermaLink="false">mbmfr</guid>
+<pubDate>Sat, 05 Jul 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  On a particularly hot summer weekend last month, I implemented a new
+  feature for this website: a blogroll that lists recent entries from
+  my favourite blogs.  Check it out here: <a href="roll.html">roll.html</a>.
+</p>
+<p>
+  It has been nearly two weeks since I set up this blogroll and it has
+  already changed how I keep up with my feeds.  I no longer bother
+  with feed readers or aggregators.  I could never quite make a habit
+  of using them regularly anyway.  Thanks to this simple addition to
+  my website, I find myself visiting my blogroll often.  It has earned
+  a permanent place in my bookmarks.  When I have some spare time, I
+  click on the bookmark, visit my blogroll and, when I find new posts
+  appear there, I click through and read the full blog posts.
+</p>
+<p>
+  Credit for this nifty and surprisingly effective idea goes to Alex
+  Kladov.  It was Alex's website,
+  <a href="https://matklad.github.io/">matklad.github.io</a>, that
+  inspired me to implement my own blogroll.  It showed me that a
+  blogroll can be more than just a static list of links.  It can be a
+  regularly updated page that highlights new posts from the blogs I
+  follow.
+</p>
+<p>
+  I suspect the fact that my blogroll is generated by my own
+  handcrafted <a href="https://github.com/susam/susam.net/blob/main/roll.lisp">Common
+  Lisp program</a> plays a part in why I enjoy using it.  There is a
+  certain joy in using something you have built yourself.  At last, I
+  feel I can stay on top of my feeds!  If you maintain a personal
+  website and struggle to keep up with your feeds, I recommend this
+  approach.  Writing the blogroll generator was a fun weekend project
+  and it has greatly improved how I spend my spare time online!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/blogroll-as-feed-reader.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Noise From My Feeds</title>
+<link>https://susam.net/feed-noise.html</link>
+<guid isPermaLink="false">xjdrj</guid>
+<pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Hello!  If you are subscribed to this website's feeds, you may have
+  noticed something odd recently.  Your feed reader might have shown a
+  bunch of old posts as if they were published today.  If that
+  happened with your feed reader, I apologise for the noise.  I hope
+  this post will give you some clarity on why this happened.  The
+  reason for this noise is a change to the way the RSS feeds are
+  generated for this website.  Each post in the feeds includes a GUID,
+  which is used by many feed readers to decide whether a post is new
+  or if it has been seen already.  Until now, the GUID was simply the
+  post's URL, like this:
+</p>
+<pre>
+<code>&lt;url&gt;https://susam.net/product-of-additive-inverses.html&lt;/url&gt;
+&lt;guid&gt;https://susam.net/product-of-additive-inverses.html&lt;/guid&gt;</code>
+</pre>
+<p>
+  However, today this has changed to a short unique string, like so:
+</p>
+<pre>
+<code>&lt;url&gt;https://susam.net/product-of-additive-inverses.html&lt;/url&gt;
+&lt;guid isPermaLink="false"&gt;rxpnz&lt;/guid&gt;</code>
+</pre>
+<p>
+  If your feed reader looks at this GUID value to decide whether a new
+  post has been published, it will show you a whole bunch of old posts
+  once again in your reader, as if they were new.  These GUIDs won't
+  change again in the future, so this is a one-time problem.  The full
+  URL of the post is still present in the feeds, as you can see in the
+  example above, so your feed reader still knows where to take you if
+  you wish to visit this website to read a post.  The short string
+  serves as a unique identifier for each post.
+</p>
+<p>
+  This website is a passion project I work on in my spare time.
+  Sometimes, after publishing a post, I realise the title could be
+  sharper or the URL could be cleaner.  I make the necessary changes
+  and set up HTTP redirects on my web server, so that visitors using
+  the old URL are still taken to the updated location of the post.
+  Previously, however, the GUID (being the URL) changed too, which
+  caused many feed readers to treat the updated post as a new one even
+  when it wasn't.  Switching to stable GUIDs prevents this problem
+  from occurring again.  The GUIDs now stay the same no matter what
+  changes I make behind the scenes, which means no more unnecessary
+  noise in your feed reader.
+</p>
+<p>
+  I am sorry if this caused any confusion or clutter.  If your feed
+  reader is currently flooded with old posts appearing as new, the
+  best solution is to mark those items as read.  Thank you for your
+  patience with this issue.  I hope to keep future surprises limited
+  to content, not configuration.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/feed-noise.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>More Contrast, Please</title>
+<link>https://susam.net/more-contrast-please.html</link>
+<guid isPermaLink="false">ygqwk</guid>
+<pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  So you have decided to go with a dark theme for your website.  Great
+  choice!  I love dark themes too!  My journey with computers began
+  with monochrome CRT monitors, where white text was displayed on dark
+  background.  I am still very fond of that colour scheme.  Done well,
+  dark themes can be elegant and easy on the eyes.  But there is a
+  common pitfall that I see all too often in modern web design: the
+  overuse of low-contrast colour schemes.  This is something worth
+  keeping in mind while crafting a new theme.
+</p>
+<p>
+  Take a look at this example where the text colour
+  is <code>#777</code> and the background is <code>#222</code>:
+</p>
+<p style="background: #222; color: #777; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  I am hoping that most people would agree that the colour contrast
+  above is too low.  I certainly find it uncomfortable to read.
+  However, the situation becomes a bit less clear with the following
+  example, where the text colour is set to <code>#999</code> and the
+  background is <code>#222</code>:
+</p>
+<p style="background: #222; color: #999; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  The above example is, in fact, based on a real website I came across
+  today.  Now this is definitely better than the first example and I
+  am sure some people would find this perfectly acceptable.  However,
+  I still find this uncomfortable to read.  In fact, I have realised
+  that as I get older, I need a higher contrast ratio to make the text
+  more comfortable to read.
+</p>
+<p>
+  I would suggest that any colour choices for foreground text and
+  background page colours should, at the very least, meet
+  the <a href="https://www.w3.org/TR/WCAG22/#contrast-enhanced">Web
+  Content Accessibility Guidelines (WCAG) Level AAA</a>
+  recommendations.  This means the contrast ratio for normal-sized
+  text against the background should be at least 7:1.  There are also
+  the slightly weaker Level AA guidelines, which require that
+  normal-sized text have a contrast ratio of at least 4.5:1.  That
+  said, I personally recommend aiming for a 7:1 contrast ratio
+  regardless.
+</p>
+<p>
+  The first example above has a contrast ratio of just 3.6:1, meaning
+  it fails to meet both the Level AA and Level AAA requirements.  The
+  second example, on the other hand, has a contrast ratio of 5.6:1.
+  While it satisfies the Level AA requirements, it still falls short
+  of meeting the Level AAA standards.
+</p>
+<p>
+  To calculate the contrast ratio according to
+  the <a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G17.html#tests">WCAG
+  contrast formula</a>, use one of these tools:
+</p>
+<ul>
+  <li>
+    <a href="contrast.html">My Colour Contrast Calculator</a>
+  </li>
+  <li>
+    <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a>
+  </li>
+</ul>
+<p>
+  If we improve the contrast for the second example above, we would
+  need to choose a brighter shade for the text, such as
+  <code>#BBB</code>.  On the dark background <code>#222</code>, this
+  results in a contrast ratio of 8.3:1.  Here is how it looks:
+</p>
+<p style="background: #222; color: #bbb; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  I definitely find this much easier to read.  If you are developing a
+  dark colour theme for your web page or software, I request you to
+  run your colours through a contrast calculator tool and ensure the
+  contrast ratio is greater than 7:1.  Anything less and the theme
+  might become uncomfortable for people like me.  Small adjustments
+  like this can significantly improve readability and comfort for your
+  readers.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/more-contrast-please.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Hacker News Hug of Deaf</title>
+<link>https://susam.net/hn-bell.html</link>
+<guid isPermaLink="false">fcycm</guid>
+<pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<blockquote>
+  <p>
+    "It's essentially the Hacker News Hug of Deaf."
+    &ndash;
+    <a href="https://news.ycombinator.com/item?id=30146019#30147639">@TonyTrapp</a>
+  </p>
+</blockquote>
+<p>
+  About three years ago, I set up a tiny <code>netcat</code> loop on
+  one of my Debian servers to accept arbitrary connections from the
+  Hacker News (HN) community.  The loop ran for 24 hours and did
+  exactly three things whenever a client connected:
+</p>
+<ol>
+  <li>
+    Send a simple <code>ok</code> message to the client.
+  </li>
+  <li>
+    Close the connection immediately.
+  </li>
+  <li>
+    Make my terminal beep four times.
+  </li>
+</ol>
+<p>
+  That's it!  It was a playful experiment in response to a thread
+  about quirky, do-it-yourself alerting systems for friends and
+  family.  See
+  <a href="https://news.ycombinator.com/item?id=30146019#30146451">this
+  HN thread</a> for the original discussion.  Here is the exact
+  command I ran on my server:
+</p>
+<pre class="wrap"><code>while true; do (echo ok | nc -q 1 -vlp 8000 2&gt;&amp;1; echo; date -u) | tee -a beeper.log; for i in 1 2 3 4; do printf '\a'; sleep 1; done &amp; done</code></pre>
+<p>
+  The <code>nc</code> command closes the connection immediately after
+  sending the <code>ok</code> message and runs an
+  inner <code>for</code> loop in a background shell that
+  asynchronously prints the bell character to the terminal four times.
+  Meanwhile, the outer <code>while</code> command loops back quickly
+  to run a new <code>nc</code> process, thus making this one-liner
+  script instantly ready to accept the next incoming connection.
+</p>
+<p>
+  Soon after I shared this, members of the HN community began
+  connecting to the demo running on <code>susam.net:8000</code>.
+  Anyone on the Internet could use any client of their choice to
+  connect.  Here's how I explained it in the HN thread:
+</p>
+<blockquote>
+  <p>
+    Now anytime someone connects to port 8000 of my system
+    by <em>any</em> means, I will hear 4 beeps!  The other party can
+    use <em>whatever client</em> they have to connect to port 8000 of
+    my system, e.g. a web browser, <code>nc HOST
+    8000</code>, <code>curl HOST:8000</code> or even <code>ssh HOST -p
+    8000</code>, <code>irssi -c HOST -p 8000</code>, etc.
+  </p>
+</blockquote>
+<p>
+  In the next 24 hours, I received over 4761 connections, each one
+  triggering four beeps.  That's a total of 19&#x202f;044 terminal
+  beeps echoing throughout the day!
+</p>
+<figure class="soft">
+  <img src="files/blog/beeper1.png" alt="Graph">
+  <figcaption>
+    Number of connections received every hour since 31 Jan 2022 10:00 UTC
+  </figcaption>
+</figure>
+<p>
+  The data for the above graph is available at
+  <a href="https://gist.github.com/susam/159c7d92659b3185eb0b0d683998a3b7">beeper.log</a>.
+  Now, 4761 isn't a huge number in the grand scheme of things, but it
+  was still pretty cool to see people notice an obscure comment buried
+  in a regular HN thread, act on it and make my terminal beep
+  thousands of time.
+</p>
+<p>
+  At the end of the day, this was a fun experiment.  Pointless, but
+  fun!  Computing isn't always about solving problems.  Sometimes,
+  it's also about exploring quirky ideas.  The joy is in the
+  exploration and having others join in made it even more enjoyable.
+  Activities like this keep computing fun for me!
+</p>
+<hr>
+<p id="update-2025-04-10">
+  <strong>Update on 10 Apr 2025:</strong>
+  I <a href="https://news.ycombinator.com/item?id=43642123">shared
+  this article on Hacker News</a> today and saw another surge in
+  connections to my beeper loop.
+</p>
+<figure class="soft">
+  <img src="files/blog/beeper2.png" alt="Graph">
+  <figcaption>
+    Number of connections received every hour since 10 Apr 2025 10:00 UTC
+  </figcaption>
+</figure>
+<p>
+  The data for the above graph is available at
+  <a href="https://gist.github.com/susam/3cec5db1a78a9db527327460656daeae">beeper2.log</a>.
+  The data shows a total of 352&#x202f;831 connections from 1396
+  unique client addresses over 14 hours.  That amounts to a total of
+  1&#x202f;411&#x202f;324 beeps!  Much of the traffic seems to have
+  come from persistent client loops constantly connecting to my beeper
+  loop.  In particular, the client identified by the anonymised
+  identifier C0276 made the largest number of connections by far, with
+  327&#x202f;209 total connections.  The second most active client,
+  C0595, made only 6771 connections.  There were 491 clients that
+  connected exactly once.  If you'd like to see the number of
+  connections by each client, see
+  <a href="https://gist.github.com/susam/d6766f4b722f899250a8f3da0c98f993">beeperclient2.log</a>.
+</p>
+<p>
+  In conclusion, the difference in the volume of connections between
+  the earlier experiment and today's is striking.  In the first round,
+  three years ago, there were only 4761 connections from some readers
+  of a comment thread.  But in today's round, with this post being
+  featured on the HN front page, there were 352&#x202f;831
+  connections!  It is fascinating to see how odd experiments like this
+  can find so many participants within the HN community!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/hn-bell.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/shell.html">#shell</a> |
+  <a href="https://susam.net/tag/networking.html">#networking</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>More Purple Links, Please</title>
+<link>https://susam.net/more-purple-links-please.html</link>
+<guid isPermaLink="false">gyrti</guid>
+<pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  While I am browsing the Web, one thing I always like to see is a
+  page with purple links.  Since the early days of the Web, purple has
+  has become the default colour for visited links.  Here's a relevant
+  note from the
+  <a href="https://ksi.cpsc.ucalgary.ca/archives/WWW-TALK/www-talk-1993q2.messages/47.html">changelog</a>
+  of NCSA Mosaic 0.13 (1993):
+</p>
+<blockquote>
+  Changed default anchor representations: blue and single solid
+  underline for unvisited, dark purple and single dashed underline for
+  visited.
+</blockquote>
+<p>
+  Visiting a web page and finding purple links brings a sense of ease.
+  The purple links indicate that I am familiar with some of the
+  references the web page makes to other articles.  Each purple link
+  serves as a small marker of a prior journey, a reminder that I've
+  explored certain paths before.  To me, purple links are like
+  well-worn books with faded covers and creased spines.  Blue links,
+  on the other hand, are like new books, to be opened and explored.
+</p>
+<p>
+  Although I'm quite fond of purple links, I know that not everyone
+  shares this sentiment.  Modern web design trends have moved away
+  from this tradition, favouring sleek, minimalist aesthetics where
+  visited and unvisisted links look nearly the same.  While this can
+  be visually appealing, in my opinion, it detracts from the
+  experience of using the Web as a source of knowledge.  When links
+  look indistinguishable or unconventional, it can be hard to tell
+  what I've already read, especially when I am revisiting a topic and
+  want to easily spot the links that are new.
+</p>
+<p>
+  Now it is not hard to change the visited link style with a little
+  userscript.  For example the following userscript can override the
+  website's stylesheet to colour visited links purple again:
+</p>
+<pre>
+<code>// ==UserScript==
+// @name Purple Links
+// @match *://*/*
+// ==/UserScript==
+document.head.appendChild(document.createElement('style'))
+document.head.lastElementChild.innerHTML = 'a:visited {color: #518}'</code>
+</pre>
+<p>
+  This little userscript should work well on most web pages with light
+  backgrounds.  But if a web page uses a dark theme or a custom colour
+  scheme, then the above userscript may need adjustments to either
+  handle other colour schemes gracefully.
+</p>
+<p>
+  To me, the purple links serve as small reminders of all the digital
+  paths I've already walked.  I wish more websites would honour this
+  convention.  More purple links, please.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/more-purple-links-please.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>PDF Dimmer Bookmarklet</title>
+<link>https://susam.net/pdf-dimmer-bookmarklet.html</link>
+<guid isPermaLink="false">bgigh</guid>
+<pubDate>Wed, 02 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I often read PDF documents in Firefox and sometimes I prefer to work
+  in dark mode, especially at night when the room lights are dimmed.
+  However, the bright white background of the Firefox PDF viewer can
+  be glaring and uncomfortable when dark mode is enabled.
+  Additionally, writing a userscript to invert the background and text
+  colours in the PDF viewer does not work.  I have confirmed with
+  Firefox version 137.0 that userscripts do not run within the PDF
+  viewer.
+</p>
+<p>
+  For example, consider this simple userscript that just prints a
+  "hello" message when a web page loads:
+  <a href="code/lab/userscript/hello.js">hello.js</a>.  This script
+  works on regular web pages but does not execute when viewing a PDF
+  file in Firefox.
+  See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1454760">Bug
+  1454760</a> for more details about this restriction.
+</p>
+<p>
+  While userscripts are often my go-to solution for customisations
+  like this, for this particular problem, I resorted to writing a tiny
+  bookmarklet to work around the above limitation.  Here is the
+  bookmarklet:
+</p>
+<pre><code>javascript:(()=&gt;{['thumbnailView','viewer'].map(id=&gt;document.getElementById(id).style.filter='invert(0.9)saturate(0)')})()</code></pre>
+<p>
+  To add this to Firefox, from the Firefox menu, select "Bookmarks".
+  Then in the left sidebar, right click on either "Bookmarks Toolbar"
+  or "Bookmarks Menu", depending on where you want to add the
+  bookmarklet and select "Add Bookmark".  Enter some name in the
+  "Name" field and then in the "URL" field, enter the above line of
+  code.  Click "Save" and you are done.  The next time you open a PDF
+  file in Firefox, find the bookmark in the bookmarks menu or toolbar,
+  click on it and it should instantly invert the colour scheme of the
+  PDF viewer.
+</p>
+<p>
+  Alternatively, simply drag the following link and drop it onto your
+  Firefox toolbar:
+</p>
+<p class="textcenter">
+  <a href="javascript:(()=%3e%7b%5b'thumbnailView','viewer'%5d.map(id=%3edocument.getElementById(id).style.filter='invert(0.9)saturate(0)')%7d)()">Dim PDF</a>
+</p>
+<p>
+  While the default PDF viewer of Firefox does not support
+  userscripts, this bookmarklet is a simple, effective way to give
+  PDFs a darker look.  If you're like me and often read books and
+  papers in PDF format at night, you might find this handy.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/pdf-dimmer-bookmarklet.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>MathB 1.3.0</title>
+<link>https://susam.net/code/news/mathb/1.3.0.html</link>
+<guid isPermaLink="false">lpjpy</guid>
+<pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  MathB 1.3.0 is likely the final update of MathB, a web-based
+  mathematics pastebin service.  The online mathematics pastebin
+  service previously hosted at <code>https://mathb.in/</code> has been
+  shut down today after 13 years of continuous service.  See the post
+  <a href="../../../mathbin-is-shutting-down.html">MathB.in Is
+  Shutting Down</a> for more details about this.  This release
+  captures the state of this project as it was today at the time of
+  shutting down the online service.
+</p>
+<p>
+  This update includes a few new features.  For example, there is now
+  a configurable runtime property named <code>:expect</code> that can
+  be used to enforce the presence of certain tokens in the posts
+  submitted by the users.  This feature was used to enforce the
+  presence of LaTeX delimiters in the online service, a measure that
+  was instrumental in reducing spam to a great extent in the last few
+  years.  There are a few other minor changes too.
+  See <a href="https://github.com/susam/mathb/blob/main/CHANGES.md">CHANGES.md</a>
+  for a detailed changelog.
+</p>
+<p>
+  The source code of MathB remains free and open-source, so anyone
+  interested in hosting their own instance can still do so.  To access
+  the source code of MathB, please visit
+  <a href="http://github.com/susam/mathb">github.com/susam/mathb</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/mathb/1.3.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>MathB.in Is Shutting Down</title>
+<link>https://susam.net/mathbin-is-shutting-down.html</link>
+<guid isPermaLink="false">rrbdk</guid>
+<pubDate>Sun, 23 Feb 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Thirteen years ago, on a quiet Saturday night, I sat down and began
+  developing MathB.in.  After coding all through the night, as the sun
+  rose on Sunday, 25 March 2012, the website was ready.  I registered
+  a new domain name and shared it with a few friends who loved
+  mathematics.  Back then, we spent hours discussing fascinating
+  mathematics problems and this website became a simple way for us to
+  share snippets with each other.  Word spread quickly.  My friends
+  shared it with their friends, who passed it along to others.  The
+  community grew organically.  Then, one day, I announced the project
+  on the MathJax mailing list and its reach expanded even further.
+  Within a year, this mathematics pastebin service had users from
+  around the world.  Watching the usage of this little project grow
+  was an incredibly rewarding experience.
+</p>
+<figure class="soft">
+  <a href="files/blog/mathbin.png"><img
+     src="files/blog/mathbin.png"
+     alt="A screenshot of a mathematics pastebin service displaying Markdown and LaTeX code in the left pane and the rendered content in the right pane."></a>
+  <figcaption>
+    A screenshot of MathB.in, a mathematics pastebin service
+  </figcaption>
+</figure>
+<p>
+  The world has changed a lot since I first published MathB.in.  The
+  internet has evolved and so have I.  Maintaining a mathematics
+  pastebin service like this single-handedly has become increasingly
+  difficult over the years.  Over the past 13 years, I have received
+  notices from regulatory authorities whenever someone submitted
+  content that triggered compliance concerns.  Each time, my server
+  would be taken offline and I would be given a 7-day deadline to boot
+  it into rescue mode, remove the offending content and restore
+  service.  Missing the deadline would put my server hosting account
+  at risk of cancellation.
+</p>
+<p>
+  To prevent these disruptions, I began reviewing and filtering
+  incoming content as much as possible every few days.  The
+  appreciation and positive feedback from happy users kept me going.
+  However, at this stage of my life, I can no longer afford to spend
+  time moderating user content.  On top of that, the growing
+  complexity of data protection and digital safety regulations places
+  a significant burden on me as the maintainer of this service.
+  Complying with these regulations requires considerable legal
+  expertise that I cannot afford.
+</p>
+<p>
+  Some might suggest that I could improve the spam-detection
+  capabilities of this service and indeed, I have done so over the
+  years.  However, all anti-spam measures are inherently
+  probabilistic.  No matter how much automation is in place, a manual
+  review of every post is still necessary to guarantee that all
+  content is legitimate.  It only takes one dodgy submission to
+  trigger compliance alerts.  While I respect the need for these
+  regulations, I do not want to spend my weekends worrying about what
+  users from around the world might be posting on this little pastebin
+  service.  Nor do I want to be in a constant state of vigilance just
+  to keep my server running.  It takes up more time than I can spare.
+</p>
+<p>
+  Some have suggested forming a team of volunteers to review
+  submissions, but that does not solve the core issue: since the
+  server hosting account is in my name, I would still be responsible
+  for remediating any compliance issues or risk having my account
+  cancelled.  Another alternative is to move the service under a
+  non-profit organisation, but with increased responsibilities in
+  other areas of my life, handling the operational demands of such an
+  endeavour is far beyond what I can commit to.  After all, this was
+  meant to be a fun project built for me and my friends, not something
+  that requires me to deal with regulatory issues.
+</p>
+<p>
+  Another alternative would be to encode the content of a MathB.in
+  post and embed it into the URL, which could then be distributed with
+  others.  Upon visiting the URL, the application would read the
+  encoded content from the URL, decode it and render it.  While this
+  eliminates the need to store user content on my server, it
+  introduces a new concern: the risk of someone sharing URLs with
+  malicious content embedded in them.  I am not comfortable with such
+  content being rendered on a page served from a domain that I am the
+  registrant of.  The regulatory implications of rendering such
+  content are also unclear.  I could still be held accountable for
+  content rendered on the website, regardless of whether it's stored
+  on the server.  This problem could be mitigated to some extent by
+  refusing to render content containing known malicious patterns but
+  no such solution can be foolproof.
+</p>
+<p>
+  As a result, after much thought, I have regrettably made the
+  decision to shut down MathB.in on Sunday, 16 March 2025.  The
+  website will go offline on that day.  If you have any important
+  posts that you would like to keep, now is the time to copy and save
+  them for yourself.
+</p>
+<p>
+  To all of you who have used this project, I want to express my
+  sincere gratitude.  Running a project that could serve you in a
+  meaningful way has given me a strong sense of accomplishment and
+  pride.  To those who are disappointed by this service's closure, I
+  am sorry.  I wish I could continue to dedicate the time and effort
+  needed to maintain and develop it, but I must acknowledge my
+  limitations and step away from a project that has become an artefact
+  of my past, not my present.
+</p>
+<p>
+  The source code for this website is available at
+  <a href="https://github.com/susam/mathb">github.com/susam/mathb</a>
+  under the MIT licence.  Feel free to use the code and set up your
+  own instance if you'd like!  Alternatively, consider hosting your
+  mathematical snippets and notes on your own web space using a kit
+  like MathCask available at
+  <a href="https://github.com/susam/mathcask">github.com/susam/mathcask</a>.
+</p>
+<p>
+  Finally, I hope you'll hold no hard feelings.  If you have enjoyed
+  using MathB.in, I would love to stay connected on the Fediverse.  My
+  Mastodon handle is
+  <a href="https://mastodon.social/@susam">@susam@mastodon.social</a>.
+  See you there!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/mathbin-is-shutting-down.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+
+
+</channel>
+</rss>

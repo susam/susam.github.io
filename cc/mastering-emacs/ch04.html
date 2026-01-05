@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Notes on Mastering Emacs: Chapter 4: The Theory of Movement - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/cc/mastering-emacs/ch04.html">
+  <link rel="icon" type="image/png" href="../../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../../feed.xml">
+  <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+<main>
+<h1>Notes on Mastering Emacs: Chapter 4: The Theory of Movement</h1>
+<div>By <b>Susam Pal</b> on 25 Mar 2023</div>
+<p>
+  The following notes were taken while discussing Chapter 4 of the
+  book <em>Mastering Emacs</em> by Mickey Petersen (2022 edition) in
+  <a href="./">book discussion group meetings</a>.
+</p>
+<p>
+  An index of notes for all chapters are available
+  at <a href="notes.html">notes.html</a>.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#basics">Basics</a></li>
+  <li><a href="#major-mode-load-order">Major Mode Load Order</a>
+    <ul>
+      <li><a href="#file-local-variables">File-Local Variables</a></li>
+    </ul>
+  </li>
+  <li><a href="#occur-mode">Occur Mode</a></li>
+</ul>
+<h2 id="basics">Basics<a href="#basics"></a></h2>
+<p>
+  The following complete key sequences illustrate a few basic
+  commands:
+</p>
+<ul>
+  <li>
+    <code>C-x C-f foo.txt RET</code>: Edit file
+    named <code>foo.txt</code>.
+  </li>
+  <li>
+    <code>C-x C-s</code>: Save current buffer to file.
+  </li>
+  <li>
+    <code>C-x b *scratch* RET</code>: Switch to the buffer
+    named <code>*scratch*</code>.
+  </li>
+  <li>
+    <code>C-x k *scratch* RET</code>: Kill the buffer
+    named <code>*scratch*</code>.
+  </li>
+  <li>
+    <code>C-x k RET</code>: Kill current buffer.  In fact, like the
+    previous key sequence above, typing <code>C-x k</code> first
+    prompts for the buffer name.  However, the current buffer name is
+    selected as the default value already.  As a result,
+    typing <code>RET</code> kills the current buffer.
+  </li>
+  <li>
+    <code>C-x C-b</code>: List buffers.
+  </li>
+  <li>
+    <code>C-x C-c</code>: Exit Emacs.  This command offers to save all
+    unsaved buffers before exiting Emacs.
+  </li>
+  <li>
+    <code>ESC ESC ESC</code>: This command exits the current context.
+    What that means depends very much on the context.  It performs
+    exactly one of the following actions: If there is an active
+    region, then it is deactivated; if a minibuffer is open, it gets
+    rid of it; if recursive edit is in progress, it quits one level of
+    recursive editing; if multiple windows are open, it deletes other
+    windows so that the current window becomes the only window in the
+    frame.  The aforementioned conditions are tested one by one and as
+    soon as one of the conditions is met, the corresponding action is
+    executed and the other conditions are skipped.
+  </li>
+  <li>
+    <code>C-/</code>: Undo changes.
+  </li>
+  <li>
+    <code>F10</code>: Activate the menu bar.
+  </li>
+</ul>
+<p>
+  In my experience, I have found that <code>ESC ESC ESC</code> is most
+  useful when a stray minibuffer is open but the cursor is on some
+  other buffer instead of the minibuffer and I need to close the
+  minibuffer.  Here are some steps that demonstrate this usage:
+</p>
+<ol>
+  <li>
+    <p>
+      Type <code>M-x white</code> and pause.  We now have a partially
+      typed command in the minibuffer.
+    </p>
+  </li>
+  <li>
+    <p>
+      Now pretend that we get distracted by some imperfections in the
+      text buffer that was open earlier and we want to fix those
+      first.  Type <code>C-x o</code> to move away from the minibuffer
+      and go back to the text buffer to perform some editing tasks.
+    </p>
+    <p>
+      In this step, we could have typed <code>C-g</code> to quit the
+      minibuffer first but we did not do that.  We pretended to get
+      distracted by the text buffer and went straight to it from the
+      minibuffer by typing <code>C-x o</code>.  At this point, the
+      cursor is in the text buffer and the minibuffer remains open at
+      the bottom.  The open minibuffer can be distracting while
+      performing the text editing tasks.  Typing <code>C-g</code> now
+      will not get rid of the minibuffer because the cursor is no
+      longer in the minibuffer.
+    </p>
+  </li>
+  <li>
+    <p>
+      Now one way to close the open minibuffer could be to
+      type <code>C-x o</code> to go back to the minibuffer window and
+      type <code>C-g</code>.  However, there is a more direct way to
+      do this as explained in the next point.
+    </p>
+  </li>
+  <li>
+    <p>
+      Type <code>ESC ESC ESC</code> to get rid of the minibuffer at
+      the bottom.  This works even when the cursor is not in the
+      minibuffer but is in the text buffer instead.
+    </p>
+  </li>
+</ol>
+<h2 id="major-mode-load-order">Major Mode Load Order<a href="#major-mode-load-order"></a></h2>
+<p>
+  The chapter mentions the following order for detecting major mode:
+</p>
+<ul>
+  <li>File-local variables</li>
+  <li>Program loader directives</li>
+  <li>Magic mode detection</li>
+  <li>Automatic mode detection</li>
+</ul>
+<p>
+  Let us start from the bottom of the list and share some experimental
+  results that illustrate how the major mode detection works.
+</p>
+<h3 id="file-local-variables">File-Local Variables<a href="#file-local-variables"></a></h3>
+<ol>
+  <li>
+    <p>
+      Create a text file named <code>foo.txt</code> with the following
+      content:
+    </p>
+    <pre>
+<code>#include &lt;iostream&gt;
+
+int main() {
+  std::cout << "hello, world\n";
+  return 0;
+}</code>
+</pre>
+    <p>
+      Then open this file in Emacs (say, with <code>C-x C-f foo.txt
+      RET</code>).  Emacs sets the major mode to <code>Text</code>
+      (i.e. <code>text-mode</code>).
+    </p>
+    <p>
+      Type <code>M-: major-mode RET</code> to confirm that indeed the
+      value of <code>major-mode</code> is <code>text-mode</code>.
+      This happens due to automatic mode detection which determines
+      the major mode based on the file name.  In this case it sees
+      that the file name ends with <code>.txt</code> and
+      enables <code>text-mode</code>.  We will discuss automatic mode
+      detection further in the
+      section <a href="#automatic-mode-detection">Automatic Mode
+      Detection</a>.
+    </p>
+  </li>
+  <li>
+    <p>
+      Now edit the previous file to add file-local variables in the
+      header as follows:
+    </p>
+    <pre>
+<code>// -*- mode: c++; c-basic-offset: 4 -*-
+
+#include &lt;iostream&gt;
+
+int main() {
+  std::cout << "hello, world\n";
+  return 0;
+}</code>
+</pre>
+    <p>
+      Now reload the buffer.  You could simply kill the buffer
+      with <code>C-x k</code> and reopen the file with <code>C-x C-f
+      foo.txt RET</code> or alternatively, reload the buffer
+      with <code>M-x revert-buffer RET yes RET</code>.
+    </p>
+    <p>
+      After reloading the buffer, you should see that
+      the <code>C++</code> mode (i.e. <code>c++-mode</code>) is
+      enabled.  As a result, C++ syntax highlighting should be
+      visible.  Further <code>C-x h TAB</code> should reformat the
+      code to use 4 spaces for each level of indentation.
+    </p>
+  </li>
+  <li>
+    <p>
+      File-local variables may be specified in the footer too as shown
+      below:
+    </p>
+    <pre>
+<code>#include &lt;iostream&gt;
+
+int main() {
+    std::cout << "hello, world\n";
+    return 0;
+}
+
+// Local Variables:
+// mode: c++
+// c-basic-offset: 6
+// End:</code>
+</pre>
+    <p>
+      Now reloading the buffer should show that <code>c++-mode</code>
+      is enabled and typing <code>C-x h TAB</code> should reformat the
+      code to use 6 spaces for each level of indentation.
+    </p>
+  </li>
+  <li>
+    <p>
+      What happens if the file-local variables in the header and
+      footer contradict each other?  To test this out, edit the buffer
+      to have the following content:
+    </p>
+    <pre>
+<code>// -*- mode: c++; c-basic-offset: 4 -*-
+
+#include &lt;iostream&gt;
+
+int main() {
+      std::cout << "hello, world\n";
+      return 0;
+}
+
+// Local Variables:
+// mode: python
+// c-basic-offset: 6
+// End:</code>
+</pre>
+    <p>
+      Reloading the buffer should show that <code>c++-mode</code> is
+      active.  Typing <code>C-x h TAB</code> should reformat the code
+      to use 6 spaces for each level of indentation.  Therefore the
+      mode specified in the header remains effective.  For other
+      variables, the ones specified in the footer have precedence.
+    </p>
+    <p>
+      Of course, the example above is intended for curiosity and
+      exploration.  In practical use, however, it is best to avoid
+      assigning conflicting values to file-local variables in both the
+      header and footer.  Such inconsistencies can lead to confusion
+      and make the effect of the variables difficult to understand.
+    </p>
+  </li>
+</ol>
+<h2 id="occur-mode">Occur Mode<a href="#occur-mode"></a></h2>
+<p>
+  TODO: More notes coming up here soon!
+</p>
+
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../../">Home</a>
+    <a href="../../cc/">Club</a>
+    <a href="../../links.html">Links</a>
+    <a href="../../feed.xml">Feed</a>
+    <a href="../../form/subscribe/">Subscribe</a>
+    <a href="../../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

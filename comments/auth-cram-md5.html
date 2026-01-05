@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on AUTH CRAM-MD5 - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/auth-cram-md5.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../auth-cram-md5.html"><em>AUTH CRAM-MD5</em></a></strong></div>
+<nav><a href="../form/comment/?p=auth-cram-md5">Post Comment</a></nav>
+<!-- Comment 1 of 2 -->
+<section id="1" class="visitor">
+<h2>Matt Mullins wrote:</h2>
+<p>
+  The problem with challenge-response authentication, however, is that
+  it requires the server to store passwords in plaintext.  There are
+  very few servers I trust enough to store my password without
+  properly hashing it first.
+</p>
+<p>
+  In practice, most systems use PLAIN authentication over a secured
+  connection, such as by SSL, so that it's not susceptible to the
+  man-in-the-middle problem described.
+</p>
+<p>
+  You can also use Kerberos through GSSAPI to trust a single source
+  for authentication tickets.  A Kerberos key distribution center does
+  store password-equivalent data as plain-text, but it minimizes the
+  number of systems that need to be protected to such a high degree.
+</p>
+<div>
+<a href="#1">08 Nov 2011 22:28 UTC</a> |
+<a href="#1">#1 of 2 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 2 -->
+<section id="2" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Matt, you make a very good point.  Yes, the server needs to store
+  the passwords in plaintext in case of CRAM-MD5 authentication so
+  that it can compute the expected response and match it with the
+  received response.
+</p>
+<p>
+  Here is a sample entry in the /etc/exim4/passwd file for the
+  curious:
+</p>
+<pre><code>alice:$1$vRPkzzDi$3sqk2e4Jcgn/YEeB1JqgT1</code></pre>
+<p>
+  In case of PLAIN or LOGIN authentication mechanism, the above entry
+  is enough to setup the user 'alice' with password 'wonderland' that
+  has been used in this post.  In this example, the second field
+  contains the password hashed with MD5 and a random salt.  After the
+  server receives the password from the client, it would compute a
+  hash from the password using the same hashing algorithm and salt
+  (<code>vRPkzzDi</code> in this case) and check that the result
+  matches with the hash in this file.
+</p>
+<p>
+  For CRAM-MD5 authentication mechanism to work properly, we'll need
+  an entry like this in the <code>passwd</code> file.
+</p>
+<pre><code>alice:$1$vRPkzzDi$3sqk2e4Jcgn/YEeB1JqgT1:wonderland</code></pre>
+<p>
+  Strictly speaking, the second field is not necessary.  It could have
+  been empty since only the third field containing the password in
+  plaintext is used to compute the expected response to the challenge
+  during CRAM-MD5 authentication.
+</p>
+<div>
+<a href="#2">09 Nov 2011 21:20 UTC</a> |
+<a href="#2">#2 of 2 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=auth-cram-md5">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

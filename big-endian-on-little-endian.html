@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Big-Endian on Little-Endian - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/big-endian-on-little-endian.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<main>
+<h1>Big-Endian on Little-Endian</h1>
+<div>By <b>Susam Pal</b> on 20 Jun 2010</div>
+<p>
+  In this post, I will share how I set up big-endian emulation on my
+  little-endian Intel machine to tets a program for byte order related
+  issues.  I used the QEMU PowerPC emulator to set up the big-endian
+  emulation.  The steps to do so are documented in the list below.
+</p>
+<ol>
+  <li>
+    <p>
+      Install QEMU.
+    </p>
+    <pre><code>apt-get update &amp;&amp; apt-get install qemu</code></pre>
+  </li>
+  <li>
+    <p>
+      Download <code>mol-0.9.72.1.tar.bz2</code> from
+      <a href="http://sourceforge.net/projects/mac-on-linux/files/">http://sourceforge.net/projects/mac-on-linux/files/</a>
+      and copy the file named <code>video.x</code> from the downloaded
+      tarball to
+      <code>/usr/share/qemu/</code>.  This is necessary to
+      prevent <code>qemu-system-ppc</code> from complaining about it.
+    </p>
+    <pre>
+<code>wget https://sourceforge.net/projects/mac-on-linux/files/mac-on-linux/mol-0.9.72.1/mol-0.9.72.1.tar.bz2
+tar -xjf mol-0.9.72.1.tar.bz2
+sudo cp mol-0.9.72.1/mollib/drivers/video.x /usr/share/qemu/</code>
+</pre>
+  </li>
+  <li>
+    <p>
+      Create a QEMU hard disk image.
+    </p>
+    <pre><code>qemu-img create powerpc.img 2G</code></pre>
+  </li>
+  <li>
+    <p>
+      Download Debian for PowerPC and install it on the QEMU hard disk
+      image.
+    </p>
+    <pre>
+<code>wget http://cdimage.debian.org/debian-cd/5.0.4/powerpc/iso-cd/debian-504-powerpc-CD-1.iso
+qemu-system-ppc -m 512 -boot d -hda powerpc.img -cdrom debian-504-powerpc-CD-1.iso</code>
+</pre>
+  </li>
+  <li>
+    <p>
+      Boot the QEMU PowerPC emulator with the new hard disk image.
+    </p>
+    <pre><code>qemu-system-ppc -m 512 -hda powerpc.img</code></pre>
+  </li>
+  <li>
+    <p>
+      Write a small program inside the new Debian system,
+      say, <code>endian.c</code> like this:
+    </p>
+    <pre>
+<code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n = 1;
+    printf(*((char *) &amp;n) ? "little-endian\n" : "big-endian\n");
+    return 0;
+}</code>
+</pre>
+  </li>
+  <li>
+    <p>
+      Compile and execute the C program.
+    </p>
+    <pre>
+<code>$ <kbd>gcc endian.c &amp;&amp; ./a.out</kbd>
+big-endian</code>
+</pre>
+  </li>
+</ol>
+<div>
+  <a href="comments/big-endian-on-little-endian.html">Comments</a> |
+  <a href="./tag/c.html">#c</a> |
+  <a href="./tag/programming.html">#programming</a> |
+  <a href="./tag/technology.html">#technology</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

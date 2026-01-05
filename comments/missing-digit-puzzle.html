@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Missing Digit Puzzle - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/missing-digit-puzzle.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+  <link rel="stylesheet" href="../js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="../js/katex/katex.min.js"></script>
+  <script defer src="../js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../missing-digit-puzzle.html"><em>Missing Digit Puzzle</em></a></strong></div>
+<nav><a href="../form/comment/?p=missing-digit-puzzle">Post Comment</a></nav>
+<!-- Comment 1 of 2 -->
+<section id="1" class="visitor">
+<h2>Vikram Agrawal wrote:</h2>
+<p>
+  The missing digit is 4.
+</p>
+<p>
+  There are 25519 combinations of 0, 1, 1, 2, 3, 4, 4, 5, 7 and 9
+  which are 10-digit multiple of 234.  Interestingly, for the given 9
+  digits 0, 1, 1, 2, 3, 4, 5, 7 and 9, no digit other than 4 gives a
+  10 digit combination that is multiple of 234.
+</p>
+<div>
+<a href="#1">14 May 2011 05:20 UTC</a> |
+<a href="#1">#1 of 2 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 2 -->
+<section id="2" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Yes, the correct answer is 4.  There are indeed 25519 ten-digit
+  multiples of 234 which have 0, 1, 1, 2, 3, 4, 5, 7 and 9 as nine of
+  its digits.  The remaining digit must be 4.  We need not brute force
+  to confirm this.  It can be proven logically.
+</p>
+<p>
+  The number 234 is a multiple of 9.  So any multiple of 234 is also a
+  multiple of 9.  We know that the sum of all digits of a multiple of
+  9 is a multiple of 9.  If we assume the remaining digit to be
+  \( x, \) the sum of the digits of the multiple in question is \( 0 +
+  1 + 1 + 2 + 3 + 4 + 5 + 7 + 9 + x = 32 + x.  \)  The only value of
+  digit \( x \) that makes \( 32 + x \) a multiple of 9 is 4.
+</p>
+<div>
+<a href="#2">18 Jun 2011 09:36 UTC</a> |
+<a href="#2">#2 of 2 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=missing-digit-puzzle">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../maze.html">Maze</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

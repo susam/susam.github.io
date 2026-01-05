@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Writing Boot Sector Code - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/writing-boot-sector-code.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+  <link rel="stylesheet" href="../css/extra.css">
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../writing-boot-sector-code.html"><em>Writing Boot Sector Code</em></a></strong></div>
+<nav><a href="../form/comment/?p=writing-boot-sector-code">Post Comment</a></nav>
+<!-- Comment 1 of 4 -->
+<section id="1" class="visitor">
+<h2>non-entity wrote:</h2>
+<p>
+  Boot sector programming has always seemed like one of the cooler
+  ways to play with writing lower level code, but am I wrong to assume
+  it won't work on systems with UEFI?
+</p>
+<div>
+<a href="#1">04 Aug 2019 16:31 UTC</a> |
+<a href="#1">#1 of 4 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 4 -->
+<section id="2" class="visitor">
+<h2>leo89 wrote:</h2>
+<p>
+  It may work with UEFI if it's set to compatibility mode.
+</p>
+<div>
+<a href="#2">04 Aug 2019 17:00 UTC</a> |
+<a href="#2">#2 of 4 comments</a>
+</div>
+</section>
+<!-- Comment 3 of 4 -->
+<section id="3" class="visitor">
+<h2>Frutiger wrote:</h2>
+<p>
+  That's correct.  UEFI firmware will execute a PE image (the same
+  format that Windows executables use) on a FAT32 file system, and can
+  access UEFI services to execute a kernel.
+</p>
+<p>
+  The UEFI firmware may support a CSM (compatibility support module)
+  that can boot a legacy BIOS loader.
+</p>
+<div>
+<a href="#3">04 Aug 2019 17:02 UTC</a> |
+<a href="#3">#3 of 4 comments</a>
+</div>
+</section>
+<!-- Comment 4 of 4 -->
+<section id="4" class="visitor">
+<h2><a href="https://twitter.com/rdegges">Randall Degges</a> wrote:</h2>
+<p>
+  This is a great introduction to writing boot sector code!  Really
+  brings back memories.  So awesome.
+</p>
+<div>
+<a href="#4">08 Dec 2019 15:57 UTC</a> |
+<a href="#4">#4 of 4 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=writing-boot-sector-code">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Vim Sudo Write Trick - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/vim-sudo-write-trick.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../vim-sudo-write-trick.html"><em>Vim Sudo Write Trick</em></a></strong></div>
+<nav><a href="../form/comment/?p=vim-sudo-write-trick">Post Comment</a></nav>
+<!-- Comment 1 of 11 -->
+<section id="1" class="visitor">
+<h2>Long Long wrote:</h2>
+<p>
+  Wonderful!  I could have done with this trick the number of times
+  I've been caught out with this one.  Noted with thanks.
+</p>
+<div>
+<a href="#1">08 May 2021 15:27 UTC</a> |
+<a href="#1">#1 of 11 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 11 -->
+<section id="2" class="visitor">
+<h2>CRMD wrote:</h2>
+<p>
+  20+ years of using Unix and vi, and still learning tricks.  Love it!
+</p>
+<div>
+<a href="#2">30 Oct 2021 16:58 UTC</a> |
+<a href="#2">#2 of 11 comments</a>
+</div>
+</section>
+<!-- Comment 3 of 11 -->
+<section id="3" class="visitor">
+<h2>LP wrote:</h2>
+<p>
+  The quotes around the percent sign are unnecessary.  The
+    command <code>:w !sudo tee %</code> works just fine.  I use it
+    everytime!
+</p>
+<div>
+<a href="#3">30 Oct 2021 20:06 UTC</a> |
+<a href="#3">#3 of 11 comments</a>
+</div>
+</section>
+<!-- Comment 4 of 11 -->
+<section id="4" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  LP,
+</p>
+<p>
+  Like I explained in my blog post, the quotes around the percent sign
+  are necessary to keep the filename as a single argument when the
+  filename contains whitespace.  If there is no whitespace in the
+  filename, then the quotes are not necessary.
+</p>
+<p>
+  Here is an experiment that demonstrates the purpose of quotes:
+</p>
+<ol>
+  <li>
+    <p>
+      Enter the following command to create a filename with a space in
+      it and then open it with Vim:
+    </p>
+    <pre><code>sudo touch "foo bar.txt"
+vim "foo bar.txt"</code></pre>
+  </li>
+  <li>
+    <p>
+      In Vim, insert some text with the following key sequence:
+      <kbd>i</kbd> <kbd>hello</kbd> <kbd>&lt;esc&gt;</kbd>.
+    </p>
+  </li>
+  <li>
+    <p>
+      Now enter the following command in Vim to save the file:
+    </p>
+    <pre><code>:w !sudo tee %</code></pre>
+  </li>
+  <li>
+    <p>
+      In another instance of the terminal, enter the following command
+      to check the content of the file:
+    </p>
+    <pre><code>cat "foo bar.txt"</code></pre>
+    <p>
+      The file still appears empty.  Nothing was saved to this file.
+    </p>
+  </li>
+  <li>
+    <p>
+      Now enter the following commands:
+    </p>
+    <pre><code>cat foo
+cat bar.txt</code></pre>
+    <p>
+      Both files contain the text <code>hello</code> in them.
+    </p>
+  </li>
+</ol>
+<p>
+  This experiment shows that due to the lack of quotes
+  around <code>%</code>, the command <code>tee %</code> expands
+  to <code>tee foo bar.txt</code> which ends up writing the content of
+  the buffer to both files <code>foo</code> and <code>bar.txt</code>
+  but not to <code>"foo bar.txt"</code> as we desire.
+</p>
+<p>
+  This is why we need to write <code>tee "%"</code> so that it expands
+  to <code>tee "foo bar.txt"</code> and the content of the buffer is
+  written to the file named <code>"foo bar.txt"</code>.
+</p>
+<div>
+<a href="#4">30 Oct 2021 23:00 UTC</a> |
+<a href="#4">#4 of 11 comments</a>
+</div>
+</section>
+<!-- Comment 5 of 11 -->
+<section id="5" class="visitor">
+<h2>Oars wrote:</h2>
+<p>
+  Very useful, thanks for sharing.
+</p>
+<div>
+<a href="#5">30 Oct 2021 23:41 UTC</a> |
+<a href="#5">#5 of 11 comments</a>
+</div>
+</section>
+<!-- Comment 6 of 11 -->
+<section id="6" class="visitor">
+<h2>RGovostes wrote:</h2>
+<p>
+  I have often wished there were something equivalent for nano.  Of
+  course you can just save to another file and <code>sudo mv</code> it
+  into place.
+</p>
+<p>
+  In the spirit of this trick, you could set the <code>SPELL</code>
+  environment variable to a script that does
+</p>
+<pre>
+<code>#!/bin/sh
+read -p "Path: " FILENAME
+cat "$1" | sudo tee "$FILENAME"</code>
+</pre>
+<p>
+  and then invoke it with <code>^T</code> from nano.  Bonus points:
+  Extract the destination filename automatically from <code>ps -p
+  $PPID -o command=</code> (somewhat portable) or
+  from <code>/proc</code> (Linux).
+</p>
+<div>
+<a href="#6">31 Oct 2021 01:56 UTC</a> |
+<a href="#6">#6 of 11 comments</a>
+</div>
+</section>
+<!-- Comment 7 of 11 -->
+<section id="7" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  RGovostes, Thanks for the interesting idea to make this trick work
+  with nano.  Based on your comment, I wrote this script to
+  automatically detect the destination filename when invoked
+  with <code>^T</code> from nano.
+</p>
+<pre>
+<code>#!/bin/sh
+set -e
+COMMAND=$(ps -p $PPID -o args=)
+FILENAME=${COMMAND#*nano }
+printf "Write to $FILENAME? (y/n) "
+read ANSWER
+[ "$ANSWER" = y ] &amp;&amp; sudo tee "$FILENAME" &lt; "$1" &gt; /dev/null</code>
+</pre>
+<p>
+  After saving this file to, say,
+  <code>/usr/local/bin/sudowrite</code>, it can be set up for usage
+  like this:
+</p>
+<pre>
+<code>sudo chmod u+x /usr/local/bin/sudowrite
+export SPELL=/usr/local/bin/sudowrite</code>
+</pre>
+<p>
+  Here is how to test it:
+</p>
+<pre>
+<code>sudo touch foo.txt
+nano foo.txt</code>
+</pre>
+<p>
+  Now write some text and try to save it by typing
+  <kbd>ctrl</kbd>&nbsp;+&nbsp;<kbd>o</kbd> followed
+  by <kbd>enter</kbd>.  The following error should appear:
+</p>
+<pre><samp>[ Error writing foo.txt: Permission denied ]</samp></pre>
+<p>
+  Now type <kbd>ctrl</kbd>&nbsp;+&nbsp;<kbd>t</kbd> followed
+  by <kbd>y</kbd> and <kbd>enter</kbd> to save the file successfully
+  using the script we wrote above.
+</p>
+<div>
+<a href="#7">31 Oct 2021 05:31 UTC</a> |
+<a href="#7">#7 of 11 comments</a>
+</div>
+</section>
+<!-- Comment 8 of 11 -->
+<section id="8" class="visitor">
+<h2><a href="https://github.com/kevincox">Kevin Cox</a> wrote:</h2>
+<p>
+  I just use
+  <a href="https://github.com/tpope/vim-eunuch">vim-eunuch</a> which
+  includes a <code>:SudoWrite</code> in its list of goodies.
+</p>
+<p>
+  Everything in the plugin is pretty easy to live without but in my
+  mind the simple plugin to have everything on-hand is worth it.
+</p>
+<div>
+<a href="#8">11 Dec 2021 11:41 UTC</a> |
+<a href="#8">#8 of 11 comments</a>
+</div>
+</section>
+<!-- Comment 9 of 11 -->
+<section id="9" class="visitor">
+<h2>Jen wrote:</h2>
+<p>
+  I have got this in my ~/.vimrc now:
+</p>
+<pre><code>command W w !sudo tee "%" &gt; /dev/null</code></pre>
+<div>
+<a href="#9">11 Dec 2021 15:19 UTC</a> |
+<a href="#9">#9 of 11 comments</a>
+</div>
+</section>
+<!-- Comment 10 of 11 -->
+<section id="10" class="visitor">
+<h2>Mario wrote:</h2>
+<p>
+  This is a nice tip!  I ended up adding this to my ~/.vimrc:
+</p>
+<pre><code>command W execute 'silent write !sudo tee "%" &gt; /dev/null' | edit!</code></pre>
+<div>
+<a href="#10">11 Dec 2021 18:35 UTC</a> |
+<a href="#10">#10 of 11 comments</a>
+</div>
+</section>
+<!-- Comment 11 of 11 -->
+<section id="11" class="visitor">
+<h2>Toby wrote:</h2>
+<p>
+  Thanks for the tip!  Adding this to my Vim configuration:
+</p>
+<pre><code>com W exe 'sil w !sudo tee "%" &gt; /dev/null' | e!</code></pre>
+<div>
+<a href="#11">12 Dec 2021 21:18 UTC</a> |
+<a href="#11">#11 of 11 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=vim-sudo-write-trick">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../maze.html">Maze</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

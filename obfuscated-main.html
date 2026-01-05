@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Obfuscated Main - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/obfuscated-main.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<main>
+<h1>Obfuscated Main</h1>
+<div>By <b>Susam Pal</b> on 02 Nov 2003</div>
+<p>
+  I have been running a mailing list called <em>ncoders</em> on Yahoo
+  Groups for the past few months.  I created it to host discussions on
+  computers, programming and network protocols among university
+  students.  There are currently about 150 students from various
+  universities across the world on the list.  A few weeks ago, someone
+  posted a C programming puzzle to the group.  The puzzle asked
+  whether it was possible to write a C program such that the
+  <code>main()</code> function <em>does not seem to appear</em> in the
+  code.  Here's a solution I came up with, which involves obfuscating
+  the identifier <code>main</code> using preprocessor macros and
+  the <code>##</code> token-pasting operator.
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+#define decode(s,t,u,m,p,e,d) m ## s ## u ## t
+#define begin decode(a,n,i,m,a,t,e)
+
+int begin()
+{
+    printf("Stumped?\n");
+}</code>
+</pre>
+<p>
+  This program compiles and runs successfully.  Here is the output:
+</p>
+<pre><samp>Stumped?</samp></pre>
+<p>
+  Let me explain how this code works.  When the C preprocessor runs on
+  this code, the following preprocessing steps occur:
+</p>
+<ul>
+  <li>
+    <code>begin</code> is replaced with <code>decode(a,n,i,m,a,t,e)</code>,
+  </li>
+  <li>
+    <code>decode(a,n,i,m,a,t,e)</code> is replaced with <code>m ## a
+    ## i ## n</code> and
+  </li>
+  <li>
+    <code>m ## a ## i ## n</code> is replaced with <code>main</code>.
+  </li>
+</ul>
+<p>
+  Thus <code>begin()</code> is replaced with <code>main()</code>.
+</p>
+<p>
+  <strong>Update on 31 Jul 2007:</strong> Although the mailing list
+  referred to in this post no longer exists, this tiny piece of code
+  seems to have survived on the web.  A
+  <a href="https://www.google.com/search?q=%22decode%28s%2Ct%2Cu%2Cm%2Cp%2Ce%2Cd%29%22">quick
+  search</a> shows so many occurrences of this code on the web.  It is
+  quite surprising to me that a rather silly piece of code written
+  during a Sunday afternoon to solve an equally silly puzzle has been
+  the subject of much discussion!
+</p>
+<div>
+  <a href="comments/obfuscated-main.html">Comments</a> |
+  <a href="./tag/absurd.html">#absurd</a> |
+  <a href="./tag/c.html">#c</a> |
+  <a href="./tag/programming.html">#programming</a> |
+  <a href="./tag/technology.html">#technology</a> |
+  <a href="./tag/puzzle.html">#puzzle</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

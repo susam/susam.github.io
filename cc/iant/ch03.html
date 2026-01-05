@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Notes on Chapter 3: Averages of Arithmetical Functions - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/cc/iant/ch03.html">
+  <link rel="icon" type="image/png" href="../../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../../feed.xml">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="../../js/katex/katex.min.js"></script>
+  <script defer src="../../js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Notes on Chapter 3: Averages of Arithmetical Functions</h1>
+<div>By <b>Susam Pal</b> on 09 Apr 2021</div>
+
+<!-- Section 3.3 -->
+<h2 id="3.3">&sect; 3.3: Euler's summation formula<a href="#3.3"></a></h2>
+<h3 id="main-idea-behind-the-proof-of-eulers-summation-formula">Main idea behind the proof of Euler's summation formula<a href="#main-idea-behind-the-proof-of-eulers-summation-formula"></a></h3>
+<p>
+  Important numbers in the proof:
+
+  \[
+    0, \quad
+    \underbrace{[y]}_{=\,m}, \quad
+    y, \quad
+    \underbrace{[y] + 1}_{=\,m + 1}, \quad
+    \underbrace{[x]}_{=\,k}, \quad
+    x.
+  \]
+
+  Splitting the definite integral:
+
+  \[
+    \int_y^x f(t)\,dt
+    = \int_{y}^{[y] + 1} f(t)\,dt
+    + \underbrace{\int_{[y] + 1}^{[y] + 2} f(t)\,dt + \dots
+    + \int_{[x] - 1}^{[x]} f(t)\,dt}_{=\,\int_{[y] + 1}^{[x]} f(t)\, dt}
+    + \int_{[x]}^{x} f(t)\,dt.
+  \]
+
+  Using the more convenient variables \( m \) and \( k, \) we get:
+
+  \[
+    \int_y^x f(t)\,dt
+    = \int_m^{m + 1} f(t)\,dt
+    + \underbrace{\int_{m + 1}^{m + 2} f(t)\,dt + \dots
+    + \int_{k - 1}^{k} f(t)\,dt}_{=\,\int_{m + 1}^{k} f(t)\, dt}
+    + \int_{k}^{x} f(t)\,dt.
+  \]
+</p>
+<h3 id="sum-of-integrals-in-the-proof-of-eulers-summation-formula">Sum of integrals in the proof Euler's summation formula<a href="#sum-of-integrals-in-the-proof-of-eulers-summation-formula"></a></h3>
+<p>
+  \begin{align*}
+    \int_{m + 1}^{k} [t] f'(t) dt
+    &amp; = \int_{m + 1}^{m + 2} [t] f'(t) dt
+    + \int_{m + 2}^{m + 3} [t] f'(t) dt + \dots
+    + \int_{k - 1}^{k} [t] f'(t) dt \\
+    &amp; =
+    \begin{aligned}[t]
+      &amp; (m + 2) f(m + 2) - (m + 1) f(m + 1) - f(m + 2) \\
+    + &amp; (m + 3) f(m + 3) - (m + 2) f(m + 2) - f(m + 3) \\
+      &amp; \dots \\
+    + &amp; (k) f(k) - (k - 1) f(k - 1) - f(k)
+    \end{aligned} \\
+    &amp; = kf(k) - (m + 1)f(m + 1) - \sum_{n=m + 2}^{k} f(n) \\
+    &amp; = kf(k) - mf(m + 1) - f(m + 1) - \sum_{n=m + 2}^{k} f(n) \\
+    &amp; = kf(k) - mf(m + 1) - \sum_{n=m + 1}^{k} f(n) \\
+    &amp; = kf(k) - mf(m + 1) - \sum_{y \lt n \le x} f(n).
+  \end{align*}
+</p>
+<h3 id="equation-6-in-the-proof-of-eulers-summation-formula">Equation (6) in the proof of Euler's summation formula<a href="#equation-6-in-the-proof-of-eulers-summation-formula"></a></h3>
+<p>
+  \begin{align*}
+    \sum_{y \lt n \le x} f(n)
+    &amp; = - \int_{m + 1}^k [t] f'(t) \, dt + k f(k) - m f(m + 1) \\
+    &amp; = \begin{aligned}[t]
+          &amp; \left( - \int_y^{m + 1} [t] f'(t) \, dt
+                       - \int_{m + 1}^k [t] f'(t) \, dt
+                       - \int_k^x [t] f'(t) \, dt \right) \\
+          &amp; + f(k) - m f(m + 1)
+                + \int_y^{m + 1} [t] f'(t) \, dt
+                + \int_k^x [t] f'(t) \, dt
+        \end{aligned} \\
+    &amp; = - \int_y^x [t] f'(t) \, dt + k f(k) - m f(m + 1)
+            + \int_y^{m + 1} m f'(t) \, dt + \int_k^x k f'(t) \, dt \\
+    &amp; = - \int_y^x [t] f'(t) \, dt + k f(k) - m f(m + 1)
+            + \biggl( m f(m + 1) - m f(y) \biggr) + \biggl( k f(x) - k f(k) \biggr) \\
+    &amp; = - \int_y^x [t] f'(t) \, dt + k f(x) - m f(y).
+  \end{align*}
+</p>
+<h3 id="using-integration-by-parts-in-the-proof-of-eulers-summation-formula">Using integration by parts in the proof of Euler's summation formula<a href="#using-integration-by-parts-in-the-proof-of-eulers-summation-formula"></a></h3>
+<p>
+  Integration by parts:
+
+  \[
+    \int uv \, dt = u \int v \, dt - \int u' \left( \int v \, dt \right) \, dt.
+  \]
+
+  \[
+    \int_y^x t f'(t) \, dt
+    = \left. \left( t f(t) - \int f(t) \, dt \right) \right|_y^x
+    = x f(x) - y f(y) - \int_y^x f(t) \, dt.
+  \]
+
+  Final step of the proof:
+
+  \begin{align*}
+    \sum_{y \lt n \le x} f(n)
+    &amp; = -\int_y^x [t] f'(t) \, dt + k f(x) - m f(y) \\
+    &amp; = \begin{aligned}[t]
+          &amp; -\int_y^x [t] f'(t) \, dt + [x] f(x) - [y] f(y) \\
+          &amp; + \underbrace{
+            \left( \int_y^x t f'(t) \, dt - x f(x) + y f(y)
+                   + \int_y^x f(t) \, dt \right)}_{0 \text{ by above definite integral}}
+        \end{aligned} \\
+    &amp; = \int_y^x f(t) \, dt + \int_y^x (t - [t]) f'(t) \, dt
+        + f(x)([x] - x) - f(y)([y] - y).
+  \end{align*}
+</p>
+
+<!-- Section 3.4 -->
+<h2 id="3.4">&sect; 3.3: Some elementary asymptotic formulas<a href="#3.4"></a></h2>
+<h3 id="splitting-integral-in-the-proof-of-theorem-3.2">Splitting integral in the proof of Theorem 3.2<a href="#splitting-integral-in-the-proof-of-theorem-3.2"></a></h3>
+<p>
+  Splitting definite integral:
+
+  \begin{align*}
+    &amp; \int_1^{\infty} f(t) \, dt = \int_1^{x} f(t) \, dt + \int_x^{\infty} f(t) \, dt \\
+    &amp; \iff
+    \int_1^{\infty} f(t) \, dt - \int_x^{\infty} f(t) \, dt = \int_1^x f(t) \, dt.
+  \end{align*}
+
+  Solving improper integral:
+
+  \[
+    \int_x^{\infty} \frac{1}{t^2} \, dt
+    = \lim_{b \to \infty} \int_x^b \frac{1}{t^2} dt
+    = \lim_{b \to \infty} \frac{-1}{t} \Biggr|_x^b
+    = \left( \lim_{b \to \infty} \frac{-1}{b} \right) + \frac{1}{x}
+    = 0 + \frac{1}{x} = \frac{1}{x}.
+  \]
+</p>
+<h3 id="eulers-constant-in-the-proof-of-theorem-3.2-a">Euler's constant in the proof of Theorem 3.2 (a)<a href="#eulers-constant-in-the-proof-of-theorem-3.2-a"></a></h3>
+<p>
+  Definition of Euler's constant:
+
+  \[
+    C = \lim_{n \to \infty}
+        \left( 1 + \frac{1}{2} + \frac{1}{3} + \dots + \frac{1}{n} - \log n \right)
+      = \lim_{x \to \infty} \left( \sum_{n \le x} \frac{1}{n} - \log x \right).
+  \]
+
+  We begin with
+
+  \[
+    \sum_{n \le x} \frac{1}{n}
+    = \log x
+    + \underbrace{1 - \int_1^{\infty} \frac{t - [t]}{t^2} \, dt}_{\text{We will show below that this is \( C \)}}
+    + O\left( \frac{1}{x} \right).
+  \]
+
+  Rearranging the terms, we get
+
+  \[
+    \sum_{n \le x} \frac{1}{n} - \log x
+    = 1 - \int_1^{\infty} \frac{t - [t]}{t^2} \, dt
+    + O\left( \frac{1}{x} \right).
+  \]
+
+  Using the definition of \( C, \) we get
+
+  \begin{align*}
+    C
+    &amp; = \lim_{x \to \infty}
+            \left( \sum_{n \le x} \frac{1}{n} - \log x \right) \\
+    &amp; = \lim_{x \to \infty}
+            \left( 1 - \int_1^{\infty} \frac{t - [t]}{t^2} \, dt
+                     + O\left( \frac{1}{x} \right) \right) \\
+    &amp; = 1 - \int_1^{\infty} \frac{t - [t]}{t^2} \, dt.
+  \end{align*}
+</p>
+<h3 id="some-integrals-in-the-proof-of-theorem-3.2-b">Some integrals in the proof of Theorem 3.2 (b)<a href="#some-integrals-in-the-proof-of-theorem-3.2-b"></a></h3>
+<p>
+  \[
+    \int_1^x \frac{dt}{t^s}
+    = \frac{t^{-s + 1}}{-s + 1} \Biggr|_1^x
+    = \frac{t^{1 - s}}{1 - s} \Biggr|_1^x
+    = \frac{x^{1 - s}}{1 - s} - \frac{1}{1 - s}.
+  \]
+
+  \[
+    \int_1^x \frac{t - [t]}{t^{s + 1}} \, dt
+    =   \int_1^{\infty} \frac{t - [t]}{t^{s + 1}} \, dt
+      - \int_x^{\infty} \frac{t - [t]}{t^{s + 1}} \, dt
+    = \int_1^{\infty} \frac{t - [t]}{t^{s + 1}} \, dt
+    + \underbrace{\frac{1}{s} O\left( x^{-s}\right)}_{\text{explained below}}.
+  \]
+
+  \[
+    0
+    \le \int_x^{\infty} \frac{t - [t]}{t^{s + 1}} \, dt
+    \le \int_x^{\infty} \frac{1}{t^{s + 1}} \, dt
+    = \frac{-1}{st^s} \Biggr|_x^\infty = \frac{1}{sx^s} = \frac{1}{s} x^{-s}.
+  \]
+
+  \begin{align*}
+    \sum_{n \le x} \frac{1}{n^s}
+    &amp; = \int_1^x \frac{dt}{t^s}
+            - s \int_1^x \frac{t - [t]}{t^{s + 1}} + 1
+            - \frac{x - [x]}{x^s} \, dt \\
+    &amp; = \frac{x^{1 - s}}{1 - s} - \frac{1}{1 - s}
+            - s \int_1^{\infty} \frac{t - [t]}{t^{s + 1}} \, dt + 1 + O(x^{-s}).
+  \end{align*}
+</p>
+
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../../">Home</a>
+    <a href="../../cc/">Club</a>
+    <a href="../../links.html">Links</a>
+    <a href="../../feed.xml">Feed</a>
+    <a href="../../form/subscribe/">Subscribe</a>
+    <a href="../../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's Absurd Pages</title>
+<link>https://susam.net/tag/absurd.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/absurd-full.xml"/>
+<description>Feed for Susam's Absurd Pages</description>
+
+<item>
+<title>Fizz Buzz in CSS</title>
+<link>https://susam.net/fizz-buzz-in-css.html</link>
+<guid isPermaLink="false">fzcps</guid>
+<pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  How many CSS selectors and declarations do we need to produce the
+  Fizz Buzz sequence?  Of course we could do this with no CSS at all
+  simply by placing the entire sequence as text in the HTML body.  So
+  to make the problem precise as well as to keep it interesting, we
+  require that all text that appears in the Fizz Buzz sequence comes
+  directly from the CSS.  Placing any part of the output numbers or
+  words outside the stylesheet is not allowed.  JavaScript is not
+  allowed either.  With these constraints, I think we need at least
+  four CSS selectors along with four declarations to solve this
+  puzzle, as shown below:
+</p>
+<pre>
+<code>li { counter-increment: n }
+li:not(:nth-child(5n))::before { content: counter(n) }
+li:nth-child(3n)::before { content: "Fizz" }
+li:nth-child(5n)::after { content: "Buzz" }</code>
+</pre>
+<p>
+  Here is a complete working example:
+  <a href="css-fizz-buzz.html">css-fizz-buzz.html</a>.
+</p>
+<p>
+  The above solution contains four CSS rules with one selector and one
+  declaration in each rule.  For example,
+  <code>li { counter-increment: n }</code> is one rule consisting of
+  the selector <code>li</code> and the declaration
+  <code>counter-increment: n</code>.
+</p>
+<p>
+  Seasoned code golfers looking for a challenge can probably shrink
+  this solution further.  A common trick to solve this problem is to
+  use an ordered list (<code>&lt;ol&gt;</code>) which provides the
+  integers in the form of list markers automatically, thereby
+  eliminating the need to maintain a counter in the stylesheet.
+  However, this violates the requirement set out in the introduction.
+  We want every integer to be produced directly by the stylesheet.
+  Treating the integers in the list markers as part of the output
+  sequence breaks this rule.  Not to mention the output looks untidy
+  because of the unnecessary dot after each marker and also because
+  the numbers and words appear misaligned.  See an example of that
+  trick here:
+  <a href="code/web/css-fizz-buzz-ol.html">css-fizz-buzz-ol.html</a>.
+  Correcting the misaligned output calls for extra code that cancels
+  out the number of declarations saved.  In any case, the requirement
+  that all integers of the output must come directly from the
+  stylesheet prevents untidy solutions like this and also forces us to
+  rely on the capabilities of CSS to solve this puzzle.
+</p>
+<p>
+  The intention here was to obtain the smallest possible code in terms
+  of the number of CSS declarations.  This example is not crafted to
+  minimise bytes, but for code golfers who enjoy reducing byte count,
+  here is the number of bytes this solution consumes after removing
+  all whitespace:
+</p>
+<pre><code>$ curl -sS https://susam.net/css-fizz-buzz.html | sed -n '/counter/,/after/p' | tr -d '[:space:]' | wc -c
+152</code></pre>
+<p>
+  Further reduction in byte count can be achieved by using the
+  <code>&lt;p&gt;</code> element instead of <code>&lt;li&gt;</code>,
+  nesting CSS selectors, etc.  I'll leave that as an exercise for the
+  reader.  Returning to the focus of this post as well as to summarise
+  it, the solution here uses four CSS rules consisting of four
+  selectors and four declarations to render the Fizz Buzz sequence.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/fizz-buzz-in-css.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/css.html">#css</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Fizz Buzz with Cosines</title>
+<link>https://susam.net/fizz-buzz-with-cosines.html</link>
+<guid isPermaLink="false">fzbzz</guid>
+<pubDate>Thu, 20 Nov 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Fizz Buzz is a counting game that has become oddly popular in the
+  world of computer programming as a simple test of basic programming
+  skills.  The rules of the game are straightforward.  Players say the
+  numbers aloud in order beginning with one.  Whenever a number is
+  divisible by 3, they say 'Fizz' instead.  If it is divisible by 5,
+  they say 'Buzz'.  If it is divisible by both 3 and 5, the player
+  says both 'Fizz' and 'Buzz'.  Here is a typical Python program that
+  prints this sequence:
+</p>
+<pre><code>for n in range(1, 101):
+    if n % 15 == 0:
+        print('FizzBuzz')
+    elif n % 3 == 0:
+        print('Fizz')
+    elif n % 5 == 0:
+        print('Buzz')
+    else:
+        print(n)</code>
+</pre>
+<p>
+  Here is the output:
+  <a href="files/blog/fizz-buzz.txt">fizz-buzz.txt</a>.  Can we make
+  the program more complicated?  The words 'Fizz', 'Buzz' and
+  'FizzBuzz' repeat in a periodic manner throughout the sequence.
+  What else is periodic?  Trigonometric functions!  Perhaps we can use
+  trigonometric functions to encode all four rules of the sequence in
+  a single closed-form expression.  That is what we are going to
+  explore in this article, for fun and no profit.
+</p>
+<p>
+  By the end, we will obtain a discrete Fourier series that can take
+  any integer \( n \) and select the corresponding text to be printed.
+  In fact, we will derive it using two different methods.  First, we
+  will follow a long-winded but hopefully enjoyable approach that
+  relies on a basic understanding of complex exponentiation, geometric
+  series and trigonometric functions.  Then, we will obtain the same
+  result through a direct application of the discrete Fourier
+  transform.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#definitions">Definitions</a>
+    <ul>
+      <li><a href="#symbol-functions">Symbol Functions</a></li>
+      <li><a href="#index-function">Index Function</a></li>
+      <li><a href="#fizz-buzz-sequence">Fizz Buzz Sequence</a></li>
+    </ul>
+  </li>
+  <li><a href="#from-indicator-functions-to-cosines">From Indicator Functions to Cosines</a>
+    <ul>
+      <li><a href="#indicator-functions">Indicator Functions</a></li>
+      <li><a href="#complex-exponentials">Complex Exponentials</a></li>
+      <li><a href="#cosines">Cosines</a></li>
+    </ul>
+  </li>
+  <li><a href="#dft">Discrete Fourier Transform</a>
+    <ul>
+      <li><a href="#one-period-of-fizz-buzz">One Period of Fizz Buzz</a></li>
+      <li><a href="#fourier-coefficients">Fourier Coefficients</a></li>
+      <li><a href="#inverse-transform">Inverse Transform</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h2 id="definitions">Definitions<a href="#definitions"></a></h2>
+<p>
+  Before going any further, we establish a precise mathematical
+  definition for the Fizz Buzz sequence.  We begin by introducing a
+  few functions that will help us define the Fizz Buzz sequence later.
+</p>
+<h3 id="symbol-functions">Symbol Functions<a href="#symbol-functions"></a></h3>
+<p>
+  We define a set of four functions \( \{ s_0, s_1, s_2, s_3 \} \) for
+  integers \( n \) by:
+
+  \begin{align*}
+    s_0(n) &amp;= n, \\
+    s_1(n) &amp;= \mathtt{Fizz}, \\
+    s_2(n) &amp;= \mathtt{Buzz}, \\
+    s_3(n) &amp;= \mathtt{FizzBuzz}.
+  \end{align*}
+
+  We call these the symbol functions because they produce every term
+  that appears in the Fizz Buzz sequence.  The symbol function \( s_0
+  \) returns \( n \) itself.  The functions \( s_1, \) \( s_2 \) and
+  \( s_3 \) are constant functions that always return the literal
+  words \( \mathtt{Fizz}, \) \( \mathtt{Buzz} \) and \(
+  \mathtt{FizzBuzz} \) respectively, no matter what the value of \( n
+  \) is.
+</p>
+<h3 id="index-function">Index Function<a href="#index-function"></a></h3>
+<p>
+  We define a function \( f(n) \) for integer \( n \) by
+
+  \[
+    f(n) = \begin{cases}
+      1 &amp; \text{if } 3 \mid n \text{ and } 5 \nmid n, \\
+      2 &amp; \text{if } 3 \nmid n \text{ and } 5 \mid n, \\
+      3 &amp; \text{if } 3 \mid n \text{ and } 5 \mid n, \\
+      0 &amp; \text{otherwise}.
+    \end{cases}
+  \]
+
+  The notation \( m \mid n \) means that the integer \( m \) divides
+  the integer \( n, \) i.e. \( n \) is a multiple of \( m.  \)
+  Equivalently, there exists an integer \( c \) such that \( n = cm
+ .  \)  Similarly, \( m \nmid n \) means that \( m \) does not divide
+  \( n, \) i.e. \( n \) is not a multiple of \( m.  \)
+</p>
+<p>
+  This function covers all four conditions involved in choosing the \(
+  n \)th item of the Fizz Buzz sequence.  As we will soon see, this
+  function tells us which of the four symbol functions produces the \(
+  n \)th item of the Fizz Buzz sequence.  For this reason, we call \(
+  f(n) \) the index function.
+</p>
+<h3 id="fizz-buzz-sequence">Fizz Buzz Sequence<a href="#fizz-buzz-sequence"></a></h3>
+<p>
+  We now define the Fizz Buzz sequence as the sequence
+
+  \[
+    (s_{f(n)}(n))_{n = 1}^{\infty}
+  \]
+
+  We can expand the first few terms of the sequence explicitly as
+  follows:
+
+  \begin{align*}
+    (s_{f(n)}(n))_{n = 1}^{\infty}
+    &amp;= (s_{f(1)}(1), \; s_{f(2)}(2), \; s_{f(3)}(3), \; s_{f(4)}(4), \;
+            s_{f(5)}(5), \; s_{f(6)}(6), \; s_{f(7)}(7), \; \dots) \\
+    &amp;= (s_0(1), \; s_0(2), \; s_1(3), \; s_0(4),
+            s_2(5), \; s_1(6), \; s_0(7), \; \dots) \\
+    &amp;= (1, \; 2, \; \mathtt{Fizz}, \; 4, \;
+            \mathtt{Buzz}, \; \mathtt{Fizz}, \; 7, \; \dots).
+  \end{align*}
+
+  Note how the function \( f(n) \) produces an index \( i \) which we
+  then use to select the symbol function \( s_i(n) \) to produce the
+  \( n \)th term of the sequence.  This is precisely why we decided to
+  call \( f(n) \) the index function while defining it in the previous
+  section.
+</p>
+<h2 id="from-indicator-functions-to-cosines">From Indicator Functions to Cosines<a href="#from-indicator-functions-to-cosines"></a></h2>
+<p>
+  Here we discuss the first method of deriving our closed form
+  expression, starting with indicator functions and rewriting them
+  using complex exponentials and cosines.
+</p>
+<h3 id="indicator-functions">Indicator Functions<a href="#indicator-functions"></a></h3>
+<p>
+  Here is the index function \( f(n) \) from the previous section with
+  its cases and conditions rearranged to make it easier to spot
+  interesting patterns:
+
+  \[
+    f(n) = \begin{cases}
+      0 &amp; \text{if } 5 \nmid n \text{ and } 3 \nmid n, \\
+      1 &amp; \text{if } 5 \nmid n \text{ and } 3 \mid n, \\
+      2 &amp; \text{if } 5 \mid n \text{ and } 3 \nmid n, \\
+      3 &amp; \text{if } 5 \mid n \text{ and } 3 \mid n.
+    \end{cases}
+  \]
+
+  This function helps us select another function \( s_{f(n)}(n) \)
+  which in turn determines the \( n \)th term of the Fizz Buzz
+  sequence.  Our goal now is to replace this piecewise formula with a
+  single closed-form expression.  To do so, we first define indicator
+  functions \( I_m(n) \) as follows:
+
+  \[
+    I_m(n) = \begin{cases}
+      1 &amp; \text{if } m \mid n, \\
+      0 &amp; \text{if } m \nmid n.
+    \end{cases}
+  \]
+
+  The formula for \( f(n) \) can now be written as:
+
+  \[
+    f(n) = \begin{cases}
+      0 &amp; \text{if } I_5(n) = 0 \text{ and } I_3(n) = 0, \\
+      1 &amp; \text{if } I_5(n) = 0 \text{ and } I_3(n) = 1, \\
+      2 &amp; \text{if } I_5(n) = 1 \text{ and } I_3(n) = 0, \\
+      3 &amp; \text{if } I_5(n) = 1 \text{ and } I_3(n) = 1.
+    \end{cases}
+  \]
+
+  Do you see a pattern?  Here is the same function written as a table:
+</p>
+<table class="grid center textcenter">
+  <tr>
+    <th>\( I_5(n) \)</th>
+    <th>\( I_3(n) \)</th>
+    <th>\( f(n) \)</th>
+  </tr>
+  <tr>
+    <td>\( 0 \)</td>
+    <td>\( 0 \)</td>
+    <td>\( 0 \)</td>
+  </tr>
+  <tr>
+    <td>\( 0 \)</td>
+    <td>\( 1 \)</td>
+    <td>\( 1 \)</td>
+  </tr>
+  <tr>
+    <td>\( 1 \)</td>
+    <td>\( 0 \)</td>
+    <td>\( 2 \)</td>
+  </tr>
+  <tr>
+    <td>\( 1 \)</td>
+    <td>\( 1 \)</td>
+    <td>\( 3 \)</td>
+  </tr>
+</table>
+<p>
+  Do you see it now?  If we treat the values in the first two columns
+  as binary digits and the values in the third column as decimal
+  numbers, then in each row the first two columns give the binary
+  representation of the number in the third column.  For example, \(
+  3_{10} = 11_2 \) and indeed in the last row of the table, we see the
+  bits \( 1 \) and \( 1 \) in the first two columns and the number \(
+  3 \) in the last column.  In other words, writing the binary digits
+  \( I_5(n) \) and \( I_3(n) \) side by side gives us the binary
+  representation of \( f(n).  \)  Therefore
+
+  \[
+    f(n) = 2 \, I_5(n) + I_3(n).
+  \]
+
+  We can now write a small program to demonstrate this formula:
+</p>
+<pre>
+<code>for n in range(1, 101):
+    s = [n, 'Fizz', 'Buzz', 'FizzBuzz']
+    i = (n % 3 == 0) + 2 * (n % 5 == 0)
+    print(s[i])</code>
+</pre>
+<p>
+  We can make it even shorter at the cost of some clarity:
+</p>
+<pre>
+<code>for n in range(1, 101):
+    print([n, 'Fizz', 'Buzz', 'FizzBuzz'][(n % 3 == 0) + 2 * (n % 5 == 0)])</code>
+</pre>
+<p>
+  What we have obtained so far is pretty good.  While there is no
+  universal definition of a closed-form expression, I think most
+  people would agree that the indicator functions as defined above are
+  simple enough to be permitted in a closed-form expression.
+</p>
+<h3 id="complex-exponentials">Complex Exponentials<a href="#complex-exponentials"></a></h3>
+<p>
+  In the previous section, we obtained the formula
+
+  \[
+    f(n) = I_3(n) + 2 \, I_5(n)
+  \]
+
+  which we then used as an index to look up the text to be printed.
+  We also argued that this is a pretty good closed-form expression
+  already.
+</p>
+<p>
+  However, in the interest of making things more complicated, we must
+  ask ourselves: What if we are not allowed to use the indicator
+  functions?  What if we must adhere to the commonly accepted meaning
+  of a closed-form expression which allows only finite combinations of
+  basic operations such as addition, subtraction, multiplication,
+  division, integer exponents and roots with integer index as well as
+  functions such as exponentials, logarithms and trigonometric
+  functions.  It turns out that the above formula can be rewritten
+  using only addition, multiplication, division and the cosine
+  function.  Let us begin the translation.  Consider the sum
+
+  \[
+    S_m(n) = \sum_{k = 0}^{m - 1} e^{i 2 \pi k n / m},
+  \]
+
+  where \( i \) is the imaginary unit and \( n \) and \( m \) are
+  integers.  This is a geometric series in the complex plane with
+  ratio \( r = e^{i 2 \pi n / m}.  \)  If \( n \) is a multiple of \( m
+ , \) then \( n = cm \) for some integer \( c \) and we get
+
+  \[
+    r
+    = e^{i 2 \pi n / m}
+    = e^{i 2 \pi c}
+    = 1.
+  \]
+
+  Therefore, when \( n \) is a multiple of \( m, \) we get
+
+  \[
+    S_m(n)
+    = \sum_{k = 0}^{m - 1} e^{i 2 \pi k n / m}
+    = \sum_{k = 0}^{m - 1} 1^k
+    = m.
+  \]
+
+  If \( n \) is not a multiple of \( m, \) then \( r \ne 1 \) and the
+  geometric series becomes
+
+  \[
+    S_m(n)
+    = \frac{r^m - 1}{r - 1}
+    = \frac{e^{i 2 \pi n} - 1}{e^{i 2 \pi n / m} - 1}
+    = 0.
+  \]
+
+  Therefore,
+
+  \[
+    S_m(n) = \begin{cases}
+      m &amp; \text{if } m \mid n, \\
+      0 &amp; \text{if } m \nmid n.
+    \end{cases}
+  \]
+
+  Dividing both sides by \( m, \) we get
+
+  \[
+    \frac{S_m(n)}{m} = \begin{cases}
+      1 &amp; \text{if } m \mid n, \\
+      0 &amp; \text{if } m \nmid n.
+    \end{cases}
+  \]
+
+  But the right-hand side is \( I_m(n).  \)  Therefore
+
+  \[
+    I_m(n)
+    = \frac{S_m(n)}{m}
+    = \frac{1}{m} \sum_{k = 0}^{m - 1} e^{i 2 \pi k n / m}.
+  \]
+</p>
+<h3 id="cosines">Cosines<a href="#cosines"></a></h3>
+<p>
+  We begin with Euler's formula
+
+  \[
+    e^{i x} = \cos x + i \sin x
+  \]
+
+  where \( x \) is a real number.  From this formula, we get
+
+  \[
+    e^{i x} + e^{-i x} = 2 \cos x.
+  \]
+
+  Therefore
+
+  \begin{align*}
+    I_3(n)
+    &amp;= \frac{1}{3} \sum_{k = 0}^2 e^{i 2 \pi k n / 3} \\
+    &amp;= \frac{1}{3} \left( 1 + e^{i 2 \pi n / 3} +
+                                  e^{i 4 \pi n / 3} \right) \\
+    &amp;= \frac{1}{3} \left( 1 + e^{i 2 \pi n / 3} +
+                                  e^{-i 2 \pi n / 3} \right) \\
+    &amp;= \frac{1}{3} + \frac{2}{3} \cos \left( \frac{2 \pi n}{3} \right).
+  \end{align*}
+
+  The third equality above follows from the fact that \( e^{i 4 \pi n
+  / 3} = e^{i 6 \pi n / 3} e^{-i 2 \pi n / 3} = e^{i 2 \pi n} e^{-i 2
+  \pi n/3} = e^{-i 2 \pi n / 3} \) when \( n \) is an integer.
+</p>
+<p>
+  The function above is defined for integer values of \( n \) but we
+  can extend its formula to real \( x \) and plot it to observe its
+  shape between integers.  As expected, the function takes the value
+  \( 1 \) whenever \( x \) is an integer multiple of \( 3 \) and \( 0
+  \) whenever \( x \) is an integer not divisible by \( 3.  \)
+</p>
+<figure class="soft">
+  <img src="files/blog/fizz-buzz-i3.png" alt="Graph">
+  <figcaption>
+    Graph of \( \frac{1}{3} + \frac{2}{3} \cos \left( \frac{2 \pi x}{3} \right) \)
+  </figcaption>
+</figure>
+<p>
+  Similarly,
+
+  \begin{align*}
+    I_5(n)
+    &amp;= \frac{1}{5} \sum_{k = 0}^4 e^{i 2 \pi k n / 5} \\
+    &amp;= \frac{1}{5} \left( 1 + e^{i 2 \pi n / 5}
+                                + e^{i 4 \pi n / 5}
+                                + e^{i 6 \pi n / 5}
+                                + e^{i 8 \pi n / 5} \right) \\
+    &amp;= \frac{1}{5} \left( 1 + e^{i 2 \pi n / 5}
+                                + e^{i 4 \pi n / 5}
+                                + e^{-i 4 \pi n / 5}
+                                + e^{-i 2 \pi n / 5} \right) \\
+    &amp;= \frac{1}{5} + \frac{2}{5} \cos \left( \frac{2 \pi n}{5} \right)
+                       + \frac{2}{5} \cos \left( \frac{4 \pi n}{5} \right).
+  \end{align*}
+
+  Extending this expression to real values of \( x \) allows us to
+  plot its shape as well.  Once again, the function takes the value \(
+  1 \) at integer multiples of \( 5 \) and \( 0 \) at integers not
+  divisible by \( 5.  \)
+</p>
+<figure class="soft">
+  <img src="files/blog/fizz-buzz-i5.png" alt="Graph">
+  <figcaption>
+    Graph of \(
+      \frac{1}{5}
+      + \frac{2}{5} \cos \left( \frac{2 \pi x}{5} \right)
+      + \frac{2}{5} \cos \left( \frac{4 \pi x}{5} \right)
+    \)
+  </figcaption>
+</figure>
+<p>
+  Recall that we expressed \( f(n) \) as
+
+  \[
+    f(n) = I_3(n) + 2 \, I_5(n).
+  \]
+
+  Substituting these trigonometric expressions yields
+
+  \[
+    f(n)
+    = \frac{1}{3}
+      + \frac{2}{3} \cos \left( \frac{2 \pi n}{3} \right)
+      + 2 \cdot \left(
+        \frac{1}{5}
+        + \frac{2}{5} \cos \left( \frac{2 \pi n}{5} \right)
+        + \frac{2}{5} \cos \left( \frac{4 \pi n}{5} \right)
+      \right).
+  \]
+
+  A straightforward simplification gives
+
+  \[
+    f(n)
+    = \frac{11}{15}
+      + \frac{2}{3} \cos \left( \frac{2 \pi n}{3} \right)
+      + \frac{4}{5} \cos \left( \frac{2 \pi n}{5} \right)
+      + \frac{4}{5} \cos \left( \frac{4 \pi n}{5} \right).
+  \]
+
+  We can extend this expression to real \( x \) and plot it as well.
+  The resulting curve takes the values \( 0, 1, 2 \) and \( 3 \) at
+  integer points, as desired.
+</p>
+<figure class="soft">
+  <img src="files/blog/fizz-buzz-f.png" alt="Graph">
+  <figcaption>
+    Graph of \(
+      \frac{11}{15} +
+      \frac{2}{3} \cos \left( \frac{2 \pi x}{3} \right) +
+      \frac{4}{5} \cos \left( \frac{2 \pi x}{5} \right) +
+      \frac{4}{5} \cos \left( \frac{4 \pi x}{5} \right)
+    \)
+  </figcaption>
+</figure>
+<p>
+  Now we can write our Python program as follows:
+</p>
+<pre>
+<code>from math import cos, pi
+for n in range(1, 101):
+    s = [n, 'Fizz', 'Buzz', 'FizzBuzz']
+    i = round(11 / 15 + (2 / 3) * cos(2 * pi * n / 3)
+                      + (4 / 5) * cos(2 * pi * n / 5)
+                      + (4 / 5) * cos(4 * pi * n / 5))
+    print(s[i])</code>
+</pre>
+<h2 id="dft">Discrete Fourier Transform<a href="#dft"></a></h2>
+<p>
+  The keen-eyed might notice that the expression we obtained for \(
+  f(n) \) is a discrete Fourier series.  This is not surprising, since
+  the output of a Fizz Buzz program depends only on \( n \bmod 15.  \)
+  Any function on a finite cyclic group can be written exactly as a
+  finite Fourier expansion.  In this section, we obtain \( f(n) \)
+  using the discrete Fourier transform.  It is worth mentioning that
+  the calculations presented here are quite tedious to do by hand.
+  Nevertheless, this section offers a glimpse of how such calculations
+  are performed.  By the end, we will arrive at exactly the same \(
+  f(n) \) as before.  There is nothing new to discover here.  We
+  simply obtain the same result by a more direct but more laborious
+  method.  If this doesn't sound interesting, you may safely skip the
+  subsections that follow.
+</p>
+<h3 id="one-period-of-fizz-buzz">One Period of Fizz Buzz<a href="#one-period-of-fizz-buzz"></a></h3>
+<div style="display: none">\( \gdef\arraystretch{1.2} \)</div>
+<p>
+  We know that \( f(n) \) is a periodic function with period \( 15.  \)
+  To apply the discrete Fourier transform, we look at one complete
+  period of the function using the values \( n = 0, 1, \dots, 14.  \)
+  Over this period, we have:
+
+  \begin{array}{c|ccccccccccccccc}
+      n &amp;  0 &amp;  1 &amp;  2 &amp;  3 &amp;  4
+        &amp;  5 &amp;  6 &amp;  7 &amp;  8 &amp;  9
+        &amp; 10 &amp; 11 &amp; 12 &amp; 13 &amp; 14 \\
+    \hline
+    f(n) &amp; 3 &amp;  0 &amp;  0 &amp;  1 &amp;  0
+         &amp; 2 &amp;  1 &amp;  0 &amp;  0 &amp;  1
+         &amp; 2 &amp;  0 &amp;  1 &amp;  0 &amp;  0
+  \end{array}
+
+  The discrete Fourier series of \( f(n) \) is
+
+  \[
+    f(n) = \sum_{k = 0}^{14} c_k \, e^{i 2 \pi k n / 15}
+  \]
+
+  where the Fourier coefficients \( c_k \) are given by the discrete
+  Fourier transform
+
+  \[
+    c_k = \frac{1}{15} \sum_{n = 0}^{14} f(n) e^{-i 2 \pi k n / 15}.
+  \]
+
+  for \( k = 0, 1, \dots, 14.  \)  The formula for \( c_k \) is called
+  the discrete Fourier transform (DFT).  The formula for \( f(n) \) is
+  called the inverse discrete Fourier transform (IDFT).
+</p>
+<h3 id="fourier-coefficients">Fourier Coefficients<a href="#fourier-coefficients"></a></h3>
+<p>
+  Let \( \omega = e^{-i 2 \pi / 15}.  \)  Then using the values of \(
+  f(n) \) from the table above, the DFT becomes:
+
+  \[
+    c_k = \frac{3 + \omega^{3k} + 2 \omega^{5k} + \omega^{6k}
+                  + \omega^{9k} + 2 \omega^{10k} + \omega^{12k}}{15}.
+  \]
+
+  Substituting \( k = 0, 1, 2, \dots, 14 \) into the above equation
+  gives us the following Fourier coefficients:
+
+  \begin{align*}
+    c_{0}  &amp;= \frac{11}{15}, \\
+    c_{3}  &amp;= c_{6} = c_{9} = c_{12} = \frac{2}{5}, \\
+    c_{5}  &amp;= c_{10} = \frac{1}{3}, \\
+    c_{1}  &amp;= c_{2} = c_{4} = c_{7} = c_{8} = c_{11} = c_{13} = c_{14} = 0.
+  \end{align*}
+
+  Calculating these Fourier coefficients by hand can be rather
+  tedious.  In practice they are almost always calculated using
+  numerical software, computer algebra systems or even simple code
+  such as the example here:
+  <a href="code/fizz-buzz-fourier/fizz-buzz-fourier.py">fizz-buzz-fourier.py</a>.
+</p>
+<h3 id="inverse-transform">Inverse Transform<a href="#inverse-transform"></a></h3>
+<p>
+  Once the coefficients are known, we can substitute them into the
+  inverse transform introduced earlier to obtain
+
+  \begin{align*}
+    f(n)
+    &amp;= \sum_{k = 0}^{14} c_k \, e^{i 2 \pi k n / 15} \\[1.5em]
+    &amp;= \frac{11}{15}
+           + \frac{2}{5} \left(
+             e^{i 2 \pi \cdot 3n / 15}
+             + e^{i 2 \pi \cdot 6n / 15}
+             + e^{i 2 \pi \cdot 9n / 15}
+             + e^{i 2 \pi \cdot 12n / 15}
+           \right) \\
+           &amp; \phantom{=\frac{11}{15}}
+           + \frac{1}{3} \left(
+             e^{i 2 \pi \cdot 5n / 15}
+             + e^{i 2 \pi \cdot 10n / 15}
+           \right) \\[1em]
+    &amp;= \frac{11}{15}
+           + \frac{2}{5} \left(
+             e^{i 2 \pi \cdot 3n / 15}
+             + e^{i 2 \pi \cdot 6n / 15}
+             + e^{-i 2 \pi \cdot 6n / 15}
+             + e^{-i 2 \pi \cdot 3n / 15}
+           \right) \\
+           &amp; \phantom{=\frac{11}{15}}
+           + \frac{1}{3} \left(
+             e^{i 2 \pi \cdot 5n / 15}
+             + e^{-i 2 \pi \cdot 5n / 15}
+           \right) \\[1em]
+    &amp;= \frac{11}{15}
+       + \frac{2}{5} \left(
+         2 \cos \left( \frac{2 \pi n}{5} \right)
+         + 2 \cos \left( \frac{4 \pi n}{5} \right)
+       \right) \\
+       &amp; \phantom{=\frac{11}{15}}
+       + \frac{1}{3} \left(
+         2 \cos \left( \frac{2 \pi n}{3} \right)
+       \right) \\[1em]
+    &amp;= \frac{11}{15} +
+       \frac{4}{5} \cos \left( \frac{2 \pi n}{5} \right) +
+       \frac{4}{5} \cos \left( \frac{4 \pi n}{5} \right) +
+       \frac{2}{3} \cos \left( \frac{2 \pi n}{3} \right).
+  \end{align*}
+
+  This is exactly the same expression for \( f(n) \) we obtained in
+  the previous section.  We see that the Fizz Buzz index function \(
+  f(n) \) can be expressed precisely using the machinery of Fourier
+  analysis.
+</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  To summarise, we have defined the Fizz Buzz sequence as
+
+  \[
+    (s_{f(n)}(n))_{n = 1}^{\infty}
+  \]
+
+  where
+
+  \[
+    f(n)
+    = \frac{11}{15} +
+      \frac{2}{3} \cos \left( \frac{2 \pi n}{3} \right) +
+      \frac{4}{5} \cos \left( \frac{2 \pi n}{5} \right) +
+      \frac{4}{5} \cos \left( \frac{4 \pi n}{5} \right).
+  \]
+
+  and \( s_0(n) = n, \) \( s_1(n) = \mathtt{Fizz}, \) \( s_2(n) =
+  \mathtt{Buzz} \) and \( s_3(n) = \mathtt{FizzBuzz}.  \)  A Python
+  program to print the Fizz Buzz sequence based on this definition was
+  presented earlier.  That program can be written more succinctly as
+  follows:
+</p>
+<pre>
+<code>from math import cos, pi
+for n in range(1, 101):
+    print([n, 'Fizz', 'Buzz', 'FizzBuzz'][round(11 / 15 + (2 / 3) * cos(2 * pi * n / 3) + (4 / 5) * (cos(2 * pi * n / 5) + cos(4 * pi * n / 5)))])</code>
+</pre>
+<p>
+  We can also wrap this up nicely in a shell one-liner, in case you
+  want to share it with your friends and family and surprise them:
+</p>
+<pre><code>python3 -c 'from math import cos, pi; [print([n, "Fizz", "Buzz", "FizzBuzz"][round(11/15 + (2/3) * cos(2*pi*n/3) + (4/5) * (cos(2*pi*n/5) + cos(4*pi*n/5)))]) for n in range(1, 101)]'</code></pre>
+<p>
+  We have taken a simple counting game and turned it into a
+  trigonometric construction consisting of a discrete Fourier series
+  with three cosine terms and four coefficients.  None of this makes
+  Fizz Buzz any easier.  Quite the contrary.  But it does show that
+  every \( \mathtt{Fizz} \) and \( \mathtt{Buzz} \) now owes its
+  existence to a particular set of Fourier coefficients.  We began
+  with the modest goal of making this simple problem more complicated.
+  I think it is safe to say that we did not fall short.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/fizz-buzz-with-cosines.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/python.html">#python</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Elliptical Python Programming</title>
+<link>https://susam.net/elliptical-python-programming.html</link>
+<guid isPermaLink="false">tmdms</guid>
+<pubDate>Thu, 10 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  One thing I love about Python is how it comes with its very own
+  built-in zen.  In moments of tribulations, when I am wrestling with
+  crooked code and tangled thoughts, I often find solace in its
+  timeless wisdom.  Here's a glimpse of the clarity it provides:
+</p>
+<pre>
+<samp>$ <kbd>python3 -m this | grep e-</kbd>
+There should be one-- and preferably only one --obvious way to do it.</samp>
+</pre>
+<p>
+  Indeed, there is one and only one <em>obvious</em> way to write the
+  number 1 in Python, like so:
+</p>
+<pre><samp>&gt;&gt;&gt; <kbd>--(...==...)</kbd>
+1</samp></pre>
+<p>
+  You may, quite naturally, place several ones adjacently to produce
+  larger integers:
+</p>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>--(...==...)--(...==...)</kbd>
+2</samp>
+</pre>
+<p>
+  And so on ad infinitum or until your heap collapses like a poorly
+  made souffl&eacute;.  Now, the "pre-decrement operator" at the
+  beginning is entirely optional, much like the plus sign when you
+  write "+5 biscuits" in a letter to your grandmother.  It's not
+  wrong, but it is unnecessary.  So unless you want to look peculiar
+  to your colleagues, you would likely want to adopt a more
+  conventional style, such as this:
+</p>
+<pre>
+<samp>&gt;&gt;&gt; <kbd>(...==...)--(...==...)--(...==...)</kbd>
+3</samp>
+</pre>
+<p>
+  Now, all computer programs are, in some sense, just a long, earnest
+  stream of bits.  It is currently fashionable to bundle these bits
+  into groups of eight and write them as integers.  Following this
+  trend, we can compute absolutely anything that is computable as long
+  as we know exactly what integers to write.  Now, I wouldn't want to
+  bore you with the finer details of computer science, not in this day
+  and age, fascinating as they may be.  I trust you are quite capable
+  of drawing the rest of the f... well, <em>feathered</em>, nocturnal
+  bird.  Once you've grasped the basics, a typical first Python
+  program might look something like this:
+</p>
+<pre class="wrap"><code>exec('%c'*((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))%(((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)),((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))--((...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))--((...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))--(...==...),*(((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...)),)*((...==...)--(...==...)),((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)),((...==...)--(...==...))**((...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))--((...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...))**((...==...)--(...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...)),((...==...)--(...==...)--(...==...)--(...==...)--(...==...)--(...==...))**((...==...)--(...==...))--((...==...)--(...==...)--(...==...)),((...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...))*((...==...)--(...==...)--(...==...)--(...==...)--(...==...))--(...==...)))</code></pre>
+<p>
+  Now you might be wondering if this is <em>really</em> the way one
+  ought to write production Python code.  Isn't it too much trouble to
+  type those dots over and over again?  Not if you remap your
+  <kbd>tab</kbd> key to type three dots, of course.  But I understand
+  not everyone likes to remap their keys like this.  In particular,
+  there exists a peculiar species of mammal known to remap their
+  <kbd>tab</kbd> key to parentheses.  They claim it leads to
+  enlightenment.  Such enlightened living forms may find the following
+  program more convenient to type:
+</p>
+<pre class="wrap"><code>exec('%c'*((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))%(((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())),((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==()))**((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))--((()==())--(()==())),((()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())--(()==())--(()==())),((()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))--((()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))--((()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))--(()==()),*(((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==()))**((()==())--(()==())--(()==())),)*((()==())--(()==())),((()==())--(()==())--(()==()))**((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))--((()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())),((()==())--(()==()))**((()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==())),((()==())--(()==())--(()==()))**((()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))--((()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==())--(()==())--(()==()))--((()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==()))**((()==())--(()==())--(()==())),((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==())),((()==())--(()==())--(()==())--(()==())--(()==())--(()==()))**((()==())--(()==()))--((()==())--(()==())--(()==())),((()==())--(()==()))*((()==())--(()==())--(()==())--(()==()))*((()==())--(()==())--(()==())--(()==())--(()==()))--(()==())))</code></pre>
+<p>
+  This program is functionally equivalent to the earlier one.  But
+  Python isn't meant for enlightenment.  It's meant for getting things
+  done.  And to get things done, code should be readable, maintainable
+  and ideally not resemble an ancient summoning ritual.  That's why I
+  personally prefer the earlier style, the one with the ellipses.  It
+  gracefully avoids the disconcerting void that lurks within the
+  parentheses.  After all, programs must be written for people to read
+  and only incidentally for machines to execute.
+</p>
+<p>
+  Finally, I must emphasise that you should never deploy code like
+  this in production.  If you plan to write code like this for your
+  production CGI scripts, I implore you to add some ellipses for
+  logging.  When dung inevitably collides with the fan, you'll be
+  immensely glad you scattered some useful logs amidst the ellipses
+  that hold together your business logic.  With that small piece of
+  unsolicited advice, I'll end this brief distraction from scrolling
+  through endless arguments on Internet forums.  Happy coding and may
+  your parentheses stay balanced (and may your ellipses be the
+  punctuation that ...
+  <!-- ).  Now, I can sleep peacefully!  -->
+</p>
+<!--
+  For the enlightened folks who are offended by the penultimate
+  paragraph, lighten up!  I am no stranger to the fine art of nested
+  parentheses.  This very blog is crafted with an abundance of them,
+  all forged through the mighty steel and bank machinery.
+-->
+<!-- ### -->
+<p>
+  <a href="https://susam.net/elliptical-python-programming.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/python.html">#python</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/humour.html">#humour</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Hacker News Hug of Deaf</title>
+<link>https://susam.net/hn-bell.html</link>
+<guid isPermaLink="false">fcycm</guid>
+<pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<blockquote>
+  <p>
+    "It's essentially the Hacker News Hug of Deaf."
+    &ndash;
+    <a href="https://news.ycombinator.com/item?id=30146019#30147639">@TonyTrapp</a>
+  </p>
+</blockquote>
+<p>
+  About three years ago, I set up a tiny <code>netcat</code> loop on
+  one of my Debian servers to accept arbitrary connections from the
+  Hacker News (HN) community.  The loop ran for 24 hours and did
+  exactly three things whenever a client connected:
+</p>
+<ol>
+  <li>
+    Send a simple <code>ok</code> message to the client.
+  </li>
+  <li>
+    Close the connection immediately.
+  </li>
+  <li>
+    Make my terminal beep four times.
+  </li>
+</ol>
+<p>
+  That's it!  It was a playful experiment in response to a thread
+  about quirky, do-it-yourself alerting systems for friends and
+  family.  See
+  <a href="https://news.ycombinator.com/item?id=30146019#30146451">this
+  HN thread</a> for the original discussion.  Here is the exact
+  command I ran on my server:
+</p>
+<pre class="wrap"><code>while true; do (echo ok | nc -q 1 -vlp 8000 2&gt;&amp;1; echo; date -u) | tee -a beeper.log; for i in 1 2 3 4; do printf '\a'; sleep 1; done &amp; done</code></pre>
+<p>
+  The <code>nc</code> command closes the connection immediately after
+  sending the <code>ok</code> message and runs an
+  inner <code>for</code> loop in a background shell that
+  asynchronously prints the bell character to the terminal four times.
+  Meanwhile, the outer <code>while</code> command loops back quickly
+  to run a new <code>nc</code> process, thus making this one-liner
+  script instantly ready to accept the next incoming connection.
+</p>
+<p>
+  Soon after I shared this, members of the HN community began
+  connecting to the demo running on <code>susam.net:8000</code>.
+  Anyone on the Internet could use any client of their choice to
+  connect.  Here's how I explained it in the HN thread:
+</p>
+<blockquote>
+  <p>
+    Now anytime someone connects to port 8000 of my system
+    by <em>any</em> means, I will hear 4 beeps!  The other party can
+    use <em>whatever client</em> they have to connect to port 8000 of
+    my system, e.g. a web browser, <code>nc HOST
+    8000</code>, <code>curl HOST:8000</code> or even <code>ssh HOST -p
+    8000</code>, <code>irssi -c HOST -p 8000</code>, etc.
+  </p>
+</blockquote>
+<p>
+  In the next 24 hours, I received over 4761 connections, each one
+  triggering four beeps.  That's a total of 19&#x202f;044 terminal
+  beeps echoing throughout the day!
+</p>
+<figure class="soft">
+  <img src="files/blog/beeper1.png" alt="Graph">
+  <figcaption>
+    Number of connections received every hour since 31 Jan 2022 10:00 UTC
+  </figcaption>
+</figure>
+<p>
+  The data for the above graph is available at
+  <a href="https://gist.github.com/susam/159c7d92659b3185eb0b0d683998a3b7">beeper.log</a>.
+  Now, 4761 isn't a huge number in the grand scheme of things, but it
+  was still pretty cool to see people notice an obscure comment buried
+  in a regular HN thread, act on it and make my terminal beep
+  thousands of time.
+</p>
+<p>
+  At the end of the day, this was a fun experiment.  Pointless, but
+  fun!  Computing isn't always about solving problems.  Sometimes,
+  it's also about exploring quirky ideas.  The joy is in the
+  exploration and having others join in made it even more enjoyable.
+  Activities like this keep computing fun for me!
+</p>
+<hr>
+<p id="update-2025-04-10">
+  <strong>Update on 10 Apr 2025:</strong>
+  I <a href="https://news.ycombinator.com/item?id=43642123">shared
+  this article on Hacker News</a> today and saw another surge in
+  connections to my beeper loop.
+</p>
+<figure class="soft">
+  <img src="files/blog/beeper2.png" alt="Graph">
+  <figcaption>
+    Number of connections received every hour since 10 Apr 2025 10:00 UTC
+  </figcaption>
+</figure>
+<p>
+  The data for the above graph is available at
+  <a href="https://gist.github.com/susam/3cec5db1a78a9db527327460656daeae">beeper2.log</a>.
+  The data shows a total of 352&#x202f;831 connections from 1396
+  unique client addresses over 14 hours.  That amounts to a total of
+  1&#x202f;411&#x202f;324 beeps!  Much of the traffic seems to have
+  come from persistent client loops constantly connecting to my beeper
+  loop.  In particular, the client identified by the anonymised
+  identifier C0276 made the largest number of connections by far, with
+  327&#x202f;209 total connections.  The second most active client,
+  C0595, made only 6771 connections.  There were 491 clients that
+  connected exactly once.  If you'd like to see the number of
+  connections by each client, see
+  <a href="https://gist.github.com/susam/d6766f4b722f899250a8f3da0c98f993">beeperclient2.log</a>.
+</p>
+<p>
+  In conclusion, the difference in the volume of connections between
+  the earlier experiment and today's is striking.  In the first round,
+  three years ago, there were only 4761 connections from some readers
+  of a comment thread.  But in today's round, with this post being
+  featured on the HN front page, there were 352&#x202f;831
+  connections!  It is fascinating to see how odd experiments like this
+  can find so many participants within the HN community!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/hn-bell.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/shell.html">#shell</a> |
+  <a href="https://susam.net/tag/networking.html">#networking</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Quicksort with Jenkins for Fun and No Profit</title>
+<link>https://susam.net/jenkins-quicksort.html</link>
+<guid isPermaLink="false">orprj</guid>
+<pubDate>Thu, 25 Jan 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I first encountered Jenkins in 2007 while contributing to the Apache
+  Nutch project.  It was called Hudson back then.  The nightly builds
+  for the project ran on Hudson at that time.  I remember sifting
+  through my emails and reviewing build result notifications to keep
+  an eye on the patches that got merged into the trunk everyday.  Yes,
+  patches and trunk!  We were still using SVN back then.
+</p>
+<p>
+  Hudson was renamed to Jenkins in 2011.  Since version 2.0 (released
+  on 20 Apr 2016), Jenkins supports pipeline scripts written in Groovy
+  as a first-class entity.  A pipeline script effectively defines the
+  build job.  It can define build properties, build stages, build
+  steps, etc.  It can even invoke other build jobs, including itself.
+</p>
+<p>
+  Wait a minute!  If a pipeline can invoke itself, can we, perhaps,
+  solve a recursive problem with it?  Absolutely!  This is precisely
+  what we are going to do in this post.  We are going to implement
+  quicksort as a Jenkins pipeline for fun and not a whit of profit!
+</p>
+<h2 id="run-jenkins">Run Jenkins<a href="#run-jenkins"></a></h2>
+<p>
+  Before we get started, I need to tell you how to set up Jenkins just
+  enough to try the experiments presented later in this post on your
+  local system.  This could be useful if you have never used Jenkins
+  before or if you do not have a Jenkins instance available with you
+  right now.  If you are already well-versed in Jenkins and have an
+  instance at your disposal, feel free to skip ahead directly to
+  the <a href="#quicksort">Quicksort</a> section.
+</p>
+<p>
+  The steps below assume a Debian GNU/Linux system.  However, it
+  should be possible to do this on any operating system as long as you
+  can run Docker containers.  Since software evolves over time, let me
+  note down the versions of software tools I am using while writing
+  this post.  Here they are:
+</p>
+<ul>
+  <li>Debian GNU/Linux 12.4 (bookworm)</li>
+  <li>Docker version 20.10.24+dfsg1, build 297e128</li>
+  <li>Docker image tagged jenkins/jenkins:2.426.3-lts-jdk17</li>
+  <li>Jenkins 2.426.3</li>
+</ul>
+<p>
+  We will perform only quick-and-dirty experiments in this post, so we
+  do not need a production-grade Jenkins instance.  We will run
+  Jenkins temporarily in a container.  The following steps show how to
+  do this and how to configure Jenkins for the upcoming experiments:
+</p>
+<ol>
+  <li>
+    <p>
+      Install Docker if it is not already present on the system.  For
+      example, on a Debian system, the following command installs
+      Docker:
+    </p>
+    <pre><code>sudo apt-get install docker.io</code></pre>
+  </li>
+  <li>
+    <p>
+      Now run the Jenkins container with this command:
+    </p>
+    <pre><code>sudo docker run --rm -p 8080:8080 jenkins/jenkins:lts</code></pre>
+  </li>
+  <li>
+    <p>
+      When the container starts, it prints a password towards the
+      bottom of the logs.  Copy the password.
+    </p>
+  </li>
+  <li>
+    <p>
+      Visit <a href="http://localhost:8080/">http://localhost:8080/</a>
+      in a web browser.  When the <em>Unlock Jenkins</em> page
+      appears, paste the password and click <em>Continue</em>.
+    </p>
+  </li>
+  <li>
+    <p>
+      On the <em>Customize Jenkins</em> page, click <em>Install
+      suggested plugins</em>.  Alternatively, to avoid installing
+      unnecessary plugins, click <em>Select plugins to install</em>,
+      deselect everything except <em>Pipeline</em> and
+      click <em>Install</em>.  We need the pipeline plugin to perform
+      rest of the experiment laid out in this post.
+    </p>
+  </li>
+  <!--
+    With suggested plugins:
+    Completed installation of 84 plugins in 1 min 52 sec
+         
+    With only pipeline plugin:
+    Completed installation of 50 plugins in 44 sec
+  -->
+  <li>
+    <p>
+      On the <em>Create First Admin User</em> page, enter the details
+      to create a new user.
+    </p>
+  </li>
+  <li>
+    <p>
+      On the <em>Instance Configuration</em> page, click <em>Save and
+      Finish</em>.
+    </p>
+  </li>
+  <li>
+    <p>
+      The <em>Jenkins is ready!</em> page appears.  Click <em>Start
+      using Jenkins</em>.
+    </p>
+  </li>
+  <li>
+    <p>
+      Go to <em>Build Executor Status</em> &gt; <em>Built-In Node</em>
+      &gt; <em>Configure</em> and change <em>Number of executors</em>
+      from the default value of <code>2</code> to <code>10</code>.
+      Click <em>Save</em>.
+    </p>
+  </li>
+</ol>
+<h2 id="hello-world">Hello World<a href="#hello-world"></a></h2>
+<p>
+  The following steps show how to run your first Jenkins pipeline:
+</p>
+<ol>
+  <li>
+    <p>
+      Go to <em>Dashboard</em> &gt; <em>New Item</em>.  Enter an item
+      name, say, <code>hello</code>, select <em>Pipeline</em> and
+      click <em>OK</em>.
+    </p>
+  </li>
+  <li>
+    <p>
+      On the next page, scroll down to the <em>Pipeline</em> section
+      at the bottom and paste the following pipeline script and
+      click <em>Save</em>.
+    </p>
+<pre>
+<code>node {
+    echo "hello, world"
+}</code>
+</pre>
+  </li>
+  <li>
+    <p>
+      Now click <em>Build Now</em>.  A new build number appears at the
+      bottom half of the left sidebar.  Click on the build number,
+      then click <em>Console Output</em> to see the output of the
+      pipeline.  The <code>hello, world</code> message should be
+      present in the output.
+    </p>
+  </li>
+</ol>
+<p>
+  To edit the pipeline script anytime, go to <em>Dashboard</em>, click
+  on the pipeline, then go to <em>Configure</em>, scroll down to
+  the <em>Pipeline</em> section, edit the script and
+  click <em>Save</em>.
+</p>
+<p>
+  In real world software development, Jenkins is typically configured
+  to automatically pull some source code from a project repository
+  maintained under a version control system and then build it using
+  the pipeline script found in the file named <code>Jenkinsfile</code>
+  present at the top-level directory of the project.  But since we
+  only intend to perform fun experiments in this post, we will just
+  paste our pipeline script directly into the pipeline configuration
+  page on Jenkins as explained above in order to keep things simple.
+  Jenkins also supports another way of writing pipelines using a
+  declarative style.  They are known as <em>declarative
+  pipelines</em>.  In this post, however, we will write
+  only <em>scripted pipelines</em> so that we can write simple Groovy
+  code for our experiments without having to bother about too many
+  pipeline-specific notions like stages, steps, etc.
+</p>
+<h2 id="factorial">Factorial<a href="#factorial"></a></h2>
+<p>
+  Now let us write a simple pipeline that calculates the factorial of
+  a nonnegative integer.  This will help us to demonstrate how a build
+  job can recursively call itself.  We are not going to write
+  something like the following:
+</p>
+<pre>
+<code>properties([
+    parameters([
+        string(
+            name: 'INPUT',
+            defaultValue: '0',
+            description: 'A nonnegative integer'
+        )
+    ])
+])
+
+def factorial(n) {
+    return n == 0 ? 1 : n * factorial(n - 1)
+}
+
+node {
+    echo "${factorial(params.INPUT as int)}"
+}</code>
+</pre>
+<p>
+  The code above is an example of a function that calls itself
+  recursively.  However, we want the <em>build job</em> (not the
+  function) to call itself recursively.  So we write the following
+  instead:
+</p>
+<pre>
+<code>properties([
+    parameters([
+        string(
+            name: 'INPUT',
+            defaultValue: '0',
+            description: 'A nonnegative integer'
+        )
+    ])
+])
+
+def MAX_INPUT = 10
+
+node {
+    echo "INPUT: ${params.INPUT}"
+    currentBuild.description = "${params.INPUT} -&gt; ..."
+
+    def n = params.INPUT as int
+    if (n &gt; MAX_INPUT) {
+        echo "ERROR: Input must not be greater than ${MAX_INPUT}"
+    }
+
+    env.RESULT = n == 0 ? 1 : n * (
+        build(
+            job: env.JOB_NAME,
+            parameters: [string(name: 'INPUT', value: "${n - 1}")]
+        ).getBuildVariables().RESULT as int
+    )
+
+    echo "RESULT: ${env.RESULT}"
+    currentBuild.description = "${params.INPUT} -&gt; ${env.RESULT}"
+}</code>
+</pre>
+<p>
+  This code example demonstrates a few things worth noting:
+</p>
+<ul>
+  <li>
+    <p>
+      The <code>properties</code> step at the top sets up a build
+      parameter named <code>INPUT</code> with a default value
+      of <code>0</code>.  This will allow us to enter an input number
+      while building the job.
+    </p>
+  </li>
+  <li>
+    <p>
+      Within the <code>node</code> block, we first check that the
+      input is not too large.  If the input number is larger than 10,
+      the pipeline refuses to run.  This is just a tiny safety check
+      to prevent the overzealous among you from inadvertently causing
+      havoc in your Jenkins instance by triggering a job with a large
+      input and depleting all the executors with an excess of
+      recursive jobs.
+    </p>
+  </li>
+  <li>
+    <p>
+      Then we perform the classic recursion to compute the factorial
+      of a given nonnegative integer.  The only thing that may appear
+      unusual here is that instead of just writing <code>factorial(n -
+      1)</code>, we make a <code>build()</code> call to invoke the job
+      itself recursively and pass <code>n - 1</code> as a build
+      parameter input to that job.
+    </p>
+  </li>
+  <li>
+    <p>
+      Each recursively called job writes its output to an environment
+      variable named <code>RESULT</code> and exits.  Then the
+      higher-level job invocation looks up the environment variables
+      in the build result of the job that just finished with
+      the <code>getBuildVariables()</code> call, reads the
+      <code>RESULT</code> variable and multiplies the value found
+      there by <code>n</code>.
+    </p>
+  </li>
+  <li>
+    <p>
+      The lines that update <code>currentBuild.description</code> are
+      there only to show handy descriptions of what is going on (the
+      input and the result) in the build history that appears on the
+      left sidebar.  A screenshot presented later illustrates this.
+    </p>
+  </li>
+</ul>
+<p>
+  To run the above pipeline, perform the following steps on the
+  Jenkins instance:
+</p>
+<ol>
+  <li>
+    <p>
+      Go to <em>Dashboard</em> &gt; <em>New Item</em>.  Enter an item
+      name, say, <code>factorial</code>, select <em>Pipeline</em> and
+      click <em>OK</em>.
+    </p>
+  </li>
+  <li>
+    <p>
+      On the next page, scroll down to the <em>Pipeline</em> section
+      at the bottom and paste the pipeline script presented above.
+    </p>
+  </li>
+  <li>
+    <p>
+      Click <em>Build Now</em>.  The first build sets
+      the <code>INPUT</code> build parameter to <code>0</code> (the
+      default value specified in the pipeline script).  The
+      result <code>1</code> shoud appear in the <em>Console
+      Output</em> page.
+    </p>
+  </li>
+  <li>
+    After the first build completes, the <em>Build Now</em> option on
+    the left sidebar gets replaced with the <em>Build with
+    Parameters</em> option.  Click it, then enter a number,
+    say, <code>5</code> and click <em>Build</em>.  Now we should see
+    Jenkins recursively triggering a total of 6 build jobs and each
+    build job printing the factorial of the integer it receives as
+    input.  The top-level build job prints <code>120</code> as its
+    result.
+  </li>
+</ol>
+<p>
+  Here is a screenshot that shows what the build history looks like on
+  the left sidebar:
+</p>
+<figure class="soft lightshadow">
+  <img src="files/blog/jenkins-factorial.png" alt="Screenshot of Jenkins build history that shows the builds that are triggered while computing the factorial of 0 and 5">
+  <figcaption>
+    The factorial of 0 computed in build 1 and the factorial of 5
+    computed in build 2
+  </figcaption>
+</figure>
+<p>
+  In the screenshot above, build number 2 is the build we triggered to
+  compute the factorial of 5.  This build resulted in recursively
+  triggering five more builds which we see as build numbers 3 to 7.
+  The little input and output numbers displayed below each build
+  number comes from the <code>currentBuild.description</code> value we
+  set in the pipeline script.
+</p>
+<p>
+  If we click on build number 7, we find this on the build page:
+</p>
+<figure class="soft lightshadow">
+  <img src="files/blog/jenkins-recursion.png" alt="Screenshot of Jenkins build page that shows build jobs triggered recursively">
+  <figcaption>
+    Build #7 page
+  </figcaption>
+</figure>
+<p>
+  This was a simple pipeline that demonstrates how a build job can
+  trigger itself, pass input to the triggered build and retrieve its
+  output.  We did not do much error checking or error handling here.
+  We have kept the code as simple as reasonably possible.  The focus
+  here was only on demonstrating the recursion.
+</p>
+<h2 id="quicksort">Quicksort<a href="#quicksort"></a></h2>
+<p>
+  Now we will implement quicksort in Jenkins.  Sorting numbers using
+  the standard library is quite straightforward in Groovy.  Here is an
+  example in the form of Jenkins pipeline:
+</p>
+<pre>
+<code>properties([
+    parameters([
+        string(
+            name: 'INPUT',
+            defaultValue: '4, 3, 5, 4, 5, 8, 7, 9, 1',
+            description: 'Comma-separated list of integers'
+        )
+    ])
+])
+
+node {
+    def numbers = params.INPUT.split('\\s*,\\s*').collect {it as int}
+    echo "${numbers.sort()}"
+}</code>
+</pre>
+<p>
+  It can't get simpler than this.  However, we are not here to
+  demonstrate the standard library methods.  We are here to
+  demonstrate recursion in Jenkins!  We write the following pipeline
+  script instead:
+</p>
+<pre>
+<code>properties([
+    parameters([
+        string(
+            name: 'INPUT',
+            defaultValue: '4, 3, 5, 4, 5, 8, 7, 9, 1',
+            description: 'Comma-separated list of integers'
+        )
+    ])
+])
+
+def MAX_INPUT_SIZE = 10
+
+node {
+    echo "INPUT: ${params.INPUT}"
+    currentBuild.description = "${params.INPUT} -&gt; ..."
+
+    def numbers = params.INPUT.split('\\s*,\\s*').collect {it as int}
+    if (numbers.size() &gt; MAX_INPUT_SIZE) {
+        echo "ERROR: Input must not contain more than ${MAX_INPUT_SIZE} integers"
+    }
+
+    def pivot = numbers[0]
+    def others = numbers.drop(1)
+    def lo = others.findAll { it <= pivot }
+    def hi = others.findAll { it &gt; pivot }
+    def builds = [:]
+    def results = [lo: [], hi: []]
+
+    if (lo) {
+        builds.lo = {
+            results.lo = build(
+                job: env.JOB_NAME,
+                parameters: [string(name: 'INPUT', value: lo.join(', '))
+            ]).getBuildVariables().RESULT.split('\\s*,\\s*') as List
+        }
+    }
+    if (hi) {
+        builds.hi = {
+            results.hi = build(
+                job: env.JOB_NAME,
+                parameters: [string(name: 'INPUT', value: hi.join(', '))
+            ]).getBuildVariables().RESULT.split('\\s*,\\s*') as List
+        }
+    }
+    parallel builds
+
+    env.RESULT = (results.lo + [pivot] + results.hi).join(', ')
+    echo "RESULT: ${env.RESULT}"
+    currentBuild.description = "${params.INPUT} -&gt; ${env.RESULT}"
+}</code>
+</pre>
+<p>
+  Some of the code is similar to the one in the previous section.  For
+  example, the <code>properties</code> step to set up the build
+  parameter, the <code>build()</code> call, setting the result
+  in <code>env.RESULT</code>, etc. should look familiar.  Let us pay
+  attention to what is different.
+</p>
+<p>
+  Firstly, we have two <code>build()</code> calls instead of just one.
+  In fact, we have two closures with one <code>build()</code> call in
+  each closure.  Then we use the <code>parallel</code> step to execute
+  both these closures in parallel.  In each build job, we pick the
+  first integer in the input as the pivot, then compare all the
+  remaining integers with this pivot and separate them
+  into <code>lo</code> (low numbers) and <code>hi</code> (high
+  numbers).  Then we call the build job recursively to repeat this
+  algorithm twice: once on the low numbers and again on the high
+  numbers.
+</p>
+<figure class="soft lightshadow">
+  <img src="files/blog/jenkins-quicksort.png" alt="Screenshot of Jenkins build history that shows the builds that are triggered while performing quicksort on a list of integers">
+  <figcaption>
+    Quicksort with recursive Jenkins builds
+  </figcaption>
+</figure>
+<p>
+  Unlike most textbook implementations of quicksort which lets the
+  recursion run all the way to the base case in which an empty list is
+  received and the recursive call returns without doing anything, the
+  above implementation is slightly optimised to avoid making recursive
+  builds when we find that the list of low numbers or the list of high
+  numbers is empty.  We lose a little bit of simplicity by doing this
+  but it helps in avoiding wasteful build jobs that just receive an
+  empty list of numbers as input and exit without doing anything
+  meaningful.  Further optimisation could involve avoiding recursion
+  for small input sizes, such as 1 or 2, but that is not done here for
+  the sake of simplicity and brevity.
+</p>
+<p>
+  I hope this was fun!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/jenkins-quicksort.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Joke Sort</title>
+<link>https://susam.net/joke-sorts.html</link>
+<guid isPermaLink="false">zofgz</guid>
+<pubDate>Wed, 26 May 2021 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Sleepsort in shell:
+</p>
+<pre>
+<samp>$ <kbd>nums="5 1 3 6 2 4" sh -c 'for n in $nums; do sleep "$n" &amp;&amp; echo "$n" &amp; done; wait'</kbd>
+1
+2
+3
+4
+5
+6</samp>
+</pre>
+<p>
+  Bogosort in Python:
+</p>
+<pre>
+<samp>$ <kbd>python3 -q</kbd>
+&gt;&gt;&gt; <kbd>import random</kbd>
+&gt;&gt;&gt; <kbd>nums = [5, 1, 3, 6, 2, 4]</kbd>
+&gt;&gt;&gt; <kbd>while nums != sorted(nums): random.shuffle(nums)</kbd>
+... 
+&gt;&gt;&gt; <kbd>print(nums)</kbd>
+[1, 2, 3, 4, 5, 6]
+&gt;&gt;&gt;</samp>
+</pre>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/joke-sorts.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/humour.html">#humour</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>URL in C</title>
+<link>https://susam.net/url-in-c.html</link>
+<guid isPermaLink="false">vnjtr</guid>
+<pubDate>Fri, 03 Jun 2011 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Here is a silly little C puzzle:
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    https://susam.net/
+    printf("hello, world\n");
+    return 0;
+}</code>
+</pre>
+<p>
+  This code compiles and runs successfully.
+</p>
+<pre>
+<samp>$ <kbd>c99 hello.c &amp;&amp; ./a.out</kbd>
+hello, world</samp>
+</pre>
+<p>
+  However, the
+  <a href="http://www.open-std.org/JTC1/SC22/WG14/www/docs/n1256.pdf">C99
+  standard draft</a> does not mention anywhere that a URL is a valid
+  syntactic element in C.  How does this code work then?
+</p>
+<p>
+  <em><strong>Update on 04 Jun 2011:</strong> The puzzle has been
+  solved in the <a href="comments/url-in-c.html">comments</a> section.
+  If you want to think about the problem before you see the solutions,
+  this is a good time to pause and think about it.  There are spoilers
+  ahead.</em>
+</p>
+<p>
+  The code works fine because <code>https:</code> is a label and
+  <code>//</code> following it begins a comment.  In case, you are
+  wondering if <code>//</code> is indeed a valid comment in C, yes, it
+  is, since C99.  Download the
+  <a href="http://www.open-std.org/JTC1/SC22/WG14/www/docs/n1256.pdf">C99
+  standard draft</a>, go to section 6.4.9 (Comments) and read the
+  second point which mentions this:
+</p>
+<blockquote>
+  Except within a character constant, a string literal, or a comment,
+  the characters <code>//</code> introduce a comment that includes all
+  multibyte characters up to, but not including, the next new-line
+  character.  The contents of such a comment are examined only to
+  identify multibyte characters and to find the terminating new-line
+  character.
+</blockquote>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/url-in-c.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/c.html">#c</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Obfuscated Main</title>
+<link>https://susam.net/obfuscated-main.html</link>
+<guid isPermaLink="false">hdzwp</guid>
+<pubDate>Sun, 02 Nov 2003 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I have been running a mailing list called <em>ncoders</em> on Yahoo
+  Groups for the past few months.  I created it to host discussions on
+  computers, programming and network protocols among university
+  students.  There are currently about 150 students from various
+  universities across the world on the list.  A few weeks ago, someone
+  posted a C programming puzzle to the group.  The puzzle asked
+  whether it was possible to write a C program such that the
+  <code>main()</code> function <em>does not seem to appear</em> in the
+  code.  Here's a solution I came up with, which involves obfuscating
+  the identifier <code>main</code> using preprocessor macros and
+  the <code>##</code> token-pasting operator.
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+#define decode(s,t,u,m,p,e,d) m ## s ## u ## t
+#define begin decode(a,n,i,m,a,t,e)
+
+int begin()
+{
+    printf("Stumped?\n");
+}</code>
+</pre>
+<p>
+  This program compiles and runs successfully.  Here is the output:
+</p>
+<pre><samp>Stumped?</samp></pre>
+<p>
+  Let me explain how this code works.  When the C preprocessor runs on
+  this code, the following preprocessing steps occur:
+</p>
+<ul>
+  <li>
+    <code>begin</code> is replaced with <code>decode(a,n,i,m,a,t,e)</code>,
+  </li>
+  <li>
+    <code>decode(a,n,i,m,a,t,e)</code> is replaced with <code>m ## a
+    ## i ## n</code> and
+  </li>
+  <li>
+    <code>m ## a ## i ## n</code> is replaced with <code>main</code>.
+  </li>
+</ul>
+<p>
+  Thus <code>begin()</code> is replaced with <code>main()</code>.
+</p>
+<p>
+  <strong>Update on 31 Jul 2007:</strong> Although the mailing list
+  referred to in this post no longer exists, this tiny piece of code
+  seems to have survived on the web.  A
+  <a href="https://www.google.com/search?q=%22decode%28s%2Ct%2Cu%2Cm%2Cp%2Ce%2Cd%29%22">quick
+  search</a> shows so many occurrences of this code on the web.  It is
+  quite surprising to me that a rather silly piece of code written
+  during a Sunday afternoon to solve an equally silly puzzle has been
+  the subject of much discussion!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/obfuscated-main.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/c.html">#c</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+
+
+</channel>
+</rss>

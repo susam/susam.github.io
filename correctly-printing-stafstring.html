@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Correctly Printing STAFString - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/correctly-printing-stafstring.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<main>
+<h1>Correctly Printing STAFString</h1>
+<div>By <b>Susam Pal</b> on 04 Jun 2010</div>
+<p>
+  At RSA, we use <a href="http://staf.sourceforge.net/">Software
+  Testing Automation Framework (STAF)</a> to automate testing our
+  products.  Recently, I ran into a bug that occurred due
+  to <code>STAFResult::STAFString</code> not being null-terminated.
+  Here is an example C++ program that demonstrates the issue:
+</p>
+<pre>
+<code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+#include "STAF.h"
+#include "STAFString.h"
+
+int main(int argc, char **argv)
+{
+    STAFString name("foo");
+    STAFHandlePtr handle;
+
+    int rc = STAFHandle::create(name, handle);
+    if (rc != 0) {
+        std::cerr &lt;&lt; "Could not create STAF handle; error code: "
+                  &lt;&lt; rc &lt;&lt; endl;
+        return 1;
+    }
+
+    STAFResultPtr result = handle-&gt;submit("127.0.0.1", "VAR",
+                                          "RESOLVE STRING {STAF/Env/DUMMY}");
+    if (result-&gt;rc != 0) {
+        std::cerr &lt;&lt; "Could not run STAF command; error code: "
+                  &lt;&lt; rc &lt;&lt; "\n";
+        return 1;
+    }
+
+    STAFString output = result-&gt;result;
+    std::cout &lt;&lt; "Output: " &lt;&lt; output.buffer() &lt;&lt; "\n";
+}</code>
+</pre>
+<p>
+  Here is an example output of the above program:
+</p>
+<pre>
+<samp>C:\&gt;<kbd>echo %DUMMY%</kbd>
+Why__does__it__break
+C:\&gt;<kbd>STAFExperiments.exe</kbd>
+Output: Why__does__it__break/Env/DUMMY}}</samp>
+</pre>
+<p>
+  The substring <code>/Env/DUMMY</code> at the end of the output is
+  garbage.  The result is not null-terminated in the output buffer.
+  Here is the correct way to print the output:
+</p>
+<pre><code>std::cout &lt;&lt; "Output: " &lt;&lt; string(output.buffer(), output.length()) &lt;&lt; "\n";</code></pre>
+<div>
+  <a href="comments/correctly-printing-stafstring.html">Comments</a> |
+  <a href="./tag/c++.html">#c++</a> |
+  <a href="./tag/programming.html">#programming</a> |
+  <a href="./tag/technology.html">#technology</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

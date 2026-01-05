@@ -1,0 +1,948 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's Web Pages</title>
+<link>https://susam.net/tag/web.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/web.xml"/>
+<description>Feed for Susam's Web Pages</description>
+
+<item>
+<title>Nerd Quiz #3</title>
+<link>https://susam.net/code/news/nq/3.0.0.html</link>
+<guid isPermaLink="false">nqthr</guid>
+<pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Nerd Quiz #3 is the third release of Nerd Quiz, a single-page HTML
+  application that invites you to test your nerd level through a short
+  quiz.  Each question is inspired by everyday moments of reading,
+  writing, thinking, learning and exploring.
+</p>
+<p>
+  This release introduces five new questions drawn from a range of
+  topics, including computing history, graph theory and Unix.
+  Visit <a href="../../../nq.html#3">Nerd Quiz</a> to try the quiz.
+</p>
+<p>
+  A community discussion page is available at
+  <a href="../../../comments/nq.html">Discuss Nerd Quiz</a>.  You are
+  very welcome to share your score or discuss the questions there.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/nq/3.0.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a> |
+  <a href="https://susam.net/tag/game.html">#game</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Fizz Buzz in CSS</title>
+<link>https://susam.net/fizz-buzz-in-css.html</link>
+<guid isPermaLink="false">fzcps</guid>
+<pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  How many CSS selectors and declarations do we need to produce the
+  Fizz Buzz sequence?  Of course we could do this with no CSS at all
+  simply by placing the entire sequence as text in the HTML body.  So
+  to make the problem precise as well as to keep it interesting, we
+  require that all text that appears in the Fizz Buzz sequence comes
+  directly from the CSS.  Placing any part of the output numbers or
+  words outside the stylesheet is not allowed.  JavaScript is not
+  allowed either.  With these constraints, I think we need at least
+  four CSS selectors along with four declarations to solve this
+  puzzle, as shown below:
+</p>
+<pre>
+<code>li { counter-increment: n }
+li:not(:nth-child(5n))::before { content: counter(n) }
+li:nth-child(3n)::before { content: "Fizz" }
+li:nth-child(5n)::after { content: "Buzz" }</code>
+</pre>
+<p>
+  Here is a complete working example:
+  <a href="css-fizz-buzz.html">css-fizz-buzz.html</a>.
+</p>
+<p>
+  The above solution contains four CSS rules with one selector and one
+  declaration in each rule.  For example,
+  <code>li { counter-increment: n }</code> is one rule consisting of
+  the selector <code>li</code> and the declaration
+  <code>counter-increment: n</code>.
+</p>
+<p>
+  Seasoned code golfers looking for a challenge can probably shrink
+  this solution further.  A common trick to solve this problem is to
+  use an ordered list (<code>&lt;ol&gt;</code>) which provides the
+  integers in the form of list markers automatically, thereby
+  eliminating the need to maintain a counter in the stylesheet.
+  However, this violates the requirement set out in the introduction.
+  We want every integer to be produced directly by the stylesheet.
+  Treating the integers in the list markers as part of the output
+  sequence breaks this rule.  Not to mention the output looks untidy
+  because of the unnecessary dot after each marker and also because
+  the numbers and words appear misaligned.  See an example of that
+  trick here:
+  <a href="code/web/css-fizz-buzz-ol.html">css-fizz-buzz-ol.html</a>.
+  Correcting the misaligned output calls for extra code that cancels
+  out the number of declarations saved.  In any case, the requirement
+  that all integers of the output must come directly from the
+  stylesheet prevents untidy solutions like this and also forces us to
+  rely on the capabilities of CSS to solve this puzzle.
+</p>
+<p>
+  The intention here was to obtain the smallest possible code in terms
+  of the number of CSS declarations.  This example is not crafted to
+  minimise bytes, but for code golfers who enjoy reducing byte count,
+  here is the number of bytes this solution consumes after removing
+  all whitespace:
+</p>
+<pre><code>$ curl -sS https://susam.net/css-fizz-buzz.html | sed -n '/counter/,/after/p' | tr -d '[:space:]' | wc -c
+152</code></pre>
+<p>
+  Further reduction in byte count can be achieved by using the
+  <code>&lt;p&gt;</code> element instead of <code>&lt;li&gt;</code>,
+  nesting CSS selectors, etc.  I'll leave that as an exercise for the
+  reader.  Returning to the focus of this post as well as to summarise
+  it, the solution here uses four CSS rules consisting of four
+  selectors and four declarations to render the Fizz Buzz sequence.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/fizz-buzz-in-css.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/css.html">#css</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CSS Fizz Buzz with Ordered List</title>
+<link>https://susam.net/code/web/css-fizz-buzz-ol.html</link>
+<guid isPermaLink="false">fzolc</guid>
+<pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A version of my CSS Fizz Buzz that uses ordered list
+  (<code>&lt;ol&gt;</code>) to reduce code.  However, I don't quite
+  like how misaligned the numbers and the words look.  Correcting that
+  would call for extra code that would cancel out the bytes saved.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/css-fizz-buzz-ol.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CSS Fizz Buzz</title>
+<link>https://susam.net/css-fizz-buzz.html</link>
+<guid isPermaLink="false">fzcss</guid>
+<pubDate>Wed, 03 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  An implementation of Fizz Buzz in four lines of CSS.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/css-fizz-buzz.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Nerd Quiz #2</title>
+<link>https://susam.net/code/news/nq/2.0.0.html</link>
+<guid isPermaLink="false">nqtwo</guid>
+<pubDate>Tue, 18 Nov 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Nerd Quiz #2 is the second release of Nerd Quiz, a single-page HTML
+  application that invites you to gauge your nerd level through short,
+  focused quiz sets.  Each question is carefully crafted from everyday
+  moments of reading, writing, thinking, learning and exploring.
+</p>
+<p>
+  This release introduces five new questions drawn from a range of
+  topics such as chess, graph theory and linguistics.  To try the
+  quiz, visit <a href="../../../nq.html#2">nq.html</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/nq/2.0.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a> |
+  <a href="https://susam.net/tag/game.html">#game</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Nerd Quiz</title>
+<link>https://susam.net/nq.html</link>
+<guid isPermaLink="false">nqhtm</guid>
+<pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A nerdy, handcrafted quiz built from everyday moments of reading,
+  writing, thinking, learning and exploring.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/nq.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Nerd Quiz #1</title>
+<link>https://susam.net/code/news/nq/1.0.0.html</link>
+<guid isPermaLink="false">nqone</guid>
+<pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Nerd Quiz #1 is the first release of Nerd Quiz, a single-page HTML
+  application that lets you test your nerd level through short,
+  focused quiz sets.  Each question in the quiz is handcrafted from
+  everyday moments of reading, writing, thinking, learning and
+  exploring.
+</p>
+<p>
+  To try the quiz now, visit <a href="../../../nq.html">nq.html</a>.
+</p>
+<p>
+  The source code of Nerd Quiz is available at
+  <a href="https://github.com/susam/nq#readme">github.com/susam/nq</a>
+  under the terms of the MIT licence.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/nq/1.0.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a> |
+  <a href="https://susam.net/tag/game.html">#game</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>QuickQWERTY 1.2.0</title>
+<link>https://susam.net/code/news/quickqwerty/1.2.0.html</link>
+<guid isPermaLink="false">qqotz</guid>
+<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  QuickQWERTY 1.2.0 is now available.  QuickQWERTY is a web-based
+  touch typing tutor for QWERTY keyboards that runs directly in the
+  web browser.
+</p>
+<p>
+  This release brings small improvements to make the typing tutor
+  smoother and the lessons more accurate.  When you return to the
+  application, it no longer needlessly redirects you back to Unit 1.1
+  if that was the last lesson you practised.
+</p>
+<p>
+  Several lessons have received minor corrections.  Units 7.2 and 7.3
+  no longer include the word "tyre", avoiding a preference for either
+  British or American spelling.  Units 9.2 and 9.3 now spell
+  "orwellian" correctly.  A factual error in Unit 17.4 has been fixed
+  too.  It previously said "89 is one more than 99", which now
+  correctly reads "89 is one more than 88".
+</p>
+<p>
+  Finally, switching between the 5-6 and 6-7 split layouts is now more
+  reliable.  In the previous release, pressing <kbd>Esc</kbd> to
+  cancel the confirmation dialogue still caused the switch to go
+  through.  Now pressing <kbd>Esc</kbd> properly cancels the switch as
+  expected.
+</p>
+<p>
+  To try out the new release of QuickQWERTY, go to
+  <a href="../../../quickqwerty.html">quickqwerty.html</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/quickqwerty/1.2.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Reinstated My Guestbook After 20 Years</title>
+<link>https://susam.net/reinstated-guestbook.html</link>
+<guid isPermaLink="false">gbret</guid>
+<pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I have reinstated the <a href="comments/guestbook.html">guestbook</a>
+  on this website after 20 years!  As I have written in the
+  <a href="about.html">About</a> page, this website began its life as
+  an intranet portal in my university network back in 2001–2005.  That
+  portal first ran on Microsoft Personal Web Server (PWS) and later on
+  Microsoft Internet Information Services (IIS), with the guestbook
+  data stored in a Microsoft Access database.  At the same time, I
+  also maintained a small public website on the Internet, hosted on a
+  subdomain provided by a free hosting service, where I published a
+  subset of the articles from the intranet portal.  Both the intranet
+  portal and the public website had guestbooks.  The guestbook on the
+  public website was powered by a CGI script provided by the hosting
+  service, which inserted each comment directly into the guestbook
+  HTML page.  As some of you might guess, yes, it was vulnerable to
+  cross-site scripting, but that's beside the point.
+</p>
+<p>
+  After leaving the university, I registered my own domain name and
+  set up my current website on the World Wide Web and included some of
+  the content from both the original intranet portal and the old
+  public website.  For some reason, though, I never thought to include
+  a guestbook.  And so this website went on without a guestbook for
+  the next 20 years.  Finally, in June 2025, I decided to bring the
+  guestbook back.  I already had a commenting system implemented for
+  this website using Common Lisp and Hunchentoot, so I simply reused
+  it for the guestbook.  The
+  <a href="https://github.com/susam/susam.net/blob/0.3.0/form.lisp">server program</a>
+  accepts POST requests to receive comments and writes them to text
+  files on the web server for manual review.  The comments are then
+  rendered as static HTML pages by my static site generator.  In a
+  way, it is less a comment system and more a static comment pages
+  generator.
+</p>
+<p>
+  Unfortunately, I could not restore all the comments from the
+  original guestbooks.  The ASP source code of my intranet portal as
+  well as the guestbook database are now lost to time.  Note that what
+  I refer to as ASP here is now known as Classic ASP, to avoid
+  confusion with ASP.NET.  A CD-ROM backup eventually succumbed to
+  disc rot and with it vanished the source code and the database.  But
+  a handful of comments had survived because they had found their way
+  into other files and correspondence and I have now included them
+  here.  I had better luck with the guestbook of the old public
+  website, from which I was able to recover a greater number of
+  comments.  It is still only a small fraction of what once existed,
+  but it feels good to have even those fragments preserved.  The new
+  guestbook is now available here:
+  <a href="comments/guestbook.html">Guestbook</a>.
+</p>
+<p>
+  I wasn't expecting anybody to notice the new guestbook.  It is only
+  mentioned in the <a href="about.html">About</a> and
+  <a href="links.html">Links</a> pages, neither of which see much
+  traffic.  Here are a few examples:
+</p>
+<blockquote>
+  <p>
+    I love that your website has a guestbook!  :D
+  </p>
+</blockquote>
+<blockquote>
+  <p>
+    Love the guestbook!  We need more of these.  Makes you feel
+    invited.
+  </p>
+</blockquote>
+<p>
+  It's a small addition to my website, but after two decades, it feels
+  good to see the guestbook alive again and even better to see
+  visitors enjoying it!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/reinstated-guestbook.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>QuickQWERTY 1.1.0</title>
+<link>https://susam.net/code/news/quickqwerty/1.1.0.html</link>
+<guid isPermaLink="false">qqooz</guid>
+<pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  There has been a new release of QuickQWERTY after over 10 years!
+  QuickQWERTY is a web-based touch typing tutor for QWERTY keyboards
+  that runs directly in the web browser.  You can try it out
+  here: <a href="../../../quickqwerty.html">quickqwerty.html</a>.
+</p>
+<p>
+  The new release, version 1.1.0 of QuickQWERTY, introduces a new
+  input command named <code>reset</code>, which is a synoymn for the
+  existing commands <code>restart</code> and <code>rst</code> used to
+  restart the current lesson.  Another input command
+  named <code>test</code> runs an internal suite of tests to validate
+  that no lesson involves keys that have not been introduced in the
+  current or prior lessons.  Further, in this release, the application
+  has been fully rewritten as a single standalone HTML file with no
+  external dependencies and the source code has been greatly
+  simplified.
+</p>
+<p>
+  There are a number of other changes too.  Words per minute (WPM)
+  calculation has been refined so the first character, which starts
+  the timer, is not counted.  The guides have been enhanced.  Keys to
+  be pressed are now highlighted more clearly and reminders to return
+  fingers to their home positions have been added to each guide.  The
+  confirmation dialogue for switching between 6-7 split and 5-6 split
+  styles now uses the HTML <code>&lt;dialog&gt;</code> element,
+  replacing the dated <code>window.confirm()</code> prompt.  In
+  addition, when the application is opened without a fragment
+  identifier in the URL, the most recently practised lesson loads
+  automatically.
+</p>
+<p>
+  The user interface has been simplified.  The previous and next links
+  (<code>&laquo;</code> and <code>&raquo;</code>) for navigating
+  lessons have been removed, as they added little value and made the
+  layout of the various user interface components more complex.  The
+  "Next lesson" advice link remains for moving to the next lesson when
+  the current one is completed successfully.  Tooltips showing
+  additional typing metrics have also been removed due to limited
+  usefulness.
+</p>
+<p>
+  The lessons have been updated to remove spellings specific to
+  American English.  Care has been taken to use only words that are
+  spelled the same in American and British English with one exception.
+  The word "tyre", in its British English spelling, was mistakenly
+  left in the lesson.  That will be fixed in the next release.
+</p>
+<p>
+  Finally, QuickQWERTY's licence has changed from the BSD-2-Clause
+  licence to the MIT licence.  The source code is available at
+  <a href="https://github.com/susam/quickqwerty">github.com/susam/quickqwerty</a>.
+  To run this release and learn touch typing on a QWERTY keyboard, go
+  to <a href="../../../quickqwerty.html">quickqwerty.html</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/quickqwerty/1.1.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Prime Number Grid Explorer</title>
+<link>https://susam.net/primegrid.html</link>
+<guid isPermaLink="false">pghtm</guid>
+<pubDate>Tue, 19 Aug 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A simple single-page HTML application to explore the distribution of
+  prime numbers in a grid.  Choose a starting number along with the
+  number of rows and columns and the page generates the corresponding
+  grid.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/primegrid.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Miller-Rabin Speed Test</title>
+<link>https://susam.net/code/web/miller-rabin-speed-test.html</link>
+<guid isPermaLink="false">mrpst</guid>
+<pubDate>Sat, 16 Aug 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A demo page that implements the Miller-Rabin primality test to
+  accurately detect primes for all numbers less than
+  318665857834031151167461 and compare its speed against a simple
+  division based primality test algorithm.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/miller-rabin-speed-test.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>My Blogroll Is Now My Feed Reader</title>
+<link>https://susam.net/blogroll-as-feed-reader.html</link>
+<guid isPermaLink="false">mbmfr</guid>
+<pubDate>Sat, 05 Jul 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  On a particularly hot summer weekend last month, I implemented a new
+  feature for this website: a blogroll that lists recent entries from
+  my favourite blogs.  Check it out here: <a href="roll.html">roll.html</a>.
+</p>
+<p>
+  It has been nearly two weeks since I set up this blogroll and it has
+  already changed how I keep up with my feeds.  I no longer bother
+  with feed readers or aggregators.  I could never quite make a habit
+  of using them regularly anyway.  Thanks to this simple addition to
+  my website, I find myself visiting my blogroll often.  It has earned
+  a permanent place in my bookmarks.  When I have some spare time, I
+  click on the bookmark, visit my blogroll and, when I find new posts
+  appear there, I click through and read the full blog posts.
+</p>
+<p>
+  Credit for this nifty and surprisingly effective idea goes to Alex
+  Kladov.  It was Alex's website,
+  <a href="https://matklad.github.io/">matklad.github.io</a>, that
+  inspired me to implement my own blogroll.  It showed me that a
+  blogroll can be more than just a static list of links.  It can be a
+  regularly updated page that highlights new posts from the blogs I
+  follow.
+</p>
+<p>
+  I suspect the fact that my blogroll is generated by my own
+  handcrafted <a href="https://github.com/susam/susam.net/blob/main/roll.lisp">Common
+  Lisp program</a> plays a part in why I enjoy using it.  There is a
+  certain joy in using something you have built yourself.  At last, I
+  feel I can stay on top of my feeds!  If you maintain a personal
+  website and struggle to keep up with your feeds, I recommend this
+  approach.  Writing the blogroll generator was a fun weekend project
+  and it has greatly improved how I spend my spare time online!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/blogroll-as-feed-reader.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CSS Experiments: overflow-wrap vs word-break</title>
+<link>https://susam.net/code/web/overflow-wrap-vs-word-break.html</link>
+<guid isPermaLink="false">owvwb</guid>
+<pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  An example page demonstrating experiments with the
+  CSS <code>overflow-wrap</code> and <code>word-break</code>
+  properties.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/overflow-wrap-vs-word-break.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/css.html">#css</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Noise From My Feeds</title>
+<link>https://susam.net/feed-noise.html</link>
+<guid isPermaLink="false">xjdrj</guid>
+<pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Hello!  If you are subscribed to this website's feeds, you may have
+  noticed something odd recently.  Your feed reader might have shown a
+  bunch of old posts as if they were published today.  If that
+  happened with your feed reader, I apologise for the noise.  I hope
+  this post will give you some clarity on why this happened.  The
+  reason for this noise is a change to the way the RSS feeds are
+  generated for this website.  Each post in the feeds includes a GUID,
+  which is used by many feed readers to decide whether a post is new
+  or if it has been seen already.  Until now, the GUID was simply the
+  post's URL, like this:
+</p>
+<pre>
+<code>&lt;url&gt;https://susam.net/product-of-additive-inverses.html&lt;/url&gt;
+&lt;guid&gt;https://susam.net/product-of-additive-inverses.html&lt;/guid&gt;</code>
+</pre>
+<p>
+  However, today this has changed to a short unique string, like so:
+</p>
+<pre>
+<code>&lt;url&gt;https://susam.net/product-of-additive-inverses.html&lt;/url&gt;
+&lt;guid isPermaLink="false"&gt;rxpnz&lt;/guid&gt;</code>
+</pre>
+<p>
+  If your feed reader looks at this GUID value to decide whether a new
+  post has been published, it will show you a whole bunch of old posts
+  once again in your reader, as if they were new.  These GUIDs won't
+  change again in the future, so this is a one-time problem.  The full
+  URL of the post is still present in the feeds, as you can see in the
+  example above, so your feed reader still knows where to take you if
+  you wish to visit this website to read a post.  The short string
+  serves as a unique identifier for each post.
+</p>
+<p>
+  This website is a passion project I work on in my spare time.
+  Sometimes, after publishing a post, I realise the title could be
+  sharper or the URL could be cleaner.  I make the necessary changes
+  and set up HTTP redirects on my web server, so that visitors using
+  the old URL are still taken to the updated location of the post.
+  Previously, however, the GUID (being the URL) changed too, which
+  caused many feed readers to treat the updated post as a new one even
+  when it wasn't.  Switching to stable GUIDs prevents this problem
+  from occurring again.  The GUIDs now stay the same no matter what
+  changes I make behind the scenes, which means no more unnecessary
+  noise in your feed reader.
+</p>
+<p>
+  I am sorry if this caused any confusion or clutter.  If your feed
+  reader is currently flooded with old posts appearing as new, the
+  best solution is to mark those items as read.  Thank you for your
+  patience with this issue.  I hope to keep future surprises limited
+  to content, not configuration.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/feed-noise.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>More Contrast, Please</title>
+<link>https://susam.net/more-contrast-please.html</link>
+<guid isPermaLink="false">ygqwk</guid>
+<pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  So you have decided to go with a dark theme for your website.  Great
+  choice!  I love dark themes too!  My journey with computers began
+  with monochrome CRT monitors, where white text was displayed on dark
+  background.  I am still very fond of that colour scheme.  Done well,
+  dark themes can be elegant and easy on the eyes.  But there is a
+  common pitfall that I see all too often in modern web design: the
+  overuse of low-contrast colour schemes.  This is something worth
+  keeping in mind while crafting a new theme.
+</p>
+<p>
+  Take a look at this example where the text colour
+  is <code>#777</code> and the background is <code>#222</code>:
+</p>
+<p style="background: #222; color: #777; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  I am hoping that most people would agree that the colour contrast
+  above is too low.  I certainly find it uncomfortable to read.
+  However, the situation becomes a bit less clear with the following
+  example, where the text colour is set to <code>#999</code> and the
+  background is <code>#222</code>:
+</p>
+<p style="background: #222; color: #999; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  The above example is, in fact, based on a real website I came across
+  today.  Now this is definitely better than the first example and I
+  am sure some people would find this perfectly acceptable.  However,
+  I still find this uncomfortable to read.  In fact, I have realised
+  that as I get older, I need a higher contrast ratio to make the text
+  more comfortable to read.
+</p>
+<p>
+  I would suggest that any colour choices for foreground text and
+  background page colours should, at the very least, meet
+  the <a href="https://www.w3.org/TR/WCAG22/#contrast-enhanced">Web
+  Content Accessibility Guidelines (WCAG) Level AAA</a>
+  recommendations.  This means the contrast ratio for normal-sized
+  text against the background should be at least 7:1.  There are also
+  the slightly weaker Level AA guidelines, which require that
+  normal-sized text have a contrast ratio of at least 4.5:1.  That
+  said, I personally recommend aiming for a 7:1 contrast ratio
+  regardless.
+</p>
+<p>
+  The first example above has a contrast ratio of just 3.6:1, meaning
+  it fails to meet both the Level AA and Level AAA requirements.  The
+  second example, on the other hand, has a contrast ratio of 5.6:1.
+  While it satisfies the Level AA requirements, it still falls short
+  of meeting the Level AAA standards.
+</p>
+<p>
+  To calculate the contrast ratio according to
+  the <a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G17.html#tests">WCAG
+  contrast formula</a>, use one of these tools:
+</p>
+<ul>
+  <li>
+    <a href="contrast.html">My Colour Contrast Calculator</a>
+  </li>
+  <li>
+    <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a>
+  </li>
+</ul>
+<p>
+  If we improve the contrast for the second example above, we would
+  need to choose a brighter shade for the text, such as
+  <code>#BBB</code>.  On the dark background <code>#222</code>, this
+  results in a contrast ratio of 8.3:1.  Here is how it looks:
+</p>
+<p style="background: #222; color: #bbb; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  I definitely find this much easier to read.  If you are developing a
+  dark colour theme for your web page or software, I request you to
+  run your colours through a contrast calculator tool and ensure the
+  contrast ratio is greater than 7:1.  Anything less and the theme
+  might become uncomfortable for people like me.  Small adjustments
+  like this can significantly improve readability and comfort for your
+  readers.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/more-contrast-please.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Colour Contrast Calculator</title>
+<link>https://susam.net/contrast.html</link>
+<guid isPermaLink="false">xmajx</guid>
+<pubDate>Sun, 06 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A simple web-based tool to calculate the contrast between two
+  colours according to WCAG contrast formula.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/contrast.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>More Purple Links, Please</title>
+<link>https://susam.net/more-purple-links-please.html</link>
+<guid isPermaLink="false">gyrti</guid>
+<pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  While I am browsing the Web, one thing I always like to see is a
+  page with purple links.  Since the early days of the Web, purple has
+  has become the default colour for visited links.  Here's a relevant
+  note from the
+  <a href="https://ksi.cpsc.ucalgary.ca/archives/WWW-TALK/www-talk-1993q2.messages/47.html">changelog</a>
+  of NCSA Mosaic 0.13 (1993):
+</p>
+<blockquote>
+  Changed default anchor representations: blue and single solid
+  underline for unvisited, dark purple and single dashed underline for
+  visited.
+</blockquote>
+<p>
+  Visiting a web page and finding purple links brings a sense of ease.
+  The purple links indicate that I am familiar with some of the
+  references the web page makes to other articles.  Each purple link
+  serves as a small marker of a prior journey, a reminder that I've
+  explored certain paths before.  To me, purple links are like
+  well-worn books with faded covers and creased spines.  Blue links,
+  on the other hand, are like new books, to be opened and explored.
+</p>
+<p>
+  Although I'm quite fond of purple links, I know that not everyone
+  shares this sentiment.  Modern web design trends have moved away
+  from this tradition, favouring sleek, minimalist aesthetics where
+  visited and unvisisted links look nearly the same.  While this can
+  be visually appealing, in my opinion, it detracts from the
+  experience of using the Web as a source of knowledge.  When links
+  look indistinguishable or unconventional, it can be hard to tell
+  what I've already read, especially when I am revisiting a topic and
+  want to easily spot the links that are new.
+</p>
+<p>
+  Now it is not hard to change the visited link style with a little
+  userscript.  For example the following userscript can override the
+  website's stylesheet to colour visited links purple again:
+</p>
+<pre>
+<code>// ==UserScript==
+// @name Purple Links
+// @match *://*/*
+// ==/UserScript==
+document.head.appendChild(document.createElement('style'))
+document.head.lastElementChild.innerHTML = 'a:visited {color: #518}'</code>
+</pre>
+<p>
+  This little userscript should work well on most web pages with light
+  backgrounds.  But if a web page uses a dark theme or a custom colour
+  scheme, then the above userscript may need adjustments to either
+  handle other colour schemes gracefully.
+</p>
+<p>
+  To me, the purple links serve as small reminders of all the digital
+  paths I've already walked.  I wish more websites would honour this
+  convention.  More purple links, please.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/more-purple-links-please.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>PDF Dimmer Bookmarklet</title>
+<link>https://susam.net/pdf-dimmer-bookmarklet.html</link>
+<guid isPermaLink="false">bgigh</guid>
+<pubDate>Wed, 02 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I often read PDF documents in Firefox and sometimes I prefer to work
+  in dark mode, especially at night when the room lights are dimmed.
+  However, the bright white background of the Firefox PDF viewer can
+  be glaring and uncomfortable when dark mode is enabled.
+  Additionally, writing a userscript to invert the background and text
+  colours in the PDF viewer does not work.  I have confirmed with
+  Firefox version 137.0 that userscripts do not run within the PDF
+  viewer.
+</p>
+<p>
+  For example, consider this simple userscript that just prints a
+  "hello" message when a web page loads:
+  <a href="code/lab/userscript/hello.js">hello.js</a>.  This script
+  works on regular web pages but does not execute when viewing a PDF
+  file in Firefox.
+  See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1454760">Bug
+  1454760</a> for more details about this restriction.
+</p>
+<p>
+  While userscripts are often my go-to solution for customisations
+  like this, for this particular problem, I resorted to writing a tiny
+  bookmarklet to work around the above limitation.  Here is the
+  bookmarklet:
+</p>
+<pre><code>javascript:(()=&gt;{['thumbnailView','viewer'].map(id=&gt;document.getElementById(id).style.filter='invert(0.9)saturate(0)')})()</code></pre>
+<p>
+  To add this to Firefox, from the Firefox menu, select "Bookmarks".
+  Then in the left sidebar, right click on either "Bookmarks Toolbar"
+  or "Bookmarks Menu", depending on where you want to add the
+  bookmarklet and select "Add Bookmark".  Enter some name in the
+  "Name" field and then in the "URL" field, enter the above line of
+  code.  Click "Save" and you are done.  The next time you open a PDF
+  file in Firefox, find the bookmark in the bookmarks menu or toolbar,
+  click on it and it should instantly invert the colour scheme of the
+  PDF viewer.
+</p>
+<p>
+  Alternatively, simply drag the following link and drop it onto your
+  Firefox toolbar:
+</p>
+<p class="textcenter">
+  <a href="javascript:(()=%3e%7b%5b'thumbnailView','viewer'%5d.map(id=%3edocument.getElementById(id).style.filter='invert(0.9)saturate(0)')%7d)()">Dim PDF</a>
+</p>
+<p>
+  While the default PDF viewer of Firefox does not support
+  userscripts, this bookmarklet is a simple, effective way to give
+  PDFs a darker look.  If you're like me and often read books and
+  papers in PDF format at night, you might find this handy.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/pdf-dimmer-bookmarklet.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>MathB 1.3.0</title>
+<link>https://susam.net/code/news/mathb/1.3.0.html</link>
+<guid isPermaLink="false">lpjpy</guid>
+<pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  MathB 1.3.0 is likely the final update of MathB, a web-based
+  mathematics pastebin service.  The online mathematics pastebin
+  service previously hosted at <code>https://mathb.in/</code> has been
+  shut down today after 13 years of continuous service.  See the post
+  <a href="../../../mathbin-is-shutting-down.html">MathB.in Is
+  Shutting Down</a> for more details about this.  This release
+  captures the state of this project as it was today at the time of
+  shutting down the online service.
+</p>
+<p>
+  This update includes a few new features.  For example, there is now
+  a configurable runtime property named <code>:expect</code> that can
+  be used to enforce the presence of certain tokens in the posts
+  submitted by the users.  This feature was used to enforce the
+  presence of LaTeX delimiters in the online service, a measure that
+  was instrumental in reducing spam to a great extent in the last few
+  years.  There are a few other minor changes too.
+  See <a href="https://github.com/susam/mathb/blob/main/CHANGES.md">CHANGES.md</a>
+  for a detailed changelog.
+</p>
+<p>
+  The source code of MathB remains free and open-source, so anyone
+  interested in hosting their own instance can still do so.  To access
+  the source code of MathB, please visit
+  <a href="http://github.com/susam/mathb">github.com/susam/mathb</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/mathb/1.3.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+
+
+</channel>
+</rss>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Joke Sort - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/joke-sorts.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<main>
+<h1>Joke Sort</h1>
+<div>By <b>Susam Pal</b> on 26 May 2021</div>
+<p>
+  Sleepsort in shell:
+</p>
+<pre>
+<samp>$ <kbd>nums="5 1 3 6 2 4" sh -c 'for n in $nums; do sleep "$n" &amp;&amp; echo "$n" &amp; done; wait'</kbd>
+1
+2
+3
+4
+5
+6</samp>
+</pre>
+<p>
+  Bogosort in Python:
+</p>
+<pre>
+<samp>$ <kbd>python3 -q</kbd>
+&gt;&gt;&gt; <kbd>import random</kbd>
+&gt;&gt;&gt; <kbd>nums = [5, 1, 3, 6, 2, 4]</kbd>
+&gt;&gt;&gt; <kbd>while nums != sorted(nums): random.shuffle(nums)</kbd>
+... 
+&gt;&gt;&gt; <kbd>print(nums)</kbd>
+[1, 2, 3, 4, 5, 6]
+&gt;&gt;&gt;</samp>
+</pre>
+<div>
+  <a href="comments/joke-sorts.html">Comments</a> |
+  <a href="./tag/absurd.html">#absurd</a> |
+  <a href="./tag/programming.html">#programming</a> |
+  <a href="./tag/humour.html">#humour</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

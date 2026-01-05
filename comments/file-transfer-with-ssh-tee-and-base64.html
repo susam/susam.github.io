@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on File Transfer with SSH, Tee and Base64 - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/file-transfer-with-ssh-tee-and-base64.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../file-transfer-with-ssh-tee-and-base64.html"><em>File Transfer with SSH, Tee and Base64</em></a></strong></div>
+<nav><a href="../form/comment/?p=file-transfer-with-ssh-tee-and-base64">Post Comment</a></nav>
+<!-- Comment 1 of 10 -->
+<section id="1" class="visitor">
+<h2>NRClark wrote:</h2>
+<p>
+  The instructions in this article should work, but they're more
+  complicated than necessary maybe.  If you don't
+  have <code>scp</code>, you can usually just do something like this:
+</p>
+<pre><code>ssh HOST cat remote_file &gt; local_file</code></pre>
+<div>
+<a href="#1">17 Sep 2020 15:25 UTC</a> |
+<a href="#1">#1 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 10 -->
+<section id="2" class="author">
+<h2><a href="https://susam.net">Susam Pal</a> wrote:</h2>
+<p>
+  NRClark, I mention in the first two paragraphs of my blog post that
+  the SSH gateway in between forbids execution of remote commands
+  without a login shell, so your solution is not going to work in this
+  environment.
+</p>
+<div>
+<a href="#2">17 Sep 2020 15:27 UTC</a> |
+<a href="#2">#2 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 3 of 10 -->
+<section id="3" class="visitor">
+<h2>Silviot wrote:</h2>
+<p>
+  My solution in these cases:
+</p>
+<pre><code>ssh HOST tar cjf - /path/to/folder | tar xjf -</code></pre>
+<p>
+  Basically I ask <code>ssh</code> to execute <code>tar</code> on the
+  remote host to create a compressed archive.  <code>ssh</code> will
+  output the archive contents on the local host; this data is then
+  passed on to a local <code>tar</code> for extraction.
+</p>
+<div>
+<a href="#3">17 Sep 2020 15:34 UTC</a> |
+<a href="#3">#3 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 4 of 10 -->
+<section id="4" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Silviot, I mention in my blog post that the SSH gateway in between
+  forbids execution of remote commands without a login shell, so your
+  solution is not going to work in such an environment.
+</p>
+<div>
+<a href="#4">17 Sep 2020 15:35 UTC</a> |
+<a href="#4">#4 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 5 of 10 -->
+<section id="5" class="visitor">
+<h2>Djent wrote:</h2>
+<p>
+  This seems like a CTF trick.  If I were faced with this problem, I
+  would do an SSH local port forward, and then just <code>wget</code>
+  the file, hosted locally with <code>python -m
+  SimpleHTTPServer</code>.
+</p>
+<div>
+<a href="#5">17 Sep 2020 15:35 UTC</a> |
+<a href="#5">#5 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 6 of 10 -->
+<section id="6" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Djent, I mentioned in my blog post that there is an SSH gateway in
+  between that blocks port forwarding, so your solution is not going
+  to work.
+</p>
+<p>
+  For example, say, I run the following command:
+</p>
+<pre><code>ssh -L 9000:127.0.0.1:8000 HOST</code></pre>
+<p>
+  Now when I visit <code>http://127.0.0.1:9000/</code> on my local
+  system, I get a "connection reset by peer" error.  At the same time,
+  on the terminal where I have set up the port forward with the ssh
+  command above, I get this error:
+</p>
+<pre><code>open failed: unknown channel type</code></pre>
+<p>
+  The SSH gateway forbids port forwarding as well.
+</p>
+<div>
+<a href="#6">17 Sep 2020 15:36 UTC</a> |
+<a href="#6">#6 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 7 of 10 -->
+<section id="7" class="visitor">
+<h2>Lmilcin wrote:</h2>
+<p>
+  Honestly, I find it distasteful to have to spend time working around
+  somebody's incompetence at securing systems.
+</p>
+<p>
+  Doing it on your time means you delay delivering on your project and
+  you let whoever did this get away with wasting everybody elses time.
+</p>
+<div>
+<a href="#7">17 Sep 2020 15:55 UTC</a> |
+<a href="#7">#7 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 8 of 10 -->
+<section id="8" class="visitor">
+<h2>JadeNB wrote:</h2>
+<p>
+  Susam, Your patience in (re-)explaining this constraint to everyone
+  in this thread who thinks you don't know your way around standard
+  Unix tools is impressive.  :-)
+</p>
+<div>
+<a href="#8">17 Sep 2020 16:13 UTC</a> |
+<a href="#8">#8 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 9 of 10 -->
+<section id="9" class="visitor">
+<h2>JadeNB wrote:</h2>
+<blockquote>
+  <p>
+    Honestly, I find it distasteful to have to spend time working
+    around somebody's incompetence at securing systems.
+  </p>
+  <p>
+    Doing it on your time means you delay delivering on your project
+    and you let whoever did this get away with wasting everybody elses
+    time.
+  </p>
+</blockquote>
+<p>
+  Lmilcin,
+</p>
+<p>
+  While it may be distasteful, what's the alternative?  Refusing on
+  principle to use a system configured in a way you don't like is way
+  more likely to hurt you than it is to hurt anyone else, especially
+  the person who configured the system.
+</p>
+<p>
+  Even if you are doing work for someone else (which, I think, is not
+  indicated in the post), so that that person will be affected by your
+  principled refusal, there's no guarantee that they're the ones who
+  misconfigured the environment in which you're operating.
+</p>
+<div>
+<a href="#9">17 Sep 2020 16:19 UTC</a> |
+<a href="#9">#9 of 10 comments</a>
+</div>
+</section>
+<!-- Comment 10 of 10 -->
+<section id="10" class="visitor">
+<h2><a href="https://github.com/vtvh">Hai Vu</a> wrote:</h2>
+<p>
+  Really nice article.  I never thought such things can be done.  A
+  use case that I can think of is logging SSH sessions and see what
+  I've done with them.
+</p>
+<div>
+<a href="#10">23 Sep 2020 11:09 UTC</a> |
+<a href="#10">#10 of 10 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=file-transfer-with-ssh-tee-and-base64">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

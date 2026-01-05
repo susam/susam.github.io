@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Computation Club</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/cc/">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="../js/katex/katex.min.js"></script>
+  <script defer src="../js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Computation Club</h1>
+<p>
+  Welcome to this computation club!  This is a tiny and informal hobby
+  group that picks classics from the field of mathematics and
+  computation, reads them and discusses them together.
+</p>
+<h2 id="join">Join<a href="#join"></a></h2>
+<p>
+  To join this our discussions, connect to the IRC
+  network <code>irc.libera.chat:6697</code> and <code>/join
+  #susam</code>.  You can also join via the following web interfaces:
+</p>
+<div class="highlight">
+  <p>
+    Libera IRC:
+    <a href="https://web.libera.chat/#susam">#susam</a>
+  </p>
+  <p>
+    Matrix room:
+    <a href="https://app.element.io/#/room/#susam:matrix.org">#susam:matrix.org</a>
+  </p>
+</div>
+<p>
+  You only need to join one of these links, not both.  Messages posted
+  to the IRC channel are automatically forwarded to the Matrix room
+  and vice versa.  If you are not an active IRC user, prefer joining
+  the Matrix bridge because it is more convenient for someone
+  unfamiliar with IRC.  For example, you can close your web browser or
+  client and your Matrix chat session will still stay alive on the
+  server.  You can connect back later and read messages that were sent
+  to the room while you were away.  Doing that with IRC requires
+  slightly more work such as setting up IRC bouncers etc.
+</p>
+<h2 id="active">Current Activities<a href="#active"></a></h2>
+<p>
+  <a href="real-analysis/">Real Analysis</a>
+  (Since 27 Jul 2024)
+</p>
+<h2 id="completed">Completed Activites<a href="#completed"></a></h2>
+<!-- Reverse chronological order -->
+<p>
+  <a href="mastering-emacs/">Mastering Emacs</a>
+  (16 Dec 2022 to 30 Dec 2023, 72 meetings)
+</p>
+<p>
+  <a href="iant/">Introduction to Analytic Number Theory</a>
+  (05 May 2021 to 01 Oct 2021, 120 meetings)
+</p>
+<h2 id="meeting-logs">Meeting Logs<a href="#meeting-logs"></a></h2>
+<p>
+  <a href="real-analysis/log.html">Real Analysis</a>
+</p>
+<p>
+  <a href="mastering-emacs/log.html">Mastering Emacs</a>
+</p>
+<p>
+  <a href="iant/log.html">Introduction to Analytic Number Theory</a>
+</p>
+<p><a href="log.html">All Meetings</a></p>
+<h2 id="resources">Resources<a href="#resources"></a></h2>
+<p>
+  <a href="../tag/meetup.html">News and Updates</a>
+</p>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../cc/">Club</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

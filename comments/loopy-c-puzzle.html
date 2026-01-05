@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Loopy C Puzzle - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/loopy-c-puzzle.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+  <link rel="stylesheet" href="../js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="../js/katex/katex.min.js"></script>
+  <script defer src="../js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../loopy-c-puzzle.html"><em>Loopy C Puzzle</em></a></strong></div>
+<nav><a href="../form/comment/?p=loopy-c-puzzle">Post Comment</a></nav>
+<!-- Comment 1 of 8 -->
+<section id="1" class="visitor">
+<h2><a href="http://www.blogger.com/profile/17574626231451600275">Ryan</a> wrote:</h2>
+<pre>
+<code>int i;
+for (i = 0; abs(i) &lt; 6; i--) {
+    printf(".");
+}</code>
+</pre>
+<div>
+<a href="#1">01 Oct 2011 04:26 UTC</a> |
+<a href="#1">#1 of 8 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 8 -->
+<section id="2" class="visitor">
+<h2><a href="http://www.blogger.com/profile/17574626231451600275">Ryan</a> wrote:</h2>
+<pre>
+<code>int i;
+for (i = 0; -i &lt; 6; i--) {
+    printf(".");
+}</code>
+</pre>
+<div>
+<a href="#2">01 Oct 2011 04:46 UTC</a> |
+<a href="#2">#2 of 8 comments</a>
+</div>
+</section>
+<!-- Comment 3 of 8 -->
+<section id="3" class="visitor">
+<h2>Sean wrote:</h2>
+<p>
+Changing the loop condition to <code>i ^= 6;</code> is another solution.
+</p>
+<div>
+<a href="#3">01 Oct 2011 04:48 UTC</a> |
+<a href="#3">#3 of 8 comments</a>
+</div>
+</section>
+<!-- Comment 4 of 8 -->
+<section id="4" class="visitor">
+<h2><a href="http://www.blogger.com/profile/17574626231451600275">Ryan</a> wrote:</h2>
+<p>
+Ah-ha, a tricky one:
+</p>
+<pre>
+<code>int i;
+for (i = 0; i ^= 6; i--) {
+    printf(".");
+}</code>
+</pre>
+<div>
+<a href="#4">01 Oct 2011 04:54 UTC</a> |
+<a href="#4">#4 of 8 comments</a>
+</div>
+</section>
+<!-- Comment 5 of 8 -->
+<section id="5" class="visitor">
+<h2><a href="http://www.blogger.com/profile/17574626231451600275">Ryan</a> wrote:</h2>
+<p>
+Ah, Sean beat me to it.  :(
+</p>
+<div>
+<a href="#5">01 Oct 2011 04:54 UTC</a> |
+<a href="#5">#5 of 8 comments</a>
+</div>
+</section>
+<!-- Comment 6 of 8 -->
+<section id="6" class="visitor">
+<h2><a href="http://zem.novylen.net">Martin DeMello</a> wrote:</h2>
+<pre><code>for (i = 0; i + 6; i--)</code></pre>
+<p>
+will stop when i&nbsp;+&nbsp;6&nbsp;=&nbsp;0.
+</p>
+<div>
+<a href="#6">01 Oct 2011 05:11 UTC</a> |
+<a href="#6">#6 of 8 comments</a>
+</div>
+</section>
+<!-- Comment 7 of 8 -->
+<section id="7" class="visitor">
+<h2><a href="https://tromp.github.io/">John Tromp</a> wrote:</h2>
+<blockquote>
+  The value in variable <code>i</code> decrements
+  to <code>INT_MIN</code> after <code>|INT_MIN| + 1</code> iterations.
+</blockquote>
+<p>
+  No; i decrements to <code>INT_MIN</code>
+  after <code>|INT_MIN|</code> iterations.  For example,
+  if <code>i</code> were a signed 1-bit integer,
+  making <code>INT_MIN</code> equal to <code>-1</code>,
+  than <code>i</code> becomes <code>-1</code> upon
+  executing <code>--i</code> after the first iteration.
+</p>
+<p>
+  Of course, you're correct that <code>|INT_MIN| + 1</code> dots are
+  output, due to the extra (and final) iteration starting with <code>i
+  = INT_MIN</code>.
+</p>
+<div>
+<a href="#7">22 Dec 2023 11:46 UTC</a> |
+<a href="#7">#7 of 8 comments</a>
+</div>
+</section>
+<!-- Comment 8 of 8 -->
+<section id="8" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  John, You are absolutely right.  Thank you for taking a close look
+  at this post and reporting the off-by-one error in my explanation.
+  I have updated the post now to correct it.
+</p>
+<div>
+<a href="#8">12 Jan 2024 21:38 UTC</a> |
+<a href="#8">#8 of 8 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=loopy-c-puzzle">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

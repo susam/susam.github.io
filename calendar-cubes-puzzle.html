@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Calendar Cubes Puzzle - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/calendar-cubes-puzzle.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="./js/katex/katex.min.js"></script>
+  <script defer src="./js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Calendar Cubes Puzzle</h1>
+<div>By <b>Susam Pal</b> on 12 Jun 2011</div>
+<p>
+  How many different ways are there to assign the ten digits of Arabic
+  numerals (0 to 9) to each face of two cubes to ensure that we can
+  arrange both cubes on any day such that the front faces of the cubes
+  show the current day of the month?
+</p>
+<p>
+  For example, on February 9 the cubes would be placed side by side
+  such that the front face of the cube on the left side shows 0 and
+  that of the one on the right side shows 9.
+</p>
+<p>
+  Two ways of assigning the digits to the faces of the cubes are
+  considered different if and only if it is not possible to get one
+  assignment from the other by performing one or more of the following
+  operrations:
+</p>
+<ol>
+  <li>
+    Rotating (reorienting) the digits with respect to the faces they
+    belong to.
+  </li>
+  <li>
+    Rotating the cubes.
+  </li>
+  <li>
+    Swapping the cubes.
+  </li>
+</ol>
+<p>
+  See the comments page for the solution.
+</p>
+
+<div>
+  <a href="comments/calendar-cubes-puzzle.html">Comments</a> |
+  <a href="./tag/mathematics.html">#mathematics</a> |
+  <a href="./tag/puzzle.html">#puzzle</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

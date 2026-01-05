@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Negative Lookahead Assertion - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/negative-lookahead-assertion.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<main>
+<h1>Negative Lookahead Assertion</h1>
+<div>By <b>Susam Pal</b> on 20 Nov 2024</div>
+<p>
+  Here is an example of negative lookahead assertion in regular
+  expression using Python:
+</p>
+<pre>
+<code>import re
+strings = ['foo', 'bar', 'baz', 'foo-bar', 'bar-baz', 'baz-foo']
+matches = [s for s in strings if re.search('^(?!.*foo)', s)]
+print(matches)</code>
+</pre>
+<p>
+  The regular expression <code>^(?!.*foo)</code> in the above example
+  matches strings that do not contain the pattern <code>foo</code>.
+  The above code example produces the following output:
+</p>
+<pre><samp>['bar', 'baz', 'bar-baz']</samp></pre>
+<p>
+  Of course, it is much simpler to use an ordinary regular expression
+  that matches <code>foo</code> and then invert the result of the
+  match to ignore strings that contain <code>foo</code>.  For example,
+  consider the following straightforward solution:
+</p>
+<pre><code>matches = [s for s in strings if not re.search('foo', s)]</code></pre>
+<p>
+  This example produces the same result as the earlier example but
+  with less complexity.  However, there are situations where, as a
+  user of certain software tool, we might not have control over how
+  the tool applies the regular expression.  Some tools only allow us
+  to provide a pattern and then they automatically select strings that
+  match the pattern.  In such cases, if we need to select strings
+  that <em>do not</em> match a given pattern, negative lookahead
+  assertions become quite useful, provided the regular expression
+  flavour supported by the tool allows the use of negative lookahead
+  assertions.
+</p>
+<div>
+  <a href="comments/negative-lookahead-assertion.html">Comments</a> |
+  <a href="./tag/python.html">#python</a> |
+  <a href="./tag/programming.html">#programming</a> |
+  <a href="./tag/technology.html">#technology</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

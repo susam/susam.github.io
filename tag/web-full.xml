@@ -1,0 +1,3057 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's Web Pages</title>
+<link>https://susam.net/tag/web.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/web-full.xml"/>
+<description>Feed for Susam's Web Pages</description>
+
+<item>
+<title>Nerd Quiz #3</title>
+<link>https://susam.net/code/news/nq/3.0.0.html</link>
+<guid isPermaLink="false">nqthr</guid>
+<pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Nerd Quiz #3 is the third release of Nerd Quiz, a single-page HTML
+  application that invites you to test your nerd level through a short
+  quiz.  Each question is inspired by everyday moments of reading,
+  writing, thinking, learning and exploring.
+</p>
+<p>
+  This release introduces five new questions drawn from a range of
+  topics, including computing history, graph theory and Unix.
+  Visit <a href="../../../nq.html#3">Nerd Quiz</a> to try the quiz.
+</p>
+<p>
+  A community discussion page is available at
+  <a href="../../../comments/nq.html">Discuss Nerd Quiz</a>.  You are
+  very welcome to share your score or discuss the questions there.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/nq/3.0.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a> |
+  <a href="https://susam.net/tag/game.html">#game</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Fizz Buzz in CSS</title>
+<link>https://susam.net/fizz-buzz-in-css.html</link>
+<guid isPermaLink="false">fzcps</guid>
+<pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  How many CSS selectors and declarations do we need to produce the
+  Fizz Buzz sequence?  Of course we could do this with no CSS at all
+  simply by placing the entire sequence as text in the HTML body.  So
+  to make the problem precise as well as to keep it interesting, we
+  require that all text that appears in the Fizz Buzz sequence comes
+  directly from the CSS.  Placing any part of the output numbers or
+  words outside the stylesheet is not allowed.  JavaScript is not
+  allowed either.  With these constraints, I think we need at least
+  four CSS selectors along with four declarations to solve this
+  puzzle, as shown below:
+</p>
+<pre>
+<code>li { counter-increment: n }
+li:not(:nth-child(5n))::before { content: counter(n) }
+li:nth-child(3n)::before { content: "Fizz" }
+li:nth-child(5n)::after { content: "Buzz" }</code>
+</pre>
+<p>
+  Here is a complete working example:
+  <a href="css-fizz-buzz.html">css-fizz-buzz.html</a>.
+</p>
+<p>
+  The above solution contains four CSS rules with one selector and one
+  declaration in each rule.  For example,
+  <code>li { counter-increment: n }</code> is one rule consisting of
+  the selector <code>li</code> and the declaration
+  <code>counter-increment: n</code>.
+</p>
+<p>
+  Seasoned code golfers looking for a challenge can probably shrink
+  this solution further.  A common trick to solve this problem is to
+  use an ordered list (<code>&lt;ol&gt;</code>) which provides the
+  integers in the form of list markers automatically, thereby
+  eliminating the need to maintain a counter in the stylesheet.
+  However, this violates the requirement set out in the introduction.
+  We want every integer to be produced directly by the stylesheet.
+  Treating the integers in the list markers as part of the output
+  sequence breaks this rule.  Not to mention the output looks untidy
+  because of the unnecessary dot after each marker and also because
+  the numbers and words appear misaligned.  See an example of that
+  trick here:
+  <a href="code/web/css-fizz-buzz-ol.html">css-fizz-buzz-ol.html</a>.
+  Correcting the misaligned output calls for extra code that cancels
+  out the number of declarations saved.  In any case, the requirement
+  that all integers of the output must come directly from the
+  stylesheet prevents untidy solutions like this and also forces us to
+  rely on the capabilities of CSS to solve this puzzle.
+</p>
+<p>
+  The intention here was to obtain the smallest possible code in terms
+  of the number of CSS declarations.  This example is not crafted to
+  minimise bytes, but for code golfers who enjoy reducing byte count,
+  here is the number of bytes this solution consumes after removing
+  all whitespace:
+</p>
+<pre><code>$ curl -sS https://susam.net/css-fizz-buzz.html | sed -n '/counter/,/after/p' | tr -d '[:space:]' | wc -c
+152</code></pre>
+<p>
+  Further reduction in byte count can be achieved by using the
+  <code>&lt;p&gt;</code> element instead of <code>&lt;li&gt;</code>,
+  nesting CSS selectors, etc.  I'll leave that as an exercise for the
+  reader.  Returning to the focus of this post as well as to summarise
+  it, the solution here uses four CSS rules consisting of four
+  selectors and four declarations to render the Fizz Buzz sequence.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/fizz-buzz-in-css.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/css.html">#css</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CSS Fizz Buzz with Ordered List</title>
+<link>https://susam.net/code/web/css-fizz-buzz-ol.html</link>
+<guid isPermaLink="false">fzolc</guid>
+<pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A version of my CSS Fizz Buzz that uses ordered list
+  (<code>&lt;ol&gt;</code>) to reduce code.  However, I don't quite
+  like how misaligned the numbers and the words look.  Correcting that
+  would call for extra code that would cancel out the bytes saved.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/css-fizz-buzz-ol.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CSS Fizz Buzz</title>
+<link>https://susam.net/css-fizz-buzz.html</link>
+<guid isPermaLink="false">fzcss</guid>
+<pubDate>Wed, 03 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  An implementation of Fizz Buzz in four lines of CSS.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/css-fizz-buzz.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Nerd Quiz #2</title>
+<link>https://susam.net/code/news/nq/2.0.0.html</link>
+<guid isPermaLink="false">nqtwo</guid>
+<pubDate>Tue, 18 Nov 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Nerd Quiz #2 is the second release of Nerd Quiz, a single-page HTML
+  application that invites you to gauge your nerd level through short,
+  focused quiz sets.  Each question is carefully crafted from everyday
+  moments of reading, writing, thinking, learning and exploring.
+</p>
+<p>
+  This release introduces five new questions drawn from a range of
+  topics such as chess, graph theory and linguistics.  To try the
+  quiz, visit <a href="../../../nq.html#2">nq.html</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/nq/2.0.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a> |
+  <a href="https://susam.net/tag/game.html">#game</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Nerd Quiz</title>
+<link>https://susam.net/nq.html</link>
+<guid isPermaLink="false">nqhtm</guid>
+<pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A nerdy, handcrafted quiz built from everyday moments of reading,
+  writing, thinking, learning and exploring.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/nq.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Nerd Quiz #1</title>
+<link>https://susam.net/code/news/nq/1.0.0.html</link>
+<guid isPermaLink="false">nqone</guid>
+<pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Nerd Quiz #1 is the first release of Nerd Quiz, a single-page HTML
+  application that lets you test your nerd level through short,
+  focused quiz sets.  Each question in the quiz is handcrafted from
+  everyday moments of reading, writing, thinking, learning and
+  exploring.
+</p>
+<p>
+  To try the quiz now, visit <a href="../../../nq.html">nq.html</a>.
+</p>
+<p>
+  The source code of Nerd Quiz is available at
+  <a href="https://github.com/susam/nq#readme">github.com/susam/nq</a>
+  under the terms of the MIT licence.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/nq/1.0.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a> |
+  <a href="https://susam.net/tag/game.html">#game</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>QuickQWERTY 1.2.0</title>
+<link>https://susam.net/code/news/quickqwerty/1.2.0.html</link>
+<guid isPermaLink="false">qqotz</guid>
+<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  QuickQWERTY 1.2.0 is now available.  QuickQWERTY is a web-based
+  touch typing tutor for QWERTY keyboards that runs directly in the
+  web browser.
+</p>
+<p>
+  This release brings small improvements to make the typing tutor
+  smoother and the lessons more accurate.  When you return to the
+  application, it no longer needlessly redirects you back to Unit 1.1
+  if that was the last lesson you practised.
+</p>
+<p>
+  Several lessons have received minor corrections.  Units 7.2 and 7.3
+  no longer include the word "tyre", avoiding a preference for either
+  British or American spelling.  Units 9.2 and 9.3 now spell
+  "orwellian" correctly.  A factual error in Unit 17.4 has been fixed
+  too.  It previously said "89 is one more than 99", which now
+  correctly reads "89 is one more than 88".
+</p>
+<p>
+  Finally, switching between the 5-6 and 6-7 split layouts is now more
+  reliable.  In the previous release, pressing <kbd>Esc</kbd> to
+  cancel the confirmation dialogue still caused the switch to go
+  through.  Now pressing <kbd>Esc</kbd> properly cancels the switch as
+  expected.
+</p>
+<p>
+  To try out the new release of QuickQWERTY, go to
+  <a href="../../../quickqwerty.html">quickqwerty.html</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/quickqwerty/1.2.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Reinstated My Guestbook After 20 Years</title>
+<link>https://susam.net/reinstated-guestbook.html</link>
+<guid isPermaLink="false">gbret</guid>
+<pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I have reinstated the <a href="comments/guestbook.html">guestbook</a>
+  on this website after 20 years!  As I have written in the
+  <a href="about.html">About</a> page, this website began its life as
+  an intranet portal in my university network back in 2001–2005.  That
+  portal first ran on Microsoft Personal Web Server (PWS) and later on
+  Microsoft Internet Information Services (IIS), with the guestbook
+  data stored in a Microsoft Access database.  At the same time, I
+  also maintained a small public website on the Internet, hosted on a
+  subdomain provided by a free hosting service, where I published a
+  subset of the articles from the intranet portal.  Both the intranet
+  portal and the public website had guestbooks.  The guestbook on the
+  public website was powered by a CGI script provided by the hosting
+  service, which inserted each comment directly into the guestbook
+  HTML page.  As some of you might guess, yes, it was vulnerable to
+  cross-site scripting, but that's beside the point.
+</p>
+<p>
+  After leaving the university, I registered my own domain name and
+  set up my current website on the World Wide Web and included some of
+  the content from both the original intranet portal and the old
+  public website.  For some reason, though, I never thought to include
+  a guestbook.  And so this website went on without a guestbook for
+  the next 20 years.  Finally, in June 2025, I decided to bring the
+  guestbook back.  I already had a commenting system implemented for
+  this website using Common Lisp and Hunchentoot, so I simply reused
+  it for the guestbook.  The
+  <a href="https://github.com/susam/susam.net/blob/0.3.0/form.lisp">server program</a>
+  accepts POST requests to receive comments and writes them to text
+  files on the web server for manual review.  The comments are then
+  rendered as static HTML pages by my static site generator.  In a
+  way, it is less a comment system and more a static comment pages
+  generator.
+</p>
+<p>
+  Unfortunately, I could not restore all the comments from the
+  original guestbooks.  The ASP source code of my intranet portal as
+  well as the guestbook database are now lost to time.  Note that what
+  I refer to as ASP here is now known as Classic ASP, to avoid
+  confusion with ASP.NET.  A CD-ROM backup eventually succumbed to
+  disc rot and with it vanished the source code and the database.  But
+  a handful of comments had survived because they had found their way
+  into other files and correspondence and I have now included them
+  here.  I had better luck with the guestbook of the old public
+  website, from which I was able to recover a greater number of
+  comments.  It is still only a small fraction of what once existed,
+  but it feels good to have even those fragments preserved.  The new
+  guestbook is now available here:
+  <a href="comments/guestbook.html">Guestbook</a>.
+</p>
+<p>
+  I wasn't expecting anybody to notice the new guestbook.  It is only
+  mentioned in the <a href="about.html">About</a> and
+  <a href="links.html">Links</a> pages, neither of which see much
+  traffic.  Here are a few examples:
+</p>
+<blockquote>
+  <p>
+    I love that your website has a guestbook!  :D
+  </p>
+</blockquote>
+<blockquote>
+  <p>
+    Love the guestbook!  We need more of these.  Makes you feel
+    invited.
+  </p>
+</blockquote>
+<p>
+  It's a small addition to my website, but after two decades, it feels
+  good to see the guestbook alive again and even better to see
+  visitors enjoying it!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/reinstated-guestbook.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>QuickQWERTY 1.1.0</title>
+<link>https://susam.net/code/news/quickqwerty/1.1.0.html</link>
+<guid isPermaLink="false">qqooz</guid>
+<pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  There has been a new release of QuickQWERTY after over 10 years!
+  QuickQWERTY is a web-based touch typing tutor for QWERTY keyboards
+  that runs directly in the web browser.  You can try it out
+  here: <a href="../../../quickqwerty.html">quickqwerty.html</a>.
+</p>
+<p>
+  The new release, version 1.1.0 of QuickQWERTY, introduces a new
+  input command named <code>reset</code>, which is a synoymn for the
+  existing commands <code>restart</code> and <code>rst</code> used to
+  restart the current lesson.  Another input command
+  named <code>test</code> runs an internal suite of tests to validate
+  that no lesson involves keys that have not been introduced in the
+  current or prior lessons.  Further, in this release, the application
+  has been fully rewritten as a single standalone HTML file with no
+  external dependencies and the source code has been greatly
+  simplified.
+</p>
+<p>
+  There are a number of other changes too.  Words per minute (WPM)
+  calculation has been refined so the first character, which starts
+  the timer, is not counted.  The guides have been enhanced.  Keys to
+  be pressed are now highlighted more clearly and reminders to return
+  fingers to their home positions have been added to each guide.  The
+  confirmation dialogue for switching between 6-7 split and 5-6 split
+  styles now uses the HTML <code>&lt;dialog&gt;</code> element,
+  replacing the dated <code>window.confirm()</code> prompt.  In
+  addition, when the application is opened without a fragment
+  identifier in the URL, the most recently practised lesson loads
+  automatically.
+</p>
+<p>
+  The user interface has been simplified.  The previous and next links
+  (<code>&laquo;</code> and <code>&raquo;</code>) for navigating
+  lessons have been removed, as they added little value and made the
+  layout of the various user interface components more complex.  The
+  "Next lesson" advice link remains for moving to the next lesson when
+  the current one is completed successfully.  Tooltips showing
+  additional typing metrics have also been removed due to limited
+  usefulness.
+</p>
+<p>
+  The lessons have been updated to remove spellings specific to
+  American English.  Care has been taken to use only words that are
+  spelled the same in American and British English with one exception.
+  The word "tyre", in its British English spelling, was mistakenly
+  left in the lesson.  That will be fixed in the next release.
+</p>
+<p>
+  Finally, QuickQWERTY's licence has changed from the BSD-2-Clause
+  licence to the MIT licence.  The source code is available at
+  <a href="https://github.com/susam/quickqwerty">github.com/susam/quickqwerty</a>.
+  To run this release and learn touch typing on a QWERTY keyboard, go
+  to <a href="../../../quickqwerty.html">quickqwerty.html</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/quickqwerty/1.1.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Prime Number Grid Explorer</title>
+<link>https://susam.net/primegrid.html</link>
+<guid isPermaLink="false">pghtm</guid>
+<pubDate>Tue, 19 Aug 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A simple single-page HTML application to explore the distribution of
+  prime numbers in a grid.  Choose a starting number along with the
+  number of rows and columns and the page generates the corresponding
+  grid.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/primegrid.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Miller-Rabin Speed Test</title>
+<link>https://susam.net/code/web/miller-rabin-speed-test.html</link>
+<guid isPermaLink="false">mrpst</guid>
+<pubDate>Sat, 16 Aug 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A demo page that implements the Miller-Rabin primality test to
+  accurately detect primes for all numbers less than
+  318665857834031151167461 and compare its speed against a simple
+  division based primality test algorithm.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/miller-rabin-speed-test.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>My Blogroll Is Now My Feed Reader</title>
+<link>https://susam.net/blogroll-as-feed-reader.html</link>
+<guid isPermaLink="false">mbmfr</guid>
+<pubDate>Sat, 05 Jul 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  On a particularly hot summer weekend last month, I implemented a new
+  feature for this website: a blogroll that lists recent entries from
+  my favourite blogs.  Check it out here: <a href="roll.html">roll.html</a>.
+</p>
+<p>
+  It has been nearly two weeks since I set up this blogroll and it has
+  already changed how I keep up with my feeds.  I no longer bother
+  with feed readers or aggregators.  I could never quite make a habit
+  of using them regularly anyway.  Thanks to this simple addition to
+  my website, I find myself visiting my blogroll often.  It has earned
+  a permanent place in my bookmarks.  When I have some spare time, I
+  click on the bookmark, visit my blogroll and, when I find new posts
+  appear there, I click through and read the full blog posts.
+</p>
+<p>
+  Credit for this nifty and surprisingly effective idea goes to Alex
+  Kladov.  It was Alex's website,
+  <a href="https://matklad.github.io/">matklad.github.io</a>, that
+  inspired me to implement my own blogroll.  It showed me that a
+  blogroll can be more than just a static list of links.  It can be a
+  regularly updated page that highlights new posts from the blogs I
+  follow.
+</p>
+<p>
+  I suspect the fact that my blogroll is generated by my own
+  handcrafted <a href="https://github.com/susam/susam.net/blob/main/roll.lisp">Common
+  Lisp program</a> plays a part in why I enjoy using it.  There is a
+  certain joy in using something you have built yourself.  At last, I
+  feel I can stay on top of my feeds!  If you maintain a personal
+  website and struggle to keep up with your feeds, I recommend this
+  approach.  Writing the blogroll generator was a fun weekend project
+  and it has greatly improved how I spend my spare time online!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/blogroll-as-feed-reader.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CSS Experiments: overflow-wrap vs word-break</title>
+<link>https://susam.net/code/web/overflow-wrap-vs-word-break.html</link>
+<guid isPermaLink="false">owvwb</guid>
+<pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  An example page demonstrating experiments with the
+  CSS <code>overflow-wrap</code> and <code>word-break</code>
+  properties.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/overflow-wrap-vs-word-break.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/css.html">#css</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Noise From My Feeds</title>
+<link>https://susam.net/feed-noise.html</link>
+<guid isPermaLink="false">xjdrj</guid>
+<pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Hello!  If you are subscribed to this website's feeds, you may have
+  noticed something odd recently.  Your feed reader might have shown a
+  bunch of old posts as if they were published today.  If that
+  happened with your feed reader, I apologise for the noise.  I hope
+  this post will give you some clarity on why this happened.  The
+  reason for this noise is a change to the way the RSS feeds are
+  generated for this website.  Each post in the feeds includes a GUID,
+  which is used by many feed readers to decide whether a post is new
+  or if it has been seen already.  Until now, the GUID was simply the
+  post's URL, like this:
+</p>
+<pre>
+<code>&lt;url&gt;https://susam.net/product-of-additive-inverses.html&lt;/url&gt;
+&lt;guid&gt;https://susam.net/product-of-additive-inverses.html&lt;/guid&gt;</code>
+</pre>
+<p>
+  However, today this has changed to a short unique string, like so:
+</p>
+<pre>
+<code>&lt;url&gt;https://susam.net/product-of-additive-inverses.html&lt;/url&gt;
+&lt;guid isPermaLink="false"&gt;rxpnz&lt;/guid&gt;</code>
+</pre>
+<p>
+  If your feed reader looks at this GUID value to decide whether a new
+  post has been published, it will show you a whole bunch of old posts
+  once again in your reader, as if they were new.  These GUIDs won't
+  change again in the future, so this is a one-time problem.  The full
+  URL of the post is still present in the feeds, as you can see in the
+  example above, so your feed reader still knows where to take you if
+  you wish to visit this website to read a post.  The short string
+  serves as a unique identifier for each post.
+</p>
+<p>
+  This website is a passion project I work on in my spare time.
+  Sometimes, after publishing a post, I realise the title could be
+  sharper or the URL could be cleaner.  I make the necessary changes
+  and set up HTTP redirects on my web server, so that visitors using
+  the old URL are still taken to the updated location of the post.
+  Previously, however, the GUID (being the URL) changed too, which
+  caused many feed readers to treat the updated post as a new one even
+  when it wasn't.  Switching to stable GUIDs prevents this problem
+  from occurring again.  The GUIDs now stay the same no matter what
+  changes I make behind the scenes, which means no more unnecessary
+  noise in your feed reader.
+</p>
+<p>
+  I am sorry if this caused any confusion or clutter.  If your feed
+  reader is currently flooded with old posts appearing as new, the
+  best solution is to mark those items as read.  Thank you for your
+  patience with this issue.  I hope to keep future surprises limited
+  to content, not configuration.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/feed-noise.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>More Contrast, Please</title>
+<link>https://susam.net/more-contrast-please.html</link>
+<guid isPermaLink="false">ygqwk</guid>
+<pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  So you have decided to go with a dark theme for your website.  Great
+  choice!  I love dark themes too!  My journey with computers began
+  with monochrome CRT monitors, where white text was displayed on dark
+  background.  I am still very fond of that colour scheme.  Done well,
+  dark themes can be elegant and easy on the eyes.  But there is a
+  common pitfall that I see all too often in modern web design: the
+  overuse of low-contrast colour schemes.  This is something worth
+  keeping in mind while crafting a new theme.
+</p>
+<p>
+  Take a look at this example where the text colour
+  is <code>#777</code> and the background is <code>#222</code>:
+</p>
+<p style="background: #222; color: #777; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  I am hoping that most people would agree that the colour contrast
+  above is too low.  I certainly find it uncomfortable to read.
+  However, the situation becomes a bit less clear with the following
+  example, where the text colour is set to <code>#999</code> and the
+  background is <code>#222</code>:
+</p>
+<p style="background: #222; color: #999; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  The above example is, in fact, based on a real website I came across
+  today.  Now this is definitely better than the first example and I
+  am sure some people would find this perfectly acceptable.  However,
+  I still find this uncomfortable to read.  In fact, I have realised
+  that as I get older, I need a higher contrast ratio to make the text
+  more comfortable to read.
+</p>
+<p>
+  I would suggest that any colour choices for foreground text and
+  background page colours should, at the very least, meet
+  the <a href="https://www.w3.org/TR/WCAG22/#contrast-enhanced">Web
+  Content Accessibility Guidelines (WCAG) Level AAA</a>
+  recommendations.  This means the contrast ratio for normal-sized
+  text against the background should be at least 7:1.  There are also
+  the slightly weaker Level AA guidelines, which require that
+  normal-sized text have a contrast ratio of at least 4.5:1.  That
+  said, I personally recommend aiming for a 7:1 contrast ratio
+  regardless.
+</p>
+<p>
+  The first example above has a contrast ratio of just 3.6:1, meaning
+  it fails to meet both the Level AA and Level AAA requirements.  The
+  second example, on the other hand, has a contrast ratio of 5.6:1.
+  While it satisfies the Level AA requirements, it still falls short
+  of meeting the Level AAA standards.
+</p>
+<p>
+  To calculate the contrast ratio according to
+  the <a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G17.html#tests">WCAG
+  contrast formula</a>, use one of these tools:
+</p>
+<ul>
+  <li>
+    <a href="contrast.html">My Colour Contrast Calculator</a>
+  </li>
+  <li>
+    <a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a>
+  </li>
+</ul>
+<p>
+  If we improve the contrast for the second example above, we would
+  need to choose a brighter shade for the text, such as
+  <code>#BBB</code>.  On the dark background <code>#222</code>, this
+  results in a contrast ratio of 8.3:1.  Here is how it looks:
+</p>
+<p style="background: #222; color: #bbb; padding: 1em; text-align: center; font-size: 1rem; font-family: helvetica, sans-serif">
+  The five boxing wizards jump quickly.
+</p>
+<p>
+  I definitely find this much easier to read.  If you are developing a
+  dark colour theme for your web page or software, I request you to
+  run your colours through a contrast calculator tool and ensure the
+  contrast ratio is greater than 7:1.  Anything less and the theme
+  might become uncomfortable for people like me.  Small adjustments
+  like this can significantly improve readability and comfort for your
+  readers.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/more-contrast-please.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Colour Contrast Calculator</title>
+<link>https://susam.net/contrast.html</link>
+<guid isPermaLink="false">xmajx</guid>
+<pubDate>Sun, 06 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A simple web-based tool to calculate the contrast between two
+  colours according to WCAG contrast formula.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/contrast.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>More Purple Links, Please</title>
+<link>https://susam.net/more-purple-links-please.html</link>
+<guid isPermaLink="false">gyrti</guid>
+<pubDate>Thu, 03 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  While I am browsing the Web, one thing I always like to see is a
+  page with purple links.  Since the early days of the Web, purple has
+  has become the default colour for visited links.  Here's a relevant
+  note from the
+  <a href="https://ksi.cpsc.ucalgary.ca/archives/WWW-TALK/www-talk-1993q2.messages/47.html">changelog</a>
+  of NCSA Mosaic 0.13 (1993):
+</p>
+<blockquote>
+  Changed default anchor representations: blue and single solid
+  underline for unvisited, dark purple and single dashed underline for
+  visited.
+</blockquote>
+<p>
+  Visiting a web page and finding purple links brings a sense of ease.
+  The purple links indicate that I am familiar with some of the
+  references the web page makes to other articles.  Each purple link
+  serves as a small marker of a prior journey, a reminder that I've
+  explored certain paths before.  To me, purple links are like
+  well-worn books with faded covers and creased spines.  Blue links,
+  on the other hand, are like new books, to be opened and explored.
+</p>
+<p>
+  Although I'm quite fond of purple links, I know that not everyone
+  shares this sentiment.  Modern web design trends have moved away
+  from this tradition, favouring sleek, minimalist aesthetics where
+  visited and unvisisted links look nearly the same.  While this can
+  be visually appealing, in my opinion, it detracts from the
+  experience of using the Web as a source of knowledge.  When links
+  look indistinguishable or unconventional, it can be hard to tell
+  what I've already read, especially when I am revisiting a topic and
+  want to easily spot the links that are new.
+</p>
+<p>
+  Now it is not hard to change the visited link style with a little
+  userscript.  For example the following userscript can override the
+  website's stylesheet to colour visited links purple again:
+</p>
+<pre>
+<code>// ==UserScript==
+// @name Purple Links
+// @match *://*/*
+// ==/UserScript==
+document.head.appendChild(document.createElement('style'))
+document.head.lastElementChild.innerHTML = 'a:visited {color: #518}'</code>
+</pre>
+<p>
+  This little userscript should work well on most web pages with light
+  backgrounds.  But if a web page uses a dark theme or a custom colour
+  scheme, then the above userscript may need adjustments to either
+  handle other colour schemes gracefully.
+</p>
+<p>
+  To me, the purple links serve as small reminders of all the digital
+  paths I've already walked.  I wish more websites would honour this
+  convention.  More purple links, please.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/more-purple-links-please.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>PDF Dimmer Bookmarklet</title>
+<link>https://susam.net/pdf-dimmer-bookmarklet.html</link>
+<guid isPermaLink="false">bgigh</guid>
+<pubDate>Wed, 02 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I often read PDF documents in Firefox and sometimes I prefer to work
+  in dark mode, especially at night when the room lights are dimmed.
+  However, the bright white background of the Firefox PDF viewer can
+  be glaring and uncomfortable when dark mode is enabled.
+  Additionally, writing a userscript to invert the background and text
+  colours in the PDF viewer does not work.  I have confirmed with
+  Firefox version 137.0 that userscripts do not run within the PDF
+  viewer.
+</p>
+<p>
+  For example, consider this simple userscript that just prints a
+  "hello" message when a web page loads:
+  <a href="code/lab/userscript/hello.js">hello.js</a>.  This script
+  works on regular web pages but does not execute when viewing a PDF
+  file in Firefox.
+  See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1454760">Bug
+  1454760</a> for more details about this restriction.
+</p>
+<p>
+  While userscripts are often my go-to solution for customisations
+  like this, for this particular problem, I resorted to writing a tiny
+  bookmarklet to work around the above limitation.  Here is the
+  bookmarklet:
+</p>
+<pre><code>javascript:(()=&gt;{['thumbnailView','viewer'].map(id=&gt;document.getElementById(id).style.filter='invert(0.9)saturate(0)')})()</code></pre>
+<p>
+  To add this to Firefox, from the Firefox menu, select "Bookmarks".
+  Then in the left sidebar, right click on either "Bookmarks Toolbar"
+  or "Bookmarks Menu", depending on where you want to add the
+  bookmarklet and select "Add Bookmark".  Enter some name in the
+  "Name" field and then in the "URL" field, enter the above line of
+  code.  Click "Save" and you are done.  The next time you open a PDF
+  file in Firefox, find the bookmark in the bookmarks menu or toolbar,
+  click on it and it should instantly invert the colour scheme of the
+  PDF viewer.
+</p>
+<p>
+  Alternatively, simply drag the following link and drop it onto your
+  Firefox toolbar:
+</p>
+<p class="textcenter">
+  <a href="javascript:(()=%3e%7b%5b'thumbnailView','viewer'%5d.map(id=%3edocument.getElementById(id).style.filter='invert(0.9)saturate(0)')%7d)()">Dim PDF</a>
+</p>
+<p>
+  While the default PDF viewer of Firefox does not support
+  userscripts, this bookmarklet is a simple, effective way to give
+  PDFs a darker look.  If you're like me and often read books and
+  papers in PDF format at night, you might find this handy.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/pdf-dimmer-bookmarklet.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>MathB 1.3.0</title>
+<link>https://susam.net/code/news/mathb/1.3.0.html</link>
+<guid isPermaLink="false">lpjpy</guid>
+<pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  MathB 1.3.0 is likely the final update of MathB, a web-based
+  mathematics pastebin service.  The online mathematics pastebin
+  service previously hosted at <code>https://mathb.in/</code> has been
+  shut down today after 13 years of continuous service.  See the post
+  <a href="../../../mathbin-is-shutting-down.html">MathB.in Is
+  Shutting Down</a> for more details about this.  This release
+  captures the state of this project as it was today at the time of
+  shutting down the online service.
+</p>
+<p>
+  This update includes a few new features.  For example, there is now
+  a configurable runtime property named <code>:expect</code> that can
+  be used to enforce the presence of certain tokens in the posts
+  submitted by the users.  This feature was used to enforce the
+  presence of LaTeX delimiters in the online service, a measure that
+  was instrumental in reducing spam to a great extent in the last few
+  years.  There are a few other minor changes too.
+  See <a href="https://github.com/susam/mathb/blob/main/CHANGES.md">CHANGES.md</a>
+  for a detailed changelog.
+</p>
+<p>
+  The source code of MathB remains free and open-source, so anyone
+  interested in hosting their own instance can still do so.  To access
+  the source code of MathB, please visit
+  <a href="http://github.com/susam/mathb">github.com/susam/mathb</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/mathb/1.3.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>XOR Map</title>
+<link>https://susam.net/code/web/xormap.html</link>
+<guid isPermaLink="false">pevyd</guid>
+<pubDate>Tue, 11 Mar 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A simple HTML page that plots bitwise-XOR <em>x</em> and <em>y</em>
+  for each coordinate (<em>x</em>, <em>y</em>)</em> with the
+  coordinate (0, 0) at the bottom-left corner.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/xormap.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>MathB.in Is Shutting Down</title>
+<link>https://susam.net/mathbin-is-shutting-down.html</link>
+<guid isPermaLink="false">rrbdk</guid>
+<pubDate>Sun, 23 Feb 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Thirteen years ago, on a quiet Saturday night, I sat down and began
+  developing MathB.in.  After coding all through the night, as the sun
+  rose on Sunday, 25 March 2012, the website was ready.  I registered
+  a new domain name and shared it with a few friends who loved
+  mathematics.  Back then, we spent hours discussing fascinating
+  mathematics problems and this website became a simple way for us to
+  share snippets with each other.  Word spread quickly.  My friends
+  shared it with their friends, who passed it along to others.  The
+  community grew organically.  Then, one day, I announced the project
+  on the MathJax mailing list and its reach expanded even further.
+  Within a year, this mathematics pastebin service had users from
+  around the world.  Watching the usage of this little project grow
+  was an incredibly rewarding experience.
+</p>
+<figure class="soft">
+  <a href="files/blog/mathbin.png"><img
+     src="files/blog/mathbin.png"
+     alt="A screenshot of a mathematics pastebin service displaying Markdown and LaTeX code in the left pane and the rendered content in the right pane."></a>
+  <figcaption>
+    A screenshot of MathB.in, a mathematics pastebin service
+  </figcaption>
+</figure>
+<p>
+  The world has changed a lot since I first published MathB.in.  The
+  internet has evolved and so have I.  Maintaining a mathematics
+  pastebin service like this single-handedly has become increasingly
+  difficult over the years.  Over the past 13 years, I have received
+  notices from regulatory authorities whenever someone submitted
+  content that triggered compliance concerns.  Each time, my server
+  would be taken offline and I would be given a 7-day deadline to boot
+  it into rescue mode, remove the offending content and restore
+  service.  Missing the deadline would put my server hosting account
+  at risk of cancellation.
+</p>
+<p>
+  To prevent these disruptions, I began reviewing and filtering
+  incoming content as much as possible every few days.  The
+  appreciation and positive feedback from happy users kept me going.
+  However, at this stage of my life, I can no longer afford to spend
+  time moderating user content.  On top of that, the growing
+  complexity of data protection and digital safety regulations places
+  a significant burden on me as the maintainer of this service.
+  Complying with these regulations requires considerable legal
+  expertise that I cannot afford.
+</p>
+<p>
+  Some might suggest that I could improve the spam-detection
+  capabilities of this service and indeed, I have done so over the
+  years.  However, all anti-spam measures are inherently
+  probabilistic.  No matter how much automation is in place, a manual
+  review of every post is still necessary to guarantee that all
+  content is legitimate.  It only takes one dodgy submission to
+  trigger compliance alerts.  While I respect the need for these
+  regulations, I do not want to spend my weekends worrying about what
+  users from around the world might be posting on this little pastebin
+  service.  Nor do I want to be in a constant state of vigilance just
+  to keep my server running.  It takes up more time than I can spare.
+</p>
+<p>
+  Some have suggested forming a team of volunteers to review
+  submissions, but that does not solve the core issue: since the
+  server hosting account is in my name, I would still be responsible
+  for remediating any compliance issues or risk having my account
+  cancelled.  Another alternative is to move the service under a
+  non-profit organisation, but with increased responsibilities in
+  other areas of my life, handling the operational demands of such an
+  endeavour is far beyond what I can commit to.  After all, this was
+  meant to be a fun project built for me and my friends, not something
+  that requires me to deal with regulatory issues.
+</p>
+<p>
+  Another alternative would be to encode the content of a MathB.in
+  post and embed it into the URL, which could then be distributed with
+  others.  Upon visiting the URL, the application would read the
+  encoded content from the URL, decode it and render it.  While this
+  eliminates the need to store user content on my server, it
+  introduces a new concern: the risk of someone sharing URLs with
+  malicious content embedded in them.  I am not comfortable with such
+  content being rendered on a page served from a domain that I am the
+  registrant of.  The regulatory implications of rendering such
+  content are also unclear.  I could still be held accountable for
+  content rendered on the website, regardless of whether it's stored
+  on the server.  This problem could be mitigated to some extent by
+  refusing to render content containing known malicious patterns but
+  no such solution can be foolproof.
+</p>
+<p>
+  As a result, after much thought, I have regrettably made the
+  decision to shut down MathB.in on Sunday, 16 March 2025.  The
+  website will go offline on that day.  If you have any important
+  posts that you would like to keep, now is the time to copy and save
+  them for yourself.
+</p>
+<p>
+  To all of you who have used this project, I want to express my
+  sincere gratitude.  Running a project that could serve you in a
+  meaningful way has given me a strong sense of accomplishment and
+  pride.  To those who are disappointed by this service's closure, I
+  am sorry.  I wish I could continue to dedicate the time and effort
+  needed to maintain and develop it, but I must acknowledge my
+  limitations and step away from a project that has become an artefact
+  of my past, not my present.
+</p>
+<p>
+  The source code for this website is available at
+  <a href="https://github.com/susam/mathb">github.com/susam/mathb</a>
+  under the MIT licence.  Feel free to use the code and set up your
+  own instance if you'd like!  Alternatively, consider hosting your
+  mathematical snippets and notes on your own web space using a kit
+  like MathCask available at
+  <a href="https://github.com/susam/mathcask">github.com/susam/mathcask</a>.
+</p>
+<p>
+  Finally, I hope you'll hold no hard feelings.  If you have enjoyed
+  using MathB.in, I would love to stay connected on the Fediverse.  My
+  Mastodon handle is
+  <a href="https://mastodon.social/@susam">@susam@mastodon.social</a>.
+  See you there!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/mathbin-is-shutting-down.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>The IndieWeb Doesn't Need to 'Take Off'</title>
+<link>https://susam.net/indieweb-does-not-need-to-take-off.html</link>
+<guid isPermaLink="false">fgxtg</guid>
+<pubDate>Sat, 22 Feb 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  There's a corner of the Internet where people have been reclaiming
+  their digital independence by hosting their own websites and
+  promoting the idea of owning your own content.  It's called the
+  IndieWeb.  This community has its own
+  <a href="https://indieweb.org/">website</a>, IRC channels, social
+  media presence, etc., all dedicated to the idea that individuals
+  should control their own digital presence through personal websites.
+</p>
+<p>
+  Publishing your own website isn't a new concept.  It is the very
+  essence of the Web!  This is what the Web has always been about
+  since its early days.  But in an era where corporate-controlled
+  platforms dominate online interaction, the IndieWeb emphasises the
+  original spirit of the Web, where individuals have control over
+  their content, identities and online spaces.  Every time this topic
+  arises in online discussions, someone inevitably claims that the
+  IndieWeb hasn't taken off!
+</p>
+<p>
+  I feel that such claims about the IndieWeb not 'taking off' are
+  either stating the obvious or, if that's not the intention,
+  completely missing the point.  It's like saying that gardening
+  hasn't taken off because most people buy their vegetables at the
+  supermarket.  The IndieWeb doesn't need to 'take off' to be valuable
+  to those who participate in it.  Maintaining a personal website is
+  about owning your digital presence, embracing creative freedom and
+  expressing your individuality!  It's not about appealing to the
+  masses!
+</p>
+<p>
+  I remember how, in the early 2000s, I used to spend my spare time
+  learning HTML and writing my website, one HTML tag at a time.
+  Writing a few lines of code in a text editor and then watching the
+  browser render that code into a vibrant web page full of colours and
+  images felt like an art form.  It was doubly fun to find other
+  netizens who shared that same joy of maintaining and publishing
+  their websites.  The IndieWeb is about preserving that hacker
+  culture where websites are crafted and hosted not for mass appeal
+  but for the sheer joy of creation and sharing with like-minded
+  individuals.
+</p>
+<p>
+  The IndieWeb doesn't need to go mainstream to be meaningful.  It's a
+  celebration of a more personal, decentralised and creative world
+  wide web.  For those of us who still care about these values, it is
+  already meaningful.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/indieweb-does-not-need-to-take-off.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>FXYT 0.5.0</title>
+<link>https://susam.net/code/news/fxyt/0.5.0.html</link>
+<guid isPermaLink="false">nwtao</guid>
+<pubDate>Tue, 11 Feb 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  FXYT 0.5.0 is a minor update of FXYT, a tiny, esoteric, stack-based,
+  postfix, canvas colouring language with only 36 simple commands.
+  This release fixes an annoying bug that has been affecting some
+  mobile device users for a while.  On some mobile web browsers, such
+  as Chrome on Samsung Galaxy S8, the drawing canvas would appear to
+  be larger than the viewport thus overflowing the visible screen on
+  the mobile device.  The user would then be required to manually zoom
+  out in order to use this tool conveniently.  This issue has been
+  fixed in this release.
+</p>
+<p>
+  If you follow my <a href="../../../cfrs.html">CFRS[]</a> project,
+  you might have noticed yesterday that a very similar fix has gone
+  into CFRS[] too.  For more details about that, see
+  the release page for <a href="../cfrs/0.3.0.html">CFRS[] 0.3.0</a>.
+</p>
+<p>
+  Visit <a href="../../../fxyt.html">FXYT</a> to play with FXYT and
+  draw some interesting patterns!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/fxyt/0.5.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CFRS[] 0.3.0</title>
+<link>https://susam.net/code/news/cfrs/0.3.0.html</link>
+<guid isPermaLink="false">ojrjp</guid>
+<pubDate>Mon, 10 Feb 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  CFRS[] 0.3.0 is a minor update of CFRS[], an extremely minimal
+  drawing language consisting of only 6 simple commands.  This update
+  fixes an annoying bug that caused CFRS[] canvas to overflow the
+  visible screen on some mobile web browsers.  In particular, this
+  issue was observed on Chrome running on Samsung Galaxy S8.
+</p>
+<p>
+  To read more about CFRS[], go to
+  <a href="https://github.com/susam/cfrs#readme">github.com/susam/cfrs</a>.
+  Also, visit <a href="../../../cfrs.html">cfrs.html</a> to play with CFRS[]
+  now and draw some nice patterns!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/cfrs/0.3.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>FXYT 0.4.0</title>
+<link>https://susam.net/code/news/fxyt/0.4.0.html</link>
+<guid isPermaLink="false">zgrko</guid>
+<pubDate>Sun, 09 Feb 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  FXYT 0.4.0 is a minor update of FXYT, a tiny, esoteric, stack-based,
+  postfix, canvas colouring language with only 36 simple commands.
+  This release increases the maximum allowed code length from 256
+  bytes to 1024 bytes.  This means there is now more room for writing
+  more complex FXYT programs!
+</p>
+<p>
+  Further, the maximum code length for distributable demo links has
+  been increased from 64 bytes to 256 bytes.  This allows several more
+  impressive demos to have their own distributable links.  As a
+  specific example of one such demo, take a look at
+  this <a href="https://susam.net/fxyt.html#XTsN128dN3142pN128qDN3142gbN6284dcDN1571gbN3142SdcDNN1571dlbNN3142dSdcDDN166SDpN120000qdSDpN1000qpN1000qN1000SdpN1000qN1100sN3pN25qYgNSbPN255c">animated
+  sine wave</a> developed by <a href="https://github.com/ncw">Nick
+  Craig-Wood</a>, of Rclone fame!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/fxyt/0.4.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Guess My RGB 0.3.0</title>
+<link>https://susam.net/code/news/myrgb/0.3.0.html</link>
+<guid isPermaLink="false">shmtq</guid>
+<pubDate>Sat, 14 Sep 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  <a href="../../../myrgb.html">Guess My RGB</a>, the little colour
+  guessing game, just got a small update.  This update adds a
+  "Mode" link to the footer which can be used to toggle the game
+  between normal mode and expert mode.
+</p>
+<p>
+  The expert mode was introduced as a hidden feature five months ago
+  in the <a href="0.2.0.html">previous release</a>.  With the current
+  release, the expert mode no longer remains a hidden feature.  You
+  can simply toggle between modes via the new footer link.
+</p>
+<p>
+  Ready to test your colour skills?  Head over to
+  <a href="../../../myrgb.html">myrgb.html</a> and start playing
+  today!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/myrgb/0.3.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Guess My RGB 0.2.0</title>
+<link>https://susam.net/code/news/myrgb/0.2.0.html</link>
+<guid isPermaLink="false">vojtv</guid>
+<pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  <a href="../../../myrgb.html">Guess My RGB</a>, the little colour
+  guessing game, received a minor update today.  This update adds a
+  hidden feature that lets you play the game in <em>expert mode</em>.
+  In this mode, the match percentage for your submitted guess is not
+  shown on the screen.
+</p>
+<p>
+  Thanks to @steffahn for
+  <a href="https://lobste.rs/s/sbcayb/guess_my_rgb#c_gqrj3r">suggesting
+  this feature</a> on th Lobsters forum!
+</p>
+<p>
+  Visit <a href="../../../myrgb.html#x">myrgb.html#x</a> now to play
+  the game in the expert mode.
+</p>
+<p>
+  Alternatively, visit <a href="../../../myrgb.html">myrgb.html</a> to
+  play it in the normal mode like before.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/myrgb/0.2.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>From Web Feed Entry to 186k Hits</title>
+<link>https://susam.net/from-web-feed-to-186850-hits.html</link>
+<guid isPermaLink="false">blshr</guid>
+<pubDate>Sun, 07 Apr 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Last Sunday (31 Mar 2024), I published a tiny colour guessing game
+  called <a href="myrgb.html">Guess My RGB</a>.  I developed most of
+  it on Saturday afternoon, took a break and revisited it later that
+  night for some final code cleanup.  Around 02:00 UTC, I uploaded the
+  game to my website.  Since the entire game is contained in a single
+  HTML file named <a href="myrgb.html">myrgb.html</a>, it was just a
+  matter of uploading this file to my web server.  Shortly after, I
+  went to bed.
+</p>
+<p>
+  I had no intention of sharing this game with a wide audience yet, as
+  it hadn't been thoroughly tested.  However, when I woke up the next
+  morning, I discovered that a Hacker News (HN) user had already found
+  and shared the game on HN in this post:
+  <a href="https://news.ycombinator.com/item?id=39882018">news.ycombinator.com/item?id=39882018</a>.
+</p>
+<p>
+  Since I had not shared this game with anyone anywhere yet, I was
+  quite surprised to wake up Sunday morning and find my game trending
+  at the top of HN.  I believe this is where maintaining an RSS feed
+  on my website might have helped.  Every new page that I publish on
+  this website also appears as an entry in the RSS feed for this
+  website.  This feed can be found here:
+  <a href="feed.xml">feed.xml</a>.  I have a few hundred subscribers
+  to this feed.  It is very likely that the HN user who shared this
+  game on HN found it through this feed.  Indeed my web server logs
+  show that the feed was fetched by a feed reader just minutes before
+  the game was posted on HN.
+</p>
+<p>
+  In the week since its HN mention, my game has received a total of
+  186,850 hits.  Not a staggering number but encouraging!  The actual
+  numbers for each day look like this:
+</p>
+<!-- 95467 + 48330 + 22305 + 10189 + 4685 + 2101 + 3773 = 186850 -->
+<table class="grid center textcenter">
+  <tr>
+    <th>Date</th>
+    <th>Hits</th>
+  </tr>
+  <tr>
+    <td>31 Mar 2024</td>
+    <td>95467</td>
+  </tr>
+  <tr>
+    <td>01 Apr 2024</td>
+    <td>48330</td>
+  </tr>
+  <tr>
+    <td>02 Apr 2024</td>
+    <td>22305</td>
+  </tr>
+  <tr>
+    <td>03 Apr 2024</td>
+    <td>10189</td>
+  </tr>
+  <tr>
+    <td>04 Apr 2024</td>
+    <td>4685</td>
+  </tr>
+  <tr>
+    <td>05 Apr 2024</td>
+    <td>2101</td>
+  </tr>
+  <tr>
+    <td>06 Mar 2024</td>
+    <td>3773</td>
+  </tr>
+</table>
+<p>
+  So the next time someone tells you that RSS is dead, remember how an
+  RSS feed entry helped my little game get discovered.  It took only
+  one entry in my web feed, one generous subscriber and a handful of
+  HN upvotes to reach a large audience!  It is a good reminder that
+  simple, open web tools still work well and sometimes they work
+  surprisingly well.
+</p>
+<p>
+  To all visitors of this website who played this game and shared this
+  game with others, thank you!  Crafting
+  <a href="https://github.com/susam?tab=repositories&amp;sort=stargazers">tiny
+  software tools</a> like this is a creative outlet for me.  To know
+  that there are others out there who enjoyed this game brings me joy!
+  To play this game now, visit <a href="myrgb.html">myrgb.html</a> and
+  guess some colours!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/from-web-feed-to-186850-hits.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CFRS[] 0.2.0</title>
+<link>https://susam.net/code/news/cfrs/0.2.0.html</link>
+<guid isPermaLink="false">ihmkl</guid>
+<pubDate>Sat, 06 Apr 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  CFRS[] 0.2.0 is a minor update of CFRS[], an extremely minimal
+  drawing language consisting of only 6 simple commands.  This update
+  brings minor changes to the built-in help screen that can be invoked
+  by typing <code>?</code> in the input pane.  For example, the help
+  screen now has a direct links to built-in demos and community demos.
+  Further, based on community feedback, the description of
+  the <code>]</code> command has been updated with clearer language
+  that better clarifies that this command repeats a repeatable block
+  once (i.e. executes the repeatable block again).  See
+  the <a href="https://github.com/susam/cfrs/blob/main/CHANGES.md">changelog</a>
+  for more details.
+</p>
+<p>
+  To read more about CFRS[], go to
+  <a href="https://github.com/susam/cfrs#readme">github.com/susam/cfrs</a>.
+  Visit <a href="../../../cfrs.html">cfrs.html</a> to play with CFRS[]
+  now and draw some nice pictures and animation.  If you end up
+  developing any cool demos, do share them by creating a
+  <a href="https://github.com/susam/cfrs/issues">new post here</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/cfrs/0.2.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Guess My RGB 0.1.0</title>
+<link>https://susam.net/code/news/myrgb/0.1.0.html</link>
+<guid isPermaLink="false">ndivu</guid>
+<pubDate>Wed, 03 Apr 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Guess My RGB 0.1.0 is the first stable release
+  of <a href="../../../myrgb.html">this tiny colour guessing game</a>.
+  The game is available as a single HTML page that runs in a web
+  browser.  It presents a page with a randomly chosen background
+  colour.  The player then needs to guess the three RGB hexademical
+  digits that make the given background colour.  See
+  <a href="https://github.com/susam/myrgb">github.com/susam/myrgb</a>
+  for more information about this game.
+</p>
+<p>
+  I wrote this game last Saturday afternoon and shared it on my
+  website at <a href="../../../myrgb.html">myrgb.html</a> later that
+  night.  I had no intention of sharing this with a wide audience yet
+  because I had not had sufficient time testing it well.  But somehow
+  a Hacker News (HN) user named <em>talonx</em> discovered this game
+  on Sunday morning and shared it on HN in this post:
+  <a href="https://news.ycombinator.com/item?id=39882018">news.ycombinator.com/item?id=39882018</a>.
+</p>
+<p>
+  Since I had not shared this game with anyone anywhere yet, I was
+  quite surprised to wake up Sunday morning and find my game trending
+  at the top of HN.  I believe this is where maintaining an RSS feed
+  on my website might have helped.  Every new page that I publish on
+  this website also appears as an entry in the RSS feed for this
+  website.  This feed can be found
+  here: <a href="../../../feed.xml">feed.xml</a>.  I have a couple of
+  hundred subscribers to this feed.  It is very likely that the HN
+  user who shared this game on HN found it through this feed.
+</p>
+<p>
+  Ever since this game was shared on HN, my website has received a
+  large number of hits.  In the last three days (excluding today),
+  this game has received a total of 166102 hits.  The actual numbers
+  for each day look like this:
+</p>
+<table class="grid center textcenter">
+  <tr>
+    <th>Date</th>
+    <th>Hits</th>
+  </tr>
+  <tr>
+    <td>31 Mar 2024</td>
+    <td>95467</td>
+  </tr>
+  <tr>
+    <td>01 Mar 2024</td>
+    <td>48330</td>
+  </tr>
+  <tr>
+    <td>02 Mar 2024</td>
+    <td>22305</td>
+  </tr>
+</table>
+<p>
+  To all visitors of this website who played this game and shared this
+  game with others, thank you!  Crafting tiny software tools like this
+  is a creative outlet for me.  To know that there are others out
+  there who enjoyed this game brings me joy!
+</p>
+<p>
+  To play this game, go to <a href="../../../myrgb.html">myrgb.html</a>
+  now and guess some colours!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/myrgb/0.1.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Guess My RGB</title>
+<link>https://susam.net/myrgb.html</link>
+<guid isPermaLink="false">uiorn</guid>
+<pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A tiny, web-based, RGB colour guessing game.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/myrgb.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/game.html">#game</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>FXYT 0.3.0</title>
+<link>https://susam.net/code/news/fxyt/0.3.0.html</link>
+<guid isPermaLink="false">snbrx</guid>
+<pubDate>Fri, 29 Mar 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  FXYT 0.3.0 is a minor release of FXYT, a tiny, esoteric,
+  stack-based, postfix, canvas colouring language with only 36 simple
+  commands.  This release comes with minor bug fixes pertaining to
+  initialising the input and output from code embedded in
+  distributable links.  No change in the language definition or the
+  language implementation has been made in this release.
+</p>
+<p>
+  Visit <a href="../../../fxyt.html">fxyt.html</a> to play with FXYT.
+  See <a href="https://github.com/susam/fxyt#readme">README</a> for
+  more details.  Also, see
+  <a href="https://susam.github.io/fxyt/demo.html">this demo page</a>
+  for some nice demos developed by the tiny community around FXYT.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/fxyt/0.3.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CFRS[] 0.1.0</title>
+<link>https://susam.net/code/news/cfrs/0.1.0.html</link>
+<guid isPermaLink="false">fmbcp</guid>
+<pubDate>Mon, 25 Dec 2023 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  CFRS[] 0.1.0 is the first release of CFRS[], an extremely minimal
+  drawing language that consists of only six simple commands.  Ever
+  since this new esoteric language and its implementation was
+  <a href="https://news.ycombinator.com/item?id=37956065">announced
+  about two months ago</a>, a small but enthusiastic community has
+  sprung up around it.  Feedback and enhancement requests from the
+  community has been crucial in polishing the implementation and
+  arriving at the current stable release.  Further, some community
+  members have also submitted very interesting and impressive demos.
+</p>
+<p>
+  To play with CFRS[] now, please
+  visit <a href="../../../cfrs.html">cfrs.html</a>.
+</p>
+<p>
+  See <a href="https://github.com/susam/cfrs#readme">github.com/susam/cfrs</a>
+  for more information about CFRS.  Also, see this
+  <a href="https://susam.github.io/cfrs/demo.html">demo page</a> for a
+  curated collection of community demos.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/cfrs/0.1.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>FXYT 0.2.0</title>
+<link>https://susam.net/code/news/fxyt/0.2.0.html</link>
+<guid isPermaLink="false">pqtku</guid>
+<pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  FXYT 0.2.0 is a minor update of FXYT, a tiny, stack-oriented, canvas
+  colouring language written in postfix notation with only 36 simple
+  commands.  This update specifies and implements a much stricter
+  definition of the <code>F</code> command that sets the frame
+  interval.  The problem with the earlier definition as well as
+  implementation was that the <code>F</code> command was evaluated for
+  every cell in the canvas and the frame interval was set for every
+  such interval.  This meant that the frame interval that would be set
+  for the next frame would depend on the order in which the evaluation
+  occurred.  See section
+  <a href="https://github.com/susam/fxyt#frame-interval">Frame
+  Interval</a> of the README for the complete details.
+</p>
+<p>
+  This update now ensures that a coordinate-dependent frame interval
+  set with the <code>F</code> command behaves uniformly across any
+  implementation of FXYT regardless of the order of evaluation.  This
+  is done by ensuring that while the command <code>F</code> is
+  evaluated for all cells, it is only the frame interval value found
+  during the evaluation of cell (0, 0) that is honoured as the frame
+  interval for the next frame.
+</p>
+<p>
+  The new update is now available at
+  <a href="../../../fxyt.html">fxyt.html</a>.  You are very welcome to
+  try it out and play with it.  If you come up with any interesting
+  demos, please do
+  <a href="https://github.com/susam/fxyt/issues">share them here</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/fxyt/0.2.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>FXYT</title>
+<link>https://susam.net/fxyt.html</link>
+<guid isPermaLink="false">kzrxk</guid>
+<pubDate>Wed, 20 Dec 2023 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Tiny, stack-based, postfix, canvas colouring language with only 36
+  simple commands.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/fxyt.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>FXYT 0.1.0</title>
+<link>https://susam.net/code/news/fxyt/0.1.0.html</link>
+<guid isPermaLink="false">dtrrv</guid>
+<pubDate>Wed, 20 Dec 2023 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  FXYT 0.1.0 is the first release of this project that introduces the
+  FXYT canvas colouring language and a reference implementation.  This
+  project is inspired by Martin Kleppe's very popular Tixy project.
+  While Tixy supports JavaScript expressions to determine the size and
+  colour of circles in a 16x16 grid, FXYT comes with its own tiny,
+  stack-based language that is written in postfix notation.  Further,
+  FXYT provides a 256x256 grid of cells each of which can be painted
+  with an arbitrary colour determined by the result of the evaluation
+  of the input code.
+</p>
+<p>
+  To see some demos, visit these links:
+  <a href="../../../fxyt.html#XYxTN1srN255pTN1sqD">#1</a>,
+  <a href="../../../fxyt.html#XYaTN1srN255pTN1sqN0">#2</a>,
+  <a href="../../../fxyt.html#XYoTN1srN255pTN1sqDN0S">#3</a>,
+  <a href="../../../fxyt.html#XYpTN1srN255pTN1sqD">#4</a> and
+  <a href="../../../fxyt.html#XYN256sTdrD">#5</a>.
+</p>
+<p>
+  Also, see
+  <a href="https://github.com/susam/fxyt#readme">github.com/susam/fxyt</a>
+  for more details about this project.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/fxyt/0.1.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CFRS[]</title>
+<link>https://susam.net/cfrs.html</link>
+<guid isPermaLink="false">toujs</guid>
+<pubDate>Thu, 19 Oct 2023 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  An extremely minimal drawing language consisting of only 6 simple
+  commands: <code>C</code>, <code>F</code>, <code>R</code>,
+  <code>S</code>, <code>[</code> and <code>]</code>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/cfrs.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>TextMetrics</title>
+<link>https://susam.net/code/web/textmetrics.html</link>
+<guid isPermaLink="false">otimn</guid>
+<pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  An example page that demonstrates text metrics measurements.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/textmetrics.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>MathB 1.2.0</title>
+<link>https://susam.net/code/news/mathb/1.2.0.html</link>
+<guid isPermaLink="false">ffzvj</guid>
+<pubDate>Sun, 16 Oct 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  MathB 1.2.0 is a minor update of MathB, a web-based mathematics
+  pastebin service.
+</p>
+<p>
+  This release introduces a number of new customisable properties,
+  including the ability to set a minimum title length, minimum code
+  length, etc.  The stylesheet for rendered pages has been improved so
+  that the print preview displays only the rendered mathematical
+  content, allowing users to print beautifully rendered pages to
+  paper.  A few rendering bug fixes are included too.
+</p>
+<p>
+  See <a href="https://github.com/susam/mathb/blob/main/CHANGES.md">CHANGES.md</a>
+  for a detailed changelog.  To read more about this project, please see
+  <a href="http://github.com/susam/mathb">github.com/susam/mathb</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/mathb/1.2.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>MathB 1.1.0</title>
+<link>https://susam.net/code/news/mathb/1.1.0.html</link>
+<guid isPermaLink="false">akquu</guid>
+<pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  MathB 1.1.0 is a minor update of MathB, a web-based mathematics
+  pastebin service.
+</p>
+<p>
+  This release introduces a few additional features for webmasters
+  hosting MathB on their own web servers.  Notably, administrators can
+  now ban specific IP addresses, helping mitigate spam attacks from
+  known sources.  Additionally, the included Nginx configuration has
+  been updated to fix a memory leak issue.  Several other minor fixes
+  and improvements are also included.
+</p>
+<p>
+  See <a href="https://github.com/susam/mathb/blob/main/CHANGES.md">CHANGES.md</a>
+  for a detailed changelog.  To read more about this project, please see
+  <a href="http://github.com/susam/mathb">github.com/susam/mathb</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/mathb/1.1.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>MathB 1.0.0</title>
+<link>https://susam.net/code/news/mathb/1.0.0.html</link>
+<guid isPermaLink="false">wmrtf</guid>
+<pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  MathB 1.0.0 is the first major release of MathB since 2012, bringing
+  significant updates to this web-based mathematics pastebin service.
+</p>
+<p>
+  The most notable change is a complete rewrite in Common Lisp,
+  replacing the original PHP codebase.  This shift reflects my
+  preference for Lisp, a language I truly enjoy.  It also makes the
+  project easier for me to maintain actively.
+</p>
+<p>
+  This release introduces the use of the
+  <a href="https://github.com/susam/texme">TeXMe</a> parser to
+  robustly parse and render posts written using Markdown and LaTeX.
+  Further, now there is support for dark colour scheme for systems
+  that have dark colour scheme enabled.  For those who host this
+  service on their web servers, MathB now supports a runtime control
+  file named <code>opt.lisp</code> where a number of properties of
+  this service can be customised.  These customisable properties
+  include maximum title length, maximum code length, minimum time
+  interval between two posts, etc.  See
+  <a href="https://github.com/susam/mathb/blob/main/CHANGES.md">CHANGES.md</a>
+  for a detailed changelog.
+</p>
+<p>
+  To read more about this project, please see
+  <a href="http://github.com/susam/mathb">github.com/susam/mathb</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/mathb/1.0.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>MathB.in Turns Ten</title>
+<link>https://susam.net/mathbin-turns-ten.html</link>
+<guid isPermaLink="false">hhdiy</guid>
+<pubDate>Fri, 25 Mar 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  On this day, ten years ago, MathB.in was released on the world wide
+  web.  MathB.in is a web-based mathematics pastebin service that is
+  used for sharing snippets of mathematical text with others.  The
+  source code is available
+  at <a href="https://github.com/susam/mathb">github.com/susam/mathb</a>.
+</p>
+<h2 id="brief-history-mathematics-pastebins">A Brief History of Mathematics Pastebins<a href="#brief-history-mathematics-pastebins"></a></h2>
+<p>
+  MathB.in is the oldest mathematics pastebin that is still alive and
+  serving its community of users.  It isn't the first mathematics
+  pastebin though.  It's the second.  The first one was written by
+  Mark A. Stratman and hosted at <em>mathbin.net</em> until 2020.  It
+  was very popular in the <code>#math</code> and <code>#physics</code>
+  channels on IRC networks between 2006 and 2013.  It did not have
+  live preview but it used an actual LaTeX system in the backend for
+  rendering mathematical formulas into images, so the output was of
+  pretty good quality.  It served IRC users very well for sharing
+  problems and solutions quickly with each other on IRC channels.
+  Since late-2014, Mark's website began intermittently displaying a
+  notice that the website was shutting down.  The notice replaced the
+  actual pastebin on some days, so users were forced to look for
+  alternatives.  MathB.in was already available on the web and popular
+  among IRC users by then, so it turned out to be a good alternative.
+  Mark's website disappeared sometime in late-2020.
+</p>
+<p>
+  Another alternative to the first mathematics pastebin was Huy
+  Nguyen's <em>texpaste.com</em>.  It was released on the web in
+  September 2013.  I believe it was the third mathematics pastebin to
+  be released on the web.  In fact, it was a bit more than a pastebin.
+  It allowed users to sign up for accounts and save their notes in
+  their accounts.  It had some nifty widgets to click and
+  automatically insert common LaTeX symbols instead of typing them out
+  manually.  It had its own community of users.  However, it suffered
+  from serious spam problems.  Searching for "texpaste.com" on Twitter
+  shows how the service was being exploited by spammers to share
+  dubious content and links several times every single day between
+  December 2016 and February 2018.  Despite the spam problems, it
+  continued to serve its genuine users for many years.  Finally, the
+  website disappeared in 2021 and has not returned since then.
+</p>
+<h2 id="story-of-mathbin">The Story of MathB.in<a href="#story-of-mathbin"></a></h2>
+<p>
+  MathB.in was born on Sunday, 25 March 2012, after a single night of
+  furious coding.  The previous night, I happened to stumble
+  upon <a href="https://math.stackexchange.com/">math.stackexchange.com</a>
+  and I noticed that it seemed to have decent LaTeX support.  As I
+  dove deeper into the HTML source code of the pages of this website,
+  I was surprised to see that the rendered LaTeX was not made of image
+  files embedded into the web pages which used to be a prevalent
+  practice in those days.  Instead, the mathematical formulas were
+  rendered as text with sophisticated styling done with CSS to make
+  the rendered mathematics formula look as good as a PDF rendered by
+  an actual LaTeX system.  On further investigation I realised that
+  this Stack Exchange website was
+  using <a href="https://www.mathjax.org/">MathJax</a> to produce
+  high-quality typography from LaTeX code.  As a frequent participant
+  in the <code>#math</code> channels on various IRC networks, I
+  immediately realised that using MathJax could lead to a modern
+  mathematics pastebin with live preview and beautiful mathematics
+  rendering right within the web browser without requiring a LaTeX
+  system in the backend.
+</p>
+<p>
+  Thanks to that chance encounter with MathJax, I spent the rest of
+  the Saturday night coding a new mathematics pastebin using MathJax
+  and PHP.  After coding all through the night, registering a new
+  domain name and setting up a website, MathB.in was published early
+  Sunday morning.  I shared the link to the website with some of my
+  friends who were fond of sharing mathematics puzzles and solutions.
+  I also
+  <a href="https://groups.google.com/g/mathjax-users/c/_YAetB0gx2w/m/Xocb-aJOu4IJ">announced</a>
+  its availability on the MathJax mailing list.  Since then word about
+  my new website spread to various IRC communities and it soon became
+  quite popular in mathematically-oriented channels.
+</p>
+<h2 id="source-code">Source Code<a href="#source-code"></a></h2>
+<p>
+  The source code of MathB.in was originally written in PHP.  I
+  gradually began releasing its source code part by part in November
+  2013.  The first complete open source release of MathB.in was done
+  in December 2013.
+</p>
+<p>
+  The early source code of MathB.in was quite complicated and
+  over-engineered.  I was young and naive.  Much like how toddlers and
+  young kids like to play with miniature forms of real world objects
+  like cars, trains, trucks and kitchen sets, in my naivety, I had
+  ended up creating a miniature form of the multiple levels of
+  abstractions and complexity we see in the corporate world of
+  software engineering.
+</p>
+<p>
+  The thought of rewriting the software and simplifying it crossed my
+  mind many times.  Incidentally, several years before writing
+  MathB.in, I had stumbled upon the Lisp family of languages.  It was
+  during a long layover at an airport in September 2007 that I decided
+  to boot my laptop running Debian GNU/Linux 4.0 (Etch) and learn some
+  Lisp programming.  I happened to have GNU CLISP 2.41 installed on
+  it, so I fired it up and began learning Common Lisp.  A few months
+  later I also dabbled in Scheme.  I found the sheer simplicity,
+  beauty and elegance of Lisp and Scheme to be fascinating.  But the
+  thought of writing websites using Common Lisp did not occur to me
+  until much later.
+</p>
+<p>
+  At some point much later, I began rewriting MathB.in in Common Lisp
+  while preserving its user interface and most of its behaviour.
+  MathB.in no longer runs on PHP.  It has been rewritten in Common
+  Lisp and the entire application code is now a single Lisp source
+  code file.
+</p>
+<h2 id="mathbin-today">MathB.in Today<a href="#mathbin-today"></a></h2>
+<p>
+  While the user interface and behaviour of MathB.in has remained
+  largely the same as it was on its first day of release back in 2012,
+  there have been some new additions to its feature set.  Support for
+  GitHub Flavoured Markdown (GFM) has been added by popular demand.
+  It now uses the <a href="https://github.com/susam/texme">TeXMe</a>
+  renderer to more robustly parse a mix of Markdown and LaTeX.  A dark
+  colour scheme has been added which is displayed on web browsers that
+  are running on a desktop with dark colour scheme enabled.  The
+  layout of the user interface elements are now responsive and adapt
+  to small screen devices.
+</p>
+<p>
+  Today MathB.in is used in various IRC channels for exchanging
+  mathematics problems and solutions.  From the testimonials I have
+  received so far, I know that it is also used by many teachers in
+  schools and colleges to hand out problems, sample solutions and
+  notes to their students.  Occasionally I receive emails and messages
+  from kind strangers on the Internet who tell me how useful MathB.in
+  has been for them.  Running this project for a decade and knowing
+  that it has been useful to many people has brought me joy.
+</p>
+<p>
+  <strong>Update on 16 Mar 2025:</strong> After about 13 years of
+  continuous service, MathB.in has been shut down today.  See the
+  post <a href="mathbin-is-shutting-down.html">MathB.in Is Shutting
+  Down</a> for more details about this.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/mathbin-turns-ten.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Comfort of Bloated Web</title>
+<link>https://susam.net/comfort-of-bloated-web.html</link>
+<guid isPermaLink="false">bngdw</guid>
+<pubDate>Sat, 12 Mar 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  There is a tiny <a href="form/comment/?post=hello">comment form</a>
+  application on this website to accept comments from visitors and
+  save them on the file system of the web server for me to review
+  later and publish.  This form is the only thing on this website that
+  is dynamic in nature.  Everything else on this website is static in
+  nature.
+</p>
+<h2 id="mysterious-copies">Mysterious Copies<a href="#mysterious-copies"></a></h2>
+<p>
+  Most of this website is made of handcrafted HTML.  The blog posts
+  and other content files are handcrafted HTML pages.  A Common Lisp
+  program adds common headers and footers to these pages and generates
+  the HTML pages that are served as static files via Nginx running on
+  a Debian system.  The comment form, however, is a dynamic web
+  application served via another Common Lisp program that makes use of
+  the Hunchentoot web server to serve the form, accept the input
+  submitted by the user and then process it.  This comment form is a
+  very simple, minimal and stateless application that fulfills the
+  modest requirements of this modest website pretty well.
+</p>
+<p>
+  However, often I see multiple copies of the same comment being saved
+  on my web server.  In the initial days of encountering this issue, I
+  felt quite confused.  I could rule out a bug in my program by
+  carefully reviewing and testing it.  Further, the web server logs
+  clearly showed multiple POST requests being received by it from the
+  same client usually with a few seconds of intervals between the
+  consecutive requests.  The comments seemed to have legitimate
+  content.  Since the duplicate copies would all have the same
+  comment, I would arbitrarily pick one and publish it on my website.
+  But I often wondered why on earth well meaning visitors would
+  sometimes submit the same comment multiple times.  For good measure?
+  Perhaps!  But still quite odd!
+</p>
+<h2 id="so-what-is-the-problem">So What's the Problem?<a href="#so-what-is-the-problem"></a></h2>
+<p>
+  The mystery of duplicate comment submission remained a puzzle for
+  several months.  Then one day, one of the visitors to my website
+  contacted me via Twitter messages to tell me that my comment form
+  was broken and it was not working for them.
+</p>
+<p>
+  The conversation began like this: "Hey!  The comment form on your
+  website seems to be broken.  It says it has accepted my comment but
+  I don't think it is doing that."
+</p>
+<p>
+  I responded, "Hi!  Thank you for contacting me about this issue.
+  What do you mean it does not accept your comment?  Do you see an
+  error?"
+</p>
+<p>
+  "There is no error.  In fact, after submitting, I get a success
+  message that says, 'Comment was submitted successfully.  It may be
+  published after review.'"
+</p>
+<p>
+  "That sounds about right.  So what's the problem?"
+</p>
+<p>
+  In the meantime, I performed some testing at my end to find that the
+  comment form appeared to be working fine with no apparent issues.
+  Further, I found that there were multiple copies of their comment
+  saved neatly on the server for me to review later and publish.
+</p>
+<p>
+  Before I could share my findings, they continued, "Well!  That
+  success message appears almost instantly.  It couldn't be storing my
+  comment successfully that fast, could it?"
+</p>
+<p>
+  That is when the mystery unfolded for me!  The issue was that the
+  comment form accepts the user's comment and returns a success
+  message too soon for the user to believe that it could have possibly
+  saved the comment.  I have had a couple of other very similar
+  conversations since then when a visitor contacted me via email or
+  another means to double-check if my comment form was really working
+  fine.  In all of these cases, they were skeptical about the success
+  message because it appeared much sooner than they expected.
+</p>
+<h2 id="bloated-expectations">Bloated Expectations<a href="#bloated-expectations"></a></h2>
+<p>
+  Depending on where the visitor is located, the comment form on this
+  website may take anywhere between 30 ms to 900 ms (and very rarely a
+  little longer) to accept the user's comment, save it successfully
+  and then display a success message to the user.  But apparently, a
+  few hundred millseconds is too fast for many people to be able to
+  trust that the comment application is actually doing its job.  I
+  presume that they have become so used to waiting for at least a
+  second or more for dynamic pages to load that a web application that
+  finishes its job in a few milliseconds appears to be fishy.
+</p>
+<p>
+  I must clarify here that the duplicate comment submissions do not
+  bother me at all.  The duplicate comments I receive is a very small
+  fraction of the total number of comments.  I just find it
+  interesting that users can mistrust a simple piece of software that
+  does a simple thing in a reasonable amount of time.  I had one
+  visitor to my website even say, "I really was expecting a spinning
+  wheel on the browser tab or some sort of progress indicator to be
+  assured that it is saving my comment.  The instant success message
+  took me by surprise!"  They felt nervous that their comment was not
+  saved and resubmitted the comment again.
+</p>
+<p>
+  As a result of these conversations, I have sometimes even wondered
+  whether I should add some artificial delay in the comment
+  application before responding with a success message to satisfy the
+  expectations of people who are so used to the bloated web.  Of
+  course, I am not actually going to do that.  I want to keep it
+  simple.  I do not like adding artificial restrictions to a simple
+  piece of functionality.  Further, I do not mind the duplicate
+  comment submissions at all.  However, I cannot help but remark that
+  the users of the web today have become so comfortable with the
+  bloated web that a simple web application without bells and whistles
+  that is fast and responsive makes them nervous!
+</p>
+<h2 id="update">Update<a href="#update"></a></h2>
+<p>
+  <strong>Update on 13 Mar 2022:</strong> Many commenters to this post
+  have suggested that the issue here might not be the fast response of
+  a successful comment application but instead the fact that the
+  comment form elements remain intact even after the comment
+  submission.  In their opinion, merely displaying a success message
+  may not be assuring enough.  They further suggested that I should
+  change the state of the form in some way on successful submission.
+  Popular recommendations included disabling, clearing or removing the
+  form elements entirely on successful submission.
+</p>
+<p>
+  These suggestions are valid of course.  However, I also think that
+  these suggestions reinforce the point of my blog post.  Without
+  these fancy features and restrictions, web surfers today feel unsure
+  if the comment form application has really done what it
+  is <em>literally</em> saying it has done.
+</p>
+<p>
+  Do I really need to consider <em>artificially</em> clearing,
+  disabling or removing the form elements and thus removing the
+  ability to edit a comment again and resubmit it (even if the user
+  really so desires) with a single click of a button?  What if someone
+  wants to post another comment immediately after the first one?  What
+  if someone wants to edit their previous comment slightly and repost
+  it?  Do I need to force the user to hop through separate links and
+  buttons to be able to do these simple tasks?  "But every other
+  website clears, disables or removes the form elements," you might
+  rightfully offer as a counterpoint.  I know.  I know.  But why is it
+  so that the "right" user experience nowadays involves artifically
+  encumbering the user or hiding the user's own submitted text from
+  themselves?
+</p>
+<p>
+  In fact, in an earlier version of this website, the comment form
+  application did disable the form elements on a successful comment
+  submission.  In an even older version of this website, a new page
+  consisting only a success message appeared.  However, visitors would
+  still report their suspicion regarding the comment form doing its
+  job to me.  So I have observed the results of employing at least two
+  of the measures suggested and they were still consistent with the
+  reporters' claims that they find the instant success message from
+  the application to be disconcerting.
+</p>
+<p>
+  UX best practices notwithstanding, I do not want to hide the users'
+  content from themselves after a successful form submission.  Maybe
+  they want to copy the message and keep it for themselves.  Maybe
+  they want to edit it again and repost it.  I do not want to restrict
+  any of these simple activities.  I also do not want the user to hop
+  through an additional link or button to be able to do these things.
+  However, heeding some of the other advice I have received in the
+  comments section, I have now made two tiny changes to the comment
+  form application that is consistent with its original spirit of
+  simplicity, minimalism and statelessness.  I have moved the success
+  message to the top of the response page.  I have also added
+  additional text in the success message that explains that the
+  submitted input has been left intact in case the submitter wants to
+  copy it or edit it and resubmit it.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/comfort-of-bloated-web.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Andromeda Invaders</title>
+<link>https://susam.net/andromeda-invaders.html</link>
+<guid isPermaLink="false">lygkw</guid>
+<pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  The arcade-style computer games of 1980s played a big role in
+  getting me fascinated about computers.  Last weekend I decided to
+  fulfill a childhood dream of writing my own invaders-like game.
+  After a few hours of programming, I ended up with a simple game that
+  I call <em>Andromeda Invaders</em>.  You can play it now by clicking
+  the link below:
+</p>
+<p style="text-align: center">
+  <a href="invaders.html">Play Andromeda Invaders</a>
+</p>
+<p>
+  It is a 1980s-arcade-style game that runs in a modern web browser.
+  This game is inspired by Space Invaders, the 1978 arcade game
+  developed by Tomohiro Nishikado.  However, the game characters,
+  gameplay and some technical aspects of this game are very different
+  from those of Space Invaders.
+</p>
+<h2 id="inspiration">Inspiration<a href="#inspiration"></a></h2>
+<p>
+  I first came across Space Invaders in the 1990s in the computer
+  laboratory of my lower secondary school.  Soon after playing the
+  game a few times, I wanted to develop a similar game of my own.
+  However, the little GW-BASIC programming I knew then was
+  insufficient to write anything more sophisticated than simple
+  text-based input/output programs.  I did write several simple
+  text-based quiz and adventure games back then but a more
+  sophisticated game with graphics and audio remained elusive.  As
+  years went by, I gradually forgot about it, learnt more mainstream
+  languages like C, Python, Lisp, etc. and got into programming as a
+  career.
+</p>
+<p>
+  Although it is 25 years too late, I decided to spend a weekend now
+  to fulfill my childhood desire to write my own Invaders-like game.
+  This game fulfills a childhood dream of mine!
+</p>
+<h2 id="graphics-and-audio">Graphics and Audio<a href="#graphics-and-audio"></a></h2>
+<p>
+  All of the graphics is done by drawing rectangles and text on an
+  HTML5 <code>&lt;canvas&gt;</code> element using the Canvas API.
+</p>
+<p>
+  All of the audio is done by generating sine waves using
+  <code>OscillatorNode</code> of the Web Audio API.  The sine waves
+  used for the game audio correspond to actual musical notes from the
+  C major scale.  Multiple notes are played together to form chords.
+  The background music is a chord progression consisting of four
+  chords repeating over and over again as long as the game is being
+  played.  When the game characters get hit, the hit sounds are made of
+  a single chord that plays for a very short duration.
+</p>
+<p>
+  There is rudimentary support for playing this game on small screens
+  and touchscreens using the buttons provided below the game canvas.
+  However, this game is best enjoyed on a laptop/desktop device with a
+  physical keyboard.  On a device with physical keyboard, the game can
+  be played in fullscreen mode by typing <kbd>f</kbd>.  Since it is a
+  single-file HTML game, it can be saved as a standalone file on your
+  system.
+</p>
+<h2 id="levels">Levels<a href="#levels"></a></h2>
+<p>
+  The game can be played indefinitely long in theory.  However in
+  practice, the difficulty level of the game rises steeply with each
+  level and I would consider it remarkable if someone manages to reach
+  level 10.  None of my friends and colleagues who played this game
+  over the weekend has been able to reach level 9 yet.  However, many
+  of them have reached level 8 within a few hours of practice.  The
+  steep rise in difficulty level is intentional, so that a single
+  session of this game does not last too long.
+</p>
+<p>
+  Levels 1 to 20 present new difficulty levels in terms of the speed
+  of the objects moving on the canvas.  The difficultly levels remain
+  constant between levels 21 and 1000.  If someone were to complete
+  level 1000, the game would reset to level 1 with the score intact.
+  This is how one could potentially play the game indefinitely long.
+</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  Like I mentioned above, this game is the result of a weekend's work.
+  I wanted to keep it as simple as possible.  Despite the simplicity,
+  there are a few interesting concepts such as loss and recovery of
+  health of the game characters, automatic release of laser pulses,
+  etc.
+</p>
+<p>
+  There is a Git repository for this game at
+  <a href="https://github.com/susam/invaders">github.com/susam/invaders</a>.
+  The README file in this repository documents several technical
+  details of this game.  The source code is released under the MIT
+  licence, so please feel free to play with the code, modify the game
+  parameters and logic and alter the game.  If you like this game, do
+  <a href="invaders.html">share it</a> with others.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/andromeda-invaders.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Andromeda Invaders</title>
+<link>https://susam.net/invaders.html</link>
+<guid isPermaLink="false">bffow</guid>
+<pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A 1980s-arcade-style game written using HTML5, Canvas and Web Audio.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/invaders.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/game.html">#game</a> |
+  <a href="https://susam.net/tag/graphics.html">#graphics</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Against URL-Based Content Rendering</title>
+<link>https://susam.net/against-url-based-content-rendering.html</link>
+<guid isPermaLink="false">kxrke</guid>
+<pubDate>Mon, 31 Jan 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Today I received a nice pull request to my project
+  named <a href="https://github.com/susam/muboard">Muboard</a>.  It is
+  a shame I am not going to merge this pull request.  Muboard is a
+  simple web-based tool that can be used as a virtual chalkboard.  You
+  can type in text with LaTeX snippets in it and Muboard renders your
+  input as you type it.  Muboard is quite useful to me when I host
+  online mathematics book club meetings.  Muboard can also be used to
+  create distributable self-rendering HTML documents.  See the
+  preceding link to see demo link, screenshots, usage notes, etc.
+</p>
+<p>
+  The <a href="https://github.com/susam/muboard/pull/4">pull
+  request</a> I received adds the ability to create a shareable link
+  to a Muboard instance.  I am hosting mine
+  at <a href="https://muboard.net">muboard.net</a>.  The shareable
+  link encodes the entire content in the URL itself.  When someone
+  visits the shareable link, it loads Muboard which then looks at the
+  encoded content in the URL and renders the content.  It is a nifty
+  idea.  An idea, I have thought of myself while developing Muboard
+  but then decided not to implement.  If there is anything that
+  running <a href="https://github.com/susam/mathb">MathB.in</a> for
+  ten years has taught me, it is that allowing arbitrary users to
+  render content that appears on a domain name I have registered is
+  going to end up as a huge time sink for me.  I would be spending a
+  significant portion of my leisure time moderating content, keeping
+  regulatory authorities happy and ensuring that no bad content
+  appears on my website.  Here is a copy of my complete response on
+  this matter from the pull request:
+</p>
+<blockquote>
+  <p>
+    Thank you for the comment and the pull request.  The ability to
+    share URLs with the content encoded in the URL query parameter or
+    fragment identifier has crossed my mind earlier.  It is a very
+    useful feature indeed.  However, I decided against implementing
+    such a feature because such features are often abused to display
+    spam content or illegitimate content.
+  </p>
+  <p>
+    Now one might wonder why I, as someone who is merely hosting the
+    Muboard tool on a website, should care about what kind of content
+    one chooses to display on Muboard.  After all, the content is
+    rendered on the client side, so I am not responsible for the
+    content.  Unfortunately, the regulatory authorities do not see it
+    that way.
+  </p>
+  <p>
+    From my experience of running MathB.in (another project that
+    offers a pastebin for mathematics) for the last 10 years, I have
+    learnt that as long as such bad content is displayed on a domain
+    name I am the registrant of, the regulatory authorities are going
+    to contact me and ask me to ensure that such content is not
+    displayed on my website.  They do not care whether that content is
+    rendered on the server side or client side.  Further, they usually
+    provide only a week's notice.  If no measures are taken to prevent
+    such content from being rendered on the website, the regulatory
+    authorities go ahead and force the cloud provider, hosting
+    provider, etc. to take down the website completely.
+  </p>
+  <p>
+    With something like MathB.in which stores the content on the
+    server side, I can at least remove the content from its data
+    store.  However, if the content is rendered entirely on the client
+    side on the basis of the encoded content in the URL query
+    parameter or fragment identifier, it becomes more difficult to
+    know what content is being displayed on the website and block bad
+    content from being rendered, say, with some JavaScript code that
+    looks for patterns in the content and refuse to render the content
+    if it appears to contain bad content.  This is not a problem I
+    want to solve in Muboard because my prior experience with MathB.in
+    shows that it takes considerable time and effort to keep track of
+    all possible bad content and to fine tune the patterns to match,
+    on a regular basis.
+  </p>
+  <p>
+    Your pull request has a very useful feature and it's a shame I
+    cannot add it to the copy of Muboard.net I am running.  I do not
+    have the time to get involved in maintaining pattern-based content
+    blocklisting.  If you are really interested in this feature and
+    have the risk appetite to allow arbitrary content from users to be
+    rendered on your website, I would recommend hosting a clone of
+    Muboard.net with this feature on a separate URL that you own.  I
+    would be happy to link to your clone from the README of this
+    project.
+  </p>
+</blockquote>
+<p>
+  Encoding content in the URL and then rendering that content is fine
+  as long as the content is composed from an allowed set of tokens.
+  Examples include virtual pianos, online synthesisers and fun games
+  like <a href="https://tixy.land/">Tixy</a>.  However, for something
+  like Muboard that shows arbitrary text content from users, quite
+  unfortunately, I have to decline any pull request that renders
+  arbitrary content encoded in the URLs!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/against-url-based-content-rendering.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Web Golden</title>
+<link>https://susam.net/web-golden.html</link>
+<guid isPermaLink="false">cavac</guid>
+<pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  In a recent online discussion about simple static websites, Chris
+  Chapman <a href="https://news.ycombinator.com/item?id=30139081">posted</a>
+  this quite clever comment:
+</p>
+<blockquote>
+  Firm supporter of Web Pi (3.14159).  When it comes to building for
+  the web today, I'm always amazed that "so much can be done with so
+  little" and yet the default is the opposite - "so much is needed to
+  deliver so little" - so irrational!  Where did we go wrong?  I
+  wonder what Web Euler (2.71828) would have looked like?
+</blockquote>
+<p>
+  I enjoyed the amusing play on the terms "Web 2.0" and "Web 3.0" as
+  well as the irony-infused pun involving the word "irrational".  I
+  piled on to the witty wordplay with my own comment where I remarked
+  how my favourite phase of the web was Web Golden
+  (<a href="phi.txt">1.61803</a>).  I will elaborate here what that
+  phase of the web looked like and why I was fond of it.
+</p>
+<h2 id="fascinating-realisation">Fascinating Realisation<a href="#fascinating-realisation"></a></h2>
+<p>
+  I believe I was fortunate enough to grow up during a time when the
+  web was a very diverse place full of various eccentric digital
+  gardens.  I was introduced to the world wide web around 1999.
+  Access to the Internet was very limited where I lived.  My friends
+  and I would visit so-called Internet caf&eacute;s and shell out a
+  significant chunk of our pocket money for just an hour of Internet
+  usage.
+</p>
+<p>
+  I was already quite familiar with computers then but the Internet
+  and the world wide web were completely new to me.  Until then,
+  thanks to my <a href="fd-100.html">prior exposure</a> to the
+  Logo programming language, I had only considered computers to be a
+  device for problem solving and recreation.  However, the Internet
+  showed me that computers were very flexible and malleable
+  communication devices too.  It was a fascinating realisation!
+</p>
+<p>
+  While on the Internet, I used to spend most of my time browsing
+  websites and joining various chat forums where I could talk to other
+  programmers from all over the world.  I learnt a lot about the world
+  and its various cultures by talking to them.  I met people who wrote
+  their own full blown chat clients, people who were nearing
+  retirement after having programmed about twenty different
+  microcontrollers throughout their careers, people who developed
+  software for global positioning systems and so on.  These
+  experiences broadened my horizons.  I could see that my enthusiasm
+  for computers could one day lead to a fulfilling career.
+</p>
+<h2 id="simplicity">Simplicity<a href="#simplicity"></a></h2>
+<p>
+  The world wide web was a delightful place.  There were no major
+  social media websites yet.  I believe the closest thing to social
+  media we had back then
+  was <a href="http://web.archive.org/web/19990125095557/http://www.geocities.com/">Geocities.com</a>
+  where we could create our own websites for free.  One could also
+  host their websites on shared website hosting providers for a fixed
+  annual fee.  Some also hosted their websites on servers running in
+  their own houses.
+</p>
+<p>
+  Most websites were made up of static HTML pages.  Some websites had
+  tiny guestbooks that allowed a little user-generated content.  I
+  remember some of the website hosting providers made it really easy
+  to add guestbooks, even for someone with no programming experience.
+  All one needed to do was create an HTML page that contained
+  a <code>&lt;form&gt;</code> element with the <code>action</code>
+  attribute set to a URL of a CGI script provided by the hosting
+  provider.  The CGI script would accept every comment submitted via
+  the guestbook and automatically insert the new comment into a static
+  HTML page.  The good scripts would escape the special characters in
+  the comments properly before saving it in the static comments page.
+  But the poor ones would let any script kiddie deface the guestbook
+  page by inserting cleverly crafted HTML snippets or JavaScript code
+  within the comments.  That would be the first lesson on cross-site
+  scripting for many of us in those days.
+</p>
+<p>
+  While most personal websites were static in nature, the motivated
+  web developers would teach themselves enough programming to add
+  little pieces of dynamic functionality by writing CGI scripts.  Many
+  used PHP instead which was much easier to write code in and deploy.
+  I taught myself ASP to develop dynamic pages.  It allowed me to
+  write my own guestbook page and a dynamic quiz application for the
+  visitors of my website.
+</p>
+<p>
+  Despite various types of dynamic functionality offered by the
+  websites, the web was simple.  Web pages with infinite scrolling was
+  unheard of.  Visiting useful websites did not result in the web
+  browser loading dozens of massive JavaScript files in the
+  background.  Web developers were used to doing less with less.  But
+  the old web had its own problems too.  Just like how the current web
+  is riddled with banner advertisements, the old web too was riddled
+  with pop-ups!  A prevalent user-hostile trend back then involved web
+  pages creating new pop-ups for advertisements.  They would often
+  clutter the desktop because the major web browsers back then would
+  create a new desktop-level window for each popup.
+</p>
+<h2 id="nostalgia">Nostalgia<a href="#nostalgia"></a></h2>
+<p>
+  Although these old, simple and crude websites can still be found in
+  certain corners of the web, the mainstream web no longer looks like
+  this.  Websites are generally heavier and more complex these days.
+  Talking about the old web today only serves as nostalgia for people
+  like me who grew up during that magical time.  One might argue that
+  the world wide web today is much more advanced and has much more
+  utility than the old web I am reminiscing about here.  That is true.
+  The web today is a very versatile tool of great utility.  The web
+  today is a powerful agent that is shaping our civilisation and
+  influencing how societies evolve and function.  Indeed, the web was
+  quite limited in terms of utility back then.  Online banking was not
+  prevalent.  Electronic commerce was very new and clunky.  The most
+  practical utility of the old web I can recall involved publishing
+  and retrieving university exam results and even that was painfully
+  slow.  It would take a minute or two for university pages to load
+  over dial-up connections.
+</p>
+<p>
+  However, what the web of the 90s lacked in terms of utility, it more
+  than compensated by being a fertile ground for creativity.  Thanks
+  to the early web, many computer enthusiasts, including me, learnt to
+  build their first few websites by writing one line of HTML at a
+  time.  To write a few lines of HTML code in a text editor and then
+  watch the web browser render that code as a glorious web page full
+  of colours, images and text was a magical feeling.  I do think that
+  was the golden era of the web.  It was quirky and yet beautiful.  It
+  was limited and yet diverse.  It was the sweet spot between Web 1.0
+  and Web 2.0.  It was Web 1.61803!  It was Web Golden!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/web-golden.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/humour.html">#humour</a> |
+  <a href="https://susam.net/tag/retrospective.html">#retrospective</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Blank Page</title>
+<link>https://susam.net/blank.html</link>
+<guid isPermaLink="false">egmnd</guid>
+<pubDate>Sat, 22 Jan 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A blank page.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/blank.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Minimal HTML Page</title>
+<link>https://susam.net/code/web/minimal.html</link>
+<guid isPermaLink="false">zkxsb</guid>
+<pubDate>Sat, 09 Jan 2021 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  An example page that demonstrates the minimal page that can be
+  written in HTML while passing W3 Validator checks.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/minimal.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>MathB 0.2.0</title>
+<link>https://susam.net/code/news/mathb/0.2.0.html</link>
+<guid isPermaLink="false">flsrk</guid>
+<pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  MathB 0.2.0 is a minor update of MathB, a web-based mathematics
+  pastebin service.  The key change in this release is the removal of
+  image support.  Image tags are now disallowed in new posts and older
+  posts containing images will no longer be rendered.  This update
+  aims to mitigate spam on the live instances of this software.
+</p>
+<p>
+  To read more about this project, please see
+  <a href="http://github.com/susam/mathb">github.com/susam/mathb</a>.
+</p>
+<p>
+  See the file
+  <a href="https://github.com/susam/mathb/blob/main/CHANGES.md">CHANGES.md</a>
+  for a detailed changelog.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/mathb/0.2.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Sticking With MathJax</title>
+<link>https://susam.net/sticking-with-mathjax.html</link>
+<guid isPermaLink="false">bazuh</guid>
+<pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I have considered switching from MathJax to KaTeX for my
+  MathJax-based projects such
+  as <a href="https://github.com/susam/texme">TeXMe</a>
+  and <a href="https://github.com/susam/mathb">MathB</a> but I had to
+  decide against doing so because MathJax supports commands
+  like <code>\label</code>, <code>\eqref</code>, <code>\notag</code>,
+  etc. and environments like <code>align</code>,
+  <code>multiline</code>, etc.  KaTeX does not support them, so
+  switching to KaTeX would break many existing documents written using
+  TeXMe or MathBin.  I am going to stick with MathJax for now.
+</p>
+<p>
+  Here are some useful resources:
+</p>
+<ul>
+  <li>
+    <a href="http://docs.mathjax.org/en/latest/input/tex/macros/">MathJax: Supported TeX/LaTeX commands</a>
+  </li>
+  <li>
+    <a href="https://katex.org/docs/supported.html">KaTeX: Supported Functions</a>
+  </li>
+</ul>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/sticking-with-mathjax.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>QuickQWERTY</title>
+<link>https://susam.net/quickqwerty.html</link>
+<guid isPermaLink="false">zlnzx</guid>
+<pubDate>Tue, 12 May 2015 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Touch typing tutor that runs in your web browser.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/quickqwerty.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>QuickQWERTY 1.0.0</title>
+<link>https://susam.net/code/news/quickqwerty/1.0.0.html</link>
+<guid isPermaLink="false">qqozz</guid>
+<pubDate>Tue, 12 May 2015 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Version 1.0.0 of QuickQWERTY is now available.  This is the first
+  release of this touch typing tutor on GitHub.  With this release,
+  source code and release management has been moved from SVN and
+  SourceForge to Git and GitHub.  You can now run QuickQWERTY
+  here: <a href="../../../quickqwerty.html">quickqwerty.html</a>.
+</p>
+<p>
+  Apart from changes in source code and release management, this
+  release introduces input commands like <code>restart</code>
+  and <code>rst</code> to quickly restart the current lesson.
+  Further, in this release, the licence was changed from the GNU
+  General Public Licence, version 3 to the Simplified BSD Licence
+  (BSD-2-Clause).
+</p>
+<p>
+  With these updates, QuickQWERTY reaches its first major release.
+  The source code of QuickQWERTY is now available on GitHub
+  at <a href="https://github.com/susam/quickqwerty">github.com/susam/quickqwerty</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/quickqwerty/1.0.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>MathB 0.1.0</title>
+<link>https://susam.net/code/news/mathb/0.1.0.html</link>
+<guid isPermaLink="false">pskny</guid>
+<pubDate>Mon, 02 Dec 2013 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  MathB is a web-based mathematics pastebin service.  It was developed
+  on Sunday, 25 March 2022, as a weekend project to share mathematical
+  notes with friends.  After more than one and a half years of
+  development and tweaks, this is the first stable release of the
+  software.  To read more about this project, please
+  see <a href="http://github.com/susam/mathb">github.com/susam/mathb</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/mathb/0.1.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/release.html">#release</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>QuickQWERTY 0.4.0</title>
+<link>https://susam.net/code/news/quickqwerty/0.4.0.html</link>
+<guid isPermaLink="false">qqzfz</guid>
+<pubDate>Sun, 23 May 2010 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Version 0.4.0 of QuickQWERTY is now available.  This release marks
+  the final version hosted on SourceForge.
+</p>
+<p>
+  Several issues have been addressed in this update.  Lessons now
+  avoid using characters that have not yet been introduced and a
+  problem that caused the lessons bar to shrink in Google Chrome has
+  been fixed.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/quickqwerty/0.4.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>QuickQWERTY 0.3.0</title>
+<link>https://susam.net/code/news/quickqwerty/0.3.0.html</link>
+<guid isPermaLink="false">qqzth</guid>
+<pubDate>Sun, 09 May 2010 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Version 0.3.0 of QuickQWERTY is now available.  This release adds
+  support for both 5-6 split and 6-7 split typing styles.  With this
+  addition, learners can choose where the number keys split between
+  the two hands that best matches their preference or training
+  requirements.
+</p>
+
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/quickqwerty/0.3.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>QuickQWERTY 0.2.0</title>
+<link>https://susam.net/code/news/quickqwerty/0.2.0.html</link>
+<guid isPermaLink="false">qqztz</guid>
+<pubDate>Sun, 07 Mar 2010 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Version 0.2.0 of QuickQWERTY is now available.  The number row has
+  been adjusted so that keys <code>1</code> to
+  <code>5</code> are now typed with the left hand and keys
+  <code>6</code> to <code>0</code> with the right hand.  In addition,
+  the minimum speed requirement for moving to the next lesson has been
+  removed, giving learners greater flexibility in their practice.
+</p>
+<p>
+  These changes make QuickQWERTY more consistent with standard typing
+  conventions and more adaptable to different learning speeds.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/quickqwerty/0.2.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>QuickQWERTY 0.1.0</title>
+<link>https://susam.net/code/news/quickqwerty/0.1.0.html</link>
+<guid isPermaLink="false">qqzoz</guid>
+<pubDate>Sat, 09 May 2009 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Version 0.1.0 of QuickQWERTY, a touch typing tutor that runs in the
+  web browser, is now available.  This is the first release with the
+  complete set of 21 units with a total of 101 lessons.
+</p>
+<p>
+  The lesson progression has also been improved.  A new lesson is now
+  suggested only when the current one is completed at a speed of at
+  least 50 characters per minute.
+</p>
+<p>
+  This release is available under the terms of the GNU General Public
+  Licence, version 3.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/quickqwerty/0.1.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>QuickQWERTY 0.0.6</title>
+<link>https://susam.net/code/news/quickqwerty/0.0.6.html</link>
+<guid isPermaLink="false">qqzzs</guid>
+<pubDate>Sun, 21 Dec 2008 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Version 0.0.6 of QuickQWERTY, a touch typing tutor that runs in the
+  web browser, is now available.  This update focuses on improving
+  compatibility with Internet Explorer.
+</p>
+<p>
+  In this release, trailing commas were removed from
+  <code>db.js</code>, as they caused errors in Internet Explorer 6 and
+  7.  An issue was also fixed that led to an extra unit appearing in
+  the unit list when the tutor was used in Internet Explorer.
+</p>
+<p>
+  With these fixes, QuickQWERTY should now run more smoothly across
+  different browsers.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/quickqwerty/0.0.6.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>QuickQWERTY 0.0.5</title>
+<link>https://susam.net/code/news/quickqwerty/0.0.5.html</link>
+<guid isPermaLink="false">qqzzf</guid>
+<pubDate>Sat, 22 Nov 2008 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  An initial draft of QuickQWERTY, a touch typing tutor that runs in
+  the web browser, is now available on SourceForge at
+  <a href="https://sourceforge.net/projects/quickqwerty/">sourceforge.net/projects/quickqwerty/</a>.
+  This release includes 15 units with a total of 73 typing lessons
+  designed for QWERTY keyboards.
+</p>
+<p>
+  This draft is version 0.5.0 of the tutor.  As the version number
+  suggests, it is the fifth revision of the software.  The first four
+  were internal releases shared only with friends, who tested the
+  software for several months.  Their feedback helped uncover and fix
+  a number of issues.  Version 0.5.0 marks the first public release of
+  QuickQWERTY.
+</p>
+<p>
+  Over the coming months, I plan to expand the software with
+  additional typing lessons.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/quickqwerty/0.0.5.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a>
+</p>
+]]>
+</description>
+</item>
+
+
+</channel>
+</rss>

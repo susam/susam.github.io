@@ -1,0 +1,2034 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's C Pages</title>
+<link>https://susam.net/tag/c.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/c-full.xml"/>
+<description>Feed for Susam's C Pages</description>
+
+<item>
+<title>Pointers in K&amp;R</title>
+<link>https://susam.net/pointers-in-knr.html</link>
+<guid isPermaLink="false">iwasp</guid>
+<pubDate>Sat, 05 Sep 2020 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I learnt C from the book <em>The C Programming Language, 2nd
+  ed.</em> (K&amp;R) written by Brian Kernighan and Dennis Ritchie
+  about 18 years ago during my engineering studies.  The subject of
+  pointers was generally believed to be scary among fellow students
+  and many of them bought pretty fat books that were dedicated solely
+  to the topic of pointers.  However, when I reached Chapter 5 of the
+  book , I found that it did a wonderful job at teaching pointers in
+  merely 34 pages.  The chapter opens with this sentence:
+</p>
+<blockquote>
+  A pointer is a variable that contains the address of a variable.
+</blockquote>
+<p>
+  The exact point at which the whole topic of pointers became crystal
+  clear was when I encountered this sentence in &sect; 5.3 Pointers
+  and Arrays:
+</p>
+<blockquote>
+  Rather more surprising, at first sight, is the fact that a reference
+  to <code>a[i]</code> can also be written as <code>*(a+i)</code>.
+</blockquote>
+<p>
+  Indeed, it was easy to confirm that by compiling and running the
+  following program:
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a[] = {2, 3, 5, 7, 11};
+    printf("%d\n", *(a + 2));
+    printf("%d\n", a[2]);
+    printf("%d\n", 2[a]);
+    return 0;
+}</code>
+</pre>
+<p>
+  The output is:
+</p>
+<pre>
+<samp>5
+5
+5</samp>
+</pre>
+<p>
+  C was the first serious programming language I was learning back
+  then and at that time, I don't think I could have come across a
+  better book than K&amp;R to learn this subject.  Like many others, I
+  too feel that this book is a model for technical writing.  I wish
+  more technical books were written like this with clear presentation
+  and concise treatment.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/pointers-in-knr.html">Read on website</a> |
+  <a href="https://susam.net/tag/c.html">#c</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/book.html">#book</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Leap Year Test in K&amp;R</title>
+<link>https://susam.net/leap-year-test-in-knr.html</link>
+<guid isPermaLink="false">tzjpk</guid>
+<pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  About 18 years ago, while learning to program a computer using C, I
+  learnt the following test for leap year from the book <em>The C
+  Programming Language, 2nd ed.</em> (K&amp;R) written by Brian
+  Kernighan and Dennis Ritchie.  Section 2.5 (Arithmetic Operators) of
+  the book uses the following test:
+</p>
+<pre>
+<code>(year % 4 == 0 &amp;&amp; year % 100 != 0) || year % 400 == 0</code>
+</pre>
+<p>
+  It came as a surprise to me.  Prior to reading this, I did not know
+  that centurial years are not leap years except for those centurial
+  years that are also divisible by 400.  Until then, I always
+  incorrectly thought that all years divisible by 4 are leap years.  I
+  have witnessed only one centurial year, namely the year 2000, which
+  happens to be divisible by 400.  As a result, the year 2000 proved
+  to be a leap year and my misconception remained unchallenged for
+  another few years until I finally came across the above test in
+  K&amp;R.
+</p>
+<p>
+  Now that I understand that centurial years are not leap years unless
+  divisible by 400, it is easy to confirm this with the
+  Unix <code>cal</code> command.  Enter <code>cal 1800</code>
+  or <code>cal 1900</code> and we see calendars of non-leap years.
+  But enter <code>cal 2000</code> and we see the calendar of a leap
+  year.
+</p>
+<p>
+  By the way, the following leap year test is equally effective:
+</p>
+<pre>
+<code>year % 4 == 0 &amp;&amp; (year % 100 != 0 || year % 400 == 0)</code>
+</pre>
+<hr>
+<p>
+  <strong>Update:</strong> In the
+  <a href="comments/leap-year-test-in-knr.html">comments section</a>,
+  Thaumasiotes explains why both tests work.  Let me take the liberty
+  of elaborating that comment further with a truth table.  We use the
+  notation <code>A</code>, <code>B</code> and <code>C</code>
+  respectively, for the three comparisons in the above expressions.
+  Then the two tests above can be expressed as the following boolean
+  expressions:
+</p>
+<ul>
+  <li><code>(A &amp;&amp; B) || C</code></li>
+  <li><code>A &amp;&amp; (B || C)</code></li>
+</ul>
+<p>
+  Now normally these two boolean expressions are not equivalent.  The
+  truth table below shows this:
+</p>
+<table class="grid center textcenter">
+  <tr>
+    <th><code>A</code></th>
+    <th><code>B</code></th>
+    <th><code>C</code></th>
+    <th><code>(A &amp;&amp; B) || C</code></th>
+    <th><code>A &amp;&amp; (B || C)</code></th>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>F</td>
+    <td>F</td>
+    <td>F</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>F</td>
+    <td>T</td>
+    <td>T</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>T</td>
+    <td>F</td>
+    <td>F</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td>T</td>
+    <td>T</td>
+    <td>T</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>F</td>
+    <td>F</td>
+    <td>F</td>
+    <td>F</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>F</td>
+    <td>T</td>
+    <td>T</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>T</td>
+    <td>F</td>
+    <td>T</td>
+    <td>T</td>
+  </tr>
+  <tr>
+    <td>T</td>
+    <td>T</td>
+    <td>T</td>
+    <td>T</td>
+    <td>T</td>
+  </tr>
+</table>
+<p>
+  We see that there are two cases where the last two columns differ.
+  This confirms that the two boolean expressions are not equivalent.
+  The two cases where the boolean expressions yield different results
+  occur when <code>A</code> is false and <code>C</code> is true.  But
+  these cases are impossible!  If <code>A</code> is false
+  and <code>C</code> is true, it means we have <code>year % 4 !=
+  0</code> and <code>year % 400 == 0</code> which is impossible.
+</p>
+<p>
+  If <code>year % 400 == 0</code> is true, then <code>year % 4 ==
+  0</code> must also hold true.  In other words, if <code>C</code> is
+  true, <code>A</code> must also be true.  Therefore, the two cases
+  where the last two columns differ cannot occur and may be ignored.
+  The last two columns are equal in all other cases and that is why
+  the two tests we have are equivalent.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/leap-year-test-in-knr.html">Read on website</a> |
+  <a href="https://susam.net/tag/c.html">#c</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/book.html">#book</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>C Standard Terms for Behaviour</title>
+<link>https://susam.net/c-standard-terms-for-behaviour.html</link>
+<guid isPermaLink="false">dfqke</guid>
+<pubDate>Thu, 31 May 2018 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Here are some excerpts from the final drafts of the C99 and C11
+  standards <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf">n1256.pdf</a>
+  and <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf">n1570.pdf</a>
+  respectively.
+</p>
+<ul>
+  <li>
+    <p>
+      <strong>§3.4.0: behavior:</strong> external appearance or action
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>§3.4.1: implementation-defined behavior:</strong>
+      unspecified behavior where each implementation documents how the
+      choice is made.
+    </p>
+    <p>
+      EXAMPLE: An example of implementation-defined behavior is the
+      propagation of the high-order bit when a signed integer is
+      shifted right.
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>§3.4.2: locale-specific behavior:</strong> behavior that
+      depends on local conventions of nationality, culture, and
+      language that each implementation documents.
+    </p>
+    <p>
+      EXAMPLE: An example of locale-specific behavior is whether the
+      <code>islower</code> function returns true for characters other
+      than the 26 lowercase Latin letters.
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>§3.4.3: undefined behavior:</strong> behavior, upon use
+      of a nonportable or erroneous program construct or of erroneous
+      data, for which this International Standard imposes no
+      requirements.
+    </p>
+    <p>
+      NOTE: Possible undefined behavior ranges from ignoring the
+      situation completely with unpredictable results, to behaving
+      during translation or program execution in a documented manner
+      characteristic of the environment (with or without the issuance
+      of a diagnostic message), to terminating a translation or
+      execution (with the issuance of a diagnostic message).
+    </p>
+    <p>
+      EXAMPLE: An example of undefined behavior is the behavior on
+      integer overflow.
+    </p>
+  </li>
+  <li>
+    <p>
+      <strong>§3.4.4: unspecified behavior:</strong> use of an
+      unspecified value, or other behavior where this International
+      Standard provides two or more possibilities and imposes no
+      further requirements on which is chosen in any instance.
+    </p>
+    <p>
+      EXAMPLE: An example of unspecified behavior is the order in
+      which the arguments to a function are evaluated.
+    </p>
+  </li>
+</ul>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/c-standard-terms-for-behaviour.html">Read on website</a> |
+  <a href="https://susam.net/tag/c.html">#c</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Loopy C Puzzle</title>
+<link>https://susam.net/loopy-c-puzzle.html</link>
+<guid isPermaLink="false">yuzqb</guid>
+<pubDate>Sat, 01 Oct 2011 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h2 id="integer-underflow">Integer Underflow<a href="#integer-underflow"></a></h2>
+<p>
+  Let us talk a little bit about integer underflow and undefined
+  behaviour in C before we discuss the puzzle I want to share in this
+  post.
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i;
+    for (i = 0; i &lt; 6; i--) {
+        printf(".");
+    }
+    return 0;
+}</code>
+</pre>
+<p>
+  This code invokes undefined behaviour.  The value in variable
+  <code>i</code> decrements to <code>INT_MIN</code> after
+  <code>|INT_MIN|</code> iterations.  In the next iteration, there is a
+  negative overflow which is undefined for signed integers in C.  On
+  many implementations though, <code>INT_MIN - 1</code> wraps around
+  to <code>INT_MAX</code>.  Since <code>INT_MAX</code> is not less than
+  <code>6</code>, the loop terminates.  With such implementations, this
+  code prints print <code>|INT_MIN| + 1</code> dots.  With 32-bit integers,
+  that amounts to 2147483649 dots.  Here is one such example output:
+</p>
+<pre>
+<samp>$ <kbd>gcc -std=c89 -Wall -Wextra -pedantic foo.c &amp;&amp; ./a.out | wc -c</kbd>
+2147483649</samp>
+</pre>
+<p>
+  It is worth noting that the above behaviour is only one of the many
+  possible ones.  The code invokes undefined behaviour and the ISO
+  standard imposes no requirements on a specific implementation of the
+  compiler regarding what the behaviour of such code should be.  For
+  example, an implementation could also exploit the undefined
+  behaviour to turn the loop into an infinite loop.  In fact, GCC does
+  optimise it to an infinite loop if we compile the code with
+  the <code>-O2</code> option.
+</p>
+<pre>
+<samp><kbd># This never terminates!</kbd>
+$ <kbd>gcc -O2 -std=c89 -Wall -Wextra -pedantic foo.c &amp;&amp; ./a.out</kbd></samp>
+</pre>
+<h2 id="puzzle">Puzzle<a href="#puzzle"></a></h2>
+<p>
+  Let us take a look at the puzzle now.
+</p>
+<div class="highlight">
+<p>
+  Add or modify exactly one operator in the following code such that
+  it prints exactly 6 dots.
+</p>
+<pre>
+<code>for (i = 0; i &lt; 6; i--) {
+    printf(".");
+}</code>
+</pre>
+</div>
+<p>
+  An obvious solution is to change <code>i--</code>
+  to <code>i++</code>.
+</p>
+<pre>
+<code>for (i = 0; i &lt; 6; i++) {
+    printf(".");
+}</code>
+</pre>
+<p>
+  There are a few more solutions to this puzzle.  One of the solutions
+  is very interesting.  We will discuss the interesting solution in
+  detail below.
+</p>
+<h2 id="solutions">Solutions<a href="#solutions"></a></h2>
+<p>
+  <em><strong>Update on 02 Oct 2011:</strong> The puzzle has been
+  solved in the <a href="comments/loopy-c-puzzle.html">comments</a>
+  section.  We will discuss the solutions now.  If you want to think
+  about the problem before you see the solutions, this is a good time
+  to pause and think about it.  There are spoilers ahead.</em>
+</p>
+<p>
+  Here is a list of some solutions:
+</p>
+<ul>
+  <li>
+    <code>for (i = 0; i &lt; 6; i++)</code>
+  </li>
+  <li>
+    <code>for (i = 0; i &lt; 6; ++i)</code>
+  </li>
+  <li>
+    <code>for (i = 0; -i &lt; 6; i--)</code>
+  </li>
+  <li>
+    <code>for (i = 0; i + 6; i--)</code>
+  </li>
+  <li>
+    <code>for (i = 0; i ^= 6; i--)</code>
+  </li>
+</ul>
+<p>
+  The last solution involving the bitwise XOR operation is not
+  immediately obvious.  A little analysis is required to understand
+  why it works.
+</p>
+<h2 id="generalisation">Generalisation<a href="#generalisation"></a></h2>
+<p>
+  Let us generalise the puzzle by replacing \( 6 \) in the loop with
+  an arbitrary positive integer \( n.  \)  The loop in the last
+  solution now becomes:
+</p>
+<pre>
+<code>for (i = 0; i ^= n; i--) {
+    printf(".");
+}</code>
+</pre>
+<p>
+  If we denote the value of the variable <code>i</code> set by the
+  execution of <code>i ^= n</code> after \( k \) dots are printed as
+  \( f(k), \) then
+
+  \[
+    f(k) =
+      \begin{cases}
+        0                       &amp; \text{if } k = 0, \\
+        n \oplus (f(k - 1) - 1) &amp; \text{if } k \gt 1
+      \end{cases}
+  \]
+
+  where \( k \) is a nonnegative integer, \( n \) is a positive
+  integer and the symbol \( \oplus \) denotes bitwise XOR operation on
+  two nonnegative integers.
+</p>
+<p>
+  Note that \( f(0) \) represents the value of <code>i</code> set by
+  the execution of <code>i ^= n</code> when no dots have been printed
+  yet.
+</p>
+<p>
+  If we can show that \( n \) is the least value of \( k \) for which
+  \( f(k) = 0, \) it would prove that the loop terminates after
+  printing \( n \) dots.
+</p>
+<p>
+  We will see in the next section that for odd values of \( n, \)
+
+  \[
+    f(k) =
+      \begin{cases}
+        n &amp; \text{if } k \text{ is even}, \\
+        1 &amp; \text{if } k \text{ is odd}.
+      \end{cases}
+  \]
+
+  Therefore there is no value of \( k \) for which \( f(k) = 0 \) when
+  \( n \) is odd.  As a result, the loop never terminates when \( n \)
+  is odd.
+</p>
+<p>
+  We will then see that for even values of \( n \) and \( 0 \leq k
+  \leq n, \)
+
+  \[
+    f(k) = 0 \iff k = n.
+  \]
+
+  Therefore the loop terminates after printing \( n \) dots when
+  \( n \) is even.
+</p>
+<h2 id="lemmas">Lemmas<a href="#lemmas"></a></h2>
+<p>
+  We will first prove a few lemmas about some interesting properties
+  of the bitwise XOR operation.  We will then use it to prove the
+  claims made in the previous section.
+</p>
+<!-- Lemma 1 -->
+<p>
+<strong>Lemma 1.</strong>
+<em>
+  For an odd positive integer \( n, \)
+
+  \[
+    n \oplus (n - 1) = 1
+  \]
+
+  where the symbol \( \oplus \) denotes bitwise XOR operation on two
+  nonnegative integers.
+</em>
+</p>
+<p>
+  <em>Proof.</em>  Let the binary representation of \( n \) be \( b_m
+  \dots b_1 b_0 \) where \( m \) is a nonnegative integer and
+  \( b_m \) represents the most significant nonzero bit of \( n.  \)
+  Since \( n \) is an odd number, \( b_0 = 1.  \)
+
+  Thus \( n \) may be written as
+
+  \[
+    b_m \dots b_1 1.
+  \]
+
+  As a result \( n - 1 \) may be written as
+
+  \[
+    b_m \dots b_1 0.
+  \]
+
+  The bitwise XOR of both binary representations is \( 1.  \)
+</p>
+<!-- Lemma 2 -->
+<p>
+  <strong>Lemma 2.</strong>
+  <em>
+    For a nonnegative integer \( n, \)
+
+    \[
+      n \oplus 1 =
+      \begin{cases}
+      n + 1 &amp; \text{if } n \text{ is even}, \\
+      n - 1 &amp; \text{if } n \text{ is odd}.
+      \end{cases}
+    \]
+
+    where the symbol \( \oplus \) denotes bitwise XOR operation on two
+    nonnegative integers.
+  </em>
+</p>
+<p>
+  <em>Proof.</em>  Let the binary representation of \( n \) be \( b_m
+  \dots b_1 b_0 \) where \( m \) is a nonnegative integer and
+  \( b_m \) represents the most significant nonzero bit of \( n.  \)
+</p>
+<p>
+  If \( n \) is even, \( b_0 = 0.  \)  In this case, \( n \) may be
+  written as \( b_m \dots b_1 0.  \)  Thus \( n \oplus 1 \) may be
+  written as \( b_m \dots b_1 1.  \)  Therefore \( n \oplus 1 = n + 1.  \)
+</p>
+<p>
+  If \( n \) is odd, \( b_0 = 1.  \)  In this case, \( n \) may be
+  written as \( b_m \dots b_1 1.  \)  Thus \( n \oplus 1 \) may be
+  written as \( b_m \dots b_1 0.  \)  Therefore \( n \oplus 1 = n - 1.  \)
+</p>
+<p>
+  Note that for odd \( n, \) lemma 1 can also be derived as a
+  corollary of lemma 2 in this manner:
+
+  \[
+    k \oplus (k - 1)
+    = k \oplus (k \oplus 1)
+    = (k \oplus k) \oplus 1
+    = 0 \oplus 1
+    = 1.
+  \]
+</p>
+<!-- Lemma 3 -->
+<p>
+  <strong>Lemma 3.</strong>
+  <em>
+    If \( x \) is an even nonnegative integer and \( y \) is an odd
+    positive integer, then \( x \oplus y \) is odd, where the symbol
+    \( \oplus \) denotes bitwise XOR operation on two nonnegative
+    integers.
+  </em>
+</p>
+<p>
+  <em>Proof.</em>  Let the binary representation of \( x \) be \(
+  b_{xm_x} \dots b_{x1} b_{x0} \) and that of \( y \) be \( b_{ym_y}
+  \dots b_{y1} b_{y0} \) where \( m_x \) and \( m_y \) are nonnegative
+  integers and \( b_{xm_x} \) and \( b_{xm_y} \) represent the most
+  significant nonzero bits of \( x \) and \( y \) respectively.
+</p>
+<p>
+  Since \( x \) is even, \( b_{x0} = 0.  \)  Since \( y \) is odd, \(
+  b_{y0} = 1.  \)
+</p>
+<p>
+  Let \( z = x \oplus y \) with a binary representation of \( b_{zm_z}
+  \dots b_{z1} b_{z0} \) where \( m_{zm_z} \) is a nonnegative integer
+  and \( b_{zm_z} \) is the most significant nonzero bit of \( z.  \)
+</p>
+<p>
+  We get \( b_{z0} = b_{x0} \oplus b_{y0} = 0 \oplus 1 = 1.  \)
+  Therefore \( z \) is odd.
+</p>
+<h2 id="theorems">Theorems<a href="#theorems"></a></h2>
+<!-- Theorem 1 -->
+<p>
+<strong>Theorem 1.</strong>
+<em>
+  Let \( \oplus \) denote bitwise XOR operation on two nonnegative
+  integers and
+
+  \[
+    f(k) =
+    \begin{cases}
+    n                        &amp; \text{if } n = 0, \\
+    n \oplus (f(n - 1) - 1)  &amp; \text{if } n \gt 1.
+    \end{cases}
+  \]
+
+  where \( k \) is a nonnegative integer and \( n \) is an odd
+  positive integer.  Then
+
+  \[
+    f(k) =
+    \begin{cases}
+    n &amp; \text{if } k \text{ is even}, \\
+    1 &amp; \text{if } k \text{ is odd}.
+    \end{cases}
+  \]
+</em>
+</p>
+<p>
+  <em>Proof.</em>  This is a proof by mathematical induction.  We have
+  \( f(0) = n \) by definition.  Therefore the base case holds good.
+</p>
+<p>
+  Let us assume that \( f(k) = n \) for any even \( k \) (induction
+  hypothesis).  Let \( k' = k + 1 \) and \( k'' = k + 2.  \)
+</p>
+<p>
+  If \( k \) is even, we get
+
+  \begin{align*}
+    f(k')  &amp; = n \oplus (f(k) - 1)  &amp;&amp; \text{(by definition)} \\
+           &amp; = n \oplus (n - 1)     &amp;&amp; \text{(by induction hypothesis)} \\
+           &amp; = 1                    &amp;&amp; \text{(by lemma 1)},\\
+    f(k'') &amp; = n \oplus (f(k') - 1) &amp;&amp; \text{(by definition)} \\
+           &amp; = n \oplus (1 - 1)     &amp;&amp; \text{(since \( f(k') = 1 \))} \\
+           &amp; = n \oplus 0 \\
+           &amp; = n.
+  \end{align*}
+</p>
+<p>
+  Since \( f(k'') = n \) and \( k'' \) is the next even number after
+  \( k, \) the induction step is complete.  The induction step shows
+  that for every even \( k, \) \( f(k) = n \) holds good.  It also
+  shows that as a result of \( f(k) = n \) for every even \( k, \) we
+  get \( f(k') = 1 \) for every odd \( k'.  \)
+</p>
+<!-- Theorem 2 -->
+<p>
+  <strong>Theorem 2.</strong>
+  <em>
+    Let \( \oplus \) denote bitwise XOR operation on two nonnegative
+    integers and
+
+    \[
+      f(k) =
+        \begin{cases}
+          n                        &amp; \text{if } n = 0, \\
+          n \oplus (f(n - 1) - 1)  &amp; \text{if } n \gt 1.
+        \end{cases}
+    \]
+
+    where \( k \) is a nonnegative integer, \( n \) is an even
+    positive integer and \( 0 \leq k \leq n.  \)  Then
+
+   \[
+     f(k) = 0 \iff k = n.
+   \]
+</em>
+</p>
+<p>
+  <em>Proof.</em>  We will first show by the principle of mathematical
+  induction that for even \( k, \) \( f(k) = n - k.  \)  We have \(
+  f(0) = n \) by definition, so the base case holds good.  Now let us
+  assume that \( f(k) = n - k \) holds good for any even \( k \) where
+  \( 0 \leq k \leq n \) (induction hypothesis).
+</p>
+<p>
+  Since \( n \) is even (by definition) and \( k \) is even (by
+  induction hypothesis), \( f(k) = n - k \) is even.  As a result, \(
+  f(k) - 1 \) is odd.  By lemma 3, we conclude that \( f(k + 1) = n
+  \oplus (f(k) - 1) \) is odd.
+</p>
+<p>
+  Now we perform the induction step as follows:
+
+  \begin{align*}
+    f(k + 2) &amp; = n \oplus (f(k + 1) - 1)
+                     &amp;&amp; \text{(by definition)} \\
+             &amp; = n \oplus (f(k + 1) \oplus 1)
+                     &amp;&amp; \text{(by lemma 2 for odd \( n \))} \\
+             &amp; = n \oplus ((n \oplus (f(k) - 1)) \oplus 1)
+                     &amp;&amp; \text{(by definition)} \\
+             &amp; = (n \oplus n ) \oplus ((f(k) - 1) \oplus 1)
+                     &amp;&amp; \text{(by associativity of XOR)} \\
+             &amp; = 0 \oplus ((f(k) - 1) \oplus 1) \\
+             &amp; = (f(k) - 1) \oplus 1 \\
+             &amp; = (f(k) - 1) - 1
+                     &amp;&amp; \text{(from lemma 2 for odd \( n \))} \\
+             &amp; = f(k) - 2 \\
+             &amp; = n - k - 2
+                     &amp;&amp; \text{(by induction hypothesis).}
+  \end{align*}
+
+  This completes the induction step and proves that \( f(k) = n - k \)
+  for even \( k \) where \( 0 \leq k \leq n.  \)
+</p>
+<p>
+  We have shown above that \( f(k) \) is even for every even \( k \)
+  where \( 0 \leq k \leq n \) which results in \( f(k + 1) \) as odd
+  for every odd \( k + 1.  \)  This means that \( f(k) \) cannot be \(
+  0 \) for any odd \( k.  \)  Therefore \( f(k) = 0 \) is possible only
+  even \( k.  \)  Solving \( f(k) = n - k = 0, \) we conclude that \(
+  f(k) = 0 \) if and only if \( k = n.  \)
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/loopy-c-puzzle.html">Read on website</a> |
+  <a href="https://susam.net/tag/c.html">#c</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>URL in C</title>
+<link>https://susam.net/url-in-c.html</link>
+<guid isPermaLink="false">vnjtr</guid>
+<pubDate>Fri, 03 Jun 2011 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Here is a silly little C puzzle:
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    https://susam.net/
+    printf("hello, world\n");
+    return 0;
+}</code>
+</pre>
+<p>
+  This code compiles and runs successfully.
+</p>
+<pre>
+<samp>$ <kbd>c99 hello.c &amp;&amp; ./a.out</kbd>
+hello, world</samp>
+</pre>
+<p>
+  However, the
+  <a href="http://www.open-std.org/JTC1/SC22/WG14/www/docs/n1256.pdf">C99
+  standard draft</a> does not mention anywhere that a URL is a valid
+  syntactic element in C.  How does this code work then?
+</p>
+<p>
+  <em><strong>Update on 04 Jun 2011:</strong> The puzzle has been
+  solved in the <a href="comments/url-in-c.html">comments</a> section.
+  If you want to think about the problem before you see the solutions,
+  this is a good time to pause and think about it.  There are spoilers
+  ahead.</em>
+</p>
+<p>
+  The code works fine because <code>https:</code> is a label and
+  <code>//</code> following it begins a comment.  In case, you are
+  wondering if <code>//</code> is indeed a valid comment in C, yes, it
+  is, since C99.  Download the
+  <a href="http://www.open-std.org/JTC1/SC22/WG14/www/docs/n1256.pdf">C99
+  standard draft</a>, go to section 6.4.9 (Comments) and read the
+  second point which mentions this:
+</p>
+<blockquote>
+  Except within a character constant, a string literal, or a comment,
+  the characters <code>//</code> introduce a comment that includes all
+  multibyte characters up to, but not including, the next new-line
+  character.  The contents of such a comment are examined only to
+  identify multibyte characters and to find the terminating new-line
+  character.
+</blockquote>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/url-in-c.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/c.html">#c</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Ternary Operator Puzzle</title>
+<link>https://susam.net/ternary-operator-puzzle.html</link>
+<guid isPermaLink="false">kaibc</guid>
+<pubDate>Wed, 06 Apr 2011 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  What is the shortest statement you can write in the C or C++
+  programming language to express the following statement?
+</p>
+<pre><code>a = (a == 0 ? 0 : 1);</code></pre>
+<p>
+  See the comments page for the solution.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/ternary-operator-puzzle.html">Read on website</a> |
+  <a href="https://susam.net/tag/c.html">#c</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Clumsy Pointers</title>
+<link>https://susam.net/clumsy-pointers.html</link>
+<guid isPermaLink="false">kwnco</guid>
+<pubDate>Mon, 29 Nov 2010 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h2 id="pointer-declarator">Pointer Declarator<a href="#pointer-declarator"></a></h2>
+<p>
+  Here is a fun puzzle that involves complex type declarations in C:
+</p>
+<div class="highlight">
+  <p>
+    Without using <code>typedef</code>, declare <code>x</code> as a
+    pointer to a function that takes one argument which is an array of
+    10 pointers to functions which in turn take <code>int *</code> as
+    their only argument and returns a pointer to a function which
+    has <code>int *</code> argument and <code>void</code> return type.
+  </p>
+</div>
+<p>
+  Here is a simpler way to state this puzzle:
+</p>
+<div class="highlight">
+  <p>
+    Without using <code>typedef</code>, declare <code>x</code> as a
+    pointer that is equivalent to the following declaration
+    of <code>x</code>:
+  </p>
+<pre>
+<code>typedef void (*func_t)(int *);
+func_t (*x)(func_t [10]);</code>
+</pre>
+</div>
+<p>
+  <em>If you want to think about this puzzle, this is a good time to
+  pause and think about it.  There are spoilers ahead.</em>
+</p>
+<p>
+  Let me describe how I solve such problems.  Let us start from the
+  right end of the problem and work our way to the left end defining
+  each part one by one.
+</p>
+<div style="text-align: center">
+  <p>
+    <code>void x(int *)</code><br>
+    A function that has <code>int *</code> argument and
+    <code>void</code> return type.
+  </p>
+  <p>
+    <code>void (*x)(int *)</code><br>
+    A pointer to a function that has <code>int *</code> argument
+    and <code>void</code> return type.
+  </p>
+  <p>
+    <code>void (*x())(int *)</code><br>
+    A function that returns a pointer to a function that has <code>int
+    *</code> argument and <code>void</code> return type.
+  </p>
+  <p>
+    <code>void (*x(void (*)(int *)))(int *)</code><br>
+    A function that has a pointer to a function that has <code>int
+    *</code> argument and <code>void</code> return type as argument
+    and returns a pointer to a function which has <code>int *</code>
+    argument and <code>void</code> return type.
+  </p>
+  <p>
+    <code>void (*x(void (*[10])(int *)))(int *)</code><br>
+    A function that has an array of 10 pointers to functions that has
+    <code>int *</code> argument and <code>void</code> return type as
+    argument and returns a pointer to a function which has <code>int
+    *</code> argument and <code>void</code> return type.
+  </p>
+  <p>
+    <code>void (*(*x)(void (*[10])(int *)))(int *)</code><br>
+    A pointer to a function that has an array of 10 pointers to
+    functions that has <code>int *</code> argument and
+    <code>void</code> return type as argument and returns a pointer to
+    a function which has <code>int *</code> argument and
+    <code>void</code> return type.
+  </p>
+</div>
+<h2 id="example-code">Example Code<a href="#example-code"></a></h2>
+<p>
+  Here is an example that uses the above pointer declaration in a
+  program in order to verify that it works as expected:
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+/* A function which has int * argument and void return type.  */
+void g(int *a)
+{
+    printf("g(): a = %d\n", *a);
+}
+
+/* A function which has an array of 10 pointers to g()-like functions
+   and returns a pointer to a g()-like funciton.  */
+void (*f(void (*a[10])(int *)))(int *)
+{
+    int i;
+    for (i = 0; i &lt; 10; i++)
+        a[i](&amp;i);
+    return g;
+}
+
+int main()
+{
+    /* An array of 10 pointers to g().  */
+    void (*a[10])(int *) = {g, g, g, g, g, g, g, g, g, g};
+
+    /* A pointer to function f().  */
+    void (*(*x)(void (*[10])(int *)))(int *) = f;
+
+    /* A pointer to function g() returned by f().  */
+    void (*y)(int *a) = x(a);
+
+    int i = 10;
+    y(&amp;i);
+    return 0;
+}</code>
+</pre>
+<p>
+  Here is the output of this program:
+</p>
+<pre>
+<samp>$ gcc -Wall -Wextra -pedantic -std=c99 foo.c &amp;&amp; ./a.out
+g(): a = 0
+g(): a = 1
+g(): a = 2
+g(): a = 3
+g(): a = 4
+g(): a = 5
+g(): a = 6
+g(): a = 7
+g(): a = 8
+g(): a = 9
+g(): a = 10</samp>
+</pre>
+<h2 id="further-reading">Further Reading<a href="#further-reading"></a></h2>
+<p>
+  The book
+  <em><a href="https://en.wikipedia.org/wiki/The_C_Programming_Language_(book)">The
+  C Programming Language</a></em>, Second Edition has some good
+  examples of complicated declarations of pointers in Section 5.12
+  (Complicated Declarations).  Here are a couple of them:
+</p>
+<p>
+  <code>char (*(*x())[])()</code><br>
+  x: function returning pointer to array[] of pointer to function
+  returning char
+</p>
+<p>
+  <code>char (*(*x[3])())[5]</code><br>
+  x: array[3] of pointer to function returning pointer to array[5] of
+  char
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/clumsy-pointers.html">Read on website</a> |
+  <a href="https://susam.net/tag/c.html">#c</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Stack Overwriting Function</title>
+<link>https://susam.net/stack-overwriting-function.html</link>
+<guid isPermaLink="false">oijgw</guid>
+<pubDate>Wed, 28 Jul 2010 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h2 id="skipping-over-a-function-call">Skipping Over a Function Call<a href="#skipping-over-a-function-call"></a></h2>
+<p>
+  Here is a C puzzle that involves some analysis of the machine code
+  generated from it followed by manipulation of the runtime stack.
+  The solution to this puzzle is <em>implementation-dependent</em>.
+  Here is the puzzle:
+</p>
+<div class="highlight">
+<p>
+  Consider this C code:
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+void f()
+{
+}
+
+int main()
+{
+    printf("1\n");
+    f();
+    printf("2\n");
+    printf("3\n");
+    return 0;
+}</code>
+</pre>
+<p>
+  Define the function <code>f()</code> such that the output of the
+  above code is:
+</p>
+<pre>
+<samp>1
+3</samp>
+</pre>
+<p>
+  Printing <code>3</code> in <code>f()</code> and exiting is not
+  allowed as a solution.
+</p>
+</div>
+<p>
+  <em>If you want to think about this problem, this is a good time to
+  pause and think about it.  There are spoilers ahead.</em>
+</p>
+<p>
+  The solution essentially involves figuring out what code we can
+  place in the body of <code>f()</code> such that it causes the
+  program to skip over the machine code generated for
+  the <code>printf("2\n")</code> operation.  I'll share two solutions
+  for two different implementations:
+</p>
+<ol>
+  <li>
+    gcc 4.3.2 on 64-bit Debian 5.0.3 running on 64-bit Intel Core 2
+    Duo.
+  </li>
+  <li>
+    Microsoft Visual Studio 2005 on 32-bit Windows XP running on
+    64-bit Intel Core 2 Duo.
+  </li>
+</ol>
+<h2 id="solution-for-gcc">Solution for GCC<a href="#solution-for-gcc"></a></h2>
+<p>
+  Let us first see step by step how I approached this problem for GCC.
+  We add a statement <code>char a = 7;</code> to the function
+  <code>f()</code>.  The code looks like this:
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+void f()
+{
+    char a = 7;
+}
+
+int main()
+{
+    printf("1\n");
+    f();
+    printf("2\n");
+    printf("3\n");
+    return 0;
+}</code>
+</pre>
+<p>
+  There is nothing special about the number <code>7</code> here.  We
+  just want to define a variable in <code>f()</code> and assign some
+  value to it.
+</p>
+<p>
+  Then we compile the code and analyse the machine code generated for
+  <code>f()</code> and <code>main()</code> functions.
+</p>
+<pre>
+<samp>$ <kbd>gcc -c overwrite.c &amp;&amp; objdump -d overwrite.o</kbd>
+
+overwrite.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 &lt;f&gt;:
+   0:   55                      push   %rbp
+   1:   48 89 e5                mov    %rsp,%rbp
+   <span class="hl">4:   c6 45 ff 07             movb   $0x7,-0x1(%rbp)</span>
+   8:   c9                      leaveq
+   9:   c3                      retq
+
+000000000000000a &lt;main&gt;:
+   a:   55                      push   %rbp
+   b:   48 89 e5                mov    %rsp,%rbp
+   e:   bf 00 00 00 00          mov    $0x0,%edi
+  13:   e8 00 00 00 00          callq  18 &lt;main+0xe&gt;
+  18:   b8 00 00 00 00          mov    $0x0,%eax
+  1d:   e8 00 00 00 00          callq  22 &lt;main+0x18&gt;
+  <span class="hl">22:   bf 00 00 00 00          mov    $0x0,%edi
+  27:   e8 00 00 00 00          callq  2c &lt;main+0x22&gt;</span>
+  2c:   bf 00 00 00 00          mov    $0x0,%edi
+  31:   e8 00 00 00 00          callq  36 &lt;main+0x2c&gt;
+  36:   b8 00 00 00 00          mov    $0x0,%eax
+  3b:   c9                      leaveq
+  3c:   c3                      retq</samp>
+</pre>
+<p>
+  When <code>main()</code> calls <code>f()</code>, the microprocessor
+  saves the return address (where the control must return to after
+  <code>f()</code> is executed) in stack.  The line at offset
+  <samp>1d</samp> in the listing above for <code>main()</code> is the
+  call to <code>f()</code>.  After <code>f()</code> is executed, the
+  instruction at offset <samp>22</samp> is executed.  Therefore the
+  return address that is saved on stack is the address at which the
+  instruction at offset
+  <samp>22</samp> would be present at runtime.
+</p>
+<p>
+  The instructions at offsets <samp>22</samp> and <samp>27</samp> are
+  the instructions for the <code>printf("2\n")</code> call.  These are
+  the instructions we want to skip over.  In other words, we want to
+  modify the return address in the stack from the address of the
+  instruction at offset <samp>22</samp> to that of the instruction at
+  offset <samp>2c</samp>.  This is equivalent to skipping 10 bytes
+  (0x2c - 0x22 = 10) of machine code or adding 10 to the return
+  address saved in the stack.
+</p>
+<p>
+  Now how do we get hold of the return address saved in the stack when
+  <code>f()</code> is being executed?  This is where the variable
+  <code>a</code> we defined in <code>f()</code> helps.  The instruction
+  at offset <samp>4</samp> is the instruction generated for
+  assigning <code>7</code> to the variable <code>a</code>.
+</p>
+<p>
+  From the knowledge of how microprocessor works and from the machine
+  code generated for <code>f()</code>, we find that the following
+  sequence of steps are performed during the call to <code>f()</code>:
+</p>
+<ol>
+  <li>
+    The microprocessor saves the return address by pushing the content
+    of RIP (instruction pointer) register into the stack.
+  </li>
+  <li>
+    The function <code>f()</code> pushes the content of the RBP (base
+    pointer) register into the stack.
+  </li>
+  <li>
+    The function <code>f()</code> copies the content of the RSP (stack
+    pointer) register to the RBP register.
+  </li>
+  <li>
+    The function <code>f()</code> stores the byte value <code>7</code>
+    at the memory address specified by the content of RBP minus 1.
+    This achieves the assignment of the value <code>7</code> to the
+    variable <code>a</code>.
+  </li>
+</ol>
+<p>
+  After <code>7</code> is assigned to the variable <code>a</code>, the
+  stack is in the following state:
+</p>
+<table class="grid center textcenter">
+  <tr>
+    <th>Address</th>
+    <th>Content</th>
+    <th>Size (in bytes)</th>
+  </tr>
+  <tr>
+    <td><code>&amp;a + 5</code></td>
+    <td>Return address (old RIP)</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td><code>&amp;a + 1</code></td>
+    <td>Old base pointer (old RBP)</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td><code>&amp;a</code></td>
+    <td>Variable <code>a</code></td>
+    <td>1</td>
+  </tr>
+</table>
+<p>
+  If we add 9 to the address of the variable <code>a</code>, i.e.
+  <code>&amp;a</code>, we get the address where the return address is
+  stored.  We saw earlier that if we increment this return address by
+  10 bytes, it solves the problem.  Therefore here is the solution
+  code:
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+void f()
+{
+    char a;
+    (&amp;a)[9] += 10;
+}
+
+int main()
+{
+    printf("1\n");
+    f();
+    printf("2\n");
+    printf("3\n");
+    return 0;
+}</code>
+</pre>
+<p>
+  Finally, we compile and run this code and confirm that the solution
+  works fine:
+</p>
+<pre>
+<samp>$ <kbd>gcc overwrite.c &amp;&amp; ./a.out</kbd>
+1
+3</samp>
+</pre>
+<h2 id="solution-for-visual-studio">Solution for Visual Studio<a href="#solution-for-visual-studio"></a></h2>
+<p>
+  Now we will see another example solution, this time for Visual
+  Studio 2005.
+</p>
+<p>
+  Like before we define a variable <code>a</code> in <code>f()</code>.
+  The code now looks like this:
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+void f()
+{
+    char a = 7;
+}
+
+int main()
+{
+    printf("1\n");
+    f();
+    printf("2\n");
+    printf("3\n");
+    return 0;
+}</code>
+</pre>
+<p>
+  Then we compile the code and analyse the machine code generated from
+  it.
+</p>
+<pre>
+<samp>C:\&gt;<kbd>cl overwrite.c</kbd>
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.42
+for 80x86
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+overwrite.c
+Microsoft (R) Incremental Linker Version 8.00.50727.42
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:overwrite.exe
+overwrite.obj
+
+C:\&gt;<kbd>dumpbin /disasm overwrite.obj</kbd>
+Microsoft (R) COFF/PE Dumper Version 8.00.50727.42
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file overwrite.obj
+
+File Type: COFF OBJECT
+
+_f:
+  00000000: 55                 push        ebp
+  00000001: 8B EC              mov         ebp,esp
+  00000003: 51                 push        ecx
+  <span class="hl">00000004: C6 45 FF 07        mov         byte ptr [ebp-1],7</span>
+  00000008: 8B E5              mov         esp,ebp
+  0000000A: 5D                 pop         ebp
+  0000000B: C3                 ret
+  0000000C: CC                 int         3
+  0000000D: CC                 int         3
+  0000000E: CC                 int         3
+  0000000F: CC                 int         3
+_main:
+  00000010: 55                 push        ebp
+  00000011: 8B EC              mov         ebp,esp
+  00000013: 68 00 00 00 00     push        offset $SG2224
+  00000018: E8 00 00 00 00     call        _printf
+  0000001D: 83 C4 04           add         esp,4
+  00000020: E8 00 00 00 00     call        _f
+  <span class="hl">00000025: 68 00 00 00 00     push        offset $SG2225
+  0000002A: E8 00 00 00 00     call        _printf
+  0000002F: 83 C4 04           add         esp,4</span>
+  00000032: 68 00 00 00 00     push        offset $SG2226
+  00000037: E8 00 00 00 00     call        _printf
+  0000003C: 83 C4 04           add         esp,4
+  0000003F: 33 C0              xor         eax,eax
+  00000041: 5D                 pop         ebp
+  00000042: C3                 ret
+
+  Summary
+
+           B .data
+          57 .debug$S
+          2F .drectve
+          43 .text</samp>
+</pre>
+<p>
+  Just like in the previous <code>objdump</code> listing, in this
+  listing too, the instruction at offset <code>4</code> shows where
+  the variable <code>a</code> is allocated and the instructions at
+  offsets <code>25</code>, <code>2A</code> and <code>2F</code> show
+  the instructions we want to skip, i.e. instead of returning to the
+  instruction at offset <code>25</code>, we want the microprocessor to
+  return to the instruction at offset <code>32</code>.  This involves
+  skipping 13 bytes (0x32 - 0x25 = 13) of machine code.
+</p>
+<p>
+  Unlike the previous <code>objdump</code> listing, in this listing we
+  see that the Visual Studio I am using is a 32-bit on, so it
+  generates machine code to use 32-bit registers like EBP, ESP, etc.
+  Thus the stack looks like this after <code>7</code> is assigned to
+  the variable
+  <code>a</code>:
+</p>
+<table class="grid center textcenter">
+  <tr>
+    <th>Address</th>
+    <th>Content</th>
+    <th>Size (in bytes)</th>
+  </tr>
+  <tr>
+    <td><code>&amp;a + 5</code></td>
+    <td>Return address (old EIP)</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td><code>&amp;a + 1</code></td>
+    <td>Old base pointer (old EBP)</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td><code>&amp;a</code></td>
+    <td>Variable <code>a</code></td>
+    <td>1</td>
+  </tr>
+</table>
+<p>
+  If we add 5 to the address of the variable <code>a</code>, i.e.
+  <code>&amp;a</code>, we get the address where the return address is
+  stored.  Here is the solution code:
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+void f()
+{
+    char a;
+    (&amp;a)[5] += 13;
+}
+
+int main()
+{
+    printf("1\n");
+    f();
+    printf("2\n");
+    printf("3\n");
+    return 0;
+}</code>
+</pre>
+<p>
+  Finally, we compile and run this code and confirm that the solution
+  works fine:
+</p>
+<pre>
+<samp>C:\&gt;<kbd>cl /w overwrite.c</kbd>
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.42
+for 80x86
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+overwrite.c
+Microsoft (R) Incremental Linker Version 8.00.50727.42
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:overwrite.exe
+overwrite.obj
+
+C:\&gt;<kbd>overwrite.exe</kbd>
+1
+3</samp>
+</pre>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  The machine code that the compiler generates for a given C code is
+  highly dependent on the implementation of the compiler.  In the two
+  examples above, we have two different solutions for two different
+  compilers.
+</p>
+<p>
+  Even with the same brand of compiler, the way it generates machine
+  code for a given code may change from one version of the compiler to
+  another.  Therefore, it is very likely that the above solution would
+  not work on another system (such as your system) even if you use the
+  same compiler that I am using in the examples above.
+</p>
+<p>
+  However, we can arrive at the solution for an implementation of the
+  compiler by determining what number to add to <code>&amp;a</code> to
+  get the address where the return address is saved on stack and what
+  number to add to this return address to make it point to the
+  instruction we want to skip to after <code>f()</code> returns.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/stack-overwriting-function.html">Read on website</a> |
+  <a href="https://susam.net/tag/c.html">#c</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Big-Endian on Little-Endian</title>
+<link>https://susam.net/big-endian-on-little-endian.html</link>
+<guid isPermaLink="false">fclnd</guid>
+<pubDate>Sun, 20 Jun 2010 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  In this post, I will share how I set up big-endian emulation on my
+  little-endian Intel machine to tets a program for byte order related
+  issues.  I used the QEMU PowerPC emulator to set up the big-endian
+  emulation.  The steps to do so are documented in the list below.
+</p>
+<ol>
+  <li>
+    <p>
+      Install QEMU.
+    </p>
+    <pre><code>apt-get update &amp;&amp; apt-get install qemu</code></pre>
+  </li>
+  <li>
+    <p>
+      Download <code>mol-0.9.72.1.tar.bz2</code> from
+      <a href="http://sourceforge.net/projects/mac-on-linux/files/">http://sourceforge.net/projects/mac-on-linux/files/</a>
+      and copy the file named <code>video.x</code> from the downloaded
+      tarball to
+      <code>/usr/share/qemu/</code>.  This is necessary to
+      prevent <code>qemu-system-ppc</code> from complaining about it.
+    </p>
+    <pre>
+<code>wget https://sourceforge.net/projects/mac-on-linux/files/mac-on-linux/mol-0.9.72.1/mol-0.9.72.1.tar.bz2
+tar -xjf mol-0.9.72.1.tar.bz2
+sudo cp mol-0.9.72.1/mollib/drivers/video.x /usr/share/qemu/</code>
+</pre>
+  </li>
+  <li>
+    <p>
+      Create a QEMU hard disk image.
+    </p>
+    <pre><code>qemu-img create powerpc.img 2G</code></pre>
+  </li>
+  <li>
+    <p>
+      Download Debian for PowerPC and install it on the QEMU hard disk
+      image.
+    </p>
+    <pre>
+<code>wget http://cdimage.debian.org/debian-cd/5.0.4/powerpc/iso-cd/debian-504-powerpc-CD-1.iso
+qemu-system-ppc -m 512 -boot d -hda powerpc.img -cdrom debian-504-powerpc-CD-1.iso</code>
+</pre>
+  </li>
+  <li>
+    <p>
+      Boot the QEMU PowerPC emulator with the new hard disk image.
+    </p>
+    <pre><code>qemu-system-ppc -m 512 -hda powerpc.img</code></pre>
+  </li>
+  <li>
+    <p>
+      Write a small program inside the new Debian system,
+      say, <code>endian.c</code> like this:
+    </p>
+    <pre>
+<code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int n = 1;
+    printf(*((char *) &amp;n) ? "little-endian\n" : "big-endian\n");
+    return 0;
+}</code>
+</pre>
+  </li>
+  <li>
+    <p>
+      Compile and execute the C program.
+    </p>
+    <pre>
+<code>$ <kbd>gcc endian.c &amp;&amp; ./a.out</kbd>
+big-endian</code>
+</pre>
+  </li>
+</ol>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/big-endian-on-little-endian.html">Read on website</a> |
+  <a href="https://susam.net/tag/c.html">#c</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Sequence Points</title>
+<link>https://susam.net/sequence-points.html</link>
+<guid isPermaLink="false">moksh</guid>
+<pubDate>Wed, 26 May 2010 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h2 id="code-examples">Code Examples<a href="#code-examples"></a></h2>
+<p>
+  A particular type of question comes up often in C programming
+  forums.  Here is an example of such a question:
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i = 5;
+    printf("%d %d %d\n", i, i--, ++i);
+    return 0;
+}</code>
+</pre>
+<p>
+  The output is <code>5 6 5</code> when compiled with GCC and
+  <code>6 6 6</code> when compiled with the C compiler that comes with
+  Microsoft Visual Studio.  The versions of the compilers with which I
+  got these results are:
+</p>
+<ul>
+  <li>
+    gcc (Debian 4.3.2-1.1) 4.3.2
+  </li>
+  <li>
+    Microsoft Visual Studio 2005 32-Bit C/C++ Optimizing Compiler
+    Version 14.00.50727.42 for 80x86
+  </li>
+</ul>
+<p>
+  Here is another example of such a question:
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 5;
+    a += a++ + a++;
+    printf("%d\n", a);
+    return 0;
+}</code>
+</pre>
+<p>
+  In this case, I got the output <code>17</code> with both the
+  compilers.
+</p>
+<p>
+  The behaviour of such C programs is undefined.  Consider the
+  following two statements:
+</p>
+<ul>
+  <li><code>printf("%d %d %d\n", i, i--, ++i);</code></li>
+  <li><code>a += a++ + a++;</code></li>
+</ul>
+<p>
+  We will see below that in both the statements, the variable is
+  modified twice between two consecutive sequence points.  If the
+  value of a variable is modified more than once between two
+  consecutive sequence points, the behaviour is undefined.  Such code
+  may behave differently when compiled with different compilers.
+</p>
+<h2 id="knr">K&amp;R<a href="#knr"></a></h2>
+<p>
+  Before looking at the relevant sections of the C99 standard, let us
+  see what the book
+  <em><a href="https://en.wikipedia.org/wiki/The_C_Programming_Language_(book)">The
+  C Programming Language</a></em>, Second Edition says about such C
+  statements.  In Section 2.12 (Precedence and Order of Evaluation) of
+  the book, the authors write:
+</p>
+<blockquote>
+  <p>
+    C, like most languages, does not specify the order in which the
+    operands of an operator are evaluated.  (The exceptions are
+    <code>&amp;&amp;</code>, <code>||</code>, <code>?:</code>, and
+    '<code>,</code>'.)  For example, in a statement like
+  </p>
+  <pre><code>x = f() + g();</code></pre>
+  <p>
+    <code>f</code> may be evaluated before <code>g</code> or vice
+    versa; thus if either <code>f</code> or <code>g</code> alters a
+    variable on which the other depends, <code>x</code> can depend on
+    the order of evaluation.  Intermediate results can be stored in
+    temporary variables to ensure a particular sequence.
+  </p>
+</blockquote>
+<p>
+  In the next paragraph, they write,
+</p>
+<blockquote>
+  <p>
+    Similarly, the order in which function arguments are evaluated is
+    not specified, so the statement
+  </p>
+  <pre><code>printf("%d %d\n", ++n, power(2, n));    /* WRONG */</code></pre>
+  <p>
+    can produce different results with different compilers, depending
+    on whether <code>n</code> is incremented before <code>power</code>
+    is called.  The solution, of course, is to write
+  </p>
+<pre>
+<code>++n;
+printf("%d %d\n", n, power(2, n));</code>
+</pre>
+</blockquote>
+<p>
+  They provide one more example in this section:
+</p>
+<blockquote>
+  <p>
+    One unhappy situation is typified by the statement
+  </p>
+<pre>
+<code>a[i] = i++;</code>
+</pre>
+  <p>
+    The question is whether the subscript is the old value
+    of <code>i</code> or the new.  Compilers can interpret this in
+    different ways and generate different answers depending on their
+    interpretation.
+  </p>
+</blockquote>
+<h2 id="c99">C99<a href="#c99"></a></h2>
+<p>
+  To read more about this, download the
+  <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf">C99
+  standard</a>, go to section 5.1.2.3 (Program execution) and see the
+  second point which mentions:
+</p>
+<blockquote>
+  Accessing a volatile object, modifying an object, modifying a file,
+  or calling a function that does any of those operations are
+  all <em>side effects</em>,<sup>11)</sup> which are changes in the
+  state of the execution environment.  Evaluation of an expression may
+  produce side effects.  At certain specified points in the execution
+  sequence called <em>sequence points</em>, all side effects of
+  previous evaluations shall be complete and no side effects of
+  subsequent evaluations shall have taken place.  (A summary of the
+  sequence points is given in annex C.)
+</blockquote>
+<p>
+  Then go to section 6.5 and see the second point which mentions:
+</p>
+<blockquote>
+  Between the previous and next sequence point an object shall have
+  its stored value modified at most once by the evaluation of an
+  expression.<sup>72)</sup> Furthermore, the prior value shall be read
+  only to determine the value to be stored.<sup>73)</sup>
+</blockquote>
+<p>
+  Finally go to Annex C (Sequence Points).  It lists all the sequence
+  points.  For example, the following is mentioned as a sequence point:
+</p>
+<blockquote>
+  The call to a function, after the arguments have been evaluated
+  (6.5.2.2).
+</blockquote>
+<p>
+  This means that in the statement
+</p>
+<pre><code>printf("%d %d %d\n", i, i--, ++i);</code></pre>
+<p>
+  there is a sequence point after the evaluation of the three
+  arguments (<code>i</code>, <code>i--</code> and <code>++i</code>)
+  and before the <code>printf()</code> function is called.  But none
+  of the items specified in Annex C implies that there is a sequence
+  point between the evaluation of the arguments.  Yet the value
+  of <code>i</code> is modified more than once during the evaluation
+  of these arguments.  This makes the behaviour of this statement
+  undefined.  Further, the value of <code>i</code> is being read not
+  only for determining what it must be updated to but also for using
+  as arguments to the <code>printf()</code> call.  This also makes the
+  behaviour of this code undefined.
+</p>
+<p>
+  Let us see another example of a sequence point from Annex C.
+</p>
+<blockquote>
+  The end of a full expression: an initializer (6.7.8); the expression
+  in an expression statement (6.8.3); the controlling expression of a
+  selection statement (<code>if</code> or <code>switch</code>)
+  (6.8.4); the controlling expression of a <code>while</code>
+  or <code>do</code> statement (6.8.5); each of the expressions of
+  a <code>for</code> statement (6.8.5.3); the expression in
+  a <code>return</code> statement (6.8.6.4).
+</blockquote>
+<p>
+  Therefore in the statement
+</p>
+<pre><code>a += a++ + a++;</code></pre>
+<p>
+  there is a sequence point at the end of the complete expression
+  (marked with a semicolon) but there is no other sequence point
+  before it.  Yet the value of <code>a</code> is modified twice before
+  the sequence point.  Thus the behaviour of this statement is
+  undefined.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/sequence-points.html">Read on website</a> |
+  <a href="https://susam.net/tag/c.html">#c</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Obfuscated Main</title>
+<link>https://susam.net/obfuscated-main.html</link>
+<guid isPermaLink="false">hdzwp</guid>
+<pubDate>Sun, 02 Nov 2003 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I have been running a mailing list called <em>ncoders</em> on Yahoo
+  Groups for the past few months.  I created it to host discussions on
+  computers, programming and network protocols among university
+  students.  There are currently about 150 students from various
+  universities across the world on the list.  A few weeks ago, someone
+  posted a C programming puzzle to the group.  The puzzle asked
+  whether it was possible to write a C program such that the
+  <code>main()</code> function <em>does not seem to appear</em> in the
+  code.  Here's a solution I came up with, which involves obfuscating
+  the identifier <code>main</code> using preprocessor macros and
+  the <code>##</code> token-pasting operator.
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+
+#define decode(s,t,u,m,p,e,d) m ## s ## u ## t
+#define begin decode(a,n,i,m,a,t,e)
+
+int begin()
+{
+    printf("Stumped?\n");
+}</code>
+</pre>
+<p>
+  This program compiles and runs successfully.  Here is the output:
+</p>
+<pre><samp>Stumped?</samp></pre>
+<p>
+  Let me explain how this code works.  When the C preprocessor runs on
+  this code, the following preprocessing steps occur:
+</p>
+<ul>
+  <li>
+    <code>begin</code> is replaced with <code>decode(a,n,i,m,a,t,e)</code>,
+  </li>
+  <li>
+    <code>decode(a,n,i,m,a,t,e)</code> is replaced with <code>m ## a
+    ## i ## n</code> and
+  </li>
+  <li>
+    <code>m ## a ## i ## n</code> is replaced with <code>main</code>.
+  </li>
+</ul>
+<p>
+  Thus <code>begin()</code> is replaced with <code>main()</code>.
+</p>
+<p>
+  <strong>Update on 31 Jul 2007:</strong> Although the mailing list
+  referred to in this post no longer exists, this tiny piece of code
+  seems to have survived on the web.  A
+  <a href="https://www.google.com/search?q=%22decode%28s%2Ct%2Cu%2Cm%2Cp%2Ce%2Cd%29%22">quick
+  search</a> shows so many occurrences of this code on the web.  It is
+  quite surprising to me that a rather silly piece of code written
+  during a Sunday afternoon to solve an equally silly puzzle has been
+  the subject of much discussion!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/obfuscated-main.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/c.html">#c</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>C Quine</title>
+<link>https://susam.net/c-quine.html</link>
+<guid isPermaLink="false">psabp</guid>
+<pubDate>Sun, 19 Oct 2003 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A quine is a computer program that produces an exact copy of its own
+  source code as its output.  It must not consume any input, so tricks
+  involving reading its own source code and printing it are not
+  permitted.
+</p>
+<h2 id="classic-quine">The Classic Quine<a href="#classic-quine"></a></h2>
+<p>
+  Here is a classic quine I came across a few days ago in a mailing
+  list:
+</p>
+<pre><code>main(){char*s="main(){char*s=%c%s%c;printf(s,34,s,34);}";printf(s,34,s,34);}</code></pre>
+<p>
+  This program is written in K&amp;R C.  The current version of GCC
+  compiles it fine.  It is a valid quine on ASCII machines because
+  this program uses the integer code <code>34</code> to print the
+  quotation mark (<code>"</code>) character.  This will be explained
+  further in the next section.  On another implementation of the C
+  compiler which does not use ASCII code for the quotation mark
+  character, the program needs to be modified to the use the correct
+  code.
+</p>
+<p>
+  Here are some commands that demonstrate the quine:
+</p>
+<pre>
+<samp>$ <kbd>printf '%s' 'main(){char*s="main(){char*s=%c%s%c;printf(s,34,s,34);}";printf(s,34,s,34);}' &gt; quine.c</kbd>
+$ <kbd>cc quine.c &amp;&amp; ./a.out &gt; out.txt &amp;&amp; diff quine.c out.txt</kbd>
+$ <kbd>cat quine.c; echo</kbd>
+main(){char*s="main(){char*s=%c%s%c;printf(s,34,s,34);}";printf(s,34,s,34);}
+$ <kbd>./a.out</kbd>
+main(){char*s="main(){char*s=%c%s%c;printf(s,34,s,34);}";printf(s,34,s,34);}</samp>
+</pre>
+<p>
+  The source code of this quine does not end with a newline.
+  The <code>-n</code> option of GNU echo ensures that the source code
+  file is created without a terminating newline.
+</p>
+<h2 id="close-look-at-classic-quine">Close Look at the Classic Quine<a href="#close-look-at-classic-quine"></a></h2>
+<p>
+  Let us take a close look at how the quine introduced in the previous
+  section works.  Let us add some newlines in the source code of this
+  quine for the sake of clarity.
+</p>
+<pre>
+<code>main()
+{
+    char*s="main(){char*s=%c%s%c;printf(s,34,s,34);}";
+    printf(s,34,s,34);
+}</code>
+</pre>
+<p>
+  This is almost the same program presented in the previous section.
+  Only a few newlines have been added to it to make the program easier
+  to read.
+</p>
+<p>
+  We can see that the <code>printf</code> call uses the
+  string <code>s</code> as the format string.  The format string
+  contains three conversion specifications:
+  <code>%c</code>, <code>%s</code> and <code>%c</code>.  The arguments
+  for these conversions are: <code>34</code>, the string
+  <code>s</code> itself and <code>34</code> once again.  Note
+  that <code>34</code> is the ASCII code for the quotation mark
+  character (<code>"</code>).  With that in mind, let us now construct
+  the output of the <code>printf</code> call in a step-by-step manner.
+</p>
+<p>
+  The initial portion of the output consists of the format string from
+  the beginning up to, but not including, the first conversion
+  specification copied unchanged to the output stream.  Here it is:
+</p>
+<pre><samp>main(){char*s=</samp></pre>
+<p>
+  Then the first conversion specification <code>%c</code> is
+  processed, the corresponnding argument <code>34</code> is taken and
+  a quotation mark is printed like this:
+</p>
+<pre><samp>"</samp></pre>
+<p>
+  Then the second conversion specification <code>%s</code> is
+  processed.  The corresponding argument is the string <code>s</code>
+  itself, so the entire string is printed like this:
+</p>
+<pre><samp>main(){char*s=%c%s%c;printf(s,34,s,34);}</samp></pre>
+<p>
+  Then the third conversion specification <code>%c</code> is
+  processed.  The corresponding argument is <code>34</code> again, so
+  once again a quotation mark is printed like this:
+</p>
+<pre><samp>"</samp></pre>
+<p>
+  Finally, the rest of the format string is copied unchanged to
+  produce the following output:
+</p>
+<pre><samp>;printf(s,34,s,34);}</samp></pre>
+<p>
+  Here are all the five parts of the output presented next to each
+  other:
+</p>
+<pre><samp>main(){char*s=</samp></pre>
+<pre><samp>"</samp></pre>
+<pre><samp>main(){char*s=%c%s%c;printf(s,34,s,34);}</samp></pre>
+<pre><samp>"</samp></pre>
+<pre><samp>;printf(s,34,s,34);}</samp></pre>
+<p>
+  Writing them all out in a single line, we get this:
+</p>
+<pre>
+<samp>main(){char*s="main(){char*s=%c%s%c;printf(s,34,s,34);}";printf(s,34,s,34);}</samp>
+</pre>
+<p>
+  This output matches the source code of the program thus confirming
+  that our program is a quine.
+</p>
+<h2 id="classic-quine-with-terminating-newline">Classic Quine With Terminating Newline<a href="#classic-quine-with-terminating-newline"></a></h2>
+<p>
+  The source code of the classic quine presented above does not
+  terminate with a newline.  I found that a little bothersome because
+  I am used to always terminating my source code with a single
+  trailing newline at the end.  So I decided to modify that quine a
+  little to ensure that it always ends with a newline.  This is the
+  quine I arrived at:
+</p>
+<pre><samp>main(){char*s="main(){char*s=%c%s%c;printf(s,34,s,34,10);}%c";printf(s,34,s,34,10);}</samp></pre>
+<p>
+  Compared to the quine in the previous sections, this one has an
+  additional <code>%c</code> at the end of the formal string and the
+  integer <code>10</code> as the corresponding argument to ensure that
+  the output ends with a newline.  Here is a demonstration of this
+  quine:
+</p>
+<pre>
+<samp>$ <kbd>echo 'main(){char*s="main(){char*s=%c%s%c;printf(s,34,s,34,10);}%c";printf(s,34,s,34,10);}' &gt; quine.c</kbd>
+$ <kbd>cc quine.c &amp;&amp; ./a.out &gt; out.txt &amp;&amp; diff quine.c out.txt</kbd>
+$ <kbd>cat quine.c</kbd>
+main(){char*s="main(){char*s=%c%s%c;printf(s,34,s,34,10);}%c";printf(s,34,s,34,10);}
+$ <kbd>./a.out</kbd>
+main(){char*s="main(){char*s=%c%s%c;printf(s,34,s,34,10);}%c";printf(s,34,s,34,10);}</samp>
+</pre>
+<h2 id="c89-quine">C89 Quine<a href="#c89-quine"></a></h2>
+<p>
+  The classic C quines presented above are written in K&amp;C.  They
+  do not conform to the C standard.  However, with some modifications
+  to the quines presented above, we can get a quine that conforms to
+  the C89 standard:
+</p>
+<pre>
+<code>#include &lt;stdio.h&gt;
+int main(){char*s="#include &lt;stdio.h&gt;%cint main(){char*s=%c%s%c;printf(s,10,34,s,34,10);return 0;}%c";printf(s,10,34,s,34,10);return 0;}</code>
+</pre>
+<p>
+  Here is a demonstration of this quine:
+</p>
+<pre>
+<samp>$ <kbd>echo '#include &lt;stdio.h&gt;
+int main(){char*s="#include &lt;stdio.h&gt;%cint main(){char*s=%c%s%c;printf(s,10,34,s,34,10);return 0;}%c";printf(s,10,34,s,34,10);return 0;}' &gt; quine.c</kbd>
+$ <kbd>cc -std=c89 -Wall -Wextra -pedantic quine.c &amp;&amp; ./a.out &gt; out.txt &amp;&amp; diff quine.c out.txt</kbd>
+$ <kbd>cat quine.c</kbd>
+#include &lt;stdio.h&gt;
+int main(){char*s="#include &lt;stdio.h&gt;%cint main(){char*s=%c%s%c;printf(s,10,34,s,34,10);return 0;}%c";printf(s,10,34,s,34,10);return 0;}
+$ <kbd>./a.out</kbd>
+#include &lt;stdio.h&gt;
+int main(){char*s="#include &lt;stdio.h&gt;%cint main(){char*s=%c%s%c;printf(s,10,34,s,34,10);return 0;}%c";printf(s,10,34,s,34,10);return 0;}</samp>
+</pre>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/c-quine.html">Read on website</a> |
+  <a href="https://susam.net/tag/c.html">#c</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+
+
+</channel>
+</rss>

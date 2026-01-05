@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MathB 1.0.0 - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/code/news/mathb/1.0.0.html">
+  <link rel="icon" type="image/png" href="../../../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../../../feed.xml">
+  <link rel="stylesheet" href="../../../css/main.css">
+  <link rel="stylesheet" href="../../../css/extra.css">
+</head>
+<body>
+<main>
+<h1>MathB 1.0.0</h1>
+<div>By <b>Susam Pal</b> on 20 Sep 2022</div>
+<p>
+  MathB 1.0.0 is the first major release of MathB since 2012, bringing
+  significant updates to this web-based mathematics pastebin service.
+</p>
+<p>
+  The most notable change is a complete rewrite in Common Lisp,
+  replacing the original PHP codebase.  This shift reflects my
+  preference for Lisp, a language I truly enjoy.  It also makes the
+  project easier for me to maintain actively.
+</p>
+<p>
+  This release introduces the use of the
+  <a href="https://github.com/susam/texme">TeXMe</a> parser to
+  robustly parse and render posts written using Markdown and LaTeX.
+  Further, now there is support for dark colour scheme for systems
+  that have dark colour scheme enabled.  For those who host this
+  service on their web servers, MathB now supports a runtime control
+  file named <code>opt.lisp</code> where a number of properties of
+  this service can be customised.  These customisable properties
+  include maximum title length, maximum code length, minimum time
+  interval between two posts, etc.  See
+  <a href="https://github.com/susam/mathb/blob/main/CHANGES.md">CHANGES.md</a>
+  for a detailed changelog.
+</p>
+<p>
+  To read more about this project, please see
+  <a href="http://github.com/susam/mathb">github.com/susam/mathb</a>.
+</p>
+
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../../../">Home</a>
+    <a href="../../../links.html">Links</a>
+    <a href="../../../feed.xml">Feed</a>
+    <a href="../../../form/subscribe/">Subscribe</a>
+    <a href="../../../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

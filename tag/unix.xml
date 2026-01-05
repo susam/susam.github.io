@@ -1,0 +1,2224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's Unix Pages</title>
+<link>https://susam.net/tag/unix.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/unix.xml"/>
+<description>Feed for Susam's Unix Pages</description>
+
+<item>
+<title>Hacker News Hug of Deaf</title>
+<link>https://susam.net/hn-bell.html</link>
+<guid isPermaLink="false">fcycm</guid>
+<pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<blockquote>
+  <p>
+    "It's essentially the Hacker News Hug of Deaf."
+    &ndash;
+    <a href="https://news.ycombinator.com/item?id=30146019#30147639">@TonyTrapp</a>
+  </p>
+</blockquote>
+<p>
+  About three years ago, I set up a tiny <code>netcat</code> loop on
+  one of my Debian servers to accept arbitrary connections from the
+  Hacker News (HN) community.  The loop ran for 24 hours and did
+  exactly three things whenever a client connected:
+</p>
+<ol>
+  <li>
+    Send a simple <code>ok</code> message to the client.
+  </li>
+  <li>
+    Close the connection immediately.
+  </li>
+  <li>
+    Make my terminal beep four times.
+  </li>
+</ol>
+<p>
+  That's it!  It was a playful experiment in response to a thread
+  about quirky, do-it-yourself alerting systems for friends and
+  family.  See
+  <a href="https://news.ycombinator.com/item?id=30146019#30146451">this
+  HN thread</a> for the original discussion.  Here is the exact
+  command I ran on my server:
+</p>
+<pre class="wrap"><code>while true; do (echo ok | nc -q 1 -vlp 8000 2&gt;&amp;1; echo; date -u) | tee -a beeper.log; for i in 1 2 3 4; do printf '\a'; sleep 1; done &amp; done</code></pre>
+<p>
+  The <code>nc</code> command closes the connection immediately after
+  sending the <code>ok</code> message and runs an
+  inner <code>for</code> loop in a background shell that
+  asynchronously prints the bell character to the terminal four times.
+  Meanwhile, the outer <code>while</code> command loops back quickly
+  to run a new <code>nc</code> process, thus making this one-liner
+  script instantly ready to accept the next incoming connection.
+</p>
+<p>
+  Soon after I shared this, members of the HN community began
+  connecting to the demo running on <code>susam.net:8000</code>.
+  Anyone on the Internet could use any client of their choice to
+  connect.  Here's how I explained it in the HN thread:
+</p>
+<blockquote>
+  <p>
+    Now anytime someone connects to port 8000 of my system
+    by <em>any</em> means, I will hear 4 beeps!  The other party can
+    use <em>whatever client</em> they have to connect to port 8000 of
+    my system, e.g. a web browser, <code>nc HOST
+    8000</code>, <code>curl HOST:8000</code> or even <code>ssh HOST -p
+    8000</code>, <code>irssi -c HOST -p 8000</code>, etc.
+  </p>
+</blockquote>
+<p>
+  In the next 24 hours, I received over 4761 connections, each one
+  triggering four beeps.  That's a total of 19&#x202f;044 terminal
+  beeps echoing throughout the day!
+</p>
+<figure class="soft">
+  <img src="files/blog/beeper1.png" alt="Graph">
+  <figcaption>
+    Number of connections received every hour since 31 Jan 2022 10:00 UTC
+  </figcaption>
+</figure>
+<p>
+  The data for the above graph is available at
+  <a href="https://gist.github.com/susam/159c7d92659b3185eb0b0d683998a3b7">beeper.log</a>.
+  Now, 4761 isn't a huge number in the grand scheme of things, but it
+  was still pretty cool to see people notice an obscure comment buried
+  in a regular HN thread, act on it and make my terminal beep
+  thousands of time.
+</p>
+<p>
+  At the end of the day, this was a fun experiment.  Pointless, but
+  fun!  Computing isn't always about solving problems.  Sometimes,
+  it's also about exploring quirky ideas.  The joy is in the
+  exploration and having others join in made it even more enjoyable.
+  Activities like this keep computing fun for me!
+</p>
+<hr>
+<p id="update-2025-04-10">
+  <strong>Update on 10 Apr 2025:</strong>
+  I <a href="https://news.ycombinator.com/item?id=43642123">shared
+  this article on Hacker News</a> today and saw another surge in
+  connections to my beeper loop.
+</p>
+<figure class="soft">
+  <img src="files/blog/beeper2.png" alt="Graph">
+  <figcaption>
+    Number of connections received every hour since 10 Apr 2025 10:00 UTC
+  </figcaption>
+</figure>
+<p>
+  The data for the above graph is available at
+  <a href="https://gist.github.com/susam/3cec5db1a78a9db527327460656daeae">beeper2.log</a>.
+  The data shows a total of 352&#x202f;831 connections from 1396
+  unique client addresses over 14 hours.  That amounts to a total of
+  1&#x202f;411&#x202f;324 beeps!  Much of the traffic seems to have
+  come from persistent client loops constantly connecting to my beeper
+  loop.  In particular, the client identified by the anonymised
+  identifier C0276 made the largest number of connections by far, with
+  327&#x202f;209 total connections.  The second most active client,
+  C0595, made only 6771 connections.  There were 491 clients that
+  connected exactly once.  If you'd like to see the number of
+  connections by each client, see
+  <a href="https://gist.github.com/susam/d6766f4b722f899250a8f3da0c98f993">beeperclient2.log</a>.
+</p>
+<p>
+  In conclusion, the difference in the volume of connections between
+  the earlier experiment and today's is striking.  In the first round,
+  three years ago, there were only 4761 connections from some readers
+  of a comment thread.  But in today's round, with this post being
+  featured on the HN front page, there were 352&#x202f;831
+  connections!  It is fascinating to see how odd experiments like this
+  can find so many participants within the HN community!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/hn-bell.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/shell.html">#shell</a> |
+  <a href="https://susam.net/tag/networking.html">#networking</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Pretty-Printing JSON Response with HTTP Headers</title>
+<link>https://susam.net/pretty-print-json-response-with-http-headers.html</link>
+<guid isPermaLink="false">fgqkm</guid>
+<pubDate>Sun, 14 Apr 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Often while using <code>curl</code> with URLs that return a JSON
+  response, I need to print the HTTP response headers along with the
+  JSON response.  Here is an example that shows how this can be done:
+</p>
+<pre>
+<samp>$ <kbd>curl -sSi https://susam.net/code/lab/json/books.json</kbd>
+HTTP/1.1 200 OK
+Server: nginx/1.18.0
+Date: Sat, 05 Apr 2024 11:53:24 GMT
+Content-Type: application/json
+Content-Length: 172
+Last-Modified: Sat, 05 Apr 2024 11:53:05 GMT
+Connection: keep-alive
+ETag: "67f119a1-ac"
+Accept-Ranges: bytes
+
+[
+  {"title": "Gulliver's Travels", "author": "Jonathan Swift", "published": 1726},
+  {"title": "Treasure Island", "author": "Robert Louis Stevenson", "published": 1883}
+]</samp>
+</pre>
+<p>
+  The above output is obtained using curl 7.77.0
+  (x86_64-apple-darwin21.0).  The <code>-i</code> option is
+  responsible for including the HTTP response headers.
+  The <code>-s</code> and <code>-S</code> options are not too
+  important for the current discussion but I usually happen to use
+  them out of habit.  The <code>-s</code> option suppresses the
+  progress meter and error messages but the <code>-S</code> re-enables
+  the display of error messages.  This helps me avoid the progress
+  meter in the output without having to lose visibility of any errors
+  that may arise.
+</p>
+<p>
+  So far so good!  But can we also have the JSON response
+  pretty-printed with say <code>jq</code>?  The above command prints
+  both the HTTP headers and the response to the standard output, so
+  piping the standard output to <code>jq</code> does not work.
+  The <code>jq</code> command fails with an error as soon as it
+  encounters the HTTP headers.
+</p>
+<p>
+  If, however, we manage to send the HTTP header and the response to
+  different streams or files, then we could utilise <code>jq</code> to
+  pretty-print the stream or file that contains the JSON response.
+  Here is an example that shows how to do this:
+</p>
+<pre>
+<samp>$ <kbd>curl -sSD head.txt -o out.json https://susam.net/code/lab/json/books.json &amp;&amp; cat head.txt &amp;&amp; jq . out.json</kbd>
+HTTP/1.1 200 OK
+Server: nginx/1.18.0
+Date: Sat, 05 Apr 2024 11:53:51 GMT
+Content-Type: application/json
+Content-Length: 172
+Last-Modified: Sat, 05 Apr 2024 11:53:05 GMT
+Connection: keep-alive
+ETag: "67f119a1-ac"
+Accept-Ranges: bytes
+
+[
+  {
+    "title": "Gulliver's Travels",
+    "author": "Jonathan Swift",
+    "published": 1726
+  },
+  {
+    "title": "Treasure Island",
+    "author": "Robert Louis Stevenson",
+    "published": 1883
+  }
+]</samp>
+</pre>
+<p>
+  Alternatively, we can achieve this using a single command by
+  printing the the HTTP headers to standard error.  This ensures that
+  only the JSON response is printed to standard output, which we can
+  then pretty-print using <code>jq</code>.  Here is an example:
+</p>
+<pre>
+<samp>$ <kbd>curl -sSD /dev/stderr https://susam.net/code/lab/json/books.json | jq .</kbd>
+HTTP/1.1 200 OK
+Server: nginx/1.18.0
+Date: Sat, 05 Apr 2024 11:54:12 GMT
+Content-Type: application/json
+Content-Length: 172
+Last-Modified: Sat, 05 Apr 2024 11:53:05 GMT
+Connection: keep-alive
+ETag: "67f119a1-ac"
+Accept-Ranges: bytes
+
+[
+  {
+    "title": "Gulliver's Travels",
+    "author": "Jonathan Swift",
+    "published": 1726
+  },
+  {
+    "title": "Treasure Island",
+    "author": "Robert Louis Stevenson",
+    "published": 1883
+  }
+]</samp>
+</pre>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/pretty-print-json-response-with-http-headers.html">Read on website</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/shell.html">#shell</a> |
+  <a href="https://susam.net/tag/networking.html">#networking</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Control, Escape and Meta Tricks</title>
+<link>https://susam.net/control-escape-meta-tricks.html</link>
+<guid isPermaLink="false">neaax</guid>
+<pubDate>Fri, 16 Jun 2023 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h2 id="terminal-tricks">Terminal Tricks<a href="#terminal-tricks"></a></h2>
+<p>
+  Open a Unix or Linux terminal emulator.  If you have Terminal.app on
+  macOS, ensure that the "Use Option as Meta Key" option is enabled in
+  its "Preferences" section.  Now type <code>foo bar baz</code>
+  followed by <kbd>meta</kbd>+<kbd>b</kbd>
+  (i.e. <kbd>alt</kbd>+<kbd>b</kbd> or <kbd>option</kbd>+<kbd>b</kbd>
+  on modern keyboards).  In a typical desktop environment with a
+  typical and modern terminal emulator running a modern shell like
+  Bash, Zsh, etc., the cursor should move backward by one word.  Now
+  type <kbd>esc</kbd> <kbd>b</kbd>.  The cursor should move back again
+  by one word.  Finally type <kbd>ctrl</kbd>+<kbd>[</kbd> <kbd>b</kbd>
+  and the same thing should happen again.  How are we able to perform
+  the same operation in three different ways?
+</p>
+<p>
+  Note that if the desktop environment or the terminal emulator or the
+  set of shell key bindings is configured differently, the results may
+  vary.  But we will assume that the typical defaults are in effect in
+  the remainder of this post.  To understand why these three key
+  sequences yield the same result, it might be a good exercise to run
+  the command <code>cat</code> and type the three key sequences again.
+  The three key sequences we are talking about are:
+</p>
+<ul>
+  <li>
+    <kbd>meta</kbd>+<kbd>b</kbd> (i.e. <kbd>alt</kbd>+<kbd>b</kbd>
+    or <kbd>option</kbd>+<kbd>b</kbd> on modern keyboards)
+  </li>
+  <li>
+    <kbd>esc</kbd> <kbd>b</kbd>
+  </li>
+  <li>
+    <kbd>ctrl</kbd>+<kbd>[</kbd> <kbd>b</kbd>
+  </li>
+</ul>
+<p>
+  When we run <code>cat</code> and type the three key sequences
+  mentioned above, the following output may appear:
+</p>
+<pre>
+<samp>$ <kbd>cat
+^[b^[b^[b</kbd></samp>
+</pre>
+<p>
+  The output shows that the terminal sends the same input
+  to <code>cat</code> each time: the <em>escape</em> character that
+  appears as <code>^[</code> in the output and the
+  character <code>b</code>.  This becomes more apparent if instead of
+  running <code>cat</code>, we run <code>od -t d1</code> and type the
+  three key sequences followed
+  by <kbd>ctrl</kbd>+<kbd>d</kbd> <kbd>enter</kbd>:
+</p>
+<pre>
+<samp>$ <kbd>od -t d1
+^[b^[b^[b</kbd>
+0000000    27  98  27  98  27  98  10
+0000007</samp>
+</pre>
+<p>
+  Indeed decimal 27 is the code of the <em>escape</em> character.
+  Similarly decimal 98 is the code of the character <code>b</code>.
+</p>
+<h2 id="control-codes">Control Codes<a href="#control-codes"></a></h2>
+<p>
+  Let us first discuss why typing <kbd>ctrl</kbd>+<kbd>[</kbd>
+  produces the <em>escape</em> character.  The
+  character <code>[</code> has code 91 (binary 1011011) and holding
+  the <kbd>ctrl</kbd> key while typing it results in a control code
+  obtained by taking 91 (binary 1011011), keeping its five least
+  significant bits and discarding the rest.  We get the control code
+  27 (binary 11011) as the result.  This is the code of
+  the <em>escape</em> character.  This explains
+  why <kbd>ctrl</kbd>+<kbd>[</kbd> produces the <em>escape</em>
+  character and why the <em>escape</em> character is represented
+  as <code>^[</code> while typing it into the standard input.  The
+  caret sign (<code>^</code>) here is a notation for
+  the <code>ctrl</code> modifier.
+</p>
+<p>
+  The following table provides some more examples of control codes
+  that can be obtained by typing the <kbd>ctrl</kbd> key along with
+  some other key.
+</p>
+<table class="grid mono">
+  <thead>
+    <tr>
+      <th rowspan="2">Key</th>
+      <th colspan="3">Modified Character</th>
+      <th colspan="3">Control Character</th>
+    </tr>
+    <tr>
+      <th>Binary</th>
+      <th>Decimal</th>
+      <th>Character</th>
+      <th>Binary</th>
+      <th>Decimal</th>
+      <th>Character</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>@</kbd></td>
+      <td>1000000</td>
+      <td>64</td>
+      <td>@</td>
+      <td>00000</td>
+      <td>0</td>
+      <td>Null</td>
+    </tr>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>g</kbd></td>
+      <td>1000111</td>
+      <td>71</td>
+      <td>G</td>
+      <td>00111</td>
+      <td>7</td>
+      <td>Bell</td>
+    </tr>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>h</kbd></td>
+      <td>1001000</td>
+      <td>72</td>
+      <td>H</td>
+      <td>01000</td>
+      <td>8</td>
+      <td>Backspace</td>
+    </tr>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>i</kbd></td>
+      <td>1001001</td>
+      <td>73</td>
+      <td>I</td>
+      <td>01001</td>
+      <td>9</td>
+      <td>Horizontal Tab</td>
+    </tr>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>j</kbd></td>
+      <td>1001010</td>
+      <td>74</td>
+      <td>I</td>
+      <td>01010</td>
+      <td>10</td>
+      <td>Line Feed</td>
+    </tr>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>m</kbd></td>
+      <td>1001101</td>
+      <td>77</td>
+      <td>M</td>
+      <td>01101</td>
+      <td>13</td>
+      <td>Carriage Return</td>
+    </tr>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>[</kbd></td>
+      <td>1011011</td>
+      <td>91</td>
+      <td>[</td>
+      <td>11011</td>
+      <td>27</td>
+      <td>Escape</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  This explains why typing <kbd>ctrl</kbd>+<kbd>g</kbd> in a modern
+  terminal emulator produces an audible beep or a visual flash,
+  why <kbd>ctrl</kbd>+<kbd>h</kbd> erases a character and so on.  This
+  also explains why we can type <kbd>ctrl</kbd>+<kbd>[</kbd> in Vim to
+  escape from insert mode to normal mode.  While we can
+  type <em>escape</em> with the <kbd>esc</kbd> key on the keyboard, we
+  can do so with the <kbd>ctrl</kbd>+<kbd>[</kbd> key too within the
+  terminal.
+</p>
+<p>
+  The keen eyed may notice that the table above has lowercase letters
+  in the first column but the second and third columns use the code of
+  the corresponding uppercase letters.  The lowercase letters in the
+  first column is merely a notation I am using in this post to
+  identify the keys on a keyboard.  They don't actually mean lowercase
+  characters.  In fact, the very early keyboards only had uppercase
+  letters and they simply toggled the 7th least significant bit of the
+  modified character to obtain the control code.
+</p>
+<p>
+  By the way, an interesting thing worth noting here is that even if
+  we do consider the code of the lowercase character and pick only its
+  five least significant bits, we get the same control code as we
+  would get if we started with the corresponding uppercase character.
+  For example, consider the key sequence
+  <kbd>ctrl</kbd>+<kbd>g</kbd>.  The uppercase character <code>G</code>
+  has the code 71 (decimal 1000111) and the lowercase
+  character <code>g</code> has the code 103 (decimal 1100111).  The
+  five least significant bits are equal in both.  So when we pick the
+  five least significant bits and discard the rest, we get the same
+  result, i.e. 7 (binary 111) which is the code of the <em>bell</em>
+  character.  This is due to the fact that the five least significant
+  bits of the code of a lowercase character is exactly the same as
+  that of the corresponding uppercase character.  They differ only in
+  their sixth least significant bit.  This is only an interesting
+  observation.  It is of little significance though because like I
+  mentioned earlier, the early keyboards only flipped a bit in the
+  code of the uppercase characters when the <kbd>ctrl</kbd> modifier
+  was applied.
+</p>
+<p>
+  In addition to what we have discussed so far, some terminal
+  emulators also implement a few special rules such as the following:
+</p>
+<table class="grid mono">
+  <thead>
+    <tr>
+      <th rowspan="2">Key</th>
+      <th colspan="3">Modified Character</th>
+      <th colspan="3">Resulting Character</th>
+    </tr>
+    <tr>
+      <th>Binary</th>
+      <th>Decimal</th>
+      <th>Character</th>
+      <th>Binary</th>
+      <th>Decimal</th>
+      <th>Character</th>
+    </tr>
+  </thead>
+  <tbody style="font-family: monospace, monospace">
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>space</kbd></td>
+      <td>0100000</td>
+      <td>32</td>
+      <td>Space</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Null</td>
+    </tr>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>?</kbd></td>
+      <td>0111111</td>
+      <td>63</td>
+      <td>?</td>
+      <td>1111111</td>
+      <td>127</td>
+      <td>Delete</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  One could argue that the first row shows a straightforward example
+  of picking the least significiant five bits to arrive at the control
+  code, so it is not really a special case.  That is a fair point.
+  However, in the history of computing, different systems have
+  implemented slightly different methods to compute the resulting
+  control codes from our input.  Flipping the 7th least significant
+  bit was one of the early methods.  Turning off only the the 6th and
+  the 7th least significant bits has been another method.  Subtracting
+  64 from the character code has been yet another one.  These
+  different methods produce identical results for the first table but
+  not so for the second table.  For example, while turning off the 6th
+  and 7th least significnat bits of 32 (the code of the <em>space</em>
+  character) does give us 0 but merely flipping its 7th bit does not.
+  Further, note that allowing <kbd>ctrl</kbd>+<kbd>space</kbd> to
+  produce the null character is a bit redundant
+  because <kbd>ctrl</kbd>+<kbd>@</kbd> already did that right from the
+  days of very early keyboards.  The second entry above is also a
+  special rule because we neither turn off bits nor subtract 64.
+  Instead, we flip the 7th least significant bit which amounts to
+  adding 64 to the code of the modified character.  It is also the
+  only control code that has its 6th and 7th least significant bits
+  turned on.
+</p>
+<h2 id="meta-key-sequences">Meta Key Sequences<a href="#meta-key-sequences"></a></h2>
+<p>
+  The <kbd>meta</kbd> key no longer exists on modern keyboards.  On
+  modern keyboards, we use the <kbd>alt</kbd> or <kbd>option</kbd> key
+  instead of <kbd>meta</kbd>.  For example, when a shell's manual says
+  that we need to type <kbd>meta</kbd>+<kbd>b</kbd> to move the cursor
+  back by one word, what we really type on a modern keyboard is
+  either <kbd>alt</kbd>+<kbd>b</kbd>
+  or <kbd>option</kbd>+<kbd>b</kbd>.  In fact, the <code>cat</code>
+  and <code>od</code> experiments mentioned earlier show that when we
+  type the modern alternative for the <kbd>meta</kbd> key along with
+  another key, what most terminals really send to the underlying
+  program is an <em>escape</em> control code (27) followed by the code
+  of the modified character.
+</p>
+<table class="grid mono">
+  <thead>
+    <tr>
+      <th>Meta Key Sequence</th>
+      <th>Escape Key Sequence</th>
+      <th>Control Key Sequence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><kbd>meta</kbd>+<kbd>b</kbd></td>
+      <td><kbd>esc</kbd> <kbd>b</kbd></td>
+      <td><kbd>ctrl</kbd>+<kbd>[</kbd> <kbd>b</kbd></td>
+    </tr>
+    <tr>
+      <td><kbd>meta</kbd>+<kbd>f</kbd></td>
+      <td><kbd>esc</kbd> <kbd>f</kbd></td>
+      <td><kbd>ctrl</kbd>+<kbd>[</kbd> <kbd>f</kbd></td>
+    </tr>
+    <tr>
+      <td><kbd>meta</kbd>+<kbd>/</kbd></td>
+      <td><kbd>esc</kbd> <kbd>/</kbd></td>
+      <td><kbd>ctrl</kbd>+<kbd>[</kbd> <kbd>/</kbd></td>
+    </tr>
+    <tr>
+      <td><kbd>meta</kbd>+<kbd>:</kbd></td>
+      <td><kbd>esc</kbd> <kbd>:</kbd></td>
+      <td><kbd>ctrl</kbd>+<kbd>[</kbd> <kbd>:</kbd></td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  There are several layers of software involved between the keyboard
+  input and the application running in the terminal and the exact
+  behaviour of the <kbd>alt</kbd> or <kbd>option</kbd> key may vary
+  depending on the configuration of each of these layers.  Terminal
+  configuration alone is a complex topic that can be discussed
+  extensively.  However, the behaviour described here is one of the
+  popular defaults.  Alternative behaviours exist but they generally
+  produce similar effects for the user.
+</p>
+<h2 id="awkward-vim-tricks">Awkward Vim Tricks<a href="#awkward-vim-tricks"></a></h2>
+<p>
+  Most Vim users know that we can go from insert mode to command-line
+  mode and search for patterns by typing
+  either <kbd>esc</kbd> <kbd>/</kbd> or <kbd>C-[</kbd> <kbd>/</kbd>.
+  But what some people may find surprising is that we can also go from
+  insert mode to searching patterns simply by typing
+  <kbd>meta</kbd>+<kbd>/</kbd>.  Yes, this can be verified by running
+  Vim in a terminal emulator.  While insert mode is active,
+  type <kbd>alt</kbd>+<kbd>/</kbd> or <kbd>option</kbd>+<kbd>/</kbd>
+  and the current mode should instantly switch to the command-line
+  mode with the forward-slash (<samp>/</samp>) prompt waiting for our
+  search pattern.  This works only in a terminal emulator.  It may not
+  work in the graphical version of Vim.  The table above illustrates
+  why this works in a terminal emulator.
+</p>
+<p>
+  Similarly, in a Vim instance running within a terminal emulator, we
+  can type <kbd>meta</kbd>+<kbd>:</kbd> to go directly from insert
+  mode to command-line mode and enter Ex commands.  We can
+  type <kbd>meta</kbd>+<kbd>0</kbd> to go directly from insert mode to
+  the first character of a line or type <kbd>meta</kbd>+<kbd>$</kbd>
+  to go to the end of the line and so on.  These are equivalent to
+  typing <kbd>esc</kbd> <kbd>0</kbd>, <kbd>esc</kbd> <kbd>$</kbd>,
+  etc.
+</p>
+<p>
+  More interestingly, we can type <kbd>meta</kbd>+<kbd>O</kbd> to open
+  a line above, <kbd>meta</kbd>+<kbd>A</kbd> to append text at the end
+  of the line, <kbd>meta</kbd>+<kbd>I</kbd> to append text at the
+  beginning of the line or <kbd>meta</kbd>+<kbd>S</kbd> to delete the
+  current line while staying in insert mode!  Since the Vim
+  commands <kbd>O</kbd>, <kbd>A</kbd>, <kbd>I</kbd> and <kbd>S</kbd>
+  leave us back in insert mode, we are able to perform an editing
+  operation that involves leaving the insert mode, doing something
+  interesting and returning to insert mode instantly using the
+  the <kbd>meta</kbd> key combination.  The following table summarises
+  these observations:
+</p>
+<table class="grid mono">
+  <thead>
+    <tr>
+      <th>Initial Mode</th>
+      <th>Meta Key Sequence</th>
+      <th>Equivalent To</th>
+      <th>Operation</th>
+      <th>Final State</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Insert</td>
+      <td><kbd>meta</kbd>+<kbd>/</kbd></td>
+      <td><kbd>esc</kbd> <kbd>/</kbd></td>
+      <td>Enter command-line mode to search a pattern</td>
+      <td>Command-line</td>
+    </tr>
+    <tr>
+      <td>Insert</td>
+      <td><kbd>meta</kbd>+<kbd>:</kbd></td>
+      <td><kbd>esc</kbd> <kbd>:</kbd></td>
+      <td>Enter command-line mode to enter Ex command</td>
+      <td>Command-line</td>
+    </tr>
+    <tr>
+      <td>Insert</td>
+      <td><kbd>meta</kbd>+<kbd>0</kbd></td>
+      <td><kbd>esc</kbd> <kbd>0</kbd></td>
+      <td>Move to the first character of the line</td>
+      <td>Normal</td>
+    </tr>
+    <tr>
+      <td>Insert</td>
+      <td><kbd>meta</kbd>+<kbd>$</kbd></td>
+      <td><kbd>esc</kbd> <kbd>$</kbd></td>
+      <td>Move to the end of the line</td>
+      <td>Normal</td>
+    </tr>
+    <tr>
+      <td>Insert</td>
+      <td><kbd>meta</kbd>+<kbd>O</kbd></td>
+      <td><kbd>esc</kbd> <kbd>O</kbd></td>
+      <td>Begin a new line above and insert text</td>
+      <td>Insert</td>
+    </tr>
+    <tr>
+      <td>Insert</td>
+      <td><kbd>meta</kbd>+<kbd>A</kbd></td>
+      <td><kbd>esc</kbd> <kbd>A</kbd></td>
+      <td>Append text to the end of line</td>
+      <td>Insert</td>
+    </tr>
+    <tr>
+      <td>Insert</td>
+      <td><kbd>meta</kbd>+<kbd>I</kbd></td>
+      <td><kbd>esc</kbd> <kbd>I</kbd></td>
+      <td>Insert text before the first non-blank in line</td>
+      <td>Insert</td>
+    </tr>
+    <tr>
+      <td>Insert</td>
+      <td><kbd>meta</kbd>+<kbd>S</kbd></td>
+      <td><kbd>esc</kbd> <kbd>S</kbd></td>
+      <td>Delete line and insert text</td>
+      <td>Insert</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  There is no good reason to use Vim like this but it works, thanks to
+  the quirky history of Unix terminals and keyboards!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/control-escape-meta-tricks.html">Read on website</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/shell.html">#shell</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>From XON/XOFF to Forward Incremental Search</title>
+<link>https://susam.net/from-xon-xoff-to-forward-incremental-search.html</link>
+<guid isPermaLink="false">trdbl</guid>
+<pubDate>Sat, 13 Aug 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h2 id="xon-xoff">XON/XOFF<a href="#xon-xoff"></a></h2>
+<p>
+  In the olden days of computing, software flow control with control
+  codes XON and XOFF was a necessary feature that dumb terminals
+  needed to support.  When a terminal received more data than it could
+  display, there needed to be a way for the terminal to tell the
+  remote host to pause sending more data.  The control code 19 was
+  chosen for this.  The control code 17 was chosen to tell the remote
+  host to resume transmission of data.
+</p>
+<p>
+  The control code 19 is called Device Control 3 (DC3) in the ASCII
+  chart.  It is also known as "transmit off" (XOFF).  The control code
+  17 is called Device Control 1 (DC1) as well as "transmit on" (XON).
+  Now how does a user of the terminal really send these control codes?
+  Well, how do they send any control code?  Using the <kbd>ctrl</kbd>
+  key of course.
+</p>
+<p>
+  Let us take a step back and see how a user can send familiar control
+  codes on modern terminal emulators, like say, the terminal software
+  we find on a Unix or Linux desktop environment.  While any sane
+  computer user would just type the <kbd>tab</kbd> key to insert a tab
+  character, one could also type <kbd>ctrl</kbd>+<kbd>i</kbd> to
+  insert a tab character.  The character <code>I</code> has code 73
+  (binary 1001001) and holding the <kbd>ctrl</kbd> key while typing it
+  results in a control code made by taking 73 (binary 1001001),
+  keeping its five least significant bits and discarding the rest to
+  get the control code 9 (binary 1001) which is the code of the tab
+  character.  In other words, we get the control code by performing a
+  bitwise AND operation on the code of the character being modified
+  with binary code of 31 (binary 0011111).
+</p>
+<p>
+  In case you are wondering, if we get the same result if we choose
+  the binary code of the lowercase <code>i</code> to perform the
+  aforementioned operation, the answer is, yes.  While the code of
+  uppercase <code>I</code> is 73 (binary 1001001), that of
+  lowercase <code>i</code> is 105 (binary 1101001).  The right-most
+  five bits are same for both.  Thus when we preserve the five least
+  significant bits and discard the rest, we get the control code 9
+  (binary 1001) in both cases.  This is a neat result due to the fact
+  that the five least significant bits of the code of a lowercase
+  character is exactly the same as that of the corresponding uppercase
+  character.  They differ only in their sixth least significant bit.
+  That bit is on for the lowercase character but off for the
+  corresponding uppercase character.  This is just an interesting
+  observation as far as this post is concerned.  The very early
+  keyboards did not have lowercase letters.  They only had uppercase
+  letters and when the <kbd>ctrl</kbd> key is pressed together with a
+  letter on such keyboards, the 7th bit of the character code was
+  flipped to get the control code.
+</p>
+<p>
+  The bitwise operation mentioned earlier explains why
+  typing <kbd>ctrl</kbd>+<kbd>h</kbd> sends a backspace,
+  typing <kbd>ctrl</kbd>+<kbd>j</kbd> sends a newline and
+  typing <kbd>ctrl</kbd>+<kbd>g</kbd> plays a bell.  In modern
+  terminal emulators these days, the bell often manifests in the form
+  of an audible beep or a visual flash.  Here is a table that
+  summarises these control codes and a few more:
+</p>
+<table class="grid mono">
+  <thead>
+    <tr>
+      <th rowspan="2">Key</th>
+      <th colspan="3">Modified Character</th>
+      <th colspan="3">Control Character</th>
+    </tr>
+    <tr>
+      <th>Binary</th>
+      <th>Decimal</th>
+      <th>Character</th>
+      <th>Binary</th>
+      <th>Decimal</th>
+      <th>Character</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>@</kbd></td>
+      <td>1000000</td>
+      <td>64</td>
+      <td>@</td>
+      <td>00000</td>
+      <td>0</td>
+      <td>Null</td>
+    </tr>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>g</kbd></td>
+      <td>1000111</td>
+      <td>71</td>
+      <td>G</td>
+      <td>00111</td>
+      <td>7</td>
+      <td>Bell</td>
+    </tr>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>h</kbd></td>
+      <td>1001000</td>
+      <td>72</td>
+      <td>H</td>
+      <td>01000</td>
+      <td>8</td>
+      <td>Backspace</td>
+    </tr>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>i</kbd></td>
+      <td>1001001</td>
+      <td>73</td>
+      <td>I</td>
+      <td>01001</td>
+      <td>9</td>
+      <td>Horizontal Tab</td>
+    </tr>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>j</kbd></td>
+      <td>1001010</td>
+      <td>74</td>
+      <td>I</td>
+      <td>01010</td>
+      <td>10</td>
+      <td>Line Feed</td>
+    </tr>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>m</kbd></td>
+      <td>1001101</td>
+      <td>77</td>
+      <td>M</td>
+      <td>01101</td>
+      <td>13</td>
+      <td>Carriage Return</td>
+    </tr>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>[</kbd></td>
+      <td>1011011</td>
+      <td>91</td>
+      <td>[</td>
+      <td>11011</td>
+      <td>27</td>
+      <td>Escape</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  The last row in the table above explains why we can also
+  type <kbd>ctrl</kbd>+<kbd>[</kbd> in Vim to escape from insert mode
+  to normal mode.  This is, in fact, one of the convenient ways for
+  touch-typists to return to normal mode in Vim instead of clumsily
+  stretching the left hand fingers out to reach the <kbd>esc</kbd> key
+  which is usually poorly located at the corner of most keyboards.
+</p>
+<p>
+  There is a bit of oversimplication in the description above.
+  Throughout the history of computing, different systems have used
+  slightly different methods to compute the resulting control code
+  when the <kbd>ctrl</kbd> modifier key is held.  Toggling the 7th
+  least significant bit was an early method.  Turning off both the 6th
+  and 7th least significant bits is another method.  Subtracting 64
+  from the character code is yet another method.  These are
+  implementation details and these various implementation methods lead
+  to the same results for the examples in the table above.  Then there
+  are some special rules too.  For example, many terminals implement a
+  special rule to make <kbd>ctrl</kbd>+<kbd>space</kbd> behave the
+  same as <kbd>ctrl</kbd>+<kbd>@</kbd> thus producing the null
+  character.  Further <kbd>ctrl</kbd>+<kbd>?</kbd> produces the delete
+  character in some terminals.  These special rules are summarised in
+  the table below.
+</p>
+<table class="grid mono">
+  <thead>
+    <tr>
+      <th rowspan="2">Key</th>
+      <th colspan="3">Modified Character</th>
+      <th colspan="3">Resulting Character</th>
+    </tr>
+    <tr>
+      <th>Binary</th>
+      <th>Decimal</th>
+      <th>Character</th>
+      <th>Binary</th>
+      <th>Decimal</th>
+      <th>Character</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>space</kbd></td>
+      <td>0100000</td>
+      <td>32</td>
+      <td>Space</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Null</td>
+    </tr>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>?</kbd></td>
+      <td>0111111</td>
+      <td>63</td>
+      <td>?</td>
+      <td>1111111</td>
+      <td>127</td>
+      <td>Delete</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  For the purpose of this blog post, we don't need to worry about
+  these special rules.  Let us get back to the control codes 19 and 17
+  that represent XOFF and XON.  Here is how the table looks for them:
+</p>
+<table class="grid mono">
+  <thead>
+    <tr>
+      <th rowspan="2">Key</th>
+      <th colspan="3">Modified Character</th>
+      <th colspan="3">Resulting Character</th>
+    </tr>
+    <tr>
+      <th>Binary</th>
+      <th>Decimal</th>
+      <th>Character</th>
+      <th>Binary</th>
+      <th>Decimal</th>
+      <th>Character</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>q</kbd></td>
+      <td>1010001</td>
+      <td>81</td>
+      <td>Q</td>
+      <td>10001</td>
+      <td>17</td>
+      <td>DC1 (XON)</td>
+    </tr>
+    <tr>
+      <td><kbd>ctrl</kbd>+<kbd>s</kbd></td>
+      <td>1010011</td>
+      <td>83</td>
+      <td>S</td>
+      <td>10011</td>
+      <td>19</td>
+      <td>DC3 (XOFF)</td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  We see that a user can type <kbd>ctrl</kbd>+<kbd>s</kbd> to send the
+  control code XOFF and then <kbd>ctrl</kbd>+<kbd>q</kbd> to send the
+  control code XON.  Although we do not use dumb terminals anymore,
+  these conventions have survived in various forms in our modern
+  terminal emulators.  To see a glimpse of it, launch the terminal
+  that comes with a modern operating system, then run <code>ping
+  localhost</code> and while this command is printing its output,
+  type <kbd>ctrl</kbd>+<kbd>s</kbd>.  The terminal should pause
+  printing the output of the command.  Then
+  type <kbd>ctrl</kbd>+<kbd>q</kbd> and the terminal should resume
+  printing the output.
+</p>
+<h2 id="incremental-search-in-bash-zsh">Incremental Search in Bash/Zsh<a href="#incremental-search-in-bash-zsh"></a></h2>
+<p>
+  Let us now take a look at the shells that run within the terminals.
+  Both Bash and Zsh are very popular these days.  Both these shells
+  have excellent support for performing incremental searches through
+  the input history.  To see a quick demonstration of this, open a new
+  terminal that runs either Bash or Zsh and run these commands:
+</p>
+<pre>
+<code>echo foo
+echo bar
+cal
+uname
+echo baz</code>
+</pre>
+<p>
+  Now type <kbd>ctrl</kbd>+<kbd>r</kbd> followed by <code>echo</code>.
+  This should invoke the reverse search feature of the shell and
+  automatically complete the partial command <code>echo</code>
+  to <code>echo baz</code>.  Type <kbd>ctrl</kbd>+<kbd>r</kbd> again
+  to move back in the input history and autocomplete the command
+  to <code>echo bar</code>.  We can type <kbd>enter</kbd> anytime we
+  use the reverse search feature to execute the automatically
+  completed command.  Typing <kbd>ctrl</kbd>+<kbd>r</kbd> yet another
+  time should bring the <code>echo foo</code> command at the shell
+  prompt.
+</p>
+<p>
+  What if we went too far back in the input history and now want to go
+  forward?  There is a good news and there is some bad news.  The good
+  news is that both Bash and Zsh support forward search using
+  the <kbd>ctrl</kbd>+<kbd>s</kbd> key sequence.  The bad news is that
+  this key sequence may not reach the shell.  Most terminal emulators
+  consume this key sequence and interpret it as the control code XOFF.
+</p>
+
+<h2 id="conflict">The Conflict<a href="#conflict"></a></h2>
+<p>
+  In the previous two sections, we have seen that the
+  <kbd>ctrl</kbd>+<kbd>s</kbd> key sequence is used to send the
+  control code XOFF.  But the same key sequence is also used for
+  forward incremental search in Bash and Zsh.  Since the terminal
+  consumes this key sequence and interprets it as the control code
+  XOFF, the shell never sees the key sequence.  As a result, the
+  forward incremental search functionality does not work when we type
+  this key sequence in the shell.
+</p>
+<p>
+  Bash offers the incremental search facility via a wonderful piece of
+  library known as the the GNU Readline Library.  ZSH offers this
+  facility with its own Zsh Line Editor (ZLE).  So other tools that
+  rely on these libraries to offer line editing and history capability
+  are also affected by this conflict.  For example, many builds of
+  Python offer line editing and history capability using GNU Readline,
+  so while <kbd>ctrl</kbd>+<kbd>r</kbd> works fine to perform reverse
+  search in the Python interpreter, it is very likely
+  that <kbd>ctrl</kbd>+<kbd>s</kbd> does not work to perform forward
+  search.
+</p>
+<h2 id="reclaim-forward-incremental-search">Reclaim Forward Incremental Search<a href="#reclaim-forward-incremental-search"></a></h2>
+<p>
+  We can forfeit the usage of control codes XON/XOFF to reclaim
+  forward incremental search.  Here is the command to disable XON/XOFF
+  output control in the terminal:
+</p>
+<pre><code>stty -ixon</code></pre>
+<p>
+  After running the command, <kbd>ctrl</kbd>+<kbd>s</kbd> is no longer
+  consumed by the terminal to pause the output.  To confirm that
+  forward incremental search works now, first run the above command
+  and then run the following commands:
+</p>
+<pre>
+<code>echo foo
+echo bar
+cal
+uname
+echo baz</code>
+</pre>
+<p>
+  Now type <kbd>ctrl</kbd>+<kbd>r</kbd> followed by <code>echo</code>
+  and the input line should be automatically completed to <code>echo
+  baz</code>.  Type <kbd>ctrl</kbd>+<kbd>r</kbd> again and <code>echo
+  bar</code> should appear at the shell prompt.
+  Type <kbd>ctrl</kbd>+<kbd>r</kbd> one more time to bring the
+  command <code>echo foo</code> at the shell prompt.
+</p>
+<p>
+  Now type <kbd>ctrl</kbd>+<kbd>s</kbd> once and the search facility
+  should switch itself to forward incremental search.  The search
+  prompt should change to show this.  For example, in Bash the search
+  prompt changes from <code>reverse-i-search:</code>
+  to <code>i-search:</code> to indicate this.  In Zsh, the search
+  prompt changes from <code>bck-i-search:</code>
+  to <code>fwd-i-search:</code>.
+</p>
+<p>
+  Now type <kbd>ctrl</kbd>+<kbd>s</kbd> again and the input line
+  should be automatically completed to <code>echo bar</code>.
+  Type <kbd>ctrl</kbd>+<kbd>s</kbd> again to bring back <code>echo
+  baz</code> at the shell prompt.  This is the forward incremental
+  search in action.
+</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  I believe the forward incremental search facility offered in shells
+  and other tools with line editing and history capabilities is a very
+  useful feature that can make navigating the input history very
+  convenient.  However due to the default setting of most terminals,
+  this rather splendid feature remains unusable.
+</p>
+<p>
+  I believe heavy terminal users should add the command <code>stty
+  -ixon</code> to their <code>~/.bash_profile</code>
+  or <code>~/.zshrc</code>, so that the <kbd>ctrl</kbd>+<kbd>s</kbd>
+  key sequence can be used for forward incremental search.  Forfeit
+  XON/XOFF to reclaim forward incremental search!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/from-xon-xoff-to-forward-incremental-search.html">Read on website</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/shell.html">#shell</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Wordle With Grep</title>
+<link>https://susam.net/wordle-with-grep.html</link>
+<guid isPermaLink="false">rvtgp</guid>
+<pubDate>Sat, 22 Jan 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Let us solve a couple of
+  <a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a> games
+  with the Unix <code>grep</code> command and the
+  Unix <code>words</code> file.  The Wordle games #217, #218 and #219
+  for 22&nbsp;Jan&nbsp;2022, 23&nbsp;Jan&nbsp;2022 and
+  24&nbsp;Jan&nbsp;22 respectively are used as examples in this post.
+  The output examples shown below are obtained using the words
+  file <code>/usr/share/dict/words</code>, GNU grep 3.6 and GNU bash
+  5.1.4 on Debian GNU/Linux 11.2 (bullseye).
+</p>
+<p>
+  Note that the original Wordle game uses a different word list.
+  Further, there are several Wordle clones which may have their own
+  word lists.  For the purpose of this post, we will use the word list
+  that comes with Debian.  We will solve each Wordle in a quick and
+  dirty manner in this post.  The focus is going to be on making
+  constant progress and reaching the solution quickly with simple
+  shell commands.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#preliminary-work">Preliminary Work</a></li>
+  <li><a href="#wordle-217">Wordle #217</a></li>
+  <li><a href="#wordle-218">Wordle #218</a></li>
+  <li><a href="#wordle-219">Wordle #219</a></li>
+</ul>
+<h2 id="preliminary-work">Preliminary Work<a href="#preliminary-work"></a></h2>
+<p>
+  Before we start solving Wordle games, we will do some preliminary
+  work.  We will create a convenient shell alias that automatically
+  selects all five-letter words from the <code>words</code> files.  We
+  will also find a good word to enter as the first guess into the
+  Wordle game.  The following steps elaborate this preliminary work:
+</p>
+<ol>
+  <li>
+    <p>
+      Make a shell alias named <code>words</code> that selects all 5
+      letter words from the words file.
+    </p>
+<pre>
+<samp>$ <kbd>alias words='grep "^[a-z]\{5\}$" /usr/share/dict/words'</kbd>
+$ <kbd>words | head -n 3</kbd>
+abaci
+aback
+abaft
+$ <kbd>words | tail -n 3</kbd>
+zoned
+zones
+zooms
+$ <kbd>words | wc -l</kbd>
+4594</samp>
+</pre>
+  </li>
+  <li>
+    <p>
+      For each letter in the English alphabet, count the number of
+      five-letter words that contain the letter.  Rank each letter by
+      this count.
+    </p>
+<pre>
+<samp>$ <kbd>for c in {a..z}; do echo $(words | grep $c | wc -l) $c; done | sort -rn | head -n 15</kbd>
+2245 s
+2149 e
+1736 a
+1404 r
+1301 o
+1231 i
+1177 l
+1171 t
+975 n
+924 d
+810 u
+757 c
+708 p
+633 h
+623 y</samp>
+</pre>
+    <p>
+      The output shows that the letter 's' occurs in 2245 five-letter
+      words, followed by 'e' which occurs in 2149 five-letter words
+      and so on.
+    </p>
+  </li>
+  <li>
+    <p>
+      Find a word that contains the top five letters found in the
+      previous step.
+    </p>
+<pre>
+<samp>$ <kbd>words | grep s | grep e | grep a | grep r | grep o</kbd>
+arose</samp>
+</pre>
+    <p>
+      We will enter this word as the first guess in every Wordle game.
+    </p>
+  </li>
+  <li>
+    <p>
+      In case, the word "arose" does not lead to any positive result,
+      we will need another word to enter as our second guess.  Find a
+      word that contains the next five top letters in the list found
+      above.
+    </p>
+<pre>
+<samp>$ <kbd>words | grep i | grep l | grep t | grep n | grep d</kbd>
+$ <kbd>words | grep i | grep l | grep t | grep n | grep u</kbd>
+until</samp>
+</pre>
+    <p>
+      We found that there is no such word that contains 'i', 'l', 't',
+      'n' and 'd'.  So we got rid of 'd' in our search and included
+      'u' (the next highest ranking letter after 'd') instead to find
+      the word "until".  We will enter this word as the second guess
+      if and only if the first guess (i.e. "arose") does not lead to
+      any positive result.
+    </p>
+</ol>
+<h2 id="wordle-217">Wordle #217<a href="#wordle-217"></a></h2>
+<p>
+  Let us now solve Wordle #217 for Sat,&nbsp;22&nbsp;Jan&nbsp;2022
+  with the following steps:
+</p>
+<ol>
+  <li>
+    <p>
+      Use the word "arose" as the first guess.  The following result
+      appears:
+    </p>
+    <p style="font-family: monospace; font-weight: bold; color: #ddd">
+      <span style="background: #333; padding: 0.5em">A</span>
+      <span style="background: #333; padding: 0.5em">R</span>
+      <span style="background: #333; padding: 0.5em">O</span>
+      <span style="background: #333; padding: 0.5em">S</span>
+      <span style="background: #585; padding: 0.5em">E</span>
+    </p>
+  </li>
+  <li>
+    <p>
+      The previous result shows that the letter 'e' occurs at the
+      fifth place.  Further, the letters 'a', 'r', 'o' and 's' do not
+      occur anywhere in the word.  Look for words satisfying these
+      constraints.
+    </p>
+<pre>
+<samp>$ <kbd>words | grep '....e' | grep -v '[aros]' | head -n 5</kbd>
+beige
+belie
+belle
+bible
+bilge</samp>
+</pre>
+    <p>
+      Pick the word "beige" for the second guess and enter it into the
+      Wordle game.  Note that since we are following a quick and dirty
+      approach here, we do not spend any time figuring out which of
+      the various five-letter words ending with the letter 'e' is the
+      most optimal choice for the next guess.  We simply pick the
+      first word from the output above and enter it as the second
+      guess.  The following result appears now:
+    </p>
+    <p style="font-family: monospace; font-weight: bold; color: #ddd">
+      <span style="background: #333; padding: 0.5em">B</span>
+      <span style="background: #333; padding: 0.5em">E</span>
+      <span style="background: #b93; padding: 0.5em">I</span>
+      <span style="background: #333; padding: 0.5em">G</span>
+      <span style="background: #585; padding: 0.5em">E</span>
+    </p>
+  </li>
+  <li>
+    <p>
+      The letter 'i' occurs somewhere in the word but not at the third
+      place.  Further the letters 'b' and 'g' do not occur anywhere in
+      the word.  Also, the letter 'e' does not occur anywhere apart
+      from the fifth place.  The letter 'e' in the gray tile in the
+      second place confirms that the letter 'e' does not repeat in the
+      answer word.  Refine the previous command to add these
+      constraints.
+    </p>
+<pre>
+<samp>$ <kbd>words | grep '[^e][^e][^ie][^e]e' | grep i | grep -v '[arosbg]' | head -n 5</kbd>
+fiche
+indue
+lithe
+mince
+niche</samp>
+</pre>
+    <p>
+      Enter "fiche" as the third guess.  The following result appears:
+    </p>
+    <p style="font-family: monospace; font-weight: bold; color: #ddd">
+      <span style="background: #333; padding: 0.5em">F</span>
+      <span style="background: #585; padding: 0.5em">I</span>
+      <span style="background: #b93; padding: 0.5em">C</span>
+      <span style="background: #333; padding: 0.5em">H</span>
+      <span style="background: #585; padding: 0.5em">E</span>
+    </p>
+  </li>
+  <li>
+    <p>
+      The previous result shows that the letter 'i' occurs at the
+      second place.  Further, the letter 'c' occurs somewhere in the
+      word but not at the third place.  Also, the letters 'f' and 'h'
+      do not occur anywhere in the word.  Refine the previous command
+      further to add these constraints:
+    </p>
+<pre>
+<samp>$ <kbd>words | grep '[^e]i[^iec][^e]e' | grep c | grep -v '[arosbgfh]' | head -n 5</kbd>
+mince
+wince</samp>
+</pre>
+    <p>
+      Enter the word "mince" for the fourth guess.  It leads to the
+      following result:
+    </p>
+    <p style="font-family: monospace; font-weight: bold; color: #ddd">
+      <span style="background: #333; padding: 0.5em">M</span>
+      <span style="background: #585; padding: 0.5em">I</span>
+      <span style="background: #585; padding: 0.5em">N</span>
+      <span style="background: #585; padding: 0.5em">C</span>
+      <span style="background: #585; padding: 0.5em">E</span>
+    </p>
+  </li>
+  <li>
+    <p>
+      We are almost there!  We now have all the letters except the
+      first one.  The previous result shows that the letter 'm' does
+      not occur in the word.  Thus the answer word must be "wince".
+      For the sake of completeness, here is a refined search that
+      selects the answer word based on the constraints known so far:
+    </p>
+<pre>
+<samp>$ <kbd>words | grep '[^e]ince' | grep -v '[arosbgfhm]' | head -n 5</kbd>
+wince</samp>
+</pre>
+    <p>
+      It looks like we have found the answer word.  Enter "wince" as
+      the fifth guess to get the following result:
+    </p>
+    <p style="font-family: monospace; font-weight: bold; color: #ddd">
+      <span style="background: #585; padding: 0.5em">W</span>
+      <span style="background: #585; padding: 0.5em">I</span>
+      <span style="background: #585; padding: 0.5em">N</span>
+      <span style="background: #585; padding: 0.5em">C</span>
+      <span style="background: #585; padding: 0.5em">E</span>
+    </p>
+    <p>
+      Done!
+    </p>
+</ol>
+<h2 id="wordle-218">Wordle #218<a href="#wordle-218"></a></h2>
+<p>
+  Now that the wordle for Sat,&nbsp;22&nbsp;Jan&nbsp;2022 is solved,
+  let us try the same method on Wordle #219 for
+  Sun,&nbsp;23&nbsp;Jan&nbsp;2022 and see how well this method works.
+  Here are the steps:
+</p>
+<ol>
+  <li>
+    <p>
+      Like before, the first guess is "arose".  Entering this word
+      leads to the following result:
+    </p>
+    <p style="font-family: monospace; font-weight: bold; color: #ddd">
+      <span style="background: #333; padding: 0.5em">A</span>
+      <span style="background: #585; padding: 0.5em">R</span>
+      <span style="background: #333; padding: 0.5em">O</span>
+      <span style="background: #333; padding: 0.5em">S</span>
+      <span style="background: #333; padding: 0.5em">E</span>
+    </p>
+  </li>
+  <li>
+    <p>
+      Now search for words based on the previous result.
+    </p>
+<pre>
+<samp>$ <kbd>words | grep '.r...' | grep -v '[aose]' | head -n 5</kbd>
+brick
+bring
+brink
+briny
+bruin</samp>
+</pre>
+    <p>
+      Enter the word "brick" as the second guess.  This leads to the
+      following result:
+    </p>
+    <p style="font-family: monospace; font-weight: bold; color: #ddd">
+      <span style="background: #333; padding: 0.5em">B</span>
+      <span style="background: #585; padding: 0.5em">R</span>
+      <span style="background: #585; padding: 0.5em">I</span>
+      <span style="background: #b93; padding: 0.5em">C</span>
+      <span style="background: #333; padding: 0.5em">K</span>
+    </p>
+  </li>
+  <li>
+    <p>
+      Use the previous result to refine the search further.
+    </p>
+<pre>
+<samp>$ <kbd>words | grep '.ri[^c].' | grep c | grep -v '[aosebk]' | head -n 5</kbd>
+crimp</samp>
+</pre>
+    <p>
+      Enter "crimp" as the third guess.  This leads to the following
+      result:
+    </p>
+    <p style="font-family: monospace; font-weight: bold; color: #ddd">
+      <span style="background: #585; padding: 0.5em">C</span>
+      <span style="background: #585; padding: 0.5em">R</span>
+      <span style="background: #585; padding: 0.5em">I</span>
+      <span style="background: #585; padding: 0.5em">M</span>
+      <span style="background: #585; padding: 0.5em">P</span>
+    </p>
+    <p>
+      Done!
+    </p>
+  </li>
+</ol>
+<h2 id="wordle-219">Wordle #219<a href="#wordle-219"></a></h2>
+<p>
+  Finally, let us solve Wordle #219 for
+  Mon,&nbsp;24&nbsp;Jan&nbsp;2022.
+</p>
+<ol>
+  <li>
+    <p>
+      Enter "arose" as the first guess to get this result:
+    </p>
+    <p style="font-family: monospace; font-weight: bold; color: #ddd">
+      <span style="background: #333; padding: 0.5em">A</span>
+      <span style="background: #333; padding: 0.5em">R</span>
+      <span style="background: #585; padding: 0.5em">O</span>
+      <span style="background: #333; padding: 0.5em">S</span>
+      <span style="background: #333; padding: 0.5em">E</span>
+    </p>
+  </li>
+  <li>
+    <p>
+      The previous result shows that the third letter is 'o' and the
+      letters 'a', 'r', 's' and 'e' do not occur anywhere in the word.
+      Search for words that match these constraints.
+    </p>
+<pre>
+<samp>$ <kbd>words | grep '..o..' | grep -v '[arse]' | head -n 5</kbd>
+block
+blond
+blood
+bloom
+blown</samp>
+</pre>
+    <p>
+      Enter "block" as the second guess.  This leads to the following
+      result:
+    </p>
+    <p style="font-family: monospace; font-weight: bold; color: #ddd">
+      <span style="background: #333; padding: 0.5em">B</span>
+      <span style="background: #b93; padding: 0.5em">L</span>
+      <span style="background: #585; padding: 0.5em">O</span>
+      <span style="background: #333; padding: 0.5em">C</span>
+      <span style="background: #b93; padding: 0.5em">K</span>
+    </p>
+  </li>
+  <li>
+    <p>
+      The previous result shows that the letter 'l' occurs somewhere
+      in the word but not at the second place.  Similarly, the letter
+      'k' occurs somewhere in the word but not at the fifth place.
+      Further, the letters 'b' and 'c' do not occur anywhere in the
+      word.  Search for words that match these constraints.
+    </p>
+<pre>
+<samp>$ <kbd>words | grep '.[^l]o.[^k]' | grep l | grep k | grep -v '[arsebc]' | head -n 5</kbd>
+knoll</samp>
+</pre>
+    <p>
+      Enter "knoll" as the third guess.  It leads to the following
+      result:
+    </p>
+    <p style="font-family: monospace; font-weight: bold; color: #ddd">
+      <span style="background: #585; padding: 0.5em">K</span>
+      <span style="background: #585; padding: 0.5em">N</span>
+      <span style="background: #585; padding: 0.5em">O</span>
+      <span style="background: #585; padding: 0.5em">L</span>
+      <span style="background: #585; padding: 0.5em">L</span>
+    </p>
+    <p>
+      Done!
+    </p>
+  </li>
+</ol>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/wordle-with-grep.html">Read on website</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/shell.html">#shell</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Shell Eval</title>
+<link>https://susam.net/shell-eval.html</link>
+<guid isPermaLink="false">cvety</guid>
+<pubDate>Thu, 06 Jan 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  In this post, we will perform a few experiments to see the
+  usefulness of the <code>eval</code> command for a particular
+  scenario in a POSIX-compliant shell.  At first, we prepare a test
+  file that contains a space in its name and define a variable as
+  follows:
+</p>
+<pre>
+<samp>$ <kbd>echo lorem ipsum &gt; "foo bar"</kbd>
+$ <kbd>cmd='cat "foo bar"'</kbd></samp>
+</pre>
+<p>
+  We will use this file and the variable in the experiments below.
+  All output examples below are obtained using Dash 0.5.11 on a Debian
+  GNU/Linux 11.2 (bullseye) system.  Dash stands for Debian Almquist
+  Shell which is a POSIX-compliant shell available in Debian.  Any
+  POSIX conforming shell should produce similar output.  On Zsh, use
+  the command <code>emulate sh</code> before running these examples to
+  get similar output.
+</p>
+<h2 id="experiment-1">Experiment 1<a href="#experiment-1"></a></h2>
+<p>
+  Now simply enter <code>$cmd</code> as a command into the shell.  The
+  following error occurs:
+</p>
+<pre>
+<samp>$ <kbd>$cmd</kbd>
+cat: '"foo': No such file or directory
+cat: 'bar"': No such file or directory</samp>
+</pre>
+<p>
+  The error occurs because the above command expands to the
+  command <code>cat</code> followed by two
+  arguments: <code>"foo</code> and <code>bar"</code>.  Such an
+  expansion occurs due to a concept known as field splitting.  Quoting
+  from section 2.6.5 of
+  <a href="https://pubs.opengroup.org/onlinepubs/9699919799/">POSIX.1-2017</a>:
+</p>
+<blockquote>
+  <p>
+    After parameter expansion, command substitution, and arithmetic
+    expansion, the shell shall scan the results of expansions and
+    substitutions that did not occur in double-quotes for field
+    splitting and multiple fields can result.
+  </p>
+  <p>
+    The shell shall treat each character of the IFS as a delimiter and
+    use the delimiters as field terminators to split the results of
+    parameter expansion, command substitution, and arithmetic
+    expansion into fields.
+  </p>
+</blockquote>
+<p>
+  By default, the space character belongs to <code>IFS</code>.  Here
+  is an example command to verify this:
+</p>
+<pre>
+<samp>$ <kbd>printf "$IFS" | od -tcx1</kbd>
+0000000      \t  \n
+         20  09  0a
+0000003</samp>
+</pre>
+<p>
+  The hexadecimal code <samp>20</samp> in the output confirms that the
+  space character is present in the value of <code>IFS</code>.
+  Therefore, according to the POSIX specification, <code>$cmd</code>
+  first expands to <code>cat "foo bar"</code>, then it is split into
+  three fields <code>cat</code>, <code>"foo</code> and
+  <code>bar"</code> and then the command <code>cat</code> is executed
+  with two arguments <code>"foo</code> and <code>bar"</code>.  Since
+  no files with those names exist, an error occurs.
+</p>
+<h2 id="experiment-2">Experiment 2<a href="#experiment-2"></a></h2>
+<p>
+  Next we try to double-quote the previous command to prevent field
+  splitting and see what happens:
+<pre>
+<samp>$ <kbd>"$cmd"</kbd>
+dash: 8: cat "foo bar": not found</samp>
+</pre>
+<p>
+  The excerpt from the POSIX.1-2017 specification quoted in the
+  previous section shows that field splitting does not occur for
+  variable expansions within double quotes.  So the entire
+  expansion <code>cat "foo bar"</code> remains intact as a single
+  field and is then executed as a command.  Since there is no such
+  weirdly named command, we get the above error.
+</p>
+<h2 id="experiment-3">Experiment 3<a href="#experiment-3"></a></h2>
+<p>
+  Field splitting leads to an error as seen in the first experiment.
+  Preventing field splitting by double-quoting the variable expansion
+  also leads to an error as seen in the second experiment.  How do we
+  execute the command in the <code>cmd</code> variable?
+</p>
+<p>
+  We need a way to somehow get the shell to parse <code>cat "foo
+  bar"</code> like a shell normally does, i.e. treat each unquoted
+  token as a separate field and each quoted token as a single one.
+  How do we get the shell to do that?  Well, we can just invoke the
+  shell itself to parse our command:
+</p>
+<pre>
+<samp>$ <kbd>sh -c "$cmd"</kbd>
+lorem ipsum</samp>
+</pre>
+<p>
+  But the above command invokes a new shell process.  Can we avoid
+  that?  Yes, using the <code>eval</code> command:
+</p>
+<pre>
+<samp>$ <kbd>eval "$cmd"</kbd>
+lorem ipsum</samp>
+</pre>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/shell-eval.html">Read on website</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/shell.html">#shell</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Of Course "changeme" Is Valid Base64</title>
+<link>https://susam.net/of-course-changeme-is-valid-base64.html</link>
+<guid isPermaLink="false">bkame</guid>
+<pubDate>Sat, 24 Oct 2020 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Today, I came across
+  this <a href="https://3fx.ch/blog/2019/12/09/changeme-is-valid-base64/">blog
+  post</a> regarding how the author of the post used the
+  string <code>"changeme"</code> as test data while testing a Base64
+  decoding functionality in their application.  However, the author
+  incorrectly believed that this test data is not a valid
+  Base64-encoded string and therefore would fail to decode
+  successfully when decoded as Base64.  To their surprise, they found
+  that this string <code>"changeme"</code> does in fact decode
+  successfully.
+</p>
+<p>
+  The post did not go any further into understanding why
+  indeed <code>"changeme"</code> is a valid Base64-encoded string and
+  why it can successfully be decoded into binary data.  It appears
+  that the author was using Base64 encoding scheme as a black box.
+</p>
+<p>
+  I think it is worth noting and illustrating that any alphanumeric
+  string with a length that is a multiple of 4 is a valid
+  Base64-encoded string.  Here are some examples that illustrate this:
+</p>
+<pre>
+<samp>$ <kbd>printf AAAA | base64 --decode | od -tx1</kbd>
+0000000    00  00  00
+0000003
+$ <kbd>printf AAAAAAAA | base64 --decode | od -tx1</kbd>
+0000000    00  00  00  00  00  00
+0000006
+$ <kbd>printf AQEB | base64 --decode | od -tx1</kbd>
+0000000    01  01  01
+0000003
+$ <kbd>printf AQID | base64 --decode | od -tx1</kbd>
+0000000    01  02  03
+0000003
+$ <kbd>printf main | base64 --decode | od -tx1</kbd>
+0000000    99  a8  a7
+0000003
+$ <kbd>printf scrabble | base64 --decode | od -tx1</kbd>
+0000000    b1  ca  da  6d  b9  5e
+0000006
+$ <kbd>printf 12345678 | base64 --decode | od -tx1</kbd>
+0000000    d7  6d  f8  e7  ae  fc
+0000006</samp>
+</pre>
+<p>
+  Further, since <code>+</code> and <code>/</code> are also used as
+  symbols in Base64 encoding (for binary <code>111110</code>
+  and <code>111111</code> respectively), we also have a few more
+  interesting examples:
+</p>
+<pre>
+<samp>$ <kbd>printf 1+2+3+4+5/11 | base64 --decode | od -tx1</kbd>
+0000000    d7  ed  be  df  ee  3e  e7  fd  75
+0000011
+$ <kbd>printf "\xd7\xed\xbe\xdf\xee\x3e\xe7\xfd\x75" | base64</kbd>
+1+2+3+4+5/11</samp>
+</pre>
+<p>
+  I think it is good to understand why any string with a length that
+  is a multiple of 4 turns out to be a valid Base64-encoded string.
+  The Base64 encoding scheme encodes each group of 6 bits in the
+  binary input with a chosen ASCII character.  For every possible
+  6-bit binary value, we have assigned an ASCII character that appears
+  in the Base64-encoded string.  Each output ASCII character can be
+  one of the 64 carefully chosen ASCII characters: lowercase and
+  uppercase letters from the English alphabet, the ten digits from the
+  Arabic numerals, the plus sign (<code>+</code>) and the forward
+  slash (<code>/</code>).  For example, the bits <code>000000</code>
+  is encoded as <code>A</code>, the bits <code>000001</code> is
+  encoded as <code>B</code> and so on.  The equals sign
+  (<code>=</code>) is used for padding but that is not something we
+  will discuss in detail in this post.
+</p>
+<p>
+  The smallest positive multiple of 6 that is also a multiple of 8 is
+  24.  Thus every group of 3 bytes (24 bits) of binary data is
+  translated to 4 ASCII characters in its Base64-encoded string.  Thus
+  the entire input data is divided into groups of 3 bytes each and
+  then each group of 3 bytes is encoded into 4 ASCII characters.  What
+  if the last group is less than 3 bytes long?  There are certain
+  padding rules for such cases but I will not discuss them right now
+  in this post.  For more details on the padding rules,
+  see <a href="https://www.rfc-editor.org/rfc/rfc4648">RFC 4648</a>.
+</p>
+<p>
+  Now as a natural result of the encoding scheme, it turns out that
+  any 4 alphanumeric characters is a valid Base64 encoding of some
+  binary data.  That's because for every alphanumeric character, we
+  can find some 6-bit binary data that would be translated to it
+  during Base64 encoding.  This is the reason why any alphanumeric
+  string with a length that is a multiple of 4 is a valid
+  Base64-encoded string and can be successfully decoded to some binary
+  data.
+</p>
+
+<!-- ### -->
+<p>
+  <a href="https://susam.net/of-course-changeme-is-valid-base64.html">Read on website</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/shell.html">#shell</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Unix Timestamp 1600000000</title>
+<link>https://susam.net/unix-timestamp-1600000000.html</link>
+<guid isPermaLink="false">wvrcr</guid>
+<pubDate>Sat, 12 Sep 2020 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  At 2020-09-13 12:26:40 UTC, the Unix timestamp is going to turn
+  1600000000.
+</p>
+<h2 id="unix-timestamp-conversion">Unix Timestamp Conversion<a href="#unix-timestamp-conversion"></a></h2>
+<p>
+  The following subsections show a few examples of converting the Unix
+  timestamp to a human-readable date.
+</p>
+<h3 id="python">Python<a href="#python"></a></h3>
+<pre>
+<samp>$ <kbd>python3 -q</kbd>
+&gt;&gt;&gt; <kbd>from datetime import datetime</kbd>
+&gt;&gt;&gt; <kbd>datetime.utcfromtimestamp(1_600_000_000)</kbd>
+datetime.datetime(2020, 9, 13, 12, 26, 40)</samp>
+</pre>
+<h3 id="gnu-date">GNU date (Linux)<a href="#gnu-date"></a></h3>
+<pre>
+<samp>$ <kbd>date -ud @1600000000</kbd>
+Sun Sep 13 12:26:40 UTC 2020</samp>
+</pre>
+<h3 id="bsd-date">BSD date (macOS, FreeBSD, OpenBSD, etc.)<a href="#bsd-date"></a></h3>
+<pre>
+<samp>$ <kbd>date -ur 1600000000</kbd>
+Sun Sep 13 12:26:40 UTC 2020</samp>
+</pre>
+<h2 id="other-such-dates">Other Such Dates<a href="#other-such-dates"></a></h2>
+<p>
+  All such dates (in UTC) until the end of the current century:
+</p>
+<pre>
+<samp>$ <kbd>python3 -q</kbd>
+&gt;&gt;&gt; <kbd>from datetime import datetime</kbd>
+&gt;&gt;&gt; <kbd>for t in range(0, 4_200_000_000, 100_000_000):</kbd>
+... <kbd>    print(f'{t:13_d} - {datetime.utcfromtimestamp(t)}')</kbd>
+...
+            0 - 1970-01-01 00:00:00
+  100_000_000 - 1973-03-03 09:46:40
+  200_000_000 - 1976-05-03 19:33:20
+  300_000_000 - 1979-07-05 05:20:00
+  400_000_000 - 1982-09-04 15:06:40
+  500_000_000 - 1985-11-05 00:53:20
+  600_000_000 - 1989-01-05 10:40:00
+  700_000_000 - 1992-03-07 20:26:40
+  800_000_000 - 1995-05-09 06:13:20
+  900_000_000 - 1998-07-09 16:00:00
+1_000_000_000 - 2001-09-09 01:46:40
+1_100_000_000 - 2004-11-09 11:33:20
+1_200_000_000 - 2008-01-10 21:20:00
+1_300_000_000 - 2011-03-13 07:06:40
+1_400_000_000 - 2014-05-13 16:53:20
+1_500_000_000 - 2017-07-14 02:40:00
+1_600_000_000 - 2020-09-13 12:26:40
+1_700_000_000 - 2023-11-14 22:13:20
+1_800_000_000 - 2027-01-15 08:00:00
+1_900_000_000 - 2030-03-17 17:46:40
+2_000_000_000 - 2033-05-18 03:33:20
+2_100_000_000 - 2036-07-18 13:20:00
+2_200_000_000 - 2039-09-18 23:06:40
+2_300_000_000 - 2042-11-19 08:53:20
+2_400_000_000 - 2046-01-19 18:40:00
+2_500_000_000 - 2049-03-22 04:26:40
+2_600_000_000 - 2052-05-22 14:13:20
+2_700_000_000 - 2055-07-24 00:00:00
+2_800_000_000 - 2058-09-23 09:46:40
+2_900_000_000 - 2061-11-23 19:33:20
+3_000_000_000 - 2065-01-24 05:20:00
+3_100_000_000 - 2068-03-26 15:06:40
+3_200_000_000 - 2071-05-28 00:53:20
+3_300_000_000 - 2074-07-28 10:40:00
+3_400_000_000 - 2077-09-27 20:26:40
+3_500_000_000 - 2080-11-28 06:13:20
+3_600_000_000 - 2084-01-29 16:00:00
+3_700_000_000 - 2087-04-01 01:46:40
+3_800_000_000 - 2090-06-01 11:33:20
+3_900_000_000 - 2093-08-01 21:20:00
+4_000_000_000 - 2096-10-02 07:06:40
+4_100_000_000 - 2099-12-03 16:53:20</samp>
+</pre>
+<h2 id="update">Update<a href="#update"></a></h2>
+<p>
+  Here is a screenshot I took at Unix timestamp 1600000000:
+  <a href="https://twitter.com/susam/status/1305120936098627589">twitter.com/susam/status/130512093609862758</a>.
+</p>
+<p>
+  Reproduced as text below:
+</p>
+<pre>
+<samp>$ <kbd>date -u; date; date +%s</kbd>
+Sun Sep 13 12:26:39 UTC 2020
+Sun Sep 13 17:56:39 IST 2020
+1599999999
+$ <kbd>date -u; date; date +%s</kbd>
+Sun Sep 13 12:26:40 UTC 2020
+Sun Sep 13 17:56:40 IST 2020
+1600000000</samp>
+</pre>
+<p>
+  An important point worth noting from the POSIX.1-2008 specification:
+</p>
+<blockquote>
+  Coordinated Universal Time (UTC) includes leap seconds.  However, in
+  POSIX time (seconds since the Epoch), leap seconds are ignored (not
+  applied) to provide an easy and compatible method of computing time
+  differences.  Broken-down POSIX time is therefore not necessarily
+  UTC, despite its appearance.
+</blockquote>
+<p>
+  See <a href="https://pubs.opengroup.org/onlinepubs/9699919799/xrat/V4_xbd_chap04.html#tag_21_04_16">&sect; A.4.16</a>
+  of the POSIX.1-2008 specification for more details.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/unix-timestamp-1600000000.html">Read on website</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/shell.html">#shell</a> |
+  <a href="https://susam.net/tag/python.html">#python</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Unix Line Discard</title>
+<link>https://susam.net/unix-line-discard.html</link>
+<guid isPermaLink="false">jxiwr</guid>
+<pubDate>Sun, 09 Jul 2017 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Type <code>C-u</code> (i.e. <kbd>ctrl</kbd>+<kbd>u</kbd>) in Bash or
+  Zsh to discard the current line of input.  To read more about it,
+  enter <code>man bash</code> and then type
+  <code>/unix-line-discard</code> to locate the relevant section of
+  the manual.  Here is an excerpt:
+</p>
+<pre>
+<code>unix-line-discard (C-u)
+       Kill backward from point to the beginning of the line.
+       The killed text is saved on the kill-ring.</code>
+</pre>
+<p>
+  Similarly, for Zsh, type <code>man zshzle</code> and then
+  type <code>/kill-whole-line</code>.  We find this:
+</p>
+<pre>
+<code>kill-whole-line (^U) (unbound) (unbound)
+       Kill the current line.</code>
+</pre>
+<p>
+  By the way, Emacs-style key sequence like <code>C-a C-k</code> works
+  too.
+</p>
+<p>
+  Furthermore, it is quite likely that <code>C-u</code> is mapped to
+  delete the current line of input in the terminal itself.  To confirm
+  this, type the command <code>stty -a</code> and check the output.
+  If the output contains the text <code>kill = ^U</code>, then
+  typing <code>C-u</code> anytime in the terminal would delete the
+  current line of input.  This would happen regardless of what program
+  is running in the terminal.  For example, programs
+  like <code>cat</code>, <code>sbcl</code>, etc. do not support key
+  sequences like <code>C-a</code>, <code>C-k</code>, <code>C-u</code>,
+  etc. the way Bash or Zsh does.  Despite this limitation,
+  typing <code>C-u</code> in <code>sbcl</code> would delete the
+  current line of input if the output of <code>stty -a</code>
+  indicates that the terminal has mapped this key sequence to the
+  operation of deleting the current line.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/unix-line-discard.html">Read on website</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/shell.html">#shell</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Random String in Shell</title>
+<link>https://susam.net/random-string-in-shell.html</link>
+<guid isPermaLink="false">pvmbx</guid>
+<pubDate>Thu, 11 Aug 2011 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Here is a quick way to generate a random alphanumeric string in the
+  shell:
+</p>
+<pre><code>LC_CTYPE=C tr -dc '[:alnum:]' &lt; /dev/urandom | head -c 20; echo</code></pre>
+<p>
+  Here is an example output:
+</p>
+<pre><samp>GrWPmvF1oOmbeUzyJwC3</samp></pre>
+<p>
+  The command works both on macOS as well as Linux.
+  The <code>LC_CTYPE=C</code> environment variable is set specifically
+  to make the command work successfully on macOS.  Without
+  it <code>tr</code> may report an "Illegal byte sequence" error.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/random-string-in-shell.html">Read on website</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/shell.html">#shell</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Fork Bunny</title>
+<link>https://susam.net/fork-bunny.html</link>
+<guid isPermaLink="false">atzub</guid>
+<pubDate>Sun, 11 Jun 2006 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Have a close look at this line of shell command that can be executed
+  on Bash, Zsh and most POSIX or POSIX-like shells:
+</p>
+<pre><code>: () { : | : &amp; } ; :</code></pre>
+<p>
+  Beware!  Don't execute it on your system without understanding the
+  consequences completely.  If the command above looks puzzling, that
+  is because it is deliberately obfuscated.  Let us simplify it.
+</p>
+<p>
+  The <code>:</code> is a function name.  It could very well have
+  been <code>f</code>.  Let us replace <code>:</code>
+  with <code>f</code> and see what the code now looks like.
+</p>
+<pre><code>f () { f | f &amp; } ; f</code></pre>
+<p>
+  Now it looks familiar.  We have two commands separated by a
+  semicolon.  Written in a more legible manner, the code would look
+  like this:
+</p>
+<pre>
+<code>f()
+{
+    f | f &amp;
+}
+
+f</code>
+</pre>
+<p>
+  It creates a function <code>f</code> and then executes it.  This
+  function calls itself twice recursively.  The control
+  operator <code>&amp;</code> executes the recursive calls
+  to <code>f</code> asynchronously, i.e. in the background.  The
+  number of instances of the function executing keeps growing
+  exponentially thereby depleting CPU cycles and memory.  The system
+  is rendered unusable soon.
+</p>
+<p>
+  This type of denial-of-service attack by self-replication is also
+  known as a <em>fork bunny</em> which is a specific type
+  of <em>wabbit</em>.  See the following entry in the Jargon File for
+  more information on this:
+  <a href="http://catb.org/~esr/jargon/html/W/wabbit.html">wabbit</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/fork-bunny.html">Read on website</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/shell.html">#shell</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Vim Sudo Write Trick</title>
+<link>https://susam.net/vim-sudo-write-trick.html</link>
+<guid isPermaLink="false">qjgnc</guid>
+<pubDate>Thu, 25 Aug 2005 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h2 id="trick">The Trick<a href="#trick"></a></h2>
+<p>
+  You open a file, edit it and save it only to get the E45 error
+  message that says:
+</p>
+<pre><samp>E45: 'readonly' option is set (add ! to override)</samp></pre>
+<p>
+  You now realise that only root can edit the file.  What do you?
+  Start over?  No, instead try this:
+</p>
+<pre><code>:w !sudo tee "%"</code></pre>
+<p>
+  I learnt this trick recently from the comment section
+  of <a href="https://web.archive.org/web/20051120054527/http://www.vim.org/tips/tip.php?tip_id=975">Tip
+  #975</a> on the Vim Tips website.
+</p>
+<h2 id="explanation">Explanation<a href="#explanation"></a></h2>
+<p>
+  How does the <code>:w !sudo tee "%"</code> trick work?  Let us look
+  at the command part-by-part:
+</p>
+<ul>
+  <li>
+    <p><code>:w !{cmd}</code></p>
+    <p>
+      Execute <code>{cmd}</code> with all lines in buffer as standard
+      input.
+    </p>
+  </li>
+  <li>
+    <p><code>"%"</code></p>
+    <p>
+      The <code>%</code> is replaced with the current filename.  The
+      quotes around it keeps the filename as a single argument even if
+      it contains whitespace.
+    </p>
+  </li>
+  <li>
+    <p><code>tee {file}</code></p>
+    <p>
+      The <code>tee</code> command is a Unix command (not a Vim
+      command).  It copies standard input to standard output
+      and <code>{file}</code>.
+    </p>
+  </li>
+</ul>
+<h2 id="more">More Information<a href="#more"></a></h2>
+<p>
+  For more information on this command, enter the following commands
+  in Vim:
+</p>
+<pre>
+<code>:help :w_c
+:help current-file
+:help :_%</code>
+</pre>
+<p>
+  Also, enter the following command in shell:
+</p>
+<pre><code>man tee</code></pre>
+<p>
+  I hope this was fun!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/vim-sudo-write-trick.html">Read on website</a> |
+  <a href="https://susam.net/tag/vim.html">#vim</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Cal 9 1752</title>
+<link>https://susam.net/cal-9-1752.html</link>
+<guid isPermaLink="false">wwltj</guid>
+<pubDate>Tue, 14 Sep 2004 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A very interesting thing I came across recently while learning Unix
+  is an apparent gap in the calendar for Sep 1752.  Here is how
+  the <code>cal</code> output for this month appears on a Unix or
+  Linux system:
+</p>
+<pre>
+<samp>$ <kbd>cal 9 1752</kbd>
+   September 1752
+Su Mo Tu We Th Fr Sa
+       1  2 14 15 16
+17 18 19 20 21 22 23
+24 25 26 27 28 29 30</samp>
+</pre>
+<p>
+  In the SunOS 5.9 manual page
+  for <a href="https://docs.oracle.com/cd/E19683-01/817-3936/6mjgdbv29/index.html">cal(1)</a>,
+  this gap is explained as follows:
+</p>
+<!-- SunOS 5.9 was released on 28 May 2002 -->
+<blockquote>
+  An unusual calendar is printed for September 1752.  That is the
+  month 11 days were skipped to make up for lack of leap year
+  adjustments.  To see this calendar, type: <code>cal 9 1752</code>
+</blockquote>
+<p>
+  Similarly, FreeBSD 5.0 has the following note in its manual page
+  for <a href="https://www.freebsd.org/cgi/man.cgi?query=cal&amp;sektion=1&amp;manpath=FreeBSD+5.0-RELEASE">cal(1)</a>:
+</p>
+<!-- FreeBSD 5.0-RELEASE was released in Jan 2003 -->
+<blockquote>
+  <p>
+    -s <em>country_code</em>
+  </p>
+  <p style="margin-left: 2em">
+    Assume the switch from Julian to Gregorian Calendar at the date
+    associated with the <em>country_code</em>.  If not
+    specified, <strong>ncal</strong> tries to guess the switch date
+    from the local environment or falls back to September 2, 1752.
+    This was when Great Britain and her colonies switched to the
+    Gregorian Calendar.
+  </p>
+</blockquote>
+<p>
+  On investigating this switch from Julian to Gregorian calendar, I
+  learnt that the Julian calendar was introduced by Julius Caesar in
+  46 BC and it remained in effect across most of the Western world
+  from 45 BC to 1582.  It assumed an average year to be 365.25 days
+  long.  However, the actual solar year has been known to be around
+  365.2422 days since the 17th century.  Although the difference
+  appears to be too small, it leads to an error of adding 1 extra day
+  every 128 years.  To reduce this error, the Gregorian calendar was
+  introduced in October 1582 by Pope Gregory XIII.  It assumed an
+  average year to be 365.2425 days long.
+</p>
+<p>
+  The new calendar was adopted in some European countries where 4 Oct
+  1582 was followed by 15 Oct 1582 thereby skipping 10 days in
+  between.  However, it took as long as September 1752 for the new
+  calendar to be adopted by Britain.  In Great Britain and the British
+  Empire, 2 Sep 1752 was followed by 14 Sep 1752 and that is the gap
+  of 11 days we see in the <code>cal 9 1752</code> output.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/cal-9-1752.html">Read on website</a> |
+  <a href="https://susam.net/tag/unix.html">#unix</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+
+
+</channel>
+</rss>

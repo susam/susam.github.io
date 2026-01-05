@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>From Diophantine Equation to Fermat's Last Theorem - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/from-diophantine-equation-to-fermats-last-theorem.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="./js/katex/katex.min.js"></script>
+  <script defer src="./js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>From Diophantine Equation to Fermat's Last Theorem</h1>
+<div>By <b>Susam Pal</b> on 12 Jan 2011</div>
+<p>
+  Here is a puzzle I created recently for my friends who love to
+  indulge in recreational mathematics:
+</p>
+<div class="highlight">
+  Find all integer solutions to the equation
+
+  \[
+    y^2 + 3 = \frac{x^3}{18}.
+  \]
+</div>
+<p>
+  <em>If you want to think about this puzzle, this is a good time to
+  pause and think about it.  There are spoilers ahead.</em>
+</p>
+<p>
+  It does not take long to realise that this is a Diophantine equation
+  of the form \( a^n + b^n = c^n.  \)  Here is how the equation looks
+  after rearranging the terms:
+
+  \[
+    x^3 = 18y^2 + 54.
+  \]
+</p>
+<p>
+  The right hand side is positive, so any \( x \) that satisfies this
+  equation must also be positive, i.e. \( x \gt 0 \) must hold good
+  for any solution \( x \) and \( y.  \)
+</p>
+<p>
+  Also, if some \( y \) satisfies the equation, then \( -y \) also
+  satisfies the equation because the right hand side value remains the
+  same for both \( y \) and \( -y.  \)
+</p>
+<p>
+  The right hand side is \( 2(9y^2 + 3^3).  \)  This is of the form \(
+  2(3a^2b + b^3) \) where \( a = y \) and \( b = 3.  \)  Now \( 2(3a^2b
+  + b^3) = (a + b)^3 - (a - b)^3.  \)  Using these details, we get
+
+  \[
+    x^3 = 18y^2 + 54 = 2(9y^2 + 3^3) = (y + 3)^3 - (y - 3)^3.
+  \]
+
+  Rearranging the terms, we get
+
+  \[
+    x^3 + (y - 3)^3 = (y + 3)^3.
+  \]
+
+  From Fermat's Last Theorem, we know that an equation of the form \(
+  a^n + b^n = c^n \) does not have any solution for positive integers
+  \( a, \) \( b, \) \( c \) and positive integer \( n \gt 2.  \)  We
+  know that \( x \gt 0.  \)  Therefore \( y \gt 3 \) contradicts
+  Fermat's Last Theorem.  Thus the inequality \( y \le 3 \) must hold
+  good.  Further since for every solution \( x \) and \( y, \) there
+  is also a solution \( x \) and \( -y, \) the inequality \( -y \le
+  3 \) must also hold good.  Therefore values of \( x \) and \( y \)
+  that satisfy the above equation must satisfy the following
+  inequalities:
+
+  \begin{align*}
+    x \gt 0, \\
+    -3 \le y \le 3.
+  \end{align*}
+
+  Since \( y \) must be one of the seven integers between \( -3 \) and
+  \( 3, \) inclusive, we can try solving for \( x \) with each of
+  these seven values of \( y.  \)  When we do so, we find that there
+  are only two values of \( y \) for which we get integer solutions
+  for \( x.  \)  They are \( y = 3 \) and \( y = -3.  \)  In both cases,
+  we get \( x = 6.  \)  Therefore, the solutions to the given equation
+  are:
+
+  \[
+    x = 6, \qquad y = \pm 3.
+  \]
+</p>
+<div>
+  <a href="comments/from-diophantine-equation-to-fermats-last-theorem.html">Comments</a> |
+  <a href="./tag/mathematics.html">#mathematics</a> |
+  <a href="./tag/combinatorics.html">#combinatorics</a> |
+  <a href="./tag/puzzle.html">#puzzle</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

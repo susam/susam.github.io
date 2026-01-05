@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Coefficient of Variation Function in PostgreSQL - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/coefficient-of-variation-function-in-postgresql.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../coefficient-of-variation-function-in-postgresql.html"><em>Coefficient of Variation Function in PostgreSQL</em></a></strong></div>
+<nav><a href="../form/comment/?p=coefficient-of-variation-function-in-postgresql">Post Comment</a></nav>
+<!-- Comment 1 of 2 -->
+<section id="1" class="visitor">
+<h2>Philipp Rautenberg wrote:</h2>
+<p>
+  What exactly is <code>float8_accum</code> doing?
+</p>
+<div>
+<a href="#1">23 Mar 2011 12:34 UTC</a> |
+<a href="#1">#1 of 2 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 2 -->
+<section id="2" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  The <code>float8_accum</code> is the aggregate state transition
+  function which maintains an internal state which changes for every
+  new <code>float8</code> input value.
+</p>
+<p>
+  It requires a three-element array, not just two elements, because it
+  accumulates the sum of squares as well as the sum and count of the
+  inputs.  This is so that it can be used for some other aggregates
+  besides <code>avg</code>.
+</p>
+<div>
+<a href="#2">23 Mar 2011 19:03 UTC</a> |
+<a href="#2">#2 of 2 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=coefficient-of-variation-function-in-postgresql">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../maze.html">Maze</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Shrinking List Puzzle - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/shrinking-list-puzzle.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+  <link rel="stylesheet" href="../js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="../js/katex/katex.min.js"></script>
+  <script defer src="../js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../shrinking-list-puzzle.html"><em>Shrinking List Puzzle</em></a></strong></div>
+<nav><a href="../form/comment/?p=shrinking-list-puzzle">Post Comment</a></nav>
+<!-- Comment 1 of 1 -->
+<section id="1" class="visitor">
+<h2>Ryan Batterman wrote:</h2>
+<p>
+  Let \( f(x, y) = x + y + xy.  \)  It can be rewritten as \( f(x, y) =
+  (x + 1)(y + 1) - 1.  \)  Now, consider an arbitrary set of integers
+  \( A = \{a_1, a_2, \dots, a_n\}.  \)  Applying the algorithm
+  mentioned in the problem statement to two integers \( a_i \) and \(
+  a_j \) chosen randomly from the set such that \( i \ne j, \) we
+  obtain, \( f(a_i, a_j) = (a_i + 1)(b_i + 1) - 1.  \)  When this
+  expression is used in subsequent calls to \( f(x, y), \) the
+  \( -1 \) drops, the new number is included in the product and the \(
+  -1 \) gets added again.  For instance, using this result and a
+  different number \( a_k \) chosen randomly from the set, we obtain
+  \( f\bigl((a_i + 1)(a_j + 1) - 1, a_k\bigr) = (a_i + 1)(a_j + 1)(a_k
+  + 1) - 1.  \)  Inductively, this pattern holds, and the algorithm
+  returns a product of all integers in the set minus \( 1.  \)
+</p>
+<p>
+  Therefore, the result of the algorithm, when applied to the set
+  \( A \) is \( \prod_{i=1}^n (a_i + 1) - 1.  \)  If \( A = \{1, 2,
+  \dots, 9\}, \) on applying the algorithm, we obtain \( (1 + 1)(2 +
+  1) \dots (9 + 1) - 1 = 10!  - 1 = 3628799.  \)
+</p>
+<div>
+<a href="#1">06 Jul 2011 05:07 UTC</a> |
+<a href="#1">#1 of 1 comment</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=shrinking-list-puzzle">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../maze.html">Maze</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

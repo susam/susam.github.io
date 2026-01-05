@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam's Meta Pages</title>
+<link>https://susam.net/tag/meta.html</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/tag/meta.xml"/>
+<description>Feed for Susam's Meta Pages</description>
+
+<item>
+<title>Ideas</title>
+<link>https://susam.net/ideas.html</link>
+<guid isPermaLink="false">ideas</guid>
+<pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h1>Ideas</h1>
+<p>
+  Hello!  This is my <a href="https://aboutideasnow.com/about">ideas
+  page</a> where I keep a brief record of some ideas I might want to
+  explore in the near future.  For ideas I have already begun
+  exploring, please see my <a href="now.html">now page</a> or
+  my <a href="pages.html">web log</a> instead.
+</p>
+<p>
+  As of 03 Jan 2026, I have the following ideas in mind that I might
+  want to explore in future:
+</p>
+<ul>
+  <li>
+    Explore the problem of checking whether two self-complementary
+    graphs are isomorphic.
+  </li>
+  <li>
+    Learn why \( s \)-arc transitive graph must have \( s \le 7.  \)
+  </li>
+</ul>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/ideas.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Now</title>
+<link>https://susam.net/now.html</link>
+<guid isPermaLink="false">nowpg</guid>
+<pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h1>Now</h1>
+<p>
+  Hello!  This is my <a href="https://nownownow.com/about">now
+  page</a> where I keep a brief record of what I am up to these days.
+</p>
+<p>
+  As of 03 Jan 2026, I am:
+</p>
+<ul>
+  <li>
+    Studying the book <em>Algebraic Graph Theory</em> by Godsil and
+    Royle.
+  </li>
+  <li>
+    Learning about the Coxeter graph and Tutte's 8-cage.
+  </li>
+  <li>
+    Learning about distance-transitive graphs, in general.
+  </li>
+  <li>
+    Maintaining this website.
+  </li>
+  <li>
+    Occasionally posting comments to Hacker News
+    (<a href="https://news.ycombinator.com/threads?id=susam">see here</a>).
+  </li>
+</ul>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/now.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Discuss Nerd Quiz</title>
+<link>https://susam.net/comments/nq.html</link>
+<guid isPermaLink="false">nqztk</guid>
+<pubDate>Sat, 18 Oct 2025 01:39:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A comments page to discuss Nerd Quiz.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/comments/nq.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Blogroll</title>
+<link>https://susam.net/roll.html</link>
+<guid isPermaLink="false">bgrll</guid>
+<pubDate>Sat, 21 Jun 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h1>Blogroll</h1>
+<p>
+  The blogroll is available in the online copy of this website at
+  <a href="https://susam.net/roll.html">susam.net/roll.html</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/roll.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Colophon</title>
+<link>https://susam.net/colophon.html</link>
+<guid isPermaLink="false">djhst</guid>
+<pubDate>Sat, 15 Jun 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h1>Colophon</h1>
+<p>
+  Here are some details about how this website is maintained and
+  published:
+</p>
+<ul>
+  <li>
+    <p>
+      This website runs on a <a href="https://www.debian.org/">Debian</a> system.
+    </p>
+  </li>
+  <li>
+    <p>
+      This website is served
+      using <a href="https://packages.debian.org/stable/nginx">Nginx</a>.
+    </p>
+  </li>
+  <li>
+    <p>
+      This website is generated statically using a small
+      <a href="https://github.com/susam/susam.net/blob/main/site.lisp">Common
+        Lisp program</a>.  This program is available under the terms of
+      the MIT licence.
+    </p>
+  </li>
+  <li>
+    <p>
+      Every line of HTML and CSS that makes this website is
+      handcrafted.  The final HTML pages, however, are generated using
+      a Common Lisp program.  This program merely combines the
+      handcrafted HTML content with a handcrafted HTML layout to
+      generate the pages that are served over the web.  The content
+      HTML, layout HTML and the Common Lisp program were all written
+      from scratch.
+    </p>
+  </li>
+  <li>
+    <p>
+      All web pages on this website are
+      <a href="https://github.com/susam/susam.net/blob/08a2d7b/Makefile#L372-L377">validated
+      using HTML Tidy</a>.
+    </p>
+  </li>
+  <li>
+    <p>
+      While most of this website is made of static HTML pages served
+      via Nginx, the pages for the comment and subscriber forms are
+      dynamic in nature.  They are implemented using Common Lisp and
+      Hunchentoot.
+    </p>
+  </li>
+  <li>
+    <p>
+      This website has a <a href="pages.html">site-wide page list</a>
+      that includes every page on this website.  It doesn't matter if
+      the page is part of a blog, a standalone HTML tool or an HTML
+      game.  Every single web page on this website occurs in this
+      list.
+    </p>
+  </li>
+  <li>
+    <p>
+      This website has a <a href="links.html">links page</a> that has
+      pointers to various sections of my website.
+    </p>
+  </li>
+  <li>
+    <p>
+      This website has a <a href="tag/">tag list page</a>
+      that can be used to browse this website by topics.  Clicking on
+      any tag on the tag list page, presents a list of all web pages
+      that have been marked with that tag.
+    </p>
+  </li>
+  <li>
+    <p>
+      This website provides a consolidated <a href="feed.xml">web feed
+      (RSS)</a>.  The Common Lisp program mentioned earlier ensures
+      that every new web page that appears on this website also
+      appears in this web feed.
+    </p>
+  </li>
+  <li>
+    <p>
+      Every tag has its own web feed.  For example,
+      see <a href="tag/technology.html">tag/technology.html</a> for a
+      list of all pages tagged "Technology" and then
+      see <a href="tag/technology.xml">tag/technology.xml</a> for the
+      corresponding web feed.
+    </p>
+  </li>
+  <li>
+    <p>
+      The web feeds are sparingly styled with
+      <a href="feed.xsl">XSLT</a>.  Web browsers that support XSL
+      transformation for web feeds render the feeds as HTML (rather
+      than raw XML) as determined by the stylesheet.
+    </p>
+  </li>
+  <li>
+    <p>
+      This website has an old-fashioned
+      <a href="comments/guestbook.html">guestbook</a>.  Feel free to
+      leave a message there if you would like to say hello or share a
+      thought.
+    </p>
+  </li>
+  <li>
+    <p>
+      This website includes a <a href="roll.html">blogroll</a>
+      generated by a small Common Lisp program.  It reads the RSS and
+      Atom feeds of my favourite blogs and generates a page with links
+      to recent entries.  This has turned out to be a pleasant and
+      effective way to keep up with my feeds, so much so that I no
+      longer use any dedicated feed reader software or aggregator
+      services.  See also: <a href="blogroll-as-feed-reader.html">My
+      Blogroll Is My Feed Reader</a>.
+    </p>
+  </li>
+  <li>
+    <p>
+      Every directory and subdirectory on this website has a directory
+      listing page that lists all its files and subdirectories.
+      See <a href="ls.html">ls.html</a> for an example.  Subdirectory
+      names are marked with a trailing slash.
+    </p>
+  </li>
+  <li>
+    <p>
+      This website loads KaTeX to render LaTeX snippets on web pages
+      that contain mathematical formulas.  For example, see the page
+      <a href="integrating-factor.html">integrating-factor.html</a>.
+      KaTeX is not loaded on other web pages.
+    </p>
+  </li>
+  <li>
+    <p>
+      All internal links on this website are relative links.  In fact,
+      all internal resources like the stylesheet, KaTeX, etc. too are
+      loaded using relative links.  Doing so allows me to browse this
+      website locally from my local drive without having to run a web
+      server on my development system.
+    </p>
+  </li>
+  <li>
+    All web pages on this website have been
+    <a href="https://github.com/susam/susam.net/blob/0.3.0/Makefile#L486-L490">validated
+    to ensure that there are no broken internal links</a>.
+  </li>
+  <li>
+    <p>
+      When you visit any web page on this website, all resources are
+      loaded from this website and only this website.  No external
+      resources are loaded.  This ensures that when you visit this
+      website, no data about your client is transmitted to another web
+      server.
+    </p>
+  </li>
+  <li>
+    <p>
+      This website does not load analytics scripts.
+    </p>
+  </li>
+  <li>
+    <p>
+      This website does not use cookies.
+    </p>
+  </li>
+</ul>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/colophon.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Quick Links</title>
+<link>https://susam.net/links.html</link>
+<guid isPermaLink="false">pmryq</guid>
+<pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h1>Quick Links</h1>
+<p>
+  This page contains quick links to various sections of this website.
+</p>
+<h2 id="main">Main Sections<a href="#main"></a></h2>
+<ul>
+  <li>
+    <a href="./">Blog Posts</a>
+  </li>
+  <li>
+    <a href="maze.html">Quick Notes</a>
+  </li>
+  <li>
+    <a href="pages.html">All Pages</a>
+  </li>
+  <li>
+    <a href="comments/">All Comments</a>
+  </li>
+  <li>
+    <a href="tag/">Tags</a>
+  </li>
+  <li>
+    <a href="comments/guestbook.html">Guestbook</a>
+  </li>
+</ul>
+<h2 id="more">Additional Sections<a href="#more"></a></h2>
+<ul>
+  <li>
+    <a href="backlinks.html">Backlinks</a>
+  </li>
+  <li>
+    <a href="roll.html">Blogroll</a>
+  </li>
+  <li>
+    <a href="comments/bug.html">Bug Reports</a>
+  </li>
+  <li>
+    <a href="colophon.html">Colophon</a>
+  </li>
+  <li>
+    <a href="cc/">Computation Club</a>
+  </li>
+</ul>
+<h2 id="fun">Fun Pages<a href="#fun"></a></h2>
+<ul>
+  <li>
+    <a href="contrast.html">Contrast Calculator</a> &mdash; Calculate contrast between two colours per WCAG formula
+  </li>
+  <li>
+    <a href="cfrs.html">CFRS[]</a> &mdash; Minimal drawing language with only six commands
+  </li>
+  <li>
+    <a href="css-fizz-buzz.html">CSS Fizz Buzz</a> &mdash; Fizz Buzz in four lines of CSS
+  </li>
+  <li>
+    <a href="fxyt.html">FXYT</a> &mdash; Tiny, stack-based, postfix canvas colouring language
+  </li>
+  <li>
+    <a href="myrgb.html">Guess My RGB</a> &mdash; RGB colour guessing game
+  </li>
+  <li>
+    <a href="invaders.html">Invaders</a> &mdash; 1980s-arcade-style invaders game
+  </li>
+  <li>
+    <a href="jokes.html">Jokes</a> &mdash; My favourite jokes
+  </li>
+  <li>
+    <a href="nq.html">Nerd Quiz</a> &mdash; Built from everyday moments of exploration
+  </li>
+  <li>
+    <a href="primegrid.html">Prime Number Grid Explorer</a> &mdash; Explore prime numbers in a grid
+  </li>
+  <li>
+    <a href="quickqwerty.html">QuickQWERTY</a> &mdash; Touch typing tutor for QWERTY keyboard
+  </li>
+</ul>
+<h2 id="demos">Fun Demos<a href="#demos"></a></h2>
+<ul>
+  <li>
+    CFRS[] Demos:
+    <a href="cfrs.html#1">#1</a>,
+    <a href="cfrs.html#2">#2</a>,
+    <a href="cfrs.html#3">#3</a>,
+    <a href="cfrs.html#4">#4</a>,
+    <a href="cfrs.html#5">#5</a>
+  </li>
+  <li>
+    FXYT Demos:
+    <a href="fxyt.html#XYxTN1srN255pTN1sqD">#1</a>,
+    <a href="fxyt.html#XYaTN1srN255pTN1sqN0">#2</a>,
+    <a href="fxyt.html#XYoTN1srN255pTN1sqDN0S">#3</a>,
+    <a href="fxyt.html#XYpTN1srN255pTN1sqD">#4</a>,
+    <a href="fxyt.html#XYN256sTdrD">#5</a>
+  </li>
+  <li>
+    Invaders: <a href="invaders.html#auto">Autopilot</a>
+  </li>
+</ul>
+<h2 id="quirky">Quirky Pages<a href="#quirky"></a></h2>
+<ul>
+  <li><a href="pc.html">ASCII PC</a></li>
+  <li><a href="assoc.html">Associations</a></li>
+  <li><a href="eql.html">Equal Length Words</a></li>
+  <li><a href="0573e7473.html">SHA256 Hash of Self-Referential Message</a></li>
+</ul>
+<h2 id="sections">Subscribe<a href="#sections"></a></h2>
+<ul>
+  <li>
+    <a href="feed.xml">By RSS Feed</a>
+  </li>
+  <li>
+    <a href="form/subscribe/">By Email Newsletter</a>
+  </li>
+</ul>
+<h2 id="social">Social<a href="#social"></a></h2>
+<ul>
+  <li>
+    <a href="https://codeberg.org/susam">Codeberg</a>
+  </li>
+  <li>
+    <a href="https://github.com/susam">GitHub</a>
+  </li>
+  <li>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </li>
+  <li>
+    <a href="https://twitch.tv/susampal">Twitch</a>
+  </li>
+  <li>
+    <a href="https://web.libera.chat/#susam">IRC</a>
+  </li>
+  <li>
+    <a href="https://app.element.io/#/room/#susam:matrix.org">Matrix</a>
+  </li>
+</ul>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/links.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Report Bug</title>
+<link>https://susam.net/comments/bug.html</link>
+<guid isPermaLink="false">bugtk</guid>
+<pubDate>Thu, 18 May 2023 19:09:23 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A comments page to report bugs, typos and errors found on this
+  website.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/comments/bug.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Computation Club Meeting</title>
+<link>https://susam.net/meet/</link>
+<guid isPermaLink="false">qfehz</guid>
+<pubDate>Thu, 15 Dec 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Meeting link for computation club.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/meet/">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Privacy Notice</title>
+<link>https://susam.net/privacy.html</link>
+<guid isPermaLink="false">lfqtp</guid>
+<pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h1>Privacy Notice</h1>
+<p>
+  <a href="https://susam.net/">Susam.Net</a> (this website) is a
+  personal website maintained by Susam Pal.  This privacy notice
+  explains how this website uses the data it collects from you when
+  you use this website.
+</p>
+<h2 id="data-items">Data Items<a href="#data-items"></a></h2>
+<p>
+  This website collects the following data:
+</p>
+<ol>
+  <li>
+    <p>
+      The text submitted by you if you submit a new comment to this
+      website.  This text submitted by you may contain your name, a
+      URL to your profile on the world wide web and a comment.  This
+      text is written by you, so you are in complete control of what
+      you submit in the text.  You must not submit sensitive personal
+      data to this website.
+    </p>
+  </li>
+  <li>
+    <p>
+      Your email address submitted by you if you submit a subscribe or
+      unsubscribe request to this website.
+    </p>
+  </li>
+  <li>
+    <p>
+      Your Internet Protocol (IP) address used to visit this website.
+    </p>
+  </li>
+  <li>
+    <p>
+      HTTP referrer URL sent by your web browser or client software
+      while connecting to this website.  A web browser or a client
+      software typically, but not necessarily, sends the URL of the
+      web page or website where you clicked on a link to visit this
+      website as the HTTP referrer value.  If this website is visited
+      directly without clicking on any link, then a web browser or
+      client does not typically send any HTTP referrer data.
+    </p>
+  </li>
+  <li>
+    <p>
+      User agent string sent by your web browser or client software
+      while visiting this website.  A web browser or a client software
+      typically, but not necessarily, includes the names and versions
+      of your device and operating system as well as the name and
+      version of your web browser or client software in the user agent
+      string.
+    </p>
+  </li>
+</ol>
+<h2 id="data-collection">Data Collection<a href="#data-collection"></a></h2>
+<p>
+  When you visit this website, your IP address, referrer data and user
+  agent string are automatically recorded in web server log files.
+</p>
+<p>
+  When you submit a new comment to this website successfully, your
+  text is written to a file on the web server.  If the comment
+  submission fails due to errors, then your text is neither saved nor
+  published.  If the comment submission succeeds, the text submitted
+  by you is reviewed within 30 days.  If your comment is found to be
+  suitable for this website, then the text you have submitted is
+  published on the website.  If the comment is found to be unsuitable
+  for this website, then the text file containing your submitted text
+  is deleted.
+</p>
+<p>
+  When you submit a new subscribe or unsubscribe request to this
+  website successfully, your email address is written to a file on the
+  web server.  If the request submission fails due to errors, then
+  your email address is not saved.  If the subscribe or unsubscribe
+  request succeeds, the email address submitted by you is added to a
+  Google Groups mailing list that is used to send email newsletters.
+  The use of your email address by Google Groups is covered by
+  Google's privacy policy.
+</p>
+<h2 id="data-usage">Data Usage<a href="#data-usage"></a></h2>
+<p>
+  The IP address, referrer data and user agent string is used to
+  monitor abuse of this website such as submitting spam comments,
+  sending too many requests to reduce the availability of this
+  website, etc.  This data is also used to mitigate abuse of this
+  website by blocking certain combinations of IP address, referrer
+  data and/or user agent from accessing this website or by limiting
+  the number of requests such a combination may send to this website.
+</p>
+<p>
+  If you submit a comment to this website successfully and if the
+  comment is found to be suitable for this website during review, the
+  comment text is published at a comments page on this website.
+  Whether a comment is published or not is at the discretion of the
+  maintainer of this website.  When your comment text is published on
+  this website, it becomes available publicly to anyone who visits the
+  comments page.  You must not submit sensitive personal data to this
+  website.
+</p>
+<p>
+  If you submit a subscribe request to this website successfully, then
+  at the discretion of the maintainer of this website, your email
+  address may be added to the email newsletter recipient list.  The
+  recipient list is maintained in Google Groups, a third-party service
+  provided by Google LLC.  This website uses Google Groups mailing
+  list to send email newsletters.  The mailing list is configured to
+  not expose your email address to other subscribers.  The use of your
+  email address by Google Groups is covered by Google's privacy
+  policy.
+</p>
+<p>
+  If you submit an unsubscribe request to this website successfully,
+  then your email address is removed from the Google Groups mailing
+  list within 30 days if the email address exists in the mailing list.
+  You can remove your email address immediately from the Google Groups
+  mailing list by sending an email
+  to <code>susampal+unsubscribe@googlegroups.com</code>.
+</p>
+<h2 id="data-storage">Data Storage<a href="#data-storage"></a></h2>
+<p>
+  The IP address, referrer data and user agent string are stored in
+  web server log files.  This data is retained for 15 days.  After 15
+  days, this data is deleted automatically.
+</p>
+<p>
+  A successfully submitted comment text is first stored in a text file
+  on the web server.  The comment text is reviewed within 30 days.  If
+  the comment is found to be suitable for this website, the comment
+  text is copied to a comments page where the comment becomes
+  available publicly on the world wide web.  If the comment is found
+  to be unsuitable for this website, then the text file containing
+  your submitted text is deleted from the web server.  You must never
+  submit sensitive personal data to this website.
+</p>
+<p>
+  A successfully submitted email address in a subscribe or unsubscribe
+  request is first stored in a text file on the web server.  The email
+  address is reviewed within 30 days.  At the discretion of the
+  maintainer of this website, a successfully submitted subscription
+  request is either accepted or rejected.  When a subscription request
+  is accepted, the email address is added to a Google Groups mailing
+  list that is used to send email newsletters.  After adding your
+  email address to the mailing list, the text file containing your
+  email address is deleted from the web server.  The mailing list is
+  configured to not expose your email address to other subscribers.
+  When a subscription request is rejected, the text file containing
+  your email address is deleted from the web server.  A successfully
+  submitted unsubscribe request is always accepted within 30 days.
+  The email address submitted in an unsubscribe request is removed
+  from the Google Groups mailing list within 30 days if it exists in
+  the mailing list.  Then the text file containing the email address
+  is deleted.  The use of your email address by Google Groups is
+  covered by Google's privacy policy.
+</p>
+<h2 id="third-party-services">Third-Party Services<a href="#third-party-services"></a></h2>
+<p>
+  If and only if you successfully submit a request to subscribe to the
+  email newsletters of this website and your subscription requested is
+  accepted, your email address is added to a Google Groups mailing
+  list used to send email newsletters.  Google Groups is a third-party
+  service provided by Google LLC.  The use of your email address by
+  Google Groups is covered by Google's privacy policy.  Google's
+  privacy policy is available
+  at <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.
+</p>
+<h2 id="third-party-analytics">Third-Party Analytics<a href="#third-party-analytics"></a></h2>
+<p>
+  This website does not use third-party analytics.
+</p>
+<h2 id="cookies">Cookies<a href="#cookies"></a></h2>
+<p>
+  This website does not use cookies.
+</p>
+<h2 id="marketing">Marketing<a href="#marketing"></a></h2>
+<p>
+  This website does not use your data for marketing purpose.
+</p>
+<h2 id="contact">Contact<a href="#contact"></a></h2>
+<p>
+  If you have any questions about the data collected by this website,
+  please contact susam (dot) pal (at) gmail (dot) com.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/privacy.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Forms</title>
+<link>https://susam.net/form/</link>
+<guid isPermaLink="false">jqqvx</guid>
+<pubDate>Sat, 12 Mar 2022 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h1>Forms</h1>
+<ul style="font-family: monospace,monospace; list-style-type: none; padding: 0">
+  <li style="margin-top: 1em">
+    <a href="comment/">comment/</a>
+  </li>
+  <li style="margin-top: 1em">
+    <a href="subscribe/">subscribe/</a>
+  </li>
+  <li style="margin-top: 1em">
+    <a href="unsubscribe/">unsubscribe/</a>
+  </li>
+</ul>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/form/">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Subscribe</title>
+<link>https://susam.net/form/subscribe/</link>
+<guid isPermaLink="false">ysyly</guid>
+<pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h1>Subscribe</h1>
+<p>
+  The subscription form is not available in this local copy of the
+  website.  To access it, please visit the online version at
+  <a href="https://susam.net/form/subscribe/">susam.net/form/subscribe/</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/form/subscribe/">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Unsubscribe</title>
+<link>https://susam.net/form/unsubscribe/</link>
+<guid isPermaLink="false">johoc</guid>
+<pubDate>Sun, 19 Sep 2021 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h1>Unsubscribe</h1>
+<p>
+  The unsubscription form is not available in this local copy of the
+  website.  To access it, please visit the online version at
+  <a href="https://susam.net/form/unsubscribe/">susam.net/form/unsubscribe/</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/form/unsubscribe/">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Comment</title>
+<link>https://susam.net/form/comment/</link>
+<guid isPermaLink="false">czzkw</guid>
+<pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h1>Comment</h1>
+<p>
+  The comment form is not available in this local copy of the website.
+  To access it, please visit the online version at
+  <a href="https://susam.net/form/comment/">susam.net/form/comment/</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/form/comment/">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>About Me</title>
+<link>https://susam.net/about.html</link>
+<guid isPermaLink="false">llwsv</guid>
+<pubDate>Mon, 01 Oct 2007 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h1>About Me</h1>
+<p>
+  Hi!  I am Susam Pal.  Welcome to my website.  This page provides a
+  brief introduction about me and this website.
+</p>
+<p>
+  I am a software engineer by profession.  I have a keen interest in
+  free and open source software.  My first non-trivial contribution to
+  open source was
+  <a href="https://issues.apache.org/jira/browse/NUTCH-559">NUTCH-559</a>
+  in 2007.  That contribution added support for various authentication
+  schemes to Apache Nutch, an open source web crawler.  I have
+  remained active in the open source communities since then.  I also
+  develop and maintain a few open source projects of my own at
+  <a href="https://github.com/susam">github.com/susam</a>.  For a list
+  of my projects, see my <a href="foss.html">open source work
+  details</a>.
+</p>
+<p>
+  When not involved with technology, I like reading books, playing the
+  piano and travelling.
+</p>
+<h2 id="irc">IRC<a href="#irc"></a></h2>
+<p>
+  I am usually online as my IRC nick <em>susam</em> on
+  <a href="https://web.libera.chat/">Libera IRC</a>.  I hang out at
+  various channels like #algorithms, #commonlisp, #emacs, #python,
+  etc.
+</p>
+<p>
+  The #algorithms channel was founded by me first on Freenode in 2007
+  when there was no such channel dedicated to the subject of
+  algorithms.  It started as a tiny community of about 10 members from
+  the ##math channel and then gradually grew to have over 200 members
+  within a few years.  The channel was then
+  <a href="algorithms-channel-migrates-to-libera-chat.html">migrated</a>
+  to Libera in 2021.
+</p>
+<h2 id="website">Website<a href="#website"></a></h2>
+<p>
+  This website is generated using a Common Lisp program.  Most of this
+  website is static in nature.  The
+  <a href="form/comment/?p=about">comment form</a> on this
+  website is served dynamically using a tiny web server program
+  written in Common Lisp.  See
+  <a href="https://github.com/susam/susam.net">github.com/susam/susam.net</a>
+  for the source code of this website.
+</p>
+<p>
+  Every line of HTML and CSS that makes this website is handcrafted.
+  See <a href="colophon.html">colophon.html</a> for more details about
+  how this website is written and run.
+</p>
+<p>
+  The primary copy of this website is hosted at
+  <a href="https://susam.net/">susam.net</a>.  A mirror of the
+  website is hosted at
+  <a href="https://susam.github.io/">susam.github.io</a>.
+</p>
+<p>
+  This website began its life as an intranet portal running on an
+  intranet server out of my dorm room during my university days back
+  in 2001-2005.  That intranet server was named <code>maze</code>.  I
+  used to run that server for my fellow students in our university's
+  computer network.  The server used to host an FTP server and an HTTP
+  portal for mathematical puzzles, technical articles, free software
+  downloads and audio/video streaming.  While that intranet portal and
+  its source code written in Classic ASP are now long gone, some of
+  its content still survives on this website.
+</p>
+<h2 id="browse">Browse<a href="#browse"></a></h2>
+<p>
+  The <a href="./">home page</a> of this website presents
+  my primary blog.  I write about technology, mathematics and other
+  miscellaneous topics on this blog.  The posts on my primary blog
+  often tend to be long-form, involved and detailed.  They sometimes
+  take considerable time to write and publish.  As a result, the
+  interval between two posts on this blog can range from several weeks
+  to months.
+</p>
+<p>
+  I also archive notes, code and various miscellaneous files on other
+  sections of this website that I update more frequently than my
+  primary blog.  Visit <a href="links.html">links.html</a> to find
+  quick links to my primary blog as well as other sections of this
+  website.
+</p>
+<h2 id="guestbook">Guestbook<a href="#guestbook"></a></h2>
+<p>
+  This website has a simple, old-fashioned guestbook.  Please
+  visit <a href="comments/guestbook.html">guestbook.html</a> if you
+  would like to leave a comment.
+</p>
+<h2 id="blogroll">Blogroll<a href="#blogroll"></a></h2>
+<p>
+  This website has a blogroll.  On a particularly hot summer day in
+  June 2025, with temperatures soaring to 31&nbsp;&deg;C, I decided to
+  write a small Common Lisp program that generates a page with links
+  to recent entries from my favourite blogs.  To check my blogroll,
+  please visit <a href="roll.html">roll.html</a>.
+</p>
+<p>
+  I have found this to be a great way to keep up with my feeds.
+  Thanks to this section of my website, I no longer use feed readers
+  or aggregators.  I could never quite make a habit of using them
+  regularly anyway.
+</p>
+<p>
+  Credit for this nifty and very effective idea of using my blogroll
+  as my feed reader goes to Alex Kladov!  It was Alex's
+  website, <a href="https://matklad.github.io/">matklad.github.io</a>,
+  that inspired me to implement <a href="roll.html">my own
+  blogroll</a>.
+</p>
+<h2 id="colours">Colours<a href="#colours"></a></h2>
+<p>
+  This website supports both light and dark colour schemes.  The
+  information box below shows the colour scheme selected right now.
+</p>
+<p class="light highlight">
+  The <strong>light colour scheme</strong> is active currently.
+</p>
+<p class="dark highlight">
+  The <strong>dark colour scheme</strong> is active currently.
+</p>
+<p>
+  If you would like to browse this website using the opposite colour
+  scheme, please check if your operating system or web browser
+  supports changing the preferred colour scheme.  Most modern
+  operating systems do support it.
+</p>
+<h2 id="name">Name<a href="#name"></a></h2>
+<p>
+  I have been told many times that my name, <em>"Susam"</em>, is a
+  little unusual which makes it difficult for others to figure how to
+  pronounce it.  It is pronounced almost like the English
+  words <em>"sue sum"</em> (/suːsʌm/).  However you may call my name
+  however you find most natural, convenient or intuitive.  I do not
+  mind mispronunciations of my name at all whatsoever.
+</p>
+<h2 id="bugs">Bugs<a href="#bugs"></a></h2>
+<p>
+  If you find any bugs, typos or errors on this website, please report
+  them to me by <a href="form/comment/?p=bug">sending a
+  comment here</a>.  See also <a href="comments/bug.html">the bug
+  report page</a> for previously reported issues.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/about.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Talks</title>
+<link>https://susam.net/talks.html</link>
+<guid isPermaLink="false">uyaqd</guid>
+<pubDate>Wed, 20 Sep 2006 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  My talks.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/talks.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>FOSS</title>
+<link>https://susam.net/foss.html</link>
+<guid isPermaLink="false">spwvm</guid>
+<pubDate>Sun, 06 Aug 2006 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Free and open source contributions.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/foss.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CV</title>
+<link>https://susam.net/cv.html</link>
+<guid isPermaLink="false">vvxyz</guid>
+<pubDate>Mon, 10 Oct 2005 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Curriculum vitae.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/cv.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Guestbook</title>
+<link>https://susam.net/comments/guestbook.html</link>
+<guid isPermaLink="false">igzli</guid>
+<pubDate>Wed, 11 Dec 2002 16:06:29 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Guestbook
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/comments/guestbook.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+
+
+</channel>
+</rss>

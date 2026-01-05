@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Leap Year Test in K&amp;R - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/leap-year-test-in-knr.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+  <link rel="stylesheet" href="../css/extra.css">
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../leap-year-test-in-knr.html"><em>Leap Year Test in K&amp;R</em></a></strong></div>
+<nav><a href="../form/comment/?p=leap-year-test-in-knr">Post Comment</a></nav>
+<!-- Comment 1 of 1 -->
+<section id="1" class="visitor">
+<h2>Thaumasiotes wrote:</h2>
+<p>
+  For those who were curious why these could both work, note that
+  <code>(A &amp;&amp; B) || C</code> differs from <code>A &amp;&amp;
+  (B || C)</code> in two cases: when <code>A</code> is
+  false, <code>C</code> is true, and <code>B</code> is any value.
+</p>
+<p>
+  But in this case in particular, those differences would create a bug
+  when <code>A</code> is false (the year is not divisible by 4) at the
+  same time that <code>C</code> is true (the year <em>is</em>
+  divisible by 400).  Since that can't happen, the bug cannot occur.
+</p>
+<div>
+<a href="#1">01 Mar 2020 22:30 UTC</a> |
+<a href="#1">#1 of 1 comment</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=leap-year-test-in-knr">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../maze.html">Maze</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

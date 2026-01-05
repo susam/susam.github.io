@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Euler's Formula - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/euler-formula.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="./js/katex/katex.min.js"></script>
+  <script defer src="./js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Euler's Formula</h1>
+<div>By <b>Susam Pal</b> on 04 Jun 2021</div>
+<p>
+  I know that Euler's identity is widely regarded as the most
+  beautiful theorem in mathematics.  In my opinion, the truly
+  beautiful concept involved here is Euler's formula:
+
+  \[
+  e^{ix} = \cos x + i \sin x.
+  \]
+
+  It unifies algebra, trigonometry, complex numbers and calculus.
+  Euler's identity is only a special case of Euler's formula, i.e.
+  Euler's formula with \( x = \pi \) gives us Euler's identity:
+
+  \[
+  e^{i \pi} = -1.
+  \]
+
+  This is cute but Euler's formula is truly beautiful.  In fact with
+  \( x = \tau = 2\pi, \) we get another cute result:
+
+  \[
+  e^{i \tau} = 1.
+  \]
+
+  Quoting an excerpt from Chapter 22 of <em>The Feynman Lectures on
+  Physics, Volume I</em>:
+</p>
+<blockquote>
+  <p>
+    We summarise with this, the most remarkable formula in mathematics:
+
+    \[
+    e^{i \theta} = \cos \theta + i \sin \theta.
+    \]
+
+    This is our jewel.
+  </p>
+  <p>
+    We may relate the geometry to the algebra by representing complex
+    numbers in a plane; the horizontal position of a point is \( x, \)
+    the vertical position of a point is \( y.  \)  We represent every
+    complex number, \( x + iy.  \)  Then if the radial distance to this
+    point is called \( r \) and the angle is called \( \theta, \) the
+    algebraic law is that \( x + iy \) is written in the form \( r,
+    e^{i \theta} \) where the geometrical relationships between
+    \( x, \) \( y, \) \( r, \) and \( \theta \) are as shown.  This,
+    then, is the unification of algebra and geometry.
+  </p>
+</blockquote>
+<p>
+  See the bottom of the page at
+  <a href="https://www.feynmanlectures.caltech.edu/I_22.html">https://www.feynmanlectures.caltech.edu/I_22.html</a>
+  for the above excerpt.
+</p>
+<div>
+  <a href="comments/euler-formula.html">Comments</a> |
+  <a href="./tag/mathematics.html">#mathematics</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>About Me - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/about.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/extra.css">
+  <link rel="stylesheet" href="./js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="./js/katex/katex.min.js"></script>
+  <script defer src="./js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>About Me</h1>
+<p>
+  Hi!  I am Susam Pal.  Welcome to my website.  This page provides a
+  brief introduction about me and this website.
+</p>
+<p>
+  I am a software engineer by profession.  I have a keen interest in
+  free and open source software.  My first non-trivial contribution to
+  open source was
+  <a href="https://issues.apache.org/jira/browse/NUTCH-559">NUTCH-559</a>
+  in 2007.  That contribution added support for various authentication
+  schemes to Apache Nutch, an open source web crawler.  I have
+  remained active in the open source communities since then.  I also
+  develop and maintain a few open source projects of my own at
+  <a href="https://github.com/susam">github.com/susam</a>.  For a list
+  of my projects, see my <a href="foss.html">open source work
+  details</a>.
+</p>
+<p>
+  When not involved with technology, I like reading books, playing the
+  piano and travelling.
+</p>
+<h2 id="irc">IRC<a href="#irc"></a></h2>
+<p>
+  I am usually online as my IRC nick <em>susam</em> on
+  <a href="https://web.libera.chat/">Libera IRC</a>.  I hang out at
+  various channels like #algorithms, #commonlisp, #emacs, #python,
+  etc.
+</p>
+<p>
+  The #algorithms channel was founded by me first on Freenode in 2007
+  when there was no such channel dedicated to the subject of
+  algorithms.  It started as a tiny community of about 10 members from
+  the ##math channel and then gradually grew to have over 200 members
+  within a few years.  The channel was then
+  <a href="algorithms-channel-migrates-to-libera-chat.html">migrated</a>
+  to Libera in 2021.
+</p>
+<h2 id="website">Website<a href="#website"></a></h2>
+<p>
+  This website is generated using a Common Lisp program.  Most of this
+  website is static in nature.  The
+  <a href="form/comment/?p=about">comment form</a> on this
+  website is served dynamically using a tiny web server program
+  written in Common Lisp.  See
+  <a href="https://github.com/susam/susam.net">github.com/susam/susam.net</a>
+  for the source code of this website.
+</p>
+<p>
+  Every line of HTML and CSS that makes this website is handcrafted.
+  See <a href="colophon.html">colophon.html</a> for more details about
+  how this website is written and run.
+</p>
+<p>
+  The primary copy of this website is hosted at
+  <a href="https://susam.net/">susam.net</a>.  A mirror of the
+  website is hosted at
+  <a href="https://susam.github.io/">susam.github.io</a>.
+</p>
+<p>
+  This website began its life as an intranet portal running on an
+  intranet server out of my dorm room during my university days back
+  in 2001-2005.  That intranet server was named <code>maze</code>.  I
+  used to run that server for my fellow students in our university's
+  computer network.  The server used to host an FTP server and an HTTP
+  portal for mathematical puzzles, technical articles, free software
+  downloads and audio/video streaming.  While that intranet portal and
+  its source code written in Classic ASP are now long gone, some of
+  its content still survives on this website.
+</p>
+<h2 id="browse">Browse<a href="#browse"></a></h2>
+<p>
+  The <a href="./">home page</a> of this website presents
+  my primary blog.  I write about technology, mathematics and other
+  miscellaneous topics on this blog.  The posts on my primary blog
+  often tend to be long-form, involved and detailed.  They sometimes
+  take considerable time to write and publish.  As a result, the
+  interval between two posts on this blog can range from several weeks
+  to months.
+</p>
+<p>
+  I also archive notes, code and various miscellaneous files on other
+  sections of this website that I update more frequently than my
+  primary blog.  Visit <a href="links.html">links.html</a> to find
+  quick links to my primary blog as well as other sections of this
+  website.
+</p>
+<h2 id="guestbook">Guestbook<a href="#guestbook"></a></h2>
+<p>
+  This website has a simple, old-fashioned guestbook.  Please
+  visit <a href="comments/guestbook.html">guestbook.html</a> if you
+  would like to leave a comment.
+</p>
+<h2 id="blogroll">Blogroll<a href="#blogroll"></a></h2>
+<p>
+  This website has a blogroll.  On a particularly hot summer day in
+  June 2025, with temperatures soaring to 31&nbsp;&deg;C, I decided to
+  write a small Common Lisp program that generates a page with links
+  to recent entries from my favourite blogs.  To check my blogroll,
+  please visit <a href="roll.html">roll.html</a>.
+</p>
+<p>
+  I have found this to be a great way to keep up with my feeds.
+  Thanks to this section of my website, I no longer use feed readers
+  or aggregators.  I could never quite make a habit of using them
+  regularly anyway.
+</p>
+<p>
+  Credit for this nifty and very effective idea of using my blogroll
+  as my feed reader goes to Alex Kladov!  It was Alex's
+  website, <a href="https://matklad.github.io/">matklad.github.io</a>,
+  that inspired me to implement <a href="roll.html">my own
+  blogroll</a>.
+</p>
+<h2 id="colours">Colours<a href="#colours"></a></h2>
+<p>
+  This website supports both light and dark colour schemes.  The
+  information box below shows the colour scheme selected right now.
+</p>
+<p class="light highlight">
+  The <strong>light colour scheme</strong> is active currently.
+</p>
+<p class="dark highlight">
+  The <strong>dark colour scheme</strong> is active currently.
+</p>
+<p>
+  If you would like to browse this website using the opposite colour
+  scheme, please check if your operating system or web browser
+  supports changing the preferred colour scheme.  Most modern
+  operating systems do support it.
+</p>
+<h2 id="name">Name<a href="#name"></a></h2>
+<p>
+  I have been told many times that my name, <em>"Susam"</em>, is a
+  little unusual which makes it difficult for others to figure how to
+  pronounce it.  It is pronounced almost like the English
+  words <em>"sue sum"</em> (/suːsʌm/).  However you may call my name
+  however you find most natural, convenient or intuitive.  I do not
+  mind mispronunciations of my name at all whatsoever.
+</p>
+<h2 id="bugs">Bugs<a href="#bugs"></a></h2>
+<p>
+  If you find any bugs, typos or errors on this website, please report
+  them to me by <a href="form/comment/?p=bug">sending a
+  comment here</a>.  See also <a href="comments/bug.html">the bug
+  report page</a> for previously reported issues.
+</p>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

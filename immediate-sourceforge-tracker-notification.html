@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Immediate SourceForge Tracker Notification - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/immediate-sourceforge-tracker-notification.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<main>
+<h1>Immediate SourceForge Tracker Notification</h1>
+<div>By <b>Susam Pal</b> on 13 Apr 2010</div>
+<p>
+  Here are the steps I followed to prevent the tracker email
+  notification sent to a SourceForge mailing list address from being
+  held for moderation.
+</p>
+<ol>
+  <li>
+    Navigate to <em>Mailman admin</em> &gt; <em>Privacy options</em>
+    &gt; <em>Sender filters</em>.  Then
+    add <code>noreply@sourceforge.net</code> to the list of non-member
+    addresses whose postings should be automatically accepted.
+  </li>
+  <li>
+    Navigate to <em>Mailman admin</em> &gt; <em>Privacy options</em>
+    &gt; <em>Recepient filters</em>.  Then
+    add <code>noreply@sourceforge.net</code> to alias names (regexps)
+    which qualify as explicit to or cc destination names for this
+    list.
+  </li>
+</ol>
+<p>
+  The first step was necessary because all emails sent by tracker
+  has <code>noreply@sourceforge.net</code> as the <em>From</em>
+  address.
+</p>
+<p>
+  The second step was necessary because all emails sent by tracker
+  has <code>noreply@sourceforge.net</code> as the <em>To</em> address.
+</p>
+<div>
+  <a href="comments/immediate-sourceforge-tracker-notification.html">Comments</a> |
+  <a href="./tag/technology.html">#technology</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

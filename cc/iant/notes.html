@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Notes on Introduction to Analytic Number Theory - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/cc/iant/notes.html">
+  <link rel="icon" type="image/png" href="../../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../../feed.xml">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="../../js/katex/katex.min.js"></script>
+  <script defer src="../../js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Notes on Introduction to Analytic Number Theory</h1>
+<p>
+  This page contains an archive of notes from the book
+  <em>Introduction to Analytic Number Theory</em> by Tom M. Apostol
+  (1976).
+</p>
+<p>
+  Note that this set of notes is not meant to be a systematic
+  exposition of analytic number theory.  Instead this is just a
+  collection of examples that illustrate some of the theorems in the
+  reference textbook and intermediate steps that are not explicitly
+  expressed in the book.  These boards were used to aid the
+  discussions during book discussion meetings.  As a result, the
+  content of these boards is informal in nature and is not intended to
+  be a substitute for the book or the actual discussion meetings.
+</p>
+<p>
+  If you find any mistakes in the content of the board files, please
+  <a href="https://github.com/susam/susam.net/issues/new">create a new
+  issue</a> or <a href="https://github.com/susam/susam.net">send a
+  pull request</a>.
+</p>
+<ul>
+  <li>
+    <a href="ch02.html">Notes on Chapter 2: Arithmetical Functions and Dirichlet Multiplication</a>
+  </li>
+  <!--
+  <li>
+    <a href="ch03.html">Notes on Chapter 3: Averages of Arithmetical Functions</a>
+  </li>
+  <li>
+    <a href="ch04.html">Notes on Chapter 4: Some Elementary Theorems on the Distribution of Prime Numbers</a>
+  </li>
+  <li>
+    <a href="ch05.html">Notes on Chapter 5: Congruences</a>
+  </li>
+  <li>
+    <a href="ch06.html">Notes on Chapter 6: Finite Abelian Groups and Their Characters</a>
+  </li>
+  <li>
+    <a href="ch07.html">Notes on Chapter 7: Dirichlet's Theorem on Primes in Arithmetical Progressions</a>
+  </li>
+  <li>
+    <a href="ch08.html">Notes on Chapter 8: Periodic Arithmetical Functions and Gauss Sums</a>
+  </li>
+  <li>
+    <a href="ch09.html">Notes on Chapter 9: Quadratic Residues and the Quadratic Reciprocity Law</a>
+  </li>
+  <li>
+    <a href="ch10.html">Notes on Chapter 10: Primitive Roots</a>
+  </li>
+  <li>
+    <a href="ch11.html">Notes on Chapter 11: Dirichlet Series and Euler Products</a>
+  </li>
+  <li>
+    <a href="ch12.html">Notes on Chapter 12: The Functions and \( \zeta(s) \) and \( L(s, \chi) \)</a>
+  </li>
+  <li>
+    <a href="ch13.html">Notes on Chapter 13: Analytic Proof of Prime Number Theorem</a>
+  </li>
+  <li>
+    <a href="ch14.html">Notes on Chapter 14: Partitions</a>
+  </li>
+  -->
+</ul>
+<p>
+  More notes coming soon!  We have all the meeting notes safely
+  archived.  Just need to format them and publish them here.
+</p>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../../">Home</a>
+    <a href="../../cc/">Club</a>
+    <a href="../../links.html">Links</a>
+    <a href="../../feed.xml">Feed</a>
+    <a href="../../form/subscribe/">Subscribe</a>
+    <a href="../../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

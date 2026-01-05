@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Wordle With Grep - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/wordle-with-grep.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../wordle-with-grep.html"><em>Wordle With Grep</em></a></strong></div>
+<nav><a href="../form/comment/?p=wordle-with-grep">Post Comment</a></nav>
+<!-- Comment 1 of 5 -->
+<section id="1" class="visitor">
+<h2><a href="https://bvnf.space">Phoebos</a> wrote:</h2>
+<p>
+  Nice!  I like the systematic approach.
+</p>
+<p>
+  The problem occurs if there are many words that differ from the
+  target word by only one letter, e.g., bears, fears, gears, pears,
+  tears, wears, years - in this case, it would be most useful to
+  create a word using as many of those first letters as possible - for
+  example, "befit" with b,f,t - so that only one guess is used up to
+  find what the first letter is.
+</p>
+<div>
+<a href="#1">22 Jan 2022 15:23 UTC</a> |
+<a href="#1">#1 of 5 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 5 -->
+<section id="2" class="visitor">
+<h2>Jana wrote:</h2>
+<p>
+  I solved them with Awk.
+</p>
+<p>Wordle #217:</p>
+<pre>
+<samp>$ <kbd>alias words='awk '/^[a-z][a-z][a-z][a-z][a-z]$/' /usr/share/dict/words'</kbd>
+$ <kbd>words | awk '/^....e/ &amp;&amp; !/[aros]/' | head -n 5</kbd>
+beige
+belie
+belle
+bible
+bilge
+$ <kbd>words | awk '/[^e][^e][^ie][^e]e/ &amp;&amp; /i/ &amp;&amp; !/[arosbg]/' | head -n 5</kbd>
+fiche
+indue
+lithe
+mince
+niche
+$ <kbd>words | awk '/[^e]i[^iec][^e]e/ &amp;&amp; /c/ &amp;&amp; !/[arosbgfh]/' | head -n 5</kbd>
+mince
+wince
+$ <kbd>words | awk '/[^e]ince/ &amp;&amp; !/[arosbgfhm]/' | head -n 5</kbd>
+wince</samp>
+</pre>
+<p>Wordle #218:</p>
+<pre>
+<samp>$ <kbd>words | awk '/.r.../ &amp;&amp; !/[aose]/' | head -n 5</kbd>
+brick
+bring
+brink
+briny
+bruin
+$ <kbd>words | awk '/.ri[^c]./ &amp;&amp; /c/ &amp;&amp; !/[aosebk]/' | head -n 5</kbd>
+crimp</samp>
+</pre>
+<p>Wordle #219:</p>
+<pre>
+<samp>$ <kbd>words | awk '/..o../ &amp;&amp; !/[arse]/' | head -n 5</kbd>
+block
+blond
+blood
+bloom
+blown
+$ <kbd>words | awk '/.[^l]o.[^k]/ &amp;&amp; /l/ &amp;&amp; /k/ &amp;&amp; !/[arsebc]/' | head -n 5</kbd>
+knoll</samp>
+</pre>
+<div>
+<a href="#2">23 Jan 2022 10:27 UTC</a> |
+<a href="#2">#2 of 5 comments</a>
+</div>
+</section>
+<!-- Comment 3 of 5 -->
+<section id="3" class="visitor">
+<h2>Fillon wrote:</h2>
+<blockquote>
+  Also, the letter 'e' does not occur anywhere apart from the fifth
+  place.
+</blockquote>
+<p>
+  There can be repeated letters!
+</p>
+<div>
+<a href="#3">23 Jan 2022 14:26 UTC</a> |
+<a href="#3">#3 of 5 comments</a>
+</div>
+</section>
+<!-- Comment 4 of 5 -->
+<section id="4" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Fillon,
+</p>
+<p>
+  I am aware that there can be repeated letters.  In
+  fact, <a href="../wordle-with-grep.html#wordle-219">Wordle #219</a>
+  ("knoll") does indeed have repeated letters.  However, in Wordle
+  #217 we can be sure that there is no repeated letter 'e'.
+</p>
+<p>
+  In <a href="../wordle-with-grep.html#wordle-217">Wordle #217</a>,
+  after we enter the word "beige" as the second guess, the result has
+  the letter 'e' in a green tile and another occurrence of the letter
+  'e' in a gray tile.  The gray tile containing 'e' confirms that
+  there is no repeated letter 'e'.  Here is how the second result
+  looks:
+</p>
+<p style="font-family: monospace; font-weight: bold; color: #ddd">
+  <span style="background: #333; padding: 0.5em">B</span>
+  <span style="background: #333; padding: 0.5em">E</span>
+  <span style="background: #b93; padding: 0.5em">I</span>
+  <span style="background: #333; padding: 0.5em">G</span>
+  <span style="background: #585; padding: 0.5em">E</span>
+</p>
+<p>
+  If there were no occurrence of 'e' in an unsolved tile in the result
+  above or if there were another 'e' in a yellow tile, then a repeated
+  'e' could have been present.  But in the result above, we have
+  another 'e' in a gray tile.  This gray tile guarantees that the
+  letter 'e' does not repeat in the solution.
+</p>
+<div>
+<a href="#4">23 Jan 2022 23:25 UTC</a> |
+<a href="#4">#4 of 5 comments</a>
+</div>
+</section>
+<!-- Comment 5 of 5 -->
+<section id="5" class="visitor">
+<h2>Fillon wrote:</h2>
+<p>
+  Susam,
+</p>
+<p>
+  Thanks for the explanation.  I did not notice earlier that the
+  result has an extra 'e' in a gray tile.  You are right.  Since the
+  extra 'e' has been evaluated and marked gray, it cannot occur as a
+  repeated letter.
+</p>
+<div>
+<a href="#5">25 Jan 2022 08:08 UTC</a> |
+<a href="#5">#5 of 5 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=wordle-with-grep">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../maze.html">Maze</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

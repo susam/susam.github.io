@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>When Worse Is Better - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/when-worse-is-better.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/extra.css">
+  <link rel="stylesheet" href="./js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="./js/katex/katex.min.js"></script>
+  <script defer src="./js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>When Worse Is Better</h1>
+<div>By <b>Susam Pal</b> on 29 Oct 2011</div>
+<h2 id="decision-problem">Decision Problem<a href="#decision-problem"></a></h2>
+<p>
+  Let me begin this post with a puzzle.
+</p>
+<div class="highlight">
+  <p>
+    Alex and Bob work as financial advisers for the same company.
+    They receive equal salaries from the company.  They behave well at
+    office.  Both work on similar assignments.  Each assignment
+    required a yes-no decision.  The company uses the decisions made
+    by them to make profits.
+  </p>
+  <p>
+    After the recession hit the company very badly, they have to fire
+    one of them.  Both Alex and Bob have worked on almost the same
+    number of assignments in the last ten years.  Alex has been
+    consistently taking about 80% decisions correctly every year.
+    Bob, on the other hand, has been taking only about 5% correct
+    decisions every year.
+  </p>
+  <p>
+    The company decides to keep Bob and fire Alex.  Why?
+  </p>
+</div>
+<p>
+  <em>This is a good time to pause and think about the puzzle.  There
+  are spoilers ahead.</em>
+</p>
+<h2 id="capacity-of-binary-symmetric-channel">Capacity of Binary Symmetric Channel<a href="#capacity-of-binary-symmetric-channel"></a></h2>
+<p>
+  We will come back to the puzzle.  Let us discuss the capacity of a
+  binary symmetric channel for a while.
+</p>
+<p>
+  The capacity of a binary symmetric channel with probability of error
+  \( p \) is
+
+  \[
+    1 + p \log_2 p + (1 - p) \log_2 (1 - p).
+  \]
+
+  The probability of error \( p \) is the probability that the channel
+  will corrupt a bit from 1 to 0 and vice versa.  The channel capacity
+  is a measure of the amount of information that is possible to
+  transmit over a channel.
+</p>
+<figure class="soft">
+  <img src="files/blog/channel-capacity.png" alt="Graph">
+  <figcaption>
+    Graph of channel capacity vs probability of error
+  </figcaption>
+</figure>
+<p>
+  If \( p = 0, \) the channel capacity is maximum.  Roughly speaking,
+  if the channel almost never corrupts a bit being transmitted, then
+  the entire channel capacity can be used for data transmission.
+</p>
+<p>
+  If \( p = \frac{1}{2}, \) the channel capacity is zero.  In this
+  case, each bit received on the receiver's end is completely random.
+  The channel is equally likely to send 0 or 1 irrespective of the
+  original bit sent by the transmitter.
+</p>
+<p>
+  What might be surprising is that as the probability of error
+  increases from \( \frac{1}{2} \) to \( 1, \) the channel capacity
+  increases.  When \( p = 1, \) the channel capacity is maximum again.
+  It is easy to understand this intuitively.  At \( p = 1, \) the
+  channel almost surely corrupts every bit.  Therefore the receiver
+  can almost surely correct the error by inverting each bit in the
+  received message.
+</p>
+<h2 id="solution-to-decision-problem">Solution to Decision Problem<a href="#solution-to-decision-problem"></a></h2>
+<p>
+  Let us get back to the puzzle now.
+</p>
+<p>
+  The company decides to keep Bob because he is more useful to the
+  company.  He helps the company to take 95% correct decisions.  The
+  company simply does the opposite of what Bob recommends and makes
+  huge profits.  Alex on the other hand helps them take only 80%
+  decisions correctly, so he has to go.  It is unfair but it is more
+  profitable.
+</p>
+<div>
+  <a href="comments/when-worse-is-better.html">Comments</a> |
+  <a href="./tag/mathematics.html">#mathematics</a> |
+  <a href="./tag/puzzle.html">#puzzle</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

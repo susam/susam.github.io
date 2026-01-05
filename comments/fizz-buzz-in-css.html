@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Fizz Buzz in CSS - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/fizz-buzz-in-css.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../fizz-buzz-in-css.html"><em>Fizz Buzz in CSS</em></a></strong></div>
+<nav><a href="../form/comment/?p=fizz-buzz-in-css">Post Comment</a></nav>
+<!-- Comment 1 of 5 -->
+<section id="1" class="visitor">
+<h2><a href="https://bsky.app/profile/losso3000.bsky.social">Losso</a> wrote:</h2>
+<p>
+  With two cheap tricks I got 147:
+</p>
+<ol>
+  <li>
+    Put everything in a <code>li{}</code> block and use the <code>&amp;</code> nesting selector.
+  </li>
+  <li>
+    Shorten <code>::before</code> and <code>::after</code>
+    to <code>:before</code> and <code>:after</code>, as modern
+    browsers support both, apparently.
+  </li>
+</ol>
+<pre><code>li{counter-increment:n;&amp;:not(:nth-child(5n)):before{content:counter(n)}&amp;:nth-child(3n):before{content:"Fizz"}&amp;:nth-child(5n):after{content:"Buzz"}}</code></pre>
+<p>
+  It could be promising to switch from <code>&lt;ul&gt;</code>
+  to <code>&lt;ol&gt;</code>, but maybe that fizz-, erm, fuzzes with
+  the target too much?  :)
+</p>
+<div>
+<a href="#1">05 Dec 2025 22:24 UTC</a> |
+<a href="#1">#1 of 5 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 5 -->
+<section id="2" class="visitor">
+<h2><a href="https://news.ycombinator.com/user?id=Metaboat">Metaboat</a> wrote:</h2>
+<p>
+  104
+</p>
+<pre><code>:nth-child(3n){list-style:"Fizz"}:nth-child(5n){list-style:"Buzz"}:nth-child(15n){list-style:"FizzBuzz"}</code></pre>
+<pre><code>data:text/html,&lt;style&gt;:nth-child(3n){list-style:"Fizz"}:nth-child(5n){list-style:"Buzz"}:nth-child(15n){list-style:"FizzBuzz"}&lt;/style&gt;&lt;ol id=o&gt;&lt;script&gt;o.innerHTML='&lt;li&gt;'.repeat(99)&lt;/script&gt;</code></pre>
+<div>
+<a href="#2">05 Dec 2025 23:18 UTC</a> |
+<a href="#2">#2 of 5 comments</a>
+</div>
+</section>
+<!-- Comment 3 of 5 -->
+<section id="3" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  That's an interesting solution.  It is worth noting that your
+  solution treats the list markers as part of the output, which the
+  version of the problem in my post avoids.  One of the requirements I
+  set out is that all text in the output sequence must be produced
+  directly by the stylesheet.  Nevertheless, your solution is an
+  independent and interesting solution to a slightly different version
+  of the stated problem.
+</p>
+<div>
+<a href="#3">05 Dec 2025 23:29 UTC</a> |
+<a href="#3">#3 of 5 comments</a>
+</div>
+</section>
+<!-- Comment 4 of 5 -->
+<section id="4" class="visitor">
+<h2>Steve wrote:</h2>
+<p>
+  You can save two characters using nesting.
+</p>
+<pre>
+<code>li{
+  counter-increment: n;
+  &amp;:not(:nth-child(5n))::before { content: counter(n) }
+  &amp;:nth-child(3n)::before { content: "Fizz" }
+  &amp;:nth-child(5n)::after { content: "Buzz" }
+}</code>
+</pre>
+<p>
+  After minifying this:
+<pre>
+<code>li{counter-increment:n;&amp;:not(:nth-child(5n))::before{content:counter(n)}&amp;:nth-child(3n)::before{content:"Fizz"}&amp;:nth-child(5n)::after{content:"Buzz"}}</code>
+</pre>
+<p>
+  Also, debatable whether this counts, but browsers don't care if you
+  only use one colon for <code>::before</code>
+  and <code>::after</code> so that could be another -3.
+</p>
+<div>
+<a href="#4">05 Dec 2025 23:42 UTC</a> |
+<a href="#4">#4 of 5 comments</a>
+</div>
+</section>
+<!-- Comment 5 of 5 -->
+<section id="5" class="visitor">
+<h2><a href="https://chaos.social/@luap42">luap42</a> wrote:</h2>
+<p>
+  Hi,
+</p>
+<p>
+  I think I found a solution that is just ever so slightly shorter (150 characters):
+</p>
+<pre><code>li{counter-increment:n;&amp;:before{content:counter(n)}&amp;:nth-child(5n){&amp;:after{content:"Buzz"}&amp;:before{content:""}}&amp;:nth-child(3n):before{content:"Fizz"}}</code></pre>
+<p>
+  Curious if someone will find a significantly shorter solution.
+</p>
+<p>
+  ~ luap42
+</p>
+<div>
+<a href="#5">06 Dec 2025 00:10 UTC</a> |
+<a href="#5">#5 of 5 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=fizz-buzz-in-css">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Editing Binaries in DOS - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/editing-binaries-in-dos.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../editing-binaries-in-dos.html"><em>Editing Binaries in DOS</em></a></strong></div>
+<nav><a href="../form/comment/?p=editing-binaries-in-dos">Post Comment</a></nav>
+<!-- Comment 1 of 2 -->
+<section id="1" class="visitor">
+<h2>RickyB wrote:</h2>
+<p>
+  What are the "minor modifications" needed to work on Windows 98?
+</p>
+<div>
+<a href="#1">25 Nov 2022 01:16 UTC</a> |
+<a href="#1">#1 of 2 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 2 -->
+<section id="2" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  RickyB,
+</p>
+<p>
+  Here is an example <code>DEBUG</code> session from a Windows 98
+  system that contains the minor modifications to obtain the results
+  demonstrated in this blog post:
+</p>
+<pre>
+<samp>C:\&gt;<kbd>DEBUG C:\WINDOWS\COMMAND\MODE.COM</kbd>
+-<kbd>S 0 FFFF 'Invalid parameter'</kbd>
+1391:6B58
+-<kbd>D 6B50 6B6F</kbd>
+1391:6B50  65 6E 20 25 31 0D 0A 11-49 6E 76 61 6C 69 64 20   en %1...Invalid
+1391:6B60  70 61 72 61 6D 65 74 65-72 20 0D 0A 49 6E 76 61   parameter ..Inva
+-<kbd>E 6B57 10 'No soup for you!'</kbd>
+-<kbd>D 6B50 6B6F</kbd>
+1391:6B50  65 6E 20 25 31 0D 0A 10-4E 6F 20 73 6F 75 70 20   en %1...No soup
+1391:6B60  66 6F 72 20 79 6F 75 21-72 20 0D 0A 49 6E 76 61   for you!r ..Inva
+-<kbd>U 0100 0105</kbd>
+1391:0100 E9482B        JMP     2C4B
+1391:0103 80FC04        CMP     AH,04
+-<kbd>D 330 36F</kbd>
+117C:0330  40 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00   @...............
+117C:0340  00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00   ................
+117C:0350  00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00   ................
+117C:0360  00 00 00 00 00 FF 00 00-00 00 00 00 00 00 00 00   ................
+-<kbd>A</kbd>
+1391:0100 <kbd>JMP 340</kbd>
+1391:0103
+-<kbd>A 340</kbd>
+1391:0340 <kbd>MOV AH, 9</kbd>
+1391:0342 <kbd>MOV DX, 34A</kbd>
+1391:0345 <kbd>INT 21</kbd>
+1391:0347 <kbd>JMP 2C4B</kbd>
+1391:034A <kbd>DB 'Welcome to Soup Kitchen!', D, A, '$'</kbd>
+1391:0365
+-<kbd>N SOUP.COM</kbd>
+-<kbd>W</kbd>
+Writing 07257 bytes
+-<kbd>Q</kbd>
+
+C:\&gt;<kbd>SOUP 0</kbd>
+Welcome to Soup Kitchen!
+
+No soup for you! - 0
+C:\&gt;</samp>
+</pre>
+<p>
+  I hope that helps!
+</p>
+<div>
+<a href="#2">26 Nov 2022 04:08 UTC</a> |
+<a href="#2">#2 of 2 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=editing-binaries-in-dos">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

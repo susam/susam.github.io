@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on From Vector Spaces to Periodic Functions - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/from-vector-spaces-to-periodic-functions.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+  <link rel="stylesheet" href="../js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 2px; /* Prevent top clipping. */
+      padding-right: 2px; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="../js/katex/katex.min.js"></script>
+  <script defer src="../js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../from-vector-spaces-to-periodic-functions.html"><em>From Vector Spaces to Periodic Functions</em></a></strong></div>
+<nav><a href="../form/comment/?p=from-vector-spaces-to-periodic-functions">Post Comment</a></nav>
+<!-- Comment 1 of 15 -->
+<section id="1" class="visitor">
+<h2>Phillip B wrote:</h2>
+<p>
+  Very nice solution!  It is quite interesting that this does not work
+  for \( e^x.  \)  I wonder if there is any general way to tell for any
+  function.
+</p>
+<div>
+<a href="#1">04 Feb 2019 01:15 UTC</a> |
+<a href="#1">#1 of 15 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 15 -->
+<section id="2" class="visitor">
+<h2>Hubryan wrote:</h2>
+<p>
+  Linear algebra, all powerful.
+</p>
+<div>
+<a href="#2">01 Sep 2020 22:10 UTC</a> |
+<a href="#2">#2 of 15 comments</a>
+</div>
+</section>
+<!-- Comment 3 of 15 -->
+<section id="3" class="visitor">
+<h2>Eschborn wrote:</h2>
+<p>
+  This is a nice example for why the axiom of choice is controversial.
+  The proof from this blog post only works because of it.  However,
+  the result seems counter-intuitive.  Let us have a look at whether
+  this is only our intuition being off or whether functions with these
+  properties are just "weird".
+</p>
+<p>
+  When speaking of periodic functions the first that comes to mind is
+  the \( \sin \) function.  Can something similar to such a function
+  be used to construct the functions \( g \) and \( h \) from the blog
+  post?  If we define them similar to \( \sin \) as periodic and
+  continuous, then the answer is no.  Every periodic and continuous
+  function has a maximum value.  The sum of two functions with a
+  maximum value has a maximum value.  However, the identity is
+  unbounded.  The sum can therefore not be the identity.
+</p>
+<p>
+  Okay, so \( \sin \)-like functions are out.  What about
+  \( \tan \)-like functions?  Take \( \tan(x) \) and \( -\tan(2x) \)
+  for example.  Those are not continuous everywhere.  Well, we can
+  also rule out many functions like this.  Suppose \( g \) and \( h \)
+  are two periodic functions with period lengths \( a \) and \( b.  \)
+  If \( \frac{a}{b} \) is rational, then the sum of \( g \) and
+  \( h \) cannot be the identity function.  Suppose that \(
+  \frac{a}{b} \) was rational, then \( ab \) is a common period of
+  both functions, i.e., \( g(x) = g(x + ab) \) and
+  \( h(x) = h(x + ab).  \)  It follows that \( (g + h)(x) = (g + h)(x +
+  ab).  \)  As \( a \) and \( b \) are non-zero, it follows that \( g +
+  h \) cannot be the identity function.  Functions of the form \( a
+  \tan(bx) \) for rational \( b \) thus do not work.  Any two periodic
+  functions where you can reason about their sum by just looking at
+  what happens for individual periods are thus ruled out.
+</p>
+<p>
+  My conclusion is that the two periodic functions from the blog post
+  must look "weird".
+</p>
+<p>
+  A common theme with axiom of choice proofs is also that they show
+  the existence of something but give no hint at how this something
+  actually looks like.  The proof in this blog post is a good example
+  of this.  We know that the functions "exist" but have absolutely no
+  clue about how they look like.  It is also an open question whether
+  describing them in any other way than "the function from this proof"
+  is even possible.
+</p>
+<div>
+<a href="#3">24 Sep 2020 09:15 UTC</a> |
+<a href="#3">#3 of 15 comments</a>
+</div>
+</section>
+<!-- Comment 4 of 15 -->
+<section id="4" class="visitor">
+<h2>Andi wrote:</h2>
+<p>
+  Jerry Bona said, "The axiom of choice is obviously true, the
+  well-ordering principle obviously false, and who can tell about
+  Zorn's lemma?"
+</p>
+<div>
+<a href="#4">24 Oct 2020 12:56 UTC</a> |
+<a href="#4">#4 of 15 comments</a>
+</div>
+</section>
+<!-- Comment 5 of 15 -->
+<section id="5" class="visitor">
+<h2>MathematicsPadawan wrote:</h2>
+<blockquote>
+  The axiom of choice is allowed.
+</blockquote>
+<p>
+  Why does this need to be stated explicitly?  Why does the axiom of
+  choice not enjoy the privilege of being a first-class axiom like
+  other axioms?  Why do many proofs need to state the assumption of
+  this axiom explicitly before using it?
+</p>
+<div>
+<a href="#5">24 Oct 2020 15:37 UTC</a> |
+<a href="#5">#5 of 15 comments</a>
+</div>
+</section>
+<!-- Comment 6 of 15 -->
+<section id="6" class="visitor">
+<h2>GenerationP wrote:</h2>
+<p>
+  MathematicsPadawan, Because it gets you applications like this (or
+  the Banach-Tarski paradox), which make you wonder how much it
+  deserves its place.  To some extent this is more due to Tertium Non
+  Datur than to the axiom of choice, but my impression is ZF doesn't
+  know enough about infinite sets to get to the really
+  counter-intuitive stuff.
+</p>
+<div>
+<a href="#6">24 Oct 2020 16:25 UTC</a> |
+<a href="#6">#6 of 15 comments</a>
+</div>
+</section>
+<!-- Comment 7 of 15 -->
+<section id="7" class="visitor">
+<h2>qsort wrote:</h2>
+<p>
+  MathematicsPadawan, Proofs (at least when they are written "the
+  usual" way) are human-to-human communication, not human-to-machine
+  encoding.  A proof depending on the axiom of choice is a more
+  interesting fact than it depending on, say, the axiom schema of
+  specification, so it makes sense that the author might want to say
+  "hey, pay attention to that".
+</p>
+<div>
+<a href="#7">24 Oct 2020 17:39 UTC</a> |
+<a href="#7">#7 of 15 comments</a>
+</div>
+</section>
+<!-- Comment 8 of 15 -->
+<section id="8" class="visitor">
+<h2>hansvm wrote:</h2>
+<p>
+  GenerationP,
+</p>
+<p>
+  There are counter-intuitive results in ZF without choice too:
+</p>
+<ul>
+  <li>
+    Collection of non-empty sets with empty cartesian product.
+  </li>
+  <li>
+    Infinite set without a countable infinite subset.
+  </li>
+  <li>
+    There is a pair of sets such that neither is equinumerous with a
+    subset of the other.
+  </li>
+</ul>
+<p>
+  More or less, our intuition about seemingly obvious ideas is
+  completely thrown off without choice.  Banach-Tarski at least has
+  the property that it probably doesn't directly apply to the real
+  world (if you can split an object into probably physically
+  impossible sets and then rejoin them correctly then you can double
+  the volume of the physical object) and so doesn't really violate our
+  intuition &mdash; the premise doesn't apply in the real world, so no
+  conclusion really matters.  It's like claiming that every element of
+  the empty set is a leprechaun with a pot of gold &mdash; it's true,
+  but it doesn't matter in any meaningful sense.
+</p>
+<div>
+<a href="#8">24 Oct 2020 17:56 UTC</a> |
+<a href="#8">#8 of 15 comments</a>
+</div>
+</section>
+<!-- Comment 9 of 15 -->
+<section id="9" class="visitor">
+<h2>Im3w1l wrote:</h2>
+<p>
+  Hansvm, If I understand correctly, your examples
+  are <em>undecidable</em> rather than true in ZF.  That's why we can
+  add the axiom of choice without getting contradictions.
+</p>
+<div>
+<a href="#9">24 Oct 2020 18:28 UTC</a> |
+<a href="#9">#9 of 15 comments</a>
+</div>
+</section>
+<!-- Comment 10 of 15 -->
+<section id="10" class="visitor">
+<h2>6gvONxR4sf7o wrote:</h2>
+<p>
+  I seem to be missing something.  I'm reading this as looking for
+  functions \( f \) and \( g \) from \( \mathbb{R} \) to \(
+  \mathbb{R}, \) such that \( f(x) + g(x) = 1 \) and \( f(x + p) =
+  f(x).  \)  If I were reading that correctly, then for any periodic \(
+  f(x), \) \( g(x) = 1 - f(x) \) would do, meaning any old periodic
+  function would do.  What am I missing?
+</p>
+<p>
+  Am I also reading it right that the author is saying the axiom of
+  choice is equivalent to the statement that every vector space has a
+  finite basis?  I don't get how that allows infinite dimensional
+  vector spaces.  If not, and it's just that every vector space has a
+  basis that maybe infinite, then what's the justification of the
+  Hamel basis being finite?
+</p>
+<p>
+  I feel like I'm missing a lot between the lines here.
+</p>
+<div>
+<a href="#10">24 Oct 2020 18:55 UTC</a> |
+<a href="#10">#10 of 15 comments</a>
+</div>
+</section>
+<!-- Comment 11 of 15 -->
+<section id="11" class="visitor">
+<h2>Shakow wrote:</h2>
+<p>
+  6gvONxR4sf7o, Identity function means that \( f(x) = x, \) not \(
+  f(x) = 1.  \)
+</p>
+<div>
+<a href="#11">24 Oct 2020 18:57 UTC</a> |
+<a href="#11">#11 of 15 comments</a>
+</div>
+</section>
+<!-- Comment 12 of 15 -->
+<section id="12" class="visitor">
+<h2>6gvONxR4sf7o wrote:</h2>
+<p>
+  Shakow, Doh.  Thanks.
+</p>
+<div>
+<a href="#12">24 Oct 2020 18:59 UTC</a> |
+<a href="#12">#12 of 15 comments</a>
+</div>
+</section>
+<!-- Comment 13 of 15 -->
+<section id="13" class="visitor">
+<h2>Hansvm wrote:</h2>
+<p>
+  Im3w1l, Well, sure.  Without choice there exist models of ZF where
+  those properties hold.  Adding choice precludes those models, i.e.,
+  it restricts our axioms in a way which prevents certain kinds of
+  unexpected results.
+</p>
+<div>
+<a href="#13">24 Oct 2020 19:32 UTC</a> |
+<a href="#13">#13 of 15 comments</a>
+</div>
+</section>
+<!-- Comment 14 of 15 -->
+<section id="14" class="visitor">
+<h2>LopsidedBrain wrote:</h2>
+<p>
+  MathematicsPadawan, It is partly historical notoriety.  It allows
+  one to prove certain statements that seem counter-intuitive.  So
+  proofs that employ it can often be viewed with some skepticism.
+</p>
+<p>
+  Moreover, this axiom is <em>independent</em> of the other axioms in
+  ZFC.  It is in fact possible to have entirely self-consistent
+  "worlds" of mathematics, ones where the axiom of choice is true, and
+  ones where it is false.
+</p>
+<p>
+  More details and examples of alternate axioms are in the Wikipedia
+  article: <a href="https://en.wikipedia.org/wiki/Axiom_of_choice">Axiom
+  of choice</a>.
+</p>
+<p>
+  If it seems weird that mathematics can give you contradictory
+  results, remember that the difference only shows up when you deal
+  with some form of infinity (e.g., when performing an operation on an
+  infinitely large set).  For any usage of mathematics in the real
+  world, the truth or falsity of this axiom won't give you
+  contradictory results.
+</p>
+<div>
+<a href="#14">24 Oct 2020 20:12 UTC</a> |
+<a href="#14">#14 of 15 comments</a>
+</div>
+</section>
+<!-- Comment 15 of 15 -->
+<section id="15" class="visitor">
+<h2><a href="https://keybase.io/kamilner">Kevin Milner</a> wrote:</h2>
+<p>
+  6gvONxR4sf7o said:
+</p>
+<blockquote>
+  Am I also reading it right that the author is saying the axiom of
+  choice is equivalent to the statement that every vector space has a
+  finite basis?
+</blockquote>
+<p>
+  6gvONxR4sf7o, Not quite.  The axiom of choice is equivalent to
+  saying every vector space has a Hamel basis, which is to say every
+  element can be represented as a finite combination of elements of
+  the Hamel basis.  It doesn't imply that the Hamel basis is finite
+  itself.
+</p>
+<div>
+<a href="#15">24 Oct 2020 22:09 UTC</a> |
+<a href="#15">#15 of 15 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=from-vector-spaces-to-periodic-functions">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

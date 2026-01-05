@@ -1,0 +1,1903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="./feed.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+<title>Susam Pal</title>
+<link>https://susam.net/</link>
+<atom:link rel="self" type="application/rss+xml" href="https://susam.net/feed.xml"/>
+<description>Susam's Feed</description>
+
+<item>
+<title>Circular Recursive Negating Acronyms</title>
+<link>https://susam.net/circular-recursive-negating-acronynms.html</link>
+<guid isPermaLink="false">crnax</guid>
+<pubDate>Mon, 05 Jan 2026 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  One of my favourite acronyms from the world of computing and
+  technology is XINU.  It stands for 'XINU Is Not Unix'.  The
+  delightful thing about this acronym is that XINU is also UNIX
+  spelled backwards.
+</p>
+<p>
+  For a given word <em>W</em>, a recursive acronym that both
+  negates <em>W</em> and reverses it is possible when <em>W</em> has
+  the form <em>W</em> = '?NI?' where each '?' denotes a distinct
+  letter.  Some fictitious examples make this clearer:
+</p>
+<ul>
+  <li>LINA Is Not ANIL.</li>
+  <li>TINK Is Not KNIT.</li>
+</ul>
+<p>
+  Words of the form '?N?' also work if we are happy to contract the
+  word 'is' in the acronym.  In fact, in this case we can even obtain
+  circular recursive acronyms:
+</p>
+<ul>
+  <li>ANI's Not INA.  INA's Not ANI.</li>
+  <li>ONE's Not ENO.  ENO's Not ONE.</li>
+</ul>
+<p>
+  In each pair, the two acronyms negate each other, making them
+  circular while also being reverses of one another.  Such acronyms
+  could serve as amusing names for expressing friendly banter between
+  rival projects.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/circular-recursive-negating-acronynms.html">Read on website</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Ideas</title>
+<link>https://susam.net/ideas.html</link>
+<guid isPermaLink="false">ideas</guid>
+<pubDate>Sat, 03 Jan 2026 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h1>Ideas</h1>
+<p>
+  Hello!  This is my <a href="https://aboutideasnow.com/about">ideas
+  page</a> where I keep a brief record of some ideas I might want to
+  explore in the near future.  For ideas I have already begun
+  exploring, please see my <a href="now.html">now page</a> or
+  my <a href="pages.html">web log</a> instead.
+</p>
+<p>
+  As of 03 Jan 2026, I have the following ideas in mind that I might
+  want to explore in future:
+</p>
+<ul>
+  <li>
+    Explore the problem of checking whether two self-complementary
+    graphs are isomorphic.
+  </li>
+  <li>
+    Learn why \( s \)-arc transitive graph must have \( s \le 7.  \)
+  </li>
+</ul>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/ideas.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Now</title>
+<link>https://susam.net/now.html</link>
+<guid isPermaLink="false">nowpg</guid>
+<pubDate>Fri, 02 Jan 2026 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<h1>Now</h1>
+<p>
+  Hello!  This is my <a href="https://nownownow.com/about">now
+  page</a> where I keep a brief record of what I am up to these days.
+</p>
+<p>
+  As of 03 Jan 2026, I am:
+</p>
+<ul>
+  <li>
+    Studying the book <em>Algebraic Graph Theory</em> by Godsil and
+    Royle.
+  </li>
+  <li>
+    Learning about the Coxeter graph and Tutte's 8-cage.
+  </li>
+  <li>
+    Learning about distance-transitive graphs, in general.
+  </li>
+  <li>
+    Maintaining this website.
+  </li>
+  <li>
+    Occasionally posting comments to Hacker News
+    (<a href="https://news.ycombinator.com/threads?id=susam">see here</a>).
+  </li>
+</ul>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/now.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>My Coding Adventures in 2025</title>
+<link>https://susam.net/code-2025.html</link>
+<guid isPermaLink="false">cdtwf</guid>
+<pubDate>Wed, 24 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  In this post, I return with a retrospective on my coding adventures,
+  where I summarise my hobby projects and recreational programming
+  activities from the current year.  I did the last such retrospective
+  in <a href="code-2023.html">2023</a>.  So I think this is a good
+  time to do another retrospective.
+</p>
+<p>
+  At the outset, I should mention that I have done less hobby
+  computing this year than in the past few, largely because I spent a
+  substantial portion of my leisure time studying Galois theory and
+  algebraic graph theory.  In case you are wondering where I am
+  learning these subjects from, the books are <em>Galois Theory</em>,
+  5th ed. by Ian Stewart and <em>Algebraic Graph Theory</em> by Godsil
+  and Royle.  Both are absolutely fascinating subjects and the two
+  books I mentioned are quite good as well.  I highly recommend them.
+</p>
+<p>
+  Now back to the coding adventures.  Here they go:
+</p>
+<ul>
+  <li>
+    <p>
+      <a href="https://github.com/susam/mathb">MathB</a>: The year
+      began not with the release of a new project but with the
+      opposite: discontinuing a project I had maintained for 13 years.
+      MathB.in, a mathematics pastebin service, was discontinued early
+      this year.  This is a project I developed in 2012 for myself and
+      my friends.  Although a rather simple project, it was close to
+      my heart, as I have many fond memories of exchanging
+      mathematical puzzles and solutions with my friends using this
+      service.  Over time, the project grew quite popular on IRC
+      networks, as well as in some schools and universities, where IRC
+      users, learners and students used the service to share problems
+      and solutions with one another, much as my friends and I had
+      done in its early days.
+    </p>
+    <p>
+      I shut it down this year because I wanted to move on from the
+      project.  Before the shutdown, a kind member of the
+      <a href="https://wiki.archiveteam.org/">Archive Team</a> worked
+      with me to
+      <a href="https://web.archive.org/web/*/https://mathb.in/">archive</a>
+      all posts from the now-defunct website.  Although shutting down
+      this service was a bittersweet event for me, I feel relieved
+      that I no longer have to run a live service in my spare time.
+      While this was a good hobby ten years ago, it no longer is.  See
+      my blog post
+      <a href="mathbin-is-shutting-down.html">MathB.in Is Shutting
+      Down</a> for more details on the reasons behind this decision.
+      The source code of this project remains open source and
+      available at
+      <a href="https://github.com/susam/mathb">github.com/susam/mathb</a>.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="https://github.com/susam/quickqwerty">QuickQWERTY</a>:
+      This is a touch-typing tutor that runs in a web browser.  I
+      originally developed it in 2008 for myself and my friends.
+      While I learnt touch typing on an actual typewriter as a child,
+      those lessons did not stick with me.  Much later, while I was at
+      university, I came across a Java applet-based touch-typing tutor
+      that finally helped me learn touch typing properly.  I disliked
+      installing Java plugins in the web browser, which is why I later
+      developed this project in plain HTML and JavaScript.  This year,
+      I carried out a major refactoring to collapse the entire project
+      into a single standalone HTML file with no external
+      dependencies.  The source code has been greatly simplified as
+      well.
+    </p>
+    <p>
+      When I was younger and more naive, inspired by the complexity
+      and multiple layers of abstraction I saw in popular open source
+      and professional projects, I tended to introduce similar
+      abstractions and complexity into my personal projects.  Over
+      time, however, I began to appreciate simplicity.  The new code
+      for this project is smaller and simpler.  I am quite happy with
+      the end result.  You can take a look at the code here:
+      <a href="https://github.com/susam/quickqwerty/blob/main/quickqwerty.html">quickqwerty.html</a>.
+      If you want to use the typing tutor, go here:
+      <a href="quickqwerty.html">QuickQWERTY</a>.  Unfortunately, it
+      does not support keyboard layouts other than QWERTY.  When I
+      originally developed this project, my view of the computing
+      world was rather limited.  I was not even aware that other
+      keyboard layouts existed.  You are, however, very welcome to
+      fork the project and adapt the lessons for other layouts.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="https://github.com/susam/cfrs">CFRS[]</a>: This project
+      was my first contribution to the quirky world of esolangs.
+      CFRS[] is an extremely minimal drawing language consisting of
+      only six simple commands: <code>C</code>, <code>F</code>,
+      <code>R</code>, <code>S</code>, <code>[</code> and
+      <code>]</code>.  I developed it in 2023 and have since been
+      maintaining it with occasional bug fixes.  This year, I
+      <a href="https://github.com/susam/cfrs/commit/9bae21f">fixed an
+      annoying bug</a> that caused the drawing canvas to overflow on
+      some mobile web browsers.  A new demo also arrived from the
+      community this year and has now been added to the community demo
+      page.  See
+      <a href="https://susam.github.io/cfrs/demo.html#glimmering-galaxy">Glimmering
+      Galaxy</a> for the new demo.  If you want to play with CFRS[]
+      now, visit <a href="cfrs.html">CFRS[]</a>.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="https://github.com/susam/fxyt">FXYT</a>: This is
+      another esolang project of mine.  This too is a minimal drawing
+      language, though not as minimal as CFRS[].  Instead, it is a
+      stack-based, postfix canvas colouring language with only 36
+      simple commands.  The canvas overflow bug described in the
+      previous entry affected this project as well.  That has now been
+      fixed.  Further, by popular demand, the maximum allowed code
+      length has been increased from 256 bytes to 1024 bytes.  This
+      means there is now more room for writing more complex FXYT
+      programs.  Additionally, the maximum code length for
+      distributable demo links has been increased from 64 bytes to 256
+      bytes.  This allows several more impressive demos to have their
+      own distributable links.  Visit <a href="fxyt.html">FXYT</a> to
+      try it out now.  See also the
+      <a href="https://susam.github.io/fxyt/demo.html">Community Demos</a> to
+      view some fascinating artwork created by the community.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="https://github.com/susam/nq">Nerd Quiz</a>: This is a
+      new project I created a couple of months ago.  It is a simple
+      HTML tool that lets you test your nerdiness through short
+      quizzes.  Each question is drawn from my everyday moments of
+      reading, writing, thinking, learning and exploring.  The project
+      is meant to serve as a repository of interesting facts I come
+      across in daily life, captured in the form of quiz questions.
+      Go here to try it out: <a href="nq.html">Nerd Quiz</a>.  I hope
+      you will enjoy these little bits of knowledge as much as I
+      enjoyed discovering them.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="primegrid.html">Prime Number Grid Explorer</a>: This is
+      a simple prime number grid visualiser I wrote for fun.  It plots
+      the prime numbers in a grid where you can set the number of rows
+      and the number of columns.  It uses the Miller-Rabin primality
+      test with bases drawn from
+      <a href="https://oeis.org/A014233">oeis.org/A014233</a> to
+      determine whether a number is prime.  This allows it to
+      accurately test whether a number is prime up to
+      3317044064679887385961980.  For example,
+      <a href="primegrid.html#3317044064679887385961781-20-10">this
+      grid</a> shows the upper limit of the numbers this tool can
+      check.  The three circles displayed there represent the prime
+      numbers 3317044064679887385961783, 3317044064679887385961801 and
+      3317044064679887385961813.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="https://github.com/susam/mvs">Mark V. Shaney
+      Junior</a>: Finally, I have my own Markov gibberish generator.
+      Always wanted to have one.  The project is inspired by the
+      legendary Usenet bot named Mark V. Shaney that used to post
+      messages to various newsgroups in the 1980s.  My Markov chain
+      program is written in about 30 lines of Python.  I ran it on my
+      24 years of blog posts consisting of over 200 posts and about
+      200,000 words and it generated some pretty interesting
+      gibberish.  See my blog post
+      <a href="fed-24-years-of-posts-to-markov-model.html">Fed 24
+      Years of My Posts to Markov Model</a> to see the examples.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="elliptical-python-programming.html">Elliptical Python
+      Programming</a>: If the previous item was not silly enough, this
+      one surely is.  Earlier this year, I wrote a blog post
+      describing the fine art of Python programming using copious
+      amounts of ellipses.  I will not discuss it further here to
+      avoid spoilers.  I'll just say that any day I'm able to do
+      something pointless, whimsical and fun with computers is a good
+      day for me.  And it was a good day when I wrote this post.
+      Please visit the link above to read the post.  I hope you find
+      it fun.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="fizz-buzz-with-cosines.html">Fizz Buzz with
+      Cosines</a>: Another silly post in which I explain how to
+      compute the discrete Fourier transform of the Fizz Buzz sequence
+      and derive a closed-form expression that can be used to print
+      the sequence.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="fizz-buzz-in-css.html">Fizz Buzz in CSS</a>: Yet
+      another Fizz Buzz implementation, this time using just four
+      lines of CSS.
+    </p>
+  </li>
+</ul>
+<p>
+  That wraps up my coding adventures for this year.  There were fewer
+  hobby projects than usual but I enjoyed spending more time learning
+  new things and revisiting old ones.  One long-running project came
+  to an end, another was cleaned up and a few small new ideas appeared
+  along the way.  Looking forward to what the next year brings.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code-2025.html">Read on website</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/retrospective.html">#retrospective</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Nerd Quiz #3</title>
+<link>https://susam.net/code/news/nq/3.0.0.html</link>
+<guid isPermaLink="false">nqthr</guid>
+<pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Nerd Quiz #3 is the third release of Nerd Quiz, a single-page HTML
+  application that invites you to test your nerd level through a short
+  quiz.  Each question is inspired by everyday moments of reading,
+  writing, thinking, learning and exploring.
+</p>
+<p>
+  This release introduces five new questions drawn from a range of
+  topics, including computing history, graph theory and Unix.
+  Visit <a href="../../../nq.html#3">Nerd Quiz</a> to try the quiz.
+</p>
+<p>
+  A community discussion page is available at
+  <a href="../../../comments/nq.html">Discuss Nerd Quiz</a>.  You are
+  very welcome to share your score or discuss the questions there.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/nq/3.0.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a> |
+  <a href="https://susam.net/tag/game.html">#game</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Mark V. Shaney Junior 0.2.0</title>
+<link>https://susam.net/code/news/mvs/0.2.0.html</link>
+<guid isPermaLink="false">mvszt</guid>
+<pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Mark V. Shaney Junior 0.2.0 is the second release of this little
+  Markov gibberish generator.  This release brings two small changes.
+  First, it now reads the training data from standard input instead of
+  a hardcoded file.  Second, the program filename has been changed
+  from <code>mvs.py</code> to <code>mvs</code> to reflect that it is
+  an executable file and can be run as <code>./mvs</code> on most Unix
+  and Linux systems.
+</p>
+<p>
+  The source and a detailed documentation for this project are
+  available at <a href="https://github.com/susam/mvs">github.com/susam/mvs</a>.
+</p>
+<p>
+  See also
+  <a href="https://susam.net/fed-24-years-of-posts-to-markov-model.html">this
+  related blog post</a> and a
+  <a href="https://news.ycombinator.com/item?id=46257607">discussion
+  on Hacker News</a> about it.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/mvs/0.2.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/python.html">#python</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Fed 24 Years of My Blog Posts to a Markov Model</title>
+<link>https://susam.net/fed-24-years-of-posts-to-markov-model.html</link>
+<guid isPermaLink="false">mgtfy</guid>
+<pubDate>Sat, 13 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Yesterday I shared a little program called <em>Mark V. Shaney
+  Junior</em> at
+  <a href="https://github.com/susam/mvs">github.com/susam/mvs</a>.  It
+  is a minimal implementation of a Markov text generator inspired by
+  the legendary Mark V. Shaney program from the 1980s.  Mark V. Shaney
+  was a synthetic Usenet user that posted messages to various
+  newsgroups using text generated by a Markov model.  See the
+  Wikipedia article
+  <a href="https://en.wikipedia.org/wiki/Mark_V._Shaney">Mark
+  V. Shaney</a> for more details about it.  In this post, I will
+  discuss my implementation of the model, explain how it works and
+  share some of the results produced by it.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#recreational-programming">Recreational Programming</a></li>
+  <li><a href="#gibberish">Gibberish</a></li>
+  <li><a href="#markov-property">The Markov Property</a></li>
+  <li><a href="#some-more-gibberish">Some More Gibberish</a></li>
+</ul>
+<h2 id="recreational-programming">Recreational Programming<a href="#recreational-programming"></a></h2>
+<p>
+  The program I shared yesterday has only about
+  <a href="https://github.com/susam/mvs/blob/main/mvs">30 lines of
+  Python</a> and favours simplicity over efficiency.  Even if you have
+  never worked with Markov models before, as long as you know some
+  Python programming, I am quite confident that it will take you less
+  than 20 minutes to understand the whole program and make complete
+  sense of it.  I also offer an explanation
+  <a href="#the-markov-property">further below</a> in this post.
+</p>
+<p>
+  As a hobby, I often engage in exploratory programming where I write
+  computer programs not to solve a specific problem but simply to
+  explore a particular idea or topic for the sole purpose of
+  recreation.  I must have written small programs to explore Markov
+  chains for various kinds of state spaces over a dozen times by now.
+  Every time, I just pick my last experimental code and edit it to
+  encode the new state space I am exploring.  That's usually my
+  general approach to such one-off programs.  I have hundreds of tiny
+  little experimental programs lying on my disk at any given time.
+</p>
+<p>
+  Once in a while, I get the itch to take one of those exploratory
+  programs, give it some finishing touches, wrap it up in a nice Git
+  repo along with a <code>README.md</code>, <code>CHANGES.md</code>
+  and the whole shebang and share it on
+  <a href="https://github.com/susam">github.com/susam</a> and
+  <a href="https://codeberg.org/susam">codeberg.org/susam</a>.  The
+  Mark V. Shaney Junior program that I shared yesterday happened to be
+  one such exercise.
+</p>
+<h2 id="gibberish">Gibberish<a href="#gibberish"></a></h2>
+<p>
+  If you scroll down the
+  <a href="https://github.com/susam/mvs#readme">README</a> of this
+  project, you'll find some nice examples of the gibberish produced by
+  this program.  The first few examples there are the result of
+  training the model on <em>A Christmas Carol</em> by Charles Dickens,
+  one of my favourite authors.  It is often said that Dickens never
+  used fewer words when more would suffice.  So I thought there
+  couldn't be a better piece of text when it comes to testing out my
+  tiny Markov model.  I'll not reproduce the generated text examples
+  here for the sake of brevity.  If you are interested to take a look,
+  just head over to the
+  <a href="https://github.com/susam/mvs#gibberish">Gibberish</a>
+  section of the README.
+</p>
+<p>
+  Soon after sharing the project, I wondered what kind of gibberish it
+  would produce if I fed all 24 years of my blog
+  <a href="pages.html">posts and pages</a> into the program.
+  Well, here's one of the results:
+</p>
+<pre>
+<samp>$ <kbd>./mvs &lt; susam.txt</kbd>
+while a query replace operation is approved by the user. The above
+variable defines the build job. It can be incredibly useful while
+working on assembly language and machine code. In fact, all internal
+resources like the result to refine the search prompt changes from
+bck-i-search: to fwd-i-search:. Now type C-SPC (i.e. ctrl+space) to
+set a mark causes Emacs to use 32-bit registers like EBP, ESP,
+etc. Thus the behaviour is undefined. Such code may behave differently
+when compiled with the readily available GNU tools like the shape
+of 8. Flipping "P" horizontally makes it a proper quine: cat $0</samp>
+</pre>
+<p>
+  This is the text that comes out after the program consumes over 200
+  posts consisting of about 200,000 words.  My blog also has
+  a <a href="comments/">comments section</a> with over 500
+  comments consisting of about 40,000 words.  All comments were
+  excluded while training the model.  Here is another output example:
+</p>
+<pre>
+<samp>$ <kbd>./mvs &lt; susam.txt</kbd>
+enjoy asking "what happens if" and then type M-x zap-up-to-char RET
+b. The buffer for this specific video, the actual fare for 8.3 km and
+11 are all written from scratch. No prior knowledge is expected to
+slow down in future. For now, I will add a statement like x =
+0.999..., the inner corner square as discussed in the code segment
+into the REPL window. Unlike Slimv, Vlime can work with and debug
+executable files, it can be more convenient. M-x: Execute Extended
+Command The key sequence M-q invokes the command cat and type TAB to
+indent the current</samp>
+</pre>
+<p>
+  Here is a particularly incoherent but amusing one:
+</p>
+<pre>
+<samp>$ <kbd>./mvs &lt; susam.txt</kbd>
+Then open a new Lisp source file and the exact answer could harm
+students' self-esteem. Scientists have arbitrarily assumed that an
+integral domain. However, the string and comment text. To demonstrate
+how a build job can trigger itself, pass input to standard output or
+standard error), Eshell automatically runs the following command in
+Vim and Emacs will copy the message length limit of 512 characters,
+etc. For example, while learning to play the game between normal mode
+to move the point is on an old dictionary lying around our house and
+that is moving to the small and supportive community</samp>
+</pre>
+<p>
+  No, I have never said anywhere that opening a Lisp source file could
+  harm anyone's self-esteem.  The text generator has picked up the
+  'Lisp source file' phrase from my
+  <a href="lisp-in-vim.html">Lisp in Vim</a> post and the
+  'self-esteem' bit from the <a href="from-perl-to-pi.html">From Perl
+  to Pi</a> post.
+</p>
+<h2 id="markov-property">The Markov Property<a href="#markov-property"></a></h2>
+<p>
+  By default, this program looks at trigrams (all sequences of three
+  adjacent words) and creates a map where the first two words of the
+  trigram are inserted as the key and the third word is appended to
+  its list value.  This map is the model.  In this way, the model
+  captures each pair of adjacent words along with the words that
+  immediately follow each pair.  The text generator first chooses a
+  key (a pair of words) at random and selects a word that follows.  If
+  there are multiple followers, it picks one uniformly at random.  It
+  then repeats this process with the most recent pair of words,
+  consisting of one word from the previous pair and the word that was
+  just picked.  It continues to do this until it can no longer find a
+  follower or a fixed word limit (100 by default) is reached.  That is
+  pretty much the whole algorithm.  There isn't much more to it.  It
+  is as simple as it gets.  For that reason, I often describe a simple
+  Markov model like this as the 'hello, world' for language models.
+</p>
+<p>
+  If the same trigram occurs multiple times in the training data, the
+  model records the follower word (the third word) multiple times in
+  the list associated with the key (the first two words).  This
+  representation can be optimised, of course, by keeping frequencies
+  of the follower words rather than duplicating them in the list, but
+  that is left as an exercise to the reader.  In any case, when the
+  text generator chooses a follower for a given pair of words, a
+  follower that occurs more frequently after that pair has a higher
+  probability of being chosen.  In effect, the next word is sampled
+  based only on the previous two words and not on the full history of
+  the generated text.  This memoryless dependence on the current state
+  is what makes the generator Markov.  Formally, for a discrete-time
+  stochastic process, the Markov property can be expressed as
+
+  \[
+    P(X_{n+1} \mid X_n, X_{n-1}, \ldots, X_1) = P(X_{n+1} \mid X_n).
+  \]
+
+  where \( X_n \) represents the \( n \)th state.  In our case, each
+  state \( X_n \) is a pair of words \( (w_{n-1}, w_{n}) \) but the
+  state space could just as well consist of other objects, such as a
+  pair of characters, pixel values or musical notes.  The sequence of
+  states \( (X_1, X_2, \dots) \) visited by the program forms a Markov
+  chain.  The left-hand side of the equation denotes the conditional
+  distribution of the next state \( X_{n+1} \) given the entire
+  history of states \( X_1, X_2, \dots, X_n, \) while the right-hand
+  side conditions only on the current state \( X_n.  \)  When both are
+  equal, it means that the probability of the next state depends only
+  on the current state and not on the earlier states.  This is the
+  Markov property.  It applies to the text generation process only,
+  not the training data.  The training data is used only to estimate
+  the transition probabilities of the model.
+</p>
+<h2 id="some-more-gibberish">Some More Gibberish<a href="#some-more-gibberish"></a></h2>
+<p>
+  In 2025, given the overwhelming popularity of large language models
+  (LLMs), Markov models like this look unimpressive.  Unlike LLMs, a
+  simple Markov model cannot capture global structure or long-range
+  dependencies within the text.  It relies entirely on local word
+  transition statistics.  Also, these days, one hardly needs a Markov
+  model to generate gibberish; social media provides an ample supply.
+  Nevertheless, I think the simplicity of its design and
+  implementation serves as a good entry point into language models.
+</p>
+<p>
+  In my implementation, the number of words in the key of the map can
+  be set via command line arguments.  By default, it is 2 as described
+  above.  This value is also known as the order of the model.  So by
+  default the order is 2.  If we increase it to, say, 3 or 4, the
+  generated text becomes a little more coherent.  Here is one such
+  example:
+</p>
+<pre>
+<samp>$ <kbd>./mvs 4 &lt; susam.txt</kbd>
+It is also possible to search for channels by channel names. For
+example, on Libera Chat, to search for all channels with 'python' in
+its name, enter the IRC command: /msg alis list python. Although I
+have used Libera Chat in the examples above, there are plenty of
+infinite fields, so they must all be integral domains too. Consider
+the field of rational numbers Q. Another quick way to arrive at this
+fact is to observe that when one knight is placed on a type D square,
+only two positions for the second knight such that the two knights
+attack</samp>
+</pre>
+<p>
+  Except for a couple of abrupt and meaningless transitions, the text
+  is mostly coherent.  We need to be careful about not increasing the
+  order too much.  In fact, if we increase the order of the model to
+  5, the generated text becomes very dry and factual because it begins
+  to quote large portions of the blog posts verbatim.  Not much fun
+  can be had with that.
+</p>
+<p>
+  Before I end this post, let me present one final example where I ask
+  it to generate text from an initial prompt:
+</p>
+<pre>
+<samp>$ <kbd>./mvs 2 100 'Finally we' &lt; susam.txt</kbd>
+Finally we divide this number by a feed aggregrator for Emacs-related
+blogs. The following complete key sequences describe the effects of
+previous evaluations shall have taken a simple and small to contain
+bad content. This provides an interactive byte-compiled Lisp function
+in MATLAB and GNU bash 5.1.4 on Debian is easily reproducible in
+Windows XP. Older versions might be able to run that server for me it
+played a significant burden on me as soon as possible. C-u F: Visit
+the marked files or directories in the sense that it was already
+initiated and we were to complete the proof.</samp>
+</pre>
+<p>
+  Apparently, this is how I would sound if I ever took up speaking
+  gibberish!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/fed-24-years-of-posts-to-markov-model.html">Read on website</a> |
+  <a href="https://susam.net/tag/python.html">#python</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Mark V. Shaney Junior 0.1.0</title>
+<link>https://susam.net/code/news/mvs/0.1.0.html</link>
+<guid isPermaLink="false">mvszo</guid>
+<pubDate>Fri, 12 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Mark V. Shaney Junior is a minimal implementation of a Markov
+  gibberish generator inspired by the legendary Mark V. Shaney program
+  from the 1980s.  Mark V. Shaney was a synthetic Usenet user in the
+  1980s that posted messages to newsgroups using text generated by a
+  Markov chain program.  See the Wikipedia
+  article <a href="https://en.wikipedia.org/wiki/Mark_V._Shaney">Mark
+  V. Shaney</a> for more details.
+</p>
+<p>
+  This release introduces the program
+  <a href="https://github.com/susam/mvs/blob/main/mvs.py">mvs.py</a>
+  that implements a similar Markov text generator.  It reads a text
+  corpus of text from standard input, build an internal Markov model
+  and then generate text using the model.
+</p>
+<p>
+  Please visit
+  <a href="https://github.com/susam/mvs">github.com/susam/mvs</a>
+  for the source code and some output examples.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/mvs/0.1.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/python.html">#python</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Fizz Buzz in CSS</title>
+<link>https://susam.net/fizz-buzz-in-css.html</link>
+<guid isPermaLink="false">fzcps</guid>
+<pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  How many CSS selectors and declarations do we need to produce the
+  Fizz Buzz sequence?  Of course we could do this with no CSS at all
+  simply by placing the entire sequence as text in the HTML body.  So
+  to make the problem precise as well as to keep it interesting, we
+  require that all text that appears in the Fizz Buzz sequence comes
+  directly from the CSS.  Placing any part of the output numbers or
+  words outside the stylesheet is not allowed.  JavaScript is not
+  allowed either.  With these constraints, I think we need at least
+  four CSS selectors along with four declarations to solve this
+  puzzle, as shown below:
+</p>
+<pre>
+<code>li { counter-increment: n }
+li:not(:nth-child(5n))::before { content: counter(n) }
+li:nth-child(3n)::before { content: "Fizz" }
+li:nth-child(5n)::after { content: "Buzz" }</code>
+</pre>
+<p>
+  Here is a complete working example:
+  <a href="css-fizz-buzz.html">css-fizz-buzz.html</a>.
+</p>
+<p>
+  The above solution contains four CSS rules with one selector and one
+  declaration in each rule.  For example,
+  <code>li { counter-increment: n }</code> is one rule consisting of
+  the selector <code>li</code> and the declaration
+  <code>counter-increment: n</code>.
+</p>
+<p>
+  Seasoned code golfers looking for a challenge can probably shrink
+  this solution further.  A common trick to solve this problem is to
+  use an ordered list (<code>&lt;ol&gt;</code>) which provides the
+  integers in the form of list markers automatically, thereby
+  eliminating the need to maintain a counter in the stylesheet.
+  However, this violates the requirement set out in the introduction.
+  We want every integer to be produced directly by the stylesheet.
+  Treating the integers in the list markers as part of the output
+  sequence breaks this rule.  Not to mention the output looks untidy
+  because of the unnecessary dot after each marker and also because
+  the numbers and words appear misaligned.  See an example of that
+  trick here:
+  <a href="code/web/css-fizz-buzz-ol.html">css-fizz-buzz-ol.html</a>.
+  Correcting the misaligned output calls for extra code that cancels
+  out the number of declarations saved.  In any case, the requirement
+  that all integers of the output must come directly from the
+  stylesheet prevents untidy solutions like this and also forces us to
+  rely on the capabilities of CSS to solve this puzzle.
+</p>
+<p>
+  The intention here was to obtain the smallest possible code in terms
+  of the number of CSS declarations.  This example is not crafted to
+  minimise bytes, but for code golfers who enjoy reducing byte count,
+  here is the number of bytes this solution consumes after removing
+  all whitespace:
+</p>
+<pre><code>$ curl -sS https://susam.net/css-fizz-buzz.html | sed -n '/counter/,/after/p' | tr -d '[:space:]' | wc -c
+152</code></pre>
+<p>
+  Further reduction in byte count can be achieved by using the
+  <code>&lt;p&gt;</code> element instead of <code>&lt;li&gt;</code>,
+  nesting CSS selectors, etc.  I'll leave that as an exercise for the
+  reader.  Returning to the focus of this post as well as to summarise
+  it, the solution here uses four CSS rules consisting of four
+  selectors and four declarations to render the Fizz Buzz sequence.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/fizz-buzz-in-css.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/css.html">#css</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CSS Fizz Buzz with Ordered List</title>
+<link>https://susam.net/code/web/css-fizz-buzz-ol.html</link>
+<guid isPermaLink="false">fzolc</guid>
+<pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A version of my CSS Fizz Buzz that uses ordered list
+  (<code>&lt;ol&gt;</code>) to reduce code.  However, I don't quite
+  like how misaligned the numbers and the words look.  Correcting that
+  would call for extra code that would cancel out the bytes saved.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/web/css-fizz-buzz-ol.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Emacs Info Expressions</title>
+<link>https://susam.net/emacs-info-expression.html</link>
+<guid isPermaLink="false">eminf</guid>
+<pubDate>Wed, 03 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  On <code>#emacs</code> IRC or Matrix channels, we often share
+  references to the built-in Emacs documentation as Elisp expressions
+  that look like this:
+</p>
+<pre><code>(info "(emacs) Basic Undo")</code></pre>
+<p>
+  Here is another example:
+</p>
+<pre><code>(info "(emacs) Word Search")</code></pre>
+<p>
+  This is a common practice in the Emacs community even though all of
+  the Emacs manual is available on the World Wide Web too.  For
+  example, the section referred to in the above expression eis
+  available
+  here: <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Word-Search.html">GNU
+  Emacs Manual: Word Search</a>.  The reason for sharing Elisp
+  expressions like this is likely partly tradition and partly
+  convenience.  Many Emacs users are logged into IRC networks via
+  Emacs itself, so once the recipient sees an Elisp expression like
+  the above one in their chat buffer, visiting the corresponding
+  manual page is a simple matter of placing the cursor right after the
+  closing parenthesis and typing <code>C-x C-e</code>.
+</p>
+<p>
+  But isn't it clumsy for the sender to type Elisp expressions like
+  this merely to share a pointer to a section of a manual with others?
+  Turns out, it is not.  This is Emacs!  So of course there are
+  key-bindings to do this.
+</p>
+<p>
+  Say, while helping another Emacs user we type <code>M-x info-apropos
+  RET version control RET</code> and land on the section "Branches"
+  and realise that this is the section that the person we are trying
+  to help should read.  Now when we are on this section, we can simply
+  type <code>c</code> and Emacs will copy the name of the current Info
+  node to the kill ring.  The name looks like this:
+</p>
+<pre><code>(emacs) Branches</code></pre>
+<p>
+  While this is handy in some situations, it isn't the
+  <code>info</code> expression we want.  It's just the Info node name.
+  To copy the complete <code>info</code> expression with the node
+  name, we need to use the zero prefix argument with
+  the <code>c</code> key.  So when we are on the section "Branches",
+  if we type <code>C-0 c</code>, the following expression is copied to
+  the kill ring:
+</p>
+<pre><code>(info "(emacs) Branches")</code></pre>
+<p>
+  The person who receives this <code>info</code> expression can visit
+  the corresponding section of the manual simply by evaluating it.
+  For example, after copying the expression in Emacs, they could
+  type <code>C-y C-x C-e</code> to paste the expression into a buffer
+  and evaluate it immediately.  Alternatively, they might want to
+  type <code>M-: C-y RET</code> to bring the
+  <code>eval-expression</code> minibuffer, paste the expression there
+  and evaluate it.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/emacs-info-expression.html">Read on website</a> |
+  <a href="https://susam.net/tag/emacs.html">#emacs</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Triangle-Free Cayley Graph</title>
+<link>https://susam.net/triangle-free-cayley-graph.html</link>
+<guid isPermaLink="false">cgwnt</guid>
+<pubDate>Wed, 03 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  In this note I elaborate the proof of a claim regarding Cayley
+  graphs of symmetric groups with transpositions as generators that I
+  found in the book <em>Algebraic Graph Theory</em> by Chris Godsil
+  and Gordon Royle.  This claim appears as commentary in Section 3.10
+  about <em>Transpositions</em>.  Here I present it in the form of a
+  theorem along with a complete proof.
+</p>
+<p>
+  <strong>Theorem.</strong>
+  <em>
+    If \( \mathcal{T} \) is a set of transpositions, then the Cayley
+    graph \( X(\operatorname{Sym}(n), \mathcal{T}) \) has no triangles.
+  </em>
+</p>
+<p>
+  <em>Proof.</em>  Suppose the vertices \( a, b, c \in
+  \operatorname{Sym}(n) \) form a triangle in the Cayley graph \(
+  X(\operatorname{Sym}(n), \mathcal{T}).  \)  Since multiplication by
+  \( a^{-1} \) is an automorphism of the Cayley graph (by the proof of
+  Theorem 3.1.2 that comes earlier), the vertices \( e, ba^{-1},
+  ca^{-1} \) form a triangle too.  Let us label them as \( e, b', c'
+  \) respectively.
+</p>
+<p>
+  Now by the definition of a Cayley graph, for any two vertices \( a,
+  b \in \operatorname{Sym}(n), \) we have
+
+  \begin{align*}
+    a \sim b
+    &amp; \iff ba^{-1} \in \mathcal{T} \\
+    &amp; \iff ba^{-1} = g \\
+    &amp; \iff b = ga
+  \end{align*}
+
+  for some \( g \in \mathcal{T}.  \)  Therefore
+
+  \begin{align*}
+    e \sim b'  &amp; \iff b' = ge = g, \\
+    e \sim c'  &amp; \iff c' = he = h, \\
+    b' \sim c' &amp; \iff c' = lb'
+  \end{align*}
+
+  for some \( g, h, l \in \mathcal{T}.  \)  Note that the last equality gives
+
+  \[
+    l =c'b'^{-1} = hg^{-1} = hg \in \mathcal{T}
+  \]
+
+  Therefore \( g, h, hg \in \mathcal{T}.  \)  However, this is
+  impossible since the product of two transpositions is \( e, \) a \(
+  3 \)-cycle or a product of two disjoint transpositions.  For
+  example, \( (12)(12) = e, \) \( (12)(13) = (123) \) and \( (12)(24)
+  = (12)(24).  \)  Therefore \( hg \) cannot be a transposition,
+  i.e. \( hg \notin \mathcal{T}.  \)  This is a contradiction.
+  Therefore the vertices \( a, b, c \) cannot form a triangle.  We
+  conclude that the Cayley graph \( X(\operatorname{Sym}(n),
+  \mathcal{T}) \) has no triangles.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/triangle-free-cayley-graph.html">Read on website</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>CSS Fizz Buzz</title>
+<link>https://susam.net/css-fizz-buzz.html</link>
+<guid isPermaLink="false">fzcss</guid>
+<pubDate>Wed, 03 Dec 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  An implementation of Fizz Buzz in four lines of CSS.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/css-fizz-buzz.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Fizz Buzz with Cosines</title>
+<link>https://susam.net/fizz-buzz-with-cosines.html</link>
+<guid isPermaLink="false">fzbzz</guid>
+<pubDate>Thu, 20 Nov 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Fizz Buzz is a counting game that has become oddly popular in the
+  world of computer programming as a simple test of basic programming
+  skills.  The rules of the game are straightforward.  Players say the
+  numbers aloud in order beginning with one.  Whenever a number is
+  divisible by 3, they say 'Fizz' instead.  If it is divisible by 5,
+  they say 'Buzz'.  If it is divisible by both 3 and 5, the player
+  says both 'Fizz' and 'Buzz'.  Here is a typical Python program that
+  prints this sequence:
+</p>
+<pre><code>for n in range(1, 101):
+    if n % 15 == 0:
+        print('FizzBuzz')
+    elif n % 3 == 0:
+        print('Fizz')
+    elif n % 5 == 0:
+        print('Buzz')
+    else:
+        print(n)</code>
+</pre>
+<p>
+  Here is the output:
+  <a href="files/blog/fizz-buzz.txt">fizz-buzz.txt</a>.  Can we make
+  the program more complicated?  The words 'Fizz', 'Buzz' and
+  'FizzBuzz' repeat in a periodic manner throughout the sequence.
+  What else is periodic?  Trigonometric functions!  Perhaps we can use
+  trigonometric functions to encode all four rules of the sequence in
+  a single closed-form expression.  That is what we are going to
+  explore in this article, for fun and no profit.
+</p>
+<p>
+  By the end, we will obtain a discrete Fourier series that can take
+  any integer \( n \) and select the corresponding text to be printed.
+  In fact, we will derive it using two different methods.  First, we
+  will follow a long-winded but hopefully enjoyable approach that
+  relies on a basic understanding of complex exponentiation, geometric
+  series and trigonometric functions.  Then, we will obtain the same
+  result through a direct application of the discrete Fourier
+  transform.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#definitions">Definitions</a>
+    <ul>
+      <li><a href="#symbol-functions">Symbol Functions</a></li>
+      <li><a href="#index-function">Index Function</a></li>
+      <li><a href="#fizz-buzz-sequence">Fizz Buzz Sequence</a></li>
+    </ul>
+  </li>
+  <li><a href="#from-indicator-functions-to-cosines">From Indicator Functions to Cosines</a>
+    <ul>
+      <li><a href="#indicator-functions">Indicator Functions</a></li>
+      <li><a href="#complex-exponentials">Complex Exponentials</a></li>
+      <li><a href="#cosines">Cosines</a></li>
+    </ul>
+  </li>
+  <li><a href="#dft">Discrete Fourier Transform</a>
+    <ul>
+      <li><a href="#one-period-of-fizz-buzz">One Period of Fizz Buzz</a></li>
+      <li><a href="#fourier-coefficients">Fourier Coefficients</a></li>
+      <li><a href="#inverse-transform">Inverse Transform</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h2 id="definitions">Definitions<a href="#definitions"></a></h2>
+<p>
+  Before going any further, we establish a precise mathematical
+  definition for the Fizz Buzz sequence.  We begin by introducing a
+  few functions that will help us define the Fizz Buzz sequence later.
+</p>
+<h3 id="symbol-functions">Symbol Functions<a href="#symbol-functions"></a></h3>
+<p>
+  We define a set of four functions \( \{ s_0, s_1, s_2, s_3 \} \) for
+  integers \( n \) by:
+
+  \begin{align*}
+    s_0(n) &amp;= n, \\
+    s_1(n) &amp;= \mathtt{Fizz}, \\
+    s_2(n) &amp;= \mathtt{Buzz}, \\
+    s_3(n) &amp;= \mathtt{FizzBuzz}.
+  \end{align*}
+
+  We call these the symbol functions because they produce every term
+  that appears in the Fizz Buzz sequence.  The symbol function \( s_0
+  \) returns \( n \) itself.  The functions \( s_1, \) \( s_2 \) and
+  \( s_3 \) are constant functions that always return the literal
+  words \( \mathtt{Fizz}, \) \( \mathtt{Buzz} \) and \(
+  \mathtt{FizzBuzz} \) respectively, no matter what the value of \( n
+  \) is.
+</p>
+<h3 id="index-function">Index Function<a href="#index-function"></a></h3>
+<p>
+  We define a function \( f(n) \) for integer \( n \) by
+
+  \[
+    f(n) = \begin{cases}
+      1 &amp; \text{if } 3 \mid n \text{ and } 5 \nmid n, \\
+      2 &amp; \text{if } 3 \nmid n \text{ and } 5 \mid n, \\
+      3 &amp; \text{if } 3 \mid n \text{ and } 5 \mid n, \\
+      0 &amp; \text{otherwise}.
+    \end{cases}
+  \]
+
+  The notation \( m \mid n \) means that the integer \( m \) divides
+  the integer \( n, \) i.e. \( n \) is a multiple of \( m.  \)
+  Equivalently, there exists an integer \( c \) such that \( n = cm
+ .  \)  Similarly, \( m \nmid n \) means that \( m \) does not divide
+  \( n, \) i.e. \( n \) is not a multiple of \( m.  \)
+</p>
+<p>
+  This function covers all four conditions involved in choosing the \(
+  n \)th item of the Fizz Buzz sequence.  As we will soon see, this
+  function tells us which of the four symbol functions produces the \(
+  n \)th item of the Fizz Buzz sequence.  For this reason, we call \(
+  f(n) \) the index function.
+</p>
+<h3 id="fizz-buzz-sequence">Fizz Buzz Sequence<a href="#fizz-buzz-sequence"></a></h3>
+<p>
+  We now define the Fizz Buzz sequence as the sequence
+
+  \[
+    (s_{f(n)}(n))_{n = 1}^{\infty}
+  \]
+
+  We can expand the first few terms of the sequence explicitly as
+  follows:
+
+  \begin{align*}
+    (s_{f(n)}(n))_{n = 1}^{\infty}
+    &amp;= (s_{f(1)}(1), \; s_{f(2)}(2), \; s_{f(3)}(3), \; s_{f(4)}(4), \;
+            s_{f(5)}(5), \; s_{f(6)}(6), \; s_{f(7)}(7), \; \dots) \\
+    &amp;= (s_0(1), \; s_0(2), \; s_1(3), \; s_0(4),
+            s_2(5), \; s_1(6), \; s_0(7), \; \dots) \\
+    &amp;= (1, \; 2, \; \mathtt{Fizz}, \; 4, \;
+            \mathtt{Buzz}, \; \mathtt{Fizz}, \; 7, \; \dots).
+  \end{align*}
+
+  Note how the function \( f(n) \) produces an index \( i \) which we
+  then use to select the symbol function \( s_i(n) \) to produce the
+  \( n \)th term of the sequence.  This is precisely why we decided to
+  call \( f(n) \) the index function while defining it in the previous
+  section.
+</p>
+<h2 id="from-indicator-functions-to-cosines">From Indicator Functions to Cosines<a href="#from-indicator-functions-to-cosines"></a></h2>
+<p>
+  Here we discuss the first method of deriving our closed form
+  expression, starting with indicator functions and rewriting them
+  using complex exponentials and cosines.
+</p>
+<h3 id="indicator-functions">Indicator Functions<a href="#indicator-functions"></a></h3>
+<p>
+  Here is the index function \( f(n) \) from the previous section with
+  its cases and conditions rearranged to make it easier to spot
+  interesting patterns:
+
+  \[
+    f(n) = \begin{cases}
+      0 &amp; \text{if } 5 \nmid n \text{ and } 3 \nmid n, \\
+      1 &amp; \text{if } 5 \nmid n \text{ and } 3 \mid n, \\
+      2 &amp; \text{if } 5 \mid n \text{ and } 3 \nmid n, \\
+      3 &amp; \text{if } 5 \mid n \text{ and } 3 \mid n.
+    \end{cases}
+  \]
+
+  This function helps us select another function \( s_{f(n)}(n) \)
+  which in turn determines the \( n \)th term of the Fizz Buzz
+  sequence.  Our goal now is to replace this piecewise formula with a
+  single closed-form expression.  To do so, we first define indicator
+  functions \( I_m(n) \) as follows:
+
+  \[
+    I_m(n) = \begin{cases}
+      1 &amp; \text{if } m \mid n, \\
+      0 &amp; \text{if } m \nmid n.
+    \end{cases}
+  \]
+
+  The formula for \( f(n) \) can now be written as:
+
+  \[
+    f(n) = \begin{cases}
+      0 &amp; \text{if } I_5(n) = 0 \text{ and } I_3(n) = 0, \\
+      1 &amp; \text{if } I_5(n) = 0 \text{ and } I_3(n) = 1, \\
+      2 &amp; \text{if } I_5(n) = 1 \text{ and } I_3(n) = 0, \\
+      3 &amp; \text{if } I_5(n) = 1 \text{ and } I_3(n) = 1.
+    \end{cases}
+  \]
+
+  Do you see a pattern?  Here is the same function written as a table:
+</p>
+<table class="grid center textcenter">
+  <tr>
+    <th>\( I_5(n) \)</th>
+    <th>\( I_3(n) \)</th>
+    <th>\( f(n) \)</th>
+  </tr>
+  <tr>
+    <td>\( 0 \)</td>
+    <td>\( 0 \)</td>
+    <td>\( 0 \)</td>
+  </tr>
+  <tr>
+    <td>\( 0 \)</td>
+    <td>\( 1 \)</td>
+    <td>\( 1 \)</td>
+  </tr>
+  <tr>
+    <td>\( 1 \)</td>
+    <td>\( 0 \)</td>
+    <td>\( 2 \)</td>
+  </tr>
+  <tr>
+    <td>\( 1 \)</td>
+    <td>\( 1 \)</td>
+    <td>\( 3 \)</td>
+  </tr>
+</table>
+<p>
+  Do you see it now?  If we treat the values in the first two columns
+  as binary digits and the values in the third column as decimal
+  numbers, then in each row the first two columns give the binary
+  representation of the number in the third column.  For example, \(
+  3_{10} = 11_2 \) and indeed in the last row of the table, we see the
+  bits \( 1 \) and \( 1 \) in the first two columns and the number \(
+  3 \) in the last column.  In other words, writing the binary digits
+  \( I_5(n) \) and \( I_3(n) \) side by side gives us the binary
+  representation of \( f(n).  \)  Therefore
+
+  \[
+    f(n) = 2 \, I_5(n) + I_3(n).
+  \]
+
+  We can now write a small program to demonstrate this formula:
+</p>
+<pre>
+<code>for n in range(1, 101):
+    s = [n, 'Fizz', 'Buzz', 'FizzBuzz']
+    i = (n % 3 == 0) + 2 * (n % 5 == 0)
+    print(s[i])</code>
+</pre>
+<p>
+  We can make it even shorter at the cost of some clarity:
+</p>
+<pre>
+<code>for n in range(1, 101):
+    print([n, 'Fizz', 'Buzz', 'FizzBuzz'][(n % 3 == 0) + 2 * (n % 5 == 0)])</code>
+</pre>
+<p>
+  What we have obtained so far is pretty good.  While there is no
+  universal definition of a closed-form expression, I think most
+  people would agree that the indicator functions as defined above are
+  simple enough to be permitted in a closed-form expression.
+</p>
+<h3 id="complex-exponentials">Complex Exponentials<a href="#complex-exponentials"></a></h3>
+<p>
+  In the previous section, we obtained the formula
+
+  \[
+    f(n) = I_3(n) + 2 \, I_5(n)
+  \]
+
+  which we then used as an index to look up the text to be printed.
+  We also argued that this is a pretty good closed-form expression
+  already.
+</p>
+<p>
+  However, in the interest of making things more complicated, we must
+  ask ourselves: What if we are not allowed to use the indicator
+  functions?  What if we must adhere to the commonly accepted meaning
+  of a closed-form expression which allows only finite combinations of
+  basic operations such as addition, subtraction, multiplication,
+  division, integer exponents and roots with integer index as well as
+  functions such as exponentials, logarithms and trigonometric
+  functions.  It turns out that the above formula can be rewritten
+  using only addition, multiplication, division and the cosine
+  function.  Let us begin the translation.  Consider the sum
+
+  \[
+    S_m(n) = \sum_{k = 0}^{m - 1} e^{i 2 \pi k n / m},
+  \]
+
+  where \( i \) is the imaginary unit and \( n \) and \( m \) are
+  integers.  This is a geometric series in the complex plane with
+  ratio \( r = e^{i 2 \pi n / m}.  \)  If \( n \) is a multiple of \( m
+ , \) then \( n = cm \) for some integer \( c \) and we get
+
+  \[
+    r
+    = e^{i 2 \pi n / m}
+    = e^{i 2 \pi c}
+    = 1.
+  \]
+
+  Therefore, when \( n \) is a multiple of \( m, \) we get
+
+  \[
+    S_m(n)
+    = \sum_{k = 0}^{m - 1} e^{i 2 \pi k n / m}
+    = \sum_{k = 0}^{m - 1} 1^k
+    = m.
+  \]
+
+  If \( n \) is not a multiple of \( m, \) then \( r \ne 1 \) and the
+  geometric series becomes
+
+  \[
+    S_m(n)
+    = \frac{r^m - 1}{r - 1}
+    = \frac{e^{i 2 \pi n} - 1}{e^{i 2 \pi n / m} - 1}
+    = 0.
+  \]
+
+  Therefore,
+
+  \[
+    S_m(n) = \begin{cases}
+      m &amp; \text{if } m \mid n, \\
+      0 &amp; \text{if } m \nmid n.
+    \end{cases}
+  \]
+
+  Dividing both sides by \( m, \) we get
+
+  \[
+    \frac{S_m(n)}{m} = \begin{cases}
+      1 &amp; \text{if } m \mid n, \\
+      0 &amp; \text{if } m \nmid n.
+    \end{cases}
+  \]
+
+  But the right-hand side is \( I_m(n).  \)  Therefore
+
+  \[
+    I_m(n)
+    = \frac{S_m(n)}{m}
+    = \frac{1}{m} \sum_{k = 0}^{m - 1} e^{i 2 \pi k n / m}.
+  \]
+</p>
+<h3 id="cosines">Cosines<a href="#cosines"></a></h3>
+<p>
+  We begin with Euler's formula
+
+  \[
+    e^{i x} = \cos x + i \sin x
+  \]
+
+  where \( x \) is a real number.  From this formula, we get
+
+  \[
+    e^{i x} + e^{-i x} = 2 \cos x.
+  \]
+
+  Therefore
+
+  \begin{align*}
+    I_3(n)
+    &amp;= \frac{1}{3} \sum_{k = 0}^2 e^{i 2 \pi k n / 3} \\
+    &amp;= \frac{1}{3} \left( 1 + e^{i 2 \pi n / 3} +
+                                  e^{i 4 \pi n / 3} \right) \\
+    &amp;= \frac{1}{3} \left( 1 + e^{i 2 \pi n / 3} +
+                                  e^{-i 2 \pi n / 3} \right) \\
+    &amp;= \frac{1}{3} + \frac{2}{3} \cos \left( \frac{2 \pi n}{3} \right).
+  \end{align*}
+
+  The third equality above follows from the fact that \( e^{i 4 \pi n
+  / 3} = e^{i 6 \pi n / 3} e^{-i 2 \pi n / 3} = e^{i 2 \pi n} e^{-i 2
+  \pi n/3} = e^{-i 2 \pi n / 3} \) when \( n \) is an integer.
+</p>
+<p>
+  The function above is defined for integer values of \( n \) but we
+  can extend its formula to real \( x \) and plot it to observe its
+  shape between integers.  As expected, the function takes the value
+  \( 1 \) whenever \( x \) is an integer multiple of \( 3 \) and \( 0
+  \) whenever \( x \) is an integer not divisible by \( 3.  \)
+</p>
+<figure class="soft">
+  <img src="files/blog/fizz-buzz-i3.png" alt="Graph">
+  <figcaption>
+    Graph of \( \frac{1}{3} + \frac{2}{3} \cos \left( \frac{2 \pi x}{3} \right) \)
+  </figcaption>
+</figure>
+<p>
+  Similarly,
+
+  \begin{align*}
+    I_5(n)
+    &amp;= \frac{1}{5} \sum_{k = 0}^4 e^{i 2 \pi k n / 5} \\
+    &amp;= \frac{1}{5} \left( 1 + e^{i 2 \pi n / 5}
+                                + e^{i 4 \pi n / 5}
+                                + e^{i 6 \pi n / 5}
+                                + e^{i 8 \pi n / 5} \right) \\
+    &amp;= \frac{1}{5} \left( 1 + e^{i 2 \pi n / 5}
+                                + e^{i 4 \pi n / 5}
+                                + e^{-i 4 \pi n / 5}
+                                + e^{-i 2 \pi n / 5} \right) \\
+    &amp;= \frac{1}{5} + \frac{2}{5} \cos \left( \frac{2 \pi n}{5} \right)
+                       + \frac{2}{5} \cos \left( \frac{4 \pi n}{5} \right).
+  \end{align*}
+
+  Extending this expression to real values of \( x \) allows us to
+  plot its shape as well.  Once again, the function takes the value \(
+  1 \) at integer multiples of \( 5 \) and \( 0 \) at integers not
+  divisible by \( 5.  \)
+</p>
+<figure class="soft">
+  <img src="files/blog/fizz-buzz-i5.png" alt="Graph">
+  <figcaption>
+    Graph of \(
+      \frac{1}{5}
+      + \frac{2}{5} \cos \left( \frac{2 \pi x}{5} \right)
+      + \frac{2}{5} \cos \left( \frac{4 \pi x}{5} \right)
+    \)
+  </figcaption>
+</figure>
+<p>
+  Recall that we expressed \( f(n) \) as
+
+  \[
+    f(n) = I_3(n) + 2 \, I_5(n).
+  \]
+
+  Substituting these trigonometric expressions yields
+
+  \[
+    f(n)
+    = \frac{1}{3}
+      + \frac{2}{3} \cos \left( \frac{2 \pi n}{3} \right)
+      + 2 \cdot \left(
+        \frac{1}{5}
+        + \frac{2}{5} \cos \left( \frac{2 \pi n}{5} \right)
+        + \frac{2}{5} \cos \left( \frac{4 \pi n}{5} \right)
+      \right).
+  \]
+
+  A straightforward simplification gives
+
+  \[
+    f(n)
+    = \frac{11}{15}
+      + \frac{2}{3} \cos \left( \frac{2 \pi n}{3} \right)
+      + \frac{4}{5} \cos \left( \frac{2 \pi n}{5} \right)
+      + \frac{4}{5} \cos \left( \frac{4 \pi n}{5} \right).
+  \]
+
+  We can extend this expression to real \( x \) and plot it as well.
+  The resulting curve takes the values \( 0, 1, 2 \) and \( 3 \) at
+  integer points, as desired.
+</p>
+<figure class="soft">
+  <img src="files/blog/fizz-buzz-f.png" alt="Graph">
+  <figcaption>
+    Graph of \(
+      \frac{11}{15} +
+      \frac{2}{3} \cos \left( \frac{2 \pi x}{3} \right) +
+      \frac{4}{5} \cos \left( \frac{2 \pi x}{5} \right) +
+      \frac{4}{5} \cos \left( \frac{4 \pi x}{5} \right)
+    \)
+  </figcaption>
+</figure>
+<p>
+  Now we can write our Python program as follows:
+</p>
+<pre>
+<code>from math import cos, pi
+for n in range(1, 101):
+    s = [n, 'Fizz', 'Buzz', 'FizzBuzz']
+    i = round(11 / 15 + (2 / 3) * cos(2 * pi * n / 3)
+                      + (4 / 5) * cos(2 * pi * n / 5)
+                      + (4 / 5) * cos(4 * pi * n / 5))
+    print(s[i])</code>
+</pre>
+<h2 id="dft">Discrete Fourier Transform<a href="#dft"></a></h2>
+<p>
+  The keen-eyed might notice that the expression we obtained for \(
+  f(n) \) is a discrete Fourier series.  This is not surprising, since
+  the output of a Fizz Buzz program depends only on \( n \bmod 15.  \)
+  Any function on a finite cyclic group can be written exactly as a
+  finite Fourier expansion.  In this section, we obtain \( f(n) \)
+  using the discrete Fourier transform.  It is worth mentioning that
+  the calculations presented here are quite tedious to do by hand.
+  Nevertheless, this section offers a glimpse of how such calculations
+  are performed.  By the end, we will arrive at exactly the same \(
+  f(n) \) as before.  There is nothing new to discover here.  We
+  simply obtain the same result by a more direct but more laborious
+  method.  If this doesn't sound interesting, you may safely skip the
+  subsections that follow.
+</p>
+<h3 id="one-period-of-fizz-buzz">One Period of Fizz Buzz<a href="#one-period-of-fizz-buzz"></a></h3>
+<div style="display: none">\( \gdef\arraystretch{1.2} \)</div>
+<p>
+  We know that \( f(n) \) is a periodic function with period \( 15.  \)
+  To apply the discrete Fourier transform, we look at one complete
+  period of the function using the values \( n = 0, 1, \dots, 14.  \)
+  Over this period, we have:
+
+  \begin{array}{c|ccccccccccccccc}
+      n &amp;  0 &amp;  1 &amp;  2 &amp;  3 &amp;  4
+        &amp;  5 &amp;  6 &amp;  7 &amp;  8 &amp;  9
+        &amp; 10 &amp; 11 &amp; 12 &amp; 13 &amp; 14 \\
+    \hline
+    f(n) &amp; 3 &amp;  0 &amp;  0 &amp;  1 &amp;  0
+         &amp; 2 &amp;  1 &amp;  0 &amp;  0 &amp;  1
+         &amp; 2 &amp;  0 &amp;  1 &amp;  0 &amp;  0
+  \end{array}
+
+  The discrete Fourier series of \( f(n) \) is
+
+  \[
+    f(n) = \sum_{k = 0}^{14} c_k \, e^{i 2 \pi k n / 15}
+  \]
+
+  where the Fourier coefficients \( c_k \) are given by the discrete
+  Fourier transform
+
+  \[
+    c_k = \frac{1}{15} \sum_{n = 0}^{14} f(n) e^{-i 2 \pi k n / 15}.
+  \]
+
+  for \( k = 0, 1, \dots, 14.  \)  The formula for \( c_k \) is called
+  the discrete Fourier transform (DFT).  The formula for \( f(n) \) is
+  called the inverse discrete Fourier transform (IDFT).
+</p>
+<h3 id="fourier-coefficients">Fourier Coefficients<a href="#fourier-coefficients"></a></h3>
+<p>
+  Let \( \omega = e^{-i 2 \pi / 15}.  \)  Then using the values of \(
+  f(n) \) from the table above, the DFT becomes:
+
+  \[
+    c_k = \frac{3 + \omega^{3k} + 2 \omega^{5k} + \omega^{6k}
+                  + \omega^{9k} + 2 \omega^{10k} + \omega^{12k}}{15}.
+  \]
+
+  Substituting \( k = 0, 1, 2, \dots, 14 \) into the above equation
+  gives us the following Fourier coefficients:
+
+  \begin{align*}
+    c_{0}  &amp;= \frac{11}{15}, \\
+    c_{3}  &amp;= c_{6} = c_{9} = c_{12} = \frac{2}{5}, \\
+    c_{5}  &amp;= c_{10} = \frac{1}{3}, \\
+    c_{1}  &amp;= c_{2} = c_{4} = c_{7} = c_{8} = c_{11} = c_{13} = c_{14} = 0.
+  \end{align*}
+
+  Calculating these Fourier coefficients by hand can be rather
+  tedious.  In practice they are almost always calculated using
+  numerical software, computer algebra systems or even simple code
+  such as the example here:
+  <a href="code/fizz-buzz-fourier/fizz-buzz-fourier.py">fizz-buzz-fourier.py</a>.
+</p>
+<h3 id="inverse-transform">Inverse Transform<a href="#inverse-transform"></a></h3>
+<p>
+  Once the coefficients are known, we can substitute them into the
+  inverse transform introduced earlier to obtain
+
+  \begin{align*}
+    f(n)
+    &amp;= \sum_{k = 0}^{14} c_k \, e^{i 2 \pi k n / 15} \\[1.5em]
+    &amp;= \frac{11}{15}
+           + \frac{2}{5} \left(
+             e^{i 2 \pi \cdot 3n / 15}
+             + e^{i 2 \pi \cdot 6n / 15}
+             + e^{i 2 \pi \cdot 9n / 15}
+             + e^{i 2 \pi \cdot 12n / 15}
+           \right) \\
+           &amp; \phantom{=\frac{11}{15}}
+           + \frac{1}{3} \left(
+             e^{i 2 \pi \cdot 5n / 15}
+             + e^{i 2 \pi \cdot 10n / 15}
+           \right) \\[1em]
+    &amp;= \frac{11}{15}
+           + \frac{2}{5} \left(
+             e^{i 2 \pi \cdot 3n / 15}
+             + e^{i 2 \pi \cdot 6n / 15}
+             + e^{-i 2 \pi \cdot 6n / 15}
+             + e^{-i 2 \pi \cdot 3n / 15}
+           \right) \\
+           &amp; \phantom{=\frac{11}{15}}
+           + \frac{1}{3} \left(
+             e^{i 2 \pi \cdot 5n / 15}
+             + e^{-i 2 \pi \cdot 5n / 15}
+           \right) \\[1em]
+    &amp;= \frac{11}{15}
+       + \frac{2}{5} \left(
+         2 \cos \left( \frac{2 \pi n}{5} \right)
+         + 2 \cos \left( \frac{4 \pi n}{5} \right)
+       \right) \\
+       &amp; \phantom{=\frac{11}{15}}
+       + \frac{1}{3} \left(
+         2 \cos \left( \frac{2 \pi n}{3} \right)
+       \right) \\[1em]
+    &amp;= \frac{11}{15} +
+       \frac{4}{5} \cos \left( \frac{2 \pi n}{5} \right) +
+       \frac{4}{5} \cos \left( \frac{4 \pi n}{5} \right) +
+       \frac{2}{3} \cos \left( \frac{2 \pi n}{3} \right).
+  \end{align*}
+
+  This is exactly the same expression for \( f(n) \) we obtained in
+  the previous section.  We see that the Fizz Buzz index function \(
+  f(n) \) can be expressed precisely using the machinery of Fourier
+  analysis.
+</p>
+<h2 id="conclusion">Conclusion<a href="#conclusion"></a></h2>
+<p>
+  To summarise, we have defined the Fizz Buzz sequence as
+
+  \[
+    (s_{f(n)}(n))_{n = 1}^{\infty}
+  \]
+
+  where
+
+  \[
+    f(n)
+    = \frac{11}{15} +
+      \frac{2}{3} \cos \left( \frac{2 \pi n}{3} \right) +
+      \frac{4}{5} \cos \left( \frac{2 \pi n}{5} \right) +
+      \frac{4}{5} \cos \left( \frac{4 \pi n}{5} \right).
+  \]
+
+  and \( s_0(n) = n, \) \( s_1(n) = \mathtt{Fizz}, \) \( s_2(n) =
+  \mathtt{Buzz} \) and \( s_3(n) = \mathtt{FizzBuzz}.  \)  A Python
+  program to print the Fizz Buzz sequence based on this definition was
+  presented earlier.  That program can be written more succinctly as
+  follows:
+</p>
+<pre>
+<code>from math import cos, pi
+for n in range(1, 101):
+    print([n, 'Fizz', 'Buzz', 'FizzBuzz'][round(11 / 15 + (2 / 3) * cos(2 * pi * n / 3) + (4 / 5) * (cos(2 * pi * n / 5) + cos(4 * pi * n / 5)))])</code>
+</pre>
+<p>
+  We can also wrap this up nicely in a shell one-liner, in case you
+  want to share it with your friends and family and surprise them:
+</p>
+<pre><code>python3 -c 'from math import cos, pi; [print([n, "Fizz", "Buzz", "FizzBuzz"][round(11/15 + (2/3) * cos(2*pi*n/3) + (4/5) * (cos(2*pi*n/5) + cos(4*pi*n/5)))]) for n in range(1, 101)]'</code></pre>
+<p>
+  We have taken a simple counting game and turned it into a
+  trigonometric construction consisting of a discrete Fourier series
+  with three cosine terms and four coefficients.  None of this makes
+  Fizz Buzz any easier.  Quite the contrary.  But it does show that
+  every \( \mathtt{Fizz} \) and \( \mathtt{Buzz} \) now owes its
+  existence to a particular set of Fourier coefficients.  We began
+  with the modest goal of making this simple problem more complicated.
+  I think it is safe to say that we did not fall short.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/fizz-buzz-with-cosines.html">Read on website</a> |
+  <a href="https://susam.net/tag/absurd.html">#absurd</a> |
+  <a href="https://susam.net/tag/python.html">#python</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a> |
+  <a href="https://susam.net/tag/mathematics.html">#mathematics</a> |
+  <a href="https://susam.net/tag/puzzle.html">#puzzle</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Nerd Quiz #2</title>
+<link>https://susam.net/code/news/nq/2.0.0.html</link>
+<guid isPermaLink="false">nqtwo</guid>
+<pubDate>Tue, 18 Nov 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Nerd Quiz #2 is the second release of Nerd Quiz, a single-page HTML
+  application that invites you to gauge your nerd level through short,
+  focused quiz sets.  Each question is carefully crafted from everyday
+  moments of reading, writing, thinking, learning and exploring.
+</p>
+<p>
+  This release introduces five new questions drawn from a range of
+  topics such as chess, graph theory and linguistics.  To try the
+  quiz, visit <a href="../../../nq.html#2">nq.html</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/nq/2.0.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a> |
+  <a href="https://susam.net/tag/game.html">#game</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Discuss Nerd Quiz</title>
+<link>https://susam.net/comments/nq.html</link>
+<guid isPermaLink="false">nqztk</guid>
+<pubDate>Sat, 18 Oct 2025 01:39:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A comments page to discuss Nerd Quiz.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/comments/nq.html">Read on website</a> |
+  <a href="https://susam.net/tag/meta.html">#meta</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Nerd Quiz #1</title>
+<link>https://susam.net/code/news/nq/1.0.0.html</link>
+<guid isPermaLink="false">nqone</guid>
+<pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  Nerd Quiz #1 is the first release of Nerd Quiz, a single-page HTML
+  application that lets you test your nerd level through short,
+  focused quiz sets.  Each question in the quiz is handcrafted from
+  everyday moments of reading, writing, thinking, learning and
+  exploring.
+</p>
+<p>
+  To try the quiz now, visit <a href="../../../nq.html">nq.html</a>.
+</p>
+<p>
+  The source code of Nerd Quiz is available at
+  <a href="https://github.com/susam/nq#readme">github.com/susam/nq</a>
+  under the terms of the MIT licence.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/nq/1.0.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/miscellaneous.html">#miscellaneous</a> |
+  <a href="https://susam.net/tag/game.html">#game</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Nerd Quiz</title>
+<link>https://susam.net/nq.html</link>
+<guid isPermaLink="false">nqhtm</guid>
+<pubDate>Thu, 16 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  A nerdy, handcrafted quiz built from everyday moments of reading,
+  writing, thinking, learning and exploring.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/nq.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>QuickQWERTY 1.2.0</title>
+<link>https://susam.net/code/news/quickqwerty/1.2.0.html</link>
+<guid isPermaLink="false">qqotz</guid>
+<pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  QuickQWERTY 1.2.0 is now available.  QuickQWERTY is a web-based
+  touch typing tutor for QWERTY keyboards that runs directly in the
+  web browser.
+</p>
+<p>
+  This release brings small improvements to make the typing tutor
+  smoother and the lessons more accurate.  When you return to the
+  application, it no longer needlessly redirects you back to Unit 1.1
+  if that was the last lesson you practised.
+</p>
+<p>
+  Several lessons have received minor corrections.  Units 7.2 and 7.3
+  no longer include the word "tyre", avoiding a preference for either
+  British or American spelling.  Units 9.2 and 9.3 now spell
+  "orwellian" correctly.  A factual error in Unit 17.4 has been fixed
+  too.  It previously said "89 is one more than 99", which now
+  correctly reads "89 is one more than 88".
+</p>
+<p>
+  Finally, switching between the 5-6 and 6-7 split layouts is now more
+  reliable.  In the previous release, pressing <kbd>Esc</kbd> to
+  cancel the confirmation dialogue still caused the switch to go
+  through.  Now pressing <kbd>Esc</kbd> properly cancels the switch as
+  expected.
+</p>
+<p>
+  To try out the new release of QuickQWERTY, go to
+  <a href="../../../quickqwerty.html">quickqwerty.html</a>.
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/code/news/quickqwerty/1.2.0.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/programming.html">#programming</a>
+</p>
+]]>
+</description>
+</item>
+<item>
+<title>Reinstated My Guestbook After 20 Years</title>
+<link>https://susam.net/reinstated-guestbook.html</link>
+<guid isPermaLink="false">gbret</guid>
+<pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+<description>
+<![CDATA[
+<p>
+  I have reinstated the <a href="comments/guestbook.html">guestbook</a>
+  on this website after 20 years!  As I have written in the
+  <a href="about.html">About</a> page, this website began its life as
+  an intranet portal in my university network back in 2001–2005.  That
+  portal first ran on Microsoft Personal Web Server (PWS) and later on
+  Microsoft Internet Information Services (IIS), with the guestbook
+  data stored in a Microsoft Access database.  At the same time, I
+  also maintained a small public website on the Internet, hosted on a
+  subdomain provided by a free hosting service, where I published a
+  subset of the articles from the intranet portal.  Both the intranet
+  portal and the public website had guestbooks.  The guestbook on the
+  public website was powered by a CGI script provided by the hosting
+  service, which inserted each comment directly into the guestbook
+  HTML page.  As some of you might guess, yes, it was vulnerable to
+  cross-site scripting, but that's beside the point.
+</p>
+<p>
+  After leaving the university, I registered my own domain name and
+  set up my current website on the World Wide Web and included some of
+  the content from both the original intranet portal and the old
+  public website.  For some reason, though, I never thought to include
+  a guestbook.  And so this website went on without a guestbook for
+  the next 20 years.  Finally, in June 2025, I decided to bring the
+  guestbook back.  I already had a commenting system implemented for
+  this website using Common Lisp and Hunchentoot, so I simply reused
+  it for the guestbook.  The
+  <a href="https://github.com/susam/susam.net/blob/0.3.0/form.lisp">server program</a>
+  accepts POST requests to receive comments and writes them to text
+  files on the web server for manual review.  The comments are then
+  rendered as static HTML pages by my static site generator.  In a
+  way, it is less a comment system and more a static comment pages
+  generator.
+</p>
+<p>
+  Unfortunately, I could not restore all the comments from the
+  original guestbooks.  The ASP source code of my intranet portal as
+  well as the guestbook database are now lost to time.  Note that what
+  I refer to as ASP here is now known as Classic ASP, to avoid
+  confusion with ASP.NET.  A CD-ROM backup eventually succumbed to
+  disc rot and with it vanished the source code and the database.  But
+  a handful of comments had survived because they had found their way
+  into other files and correspondence and I have now included them
+  here.  I had better luck with the guestbook of the old public
+  website, from which I was able to recover a greater number of
+  comments.  It is still only a small fraction of what once existed,
+  but it feels good to have even those fragments preserved.  The new
+  guestbook is now available here:
+  <a href="comments/guestbook.html">Guestbook</a>.
+</p>
+<p>
+  I wasn't expecting anybody to notice the new guestbook.  It is only
+  mentioned in the <a href="about.html">About</a> and
+  <a href="links.html">Links</a> pages, neither of which see much
+  traffic.  Here are a few examples:
+</p>
+<blockquote>
+  <p>
+    I love that your website has a guestbook!  :D
+  </p>
+</blockquote>
+<blockquote>
+  <p>
+    Love the guestbook!  We need more of these.  Makes you feel
+    invited.
+  </p>
+</blockquote>
+<p>
+  It's a small addition to my website, but after two decades, it feels
+  good to see the guestbook alive again and even better to see
+  visitors enjoying it!
+</p>
+<!-- ### -->
+<p>
+  <a href="https://susam.net/reinstated-guestbook.html">Read on website</a> |
+  <a href="https://susam.net/tag/web.html">#web</a> |
+  <a href="https://susam.net/tag/technology.html">#technology</a>
+</p>
+]]>
+</description>
+</item>
+
+
+</channel>
+</rss>

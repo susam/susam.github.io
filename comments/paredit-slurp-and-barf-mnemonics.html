@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on Paredit Slurp and Barf Mnemonics - Susam's Maze</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/paredit-slurp-and-barf-mnemonics.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../paredit-slurp-and-barf-mnemonics.html"><em>Paredit Slurp and Barf Mnemonics</em></a></strong></div>
+<nav><a href="../form/comment/?p=paredit-slurp-and-barf-mnemonics">Post Comment</a></nav>
+<!-- Comment 1 of 2 -->
+<section id="1" class="visitor">
+<h2><a href="https://mastodon.social/@umtassio">Tassion</a> wrote:</h2>
+<p>
+  Hi!  Firstly, congratulations on your pages, they are really cool!
+  I'm hoping to get my own space online at some point soon, and yours
+  is an inspiration!
+</p>
+<p>
+  I think I found a typo on your paredit-slurp-and-barf-mnemonics
+  page.  When you explain barfing for the first time, you
+  write <code>paredit-backward-slurp-sexp</code> when you meant
+  <code>paredit-backward-barf-sexp</code>.
+</p>
+<p>
+  Also, I think that I found a bug (or feature?) of Paredit.
+  <code>paredit-delete-char</code> doesn't seem to play well with
+  the <code>undo</code> command in Emacs.  Try typing <code>a
+  "bcd"</code>, then moving the pointer to the point just before the
+  first double quotes, then run
+  <code>paredit-delete-char</code>, followed by <code>undo</code>.
+  I'll report it in case it is useful.
+</p>
+<div>
+<a href="#1">10 Nov 2025 13:01 UTC</a> |
+<a href="#1">#1 of 2 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 2 -->
+<section id="2" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Thank you for reporting the typo.  I had indeed
+  written <code>paredit-backward-slurp-sexp</code> when I
+  meant <code>paredit-backward-barf-sexp</code>.  I have fixed it now.
+</p>
+<p>
+  By the way, I could not reproduce any odd behaviour pertaining
+  to <code>undo</code> after <code>paredit-delete-char</code>.  If I
+  run <code>paredit-delete-char</code> while the point is placed just
+  before the first double quotation mark, nothing happens since
+  Paredit cannot delete it without making the double quotation marks
+  imbalanced.  For me, an <code>undo</code> after that does undo the
+  last edit made before <code>paredit-delete-char</code>.
+</p>
+<div>
+<a href="#2">21 Nov 2025 00:03 UTC</a> |
+<a href="#2">#2 of 2 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=paredit-slurp-and-barf-mnemonics">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../maze.html">Maze</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

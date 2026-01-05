@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Notes on Mastering Emacs: Chapter 1: Introduction - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/cc/mastering-emacs/ch01.html">
+  <link rel="icon" type="image/png" href="../../favicon.png">
+  <link rel="alternate" type="application/rss+xml" title="Susam's Feed" href="../../feed.xml">
+  <link rel="stylesheet" href="../../css/main.css">
+</head>
+<body>
+<main>
+<h1>Notes on Mastering Emacs: Chapter 1: Introduction</h1>
+<div>By <b>Susam Pal</b> on 16 Dec 2022</div>
+<p>
+  The following notes were taken while discussing Chapter 1 of the
+  book <em>Mastering Emacs</em> by Mickey Petersen (2022 edition) in
+  <a href="./">book discussion group meetings</a>.
+</p>
+<p>
+  An index of notes for all chapters are available
+  at <a href="notes.html">notes.html</a>.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#describe-system">Describe System</a></li>
+  <li><a href="#language-servers">Language Servers</a></li>
+  <li><a href="#baroque-terminology">Baroque Terminology</a></li>
+  <li><a href="#active-friendly-community">Active, Friendly Community</a></li>
+  <li><a href="#vim-emulation-layer">Vim Emulation Layer</a></li>
+  <li><a href="#links">Links</a></li>
+</ul>
+<h2 id="describe-system">Describe System<a href="#describe-system"></a></h2>
+<p>
+  To get a glimpse of the powerful describe system available in Emacs,
+  type the following key sequence: <code>C-h C-k C-p</code>.  This
+  shows the documentation associated with the keys
+  sequence <code>C-p</code> that invokes the command
+  named <code>previous-line</code> to move the cursor to the previous
+  line.  The documentation mentions that this command is defined in a
+  file named <code>simple.el</code>.  Click on the file name to jump
+  straight into the source code of <code>simple.el</code> where this
+  command is defined.  With Emacs, the source code of Emacs is not
+  hidden from the user.  The describe system is discussed in Chapter 3
+  of the book.
+</p>
+<h2 id="language-servers">Language Servers<a href="#language-servers"></a></h2>
+<p>
+  The two popular language server implementations for Emacs are LSP
+  Mode and Eglot.  Since Emacs 29, Eglot is part of Emacs core and
+  does not require installing a separate package.  It can be run with
+  the key sequence <code>M-x eglot RET</code>.
+</p>
+<h2 id="baroque-terminology">Baroque Terminology<a href="#baroque-terminology"></a></h2>
+<p>
+  Some examples are:
+</p>
+<ul>
+  <li>
+    The term <em>point</em> to refer to the cursor.
+  </li>
+  <li>
+    The term <em>yank</em> to paste text.  What can be especially
+    confusing for users with prior Vim experience is that Vim uses the
+    term <em>yank</em> to mean copying text but Emacs uses this term
+    to mean pasting text.
+  </li>
+  <li>
+    An OS-level or desktop-environment-level window is known
+    as <em>frame</em> in Emacs.  We can split an Emacs frame into
+    multiple panes and these panes are called <em>windows</em> in
+    Emacs.
+  </li>
+</ul>
+<p>
+  There are many more such examples.  The above examples illustrate
+  the kind of surprises one should be ready for while reading Emacs
+  documentation.  Fortunately, it is often possible to understand the
+  meaning of these terms from the context.
+</p>
+<h2 id="active-friendly-community">Active, Friendly Community<a href="#active-friendly-community"></a></h2>
+<p>
+  There are three good places to hang out with other Emacs users, seek
+  help or help others with Emacs:
+</p>
+<ul>
+  <li>
+    Reddit <a href="https://www.reddit.com/r/emacs/">r/emacs</a>
+    community.
+  </li>
+  <li>
+    Libera <a href="https://web.libera.chat/#emacs">#emacs</a>
+    channel.
+  </li>
+  <li>
+    Matrix <a href="https://app.element.io/#/room/#emacs:matrix.org">#emacs</a>
+    room.
+  </li>
+</ul>
+<p>
+  All three places appear to be quite friendly to beginners to Emacs!
+</p>
+<h2 id="vim-emulation-layer">Vim Emulation Layer<a href="#vim-emulation-layer"></a></h2>
+<p>
+  The most popular Vim emulation layer these days is Evil Mode.  It is
+  often said that the best implementation of Vim is written in Emacs
+  Lisp.  Some people also claim that Evil Mode is a better Vim than
+  Vim itself.  In fact, the next chapter, i.e. Chapter 3, says the
+  following:
+</p>
+<blockquote>
+  Vim users are migrating to Emacs because, well, Emacs is often a
+  better Vim than Vim.
+</blockquote>
+<h2 id="links">Links<a href="#links"></a></h2>
+<p>
+  The following list includes some links that were discussed during
+  the book discussion group meetings:
+</p>
+<ul>
+  <li>
+    <a href="https://github.com/Wilfred/helpful">Helpful</a> is an
+    alternative to the built-in Emacs help that provides much more
+    contextual information.
+  </li>
+  <li>
+    <a href="https://github.com/xuchunyang/elisp-demos">Elisp API
+    Demos</a> injects Elisp demo examples in <code>*Help*</code>
+    buffers.
+  </li>
+  <li>
+    <a href="https://planet.emacslife.com/">Planet Emacslife</a> is a
+    feed aggregrator for Emacs-related blogs.
+</ul>
+
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../../">Home</a>
+    <a href="../../cc/">Club</a>
+    <a href="../../links.html">Links</a>
+    <a href="../../feed.xml">Feed</a>
+    <a href="../../form/subscribe/">Subscribe</a>
+    <a href="../../about.html">About</a>
+    <a href="https://github.com/susam">GitHub</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>
