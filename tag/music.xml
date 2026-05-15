@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's Music Pages</title>
+  <subtitle>Feed for Susam's Music Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/music.xml" rel="self"/>
+  <id>https://susam.net/tag/music.xml</id>
+  <updated>2013-02-14T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Twinkle Twinkle Little Star</title>
+    <link href="https://susam.net/music/twinkle-twinkle-little-star.html"/>
+    <id>urn:uuid:0bf3442c-7446-4c0d-b530-cc4d1ae7e1c9</id>
+    <updated>2013-02-14T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  This is a short musical piece consisting of 56 measures.  It is 1
+  minute 52 seconds long.  The music is composed of four tracks.
+&lt;/p&gt;
+&lt;div class=&quot;widget&quot;&gt;
+  &lt;audio controls preload=&quot;none&quot; src=&quot;../files/music/twinkle-twinkle-little-star/twinkle-twinkle-little-star.mp3&quot;&gt;&lt;/audio&gt;
+  &lt;div&gt;
+    &lt;a href=&quot;../files/music/twinkle-twinkle-little-star/twinkle-twinkle-little-star.mp3&quot;&gt;MP3&lt;/a&gt;
+    &lt;a href=&quot;../files/music/twinkle-twinkle-little-star/twinkle-twinkle-little-star.pdf&quot;&gt;Score&lt;/a&gt;
+    &lt;a href=&quot;../files/music/twinkle-twinkle-little-star/twinkle-twinkle-little-star.ly&quot;&gt;Lilypond&lt;/a&gt;
+    &lt;a href=&quot;../music/twinkle-twinkle-little-star.html&quot;&gt;Details&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+  The four tracks in this piece are: grand piano, slow strings, xenon
+  pad and music box.
+&lt;/p&gt;
+&lt;p&gt;
+  This arrangement is based on the popular melody of the nursery rhyme
+  called &lt;em&gt;Twinkle, twinkle, little star&lt;/em&gt;.  The melody is played
+  with the treble notes of the piano.  I wrote the bass notes for the
+  piano and strings.  The high notes for the pad and music box bring
+  in the emotions of love and happiness.  I recorded this after about
+  two hours of practice.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/music/twinkle-twinkle-little-star.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/music.html&quot;&gt;#music&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Flowers</title>
+    <link href="https://susam.net/music/flowers.html"/>
+    <id>urn:uuid:2e5d669c-2d3b-4df2-9d3e-8b072054fd51</id>
+    <updated>2011-01-22T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  This is my third attempt at composing music.  I composed, played and
+  recorded it almost a year before publishing it.  It took about a
+  year to publish it because it took me time to write the sheet music.
+&lt;/p&gt;
+&lt;p&gt;
+  This piece consists of 161 measures.  It is approximately 3 minutes
+  8 seconds long.
+&lt;/p&gt;
+&lt;div class=&quot;widget&quot;&gt;
+  &lt;audio controls preload=&quot;none&quot; src=&quot;../files/music/flowers/flowers.mp3&quot;&gt;&lt;/audio&gt;
+  &lt;div&gt;
+    &lt;a href=&quot;../files/music/flowers/flowers.mp3&quot;&gt;MP3&lt;/a&gt;
+    &lt;a href=&quot;../files/music/flowers/flowers.pdf&quot;&gt;Score&lt;/a&gt;
+    &lt;a href=&quot;../files/music/flowers/flowers.ly&quot;&gt;Lilypond&lt;/a&gt;
+    &lt;a href=&quot;../music/flowers.html&quot;&gt;Details&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+  Most of the music emerged naturally from my mind while thinking
+  about roadside fields with wild plants and flowers.  Some of the
+  bass notes did not come out naturally and I decided them, quite
+  artificially, to fill the music with a pleasant and peaceful mood.
+  It took me a couple of days to compose this.  I played and recorded
+  this after a day of practice.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/music/flowers.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/music.html&quot;&gt;#music&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Waiting for Dawn</title>
+    <link href="https://susam.net/music/waiting-for-dawn.html"/>
+    <id>urn:uuid:7596b6e9-3fd8-44b0-b195-6990bdef7a19</id>
+    <updated>2010-07-24T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  This is my second attempt at composing music.  This piece consists
+  of 147 measures.  It is approximately 4 minutes 28 seconds long.
+&lt;/p&gt;
+&lt;div class=&quot;widget&quot;&gt;
+  &lt;audio controls preload=&quot;none&quot; src=&quot;../files/music/waiting-for-dawn/waiting-for-dawn.mp3&quot;&gt;&lt;/audio&gt;
+  &lt;div&gt;
+    &lt;a href=&quot;../files/music/waiting-for-dawn/waiting-for-dawn.mp3&quot;&gt;MP3&lt;/a&gt;
+    &lt;a href=&quot;../files/music/waiting-for-dawn/waiting-for-dawn.pdf&quot;&gt;Score&lt;/a&gt;
+    &lt;a href=&quot;../files/music/waiting-for-dawn/waiting-for-dawn.ly&quot;&gt;Lilypond&lt;/a&gt;
+    &lt;a href=&quot;../music/waiting-for-dawn.html&quot;&gt;Details&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+  The mental image I had while composing this piece was that of a guy,
+  sitting alone in a dark night, waiting for the night to pass and the
+  dawn to arrive.  0:00&amp;ndash;1:30 of the piece represents the night.
+  1:30&amp;ndash;2:15 is the time when the darkness starts fading away and
+  the sky turns red.  Everything after 2:15 is about welcoming and
+  enjoying the dawn.
+&lt;/p&gt;
+&lt;p&gt;
+  For me this mental image doesn&apos;t just represent a particular night
+  passing away due to the rotation of our planet.  It represents how
+  we should handle tough times, heartbreaks, loss, etc. in our
+  personal lives.  We should remain calm, wait for tough times to pass
+  and good times to come and when the bad times give way to good times
+  again, we should welcome and enjoy the good times.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/music/waiting-for-dawn.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/music.html&quot;&gt;#music&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>A Few Notes</title>
+    <link href="https://susam.net/music/a-few-notes.html"/>
+    <id>urn:uuid:cdd59b8d-178a-4f51-9340-c2e3237d619b</id>
+    <updated>2010-07-18T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  This is a very short piece I composed in December 2009 when I began
+  learning to play musical keyboard.  After about 3 hours of music
+  lessons, I came up with a very simple single track piece.  In the
+  next few days, I added more tracks to the piece which resulted in
+  this piece.
+&lt;/p&gt;
+&lt;p&gt;
+  The composition is very short and simple.  It consists of 29
+  measures.  The duration of this piece is 53 seconds approximately.
+  It is composed of 5 tracks.  I played and recorded the 5 tracks
+  separately on my Yamaha keyboard.  The tracks are: piano (hypetine),
+  harp, strings, nylon guitar and standard percussion kit.
+&lt;/p&gt;
+&lt;p&gt;
+  The music was recorded as an MP3 file with
+  &lt;a href=&quot;http://audacity.sourceforge.net/&quot;&gt;Audacity&lt;/a&gt; after
+  connecting the musical keyboard&apos;s output jack to the laptop&apos;s
+  line-in jack using a cable with 3.5 mm stereo plug at both ends.  A
+  3.5 mm stereo jack to 6.35 mm stereo adapter was used to connect the
+  3.5 mm (approximately &amp;#x215b;&quot;) stereo plug to the keyboard&apos;s 6.35
+  mm (&amp;frac14;&quot;) stereo jack.
+&lt;/p&gt;
+&lt;div class=&quot;widget&quot;&gt;
+  &lt;audio controls preload=&quot;none&quot; src=&quot;../files/music/a-few-notes/a-few-notes.mp3&quot;&gt;&lt;/audio&gt;
+  &lt;div&gt;
+    &lt;a href=&quot;../files/music/a-few-notes/a-few-notes.mp3&quot;&gt;MP3&lt;/a&gt;
+    &lt;a href=&quot;../files/music/a-few-notes/a-few-notes.pdf&quot;&gt;Score&lt;/a&gt;
+    &lt;a href=&quot;../files/music/a-few-notes/a-few-notes.ly&quot;&gt;Lilypond&lt;/a&gt;
+    &lt;a href=&quot;../music/a-few-notes.html&quot;&gt;Details&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;
+  Most of the piece was written as a learning exercise for myself.
+  The 4th track containing arpeggios from nylon guitar is meant to
+  play hide and seek with the main track and sound happy.
+&lt;/p&gt;
+&lt;p&gt;
+  The 2nd (harp) and 5th (percussion) tracks are missing from the
+  sheet music because I couldn&apos;t find a way to add a track for harp in
+  LilyPond and I don&apos;t know the music notation for percussion kit.
+  I&apos;m not very good at music notation.  So, there may be notation
+  errors in the sheet music but it is good enough to remind me the
+  notes of this piece in case I ever forget them.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/music/a-few-notes.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/music.html&quot;&gt;#music&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

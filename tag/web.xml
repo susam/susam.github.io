@@ -1,0 +1,2054 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's Web Posts</title>
+  <subtitle>Feed for Susam's Web Posts</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/web.xml" rel="self"/>
+  <id>https://susam.net/tag/web.xml</id>
+  <updated>2026-05-09T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>I Will Not Add Query Strings to Your URLs</title>
+    <link href="https://susam.net/no-query-strings.html"/>
+    <id>urn:uuid:60101ca6-f872-4062-8101-1735dcfd7b9b</id>
+    <updated>2026-05-09T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Last evening, a short blog post appeared in my feed reader that felt
+  as if it spoke directly to me.  It is Chris Morgan&apos;s excellent post
+  &lt;cite&gt;&lt;a href=&quot;https://chrismorgan.info/no-query-strings&quot;&gt;I&apos;ve banned
+  query strings&lt;/a&gt;&lt;/cite&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#wisdom-on-the-web&quot;&gt;Wisdom on the Web&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#wander-on-the-web&quot;&gt;Wander on the Web&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#misfeature&quot;&gt;Misfeature&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#broken-urls&quot;&gt;Broken URLs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#qualms&quot;&gt;Qualms&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;wisdom-on-the-web&quot;&gt;Wisdom on the Web&lt;/h2&gt;
+&lt;p&gt;
+  &lt;a href=&quot;https://chrismorgan.info/&quot;&gt;Chris&lt;/a&gt; is someone whose
+  Internet comments I have been reading for about half a decade now.
+  I first stumbled upon his comments on Hacker News, where he left
+  very detailed &lt;a href=&quot;https://news.ycombinator.com/item?id=25321222#25322611&quot;&gt;feedback&lt;/a&gt;
+  on a small collection of boilerplate CSS rules I had shared there.
+  I am by no means a web developer.  I have spent most of my
+  &lt;a href=&quot;twenty-five-years-of-computing.html&quot;&gt;professional life&lt;/a&gt;
+  doing systems programming in C and C++.  However, developing
+  websites and writing
+  &lt;a href=&quot;tag/html.html&quot;&gt;small HTML tools&lt;/a&gt; has been a long-time
+  hobby for me.  I have learnt most of my web development skills as a
+  hobbyist by studying what other people do: first by viewing the
+  source of websites I liked in the early 2000s and later by
+  occasionally getting possessed by the urge to implement a new game
+  or tool and searching
+  &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML&quot;&gt;MDN Web
+  Docs&lt;/a&gt; to learn whatever I needed to make it work.  One problem
+  with learning a skill this way is that you sometimes pick up habits
+  and practices that are fashionable but not necessarily optimal or
+  correct.  So it was really valuable to me when Chris commented on my
+  collection of boilerplate CSS rules.  It helped me improve my CSS a
+  lot.  In fact, a few of the lessons from his comment have really
+  stuck with me; I keep them in mind whenever I make a hobby HTML
+  project: always retain underlines in links and
+  &lt;a href=&quot;more-purple-links-please.html&quot;&gt;retain purple&lt;/a&gt; for
+  visited links.
+&lt;/p&gt;
+&lt;p&gt;
+  I have been following Chris&apos;s posts and comments on web-related
+  topics since then.  He often posts great feedback on web-related
+  projects.  Whenever I come across one, I make sure to read them
+  carefully, even when the project isn&apos;t mine.  I always end up
+  learning something nice and useful from his comments.  Here is one
+  such recent example from the Lobsters story
+  &lt;cite&gt;&lt;a href=&quot;https://lobste.rs/s/crcktq/adding_author_context_rss#c_wb5ryy&quot;&gt;Adding
+  author context to RSS&lt;/a&gt;&lt;/cite&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;wander-on-the-web&quot;&gt;Wander on the Web&lt;/h2&gt;
+&lt;p&gt;
+  A couple of months ago, I created a new project called &lt;em&gt;Wander
+  Console&lt;/em&gt;.  It is a small, decentralised, self-hosted web console
+  that lets visitors to your website explore interesting websites and
+  pages recommended by a community of independent personal website
+  owners.  For example, my console is here:
+  &lt;a href=&quot;wander/&quot;&gt;susam.net/wander/&lt;/a&gt;.  If you click the &apos;Wander&apos;
+  button there, the tool loads a random personal web page recommended
+  by the Wander community.
+&lt;/p&gt;
+&lt;p&gt;
+  The tool consists of one HTML file that implements the console and
+  one JavaScript file where the website owner defines a list of
+  neighbouring consoles along with a list of web pages they recommend.
+  If you copy these two files to your web server, you instantly have a
+  Wander console live on the Web.  You don&apos;t need any server-side
+  logic or server-side software beyond a basic web server to run
+  Wander Console.  You can even host it in constrained environments
+  like Codeberg Pages or GitHub Pages.  When you click the &apos;Wander&apos;
+  button, the console connects to other remote consoles, fetches web
+  page recommendations, picks one randomly and loads it in your web
+  browser.  It is a bit like the now defunct
+  &lt;a href=&quot;https://en.wikipedia.org/wiki/StumbleUpon&quot;&gt;StumbleUpon&lt;/a&gt;
+  but it is completely decentralised.  It is also a bit like web rings
+  except that the community network is not restricted to being a
+  cycle; it is a graph that can take any shape.
+&lt;/p&gt;
+&lt;p&gt;
+  There are currently over 50 websites hosting this tool.  Together,
+  they recommend over 1500 web pages.  You can find a recent snapshot
+  of the list of known consoles and the pages they recommend at
+  &lt;a href=&quot;https://susam.codeberg.page/wcn/&quot;&gt;susam.codeberg.page/wcn/&lt;/a&gt;.
+  To learn more about this tool or to set it up on your website,
+  please see &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;misfeature&quot;&gt;Misfeature&lt;/h2&gt;
+&lt;p&gt;
+  In case you were wondering why I suddenly plugged my project into
+  this post in the previous section, it is because I recently added a
+  dubious feature to that project that I myself was not entirely
+  convinced about.  That misfeature is relevant to this post.
+&lt;/p&gt;
+&lt;p&gt;
+  In version 0.4.0 of Wander Console, I added support for
+  a &lt;code&gt;via=&lt;/code&gt; query parameter while loading web pages.  For
+  example, if you encountered &lt;a href=&quot;https://midnight.pub/&quot;&gt;midnight.pub&lt;/a&gt;
+  while using the console at &lt;a href=&quot;https://susam.net/wander/&quot;&gt;susam.net/wander/&lt;/a&gt;,
+  the console loaded the page using the following URL:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://midnight.pub/?via=https://susam.net/wander/&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  This allowed the owner of the recommended website to see, via their
+  access logs, that the visit originated from a Wander Console.
+  Chris&apos;s recent &lt;a href=&quot;https://chrismorgan.info/no-query-strings&quot;&gt;blog
+  post&lt;/a&gt; is critical of features like this.  He writes:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;
+    I don&apos;t like people adding tracking stuff to URLs.  Still less do I
+    like people adding tracking stuff to &lt;em&gt;my&lt;/em&gt; URLs.
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;code&gt;https://chrismorgan.info/no-query-strings?ref=example.com&lt;/code&gt;?
+    Did I ask?  If I wanted to know I&apos;d look at the
+    &lt;code&gt;Referer&lt;/code&gt; header; and if it isn&apos;t there, it&apos;s probably
+    for a good reason.  You abuse your users by adding that to the
+    link.
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+  I mentioned earlier that I was not entirely convinced that adding a
+  referral query string was a good thing to do.  Why did I add it
+  anyway?  I succumbed to popular demand.  Let me briefly describe my
+  frame of mind when I considered and implemented that feature.  When
+  I first saw the
+  &lt;a href=&quot;https://codeberg.org/susam/wander/issues/1#issuecomment-11795493&quot;&gt;feature
+  request&lt;/a&gt; on Codeberg, my initial reaction was reluctance.  I
+  wasn&apos;t convinced it was a good feature.  But I was too busy with
+  some ongoing algebraic graph theory research, another recent hobby,
+  with a looming deadline, so I didn&apos;t have a lot of time to think
+  about it clearly.  In fact, everything about Wander Console has been
+  made in very little time during the short breaks I used to take from
+  my research.  I made the first version of the console in about one
+  and a half hours one early morning when my brain was too tired to
+  read more algebraic graph theory literature and I really needed a
+  break.  During another such break, I revisited that feature request
+  and, despite my reservations, decided to implement it anyway.
+  During yet another such break, I am writing this post.
+&lt;/p&gt;
+&lt;p&gt;
+  Normally, I don&apos;t like adding too many new features to my little
+  projects.  I want them to have a limited scope.  I also want them to
+  become stable over time.  After a project has fulfilled some
+  essential requirements I had, I just want to call it feature
+  complete and never add another feature to it again.  I&apos;ll fix bugs,
+  of course.  But I don&apos;t like to keep adding new features endlessly.
+  That&apos;s my style of maintaining my hobby projects.  So it should have
+  been very easy for me to ignore the feature request for adding a
+  referral query string to URLs loaded by the console tool.  But I
+  think a tired body and mind, worn down by long and intense research
+  work, took a toll on me.
+&lt;/p&gt;
+&lt;p&gt;
+  Although my gut feeling was telling me that it was not a good
+  feature, I couldn&apos;t articulate to myself exactly why.  So I
+  implemented the referral query string feature anyway.  While doing
+  so, I added an opt-out mechanism to the configuration, so that if
+  someone else didn&apos;t like the feature, they could disable it for
+  themselves.  This was another mistake.  A questionable feature like
+  this should be implemented as an opt-in feature, not an opt-out
+  feature, if implemented at all.  The fact that I didn&apos;t have a lot
+  of time to reason through the implications of this feature meant
+  that I just went ahead and implemented it without thinking about it
+  critically.  As the famous quote from Jurassic Park goes:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  Your scientists were so preoccupied with whether or not they could
+  that they didn&apos;t stop to think if they should.
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;broken-urls&quot;&gt;Broken URLs&lt;/h2&gt;
+&lt;p&gt;
+  It soon turned out that my gut feeling was correct.  After I
+  implemented that feature, a page from one of my favourite websites
+  refused to load in the console.  To illustrate the problem, here are
+  a few similar but slightly different URLs for that page:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://int10h.org/oldschool-pc-fonts/fontlist/&quot;&gt;https://int10h.org/oldschool-pc-fonts/fontlist/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://int10h.org/oldschool-pc-fonts/fontlist/?2&quot;&gt;https://int10h.org/oldschool-pc-fonts/fontlist/?2&lt;/a&gt;
+  &lt;li&gt;&lt;a href=&quot;https://int10h.org/oldschool-pc-fonts/fontlist/?foo&quot;&gt;https://int10h.org/oldschool-pc-fonts/fontlist/?foo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  The first and second URLs load fine, but the third URL returns an
+  HTTP 404 error page.  The website uses the query string to determine
+  which one of its several font collections to show.  So when we add
+  an arbitrary query string to the URL, the website tries to interpret
+  it as a font collection identifier and the page fails to load.  That
+  is why, when my tool added the &lt;code&gt;via=&lt;/code&gt; query parameter to
+  the first URL, the page failed to load.
+&lt;/p&gt;
+&lt;p&gt;
+  Later, with a little time to breathe and some hindsight, I could
+  articulate why adding referral query strings to a working URL was
+  such a bad idea.  Altering a URL gives you a &lt;em&gt;new&lt;/em&gt; URL.  The
+  new URL could point to a completely different resource, or to no
+  resource at all, even if the alteration is as small as adding a
+  seemingly harmless query string.  By adding the referral query
+  string, I had effectively broken a working URL from a website I am
+  very &lt;a href=&quot;https://news.ycombinator.com/item?id=39419054#39439453&quot;&gt;fond&lt;/a&gt;
+  of.
+&lt;/p&gt;
+&lt;h2 id=&quot;qualms&quot;&gt;Qualms&lt;/h2&gt;
+&lt;p&gt;
+  It is also worth asking whether an HTML tool should concern itself
+  with referral query strings at all when web browsers already have a
+  mechanism for this: the HTTP &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referer&quot;&gt;Referer&lt;/a&gt;
+  header, governed by &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referrer-Policy&quot;&gt;Referrer-Policy&lt;/a&gt;.
+  That policy can be set at the server level, the document level or
+  even on individual links.  The Web standards already provide
+  deliberate controls to decide how much referrer information should be
+  sent.  Appending referral query strings to URLs bypasses those controls.
+  It moves a privacy and attribution concern out of the
+  referrer mechanism and embeds it into the destination URL instead.
+  I don&apos;t think an HTML tool should do that.
+&lt;/p&gt;
+&lt;p&gt;
+  There is also a moral question here about whether it is
+  okay to modify a given URL on behalf of the user in order to insert
+  a referral query string into it.  I think it isn&apos;t.
+&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;
+  In the end, I decided to remove the referral query string feature
+  from Wander Console.  One might wonder why I couldn&apos;t simply leave
+  the feature in as an opt-in.  Well, the answer is that once I had
+  deemed the feature misguided, I no longer wanted it to be part of my
+  software in any form.  The project is still new and we are still in
+  the days of 0.x releases, so if there is a good time to remove
+  features, this is it.  But my ongoing research work left me with no
+  time to do it.  Finally, when the post
+  &lt;cite&gt;&lt;a href=&quot;https://chrismorgan.info/no-query-strings&quot;&gt;I&apos;ve
+  banned query strings&lt;/a&gt;&lt;/cite&gt; appeared in my feed reader last
+  evening, it nudged me just enough to take a little time away from my
+  academic hobby and devote it to removing that ill-considered
+  feature.  The feature is now gone.  See commit
+  &lt;a href=&quot;https://codeberg.org/susam/wander/commit/b26d77c4da9ec11b655ba64a4ae4f3af56e06370&quot;&gt;b26d77c&lt;/a&gt;
+  for details.  The latest release, version 0.6.0, does not have it
+  anymore.
+&lt;/p&gt;
+&lt;p&gt;
+  This is a lesson I&apos;ll remember for any new hobby projects I happen
+  to make in the future.  If I ever load URLs again, I&apos;ll load them
+  exactly as the website&apos;s author intended.  I will never add query
+  strings to your URLs.
+&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;files/blog/chalkboard-no-query-strings.png&quot;
+       alt=&quot;Bart Simpson-style chalkboard meme saying, &apos;I will not add query strings to your URLs.&apos;&quot;&gt;
+  &lt;figcaption&gt;
+    Created using &lt;a href=&quot;https://enufstyle.com/generators/bart/&quot;&gt;Simpsons
+    Chalkboard Generator&lt;/a&gt; and &lt;a href=&quot;https://www.gimp.org/&quot;&gt;GIMP&lt;/a&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/no-query-strings.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Wander Console 0.6.0</title>
+    <link href="https://susam.net/code/news/wander/0.6.0.html"/>
+    <id>urn:uuid:800b3a89-946c-4c78-b575-4262f7589885</id>
+    <updated>2026-05-08T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Wander Console 0.6.0 is now available.  This is the sixth release of
+  Wander, a small, decentralised, self-hosted web console that lets
+  visitors to your website discover interesting websites and pages
+  recommended by a community of independent website owners.  To try
+  it, go to &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander/&lt;/a&gt;.
+  To learn how it works and how to set it up on your own website, see
+  the project
+  &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;README&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  The main change in this release is the removal of support for the
+  &lt;code&gt;via&lt;/code&gt; referral query parameter, which was added to
+  recommended URLs so that website owners could identify visits coming
+  from a Wander Console in their access logs.  The &lt;code&gt;via&lt;/code&gt;
+  query parameter was introduced in version
+  &lt;a href=&quot;0.4.0.html&quot;&gt;0.4.0&lt;/a&gt; in response to
+  &lt;a href=&quot;https://codeberg.org/susam/wander/issues/1#issuecomment-11795493&quot;&gt;community
+  demand&lt;/a&gt;, but it turned out to be a misfeature.  Some websites
+  refuse to serve web pages when arbitrary query parameters are added
+  to URLs.  Although it was possible to turn this feature off via
+  configuration, I would rather not keep a dubious feature that may
+  prevent some pages from loading successfully.  This feature has now
+  been completely removed.  See
+  &lt;a href=&quot;https://chrismorgan.info/no-query-strings&quot;&gt;this excellent
+  article by Chris Morgan&lt;/a&gt; to learn more about why adding arbitrary
+  query parameters to URLs is a bad idea.  Commit
+  &lt;a href=&quot;https://codeberg.org/susam/wander/commit/b26d77c4da9ec11b655ba64a4ae4f3af56e06370&quot;&gt;b26d77c&lt;/a&gt;
+  has more details about the removal of this feature.
+&lt;/p&gt;
+&lt;p&gt;
+  Apart from this change, there are a few minor user interface
+  adjustments and fixes.  See the
+  &lt;a href=&quot;https://codeberg.org/susam/wander/src/branch/main/CHANGES.md&quot;&gt;changelog&lt;/a&gt;
+  for more details.
+&lt;/p&gt;
+&lt;p&gt;
+  If you own a personal website but have not set up a Wander Console
+  yet, I suggest that you consider setting one up.  You can see what
+  it looks like by visiting mine at
+  &lt;a href=&quot;../../../wander/&quot;&gt;/wander/&lt;/a&gt;.  To set up your
+  own, follow the
+  &lt;a href=&quot;https://codeberg.org/susam/wander#install&quot;&gt;installation
+  instructions&lt;/a&gt; in the README.  It only involves copying two files
+  to your web server, so the installation is very straightforward.
+&lt;/p&gt;
+&lt;p&gt;
+  Also, check out our new community page called
+  &lt;a href=&quot;https://susam.codeberg.page/wcn/&quot;&gt;Wander Console
+  Network&lt;/a&gt;.  This page shows a recent snapshot of all known Wander
+  Console instances along with the web pages they recommend.  We have
+  an IRC channel too at &lt;a href=&quot;http://web.libera.chat/#wander&quot;&gt;#wander&lt;/a&gt;
+  on &lt;code&gt;irc.libera.chat&lt;/code&gt; in case you are looking for a place
+  to hang out with the community.
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;strong&gt;Update on 09 May 2026:&lt;/strong&gt; See the post
+  &lt;a href=&quot;../../../no-query-strings.html&quot;&gt;I Will Not Add Query
+  Strings to Your URLs&lt;/a&gt; for an account of how the misguided
+  referral query string feature was added and how it was removed.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/wander/0.6.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>From RSS to Atom</title>
+    <link href="https://susam.net/from-rss-to-atom.html"/>
+    <id>urn:uuid:02ace576-3514-4a90-bb09-d8641aec617e</id>
+    <updated>2026-05-04T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Yesterday, I switched my website from RSS feeds to Atom feeds.  In
+  case you are wondering whether you have somehow landed on an ancient
+  post from 2010, no, you have not.  Yes, this is the year 2026, and I
+  have finally switched from RSS feeds to Atom feeds.  Yes, I am
+  fifteen, or perhaps twenty, years too late.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#impulse-coding&quot;&gt;Impulse Coding&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#atom-entries&quot;&gt;Atom Entries&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#temporary-workaround&quot;&gt;Temporary Workaround&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#does-it-matter&quot;&gt;Does It Matter?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#references&quot;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;impulse-coding&quot;&gt;Impulse Coding&lt;/h2&gt;
+&lt;p&gt;
+  I have always wanted to do this but could never make the time for
+  it.  Finally, it happened while I was giving my brain some rest from
+  my &lt;a href=&quot;26c.html&quot;&gt;ongoing&lt;/a&gt; algebraic graph theory studies.
+  That&apos;s when I felt like spending a little time on my website and
+  doing a little Lisp to change the feeds from RSS to Atom.  I suppose
+  this was &lt;em&gt;impulse coding&lt;/em&gt;, a bit like impulse buying, except
+  that I ended up with an Atom feed instead of a new book.
+&lt;/p&gt;
+&lt;p&gt;
+  I find it quite surprising that when I have plenty of time, it
+  usually does not occur to me to do these things, but when I am too
+  busy and really short of time, these little ideas possess me during
+  the short breaks I take.  My personal website is one of my passion
+  projects.  Common Lisp is one of my favourite programming languages.
+  So any time spent on this passion project using my favourite
+  programming language is a very relaxing experience for me.  It
+  serves as an ideal break between intense study sessions.  It took
+  about an hour to implement the changes needed to make the switch
+  from RSS to Atom.  In the end, I could go back to my studies
+  reinvigorated.
+&lt;/p&gt;
+&lt;p&gt;
+  In case you are curious, here is the Git commit where I implemented
+  the change from RSS to Atom:
+  &lt;a href=&quot;https://codeberg.org/susam/susam.net/commit/596e1dd&quot;&gt;596e1dd&lt;/a&gt;.
+  As you might notice, a large portion of the change consists of
+  replacing the &lt;code&gt;key&lt;/code&gt; attribute in each post with
+  the &lt;code&gt;uuid&lt;/code&gt; attribute.  The &lt;code&gt;key&lt;/code&gt; attribute
+  value was used as the value of the &lt;code&gt;&amp;lt;guid&amp;gt;&lt;/code&gt; element
+  in the RSS feeds.  While an arbitrary short string could serve as
+  the &lt;code&gt;&amp;lt;guid&amp;gt;&lt;/code&gt; element for the items in an RSS feed,
+  the &lt;code&gt;&amp;lt;id&amp;gt;&lt;/code&gt; element of the entries in an Atom feed
+  needs to be a URI.  It turns out UUID URNs are a common choice for
+  such a URI.  I wrote the following shell command to replace all
+  occurrences of the &lt;code&gt;key&lt;/code&gt; attribute
+  with &lt;code&gt;uuid&lt;/code&gt;:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;find . -type f -name &apos;*.html&apos; -exec sh -c &apos;
+  for f do
+    sed &quot;s/^&amp;lt;!-- key: .* --&amp;gt;/&amp;lt;!-- uuid: $(uuidgen) --&amp;gt;/g&quot; &quot;$f&quot; &amp;gt; tmp &amp;amp;&amp;amp;
+    mv tmp &quot;$f&quot;
+  done
+&apos; sh {} +&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The rest of the changes went into the
+  &lt;a href=&quot;https://codeberg.org/susam/susam.net/src/tag/0.8.0/layout/tag/feed.xml&quot;&gt;feed&lt;/a&gt;
+  &lt;a href=&quot;https://codeberg.org/susam/susam.net/src/tag/0.8.0/layout/tag/item.xml&quot;&gt;templates&lt;/a&gt;
+  and the Common Lisp &lt;a href=&quot;https://codeberg.org/susam/susam.net/src/tag/0.8.0/site.lisp&quot;&gt;program&lt;/a&gt;
+  that statically generates the feeds along with the website.
+&lt;/p&gt;
+&lt;p&gt;
+  For examples of the resulting feeds, see
+  &lt;a href=&quot;feed.xml&quot;&gt;feed.xml&lt;/a&gt; and
+  &lt;a href=&quot;tag/absurd.xml&quot;&gt;absurd.xml&lt;/a&gt;.  The first is the main
+  website feed and the second is an example of a tag-specific feed.
+  Yes, the aforementioned Common Lisp program generates a feed for
+  each &lt;a href=&quot;tag/&quot;&gt;tag&lt;/a&gt;.  As of today, the main feed
+  at &lt;a href=&quot;feed.xml&quot;&gt;feed.xml&lt;/a&gt; contains only two entries even
+  though this website has over &lt;a href=&quot;pages.html&quot;&gt;200 pages&lt;/a&gt;.  I
+  explain the reason later in
+  &lt;a href=&quot;#temporary-workaround&quot;&gt;Temporary Workaround&lt;/a&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;atom-entries&quot;&gt;Atom Entries&lt;/h2&gt;
+&lt;p&gt;
+  Here is an example Atom entry from my feeds:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;entry&amp;gt;
+  &amp;lt;title&amp;gt;A4 Paper Stories&amp;lt;/title&amp;gt;
+  &amp;lt;link href=&quot;https://susam.net/a4-paper-stories.html&quot;/&amp;gt;
+  &amp;lt;id&amp;gt;urn:uuid:06e5304d-c242-481c-bf94-e23b019b0a36&amp;lt;/id&amp;gt;
+  &amp;lt;updated&amp;gt;2026-01-06T00:00:00Z&amp;lt;/updated&amp;gt;
+  &amp;lt;content type=&quot;html&quot;&amp;gt;
+    &amp;amp;lt;p&amp;amp;gt;I sometimes resort to a rather common measuring ...
+  &amp;lt;/content&amp;gt;
+&amp;lt;/entry&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The ellipsis (&lt;code&gt;...&lt;/code&gt;) denotes content I have omitted for
+  the sake of brevity.
+&lt;/p&gt;
+&lt;p&gt;
+  I like how each entry in the feed now has its own UUIDv4.  I also
+  like that timestamps in an Atom feed are in the
+  &lt;code&gt;date-time&lt;/code&gt; format specified in
+  &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc3339.html&quot;&gt;RFC 3339&lt;/a&gt;,
+  which also happens to be a profile of ISO 8601.  Further, I like
+  that I can explicitly declare the content type to be HTML.  Commonly
+  used values for the content type attribute are &lt;code&gt;text&lt;/code&gt;,
+  &lt;code&gt;html&lt;/code&gt; and &lt;code&gt;xhtml&lt;/code&gt;.  If it is
+  &lt;code&gt;html&lt;/code&gt;, the content should be escaped HTML.  If it is
+  &lt;code&gt;xhtml&lt;/code&gt;, the content should be an
+  XHTML &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element containing valid XHTML.
+  Explicit content type support is likely the biggest advantage of
+  Atom over RSS.  In comparison,
+  &lt;a href=&quot;https://www.rssboard.org/rss-specification&quot;&gt;RSS 2.0&lt;/a&gt;
+  does not specify any way to declare the content type.  So feed
+  readers have to inspect the content and guess what the content type
+  might be.
+&lt;/p&gt;
+&lt;h2 id=&quot;temporary-workaround&quot;&gt;Temporary Workaround&lt;/h2&gt;
+&lt;p&gt;
+  As I mentioned before, as of today, the
+  &lt;a href=&quot;feed.xml&quot;&gt;main feed&lt;/a&gt; contains only two entries.  That&apos;s
+  because only new posts published since the migration to Atom are now
+  included in the feed.  This was done to avoid spamming subscribers.
+  The Atom specification&apos;s requirement that each entry&apos;s ID must be a
+  URI has caused the IDs of every entry to change.  If I were to
+  include the older posts from before the change in the feed, then
+  those posts would appear as new unread items.  Subscribers can find
+  this quite annoying.  In fact, I have received a few
+  &lt;a href=&quot;https://news.ycombinator.com/item?id=40680890&quot;&gt;complaints&lt;/a&gt;
+  about this in the past.  So I was careful this time.  I have a little
+  &lt;a href=&quot;https://codeberg.org/susam/susam.net/src/tag/0.8.0/site.lisp#L1520-L1525&quot;&gt;one-liner
+  workaround&lt;/a&gt; in my site generator to exclude posts published before
+  this change from the feed.
+&lt;/p&gt;
+&lt;p&gt;
+  That was the only workaround I had to implement.  Fortunately, my
+  feed file had a neutral name like &lt;code&gt;feed.xml&lt;/code&gt;, rather than
+  a format-specific name like &lt;code&gt;rss.xml&lt;/code&gt;, so I could avoid a
+  URL change and the subsequent overhead of setting up redirects.
+&lt;/p&gt;
+&lt;h2 id=&quot;does-it-matter&quot;&gt;Does It Matter?&lt;/h2&gt;
+&lt;p&gt;
+  Does any of this matter today?  I think it does.  Contrary to the
+  recurring claim that RSS and Atom are dead, most of the traffic to my
+  personal website still comes from web feeds, even in 2026.  Every
+  time I publish a new post, I can see a good number of visitors
+  arriving from feed readers.  From the referrer data in my web server
+  logs (which is not completely reliable but still offers some
+  insight), the three largest sources of traffic to my website are
+  web feeds, newsletters and search engines, in that order.
+&lt;/p&gt;
+&lt;p&gt;
+  On the topic of newsletters, I was surprised to discover just how
+  many technology newsletters there are on the Web and how active
+  their user bases are.  Once in a while, a newsletter picks up one of
+  my silly or quirky posts, which then brings a large number of visits
+  from its followers.
+&lt;/p&gt;
+&lt;p&gt;
+  Back to the topic of web feeds, there is indeed a decent user base
+  around RSS and Atom feeds.  A good number of visitors to my website
+  arrive by clicking a feed entry that shows up in their feed
+  reader.  I know this with some confidence by looking at
+  the &lt;code&gt;referer&lt;/code&gt; (sic) headers of visits to my HTML pages
+  and the subsequent browsing of the website, as opposed to the
+  isolated and automated fetches of the XML feeds.  So there must be a
+  reasonably active base of users around web feeds.  It is a bit like
+  being part of an invisible social network that we know exists and
+  that we can measure through indirect evidence.
+&lt;/p&gt;
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;p&gt;
+  I found these three resources useful while switching to Atom feeds:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://validator.w3.org/feed/docs/atom.html&quot;&gt;W3C Introduction to Atom&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://validator.w3.org/feed/&quot;&gt;W3C Feed Validation Service&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc4287&quot;&gt;RFC 4287&lt;/a&gt;: The Atom Syndication Format
+  &lt;/li&gt;
+&lt;/ul&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/from-rss-to-atom.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>QuickQWERTY 1.2.3</title>
+    <link href="https://susam.net/code/news/quickqwerty/1.2.3.html"/>
+    <id>urn:uuid:d1c2f6bb-8a47-4785-959b-167b8c1fa13a</id>
+    <updated>2026-05-03T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  &lt;a href=&quot;../../../quickqwerty.html&quot;&gt;QuickQWERTY 1.2.3&lt;/a&gt; is now
+  available.  QuickQWERTY is a web-based touch typing tutor for QWERTY
+  keyboards that runs directly in the browser.
+&lt;/p&gt;
+&lt;p&gt;
+  This release includes two small bug fixes.  In the
+  &lt;a href=&quot;1.2.2.html&quot;&gt;previous release&lt;/a&gt;, QuickQWERTY source code
+  management moved from GitHub to Codeberg.  During that update, the
+  licence link in the footer was updated incorrectly.  The broken
+  licence link has now been fixed.
+&lt;/p&gt;
+&lt;p&gt;
+  Further, there was a minor bug that caused a redundant dialog box to
+  appear while switching between 6-7 split and 5-6 split.  Units 16 to
+  20 contain two links labeled &apos;6-7 split&apos; and &apos;5-6 split&apos; which allow
+  you to select how you want to split the number keys between left and
+  right hands.  Clicking either of those links brings up a dialog that
+  explains what the two splits mean and prompts you to confirm in
+  order to make the switch.  Say, the &apos;6-7 split&apos; was already the
+  chosen split.  Clicking the &apos;6-7 split&apos; label triggered the dialog
+  box unnecessarily.  A dialog was unnecessary in that case since if
+  you were already on the &apos;6-7 split&apos;, clicking the &apos;6-7 split&apos; label
+  resulted in no switch.  This unnecessary dialog has now been
+  eliminated.
+&lt;/p&gt;
+&lt;p&gt;
+  To try out QuickQWERTY, please visit
+  &lt;a href=&quot;../../../quickqwerty.html&quot;&gt;quickqwerty.html&lt;/a&gt;.  The
+  source code of QuickQWERTY is available under the terms of the MIT
+  licence at &lt;a href=&quot;https://codeberg.org/susam/quickqwerty&quot;&gt;codeberg.org/susam/quickqwerty&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/quickqwerty/1.2.3.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Apr '26 Notes</title>
+    <link href="https://susam.net/26d.html"/>
+    <id>urn:uuid:5c0287a9-2788-4970-a0f7-8c050f2ffa0a</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  This is my fourth set of &lt;a href=&quot;tag/notes.html&quot;&gt;monthly notes&lt;/a&gt;
+  for this year where I write down interesting facts and ideas I have
+  explored during my spare time.  There were three things in
+  particular that occupied my leisure time this month.  First, I
+  managed to learn the proof of Tutte&apos;s famous theorem that any \( s
+  \)-arc-transitive finite cubic graph must satisfy \( s \le 5.  \)  I
+  learnt the proof from Norman Biggs&apos;s book &lt;em&gt;Algebraic Graph
+  Theory&lt;/em&gt;.  The original proof appears in Tutte&apos;s 1947 paper &apos;A
+  family of cubical graphs&apos;
+  (&lt;a href=&quot;https://doi.org/10.1017/S0305004100023720&quot;&gt;DOI&lt;/a&gt;).
+  Biggs&apos;s presentation differs considerably from Tutte&apos;s original
+  argument and relies heavily on the properties of stabiliser
+  sequences of arcs.  I should say that Biggs&apos;s proof, while complete,
+  is extremely condensed.  The proof reads more like a high-level
+  outline that moves rapidly from one main result to the next without
+  sufficiently explaining the intermediate steps.  As a result, it
+  took considerable effort to work out the proofs of the intermediate
+  results.  Biggs presents the proof in roughly nine pages spread
+  across two chapters.  However, when I worked through it in full
+  detail while ensuring that every step is justified, my notes
+  eventually grew to around 18 pages of
+  &lt;a href=&quot;a4-paper-stories.html&quot;&gt;A4 paper&lt;/a&gt;.  The proof is quite
+  involved, so I have not included it in these notes.  Perhaps
+  someday, when I have more time, I will distil my handwritten notes
+  and publish them here on my website.
+&lt;/p&gt;
+&lt;p&gt;
+  That was the first thing I spent time on this month.  The second was
+  revisiting some elementary results in group theory concerning
+  cosets.  I have found cosets to be an extremely useful concept that
+  plays a central role in many areas of mathematics, including coding
+  theory, Galois theory, field extensions and graph theory.  In fact,
+  Biggs&apos;s proof of Tutte&apos;s theorem discussed above also relies
+  substantially on the theory of cosets.  Since these results are
+  relatively elementary and easier to write up, they are included in
+  this set of notes.
+&lt;/p&gt;
+&lt;p&gt;
+  Apart from mathematics, I also spent part of my spare time improving
+  my new web project named &lt;a href=&quot;wander/&quot;&gt;Wander
+  Console&lt;/a&gt;.  These notes include some updates about this tool.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#coset-results&quot;&gt;Coset Results&lt;/a&gt;
+    &lt;ol type=&quot;a&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#subgroup&quot;&gt;Subgroup&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#cosets&quot;&gt;Cosets&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#coset-membership&quot;&gt;Coset Membership&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#coset-equality&quot;&gt;Coset Equality&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#partitioning-a-group-into-disjoint-cosets&quot;&gt;Partitioning a Group into Disjoint Cosets&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#computing&quot;&gt;Computing&lt;/a&gt;
+    &lt;ol type=&quot;a&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#wander-console-updates&quot;&gt;Wander Console Updates&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#flush-output&quot;&gt;Flush Output&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#other-stuff&quot;&gt;Other Stuff&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;coset-results&quot;&gt;Coset Results&lt;/h2&gt;
+&lt;p&gt;
+  This section presents some very elementary results about cosets,
+  together with brief proofs.  These results appear repeatedly across
+  many areas of mathematics and I often find myself using them almost
+  instinctively, without consciously thinking through the underlying
+  arguments each time.  But once in a while, I like to sit back and
+  ponder about their proofs from first principles, reflect on why they
+  work and appreciate their elegance.  The subsections below collect
+  some of these little proofs.
+&lt;/p&gt;
+&lt;h3 id=&quot;subgroup&quot;&gt;Subgroup&lt;/h3&gt;
+&lt;p&gt;
+  &lt;strong&gt;Definition.&lt;/strong&gt;
+  Let \( G \) be a group with operation \( \cdot.  \)  Then a subset \(
+  H \subseteq G \) is called a subgroup of \( G \) if \( H \) itself
+  forms a group under the same operation and we write \( H \le G.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;cosets&quot;&gt;Cosets&lt;/h3&gt;
+&lt;p&gt;
+  &lt;strong&gt;Definition.&lt;/strong&gt;
+  Let \( G \) be a group, \( H \le G \) and \( a \in G.  \)  The left
+  coset of \( H \) by \( a \) is the set
+
+  \[
+    aH = \{ ah : h \in H \}.
+  \]
+
+  Similarly, the right coset of \( H \) by \( a \) is
+
+  \[
+    Ha = \{ ha : h \in H \}.
+  \]
+&lt;/p&gt;
+&lt;h3 id=&quot;coset-membership&quot;&gt;Coset Membership&lt;/h3&gt;
+&lt;p&gt;
+  &lt;strong&gt;Theorem.&lt;/strong&gt;
+  &lt;em&gt;
+    Let \( G \) be a group with identity \( e, \) \( H \le G \) and \( a
+    \in G.  \)  Then \( aH = H \) if and only if \( a \in H.  \)
+  &lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;em&gt;Proof.&lt;/em&gt;
+  Suppose \( aH = H.  \)  Then
+
+  \[
+    aH = H
+    \implies ae \in aH = H
+    \implies a \in H.
+  \]
+
+  Conversely, suppose \( a \in H.  \)  Let \( x \in aH.  \)  Then \( x =
+  ah \) for some \( h \in H.  \)  Then by the closure property of the
+  subgroup \( H, \) we get
+
+  \[
+    a, h \in H
+    \implies ah \in H
+    \implies x \in H.
+  \]
+
+  Thus \( aH \subseteq H.  \)  To show the reverse inclusion, let \( x
+  \in H.  \)  Since \( a \in H, \) we have \( a^{-1} \in H, \) so
+
+  \[
+    x \in H
+    \implies a^{-1} x \in H
+    \implies a(a^{-1} x) \in aH
+    \implies x \in aH.
+  \]
+
+  Therefore \( H \subseteq aH.  \)  As a result, \( H = aH.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;coset-equality&quot;&gt;Coset Equality&lt;/h3&gt;
+&lt;p&gt;
+  &lt;strong&gt;Theorem.&lt;/strong&gt;
+  &lt;em&gt;
+    Let \( G \) be a group with identity \( e, \) \( H \le G \) and \(
+    a, b \in G.  \)  Then \( aH = bH \) if and only if \( a^{-1} b \in
+    H.  \)
+  &lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;em&gt;Proof.&lt;/em&gt;
+  Suppose \( aH = bH.  \)  Then
+
+  \begin{align*}
+    aH = bH
+    &amp;amp; \implies b \in bH = aH \\
+    &amp;amp; \implies b = ah \tag{for some \( h \in H \)}\\
+    &amp;amp; \implies a^{-1} b = h \\
+    &amp;amp; \implies a^{-1} b \in H.
+  \end{align*}
+
+  Conversely, suppose \( a^{-1} b \in H.  \)  Let \( h = a^{-1} b.  \)
+  Then
+
+  \begin{align*}
+    h = a^{-1} b
+    &amp;amp; \implies ah = b \\
+    &amp;amp; \implies (ah)H = bH \\
+    &amp;amp; \implies a(hH) = bH \\
+    &amp;amp; \implies aH = bH \tag{since \( hH = H \)}.
+  \end{align*}
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;strong&gt;Corollary.&lt;/strong&gt;
+  &lt;em&gt;
+    Let \( G \) be a group with identity \( e, \) \( H \le G \) and \(
+    a, b \in G.  \)  Then \( aH = bH \) if and only if \( a \in bH.  \)
+  &lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;em&gt;Proof.&lt;/em&gt;
+  \[
+    aH = bH
+    \iff b^{-1} a \in H
+    \iff b (b^{-1} a) \in bH
+    \iff a \in bH.
+  \]
+&lt;/p&gt;
+&lt;h3 id=&quot;partitioning-a-group-into-disjoint-cosets&quot;&gt;Partitioning a Group into Disjoint Cosets&lt;/h3&gt;
+&lt;p&gt;
+  &lt;strong&gt;Theorem.&lt;/strong&gt;
+  &lt;em&gt;
+    Let \( G \) be a group with identity \( e, \) \( H \le G \) and \(
+    a, b \in G.  \)  Then either \( aH \cap bH = \varnothing \) or \(
+    aH = bH.  \)
+  &lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;em&gt;Proof.&lt;/em&gt;
+  Suppose \( aH \cap bH \ne \varnothing.  \)  Then there exists some
+  element \( x \in aH \cap bH.  \)  Then
+
+  \[
+    x = ah_1 = bh_2
+  \]
+
+  for some \( h_1, h_2 \in H.  \)  Therefore
+
+  \[
+    a^{-1} b = h_1 h_2^{-1} \in H.
+  \]
+
+  Then by section &lt;a href=&quot;#coset-equality&quot;&gt;Coset Equality&lt;/a&gt;,
+
+  \[
+    aH = bH.
+  \]
+&lt;/p&gt;
+&lt;h2 id=&quot;computing&quot;&gt;Computing&lt;/h2&gt;
+&lt;h3 id=&quot;wander-console-updates&quot;&gt;Wander Console Updates&lt;/h3&gt;
+&lt;p&gt;
+  &lt;a href=&quot;wander/&quot;&gt;Wander Console&lt;/a&gt; is a new project I
+  developed in &lt;a href=&quot;26c.html&quot;&gt;March&lt;/a&gt; while taking a short break
+  from my algebraic graph theory studies.  It is a tiny,
+  decentralised, self-hosted web console that allows visitors to a
+  website to explore other interesting personal websites.  It is
+  similar to the now-defunct service named
+  &lt;a href=&quot;https://en.wikipedia.org/wiki/StumbleUpon&quot;&gt;StumbleUpon&lt;/a&gt;,
+  but unlike StumbleUpon it has no central service and no server-side
+  logic.  Wander is hosted entirely on independent personal websites.
+  Wander Consoles link to one another and fetch web page
+  recommendations from each other.  The entire tool consists of just
+  two files: &lt;a href=&quot;wander/&quot;&gt;an HTML file&lt;/a&gt;
+  and &lt;a href=&quot;wander/wander.js&quot;&gt;a JS file&lt;/a&gt;.  Everything, including
+  connecting to other Wander Consoles in the network and recommending
+  webpages, happens entirely on the client side in the user&apos;s web
+  browser.  See
+  &lt;a href=&quot;https://codeberg.org/susam/wander&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;
+  for more details.
+&lt;/p&gt;
+&lt;p&gt;
+  Two &lt;a href=&quot;https://codeberg.org/susam/wander/src/branch/main/CHANGES.md&quot;&gt;releases&lt;/a&gt;
+  of Wander were made this month.  One notable feature introduced this
+  month is the console network crawler.  You can visit any Wander
+  console and use this feature to crawl the network reachable from it.
+  To see this in action, go to my console at
+  &lt;a href=&quot;wander/&quot;&gt;wander/&lt;/a&gt;, click the
+  &lt;strong&gt;Console&lt;/strong&gt; button at the top and then click the
+  &lt;strong&gt;Crawl&lt;/strong&gt; button.
+&lt;/p&gt;
+&lt;p&gt;
+  Since different consoles link to different sets of peers, each one
+  has its own neighbourhood, so the crawler output varies from console
+  to console.
+&lt;/p&gt;
+&lt;p&gt;
+  Due to the decentralised nature of the tool, it is difficult to know
+  exactly how many people have set up Wander Console on their
+  websites.  Nevertheless, I used the crawler with a known set of
+  consoles to explore as much of the network as possible.  The result
+  is available at
+  &lt;a href=&quot;https://susam.codeberg.page/wcn/&quot;&gt;susam.codeberg.page/wcn/&lt;/a&gt;.
+  It currently shows over 50 consoles recommending more than 1400 web
+  pages from the small web of personal sites.  For a project that is
+  only six weeks old, these seem like decent numbers.
+&lt;/p&gt;
+&lt;h3 id=&quot;flush-output&quot;&gt;Flush Output&lt;/h3&gt;
+&lt;p&gt;
+  When I log into my Debian 13.2 system via SSH, I find
+  that &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;o&lt;/kbd&gt; does not enable output discarding.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;stty -a | grep &apos;discard\|flush&apos;&lt;/kbd&gt;
+werase = ^W; lnext = ^V; discard = ^O; min = 1; time = 0;
+echoctl echoke -flusho -extproc
+$ &lt;kbd&gt;ping 127.0.0.1&lt;/kbd&gt;
+PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.021 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.030 ms
+&lt;kbd&gt;^O&lt;/kbd&gt;64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.026 ms
+64 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.049 ms
+&lt;kbd&gt;^C&lt;/kbd&gt;
+--- 127.0.0.1 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3079ms
+rtt min/avg/max/mdev = 0.021/0.031/0.049/0.010 ms&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  On macOS 15.3.2, with the Terminal app, it does work as expected.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;stty -a | grep &apos;discard\|flush&apos;&lt;/kbd&gt;
+	-echoprt -altwerase -noflsh -tostop -flusho pendin -nokerninfo
+cchars: discard = ^O; dsusp = ^Y; eof = ^D; eol = &amp;lt;undef&amp;gt;
+$ &lt;kbd&gt;ping 127.0.0.1&lt;/kbd&gt;
+PING 127.0.0.1 (127.0.0.1): 56 data bytes
+64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.087 ms
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.221 ms
+&lt;kbd&gt;^O^C&lt;/kbd&gt;
+--- 127.0.0.1 ping statistics ---
+9 packets transmitted, 9 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 0.068/0.171/0.362/0.087 ms&lt;/samp&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;other-stuff&quot;&gt;Other Stuff&lt;/h3&gt;
+&lt;p&gt;
+  My initial draft of this post had a few additional sections that have
+  since been moved to their own posts:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;multiple-urls-in-git-remote.html&quot;&gt;Multiple URLs in Git Remote&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;touch-typing-number-keys.html&quot;&gt;Touch Typing Number Keys&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/26d.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/notes.html&quot;&gt;#notes&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>QuickQWERTY 1.2.2</title>
+    <link href="https://susam.net/code/news/quickqwerty/1.2.2.html"/>
+    <id>urn:uuid:35d44ea0-50fb-4fa7-9057-6f08f214a800</id>
+    <updated>2026-04-28T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  &lt;a href=&quot;../../../quickqwerty.html&quot;&gt;QuickQWERTY 1.2.2&lt;/a&gt; is now
+  available.  QuickQWERTY is a web-based touch typing tutor for QWERTY
+  keyboards that runs directly in the browser.
+&lt;/p&gt;
+&lt;p&gt;
+  This release includes two important changes.  First, a longstanding
+  bug in the practice pane has been fixed.  While practising a lesson,
+  a &apos;Restart&apos; link appears in the practice pane.  Due to a bug,
+  clicking it incorrectly sent users to Unit 1.1 instead of restarting
+  the current lesson.  The link now correctly restarts the active
+  lesson.
+&lt;/p&gt;
+&lt;p&gt;
+  Second, source code hosting has moved to
+  &lt;a href=&quot;https://codeberg.org/susam/quickqwerty&quot;&gt;Codeberg&lt;/a&gt;.
+  Codeberg is the third home of this 17 year old project.  QuickQWERTY
+  was first hosted on
+  &lt;a href=&quot;https://sourceforge.net/projects/quickqwerty/&quot;&gt;SourceForge&lt;/a&gt;
+  in 2008, where it remained for seven years.  In 2015, the project
+  moved to GitHub.  It has now moved once again, this time to Codeberg.
+&lt;/p&gt;
+&lt;p&gt;
+  As before, QuickQWERTY continues to be available under the terms of
+  the MIT licence.  The latest version remains available on this
+  website at &lt;a href=&quot;../../../quickqwerty.html&quot;&gt;quickqwerty.html&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/quickqwerty/1.2.2.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Wander Console 0.5.0</title>
+    <link href="https://susam.net/code/news/wander/0.5.0.html"/>
+    <id>urn:uuid:55fa2d80-fbba-4e75-a530-a17a912ba2a1</id>
+    <updated>2026-04-19T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Wander Console 0.5.0 is out.  It is the fifth release of Wander, a
+  small, decentralised, self-hosted web console that lets visitors to
+  your website explore interesting websites and pages recommended by a
+  community of independent website owners.  To try it, go to
+  &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander/&lt;/a&gt;.  To
+  learn more about how it works and how to set it up on your website,
+  see the project &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;README&lt;/a&gt;.
+&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;https://susam.github.io/blob/img/wander/wander-0.4.0.png&quot;
+       alt=&quot;A screenshot of Wander Console&quot;&gt;
+  &lt;figcaption&gt;A screenshot of Wander Console&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+  The big feature in this release is a built-in console network
+  crawler.  To try the console crawler, go to
+  &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander/&lt;/a&gt;
+  &amp;gt; &lt;strong&gt;Console&lt;/strong&gt; &amp;gt; &lt;strong&gt;Crawl&lt;/strong&gt;.  It
+  performs a breadth-first search (BFS) traversal of the Wander
+  network and lists all discovered consoles and page recommendations
+  in a single pane.
+&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;https://susam.github.io/blob/img/wander/wander-0.5.0.png&quot;
+       alt=&quot;A screenshot of Wander Console Crawler&quot;&gt;
+  &lt;figcaption&gt;A screenshot of Wander Console Crawler&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+  If you have set up a Wander Console instance for yourself on your
+  website, I recommend upgrading to the latest version to use this
+  feature.  It is fun to find out just how many Wander consoles belong
+  to your neighbourhood.  To upgrade, you only need to download the
+  Wander Console bundle
+  &lt;a href=&quot;https://codeberg.org/susam/wander#install&quot;&gt;mentioned
+  here&lt;/a&gt; and replace your existing Wander &lt;code&gt;index.html&lt;/code&gt;
+  with the new one.
+&lt;/p&gt;
+&lt;p&gt;
+  If you own a personal website but have not set up a Wander Console
+  yet, I suggest that you consider setting one up for yourself.  You
+  can see what it looks like by visiting mine at
+  &lt;a href=&quot;../../../wander/&quot;&gt;/wander/&lt;/a&gt;.  To set up your
+  own, follow these instructions from the README:
+  &lt;a href=&quot;https://codeberg.org/susam/wander#install&quot;&gt;Install&lt;/a&gt;.  It
+  just involves copying two files to your web server.  It is as simple
+  as that.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/wander/0.5.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Wander Console 0.4.0</title>
+    <link href="https://susam.net/code/news/wander/0.4.0.html"/>
+    <id>urn:uuid:6b9b167a-8238-44d8-b5ca-2f395684ed91</id>
+    <updated>2026-04-04T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Wander Console 0.4.0 is the fourth release of Wander, a small,
+  decentralised, self-hosted web console that lets visitors to your
+  website explore interesting websites and pages recommended by a
+  community of independent website owners.  To try it, go
+  to &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander/&lt;/a&gt;.
+&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;https://susam.github.io/blob/img/wander/wander-0.4.0.png&quot;
+       alt=&quot;A screenshot of Wander Console 0.4.0&quot;&gt;
+  &lt;figcaption&gt;A screenshot of Wander Console 0.4.0&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+  This release brings a few small additions as well as a few minor
+  fixes.  You can find the previous release pages here:
+  &lt;a href=&quot;./&quot;&gt;/code/news/wander/&lt;/a&gt;.  The sections below
+  discuss the current release.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#wildcard-patterns&quot;&gt;Wildcard Patterns&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-via-query-parameter&quot;&gt;The &apos;via&apos; Query Parameter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#console-picker-algorithm&quot;&gt;Console Picker Algorithm&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#allow-links-that-open-in-new-tab&quot;&gt;Allow Links that Open in New Tab&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#community&quot;&gt;Community&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;wildcard-patterns&quot;&gt;Wildcard Patterns&lt;/h2&gt;
+&lt;p&gt;
+  Wander Console now supports wildcard patterns in ignore lists.  An
+  asterisk (&lt;code&gt;*&lt;/code&gt;) anywhere in an ignore pattern matches zero
+  or more characters in URLs.  For example, an ignore pattern
+  like &lt;code&gt;https://*.midreadpopup.example/&lt;/code&gt; can be used to
+  ignore URLs such as this:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;https://alice.midreadpopup.example/&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;https://bob.jones.midreadpopup.example/&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  These ignore patterns are specified in a console&apos;s
+  &lt;a href=&quot;../../../wander/wander.js&quot;&gt;wander.js&lt;/a&gt; file.  These are
+  very important for providing a good wandering experience to
+  visitors.  The owner of a console decides what links they want to
+  ignore in their ignore patterns.  The ignore list typically contains
+  commercial websites that do not fit the spirit of the small web, as
+  well as defunct or incompatible websites that do not load in the
+  console.  A console with a well maintained ignore list ensures that
+  a visitor to that console has a lower likelihood of encountering
+  commercial or broken websites.
+&lt;/p&gt;
+&lt;p&gt;
+  For a complete description of the ignore patterns, see
+  &lt;a href=&quot;https://codeberg.org/susam/wander#customise-ignore-list&quot;&gt;Customise
+  Ignore List&lt;/a&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;the-via-query-parameter&quot;&gt;The &apos;via&apos; Query Parameter&lt;/h2&gt;
+&lt;p&gt;
+  By &lt;a href=&quot;https://codeberg.org/susam/wander/issues/1#issuecomment-11795493&quot;&gt;popular
+  demand&lt;/a&gt;, Wander now adds a &lt;code&gt;via=&lt;/code&gt; query parameter
+  while loading a recommended web page in the console.  The value of
+  this parameter is the console that loaded the recommended page.  For
+  example, if you encounter &lt;a href=&quot;https://midnight.pub/&quot;&gt;midnight.pub/&lt;/a&gt;
+  while using the console at &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander/&lt;/a&gt;,
+  the console loads the page using the following URL:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://midnight.pub/?via=https://susam.net/wander/&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  This allows the owner of the recommended website to see, via their
+  access logs, that the visit originated from a Wander Console.  While
+  this is the default behaviour now, it can be customised in two ways.
+  The value can be changed from the full URL of the Wander Console to
+  a small identifier that identifies the version of Wander Console
+  used (e.g. &lt;code&gt;via=wander-0.4.0&lt;/code&gt;).  The query parameter can
+  be disabled as well.  For more details,
+  see &lt;a href=&quot;https://codeberg.org/susam/wander#customise-via-parameter&quot;&gt;Customise
+  &apos;via&apos; Parameter&lt;/a&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;console-picker-algorithm&quot;&gt;Console Picker Algorithm&lt;/h2&gt;
+&lt;p&gt;
+  In earlier versions of the console, when a visitor came to your
+  console to explore the Wander network, it picked the first
+  recommendation from the list of recommended pages in it
+  (i.e. your &lt;code&gt;wander.js&lt;/code&gt; file).  But subsequent
+  recommendations came from your neighbours&apos; consoles and then their
+  neighbours&apos; consoles and so on recursively.  Your console (the
+  starting console) was not considered again unless some other console
+  in the network linked back to your console.
+&lt;/p&gt;
+&lt;p&gt;
+  A common way to ensure that your console was also considered in
+  subsequent recommendations too was to add a link to your console in
+  your own console (i.e. in your &lt;code&gt;wander.js&lt;/code&gt;).  Yes, this
+  created self-loops in the network but this wasn&apos;t considered a
+  problem.  In fact, this was considered desirable, so that when the
+  console picked a console from the pool of discovered consoles to
+  find the next recommendation, it considered itself to be part of the
+  pool.  This workaround is no longer necessary.
+&lt;/p&gt;
+&lt;p&gt;
+  Since version 0.4.0 of Wander, each console will always consider
+  itself to be part of the pool from which it picks consoles.  This
+  means that the web pages recommended by the starting console have a
+  fair chance of being picked for the next web page recommendation.
+&lt;/p&gt;
+&lt;h2 id=&quot;allow-links-that-open-in-new-tab&quot;&gt;Allow Links that Open in New Tab&lt;/h2&gt;
+&lt;p&gt;
+  The Wander Console loads the recommended web pages in an
+  &lt;code&gt;&amp;lt;iframe&amp;gt;&lt;/code&gt; element that has sandbox restrictions
+  enabled.  The sandbox properties restrict the side effects the
+  loaded web page can have on the parent Wander Console window.  For
+  example, with the sandbox restrictions enabled, a loaded web page
+  cannot redirect the parent window to another website.  In fact,
+  these days most modern browsers block this and show a warning
+  anyway, but we also block this at a sandbox level too in the console
+  implementation.
+&lt;/p&gt;
+&lt;p&gt;
+  It turned out that our aggressive sandbox restrictions also blocked
+  legitimate websites from opening a link in a new tab.  We decided
+  that opening a link in a new tab is harmless behaviour and we have
+  relaxed the sandbox restrictions a little bit to allow it.  Of
+  course, when you click such a link within Wander console, the link
+  will open in a new tab of your web browser (not within Wander
+  Console, as the console does not have any notion of tabs).
+&lt;/p&gt;
+&lt;h2 id=&quot;community&quot;&gt;Community&lt;/h2&gt;
+&lt;p&gt;
+  Although I developed this project on a whim, one early morning while
+  taking a short break from my &lt;a href=&quot;../../../26c.html&quot;&gt;ongoing
+  studies&lt;/a&gt; of algebraic graph theory, the subsequent warm
+  reception &lt;a href=&quot;https://news.ycombinator.com/item?id=47422759&quot;&gt;on
+  Hacker News&lt;/a&gt; and &lt;a href=&quot;https://lobste.rs/s/hjipba&quot;&gt;Lobsters&lt;/a&gt;
+  has led to a growing community of Wander Console owners.  There are
+  two places where the community hangs out at the moment:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    New consoles are announced in this thread on Codeberg:
+    &lt;a href=&quot;https://codeberg.org/susam/wander/issues/1&quot;&gt;Share Your
+    Wander Console&lt;/a&gt;.
+  &lt;/li&gt;
+  &lt;li&gt;
+    We also have an Internet Relay Chat (IRC) channel
+    named &lt;a href=&quot;http://web.libera.chat/#wander&quot;&gt;#wander&lt;/a&gt; on the
+    Libera IRC network.  This is a channel for people who enjoy
+    building personal websites and want to talk to each other.  You
+    are welcome to join this channel, share your console URL, link to
+    your website or recent articles as well as share links to other
+    non-commercial personal websites.
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  If you own a personal website but you have not set up a Wander
+  Console yet, I suggest that you consider setting one up for
+  yourself.  You can see what it looks like by visiting mine at
+  &lt;a href=&quot;../../../wander/&quot;&gt;/wander/&lt;/a&gt;.  To set up your
+  own, follow these
+  instructions: &lt;a href=&quot;https://codeberg.org/susam/wander#install&quot;&gt;Install&lt;/a&gt;.
+  It just involves copying two files to your web server.  It is about
+  as simple as it gets.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/wander/0.4.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Wander Console 0.3.0</title>
+    <link href="https://susam.net/code/news/wander/0.3.0.html"/>
+    <id>urn:uuid:2181779b-1aa4-4ce8-afde-d271ac662d8c</id>
+    <updated>2026-03-25T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Wander 0.3.0 is the third release of Wander, a small, decentralised,
+  self-hosted web console that lets visitors to your website explore
+  interesting websites and pages recommended by a community of
+  independent website owners.  To try it, go
+  to &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander/&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  This release brings small but important bug fixes.  The previous
+  release, &lt;a href=&quot;0.2.0.html&quot;&gt;version 0.2.0&lt;/a&gt; introduced a number
+  of new features.  Unfortunately, two of them caused issues for some
+  users.  A new feature in the previous release was
+  the &lt;code&gt;ignore&lt;/code&gt; list feature.  The &lt;code&gt;ignore&lt;/code&gt; list
+  defines console URLs and page URLs that the console never uses while
+  discovering page recommendations.  While this feature works fine,
+  due to a bug in the implementation, the &lt;strong&gt;Console&lt;/strong&gt;
+  dialog fails to load in consoles that do not define
+  any &lt;code&gt;ignore&lt;/code&gt; list.  This has now been fixed.
+&lt;/p&gt;
+&lt;p&gt;
+  There was another issue due to which the &lt;code&gt;&amp;lt;iframe&amp;gt;&lt;/code&gt;
+  that displays discovered websites and pages could not load certain
+  websites.  In particular, any website that relied on same-origin
+  context to load its own resources failed to load in the console.
+  This has been fixed as well.  Please see
+  &lt;a href=&quot;https://codeberg.org/susam/wander/issues/7&quot;&gt;codeberg.org/susam/wander/issues/7&lt;/a&gt;
+  for a detailed discussion on this issue.
+&lt;/p&gt;
+&lt;p&gt;
+  Apart from these two important fixes, there are a few other minor
+  fixes too pertaining to preventing horizontal scrolling in small
+  devices and preventing duplicate recommendations from appearing too
+  close to each other.  Please
+  see &lt;a href=&quot;https://codeberg.org/susam/wander/src/branch/main/CHANGES.md&quot;&gt;CHANGES.md&lt;/a&gt;
+  for a detailed changelog.
+&lt;/p&gt;
+&lt;p&gt;
+  To learn more about Wander, how it works and how to set it up,
+  please read the project README at
+  &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;.
+  To try it out right now, go to
+  &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander/&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/wander/0.3.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Wander Console 0.2.0</title>
+    <link href="https://susam.net/code/news/wander/0.2.0.html"/>
+    <id>urn:uuid:a0df297e-771c-42ab-856c-2c066e1cd1a1</id>
+    <updated>2026-03-24T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Wander 0.2.0 is the second release of Wander, a small,
+  decentralised, self-hosted web console that lets visitors to your
+  website explore interesting websites and pages recommended by a
+  community of independent personal website owners.  To try it, go
+  to &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  This release brings a number of improvements.  When I released
+  version 0.1.0, it was the initial version of the software I was
+  using for my own website.  Naturally, I was the only user initially
+  and I only added trusted web pages to the recommendation list of my
+  console.  But ever since I
+  &lt;a href=&quot;https://news.ycombinator.com/item?id=47422759&quot;&gt;announced
+  this project on Hacker News&lt;/a&gt;, it has received a good amount of
+  attention.  It has been less than a week since I announced it there
+  but over 30 people have set up a Wander console on their personal
+  websites.  There are now over a hundred web pages being recommended
+  by this network of consoles.  With the growth in the number of
+  people who have set up Wander console, came several feature
+  requests, most of which have been implemented already.  This release
+  makes these new features available.
+&lt;/p&gt;
+&lt;p&gt;
+  Since Wander 0.2.0, the &lt;code&gt;wander.js&lt;/code&gt; file of remote
+  consoles is executed in a sandbox &lt;code&gt;iframe&lt;/code&gt; to ensure that
+  it has no side effects on the parent Wander console page.
+  Similarly, the pages recommended by the network are also loaded into
+  a sandbox &lt;code&gt;iframe&lt;/code&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  This release also brings several customisation features.  Console
+  owners can customise their Wander console by adding custom CSS or
+  JavaScript.  Console owners can also block certain URLs from ever
+  being recommended on their console.  This is especially important in
+  providing a good wandering experience to visitors.  Since this
+  network is completely decentralised, console owners can add any web
+  page they like to their console.  Sometimes they inadvertently add
+  pages that do not load successfully in the console due to frame
+  embedding restrictions.  This leads to an uneven wandering
+  experience because these page recommendations occasionally make it
+  to other consoles where they fail to load.  Console owners can now
+  block such URLs in their console to decrease the likelihood of these
+  failed page loads.  This helps make the wandering experience smoother.
+&lt;/p&gt;
+&lt;p&gt;
+  Another significant feature in this release is the
+  expanded &lt;strong&gt;Console&lt;/strong&gt; dialog box.  This dialog box now
+  shows various details about the console and the current wandering
+  session.  For example, it shows the console&apos;s configuration:
+  recommended pages, ignored URLs and linked consoles.  It also shows
+  a wandering history screen where you can see each link that was
+  recommended to you along with the console that recommendation came
+  from.  There is another screen that shows all the consoles
+  discovered during the discovery process.  Those who care about how
+  Wander works would find this dialog box quite useful.  To check it
+  out, go to
+  &lt;a href=&quot;../../../wander/&quot;&gt;my Wander console&lt;/a&gt; and
+  explore.
+&lt;/p&gt;
+&lt;p&gt;
+  To learn more about Wander, how it works and how to set it up,
+  please read the project README at
+  &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/wander/0.2.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Wander Console 0.1.0</title>
+    <link href="https://susam.net/code/news/wander/0.1.0.html"/>
+    <id>urn:uuid:a4717b2b-aa67-4cf9-b59f-5c50c29ba716</id>
+    <updated>2026-03-18T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Wander 0.1.0 is the first release of Wander, a small, decentralised,
+  self-hosted web console that lets visitors to your website explore
+  interesting websites and pages recommended by a community of
+  independent personal website owners.
+&lt;/p&gt;
+&lt;p&gt;
+  Anyone with a personal website can take this tool and host an
+  instance of a Wander console.  Each Wander console loads personal
+  websites and pages recommended by the Wander community.  Further,
+  each Wander console can link to other Wander consoles, forming a
+  lightweight, decentralised network for browsing the small web of
+  personal websites.
+&lt;/p&gt;
+&lt;p&gt;
+  Setting up an instance of a Wander console involves copying just two
+  static files from the Wander project at
+  &lt;a href=&quot;https://codeberg.org/susam/wander&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;.
+  The most interesting aspect of the Wander console is that discovery
+  of new links from other consoles happens on the client side in the
+  user&apos;s web browser.  As a website owner, you do not need to set up
+  any server-side components beyond a basic web server.  In fact, you
+  can host a Wander console on GitHub Pages or Codeberg Pages too.
+&lt;/p&gt;
+&lt;p&gt;
+  To learn more about Wander, how it works and how to set it up,
+  please read the project README at
+  &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/wander/0.1.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Wander Console</title>
+    <link href="https://susam.net/wander/"/>
+    <id>urn:uuid:2e9733ae-16b0-487a-8e83-ce20cb765e70</id>
+    <updated>2026-03-16T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  I have put together a small tool to explore the small web of
+  personal websites.  It is called &lt;em&gt;Wander&lt;/em&gt;.  Please
+  visit &lt;a href=&quot;https://susam.net/wander/&quot;&gt;susam.net/wander/&lt;/a&gt; to
+  try out my Wander console.
+&lt;/p&gt;
+&lt;p&gt;
+  If you have your own website, please consider joining this community
+  by hosting your own Wander console.  To do so, visit
+  &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;
+  and follow the instructions there.  Thank you!
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/wander/"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>HN Skins 0.4.0</title>
+    <link href="https://susam.net/code/news/hnskins/0.4.0.html"/>
+    <id>urn:uuid:2fd608c6-887a-4b10-b961-5f231cb41a6c</id>
+    <updated>2026-03-10T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  HN Skins 0.4.0 is a minor update to HN Skins, a web browser
+  userscript that adds custom themes to Hacker News and lets you
+  browse HN with a variety of visual styles.  This release introduces
+  a small fix to preserve the commemorative black bar that
+  occasionally appears at the top of the page.
+&lt;/p&gt;
+&lt;p&gt;
+  When a notable figure in technology or science passes away, Hacker
+  News places a thin black bar at the top of the page in tribute.
+  Previously some skins could obscure this element.  This update
+  ensures that the bar remains visible and clearly noticeable.  In
+  dark themed skins, the black bar is rendered as a lighter shade of
+  grey so that it maintains sufficient contrast and remains
+  conspicuous.
+&lt;/p&gt;
+&lt;p&gt;
+  Today Hacker News has
+  &lt;a href=&quot;https://news.ycombinator.com/item?id=47324054&quot;&gt;a story
+  about Tony Hoare passing away&lt;/a&gt;, which made me notice that the
+  commemorative black bar was not rendered properly with some skins.
+  This prompted me to investigate the issue and implement the fix
+  included in this release.
+&lt;/p&gt;
+&lt;p&gt;
+  Screenshots showing how the bar appears with different skins are
+  available at
+  &lt;a href=&quot;https://susam.github.io/blob/img/hnskins/0.4.0/&quot;&gt;susam.github.io/blob/img/hnskins/0.4.0/&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  To install HN Skins,
+  visit &lt;a href=&quot;https://github.com/susam/hnskins#readme&quot;&gt;github.com/susam/hnskins&lt;/a&gt;
+  and follow the instructions there.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/hnskins/0.4.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>HN Skins 0.3.0</title>
+    <link href="https://susam.net/code/news/hnskins/0.3.0.html"/>
+    <id>urn:uuid:baafca23-8068-4b32-85b3-4f4aadbbf581</id>
+    <updated>2026-03-07T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  HN Skins 0.3.0 is a minor update to HN Skins, a web browser
+  userscript that adds custom themes to Hacker News and allows you to
+  browse HN with a variety of visual styles.  This release includes
+  fixes for a few issues that slipped through earlier versions.  For
+  example, the comment input textbox now uses the same font face and
+  size as the rest of the active theme.  The colour of visited links
+  has also been slightly muted to make it easier to distinguish them
+  from unvisited links.  In addition, some skins have been renamed:
+  Teletype is now called Courier and Nox is now called Midnight.
+&lt;/p&gt;
+&lt;p&gt;
+  Further, the font face of several monospace based themes is now set
+  to &lt;code&gt;monospace&lt;/code&gt; instead of &lt;code&gt;courier&lt;/code&gt;.  This
+  allows the browser&apos;s preferred monospace font to be used.  The font
+  face of the Courier skin (formerly known as Teletype) remains set
+  to &lt;code&gt;courier&lt;/code&gt;.  This will never change because the sole
+  purpose of this skin is to celebrate this legendary font.
+&lt;/p&gt;
+&lt;p&gt;
+  To view screenshots of HN Skins or install it, visit
+  &lt;a href=&quot;https://github.com/susam/hnskins#readme&quot;&gt;github.com/susam/hnskins&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/hnskins/0.3.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>HN Skins 0.2.0</title>
+    <link href="https://susam.net/code/news/hnskins/0.2.0.html"/>
+    <id>urn:uuid:15679d71-ed9d-4db4-a1ad-b94a9d2b72be</id>
+    <updated>2026-03-01T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  HN Skins 0.2.0 is a minor update of HN Skins.  It comes a day after
+  its &lt;a href=&quot;0.1.0.html&quot;&gt;initial release&lt;/a&gt; in order to fine tune a
+  few minor issues with the styles in the initial release.  HN Skins
+  is a web browser userscript that adds custom themes to Hacker News
+  and allows you to browse HN with different visual styles.
+&lt;/p&gt;
+&lt;p&gt;
+  This update removes excessive vertical space below the &apos;reply&apos;
+  links, sorts the skin options alphabetically in the selection dialog
+  and fixes the background colour of the navigation bar in the
+  Terminal skin by changing it from a dark grey to a dark green.
+&lt;/p&gt;
+&lt;p&gt;
+  Soon after making this release, I discovered a few other minor
+  issues, such as the Cafe and Terminal themes using Courier when I
+  intended them to use the system monospace font.  This has already
+  been fixed in the development version currently available on GitHub.
+  However, I will make a formal release later.
+&lt;/p&gt;
+&lt;p&gt;
+  See the &lt;a href=&quot;https://github.com/susam/hnskins/blob/main/CHANGES.md&quot;&gt;changelog&lt;/a&gt;
+  for more details.  To see some screenshots of HN Skins or to install
+  it, visit &lt;a href=&quot;https://github.com/susam/hnskins#readme&quot;&gt;github.com/susam/hnlinks&lt;/a&gt;
+  and follow the instructions there.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/hnskins/0.2.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>HN Skins 0.1.0</title>
+    <link href="https://susam.net/code/news/hnskins/0.1.0.html"/>
+    <id>urn:uuid:810a59fc-4dd4-4631-8426-172165338bca</id>
+    <updated>2026-02-28T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  HN Skins 0.1.0 is the initial release of HN Skins, a browser
+  userscript that adds custom themes to Hacker News (HN).  It allows
+  you to browse HN in style with a selection of visual skins.
+&lt;/p&gt;
+&lt;p&gt;
+  To use HN Skins, first install a userscript manager such as
+  Greasemonkey, Tampermonkey or Violentmonkey in your web browser.
+  Once installed, you can install HN Skins from
+  &lt;a href=&quot;https://github.com/susam/hnskins#readme&quot;&gt;github.com/susam/hnskins&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  The source code is available under the terms of the MIT licence.
+  For usage instructions and screenshots, please visit
+  &lt;a href=&quot;https://github.com/susam/hnskins#readme&quot;&gt;github.com/susam/hnskins&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/hnskins/0.1.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Nerd Quiz #4</title>
+    <link href="https://susam.net/code/news/nq/4.0.0.html"/>
+    <id>urn:uuid:fefa021c-38f8-46f9-95a7-ad034f6861fe</id>
+    <updated>2026-02-22T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Nerd Quiz #4 is the fourth instalment of Nerd Quiz, a single page
+  HTML application that challenges you to measure your inner geek with
+  a brief quiz.  Each question in the quiz comes from everyday moments
+  of reading, writing, thinking, learning and exploring.
+&lt;/p&gt;
+&lt;p&gt;
+  This release introduces five new questions drawn from a range of
+  topics, including computing history, graph theory and Unix.
+  Visit &lt;a href=&quot;../../../nq.html#4&quot;&gt;Nerd Quiz&lt;/a&gt; to try the quiz.
+&lt;/p&gt;
+&lt;p&gt;
+  A community discussion page is
+  &lt;a href=&quot;../../../comments/nq.html&quot;&gt;available here&lt;/a&gt;.  You are
+  very welcome to share your score or discuss the questions there.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/nq/4.0.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/miscellaneous.html&quot;&gt;#miscellaneous&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/game.html&quot;&gt;#game&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>QuickQWERTY 1.2.1</title>
+    <link href="https://susam.net/code/news/quickqwerty/1.2.1.html"/>
+    <id>urn:uuid:1c7e0e6c-beec-4edf-96b0-84ba22882baf</id>
+    <updated>2026-01-27T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  QuickQWERTY 1.2.1 is now available.  QuickQWERTY is a web-based
+  touch typing tutor for QWERTY keyboards that runs directly in the
+  web browser.
+&lt;/p&gt;
+&lt;p&gt;
+  This release contains a minor bug fix in Unit 4.3.  Unit 4.3 is a
+  &apos;Control&apos; unit that lets you practise typing partial words as well
+  as full words.  In one place in this unit, the following sequence of
+  partial and full words occurs:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;l li lime lime&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The full word &lt;code&gt;lime&lt;/code&gt; was incorrectly repeated twice.
+  This has been fixed to:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;l li lim lime&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  To try out QuickQWERTY, go to
+  &lt;a href=&quot;../../../quickqwerty.html&quot;&gt;quickqwerty.html&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/quickqwerty/1.2.1.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Attention Media &#x2260; Social Networks</title>
+    <link href="https://susam.net/attention-media-vs-social-networks.html"/>
+    <id>urn:uuid:224fe049-a716-4b59-a3af-f4271c10258a</id>
+    <updated>2026-01-20T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  When web-based social networks started flourishing nearly two
+  decades ago, they were genuinely social networks.  You would sign up
+  for a popular service, follow people you knew or liked and read
+  updates from them.  When you posted something, your followers would
+  receive your updates as well.  Notifications were genuine.  The
+  little icons in the top bar would light up because someone had sent
+  you a direct message or engaged with something you had posted.
+  There was also, at the beginning of this millennium, a general sense
+  of hope and optimism around technology, computers and the Internet.
+  Social networking platforms were one of the services that were part
+  of what was called Web 2.0, a term used for websites built around
+  user participation and interaction.  It felt as though the
+  information superhighway was finally reaching its potential.  But
+  sometime between 2012 and 2016, things took a turn for the worse.
+&lt;/p&gt;
+&lt;p&gt;
+  First came the infamous infinite scroll.  I remember feeling uneasy
+  the first time a web page no longer had a bottom.  Logically, I knew
+  very well that everything a browser displays is a virtual construct.
+  There is no physical page.  It is just pixels pretending to be one.
+  Still, my brain had learned to treat web pages as objects with a
+  beginning and an end.  The sudden disappearance of that end
+  disturbed my sense of ease.
+&lt;/p&gt;
+&lt;p&gt;
+  Then came the bogus notifications.  What had once been meaningful
+  signals turned into arbitrary prompts.  Someone you followed had
+  posted something unremarkable and the platform would surface it as a
+  notification anyway.  It didn&apos;t matter whether the notification was
+  relevant to me.  The notification system stopped serving me and
+  started serving itself.  It felt like a violation of an unspoken
+  agreement between users and services.  Despite all that, these
+  platforms still remained social in some diluted sense.  Yes, the
+  notifications were manipulative, but they were at least about people
+  I actually knew or had chosen to follow.  That, too, would change.
+&lt;/p&gt;
+&lt;p&gt;
+  Over time, my timeline contained fewer and fewer posts from friends
+  and more and more content from random strangers.  Using these
+  services began to feel like standing in front of a blaring
+  loudspeaker, broadcasting fragments of conversations from all over
+  the world directly in my face.  That was when I gave up on these
+  services.  There was nothing social about them anymore.  They had
+  become &lt;em&gt;attention media&lt;/em&gt;.  My attention is precious to me.  I
+  cannot spend it mindlessly scrolling through videos that have
+  neither relevance nor substance.
+&lt;/p&gt;
+&lt;p&gt;
+  But where one avenue disappeared, another emerged.  A few years ago,
+  I stumbled upon Mastodon and it reminded me of the early days of
+  Twitter.  Back in 2006, I followed a small number of folks of the
+  nerd variety on Twitter and received genuinely interesting updates
+  from them.  But when I log into the ruins of those older platforms
+  now, all I see are random videos presented to me for reasons I can
+  neither infer nor care about.  Mastodon, by contrast, still feels
+  like social networking in the original sense.  I follow a small
+  number of people I genuinely find interesting and I receive their
+  updates and only their updates.  What I see is the result of my own
+  choices rather than a system trying to capture and monetise my
+  attention.  There are no bogus notifications.  The timeline feels
+  calm and predictable.  If there are no new updates from people I
+  follow, there is nothing to see.  It feels closer to how social
+  networks used to work originally.  I hope it stays that way.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/attention-media-vs-social-networks.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Nested Code Fences in Markdown</title>
+    <link href="https://susam.net/nested-code-fences.html"/>
+    <id>urn:uuid:fde08645-33a5-43e1-8d82-15e281938738</id>
+    <updated>2026-01-19T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Today, we will meet a spiky-haired nerd named Corey Dumm, who
+  normally lives within Markdown code fences.  We will get to know him
+  a bit, smile with him when his fences hold and weep quietly when
+  misfortune strikes.
+&lt;/p&gt;
+&lt;p&gt;
+  One of the caveats of the Markdown universe is the wide variety of
+  Markdown implementations available.  In these parallel universes,
+  the rules of Markdown rendering differ subtly.  In this post, we
+  will focus only on the CommonMark specification.  Since GitHub
+  Flavoured Markdown (GFM) is a strict superset of CommonMark,
+  whatever we discuss here applies equally well to both CommonMark and
+  GFM.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#basic-code-fences&quot;&gt;Basic Code Fences&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#fancy-code-fences&quot;&gt;Fancy Code Fences&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#basic-code-spans&quot;&gt;Basic Code Spans&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#fancy-code-spans&quot;&gt;Fancy Code Spans&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#specification&quot;&gt;Specification&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;basic-code-fences&quot;&gt;Basic Code Fences&lt;/h2&gt;
+&lt;p&gt;
+  Corey had a knack for working with computers ever since he was a
+  kid.
+&lt;/p&gt;
+&lt;!-- Markdown #1 --&gt;
+&lt;pre&gt;&lt;code&gt;Corey at his computer:
+
+```
+(o_o)--.|[_]|
+```&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Everything was perfect in Corey&apos;s world.  The CommonMark renderer
+  would convert the Markdown above to the following HTML:
+&lt;/p&gt;
+&lt;!-- Rendered HTML #1 --&gt;
+&lt;div class=&quot;box&quot;&gt;
+&lt;p&gt;Corey at his computer:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;(o_o)--.|[_]|
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- Raw HTML #1 --&gt;
+&lt;details&gt;
+&lt;summary&gt;View HTML&lt;/summary&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Corey at his computer:&amp;lt;/p&amp;gt;
+&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;(o_o)--.|[_]|
+&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/details&gt;
+&lt;p&gt;
+  At this point, all was well.  Corey grew quickly.  Before long, he
+  had a head full of spiky hair.  Then the fences began to matter.
+&lt;/p&gt;
+&lt;!-- Markdown #2 --&gt;
+&lt;pre&gt;&lt;code&gt;Corey, all grown up:
+
+```
+ ```
+(o_o)--.|[_]|
+```&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Let us see how this renders.  I must warn you that during the
+  Markdown-to-HTML translation, Corey loses his hair.  Some viewers
+  may find the following scene disturbing.  Viewer discretion is
+  advised.  Here is the rendered HTML:
+&lt;/p&gt;
+&lt;!-- Rendered HTML #2 --&gt;
+&lt;div class=&quot;box&quot;&gt;
+&lt;p&gt;Corey, all grown up:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(o_o)--.|[_]|&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- Raw HTML #2 --&gt;
+&lt;details&gt;
+&lt;summary&gt;View HTML&lt;/summary&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Corey, all grown up:&amp;lt;/p&amp;gt;
+&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
+&amp;lt;p&amp;gt;(o_o)--.|[_]|&amp;lt;/p&amp;gt;
+&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/details&gt;
+&lt;p&gt;
+  Corey&apos;s hair is gone!  What a catastrophic accident!  Corey is
+  alright, though.  He is still quite afraid of Markdown fences, but
+  otherwise well and bouncing back.  Why did this happen?  The second
+  set of triple backticks immediately ends the fenced code block
+  started by the first set of triple backticks.  As a result, Corey&apos;s
+  smiley face ends up outside the fenced code block.  The triple
+  backticks that were once Corey&apos;s hair are now woven into the fabric
+  of the surrounding HTML.  Fortunately, CommonMark offers a few ways
+  to avoid such accidents.
+&lt;/p&gt;
+&lt;h2 id=&quot;fancy-code-fences&quot;&gt;Fancy Code Fences&lt;/h2&gt;
+&lt;p&gt;
+  In CommonMark, fenced code blocks are most commonly written using
+  triple backticks.  However, the specification also allows tildes as
+  an alternative fence.  This can be useful when the code itself
+  contains backticks.  Let us see an example:
+&lt;/p&gt;
+&lt;!-- Markdown #3a --&gt;
+&lt;pre&gt;&lt;code&gt;Corey, all grown up:
+
+~~~
+ ```
+(o_o)--.|[_]|
+~~~&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  In fact, a code fence need not consist of exactly three backticks or
+  tildes.  Any number of backticks or tildes is allowed, as long as
+  that number is at least three.  The following is therefore
+  equivalent:
+&lt;/p&gt;
+&lt;!-- Markdown #3b --&gt;
+&lt;pre&gt;&lt;code&gt;Corey, all grown up:
+
+~~~~~
+ ```
+(o_o)--.|[_]|
+~~~~~&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  And so is this:
+&lt;/p&gt;
+&lt;!-- Markdown #3c --&gt;
+&lt;pre&gt;&lt;code&gt;Corey, all grown up:
+
+`````
+ ```
+(o_o)--.|[_]|
+`````&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  All three examples render like this:
+&lt;/p&gt;
+&lt;!-- Rendered HTML #3 --&gt;
+&lt;div class=&quot;box&quot;&gt;
+&lt;p&gt;Corey, all grown up:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; ```
+(o_o)--.|[_]|
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;!-- Raw HTML #3 --&gt;
+&lt;details&gt;
+&lt;summary&gt;View HTML&lt;/summary&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Corey, all grown up:&amp;lt;/p&amp;gt;
+&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt; ```
+(o_o)--.|[_]|
+&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/details&gt;
+&lt;p&gt;
+  No hair is lost in translation.
+&lt;/p&gt;
+&lt;h2 id=&quot;basic-code-spans&quot;&gt;Basic Code Spans&lt;/h2&gt;
+&lt;p&gt;
+  A similar problem arises with inline code spans.  Most Markdown
+  users know to use backticks to delimit inline code spans.  For
+  example:
+&lt;/p&gt;
+&lt;!-- Markdown 4 --&gt;
+&lt;pre&gt;&lt;code&gt;An old picture of Corey at his computer: `(o_o)--.|[_]|`&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  This produces the following output:
+&lt;/p&gt;
+&lt;!-- Rendered HTML 4 --&gt;
+&lt;div class=&quot;box&quot;&gt;
+&lt;p&gt;An old picture of Corey at his computer: &lt;code&gt;(o_o)--.|[_]|&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- Raw HTML 4 --&gt;
+&lt;details&gt;
+&lt;summary&gt;View HTML&lt;/summary&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;An old picture of Corey at his computer: &amp;lt;code&amp;gt;(o_o)--.|[_]|&amp;lt;/code&amp;gt;&amp;lt;/p&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/details&gt;
+&lt;p&gt;
+  However, what do we do when we need to put Corey&apos;s dear friend Becky
+  Trace within an inline code span?  Becky has short, straight hair
+  tucked neatly on either side of her face.  Here&apos;s a picture of her:
+&lt;/p&gt;
+&lt;p class=&quot;textcenter&quot;&gt;
+  &lt;code&gt;`(o_o)`&lt;/code&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  I believe you can already see the difficulty here.  Inline code
+  spans use backticks as delimiters.  So when we put Becky within a
+  code span, the first backtick in Becky&apos;s face would terminate the
+  code span immediately and then the rest of Becky would lie outside
+  it.  CommonMark offers solutions for this kind of situation as well.
+&lt;/p&gt;
+&lt;h2 id=&quot;fancy-code-spans&quot;&gt;Fancy Code Spans&lt;/h2&gt;
+&lt;p&gt;
+  An inline code span delimiter need not consist of exactly one
+  backtick.  It can consist of any number of backticks.  So
+  &lt;code&gt;`foo`&lt;/code&gt; and &lt;code&gt;``foo``&lt;/code&gt; produce identical HTML.
+  There is another important but less well-known detail.  When the
+  text inside an inline code span begins and ends with spaces, one
+  space is removed from each end before rendering.  So
+  &lt;code&gt;`foo`&lt;/code&gt; and &lt;code&gt;`&amp;nbsp;foo&amp;nbsp;`&lt;/code&gt; are
+  equivalent.  Therefore, when we need to put backticks within an
+  inline code span, we can start the code span using multiple
+  backticks and a space.  For example:
+&lt;/p&gt;
+&lt;!-- Markdown #5 --&gt;
+&lt;pre&gt;&lt;code&gt;Meet Corey&apos;s friend Becky Trace: `` `(o_o)` ``&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here is the rendered output:
+&lt;/p&gt;
+&lt;!-- Rendered HTML #5 --&gt;
+&lt;div class=&quot;box&quot;&gt;
+&lt;p&gt;Meet Corey&apos;s friend Becky Trace: &lt;code&gt;`(o_o)`&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- Raw HTML #5 --&gt;
+&lt;details&gt;
+&lt;summary&gt;View HTML&lt;/summary&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Meet Corey&apos;s friend Becky Trace: &amp;lt;code&amp;gt;`(o_o)`&amp;lt;/code&amp;gt;&amp;lt;/p&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/details&gt;
+&lt;p&gt;
+  Becky has her hair intact too.  We have avoided the mishap that once
+  caused great distress to Corey.  That, my friends, is how backticks
+  survive nesting in Markdown.
+&lt;/p&gt;
+&lt;h2 id=&quot;specification&quot;&gt;Specification&lt;/h2&gt;
+&lt;p&gt;
+  Before I finish this post, let us take a look at the CommonMark
+  specification to see where these details are defined.  The excerpts
+  quoted below are taken from
+  &lt;a href=&quot;https://spec.commonmark.org/0.30/&quot;&gt;CommonMark Spec Version
+  0.30&lt;/a&gt;, which is by now over four years old.
+&lt;/p&gt;
+&lt;p&gt;
+  From section
+  &lt;a href=&quot;https://spec.commonmark.org/0.30/#fenced-code-blocks&quot;&gt;4.5
+  Fenced Code Blocks&lt;/a&gt;:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;
+    A &lt;a href=&quot;https://spec.commonmark.org/0.30/#code-fence&quot;&gt;code
+    fence&lt;/a&gt; is a sequence of at least three consecutive backtick
+    characters (&lt;code&gt;`&lt;/code&gt;) or tildes (&lt;code&gt;~&lt;/code&gt;).  (Tildes
+    and backticks cannot be mixed.)
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;
+    The content of the code block consists of all subsequent lines,
+    until a closing
+    &lt;a href=&quot;https://spec.commonmark.org/0.30/#code-fence&quot;&gt;code fence&lt;/a&gt;
+    of the same type as the code block began with (backticks or tildes),
+    and with at least as many backticks or tildes as the opening code
+    fence.
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+  From section
+  &lt;a href=&quot;https://spec.commonmark.org/0.30/#code-spans&quot;&gt;6.1 Code
+  Spans&lt;/a&gt;:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;
+    A &lt;a href=&quot;https://spec.commonmark.org/0.30/#backtick-string&quot;&gt;backtick
+    string&lt;/a&gt; is a string of one or more backtick characters
+    (&lt;code&gt;`&lt;/code&gt;) that is neither preceded nor followed by a
+    backtick.
+  &lt;/p&gt;
+  &lt;p&gt;
+    A &lt;a href=&quot;https://spec.commonmark.org/0.30/#code-span&quot;&gt;code
+    span&lt;/a&gt; begins with a backtick string and ends with a backtick
+    string of equal length.  The contents of the code span are the
+    characters between these two backtick strings, normalized in the
+    following ways:
+  &lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      First, &lt;a href=&quot;https://spec.commonmark.org/0.30/#line-ending&quot;&gt;line endings&lt;/a&gt;
+      are converted to &lt;a href=&quot;https://spec.commonmark.org/0.30/#space&quot;&gt;spaces&lt;/a&gt;.
+    &lt;/li&gt;
+    &lt;li&gt;
+      If the resulting string both begins &lt;em&gt;and&lt;/em&gt; ends with a
+      &lt;a href=&quot;https://spec.commonmark.org/0.30/#space&quot;&gt;space&lt;/a&gt;
+      character, but does not consist entirely of
+      &lt;a href=&quot;https://spec.commonmark.org/0.30/#space&quot;&gt;space&lt;/a&gt;
+      characters, a single
+      &lt;a href=&quot;https://spec.commonmark.org/0.30/#space&quot;&gt;space&lt;/a&gt;
+      character is removed from the front and back.  This allows you
+      to include code that begins or ends with backtick characters,
+      which must be separated by whitespace from the opening or
+      closing backtick strings.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+  I hope these little nuggets of Markdown trivialities will one day
+  prove useful in your own Markdown misfortunes.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/nested-code-fences.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

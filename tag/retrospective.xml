@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's Retrospective Pages</title>
+  <subtitle>Feed for Susam's Retrospective Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/retrospective.xml" rel="self"/>
+  <id>https://susam.net/tag/retrospective.xml</id>
+  <updated>2025-12-24T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>My Coding Adventures in 2025</title>
+    <link href="https://susam.net/code-2025.html"/>
+    <id>urn:uuid:3cd2084e-3375-44e8-b88d-db2daf328c15</id>
+    <updated>2025-12-24T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  In this post, I return with a retrospective on my coding adventures,
+  where I summarise my hobby projects and recreational programming
+  activities from the current year.  I did the last such retrospective
+  in &lt;a href=&quot;code-2023.html&quot;&gt;2023&lt;/a&gt;.  So I think this is a good
+  time to do another retrospective.
+&lt;/p&gt;
+&lt;p&gt;
+  At the outset, I should mention that I have done less hobby
+  computing this year than in the past few, largely because I spent a
+  substantial portion of my leisure time studying Galois theory and
+  algebraic graph theory.  In case you are wondering where I am
+  learning these subjects from, the books are &lt;em&gt;Galois Theory&lt;/em&gt;,
+  5th ed. by Ian Stewart and &lt;em&gt;Algebraic Graph Theory&lt;/em&gt; by Godsil
+  and Royle.  Both are absolutely fascinating subjects and the two
+  books I mentioned are quite good as well.  I highly recommend them.
+&lt;/p&gt;
+&lt;p&gt;
+  Now back to the coding adventures.  Here they go:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;https://github.com/susam/mathb&quot;&gt;MathB&lt;/a&gt;: The year
+      began not with the release of a new project but with the
+      opposite: discontinuing a project I had maintained for 13 years.
+      MathB.in, a mathematics pastebin service, was discontinued early
+      this year.  This is a project I developed in 2012 for myself and
+      my friends.  Although a rather simple project, it was close to
+      my heart, as I have many fond memories of exchanging
+      mathematical puzzles and solutions with my friends using this
+      service.  Over time, the project grew quite popular on IRC
+      networks, as well as in some schools and universities, where IRC
+      users, learners and students used the service to share problems
+      and solutions with one another, much as my friends and I had
+      done in its early days.
+    &lt;/p&gt;
+    &lt;p&gt;
+      I shut it down this year because I wanted to move on from the
+      project.  Before the shutdown, a kind member of the
+      &lt;a href=&quot;https://wiki.archiveteam.org/&quot;&gt;Archive Team&lt;/a&gt; worked
+      with me to
+      &lt;a href=&quot;https://web.archive.org/web/*/https://mathb.in/&quot;&gt;archive&lt;/a&gt;
+      all posts from the now-defunct website.  Although shutting down
+      this service was a bittersweet event for me, I feel relieved
+      that I no longer have to run a live service in my spare time.
+      While this was a good hobby ten years ago, it no longer is.  See
+      my blog post
+      &lt;a href=&quot;mathbin-is-shutting-down.html&quot;&gt;MathB.in Is Shutting
+      Down&lt;/a&gt; for more details on the reasons behind this decision.
+      The source code of this project remains open source and
+      available at
+      &lt;a href=&quot;https://github.com/susam/mathb&quot;&gt;github.com/susam/mathb&lt;/a&gt;.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;https://github.com/susam/quickqwerty&quot;&gt;QuickQWERTY&lt;/a&gt;:
+      This is a touch-typing tutor that runs in a web browser.  I
+      originally developed it in 2008 for myself and my friends.
+      While I learnt touch typing on an actual typewriter as a child,
+      those lessons did not stick with me.  Much later, while I was at
+      university, I came across a Java applet-based touch-typing tutor
+      that finally helped me learn touch typing properly.  I disliked
+      installing Java plugins in the web browser, which is why I later
+      developed this project in plain HTML and JavaScript.  This year,
+      I carried out a major refactoring to collapse the entire project
+      into a single standalone HTML file with no external
+      dependencies.  The source code has been greatly simplified as
+      well.
+    &lt;/p&gt;
+    &lt;p&gt;
+      When I was younger and more naive, inspired by the complexity
+      and multiple layers of abstraction I saw in popular open source
+      and professional projects, I tended to introduce similar
+      abstractions and complexity into my personal projects.  Over
+      time, however, I began to appreciate simplicity.  The new code
+      for this project is smaller and simpler.  I am quite happy with
+      the end result.  You can take a look at the code here:
+      &lt;a href=&quot;https://github.com/susam/quickqwerty/blob/main/quickqwerty.html&quot;&gt;quickqwerty.html&lt;/a&gt;.
+      If you want to use the typing tutor, go here:
+      &lt;a href=&quot;quickqwerty.html&quot;&gt;QuickQWERTY&lt;/a&gt;.  Unfortunately, it
+      does not support keyboard layouts other than QWERTY.  When I
+      originally developed this project, my view of the computing
+      world was rather limited.  I was not even aware that other
+      keyboard layouts existed.  You are, however, very welcome to
+      fork the project and adapt the lessons for other layouts.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;https://github.com/susam/cfrs&quot;&gt;CFRS[]&lt;/a&gt;: This project
+      was my first contribution to the quirky world of esolangs.
+      CFRS[] is an extremely minimal drawing language consisting of
+      only six simple commands: &lt;code&gt;C&lt;/code&gt;, &lt;code&gt;F&lt;/code&gt;,
+      &lt;code&gt;R&lt;/code&gt;, &lt;code&gt;S&lt;/code&gt;, &lt;code&gt;[&lt;/code&gt; and
+      &lt;code&gt;]&lt;/code&gt;.  I developed it in 2023 and have since been
+      maintaining it with occasional bug fixes.  This year, I
+      &lt;a href=&quot;https://github.com/susam/cfrs/commit/9bae21f&quot;&gt;fixed an
+      annoying bug&lt;/a&gt; that caused the drawing canvas to overflow on
+      some mobile web browsers.  A new demo also arrived from the
+      community this year and has now been added to the community demo
+      page.  See
+      &lt;a href=&quot;https://susam.github.io/cfrs/demo.html#glimmering-galaxy&quot;&gt;Glimmering
+      Galaxy&lt;/a&gt; for the new demo.  If you want to play with CFRS[]
+      now, visit &lt;a href=&quot;cfrs.html&quot;&gt;CFRS[]&lt;/a&gt;.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;https://github.com/susam/fxyt&quot;&gt;FXYT&lt;/a&gt;: This is
+      another esolang project of mine.  This too is a minimal drawing
+      language, though not as minimal as CFRS[].  Instead, it is a
+      stack-based, postfix canvas colouring language with only 36
+      simple commands.  The canvas overflow bug described in the
+      previous entry affected this project as well.  That has now been
+      fixed.  Further, by popular demand, the maximum allowed code
+      length has been increased from 256 bytes to 1024 bytes.  This
+      means there is now more room for writing more complex FXYT
+      programs.  Additionally, the maximum code length for
+      distributable demo links has been increased from 64 bytes to 256
+      bytes.  This allows several more impressive demos to have their
+      own distributable links.  Visit &lt;a href=&quot;fxyt.html&quot;&gt;FXYT&lt;/a&gt; to
+      try it out now.  See also the
+      &lt;a href=&quot;https://susam.github.io/fxyt/demo.html&quot;&gt;Community Demos&lt;/a&gt; to
+      view some fascinating artwork created by the community.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;https://github.com/susam/nq&quot;&gt;Nerd Quiz&lt;/a&gt;: This is a
+      new project I created a couple of months ago.  It is a simple
+      HTML tool that lets you test your nerdiness through short
+      quizzes.  Each question is drawn from my everyday moments of
+      reading, writing, thinking, learning and exploring.  The project
+      is meant to serve as a repository of interesting facts I come
+      across in daily life, captured in the form of quiz questions.
+      Go here to try it out: &lt;a href=&quot;nq.html&quot;&gt;Nerd Quiz&lt;/a&gt;.  I hope
+      you will enjoy these little bits of knowledge as much as I
+      enjoyed discovering them.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;primegrid.html&quot;&gt;Prime Number Grid Explorer&lt;/a&gt;: This is
+      a simple prime number grid visualiser I wrote for fun.  It plots
+      the prime numbers in a grid where you can set the number of rows
+      and the number of columns.  It uses the Miller-Rabin primality
+      test with bases drawn from
+      &lt;a href=&quot;https://oeis.org/A014233&quot;&gt;oeis.org/A014233&lt;/a&gt; to
+      determine whether a number is prime.  This allows it to
+      accurately test whether a number is prime up to
+      3317044064679887385961980.  For example,
+      &lt;a href=&quot;primegrid.html#3317044064679887385961781-20-10&quot;&gt;this
+      grid&lt;/a&gt; shows the upper limit of the numbers this tool can
+      check.  The three circles displayed there represent the prime
+      numbers 3317044064679887385961783, 3317044064679887385961801 and
+      3317044064679887385961813.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;https://github.com/susam/mvs&quot;&gt;Mark V. Shaney
+      Junior&lt;/a&gt;: Finally, I have my own Markov gibberish generator.
+      Always wanted to have one.  The project is inspired by the
+      legendary Usenet bot named Mark V. Shaney that used to post
+      messages to various newsgroups in the 1980s.  My Markov chain
+      program is written in about 30 lines of Python.  I ran it on my
+      24 years of blog posts consisting of over 200 posts and about
+      200,000 words and it generated some pretty interesting
+      gibberish.  See my blog post
+      &lt;a href=&quot;fed-24-years-of-posts-to-markov-model.html&quot;&gt;Fed 24
+      Years of My Posts to Markov Model&lt;/a&gt; to see the examples.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;elliptical-python-programming.html&quot;&gt;Elliptical Python
+      Programming&lt;/a&gt;: If the previous item was not silly enough, this
+      one surely is.  Earlier this year, I wrote a blog post
+      describing the fine art of Python programming using copious
+      amounts of ellipses.  I will not discuss it further here to
+      avoid spoilers.  I&apos;ll just say that any day I&apos;m able to do
+      something pointless, whimsical and fun with computers is a good
+      day for me.  And it was a good day when I wrote this post.
+      Please visit the link above to read the post.  I hope you find
+      it fun.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;fizz-buzz-with-cosines.html&quot;&gt;Fizz Buzz with
+      Cosines&lt;/a&gt;: Another silly post in which I explain how to
+      compute the discrete Fourier transform of the Fizz Buzz sequence
+      and derive a closed-form expression that can be used to print
+      the sequence.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;fizz-buzz-in-css.html&quot;&gt;Fizz Buzz in CSS&lt;/a&gt;: Yet
+      another Fizz Buzz implementation, this time using just four
+      lines of CSS.
+    &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  That wraps up my coding adventures for this year.  There were fewer
+  hobby projects than usual but I enjoyed spending more time learning
+  new things and revisiting old ones.  One long-running project came
+  to an end, another was cleaned up and a few small new ideas appeared
+  along the way.  Looking forward to what the next year brings.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code-2025.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/retrospective.html&quot;&gt;#retrospective&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>My Coding Adventures in 2023</title>
+    <link href="https://susam.net/code-2023.html"/>
+    <id>urn:uuid:16ff7c63-4bd6-4114-bfbc-5746a819c217</id>
+    <updated>2023-12-23T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  In moments of leisure, I find myself immersed in crafting personal
+  tools and exploring the joys of computer programming.  Sometimes a
+  few of these endeavors evolve into concrete utilities that I feel
+  comfortable sharing with others under a free software licence.
+  Below, I present some highlights and updates from this year&apos;s coding
+  adventures:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;https://github.com/susam/devil&quot;&gt;Devil&lt;/a&gt;: This is a
+      new Emacs package that intercepts and translates keystrokes to
+      provide a modifier-free, non-modal editing experience.  I wrote
+      this directly in my &lt;code&gt;~/.emacs&lt;/code&gt; several years ago to
+      avoid typing key chords.  This tool allowed me to use comma
+      (&lt;code&gt;,&lt;/code&gt;) as the leader key for invoking key sequences
+      involving &lt;kbd&gt;ctrl&lt;/kbd&gt; and &lt;kbd&gt;meta&lt;/kbd&gt; keys.  I kept it
+      private for a long time because I felt that the Emacs community
+      may find some of the design decisions and the default choices to
+      be outrageous.  However, after extracting it into a separate
+      package and sharing it
+      on &lt;a href=&quot;https://melpa.org/#/devil&quot;&gt;MELPA&lt;/a&gt; (and later
+      on &lt;a href=&quot;https://elpa.nongnu.org/nongnu/devil.html&quot;&gt;NonGNU
+      ELPA&lt;/a&gt; too), I was pleasantly surprised by the warm and
+      supportive feedback I received from many kind and generous
+      community members.  In fact, this package received several
+      updates this year in order to address such feedback and
+      enhancement requests as well as to integrate contributions from
+      the community.  This package has evolved a lot and become much
+      better, thanks to the small and supportive community that formed
+      around it.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;https://github.com/susam/cfrs&quot;&gt;CFRS[]&lt;/a&gt;: This is my
+      first contribution to the quirky world of esolangs.  CFRS[] is
+      an extremely minimal drawing language consisting of only 6
+      simple commands: &lt;code&gt;C&lt;/code&gt;,
+      &lt;code&gt;F&lt;/code&gt;, &lt;code&gt;R&lt;/code&gt;, &lt;code&gt;S&lt;/code&gt;, &lt;code&gt;[&lt;/code&gt;
+      and &lt;code&gt;]&lt;/code&gt;.  See
+      &lt;a href=&quot;https://susam.github.io/cfrs/demo.html&quot;&gt;demo.html&lt;/a&gt;
+      for a collection of some nice demos submitted by the small
+      community around this language.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;https://github.com/susam/fxyt&quot;&gt;FXYT&lt;/a&gt;: A tiny,
+      stack-based, postfix, canvas colouring language with only 36
+      simple commands.  This is one of my very recent creations.
+      There is not much of a community around it yet.  Nevertheless, I
+      find it a lot of fun to play with.  The README file at the
+      preceding link has some interesting demos.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;https://github.com/susam/pcface&quot;&gt;PC Face&lt;/a&gt;: This is a
+      a collection of tools that I wrote early this year to generate
+      bitmap arrays for rendering CP437 glyphs using free and open
+      source fonts based on the IBM PC OEM fonts.  The bitmaps are
+      available in the form of JavaScript arrays and can be used quite
+      easily to render glpyhs on an HTML5 Canvas.  Additionally, this
+      project offers a few Python and JavaScript functions to create
+      similar bitmap arrays from other similar PC fonts and render
+      them.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;https://github.com/susam/invaders&quot;&gt;Andromeda
+      Invaders&lt;/a&gt;: I wrote this game last year to fulfill my
+      childhood dream of writing my own invaders-style game.  This
+      game received several updates this year around text rendering on
+      canvas.  In fact, it was the update for rendering text using IBM
+      PC OEM fonts that led to the PC Face project mentioned in the
+      previous point.  The gameplay has been tweaked too to increase
+      the difficulty level.  Further, I wrote an autoplay algorithm
+      for fun.  This algorithm automatically moves the player to avoid
+      falling boulders and hit the invader ships.  To see the autoplay
+      algorithm in action, visit
+      &lt;a href=&quot;invaders.html#auto&quot;&gt;invaders.html#auto&lt;/a&gt;.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;https://github.com/susam/nimb&quot;&gt;NIMB&lt;/a&gt;: NIMB stands
+      for NIMB IRC Matrix Bridge.  Yes, a recursive acronym!  ;) This
+      is a simple relay client to bridge together different IRC
+      channels and Matrix rooms.  Growing dissatisfied with how the
+      official bridge from Matrix assumed admin power level in a
+      bridged room, removed idle users, etc., I wrote this as a small
+      and simple tool for bridging my channels and rooms.  Later when
+      Matrix &lt;a href=&quot;https://matrix.org/blog/2023/11/28/shutting-down-bridge-to-libera-chat/&quot;&gt;announced&lt;/a&gt;
+      that they would shut down their official bridge, it had almost
+      no impact on me because I had already switched over from their
+      official bridge to this little tool for my bridging needs.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;https://github.com/susam/clog&quot;&gt;Clog&lt;/a&gt;: This is a tiny
+      IRC chat logger written in Python.  I use it to keep a local
+      archive of the chats of some of my favourite IRC channels.  This
+      is perhaps my smallest personal tool.  I have shared it at the
+      preceding link in case anyone finds it useful but as far as I
+      know, I am the only who uses this.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;https://github.com/susam/emacs4cl&quot;&gt;Emacs4CL&lt;/a&gt;: This
+      is an old project that was first released in 2020.  It provides
+      a quick-starter-kit to set up Emacs for Common Lisp programming.
+      It received a minor update to ensure that it works well with the
+      latest version of Paredit.  Apart from that, by popular demand,
+      it leaves the menu bar enabled.  Yes, the menu bar used to be
+      disabled earlier which later turned out to be misguided.  After
+      receiving several suggestions about how the menu bar is
+      essential for discovery of new commands relevant to the current
+      major mode, the menu bar is enabled now.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      &lt;a href=&quot;https://github.com/susam/emfy&quot;&gt;Emfy&lt;/a&gt;: This too is
+      another Emacs quick-starter-kit.  However this one is meant to
+      set up a general purpose editing and programming environment
+      with Emacs.  It was first released in 2021.  It received one
+      minor update this year.  The variable
+      &lt;code&gt;require-final-newline&lt;/code&gt; is now set to &lt;code&gt;t&lt;/code&gt;,
+      so that files with newlines missing at the end are automatically
+      updated with a trailing newline while saving them.  Further, the
+      colour scheme of incremental search matches has been updated to
+      have more contrast so that the matches are easier to spot and
+      navigate through.
+    &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  As I reflect on this year&apos;s coding adventures, I am reminded of the
+  beauty of exploration and creativity in coding.  The support and
+  feedback I have received from the small yet friendly communities
+  around some of these projects has been truly heartening.  Here&apos;s to
+  another year of solving problems with code, collaboration and the
+  boundless world of possibilities that computer programming offers!
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code-2023.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/retrospective.html&quot;&gt;#retrospective&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Web Golden</title>
+    <link href="https://susam.net/web-golden.html"/>
+    <id>urn:uuid:b5b100bd-32e2-4b06-931c-950afa546cef</id>
+    <updated>2022-01-30T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  In a recent online discussion about simple static websites, Chris
+  Chapman &lt;a href=&quot;https://news.ycombinator.com/item?id=30139081&quot;&gt;posted&lt;/a&gt;
+  this quite clever comment:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  Firm supporter of Web Pi (3.14159).  When it comes to building for
+  the web today, I&apos;m always amazed that &quot;so much can be done with so
+  little&quot; and yet the default is the opposite - &quot;so much is needed to
+  deliver so little&quot; - so irrational!  Where did we go wrong?  I
+  wonder what Web Euler (2.71828) would have looked like?
+&lt;/blockquote&gt;
+&lt;p&gt;
+  I enjoyed the amusing play on the terms &quot;Web 2.0&quot; and &quot;Web 3.0&quot; as
+  well as the irony-infused pun involving the word &quot;irrational&quot;.  I
+  piled on to the witty wordplay with my own comment where I remarked
+  how my favourite phase of the web was Web Golden
+  (&lt;a href=&quot;phi.txt&quot;&gt;1.61803&lt;/a&gt;).  I will elaborate here what that
+  phase of the web looked like and why I was fond of it.
+&lt;/p&gt;
+&lt;h2 id=&quot;fascinating-realisation&quot;&gt;Fascinating Realisation&lt;/h2&gt;
+&lt;p&gt;
+  I believe I was fortunate enough to grow up during a time when the
+  web was a very diverse place full of various eccentric digital
+  gardens.  I was introduced to the world wide web around 1999.
+  Access to the Internet was very limited where I lived.  My friends
+  and I would visit so-called Internet caf&amp;eacute;s and shell out a
+  significant chunk of our pocket money for just an hour of Internet
+  usage.
+&lt;/p&gt;
+&lt;p&gt;
+  I was already quite familiar with computers then but the Internet
+  and the world wide web were completely new to me.  Until then,
+  thanks to my &lt;a href=&quot;fd-100.html&quot;&gt;prior exposure&lt;/a&gt; to the
+  Logo programming language, I had only considered computers to be a
+  device for problem solving and recreation.  However, the Internet
+  showed me that computers were very flexible and malleable
+  communication devices too.  It was a fascinating realisation!
+&lt;/p&gt;
+&lt;p&gt;
+  While on the Internet, I used to spend most of my time browsing
+  websites and joining various chat forums where I could talk to other
+  programmers from all over the world.  I learnt a lot about the world
+  and its various cultures by talking to them.  I met people who wrote
+  their own full blown chat clients, people who were nearing
+  retirement after having programmed about twenty different
+  microcontrollers throughout their careers, people who developed
+  software for global positioning systems and so on.  These
+  experiences broadened my horizons.  I could see that my enthusiasm
+  for computers could one day lead to a fulfilling career.
+&lt;/p&gt;
+&lt;h2 id=&quot;simplicity&quot;&gt;Simplicity&lt;/h2&gt;
+&lt;p&gt;
+  The world wide web was a delightful place.  There were no major
+  social media websites yet.  I believe the closest thing to social
+  media we had back then
+  was &lt;a href=&quot;http://web.archive.org/web/19990125095557/http://www.geocities.com/&quot;&gt;Geocities.com&lt;/a&gt;
+  where we could create our own websites for free.  One could also
+  host their websites on shared website hosting providers for a fixed
+  annual fee.  Some also hosted their websites on servers running in
+  their own houses.
+&lt;/p&gt;
+&lt;p&gt;
+  Most websites were made up of static HTML pages.  Some websites had
+  tiny guestbooks that allowed a little user-generated content.  I
+  remember some of the website hosting providers made it really easy
+  to add guestbooks, even for someone with no programming experience.
+  All one needed to do was create an HTML page that contained
+  a &lt;code&gt;&amp;lt;form&amp;gt;&lt;/code&gt; element with the &lt;code&gt;action&lt;/code&gt;
+  attribute set to a URL of a CGI script provided by the hosting
+  provider.  The CGI script would accept every comment submitted via
+  the guestbook and automatically insert the new comment into a static
+  HTML page.  The good scripts would escape the special characters in
+  the comments properly before saving it in the static comments page.
+  But the poor ones would let any script kiddie deface the guestbook
+  page by inserting cleverly crafted HTML snippets or JavaScript code
+  within the comments.  That would be the first lesson on cross-site
+  scripting for many of us in those days.
+&lt;/p&gt;
+&lt;p&gt;
+  While most personal websites were static in nature, the motivated
+  web developers would teach themselves enough programming to add
+  little pieces of dynamic functionality by writing CGI scripts.  Many
+  used PHP instead which was much easier to write code in and deploy.
+  I taught myself ASP to develop dynamic pages.  It allowed me to
+  write my own guestbook page and a dynamic quiz application for the
+  visitors of my website.
+&lt;/p&gt;
+&lt;p&gt;
+  Despite various types of dynamic functionality offered by the
+  websites, the web was simple.  Web pages with infinite scrolling was
+  unheard of.  Visiting useful websites did not result in the web
+  browser loading dozens of massive JavaScript files in the
+  background.  Web developers were used to doing less with less.  But
+  the old web had its own problems too.  Just like how the current web
+  is riddled with banner advertisements, the old web too was riddled
+  with pop-ups!  A prevalent user-hostile trend back then involved web
+  pages creating new pop-ups for advertisements.  They would often
+  clutter the desktop because the major web browsers back then would
+  create a new desktop-level window for each popup.
+&lt;/p&gt;
+&lt;h2 id=&quot;nostalgia&quot;&gt;Nostalgia&lt;/h2&gt;
+&lt;p&gt;
+  Although these old, simple and crude websites can still be found in
+  certain corners of the web, the mainstream web no longer looks like
+  this.  Websites are generally heavier and more complex these days.
+  Talking about the old web today only serves as nostalgia for people
+  like me who grew up during that magical time.  One might argue that
+  the world wide web today is much more advanced and has much more
+  utility than the old web I am reminiscing about here.  That is true.
+  The web today is a very versatile tool of great utility.  The web
+  today is a powerful agent that is shaping our civilisation and
+  influencing how societies evolve and function.  Indeed, the web was
+  quite limited in terms of utility back then.  Online banking was not
+  prevalent.  Electronic commerce was very new and clunky.  The most
+  practical utility of the old web I can recall involved publishing
+  and retrieving university exam results and even that was painfully
+  slow.  It would take a minute or two for university pages to load
+  over dial-up connections.
+&lt;/p&gt;
+&lt;p&gt;
+  However, what the web of the 90s lacked in terms of utility, it more
+  than compensated by being a fertile ground for creativity.  Thanks
+  to the early web, many computer enthusiasts, including me, learnt to
+  build their first few websites by writing one line of HTML at a
+  time.  To write a few lines of HTML code in a text editor and then
+  watch the web browser render that code as a glorious web page full
+  of colours, images and text was a magical feeling.  I do think that
+  was the golden era of the web.  It was quirky and yet beautiful.  It
+  was limited and yet diverse.  It was the sweet spot between Web 1.0
+  and Web 2.0.  It was Web 1.61803!  It was Web Golden!
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/web-golden.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/humour.html&quot;&gt;#humour&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/retrospective.html&quot;&gt;#retrospective&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Simplicity of IRC</title>
+    <link href="https://susam.net/simplicity-of-irc.html"/>
+    <id>urn:uuid:0a61290e-283f-46f6-8602-6f2ac0b4904d</id>
+    <updated>2022-01-09T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  During discussions with my friends and colleagues, whenever the
+  topic of chat protocols comes up, I often remark how simple the
+  Internet Relay Chat (IRC) protocol is and how this simplicity has
+  fostered creativity in the lives of many young computer hobbyists
+  growing up in the late 1990s and early 2000s.  For many of us who
+  were introduced to the Internet during that time, writing an IRC bot
+  turned out to be one of our first few non-trivial hobby programming
+  projects that involved network sockets, did something meaningful and
+  served actual users.
+&lt;/p&gt;
+&lt;h2 id=&quot;simplicity&quot;&gt;Simplicity&lt;/h2&gt;
+&lt;p&gt;
+  The underlying payloads that IRC servers and clients exchange during
+  an IRC session are quite simple to read manually and understand.
+  While implementing IRC servers still involves significant work to
+  keep track of users and channels as well as exchanging network state
+  and messages between servers, implementing IRC clients can often be
+  quite simple.  With a convenient programming language, one can
+  develop all kinds of fun tools and bots pretty quickly.  Only
+  creativity is the limit!
+&lt;/p&gt;
+&lt;p&gt;
+  In the early days of IRC, it was quite common for someone with basic
+  programming skills to write a simple IRC bot within a matter of
+  hours.  Such IRC bots typically responded to requests from users,
+  answered frequently asked questions, hosted trivia quiz, etc.  The
+  simplicity of the protocol made it very enticing to write programs
+  that could talk to IRC servers directly.  In fact, many people chose
+  to write the code to parse and create IRC payloads from scratch.
+  Observing the TCP/IP packets with a packet analyser such as
+  Wireshark or Tcpdump was all one needed to learn about the various
+  payload formats.  Additionally, back then
+  &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc1459&quot;&gt;RFC 1459&lt;/a&gt; served
+  as a good reference to learn the IRC specification.
+&lt;/p&gt;
+&lt;p&gt;
+  As a result of the simplicity of the IRC protocol, sometimes when I
+  wanted to join an IRC channel, say to seek some technical help, from
+  a system without an IRC client installed, I would often just start
+  a &lt;code&gt;telnet&lt;/code&gt;, &lt;code&gt;nc&lt;/code&gt; or &lt;code&gt;openssl&lt;/code&gt;
+  connection directly to my favourite IRC network and type out IRC
+  protocol commands by hand to join channels and talk to users.
+&lt;/p&gt;
+&lt;h2 id=&quot;session&quot;&gt;Session&lt;/h2&gt;
+&lt;p&gt;
+  To illustrate how simple the IRC protocol is, here is an example of
+  a minimal IRC session that involves joining a channel and posting a
+  message:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;nc irc.libera.chat 6667&lt;/kbd&gt;
+:strontium.libera.chat NOTICE * :*** Checking Ident
+:strontium.libera.chat NOTICE * :*** Looking up your hostname...
+:strontium.libera.chat NOTICE * :*** Couldn&apos;t look up your hostname
+:strontium.libera.chat NOTICE * :*** No Ident response
+&lt;kbd&gt;NICK humpty&lt;/kbd&gt;
+&lt;kbd&gt;USER humpty humpty irc.libera.chat :Humpty Dumpty&lt;/kbd&gt;
+:strontium.libera.chat 001 humpty :Welcome to the Libera.Chat Internet Relay Chat Network humpty
+:strontium.libera.chat 002 humpty :Your host is strontium.libera.chat[204.225.96.123/6667], running version solanum-1.0-dev
+:strontium.libera.chat 003 humpty :This server was created Sat Oct 30 2021 at 17:56:22 UTC
+:strontium.libera.chat 004 humpty strontium.libera.chat solanum-1.0-dev DGQRSZaghilopsuwz CFILMPQSTbcefgijklmnopqrstuvz bkloveqjfI
+:strontium.libera.chat 005 humpty MONITOR=100 CALLERID=g WHOX FNC ETRACE KNOCK SAFELIST ELIST=CMNTU CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQSTcgimnprstuz :are supported by this server
+:strontium.libera.chat 005 humpty CHANLIMIT=#:250 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=Libera.Chat STATUSMSG=@+ CASEMAPPING=rfc1459 NICKLEN=16 MAXNICKLEN=16 CHANNELLEN=50 TOPICLEN=390 DEAF=D :are supported by this server
+:strontium.libera.chat 005 humpty TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,ajrxz :are supported by this server
+:strontium.libera.chat 251 humpty :There are 66 users and 48644 invisible on 25 servers
+:strontium.libera.chat 252 humpty 35 :IRC Operators online
+:strontium.libera.chat 253 humpty 11 :unknown connection(s)
+:strontium.libera.chat 254 humpty 21561 :channels formed
+:strontium.libera.chat 255 humpty :I have 3117 clients and 1 servers
+:strontium.libera.chat 265 humpty 3117 4559 :Current local users 3117, max 4559
+:strontium.libera.chat 266 humpty 48710 50463 :Current global users 48710, max 50463
+:strontium.libera.chat 250 humpty :Highest connection count: 4560 (4559 clients) (301752 connections received)
+:strontium.libera.chat 375 humpty :- strontium.libera.chat Message of the Day -
+:strontium.libera.chat 372 humpty :- Welcome to Libera Chat, the IRC network for
+:strontium.libera.chat 372 humpty :- free &amp;amp; open-source software and peer directed projects.
+:strontium.libera.chat 372 humpty :-
+:strontium.libera.chat 372 humpty :- Use of Libera Chat is governed by our network policies.
+:strontium.libera.chat 372 humpty :-
+:strontium.libera.chat 372 humpty :- To reduce network abuses we perform open proxy checks
+:strontium.libera.chat 372 humpty :- on hosts at connection time.
+:strontium.libera.chat 372 humpty :-
+:strontium.libera.chat 372 humpty :- Please visit us in #libera for questions and support.
+:strontium.libera.chat 372 humpty :-
+:strontium.libera.chat 372 humpty :- Website and documentation:  https://libera.chat
+:strontium.libera.chat 372 humpty :- Webchat:                    https://web.libera.chat
+:strontium.libera.chat 372 humpty :- Network policies:           https://libera.chat/policies
+:strontium.libera.chat 372 humpty :- Email:                      support@libera.chat
+:strontium.libera.chat 376 humpty :End of /MOTD command.
+:humpty MODE humpty :+iw
+&lt;kbd&gt;JOIN #test&lt;/kbd&gt;
+:humpty!~humpty@178.79.176.169 JOIN #test
+:strontium.libera.chat 353 humpty = #test :humpty susam coolnickname ptl-tab edcragg
+:strontium.libera.chat 366 humpty #test :End of /NAMES list.
+&lt;kbd&gt;PRIVMSG #test :Hello, World!&lt;/kbd&gt;
+:susam!~susam@user/susam PRIVMSG #test :Hello, Humpty!
+&lt;kbd&gt;PART #test&lt;/kbd&gt;
+:humpty!~humpty@178.79.176.169 PART #test
+&lt;kbd&gt;QUIT&lt;/kbd&gt;
+:humpty!~humpty@178.79.176.169 QUIT :Client Quit
+ERROR :Closing Link: 178.79.176.169 (Client Quit)&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  In the above session, the user connects to the Libera Chat network
+  with the nickname &lt;code&gt;humpty&lt;/code&gt;, joins a channel
+  named &lt;code&gt;#test&lt;/code&gt; and posts a message.
+&lt;/p&gt;
+&lt;p&gt;
+  Note that the above session is not encrypted.  By convention, IRC
+  port 6667 is used for cleartext connections.  A separate port, such
+  as port 6697, is available for encrypted connections.  Here is an
+  example of an encrypted IRC session established with the OpenSSL
+  command line tool:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;openssl s_client -quiet -connect irc.libera.chat:6697 2&amp;gt; /dev/null&lt;/kbd&gt;
+:strontium.libera.chat NOTICE * :*** Checking Ident
+:strontium.libera.chat NOTICE * :*** Looking up your hostname...
+:strontium.libera.chat NOTICE * :*** Couldn&apos;t look up your hostname
+:strontium.libera.chat NOTICE * :*** No Ident response
+NICK humpty
+USER humpty humpty irc.libera.chat :Humpty Dumpty
+:strontium.libera.chat 001 humpty :Welcome to the Libera.Chat Internet Relay Chat Network humpty
+...&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The ellipsis denotes lines omitted for the sake of brevity.  The
+  remainder of the session is quite similar to the first example in
+  this post.
+&lt;/p&gt;
+&lt;p&gt;
+  It is worth noting here that although the payload format of IRC
+  protocol is quite simple, as one starts writing IRC clients, one
+  would stumble upon several tiny details about the protocol that
+  needs to be taken care of, e.g. authenticating to the network,
+  responding to &lt;code&gt;PING&lt;/code&gt; messages from the server to avoid
+  ping timeouts, splitting messages into shorter messages so that the
+  overall payload does not exceed the message length limit of 512
+  characters, etc.  For a serious IRC client, relying on a suitable
+  library that already solves these problems and implements the IRC
+  specification accurately is of course going to be useful.  But for a
+  hobbyist who wants to understand the protocol and write some tools
+  for fun, the textual nature of the IRC protocol and its simplicity
+  offers a fertile ground for experimentation and creativity.
+&lt;/p&gt;
+&lt;h2 id=&quot;join&quot;&gt;Join&lt;/h2&gt;
+&lt;p&gt;
+  In case you have never used IRC but this post has piqued your
+  interest and you want to try it out, you probably don&apos;t want to be
+  typing out IRC payloads by hand.  You would want a good IRC client
+  instead.  Let me share some convenient ways to connect to the Libera
+  Chat network.  Say, you want to join the &lt;code&gt;#python&lt;/code&gt;
+  channel on Libera Chat network.  Here are some ways to do it:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Join via web interface:
+      &lt;a href=&quot;https://web.libera.chat/#python&quot;&gt;web.libera.chat/#python&lt;/a&gt;.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Join using Irssi: On macOS, run &lt;code&gt;brew install irssi&lt;/code&gt;
+      to install it.  On Debian, Ubuntu or a Debian-based Linux
+      system, run &lt;code&gt;sudo apt-get install irssi&lt;/code&gt;.  Then
+      enter &lt;code&gt;irssi -c irc.libera.chat&lt;/code&gt; to connect to Libera
+      Chat.  Then within Irssi, type &lt;code&gt;/join #python&lt;/code&gt;.
+    &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  There are numerous other ways to join IRC networks.  There are GUI
+  desktop clients, web browser plugins, Emacs plugins, web-based
+  services, bouncers, etc. that let users connect to IRC networks in
+  various ways.  On Libera Chat, there are various channels for open
+  source projects (&lt;code&gt;#emacs&lt;/code&gt;, &lt;code&gt;#linux&lt;/code&gt;, etc.),
+  communities around specific subjects (&lt;code&gt;##math&lt;/code&gt;,
+  &lt;code&gt;#physics&lt;/code&gt;, etc.), programming languages
+  (&lt;code&gt;#c&lt;/code&gt;, &lt;code&gt;#c++&lt;/code&gt;, &lt;code&gt;#commonlisp&lt;/code&gt;,
+  etc.).  Type the &lt;code&gt;/join&lt;/code&gt; command followed by a space and
+  the channel name to join a channel and start posting and reading
+  messages there.  It is also possible to search for channels by
+  channel names.  For example, on Libera Chat, to search for all
+  channels with &apos;python&apos; in its name, enter the IRC
+  command: &lt;code&gt;/msg alis list python&lt;/code&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  Although I have used Libera Chat in the examples above, there are
+  plenty of other IRC networks too such as EFNet, DALNet, OFTC, etc.
+  Libera Chat happens to be one of the very popular and active
+  networks for open source projects and topic based communities.  I
+  use it everyday, so I chose it for the examples here.  There are
+  many tight-knit communities on Libera Chat.  Some of my favourite
+  ones are &lt;code&gt;#commonlisp&lt;/code&gt;, &lt;code&gt;#emacs&lt;/code&gt;,
+  &lt;code&gt;#python&lt;/code&gt;, etc.  All of these have very nice and active
+  communities with great attitudes towards beginners.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/simplicity-of-irc.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/irc.html&quot;&gt;#irc&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/networking.html&quot;&gt;#networking&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/protocol.html&quot;&gt;#protocol&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/retrospective.html&quot;&gt;#retrospective&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>My Code from 2020</title>
+    <link href="https://susam.net/code-2020.html"/>
+    <id>urn:uuid:7cd1d49e-a396-4aa9-bc9f-161a0093c77f</id>
+    <updated>2020-12-27T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  This is a brief retrospective of my free and open source work this
+  year:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://github.com/susam/texme&quot;&gt;TeXMe&lt;/a&gt;: This is an old
+    project that creates self-rendering Markdown + LaTeX documents.
+    There were two new TeXMe releases last year.  The new releases add
+    support for the new and improved MathJax 3 and introduce a new
+    pseudo-LaTeX Markdown priority environment.  Version 1.0.0 will be
+    coming up next year with more features.
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://github.com/susam/emacs4cl&quot;&gt;Emacs4CL&lt;/a&gt;: A 35
+    line Emacs initialisation file to quickly set up vanilla Emacs for
+    Common Lisp programming.  It provides a good middle ground between
+    configuring Emacs manually and installing a ready-made package
+    like Portacle.
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://github.com/susam/spcss&quot;&gt;SPCSS&lt;/a&gt;: A distillation
+    of writing CSS by hand for 20 years.  I have picked the best
+    pieces from my boilerplate stylesheets and shared it here.
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  That&apos;s it for now!  See you next year!
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code-2020.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/retrospective.html&quot;&gt;#retrospective&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

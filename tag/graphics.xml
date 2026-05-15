@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's Graphics Pages</title>
+  <subtitle>Feed for Susam's Graphics Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/graphics.xml" rel="self"/>
+  <id>https://susam.net/tag/graphics.xml</id>
+  <updated>2025-04-06T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Colour Contrast Calculator</title>
+    <link href="https://susam.net/contrast.html"/>
+    <id>urn:uuid:d1ed6db9-573b-4243-a411-b6b32eab7555</id>
+    <updated>2025-04-06T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  A simple web-based tool to calculate the contrast between two
+  colours according to WCAG contrast formula.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/contrast.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>XOR Map</title>
+    <link href="https://susam.net/code/web/xormap.html"/>
+    <id>urn:uuid:b9125db4-65be-497f-9b2b-15a9ec377b74</id>
+    <updated>2025-03-11T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  A simple HTML page that plots bitwise-XOR &lt;em&gt;x&lt;/em&gt; and &lt;em&gt;y&lt;/em&gt;
+  for each coordinate (&lt;em&gt;x&lt;/em&gt;, &lt;em&gt;y&lt;/em&gt;)&lt;/em&gt; with the
+  coordinate (0, 0) at the bottom-left corner.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/web/xormap.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>FXYT 0.5.0</title>
+    <link href="https://susam.net/code/news/fxyt/0.5.0.html"/>
+    <id>urn:uuid:661619ca-01cc-4877-bec5-dbe61453bbdc</id>
+    <updated>2025-02-11T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  FXYT 0.5.0 is a minor update of FXYT, a tiny, esoteric, stack-based,
+  postfix, canvas colouring language with only 36 simple commands.
+  This release fixes an annoying bug that has been affecting some
+  mobile device users for a while.  On some mobile web browsers, such
+  as Chrome on Samsung Galaxy S8, the drawing canvas would appear to
+  be larger than the viewport thus overflowing the visible screen on
+  the mobile device.  The user would then be required to manually zoom
+  out in order to use this tool conveniently.  This issue has been
+  fixed in this release.
+&lt;/p&gt;
+&lt;p&gt;
+  If you follow my &lt;a href=&quot;../../../cfrs.html&quot;&gt;CFRS[]&lt;/a&gt; project,
+  you might have noticed yesterday that a very similar fix has gone
+  into CFRS[] too.  For more details about that, see
+  the release page for &lt;a href=&quot;../cfrs/0.3.0.html&quot;&gt;CFRS[] 0.3.0&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  Visit &lt;a href=&quot;../../../fxyt.html&quot;&gt;FXYT&lt;/a&gt; to play with FXYT and
+  draw some interesting patterns!
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/fxyt/0.5.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/release.html&quot;&gt;#release&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>CFRS[] 0.3.0</title>
+    <link href="https://susam.net/code/news/cfrs/0.3.0.html"/>
+    <id>urn:uuid:398c6fac-9f33-45ac-aa74-ea6f199cbfd2</id>
+    <updated>2025-02-10T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  CFRS[] 0.3.0 is a minor update of CFRS[], an extremely minimal
+  drawing language consisting of only 6 simple commands.  This update
+  fixes an annoying bug that caused CFRS[] canvas to overflow the
+  visible screen on some mobile web browsers.  In particular, this
+  issue was observed on Chrome running on Samsung Galaxy S8.
+&lt;/p&gt;
+&lt;p&gt;
+  To read more about CFRS[], go to
+  &lt;a href=&quot;https://github.com/susam/cfrs#readme&quot;&gt;github.com/susam/cfrs&lt;/a&gt;.
+  Also, visit &lt;a href=&quot;../../../cfrs.html&quot;&gt;cfrs.html&lt;/a&gt; to play with CFRS[]
+  now and draw some nice patterns!
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/cfrs/0.3.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/release.html&quot;&gt;#release&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>FXYT 0.4.0</title>
+    <link href="https://susam.net/code/news/fxyt/0.4.0.html"/>
+    <id>urn:uuid:6452c458-da38-442f-8a42-2364de86eae5</id>
+    <updated>2025-02-09T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  FXYT 0.4.0 is a minor update of FXYT, a tiny, esoteric, stack-based,
+  postfix, canvas colouring language with only 36 simple commands.
+  This release increases the maximum allowed code length from 256
+  bytes to 1024 bytes.  This means there is now more room for writing
+  more complex FXYT programs!
+&lt;/p&gt;
+&lt;p&gt;
+  Further, the maximum code length for distributable demo links has
+  been increased from 64 bytes to 256 bytes.  This allows several more
+  impressive demos to have their own distributable links.  As a
+  specific example of one such demo, take a look at
+  this &lt;a href=&quot;https://susam.net/fxyt.html#XTsN128dN3142pN128qDN3142gbN6284dcDN1571gbN3142SdcDNN1571dlbNN3142dSdcDDN166SDpN120000qdSDpN1000qpN1000qN1000SdpN1000qN1100sN3pN25qYgNSbPN255c&quot;&gt;animated
+  sine wave&lt;/a&gt; developed by &lt;a href=&quot;https://github.com/ncw&quot;&gt;Nick
+  Craig-Wood&lt;/a&gt;, of Rclone fame!
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/fxyt/0.4.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/release.html&quot;&gt;#release&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Guess My RGB 0.3.0</title>
+    <link href="https://susam.net/code/news/myrgb/0.3.0.html"/>
+    <id>urn:uuid:bccc99e9-fbaa-4fc4-926a-5c57002f4d5e</id>
+    <updated>2024-09-14T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  &lt;a href=&quot;../../../myrgb.html&quot;&gt;Guess My RGB&lt;/a&gt;, the little colour
+  guessing game, just got a small update.  This update adds a
+  &quot;Mode&quot; link to the footer which can be used to toggle the game
+  between normal mode and expert mode.
+&lt;/p&gt;
+&lt;p&gt;
+  The expert mode was introduced as a hidden feature five months ago
+  in the &lt;a href=&quot;0.2.0.html&quot;&gt;previous release&lt;/a&gt;.  With the current
+  release, the expert mode no longer remains a hidden feature.  You
+  can simply toggle between modes via the new footer link.
+&lt;/p&gt;
+&lt;p&gt;
+  Ready to test your colour skills?  Head over to
+  &lt;a href=&quot;../../../myrgb.html&quot;&gt;myrgb.html&lt;/a&gt; and start playing
+  today!
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/myrgb/0.3.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/release.html&quot;&gt;#release&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Guess My RGB 0.2.0</title>
+    <link href="https://susam.net/code/news/myrgb/0.2.0.html"/>
+    <id>urn:uuid:39ea071d-2941-4947-93d7-81a2ec4facca</id>
+    <updated>2024-04-15T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  &lt;a href=&quot;../../../myrgb.html&quot;&gt;Guess My RGB&lt;/a&gt;, the little colour
+  guessing game, received a minor update today.  This update adds a
+  hidden feature that lets you play the game in &lt;em&gt;expert mode&lt;/em&gt;.
+  In this mode, the match percentage for your submitted guess is not
+  shown on the screen.
+&lt;/p&gt;
+&lt;p&gt;
+  Thanks to @steffahn for
+  &lt;a href=&quot;https://lobste.rs/s/sbcayb/guess_my_rgb#c_gqrj3r&quot;&gt;suggesting
+  this feature&lt;/a&gt; on th Lobsters forum!
+&lt;/p&gt;
+&lt;p&gt;
+  Visit &lt;a href=&quot;../../../myrgb.html#x&quot;&gt;myrgb.html#x&lt;/a&gt; now to play
+  the game in the expert mode.
+&lt;/p&gt;
+&lt;p&gt;
+  Alternatively, visit &lt;a href=&quot;../../../myrgb.html&quot;&gt;myrgb.html&lt;/a&gt; to
+  play it in the normal mode like before.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/myrgb/0.2.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/release.html&quot;&gt;#release&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>CFRS[] 0.2.0</title>
+    <link href="https://susam.net/code/news/cfrs/0.2.0.html"/>
+    <id>urn:uuid:edbd627d-bc52-4ff6-b7d0-2bb56bf5ad60</id>
+    <updated>2024-04-06T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  CFRS[] 0.2.0 is a minor update of CFRS[], an extremely minimal
+  drawing language consisting of only 6 simple commands.  This update
+  brings minor changes to the built-in help screen that can be invoked
+  by typing &lt;code&gt;?&lt;/code&gt; in the input pane.  For example, the help
+  screen now has a direct links to built-in demos and community demos.
+  Further, based on community feedback, the description of
+  the &lt;code&gt;]&lt;/code&gt; command has been updated with clearer language
+  that better clarifies that this command repeats a repeatable block
+  once (i.e. executes the repeatable block again).  See
+  the &lt;a href=&quot;https://github.com/susam/cfrs/blob/main/CHANGES.md&quot;&gt;changelog&lt;/a&gt;
+  for more details.
+&lt;/p&gt;
+&lt;p&gt;
+  To read more about CFRS[], go to
+  &lt;a href=&quot;https://github.com/susam/cfrs#readme&quot;&gt;github.com/susam/cfrs&lt;/a&gt;.
+  Visit &lt;a href=&quot;../../../cfrs.html&quot;&gt;cfrs.html&lt;/a&gt; to play with CFRS[]
+  now and draw some nice pictures and animation.  If you end up
+  developing any cool demos, do share them by creating a
+  &lt;a href=&quot;https://github.com/susam/cfrs/issues&quot;&gt;new post here&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/cfrs/0.2.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/release.html&quot;&gt;#release&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Guess My RGB 0.1.0</title>
+    <link href="https://susam.net/code/news/myrgb/0.1.0.html"/>
+    <id>urn:uuid:e51f233f-43d9-420a-9358-aef5ed5c0dee</id>
+    <updated>2024-04-03T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Guess My RGB 0.1.0 is the first stable release
+  of &lt;a href=&quot;../../../myrgb.html&quot;&gt;this tiny colour guessing game&lt;/a&gt;.
+  The game is available as a single HTML page that runs in a web
+  browser.  It presents a page with a randomly chosen background
+  colour.  The player then needs to guess the three RGB hexademical
+  digits that make the given background colour.  See
+  &lt;a href=&quot;https://github.com/susam/myrgb&quot;&gt;github.com/susam/myrgb&lt;/a&gt;
+  for more information about this game.
+&lt;/p&gt;
+&lt;p&gt;
+  I wrote this game last Saturday afternoon and shared it on my
+  website at &lt;a href=&quot;../../../myrgb.html&quot;&gt;myrgb.html&lt;/a&gt; later that
+  night.  I had no intention of sharing this with a wide audience yet
+  because I had not had sufficient time testing it well.  But somehow
+  a Hacker News (HN) user named &lt;em&gt;talonx&lt;/em&gt; discovered this game
+  on Sunday morning and shared it on HN in this post:
+  &lt;a href=&quot;https://news.ycombinator.com/item?id=39882018&quot;&gt;news.ycombinator.com/item?id=39882018&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  Since I had not shared this game with anyone anywhere yet, I was
+  quite surprised to wake up Sunday morning and find my game trending
+  at the top of HN.  I believe this is where maintaining a web feed on
+  my website might have helped.  Every new page that I publish on this
+  website also appears as an entry in the web feed for this website.
+  This feed can be found here: &lt;a href=&quot;../../../feed.xml&quot;&gt;feed.xml&lt;/a&gt;.
+  I have a couple of hundred subscribers to this feed.  It is very
+  likely that the HN user who shared this game on HN found it through
+  this feed.
+&lt;/p&gt;
+&lt;p&gt;
+  Ever since this game was shared on HN, my website has received a
+  large number of hits.  In the last three days (excluding today),
+  this game has received a total of 166102 hits.  The actual numbers
+  for each day look like this:
+&lt;/p&gt;
+&lt;table class=&quot;grid center textcenter&quot;&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Date&lt;/th&gt;
+    &lt;th&gt;Hits&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;31 Mar 2024&lt;/td&gt;
+    &lt;td&gt;95467&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;01 Mar 2024&lt;/td&gt;
+    &lt;td&gt;48330&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;02 Mar 2024&lt;/td&gt;
+    &lt;td&gt;22305&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;
+  To all visitors of this website who played this game and shared this
+  game with others, thank you!  Crafting tiny software tools like this
+  is a creative outlet for me.  To know that there are others out
+  there who enjoyed this game brings me joy!
+&lt;/p&gt;
+&lt;p&gt;
+  To play this game, go to &lt;a href=&quot;../../../myrgb.html&quot;&gt;myrgb.html&lt;/a&gt;
+  now and guess some colours!
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/myrgb/0.1.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/release.html&quot;&gt;#release&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Guess My RGB</title>
+    <link href="https://susam.net/myrgb.html"/>
+    <id>urn:uuid:bdf6dded-e27f-406c-a08e-060bf20a00c1</id>
+    <updated>2024-03-31T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  A tiny, web-based, RGB colour guessing game.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/myrgb.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/game.html&quot;&gt;#game&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>FXYT 0.3.0</title>
+    <link href="https://susam.net/code/news/fxyt/0.3.0.html"/>
+    <id>urn:uuid:e5d41090-98cf-4944-9e67-a67caf1bd53a</id>
+    <updated>2024-03-29T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  FXYT 0.3.0 is a minor release of FXYT, a tiny, esoteric,
+  stack-based, postfix, canvas colouring language with only 36 simple
+  commands.  This release comes with minor bug fixes pertaining to
+  initialising the input and output from code embedded in
+  distributable links.  No change in the language definition or the
+  language implementation has been made in this release.
+&lt;/p&gt;
+&lt;p&gt;
+  Visit &lt;a href=&quot;../../../fxyt.html&quot;&gt;fxyt.html&lt;/a&gt; to play with FXYT.
+  See &lt;a href=&quot;https://github.com/susam/fxyt#readme&quot;&gt;README&lt;/a&gt; for
+  more details.  Also, see
+  &lt;a href=&quot;https://susam.github.io/fxyt/demo.html&quot;&gt;this demo page&lt;/a&gt;
+  for some nice demos developed by the tiny community around FXYT.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/fxyt/0.3.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/release.html&quot;&gt;#release&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>CFRS[] 0.1.0</title>
+    <link href="https://susam.net/code/news/cfrs/0.1.0.html"/>
+    <id>urn:uuid:c2e644d6-4c5d-4cda-bf67-67708bc88b8b</id>
+    <updated>2023-12-25T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  CFRS[] 0.1.0 is the first release of CFRS[], an extremely minimal
+  drawing language that consists of only six simple commands.  Ever
+  since this new esoteric language and its implementation was
+  &lt;a href=&quot;https://news.ycombinator.com/item?id=37956065&quot;&gt;announced
+  about two months ago&lt;/a&gt;, a small but enthusiastic community has
+  sprung up around it.  Feedback and enhancement requests from the
+  community has been crucial in polishing the implementation and
+  arriving at the current stable release.  Further, some community
+  members have also submitted very interesting and impressive demos.
+&lt;/p&gt;
+&lt;p&gt;
+  To play with CFRS[] now, please
+  visit &lt;a href=&quot;../../../cfrs.html&quot;&gt;cfrs.html&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  See &lt;a href=&quot;https://github.com/susam/cfrs#readme&quot;&gt;github.com/susam/cfrs&lt;/a&gt;
+  for more information about CFRS.  Also, see this
+  &lt;a href=&quot;https://susam.github.io/cfrs/demo.html&quot;&gt;demo page&lt;/a&gt; for a
+  curated collection of community demos.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/cfrs/0.1.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/release.html&quot;&gt;#release&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>FXYT 0.2.0</title>
+    <link href="https://susam.net/code/news/fxyt/0.2.0.html"/>
+    <id>urn:uuid:87dd6837-0b09-46e5-b968-fdc973a99736</id>
+    <updated>2023-12-24T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  FXYT 0.2.0 is a minor update of FXYT, a tiny, stack-oriented, canvas
+  colouring language written in postfix notation with only 36 simple
+  commands.  This update specifies and implements a much stricter
+  definition of the &lt;code&gt;F&lt;/code&gt; command that sets the frame
+  interval.  The problem with the earlier definition as well as
+  implementation was that the &lt;code&gt;F&lt;/code&gt; command was evaluated for
+  every cell in the canvas and the frame interval was set for every
+  such interval.  This meant that the frame interval that would be set
+  for the next frame would depend on the order in which the evaluation
+  occurred.  See section
+  &lt;a href=&quot;https://github.com/susam/fxyt#frame-interval&quot;&gt;Frame
+  Interval&lt;/a&gt; of the README for the complete details.
+&lt;/p&gt;
+&lt;p&gt;
+  This update now ensures that a coordinate-dependent frame interval
+  set with the &lt;code&gt;F&lt;/code&gt; command behaves uniformly across any
+  implementation of FXYT regardless of the order of evaluation.  This
+  is done by ensuring that while the command &lt;code&gt;F&lt;/code&gt; is
+  evaluated for all cells, it is only the frame interval value found
+  during the evaluation of cell (0, 0) that is honoured as the frame
+  interval for the next frame.
+&lt;/p&gt;
+&lt;p&gt;
+  The new update is now available at
+  &lt;a href=&quot;../../../fxyt.html&quot;&gt;fxyt.html&lt;/a&gt;.  You are very welcome to
+  try it out and play with it.  If you come up with any interesting
+  demos, please do
+  &lt;a href=&quot;https://github.com/susam/fxyt/issues&quot;&gt;share them here&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/fxyt/0.2.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/release.html&quot;&gt;#release&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>FXYT 0.1.0</title>
+    <link href="https://susam.net/code/news/fxyt/0.1.0.html"/>
+    <id>urn:uuid:dede5fee-e9ee-464e-9485-b8fb60e351c6</id>
+    <updated>2023-12-20T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  FXYT 0.1.0 is the first release of this project that introduces the
+  FXYT canvas colouring language and a reference implementation.  This
+  project is inspired by Martin Kleppe&apos;s very popular Tixy project.
+  While Tixy supports JavaScript expressions to determine the size and
+  colour of circles in a 16x16 grid, FXYT comes with its own tiny,
+  stack-based language that is written in postfix notation.  Further,
+  FXYT provides a 256x256 grid of cells each of which can be painted
+  with an arbitrary colour determined by the result of the evaluation
+  of the input code.
+&lt;/p&gt;
+&lt;p&gt;
+  To see some demos, visit these links:
+  &lt;a href=&quot;../../../fxyt.html#XYxTN1srN255pTN1sqD&quot;&gt;#1&lt;/a&gt;,
+  &lt;a href=&quot;../../../fxyt.html#XYaTN1srN255pTN1sqN0&quot;&gt;#2&lt;/a&gt;,
+  &lt;a href=&quot;../../../fxyt.html#XYoTN1srN255pTN1sqDN0S&quot;&gt;#3&lt;/a&gt;,
+  &lt;a href=&quot;../../../fxyt.html#XYpTN1srN255pTN1sqD&quot;&gt;#4&lt;/a&gt; and
+  &lt;a href=&quot;../../../fxyt.html#XYN256sTdrD&quot;&gt;#5&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  Also, see
+  &lt;a href=&quot;https://github.com/susam/fxyt#readme&quot;&gt;github.com/susam/fxyt&lt;/a&gt;
+  for more details about this project.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/fxyt/0.1.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/release.html&quot;&gt;#release&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>FXYT</title>
+    <link href="https://susam.net/fxyt.html"/>
+    <id>urn:uuid:82485106-3771-4e39-aade-ae0d261efb03</id>
+    <updated>2023-12-19T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Tiny, stack-based, postfix, canvas colouring language with only 36
+  simple commands.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/fxyt.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>CFRS[]</title>
+    <link href="https://susam.net/cfrs.html"/>
+    <id>urn:uuid:69ec2499-c894-4e2d-b21f-fe1d1584450b</id>
+    <updated>2023-10-19T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  An extremely minimal drawing language consisting of only 6 simple
+  commands: &lt;code&gt;C&lt;/code&gt;, &lt;code&gt;F&lt;/code&gt;, &lt;code&gt;R&lt;/code&gt;,
+  &lt;code&gt;S&lt;/code&gt;, &lt;code&gt;[&lt;/code&gt; and &lt;code&gt;]&lt;/code&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/cfrs.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>TextMetrics</title>
+    <link href="https://susam.net/code/web/textmetrics.html"/>
+    <id>urn:uuid:1871d0ae-4a7a-4086-8592-2984c50ec80a</id>
+    <updated>2023-02-01T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  An example page that demonstrates text metrics measurements.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/web/textmetrics.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Andromeda Invaders</title>
+    <link href="https://susam.net/invaders.html"/>
+    <id>urn:uuid:8291fa96-dd3c-4b08-8f71-72358ea5e54e</id>
+    <updated>2022-02-13T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  A 1980s-arcade-style game written using HTML5, Canvas and Web Audio.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/invaders.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/game.html&quot;&gt;#game&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

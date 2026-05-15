@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's HTML Tools</title>
+  <subtitle>Feed for Susam's HTML Tools</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/html.xml" rel="self"/>
+  <id>https://susam.net/tag/html.xml</id>
+  <updated>2026-03-16T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Wander Console</title>
+    <link href="https://susam.net/wander/"/>
+    <id>urn:uuid:2e9733ae-16b0-487a-8e83-ce20cb765e70</id>
+    <updated>2026-03-16T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  I have put together a small tool to explore the small web of
+  personal websites.  It is called &lt;em&gt;Wander&lt;/em&gt;.  Please
+  visit &lt;a href=&quot;https://susam.net/wander/&quot;&gt;susam.net/wander/&lt;/a&gt; to
+  try out my Wander console.
+&lt;/p&gt;
+&lt;p&gt;
+  If you have your own website, please consider joining this community
+  by hosting your own Wander console.  To do so, visit
+  &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;
+  and follow the instructions there.  Thank you!
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/wander/"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>CSS Fizz Buzz</title>
+    <link href="https://susam.net/css-fizz-buzz.html"/>
+    <id>urn:uuid:bae16e91-3cf2-43a0-a960-883554931a96</id>
+    <updated>2025-12-03T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  An implementation of Fizz Buzz in four lines of CSS.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/css-fizz-buzz.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Nerd Quiz</title>
+    <link href="https://susam.net/nq.html"/>
+    <id>urn:uuid:b2fbed6f-d449-441a-8aaf-b16929a39453</id>
+    <updated>2025-10-15T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  A nerdy, handcrafted quiz built from everyday moments of reading,
+  writing, thinking, learning and exploring.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/nq.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/game.html&quot;&gt;#game&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Prime Number Grid Explorer</title>
+    <link href="https://susam.net/primegrid.html"/>
+    <id>urn:uuid:ada8789c-6448-49e3-889f-d6eb283c8dd9</id>
+    <updated>2025-08-19T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  A simple single-page HTML application to explore the distribution of
+  prime numbers in a grid.  Choose a starting number along with the
+  number of rows and columns and the page generates the corresponding
+  grid.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/primegrid.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Miller-Rabin Speed Test</title>
+    <link href="https://susam.net/code/web/miller-rabin-speed-test.html"/>
+    <id>urn:uuid:35bf0b2b-2673-4ede-b7b4-75e8adebf666</id>
+    <updated>2025-08-16T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  A demo page that implements the Miller-Rabin primality test to
+  accurately detect primes for all numbers less than
+  318665857834031151167461 and compare its speed against a simple
+  division based primality test algorithm.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/web/miller-rabin-speed-test.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>ASCII PC</title>
+    <link href="https://susam.net/pc.html"/>
+    <id>urn:uuid:7dd409d4-dd4f-4d34-b8c7-aa52e6927c4c</id>
+    <updated>2025-04-15T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  An ASCII art depiction of a PC resting on a computer case, with a
+  classic Model M keyboard placed in front.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/pc.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/miscellaneous.html&quot;&gt;#miscellaneous&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Colour Contrast Calculator</title>
+    <link href="https://susam.net/contrast.html"/>
+    <id>urn:uuid:d1ed6db9-573b-4243-a411-b6b32eab7555</id>
+    <updated>2025-04-06T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  A simple web-based tool to calculate the contrast between two
+  colours according to WCAG contrast formula.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/contrast.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>XOR Map</title>
+    <link href="https://susam.net/code/web/xormap.html"/>
+    <id>urn:uuid:b9125db4-65be-497f-9b2b-15a9ec377b74</id>
+    <updated>2025-03-11T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  A simple HTML page that plots bitwise-XOR &lt;em&gt;x&lt;/em&gt; and &lt;em&gt;y&lt;/em&gt;
+  for each coordinate (&lt;em&gt;x&lt;/em&gt;, &lt;em&gt;y&lt;/em&gt;)&lt;/em&gt; with the
+  coordinate (0, 0) at the bottom-left corner.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/web/xormap.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Guess My RGB</title>
+    <link href="https://susam.net/myrgb.html"/>
+    <id>urn:uuid:bdf6dded-e27f-406c-a08e-060bf20a00c1</id>
+    <updated>2024-03-31T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  A tiny, web-based, RGB colour guessing game.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/myrgb.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/game.html&quot;&gt;#game&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>FXYT</title>
+    <link href="https://susam.net/fxyt.html"/>
+    <id>urn:uuid:82485106-3771-4e39-aade-ae0d261efb03</id>
+    <updated>2023-12-19T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Tiny, stack-based, postfix, canvas colouring language with only 36
+  simple commands.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/fxyt.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>CFRS[]</title>
+    <link href="https://susam.net/cfrs.html"/>
+    <id>urn:uuid:69ec2499-c894-4e2d-b21f-fe1d1584450b</id>
+    <updated>2023-10-19T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  An extremely minimal drawing language consisting of only 6 simple
+  commands: &lt;code&gt;C&lt;/code&gt;, &lt;code&gt;F&lt;/code&gt;, &lt;code&gt;R&lt;/code&gt;,
+  &lt;code&gt;S&lt;/code&gt;, &lt;code&gt;[&lt;/code&gt; and &lt;code&gt;]&lt;/code&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/cfrs.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Andromeda Invaders</title>
+    <link href="https://susam.net/invaders.html"/>
+    <id>urn:uuid:8291fa96-dd3c-4b08-8f71-72358ea5e54e</id>
+    <updated>2022-02-13T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  A 1980s-arcade-style game written using HTML5, Canvas and Web Audio.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/invaders.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/game.html&quot;&gt;#game&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>QuickQWERTY</title>
+    <link href="https://susam.net/quickqwerty.html"/>
+    <id>urn:uuid:480142e5-55e2-49f7-965b-70cd9f8586e7</id>
+    <updated>2015-05-11T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Touch typing tutor that runs in your web browser.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/quickqwerty.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

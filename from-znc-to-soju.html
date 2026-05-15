@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>From ZNC to Soju - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/from-znc-to-soju.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<main>
+<h1>From ZNC to Soju</h1>
+<div>By <b>Susam Pal</b> on 12 Feb 2026</div>
+<p>
+  I have recently switched from ZNC to Soju as my IRC bouncer and I am
+  already quite pleased with it.  I usually run my bouncer on a Debian
+  machine, where Soju is well packaged and runs smoothly right after
+  installation.  By contrast, the ZNC package included with Debian 13
+  (Trixie) and earlier fails to start after installation because of a
+  missing configuration file.  As a result, I was forced to maintain
+  my own configuration file along with a necessary PEM bundle, copy
+  them to the Debian system and carefully set the correct file
+  permissions before I could run ZNC successfully.  None of this is
+  necessary with Soju, since installing it from the Debian package
+  repository automatically sets up the configuration and certificate
+  files.  I no longer have to manage any configuration or certificate
+  files myself.
+</p>
+<h2 id="setup">Setup<a href="#setup"></a></h2>
+<p>
+  It is quite straightforward to install and set up Soju on Debian.
+  The following two commands install Soju:
+</p>
+<pre><code>sudo apt-get update
+sudo apt-get -y install soju</code></pre>
+<p>
+  Then setting up an IRC connection involves another two commands:
+</p>
+<pre><code>sudo sojuctl user create -username soju -password YOUR_SOJU_PASSWORD
+sudo sojuctl user run soju network create -name bnc1 -addr irc.libera.chat -nick YOUR_NICK -pass YOUR_NICK_PASSWORD</code></pre>
+<p>
+  Here, <code>YOUR_SOJU_PASSWORD</code> is a placeholder for a new
+  password you must choose for your Soju user.  Finally, we restart
+  Soju as follows:
+</p>
+<pre><code>sudo systemctl restart soju</code></pre>
+<h2 id="database">Database<a href="#database"></a></h2>
+<p>
+  What previously involved maintaining several files that had to be
+  installed and configured on each machine running ZNC is now reduced
+  to the two <code>sojuctl</code> commands above.  Still, the
+  configuration needs to live somewhere.  In fact, the
+  two <code>sojuctl</code> commands introduce earlier store the
+  configuration in a SQLite database.  Here is a glimpse of what the
+  database looks like:
+</p>
+<pre><samp>$ <kbd>sudo sqlite3 /var/lib/soju/main.db '.tables'</kbd>
+Channel              MessageFTS_data      ReadReceipt
+DeliveryReceipt      MessageFTS_docsize   User
+Message              MessageFTS_idx       WebPushConfig
+MessageFTS           MessageTarget        WebPushSubscription
+MessageFTS_config    Network
+$ <kbd>sudo sqlite3 /var/lib/soju/main.db 'SELECT * from User'</kbd>
+1|soju|$2a$10$mM5Qcz8.OPMi9lyWDxPRh.bNxzq7jtLdxcoPl09AYTnqcmLmEqzSO|0|||2026-02-17T23:24:24.926Z|1||-1
+$ <kbd>sudo sqlite3 /var/lib/soju/main.db 'SELECT * from Network'</kbd>
+1|bnc1|1|irc.libera.chat|YOUR_NICK||||YOUR_NICK_PASSWORD|||||||1|1</samp></pre>
+<h2 id="client">Client Configuration<a href="#client"></a></h2>
+<p>
+  Finally, the IRC client can be configured to connect to port 6697 on
+  the system running Soju.  Here is an example of how this can be done
+  in Irssi:
+</p>
+<pre><code>/network add -nick YOUR_NICK -user soju/bnc1 net1
+/server add -tls -network bnc1 YOUR_SOJU_HOST 6697 YOUR_SOJU_PASSWORD
+/connect net1
+</code></pre>
+<p>
+  You can also set up multiple connections to IRC networks through the
+  same Soju instance.  All you need to do is repeat
+  the <code>sojuctl</code> commands to create additional networks such
+  as <code>bnc2</code>, <code>bnc3</code> and so on, then repeat the
+  configuration in your IRC client using new network names such as
+  <code>net2</code>, <code>net3</code>, etc.  These network names are
+  entirely user defined, so you can choose any names you like.  The
+  names <code>bnc2</code>, <code>net2</code> and so on are only
+  examples.
+</p>
+<div>
+  <a href="./comments/from-znc-to-soju.html">Comments</a> |
+  <a href="./tag/irc.html">#irc</a> |
+  <a href="./tag/technology.html">#technology</a> |
+  <a href="./tag/how-to.html">#how-to</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./wander/">Wander</a>
+    <a href="./about.html">About</a>
+    <a href="https://codeberg.org/susam">Codeberg</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

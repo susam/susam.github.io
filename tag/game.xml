@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's Game Pages</title>
+  <subtitle>Feed for Susam's Game Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/game.xml" rel="self"/>
+  <id>https://susam.net/tag/game.xml</id>
+  <updated>2026-02-22T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Nerd Quiz #4</title>
+    <link href="https://susam.net/code/news/nq/4.0.0.html"/>
+    <id>urn:uuid:fefa021c-38f8-46f9-95a7-ad034f6861fe</id>
+    <updated>2026-02-22T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Nerd Quiz #4 is the fourth instalment of Nerd Quiz, a single page
+  HTML application that challenges you to measure your inner geek with
+  a brief quiz.  Each question in the quiz comes from everyday moments
+  of reading, writing, thinking, learning and exploring.
+&lt;/p&gt;
+&lt;p&gt;
+  This release introduces five new questions drawn from a range of
+  topics, including computing history, graph theory and Unix.
+  Visit &lt;a href=&quot;../../../nq.html#4&quot;&gt;Nerd Quiz&lt;/a&gt; to try the quiz.
+&lt;/p&gt;
+&lt;p&gt;
+  A community discussion page is
+  &lt;a href=&quot;../../../comments/nq.html&quot;&gt;available here&lt;/a&gt;.  You are
+  very welcome to share your score or discuss the questions there.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/nq/4.0.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/miscellaneous.html&quot;&gt;#miscellaneous&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/game.html&quot;&gt;#game&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Nerd Quiz #3</title>
+    <link href="https://susam.net/code/news/nq/3.0.0.html"/>
+    <id>urn:uuid:1b8c60e7-2f74-4908-88f1-efa268ba1ef4</id>
+    <updated>2025-12-23T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Nerd Quiz #3 is the third release of Nerd Quiz, a single-page HTML
+  application that invites you to test your nerd level through a short
+  quiz.  Each question is inspired by everyday moments of reading,
+  writing, thinking, learning and exploring.
+&lt;/p&gt;
+&lt;p&gt;
+  This release introduces five new questions drawn from a range of
+  topics, including computing history, graph theory and Unix.
+  Visit &lt;a href=&quot;../../../nq.html#3&quot;&gt;Nerd Quiz&lt;/a&gt; to try the quiz.
+&lt;/p&gt;
+&lt;p&gt;
+  A community discussion page is available at
+  &lt;a href=&quot;../../../comments/nq.html&quot;&gt;Discuss Nerd Quiz&lt;/a&gt;.  You are
+  very welcome to share your score or discuss the questions there.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/nq/3.0.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/miscellaneous.html&quot;&gt;#miscellaneous&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/game.html&quot;&gt;#game&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Nerd Quiz #2</title>
+    <link href="https://susam.net/code/news/nq/2.0.0.html"/>
+    <id>urn:uuid:e8b1e13c-6295-495e-8721-0c51fba3e601</id>
+    <updated>2025-11-18T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Nerd Quiz #2 is the second release of Nerd Quiz, a single-page HTML
+  application that invites you to gauge your nerd level through short,
+  focused quiz sets.  Each question is carefully crafted from everyday
+  moments of reading, writing, thinking, learning and exploring.
+&lt;/p&gt;
+&lt;p&gt;
+  This release introduces five new questions drawn from a range of
+  topics such as chess, graph theory and linguistics.  To try the
+  quiz, visit &lt;a href=&quot;../../../nq.html#2&quot;&gt;nq.html&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/nq/2.0.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/miscellaneous.html&quot;&gt;#miscellaneous&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/game.html&quot;&gt;#game&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Nerd Quiz #1</title>
+    <link href="https://susam.net/code/news/nq/1.0.0.html"/>
+    <id>urn:uuid:94654aff-c25b-4bdf-bddb-fdce6fd96b2f</id>
+    <updated>2025-10-16T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Nerd Quiz #1 is the first release of Nerd Quiz, a single-page HTML
+  application that lets you test your nerd level through short,
+  focused quiz sets.  Each question in the quiz is handcrafted from
+  everyday moments of reading, writing, thinking, learning and
+  exploring.
+&lt;/p&gt;
+&lt;p&gt;
+  To try the quiz now, visit &lt;a href=&quot;../../../nq.html&quot;&gt;nq.html&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  The source code of Nerd Quiz is available at
+  &lt;a href=&quot;https://github.com/susam/nq#readme&quot;&gt;github.com/susam/nq&lt;/a&gt;
+  under the terms of the MIT licence.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/nq/1.0.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/miscellaneous.html&quot;&gt;#miscellaneous&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/game.html&quot;&gt;#game&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Nerd Quiz</title>
+    <link href="https://susam.net/nq.html"/>
+    <id>urn:uuid:b2fbed6f-d449-441a-8aaf-b16929a39453</id>
+    <updated>2025-10-15T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  A nerdy, handcrafted quiz built from everyday moments of reading,
+  writing, thinking, learning and exploring.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/nq.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/game.html&quot;&gt;#game&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Guess My RGB</title>
+    <link href="https://susam.net/myrgb.html"/>
+    <id>urn:uuid:bdf6dded-e27f-406c-a08e-060bf20a00c1</id>
+    <updated>2024-03-31T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  A tiny, web-based, RGB colour guessing game.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/myrgb.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/game.html&quot;&gt;#game&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Andromeda Invaders</title>
+    <link href="https://susam.net/invaders.html"/>
+    <id>urn:uuid:8291fa96-dd3c-4b08-8f71-72358ea5e54e</id>
+    <updated>2022-02-13T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  A 1980s-arcade-style game written using HTML5, Canvas and Web Audio.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/invaders.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/game.html&quot;&gt;#game&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/graphics.html&quot;&gt;#graphics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Wander Console 0.3.0 - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/code/news/wander/0.3.0.html">
+  <link rel="icon" type="image/png" href="../../../favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Susam's Feed" href="../../../feed.xml">
+  <link rel="stylesheet" href="../../../css/main.css">
+</head>
+<body>
+<main>
+<h1>Wander Console 0.3.0</h1>
+<div>By <b>Susam Pal</b> on 25 Mar 2026</div>
+<p>
+  Wander 0.3.0 is the third release of Wander, a small, decentralised,
+  self-hosted web console that lets visitors to your website explore
+  interesting websites and pages recommended by a community of
+  independent website owners.  To try it, go
+  to <a href="../../../wander/">susam.net/wander/</a>.
+</p>
+<p>
+  This release brings small but important bug fixes.  The previous
+  release, <a href="0.2.0.html">version 0.2.0</a> introduced a number
+  of new features.  Unfortunately, two of them caused issues for some
+  users.  A new feature in the previous release was
+  the <code>ignore</code> list feature.  The <code>ignore</code> list
+  defines console URLs and page URLs that the console never uses while
+  discovering page recommendations.  While this feature works fine,
+  due to a bug in the implementation, the <strong>Console</strong>
+  dialog fails to load in consoles that do not define
+  any <code>ignore</code> list.  This has now been fixed.
+</p>
+<p>
+  There was another issue due to which the <code>&lt;iframe&gt;</code>
+  that displays discovered websites and pages could not load certain
+  websites.  In particular, any website that relied on same-origin
+  context to load its own resources failed to load in the console.
+  This has been fixed as well.  Please see
+  <a href="https://codeberg.org/susam/wander/issues/7">codeberg.org/susam/wander/issues/7</a>
+  for a detailed discussion on this issue.
+</p>
+<p>
+  Apart from these two important fixes, there are a few other minor
+  fixes too pertaining to preventing horizontal scrolling in small
+  devices and preventing duplicate recommendations from appearing too
+  close to each other.  Please
+  see <a href="https://codeberg.org/susam/wander/src/branch/main/CHANGES.md">CHANGES.md</a>
+  for a detailed changelog.
+</p>
+<p>
+  To learn more about Wander, how it works and how to set it up,
+  please read the project README at
+  <a href="https://codeberg.org/susam/wander#readme">codeberg.org/susam/wander</a>.
+  To try it out right now, go to
+  <a href="../../../wander/">susam.net/wander/</a>.
+</p>
+<div>
+  <a href="../../../comments/wander.html">Comments</a> |
+  <a href="../../../tag/web.html">#web</a> |
+  <a href="../../../tag/technology.html">#technology</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../../../">Home</a>
+    <a href="../../../links.html">Links</a>
+    <a href="../../../feed.xml">Feed</a>
+    <a href="../../../form/subscribe/">Subscribe</a>
+    <a href="../../../wander/">Wander</a>
+    <a href="../../../about.html">About</a>
+    <a href="https://codeberg.org/susam">Codeberg</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

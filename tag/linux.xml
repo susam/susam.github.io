@@ -1,0 +1,2094 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's Linux Pages</title>
+  <subtitle>Feed for Susam's Linux Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/linux.xml" rel="self"/>
+  <id>https://susam.net/tag/linux.xml</id>
+  <updated>2026-03-30T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Mar '26 Notes</title>
+    <link href="https://susam.net/26c.html"/>
+    <id>urn:uuid:81a44497-3807-439b-87d1-04f80ccf1240</id>
+    <updated>2026-03-30T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  This is my third set of &lt;a href=&quot;tag/notes.html&quot;&gt;monthly notes&lt;/a&gt;
+  for this year.  In these notes, I capture various interesting facts
+  and ideas I have stumbled upon during the month.  Like in the last
+  two months, I have been learning and exploring algebraic graph
+  theory.  The two main books I have been reading are &lt;em&gt;Algebraic
+  Graph Theory&lt;/em&gt; by Godsil and Royle and &lt;em&gt;Algebraic Graph
+  Theory&lt;/em&gt;, 2nd ed. by Norman Biggs.  Much of what appears here
+  comes from my study of these books as well as my own explorations
+  and attempts to distill the ideas.  This post is quite heavy on
+  mathematics but there are some non-mathematical, computing-related
+  notes towards the end.
+&lt;/p&gt;
+&lt;p&gt;
+  The level of exposition is quite uneven throughout these notes.
+  After all, they aren&apos;t meant to be a polished exposition but rather
+  notes I take for myself.  In some places I build concepts from first
+  principles, while in others I gloss over details and focus only on
+  the main results.
+&lt;/p&gt;
+&lt;p&gt;
+  Sometime during the second half of the month, I also
+  developed an open-source tool called
+  &lt;a href=&quot;https://codeberg.org/susam/wander&quot;&gt;Wander Console&lt;/a&gt; on a
+  whim.  It lets anyone with a website host a decentralised web
+  console that recommends interesting websites from the &apos;small web&apos; of
+  independent, personal websites.  Check my console
+  here: &lt;a href=&quot;wander/&quot;&gt;wander/&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  Although the initial version was ready after just about 1.5 hours of
+  development during a break I was taking from studying algebraic
+  graph theory, the
+  subsequent &lt;a href=&quot;https://news.ycombinator.com/item?id=47422759&quot;&gt;warm
+  reception on Hacker News&lt;/a&gt; and a
+  &lt;a href=&quot;https://codeberg.org/susam/wander/issues/1&quot;&gt;growing
+  community&lt;/a&gt; around it, along with the resulting feature requests
+  and bug fixes, ended up taking more time than I had anticipated, at
+  the expense of my algebraic graph theory studies.  With a full-time
+  job, it becomes difficult to find time for both open source
+  development and mathematical studies.  But eventually, I managed to
+  return to my studies while making Wander Console improvements only
+  occasionally during breaks from my studies.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#group-theory&quot;&gt;Group Theory&lt;/a&gt;
+    &lt;ol type=&quot;a&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#permutation&quot;&gt;Permutation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-homomorphism&quot;&gt;Group Homomorphism&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-homomorphism-preserves-identities&quot;&gt;Group Homomorphism Preserves Identity&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-homomorphism-preserves-inverses&quot;&gt;Group Homomorphism Preserves Inverses&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#image-of-a-group-homomorphism&quot;&gt;Image of a Group Homomorphism&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-monomorphism&quot;&gt;Group Monomorphism&lt;/a&gt;
+        &lt;ol type=&quot;i&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#standard-proof&quot;&gt;Standard Proof&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#alternate-arrangement&quot;&gt;Alternate Proof&lt;/a&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#permutation-representation&quot;&gt;Permutation Representation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-action&quot;&gt;Group Action&lt;/a&gt;
+        &lt;ol type=&quot;i&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#why-right-action&quot;&gt;Why Right Action?&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#group-action-example-1&quot;&gt;Example 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#group-action-example-2&quot;&gt;Example 2&lt;/a&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-actions-induce-permutations&quot;&gt;Group Actions Induce Permutations&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-actions-determine-permutation-representations&quot;&gt;Group Actions Determine Permutation Representations&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#permutation-representations-determine-group-actions&quot;&gt;Permutation Representations Determine Group Actions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#bijection-between-group-actions-and-permutation-representations&quot;&gt;Bijection Between Group Actions and Permutation Representations&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#orbits&quot;&gt;Orbits&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#stabilisers&quot;&gt;Stabilisers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#orbit-stabiliser-theorem&quot;&gt;Orbit-Stabiliser Theorem&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#faithful-actions&quot;&gt;Faithful Actions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#semiregular-actions&quot;&gt;Semiregular Actions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#transitive-actions&quot;&gt;Transitive Actions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#conjugacy&quot;&gt;Conjugacy&lt;/a&gt;
+        &lt;ol type=&quot;i&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#conjugation-as-group-action&quot;&gt;Conjugation as Group Action&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#right-conjugation-vs-left-conjugation&quot;&gt;Right Conjugation vs Left Conjugation&lt;/a&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#conjugate-groups&quot;&gt;Conjugate Subgroups&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#conjugacy-of-stabilisers&quot;&gt;Conjugacy of Stabilisers&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#algebraic-graph-theory&quot;&gt;Algebraic Graph Theory&lt;/a&gt;
+    &lt;ol type=&quot;a&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#stabiliser-index&quot;&gt;Stabiliser Index&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#strongly-connected-directed-graph&quot;&gt;Strongly Connected Directed Graph&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#shunting&quot;&gt;Shunting&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#automorphisms-preserve-successor-relation&quot;&gt;Automorphisms Preserve Successor Relation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#test-of-s-arc-transitivity&quot;&gt;Test of \( s \)-arc Transitivity&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#moore-graphs&quot;&gt;Moore Graphs&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#generalised-polygons&quot;&gt;Generalised Polygons&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#computing&quot;&gt;Computing&lt;/a&gt;
+    &lt;ol type=&quot;a&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#select-between-lines-inclusive&quot;&gt;Select Between Lines, Inclusive&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#select-between-lines-exclusive&quot;&gt;Select Between Lines, Exclusive&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#signing-and-verification-with-ssh-key&quot;&gt;Signing and Verification with SSH Key&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#block-ip-address-with-nftables&quot;&gt;Block IP Address with nftables&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#debian-logrotate-setup&quot;&gt;Debian Logrotate Setup&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;group-theory&quot;&gt;Group Theory&lt;/h2&gt;
+&lt;h3 id=&quot;permutation&quot;&gt;Permutation&lt;/h3&gt;
+&lt;p&gt;
+  A &lt;em&gt;permutation&lt;/em&gt; of a set \( X \) is a bijection \( X \to X
+ .  \)
+&lt;/p&gt;
+&lt;p&gt;
+  For example, take \( X = \{ 1, 2, 3, 4, 5, 6 \} \) and define the
+  map
+
+  \[
+    \pi : X \to X; \; x \mapsto 1 + ((x + 1) \bmod 6).
+  \]
+
+  This maps
+
+  \begin{align*}
+    1 &amp;amp;\mapsto 3, \\
+    2 &amp;amp;\mapsto 4, \\
+    3 &amp;amp;\mapsto 5, \\
+    4 &amp;amp;\mapsto 6, \\
+    5 &amp;amp;\mapsto 1, \\
+    6 &amp;amp;\mapsto 2.
+  \end{align*}
+&lt;/p&gt;
+&lt;p&gt;
+  We can describe permutations more succinctly using cycle notation.
+  The cycle notation of a permutation \( \pi \) consists of one or
+  more sequences written next to each other such that the sequences
+  are pairwise disjoint and \( \alpha \) maps each element in a
+  sequence to the next element on its right.  If the sequence is
+  finite, then \( \alpha \) maps the final element back to the first
+  one.  Any element that does not appear in any sequence is mapped to
+  itself.  For example the cycle notation for the above permutation is
+  \( (1 3 5)(2 4 6).  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;group-homomorphism&quot;&gt;Group Homomorphism&lt;/h3&gt;
+&lt;p&gt;
+  A map \( \phi : G \to H \) from a group \( (G, \ast) \) to a group
+  \( (H, \cdot) \) is a &lt;em&gt;group homomorphism&lt;/em&gt; if, for all \( x, y
+  \in G, \)
+
+  \[
+    \phi(x \ast y) = \phi(x) \cdot \phi(y).
+  \]
+
+  We say that a group homomorphism is a map between groups that
+  &lt;em&gt;preserves&lt;/em&gt; the group operation.  In other words, a group
+  homomorphism &lt;em&gt;sends&lt;/em&gt; products in \( G \) to products in \( H
+ .  \)  For example, consider the groups \( (\mathbb{Z}, +) \) and \(
+  (\mathbb{Z}_3, +).  \)  Then the map
+
+  \[
+    \phi : \mathbb{Z} \to \mathbb{Z}_3; \; n \mapsto n \bmod 3
+  \]
+
+  is a group homomorphism because
+
+  \[
+    \phi(x + y)
+    = (x + y) \bmod 3
+    = (x \bmod 3) + (y \bmod 3)
+    = \phi(x) + \phi(y)
+  \]
+
+   for all \( x, y \in \mathbb{Z}.  \)  As another example, consider
+   the groups \( (\mathbb{R}_{\gt 0}, \times) \) and \( (\mathbb{R},
+   +).  \)  Then the map
+
+  \[
+    \log : \mathbb{R}_{\gt 0} \to \mathbb{R}
+  \]
+
+  is a group homomorphism because
+
+  \[
+    \log(m \times n) = \log m + \log n.
+  \]
+
+  Note that a group homomorphism preserves the identity element.  For
+  example, \( 1 \) is the identity element of \( (\mathbb{R}_{\gt 0},
+  \times) \) and \( 0 \) is the identity element of \( (\mathbb{R}, +)
+  \) and indeed \( \log 1 = 0.  \)  Also, a group homomorphism
+  preserves inverses.  Indeed \( \log m^{-1} = -\log m \) for all \( m
+  \in \mathbb{R}_{\gt 0}.  \)  These observations are proved in the
+  next two sections.
+&lt;/p&gt;
+&lt;h3 id=&quot;group-homomorphism-preserves-identities&quot;&gt;Group Homomorphism Preserves Identity&lt;/h3&gt;
+&lt;p&gt;
+  Let \( \phi : G \to H \) be a group homomorphism from \( (G, \ast)
+  \) to \( (H, \cdot).  \)  Let \( e_1 \) be the identity in \( G \)
+  and let \( e_2 \) be the identity in \( H.  \)  Then \( \phi(e_1) =
+  e_2.  \)
+
+
+  The proof is straightforward.  Note first that
+
+  \[
+    \phi(e_1) \cdot \phi(e_1)
+    = \phi(e_1 \ast e_1)
+    = \phi(e_1)
+  \]
+
+  Multiplying both sides on the right by \( \phi(e_1)^{-1}, \) we get
+
+  \[
+    (\phi(e_1) \cdot \phi(e_1)) \cdot \phi(e_1)^{-1}
+    = \phi(e_1) \cdot \phi(e_1)^{-1}.
+  \]
+
+  Using the associative and inverse properties of groups, we can
+  simplify both sides to get
+
+  \[
+    \phi(e_1) = e_2.
+  \]
+&lt;/p&gt;
+&lt;h3 id=&quot;group-homomorphism-preserves-inverses&quot;&gt;Group Homomorphism Preserves Inverses&lt;/h3&gt;
+&lt;p&gt;
+  Let \( \phi : G \to H \) be a group homomorphism from \( (G, \ast)
+  \) to \( (H, \cdot).  \)  Let \( e_1 \) be the identity in \( G \)
+  and let \( e_2 \) be the identity in \( H.  \)  Then for all \( x \in
+  G, \) \(\phi(x^{-1}) = (\phi(x))^{-1}.  \)
+
+  The proof of this is straightforward too.  Note that
+
+  \[
+    \phi(x) \cdot \phi(x^{-1})
+    = \phi(x \ast x^{-1})
+    = \phi(e_1)
+    = e_2.
+  \]
+
+  Thus \( \phi(x^{-1}) \) is an inverse of \( \phi(x), \) so
+
+  \[
+    \phi(x^{-1}) = (\phi(x))^{-1}.
+  \]
+
+  The image of the inverse of an element is the inverse of the image
+  of that element.
+&lt;/p&gt;
+&lt;h3 id=&quot;image-of-a-group-homomorphism&quot;&gt;Image of a Group Homomorphism&lt;/h3&gt;
+&lt;p&gt;
+  Let \( \phi : G \to H \) be a group homomorphism.  Then the image of
+  the \( \phi, \) denoted
+
+  \[
+    \phi(G) = \{ \phi(x) : x \in G \}
+  \]
+
+  is a subgroup of \( H.  \)  We will prove this now.
+&lt;/p&gt;
+&lt;p&gt;
+  Let \( a, b \in \phi(G).  \)  Then \( a = \phi(x) \) and \( b =
+  \phi(y) \) for some \( x, y \in G.  \)  Now \( ab = \phi(x)\phi(y) =
+  \phi(xy) \in \phi(G).  \)  Therefore \( \phi(G) \) satisfies the
+  closure property.
+&lt;/p&gt;
+&lt;p&gt;
+  Let \( e_1 \) and \( e_2 \) be the identities in \( G \) and \( H \)
+  respectively.  Since a group homomorphism preserves the identity, \(
+  \phi(e_1) = e_2.  \)  Hence the identity of \( H \) lies in \(
+  \phi(G).  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Finally, let \( a \in \phi(G).  \)  Then \( a = \phi(x) \) for some
+  \( x \in G.  \)  Then \( a^{-1} = \phi(x)^{-1} = \phi(x^{-1}) \in
+  \phi(G).  \)  Therefore \( \phi(G) \) satisfies the inverse property
+  as well.  Therefore \( \phi(G) \) is a subgroup of \( H.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;group-monomorphism&quot;&gt;Group Monomorphism&lt;/h3&gt;
+&lt;p&gt;
+  A map \( \phi : G \to H \) from a group \( (G, \ast) \) to a group
+  \( (H, \cdot) \) is a &lt;em&gt;group monomorphism&lt;/em&gt; if \( \phi \) is a
+  homomorphism and is injective.  In other words, a homomorphism \(
+  \phi \) is called a monomorphism if, for all \( x, y \in G, \)
+
+  \[
+  \phi(x) = \phi(y) \implies x = y.
+  \]
+
+  Let \( e_1 \) be the identity element of \( G \) and let \( e_2 \)
+  be the identity element of \( H.  \)  A useful result in group theory
+  states that a homomorphism \( \phi : G \to H \) is a monomorphism if
+  and only if its kernel is trivial, i.e.
+
+  \[
+    \ker(\phi) = \{ x \in G : \phi(x) = e_2 \} = \{ e_1 \}.
+  \]
+
+  Let us prove this now.
+&lt;/p&gt;
+&lt;h4 id=&quot;standard-proof&quot;&gt;Standard Proof&lt;/h4&gt;
+&lt;p&gt;
+  Suppose \( \phi : G \to H \) is a monomorphism.  Since a
+  homomorphism preserves the identity element, we have \( \phi(e_1) =
+  e_2.  \)  Therefore
+
+  \[
+    e_1 \in \ker(\phi).
+  \]
+
+  Let \( x \in \ker(\phi).  \)  Then \( \phi(x) = e_2 = \phi(e_1).  \)
+  Since \( \phi \) is injective, \( x = e_1.  \)  Therefore
+
+  \[
+    \ker(\phi) = \{ e_1 \}.
+  \]
+
+  Conversely, suppose \( \ker(\phi) = \{ e_1 \}.  \)  Let \( x, y \in G
+  \) such that \( \phi(x) = \phi(y).  \)  Then
+
+  \[
+    \phi(x \ast y^{-1})
+    = \phi(x) \cdot \phi(y^{-1})
+    = \phi(x) \cdot (\phi(y))^{-1}
+    = \phi(y) \cdot (\phi(y))^{-1}
+    = e_2.
+  \]
+
+  Hence
+
+  \[
+    x \ast y^{-1} \in \ker(\phi) = \{ e_1 \},
+  \]
+
+  so
+
+  \[
+    x \ast y^{-1} = e_1.
+  \]
+
+  Multiplying both sides on the right by \( y, \) we obtain
+
+  \[
+    x = y.
+  \]
+
+  This completes the proof.
+&lt;/p&gt;
+&lt;h4 id=&quot;alternate-arrangement&quot;&gt;Alternate Proof&lt;/h4&gt;
+&lt;p&gt;
+  Here I briefly discuss an alternate way to think about the above
+  proof.  The above proof is how most texts usually present these
+  arguments.  In particular, the proof of injectivity typically
+  proceeds by showing that equal images imply equal preimages.  It&apos;s a
+  standard proof technique.  When I think about these proofs, however,
+  the contrapositive argument feels more intuitive to me.  I prefer to
+  think about how unequal preimages must have unequal images.
+  Mathematically, there is no difference at all but the contrapositive
+  argument has always felt the most natural to me.  Let me briefly
+  describe how this proof runs in my mind when I think about it more
+  intuitively.
+&lt;/p&gt;
+&lt;p&gt;
+  Suppose \( \phi \) is a monomophorism.  Since a homomorphism
+  preserves the identity element, clearly \( \phi(e_1) = e_2.  \)
+  Since \( \phi \) is injective, it cannot map two distinct elements
+  of \( G \) to \( e_2.  \)  Thus \( e_1 \) is the only element of \( G
+  \) that \( \phi \) maps to \( e_2 \) which means \( \ker(\phi) = \{
+  e_1 \}.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  To prove the converse, suppose \( \ker(\phi) = \{ e_1 \}.  \)
+  Consider distinct elements \( x, y \in G.  \)  Since \( x \ne y, \)
+  we have \( x \ast y^{-1} \ne e_1.  \)  Therefore \( x \ast y^{-1}
+  \notin \ker(\phi).  \)  Thus \( \phi(x \ast y^{-1}) \ne e_2.  \)
+  Since \( \phi \) is a homomorphism,
+
+  \[
+    \phi(x \ast y^{-1})
+    = \phi(x) \cdot \phi(y^{-1})
+    = \phi(x) \cdot \phi(y)^{-1}.
+  \]
+
+  Therefore \( \phi(x) \cdot \phi(y)^{-1} \ne e_2 \) which implies
+
+  \[
+    \phi(x) \ne \phi(y).
+  \]
+
+  This proves that \( \ker(\phi) = \{ e_1 \} \) implies that \( \phi
+  \) is injective and thus a monomorphism.
+&lt;/p&gt;
+&lt;h3 id=&quot;permutation-representation&quot;&gt;Permutation Representation&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group and \( X \) a set.  Then a homomorphism
+
+  \[
+    \phi : G \to \operatorname{Sym}(X)
+  \]
+
+  is called a &lt;em&gt;permutation representation&lt;/em&gt; of \( G \) on \( X
+ .  \)  The homomorphism \( \phi \) maps each \( g \in G \) to a
+  permutation of \( X.  \)  We say that each \( g \in G \)
+  &lt;em&gt;induces&lt;/em&gt; a permutation of \( X.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  For example, let \( G = (\mathbb{Z}_3, +) \) and \( X = \{ 0, 1, 2,
+  3, 4, 5 \}.  \)  Define the map \( \phi : G \to \operatorname{Sym}(X)
+  \) by
+
+  \begin{align*}
+    \phi(0) &amp;amp;= (), \\
+    \phi(1) &amp;amp;= (024)(135), \\
+    \phi(2) &amp;amp;= (042)(153).
+  \end{align*}
+
+  It is easy to verify that this is a homomorphism.  Here is one way
+  to verify it:
+
+  \begin{align*}
+    \phi(0)\phi(1) &amp;amp;= ()(024)(135) = (024)(135) = \phi(0 + 1), \\
+    \phi(0)\phi(2) &amp;amp;= ()(042)(153) = (042)(153) = \phi(0 + 2), \\
+    &amp;amp;\;\,\vdots \\
+    \phi(2)\phi(1) &amp;amp;= (042)(153)(024)(135) = () = \phi(0) = \phi(2 + 1), \\
+    \phi(2)\phi(2) &amp;amp;= (042)(153)(042)(153) = (024)(135) = \phi(1) = \phi(2 + 2).
+  \end{align*}
+
+  We will meet this homomorphism again in the form of group action \(
+  \alpha \) in the next section.
+&lt;/p&gt;
+&lt;h3 id=&quot;group-action&quot;&gt;Group Action&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group with identity element \( e.  \)  Let \( X \)
+  be a set.  A right action of \( G \) on \( X \) is a map
+
+  \[
+    \alpha : X \times G \to X
+  \]
+
+  such that
+
+  \begin{align*}
+    \alpha(x, e)            &amp;amp;= x, \\
+    \alpha(\alpha(x, g), h) &amp;amp;= \alpha(x, gh)
+  \end{align*}
+
+  for all \( x \in X \) and all \( g, h \in G.  \)  The two conditions
+  above are called the identity and compatibility properties of the
+  group action respectively.  Note that in a right action, the product
+  \( gh \) is applied left to right: \( g \) acts first and then \( h
+  \) acts.  If we denote \( \alpha(x, g) \) as \( x^g, \) then the
+  notation for the two conditions can be simplified to \( x^e = x \)
+  and \( (x^g)^h = x^{gh} \) for all \( g, h \in G.  \)
+&lt;/p&gt;
+&lt;h4 id=&quot;why-right-action&quot;&gt;Why Right Action?&lt;/h4&gt;
+&lt;p&gt;
+  We discuss right group actions here instead of left group actions
+  because we want to use the notation \( \alpha(x, g) = x^g, \) which
+  is quite convenient while studying permutations and graph
+  automorphisms.  It is perfectly possible to use left group actions
+  to study permutations as well.  However, we lose the benefit of the
+  convenient \( x^g \) notation.  In a left group action, the
+  compatibility property is \( \alpha(g, \alpha(h, x)) = \alpha(gh, x)
+ , \) so if we were to use the notation \( \alpha(g, x) = x^g, \) the
+  compatibility property would look like \( (x^h)^g = x^{gh}.  \)  This
+  reverses the order of exponents which can be confusing.  Right group
+  actions avoid this notational inconvenience.
+&lt;/p&gt;
+&lt;h4 id=&quot;group-action-example-1&quot;&gt;Example 1&lt;/h4&gt;
+&lt;p&gt;
+  Let \( G = \mathbb{Z}_3 \) be the group under addition modulo \( 3
+ .  \)  Let \( X = \{ 0, 1, 2, 3, 4, 5 \}.  \)  Define an action \(
+  \alpha \) of \( G \) on \( X \) by
+
+  \[
+    \alpha(x, g) = x^g = (x + 2g) \bmod 6.
+  \]
+
+  Each \( g \in G \) acts as a permutation of \( X.  \)  For example,
+  the element \( 0 \in \mathbb{Z}_3 \) acts as the identity
+  permutation.  The element \( 1 \in \mathbb{Z}_3 \) acts as the
+  permutation \( (0 2 4)(1 3 5).  \)  The element \( 2 \in \mathbb{Z}_3
+  \) acts as the permutation \( (0 4 2)(1 5 3).  \)  The following
+  table shows how each \( g \in G \) permutes \( X.  \)
+
+  \[
+    \begin{array}{c|ccc}
+      x_{\downarrow} \backslash g_{\rightarrow} &amp;amp; 0 &amp;amp; 1 &amp;amp; 2 \\
+      \hline
+      0 &amp;amp; 0 &amp;amp; 2 &amp;amp; 4 \\
+      1 &amp;amp; 1 &amp;amp; 3 &amp;amp; 5 \\
+      2 &amp;amp; 2 &amp;amp; 4 &amp;amp; 0 \\
+      3 &amp;amp; 3 &amp;amp; 5 &amp;amp; 1 \\
+      4 &amp;amp; 4 &amp;amp; 0 &amp;amp; 2 \\
+      5 &amp;amp; 5 &amp;amp; 1 &amp;amp; 3 \\
+    \end{array}
+  \]
+
+  From the table we see that each \( g \in G \) permutes the elements
+  of \( \{ 0, 2, 4 \} \) among themselves.  Similarly, the elements of
+  \( \{ 1, 3, 5 \} \) are permuted among themselves.  These sets \(
+  \{0, 2, 4 \} \) and \( \{ 1, 3, 5 \} \) are called the
+  &lt;em&gt;orbits&lt;/em&gt; of the action.  The concept of orbits is formally
+  introduced in its &lt;a href=&quot;#orbits&quot;&gt;own section further below&lt;/a&gt;.
+&lt;/p&gt;
+&lt;h4 id=&quot;group-action-example-2&quot;&gt;Example 2&lt;/h4&gt;
+&lt;p&gt;
+  Now let \( G = \mathbb{Z}_6 \) be the group under addition modulo \(
+  6.  \)  Let \( X = \{ 0, 1, \dots, 8 \}.  \)  Define an action \(
+  \beta \) of \( G \) on \( X \) by
+
+  \[
+    \beta(x, g) = x^g = (x + 3g) \bmod 9.
+  \]
+
+  Now the table for the action looks like this:
+
+  \[
+    \begin{array}{c|cccccc}
+      x_{\downarrow} \backslash g_{\rightarrow} &amp;amp; 0 &amp;amp; 1 &amp;amp; 2 &amp;amp; 3 &amp;amp; 4 &amp;amp; 5 \\
+      \hline
+      0 &amp;amp; 0 &amp;amp; 3 &amp;amp; 6 &amp;amp; 0 &amp;amp; 3 &amp;amp; 6 \\
+      1 &amp;amp; 1 &amp;amp; 4 &amp;amp; 7 &amp;amp; 1 &amp;amp; 4 &amp;amp; 7 \\
+      2 &amp;amp; 2 &amp;amp; 5 &amp;amp; 8 &amp;amp; 2 &amp;amp; 5 &amp;amp; 8 \\
+      3 &amp;amp; 3 &amp;amp; 6 &amp;amp; 0 &amp;amp; 3 &amp;amp; 6 &amp;amp; 0 \\
+      4 &amp;amp; 4 &amp;amp; 7 &amp;amp; 1 &amp;amp; 4 &amp;amp; 7 &amp;amp; 1 \\
+      5 &amp;amp; 5 &amp;amp; 8 &amp;amp; 2 &amp;amp; 5 &amp;amp; 8 &amp;amp; 2 \\
+      6 &amp;amp; 6 &amp;amp; 0 &amp;amp; 3 &amp;amp; 6 &amp;amp; 0 &amp;amp; 3 \\
+      7 &amp;amp; 7 &amp;amp; 1 &amp;amp; 4 &amp;amp; 7 &amp;amp; 1 &amp;amp; 4 \\
+      8 &amp;amp; 8 &amp;amp; 2 &amp;amp; 5 &amp;amp; 8 &amp;amp; 2 &amp;amp; 5
+    \end{array}
+  \]
+
+  This action splits \( X \) into three orbits \( \{ 0, 3, 6 \}, \) \(
+  \{ 1, 4, 7 \} \) and \( \{ 2, 5, 8 \}.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;group-actions-induce-permutations&quot;&gt;Group Actions Induce Permutations&lt;/h3&gt;
+&lt;p&gt;
+  Earlier, we saw an example of a group action and observed that each
+  element of the group acts as a permutation.  That was not merely a
+  coincidence.  It is indeed a general property of group actions.
+  Whenever a group \( G \) acts on a set \( X, \) each element \( g
+  \in G \) determines a bijection \( X \to X.  \)  In other words,
+  every element of \( G \) acts as a permutation of \( X.  \)  Let us
+  see why this must be the case.
+&lt;/p&gt;
+&lt;p&gt;
+  Consider the group action \( \alpha : X \times G \to X.  \)  Fix \( g
+  \in G \) and let \( x \) vary over \( X \) to obtain the map
+
+  \[
+    \alpha_g : X \to X; \; x \mapsto \alpha(x, g).
+  \]
+
+  We show that \( \alpha_g \) is a bijection.  First we prove
+  injectivity.  Let \( e \) be the identity element of \( G.  \)
+  Let \( x, y \in X.  \)  Then
+
+  \begin{align*}
+    \alpha_g(x) = \alpha_g(y)
+    &amp;amp; \implies \alpha(x, g) = \alpha(y, g) \\
+    &amp;amp; \implies \alpha(\alpha(x, g), g^{-1}) = \alpha(\alpha(y, g), g^{-1}) \\
+    &amp;amp; \implies \alpha(x, gg^{-1}) = \alpha(y, gg^{-1}) \\
+    &amp;amp; \implies \alpha(x, e) = \alpha(y, e) \\
+    &amp;amp; \implies x = y.
+  \end{align*}
+
+  The \( x^g \) notation allows us to write the above proof more
+  conveniently as follows:
+
+  \begin{align*}
+    \alpha_g(x) = \alpha_g(y)
+    &amp;amp; \implies \alpha(x, g) = \alpha(y, g) \\
+    &amp;amp; \implies (x^g)^{g^{-1}} = (y^g)^{g^{-1}} \\
+    &amp;amp; \implies x^{g g^{-1}} = y^{g g^{-1}} \\
+    &amp;amp; \implies x^e = y^e \\
+    &amp;amp; \implies x = y.
+  \end{align*}
+
+  This completes the proof of injectivity.  Now we prove surjectivity.
+  Let \( y \in X.  \)  Take \( x = \alpha(y, g^{-1}).  \)  Then
+
+  \[
+    \alpha_g(x)
+    = \alpha(x, g)
+    = \alpha(\alpha(y, g^{-1}), g)
+    = \alpha(y, g^{-1} g)
+    = \alpha(y, e)
+    = y.
+  \]
+
+  Again, if we write \( x = y^{g^{-1}}, \) the above step can be
+  written more succinctly as
+
+  \[
+    \alpha_g(x) = x^g = (y^{g^{-1}})^g = y^{(g^{-1} g)} = y^e = y.
+  \]
+
+  Thus every element \( y \in X \) has a preimage in \( X \) under \(
+  \alpha_g.  \)  Hence \( \alpha_g \) is surjective.  Since we have
+  already shown that \( \alpha_g \) is injective, we now conclude that
+  \( \alpha_g \) is bijective.  Therefore \( \alpha_g \) is a
+  permutation of \( X.  \)  Stated symbolically,
+
+  \[
+    \alpha_g \in \operatorname{Sym}(X).
+  \]
+
+  Note that
+
+  \[
+    \alpha_g(x) = \alpha(x, g) = x^g.
+  \]
+
+  Thus both \( \alpha_g(x) \) and \( x^g \) serve as convenient
+  shorthands for \( \alpha(x, g).  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;group-actions-determine-permutation-representations&quot;&gt;Group Actions Determine Permutation Representations&lt;/h3&gt;
+&lt;p&gt;
+  We have seen that each group element \( g \in G \) induces (acts as)
+  a permutation of \( X.  \)  Precisely speaking, each \( g \in G \)
+  determines a permutation \( \alpha_g \) of \( X.  \)  Now define a
+  map
+
+  \[
+    \phi: G \to \operatorname{Sym}(X); \; g \mapsto \alpha_g.
+  \]
+
+  We now show that this map is a homomorphism.  This means that we
+  want to show that \( \phi(gh) = \phi(g) \phi(h).  \)  Since \(
+  \phi(g), \phi(h) \in \operatorname{Sym}(X), \) the right-hand side
+  is a product of permutations of \( X.  \)  We first define the
+  product of two permutations \( \pi, \rho : X \to X \) by
+
+  \[
+    \pi \rho : X \to X; \; x \mapsto \rho(\pi(x)).
+  \]
+
+  In other words, \( \pi \rho = \rho \circ \pi.  \)  Now
+
+  \begin{align*}
+    \phi(gh)(x)
+    &amp;amp; = \alpha_{gh}(x) \\
+    &amp;amp; = \alpha(x, gh) \\
+    &amp;amp; = \alpha(\alpha(x, g), h) \\
+    &amp;amp; = \alpha_h(\alpha_g(x)) \\
+    &amp;amp; = (\alpha_h \circ \alpha_g)(x) \\
+    &amp;amp; = (\alpha_g \alpha_h)(x) \\
+    &amp;amp; = (\phi(g) \phi(h))(x).
+  \end{align*}
+
+  Since the above equality holds for all \( x \in X, \) we conclude
+  that
+
+  \[
+    \phi(gh) = \phi(g) \phi(h).
+  \]
+
+  Hence \( \phi \) is a group homomorphism from \( G \) to \(
+  \operatorname{Sym}(X).  \)  Therefore \( \phi \) is a permutation
+  representation of \( G \) on \( X.  \)  It maps each group element \(
+  g \in G \) to a permutation \( \alpha_g \in \operatorname{Sym}(X).  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Note the multiple levels of abstraction here.  The group action \(
+  \alpha : X \times G \to X \) determines a permutation representation
+  \( \phi : G \to \operatorname{Sym}(X).  \)  Each element \( g \in G
+  \) together with the group action \( \alpha \) determines a
+  permutation \( \alpha_g : X \to X.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Also note that \( \phi(g)(x) = \alpha_g(x) = \alpha(g, x) = x^g.  \)
+  In fact, \( \phi(g) = \alpha_g.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;permutation-representations-determine-group-actions&quot;&gt;Permutation Representations Determine Group Actions&lt;/h3&gt;
+&lt;p&gt;
+  Consider a permutation representation \( \phi : G \to
+  \operatorname{Sym}(X).  \)  Define a map
+
+  \[
+    \alpha : X \times G \to X; \; (x, g) \mapsto \phi(g)(x).
+  \]
+
+  First we verify the identity property of group actions.  Since \(
+  \phi \) is a homomorphism, it preserves the identity element.
+  Therefore \( \phi(e) \) is the identity permutation.  Hence
+
+  \[
+    \alpha(x, e) = \phi(e)(x) = x
+  \]
+
+  Now we verify the compatibility property of the action.  For all \(
+  g, h \in G \) and \( x \in X, \) we have
+
+  \begin{align*}
+    \alpha(\alpha(x, g), h)
+    &amp;amp; = \alpha(\phi(g)(x), h) \\
+    &amp;amp; = \phi(h)(\phi(g)(x)) \\
+    &amp;amp; = (\phi(h) \circ \phi(g))(x) \\
+    &amp;amp; = (\phi(g)\phi(h))(x) \\
+    &amp;amp; = \phi(gh)(x) \\
+    &amp;amp; = \alpha(x, gh).
+  \end{align*}
+
+  This completes the proof of the fact that every permutation
+  representation determines a group action.
+&lt;/p&gt;
+&lt;h3 id=&quot;bijection-between-group-actions-and-permutation-representations&quot;&gt;Bijection Between Group Actions and Permutation Representations&lt;/h3&gt;
+&lt;p&gt;
+  There is a bijection between the group actions \( \alpha : X \times
+  G \to X \) and permutation representations \( \phi : G \to
+  \operatorname{Sym}(X).  \)  We now show that these two constructions
+  are inverses of each other.
+&lt;/p&gt;
+&lt;p&gt;
+  Given a right action \( \alpha : X \times G \to X, \) define
+
+  \[
+    \phi_{\alpha} : G \to \operatorname{Sym}(X)
+    \quad \text{by} \quad
+    \phi_{\alpha}(g)(x) = \alpha(x, g).
+  \]
+
+  Given a permutation representation \( \phi : G \to
+  \operatorname{Sym}(X), \) define
+
+  \[
+    \alpha_{\phi} : X \times G \to X
+    \quad \text{by} \quad
+    \alpha_{\phi}(x, g) = \phi(g)(x).
+  \]
+
+  We now show that these two constructions undo each other.  Take an
+  arbitrary group action \( \alpha : X \times G \to X \) and construct
+  the corresponding permutation representation \( \phi_{\alpha}.  \)
+  Then take this permutation representation and construct the group
+  action \( \alpha_{\phi_{\alpha}}.  \)  But
+
+  \[
+    \alpha_{\phi_{\alpha}}(x, g)
+    = \phi_{\alpha}(g)(x)
+    = \alpha(x, g).
+  \]
+
+  Therefore \( \alpha_{\phi_{\alpha}} = \alpha.  \)  Similarly,
+  starting with the permutation representation \( \phi, \) we get
+
+  \[
+    \phi_{\alpha_{\phi}}(g)(x)
+    = \alpha_{\phi}(x, g)
+    = \phi(g)(x).
+  \]
+
+  Therefore \( \phi_{\alpha_{\phi}} = \phi.  \)  Hence there is a
+  bijection between group actions \( \alpha : X \times G \to X \) and
+  permutation representations: \( \phi : G \to \operatorname{Sym}(X)
+ .  \)  In fact, a group action and the corresponding permutation
+  representation contain the same information, namely how the elements
+  \( g \in G \) acts as permutations of \( X.  \)  For this reason,
+  many advanced texts do not make any distinction between the group
+  action and its permutation representation.  They often use them
+  interchangeably even though technically they have different domains.
+&lt;/p&gt;
+&lt;h3 id=&quot;orbits&quot;&gt;Orbits&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) act on a set \( X.  \)  For an element \( x \in X, \) the
+  &lt;em&gt;orbit&lt;/em&gt; of \( x \) under the action of \( G \) is the set of
+  all elements of \( X \) that can be reached from \( x \) by the
+  action of elements of \( G.  \)  Symbolically, the orbit of \( x \)
+  is the set
+
+  \[
+    x^G = \{ x^g : g \in G \}.
+  \]
+
+  In other words, the orbit of \( x \) contains every element of \( X
+  \) that \( x \) can be moved to by the group action.  If \( y \in
+  x^G, \) then there exists some \( g \in G \) such that \( y = x^g
+ .  \)
+&lt;/p&gt;
+&lt;p&gt;
+  The orbits of a group action partition the set \( X.  \)  That is,
+  every element of \( X \) lies in exactly one orbit and two orbits
+  are either identical or disjoint.  Thus the group action decomposes
+  the set \( X \) into disjoint subsets (the orbits), each consisting
+  of elements that can be transformed into one another by the action
+  of \( G.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;stabilisers&quot;&gt;Stabilisers&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group acting on a set \( X.  \)  For an element
+  \( x \in X, \) the &lt;em&gt;stabiliser&lt;/em&gt; of \( x \) is the set
+
+  \[
+    G_x = \{ g \in G : x^g = x \}.
+  \]
+
+  The stabiliser \( G_x \) consists of all elements of \( G \) that
+  fix the element \( x.  \)  The stabiliser \( G_x \) is a subgroup of
+  \( G.  \)  Indeed, the identity element \( e \in G \) satisfies \(
+  x^e = x, \) so \( e \in G_x.  \)  If \( g, h \in G_x, \) then \(
+  x^{gh} = (x^g)^h = x.  \)  If \( g \in G_x, \) then \( x^{g^{-1}} =
+  (x^g)^{g^{-1}} = x.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Intuitively, the stabiliser measures how much symmetry of the group
+  action leaves the element \( x \) unchanged.  The larger the
+  stabiliser, the more elements of \( G \) fix \( x.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;orbit-stabiliser-theorem&quot;&gt;Orbit-Stabiliser Theorem&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group acting on a set \( X.  \)  The
+  orbit-stabiliser theorem states that for any \( x \in X, \)
+
+  \[
+    \lvert G_x \rvert \cdot \lvert x^G \rvert = \lvert G \rvert.
+  \]
+
+  Stated differently, the index of the stabiliser \( G_x \) in the
+  group \( G \) is given by
+
+  \[
+    [ G : G_x ]
+    = \lvert G_x \backslash G \rvert
+    = \lvert G \rvert / \lvert G_x \rvert
+    = \lvert x^G \rvert.
+  \]
+
+  There is a bijection between the right cosets of \( G_x \) and the
+  elements of \( x^G.  \)  Demonstrating this bijection proves the
+  above equation.  We will work with right cosets of \( G_x.  \)
+  Define
+
+  \[
+    \phi : G_x \backslash G \to x^G; \; G_x g \mapsto x^g.
+  \]
+
+  We want to show that \( \phi \) is a bijection.  But first we need
+  to show that \( \phi \) is well defined.  A coset \( G_x g \in G_x
+  \backslash G \) can also be written as
+
+  \[
+    G_x g = G_x h
+  \]
+
+  for some \( h \in G.  \)  If \( x^g \ne x^h, \) then \( \phi \) would
+  not be well defined, since \( \phi \) must assign each coset in \(
+  G_x \backslash G \) to exactly one element in the orbit \( x^G \) in
+  order to be a function.  This can be shown using the following
+  equivalences:
+
+  \begin{align*}
+    G_x g = G_x h
+    &amp;amp; \iff hg^{-1} \in G_x \\
+    &amp;amp; \iff x = x^{h g^{-1}} \\
+    &amp;amp; \iff x^g = x^h \\
+  \end{align*}
+
+  This proves two things at once.  The fact that
+
+  \[
+    G_x g = G_x h \implies x^g = x^h
+  \]
+
+  proves that when the same coset is written using two different
+  representatives, the image does not change.  Therefore \( \phi \) is
+  well defined.  Further
+
+  \[
+    x^g = x^h \implies G_x g = G_x h
+  \]
+
+  proves that \( \phi \) is injective.  To show that \( \phi \) is
+  surjective, let \( y \in x^G.  \)  Then \( y = x^g \) for some \( g
+  \in G.  \)  Since \( \phi(G_x g) = x^g, \) we get
+
+  \[
+    \phi(G_x g) = y.
+  \]
+
+  Thus every element of \( x^G \) is the image of some right coset \(
+  G_x g \) under \( \phi.  \)  This completes the proof of a bijection
+  between the right cosets of \( G_x \) and the elements of \( x^G.  \)
+  Therefore \( \lvert G_x \backslash G \rvert = \lvert x^G \rvert \)
+  and hence \( \lvert G \rvert / \lvert G_x \rvert = \lvert x^G \rvert
+ , \) which establishes the orbit-stabiliser theorem.
+&lt;/p&gt;
+&lt;h3 id=&quot;faithful-actions&quot;&gt;Faithful Actions&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) act on a set \( X.  \)  The action is called
+  &lt;em&gt;faithful&lt;/em&gt; if distinct elements of \( G \) induce distinct
+  permutations of \( X.  \)  In other words, the only element of \( G
+  \) that acts as the identity permutation of \( X \) is the identity
+  element \( e \in G.  \)  Symbolically, the action is faithful if
+
+  \[
+    g \ne e \implies \exists x \in X, \; x^g \ne x.
+  \]
+
+  Equivalently,
+
+  \[
+    \forall x \in X, \; x^g = x \implies g = e.
+  \]
+
+  The action is faithful if the only element of \( G \) that fixes
+  every element of \( X \) is the identity, i.e.
+
+  \[
+    \bigcap_{x \in X} G_x = \{ e \}.
+  \]
+
+  Recall that every group action determines a permutation
+  representation \( \phi : G \to \operatorname{Sym}(X).  \)  From this
+  point of view, the action is faithful precisely when the permutation
+  representation is faithful, that is, when the homomorphism \( \phi
+  \) is injective (or equivalently when \( \ker(\phi) = \{ e \} \)).
+  In other words, the action is faithful if and only if the associated
+  homomorphism \( \phi \) is a monomorphism.
+&lt;/p&gt;
+&lt;h3 id=&quot;semiregular-actions&quot;&gt;Semiregular Actions&lt;/h3&gt;
+&lt;p&gt;
+  A group action of \( G \) on \( X \) is called &lt;em&gt;semiregular&lt;/em&gt;
+  if no non-identity element of \( G \) fixes any element of \( X.  \)
+  In other words, whenever \( g \ne e, \) the permutation of \( X \)
+  induced by \( g \) moves every element of \( X.  \)  Symbolically,
+
+  \[
+    g \ne e \implies \forall x \in X, \; x^g \ne x.
+  \]
+
+  Equivalently,
+
+  \[
+    \exists x \in X, \; x^g = x \implies g = e.
+  \]
+
+  The action is semiregular if
+
+  \[
+    \forall x \in X, \; G_x = \{ e \}.
+  \]
+
+  This is a stronger property than faithfulness.  Faithfulness only
+  guarantees that when \( g \ne e, \) the element \( g \) moves at
+  least one element of \( X.  \)  But semiregularity guarantees that
+  when \( g \ne e, \) the element \( g \) moves every element of \( X
+ .  \)  Therefore every semiregular action is faithful, but not every
+  faithful action is semiregular.
+&lt;/p&gt;
+&lt;h3 id=&quot;transitive-actions&quot;&gt;Transitive Actions&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) act on a set \( X.  \)  The action is called
+  &lt;em&gt;transitive&lt;/em&gt; if there is only one orbit.  In other words, the
+  action is transitive if every element of \( X \) can be reached from
+  any other element by the action of some element of \( G.  \)
+  Symbolically, the action is transitive if
+
+  \[
+    \forall x, y \in X \; \exists g \in G, \; x^g = y.
+  \]
+
+  Equivalently, the action is transitive if
+
+  \[
+    x^G = X
+  \]
+
+  for some (and hence every) \( x \in X.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;conjugacy&quot;&gt;Conjugacy&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group.  Let \( x, g \in G.  \)  The element
+
+  \[
+    g^{-1} x g
+  \]
+
+  is called a &lt;em&gt;conjugate&lt;/em&gt; of \( x \) by \( g.  \)  Any element
+  \( y \in G \) that can be written as \( g^{-1} x g \) for some \( g
+  \in G \) is said to be a conjugate of \( x.  \)  The conjugacy class
+  of \( x \) in \( G \) is the set
+
+  \[
+    x^G = \{ g^{-1} x g : g \in G \}.
+  \]
+
+  In other words, the conjugacy class of \( x \) is the set of all
+  elements of \( G \) that are conjugate to \( x.  \)  At first,
+  reusing the orbit notation \( x^G \) for the conjugacy class may
+  seem like an abuse of notation.  However, we will see in the next
+  section that the conjugacy class is precisely the orbit of \( x \)
+  under the action of \( G \) on itself by conjugation.  Thus \( x^G
+  \) is in fact a natural and accurate notation for the conjugacy
+  class.
+&lt;/p&gt;
+&lt;h4 id=&quot;conjugation-as-group-action&quot;&gt;Conjugation as Group Action&lt;/h4&gt;
+&lt;p&gt;
+  Conjugation can be seen as an action of a group on itself.  Define
+  the map
+
+  \[
+    \alpha : G \times G \to G; \; (x, g) \mapsto g^{-1} x g.
+  \]
+
+  Note that
+
+  \[
+    \alpha(x, e) = e^{-1} x e = x
+  \]
+
+  and
+
+  \[
+    \alpha(\alpha(x, g), h)
+    = h^{-1} (g^{-1} x g) h
+    = (gh)^{-1} x (gh)
+    = \alpha(x, gh).
+  \]
+
+  Therefore \( \alpha \) satisfies the two defining properties of a
+  right group action.  The conjugacy class \( x^G \) is precisely the
+  orbit of \( x \) under the conjugation action.  Therefore the orbits
+  of the conjugation action of \( G \) on itself are the conjugacy
+  classes of \( G.  \)
+&lt;/p&gt;
+&lt;h4 id=&quot;right-conjugation-vs-left-conjugation&quot;&gt;Right Conjugation vs Left Conjugation&lt;/h4&gt;
+&lt;p&gt;
+  We observed above that the conjugation action is a right action of a
+  group on itself.  Let \( x, g \in G \) and let
+
+  \[
+    y = g^{-1} x g.
+  \]
+
+  Now let \( h = g^{-1}.  \)  Then we can write the above equation as
+
+  \[
+    y = h x h^{-1}.
+  \]
+
+  According to the previous section, \( y \) is the conjugate of \( x
+  \) by \( g.  \)  However, many texts call \( y \) the conjugate of \(
+  x \) by \( h.  \)  Both are valid perspectives.  In both
+  perspectives, \( x \) and \( y \) are conjugates of each other.
+  Precisely,
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    In the first perspective, we have \( y = g^{-1} x g \) and we say
+    that \( y \) is a conjugate of \( x \) by \( g.  \)  A corollary is
+    that \( x \) is a conjugate of \( y \) by \( g^{-1}.  \)
+  &lt;/li&gt;
+  &lt;li&gt;
+    In the second perspective, we have \( y = h x h^{-1} \) and we say
+    that \( y \) is a conjugate of \( x \) by \( h.  \)  A corollary is
+    that \( x \) is a conjugate of \( y \) by \( h^{-1}.  \)
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  Although in both perspectives, \( x \) and \( y \) are conjugates of
+  each other, the group element by which one is conjugated to the
+  other is different.  This leads to different group actions as well.
+&lt;/p&gt;
+&lt;p&gt;
+  When we say that \( y = g^{-1} x g \) is a conjugate of \( x \) by
+  \( g, \) the group action
+
+  \[
+    \alpha : G \times G \to G; \; (x, g) \mapsto g^{-1} x g.
+  \]
+
+  is a right group action as demonstrated in the previous section.
+  But when we say that \( y = h x h^{-1} \) is a conjugate of \( x \)
+  by \( h, \) the conjugation action is no longer a right group action
+  because the compatibility property is violated:
+
+  \[
+    \alpha(\alpha(x, g), h)
+    = h ( g x g^{-1} ) h^{-1}
+    = (hg) x (hg)^{-1}
+    = \alpha(x, hg).
+  \]
+
+  We get \( \alpha(x, hg) \) instead of the required \( \alpha(x, gh)
+ .  \)  So with the second perspective, the group action is no longer a
+  right action.  Instead it is a left action since
+
+  \[
+    \alpha(g, \alpha(h, x))
+    = g (h x h^{-1}) g^{-1}
+    = (gh) x (gh)^{-1}
+    = \alpha(gh, x).
+  \]
+
+  In this post we will work only with the first perspective because we
+  will use right actions throughout.
+&lt;/p&gt;
+&lt;h3 id=&quot;conjugate-groups&quot;&gt;Conjugate Subgroups&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group.  Let \( H \le G.  \)  Define
+
+  \[
+    g^{-1} H g = \{ g^{-1} h g : h \in H \}.
+  \]
+
+  We say that \( g^{-1} H g \) is a conjugate of \( H \) by \( g.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;conjugacy-of-stabilisers&quot;&gt;Conjugacy of Stabilisers&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group acting on a set \( X.  \)  Let \( x \in X \)
+  and \( g \in G.  \)  Then
+
+  \[
+    g^{-1} G_x g = G_{x^g}.
+  \]
+
+  That is, \( G_{x^g} \) is a conjugate of \( G_x \) by \( g.  \)  This
+  result can be summarised as follows: stabilisers of elements in the
+  same orbit are conjugate.  Or more explicitly: the stabiliser of \(
+  x^g \) is a conjugate of the stabiliser of \( x \) by \( g.  \)  The
+  proof is straightforward.  Let \( h \in G.  \)  Then
+
+  \begin{align*}
+    h \in g^{-1} G_x g
+    &amp;amp; \iff g^{-1} (g h g^{-1}) g \in g^{-1} G_x g \\
+    &amp;amp; \iff g h g^{-1} \in G_x \\
+    &amp;amp; \iff x^{g h g^{-1}} = x \\
+    &amp;amp; \iff (x^g)^h = x^g \\
+    &amp;amp; \iff h \in G_{x^g}.
+  \end{align*}
+
+  Therefore \( g^{-1} G_x g = G_{x^g}.  \)
+&lt;/p&gt;
+&lt;h2 id=&quot;algebraic-graph-theory&quot;&gt;Algebraic Graph Theory&lt;/h2&gt;
+&lt;h3 id=&quot;stabiliser-index&quot;&gt;Stabiliser Index&lt;/h3&gt;
+&lt;p&gt;
+  In a vertex-transitive graph \( \Gamma, \) for any \( x \in
+  V(\Gamma) \) and all \( y \in V(\Gamma), \) there exists \( g \in G
+  \) such that \( x^g = y.  \)  Therefore \( x^G = V(\Gamma).  \)  Thus
+  by the &lt;a href=&quot;#orbit-stabiliser-theorem&quot;&gt;orbit-stabiliser
+  theorem&lt;/a&gt;,
+
+  \[
+    [ G : G_x ]
+    = \lvert G_x \backslash G \rvert
+    = \lvert x^G \rvert
+    = \lvert V(\Gamma) \rvert.
+  \]
+&lt;/p&gt;
+&lt;h3 id=&quot;strongly-connected-directed-graph&quot;&gt;Strongly Connected Directed Graph&lt;/h3&gt;
+&lt;p&gt;
+  A &lt;em&gt;path&lt;/em&gt; in a directed graph \( \Gamma \) is a sequence of
+  vertices \( v_0, \dots, v_r \) of distinct vertices such that \(
+  (v_{i - 1}, v_i) \) is an arc of \( \Gamma \) for \( i = 1, \dots, r
+ .  \)
+&lt;/p&gt;
+&lt;p&gt;
+  A directed graph is &lt;em&gt;strongly connected&lt;/em&gt; if for every ordered
+  pair of vertices \( (u, v) \) there is a path from \( u \) to \( v
+ .  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;shunting&quot;&gt;Shunting&lt;/h3&gt;
+&lt;p&gt;
+  Let \( \alpha = ( \alpha_0, \dots, \alpha_s ) \) and \( \beta = (
+  \beta_0, \dots, \beta_s ) \) be two \( s \)-arcs in a graph \(
+  \Gamma.  \)  We say that \( \beta \) is a successor of \( \alpha \)
+  if \( \beta_i = \alpha_{i + 1} \) for \( 0 \le i \le s - 1.  \)  We
+  also say that \( \alpha \) can be &lt;em&gt;shunted&lt;/em&gt; onto \( \beta.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  In section 4.2 of Godsil and Royle, there is a rather technical
+  setup which first defines \( X^{(s)} \) as the directed graph with
+  the \( s \)-arcs of a graph \( X \) as its vertices such that \(
+  (\alpha, \beta) \) is an arc of \( X^{(s)} \) if and only if \(
+  \alpha \) can be shunted onto \( \beta \) in \( X.  \)  Then it goes
+  on to show that if \( X \) is a connected graph with a minimum
+  degree two and \( X \) is not a cycle, then \( X^{(s)} \) is
+  strongly connected for all \( s \ge 0.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  That is a very technical way of saying that in a connected graph \(
+  X \) that is not a cycle and has a minimum degree two, any \( s
+  \)-arc \( \alpha \) can be sent to any \( s \)-arc \( \beta \) by
+  repeated shunting.  The proof is quite technical too and pretty
+  long, so I&apos;ll omit it here.
+&lt;/p&gt;
+&lt;h3 id=&quot;automorphisms-preserve-successor-relation&quot;&gt;Automorphisms Preserve Successor Relation&lt;/h3&gt;
+&lt;p&gt;
+  We will obtain a nifty result here that will prove to be very useful
+  in the next section.  Let \( S(\gamma) \) denote the set of all
+  successors of the \( s \)-arc \( \gamma \) of a graph.  Let \( g \)
+  be an automorphism of the graph.  Then
+
+  \[
+    \delta \in S(\gamma) \iff \delta^g \in S(\gamma^g).
+  \]
+
+  This follows directly from the fact that automorphisms preserve
+  adjacency, so they must preserve successor relation as well.  A
+  corollary of this is that for an automorphism \( h, \) we have
+
+  \[
+    \delta^{h^{-1}} \in S(\gamma) \iff \delta \in S(\gamma^h).
+  \]
+
+  This is the form that will be useful soon.
+&lt;/p&gt;
+&lt;h3 id=&quot;test-of-s-arc-transitivity&quot;&gt;Test of \( s \)-arc Transitivity&lt;/h3&gt;
+&lt;p&gt;
+  The results in the previous two sections lead to a remarkably simple
+  proof of the fact that the Petersen graph is \( 3 \)-arc transitive.
+  Let us see how.
+&lt;/p&gt;
+&lt;p&gt;
+  Let \( P \) be the Petersen graph whose vertices are the \( 2
+  \)-subsets of \( \{ 1, 2, 3, 4, 5 \} \) with adjacency given by
+  disjointness of the \( 2 \)-subsets.  Then \( \operatorname{Aut}(P)
+  \cong S_5 \) since any permutation of \( \{ 1, 2, 3, 4, 5 \} \)
+  induces a permutation of the vertices that preserves disjointness
+  and hence adjacency.  We will use the shorthand \( ab \) to
+  represent each vertex \( \{ a, b \} \) of \( P.  \)  Consider the \(
+  3 \)-arc
+
+  \[
+    \alpha = (12, 34, 15, 23).
+  \]
+
+  It has exactly two successors, namely
+
+  \[
+    \beta_1 = (34, 15, 23, 14), \quad \beta_2 = (34, 15, 23, 45).
+  \]
+
+  Let \( g_1 = (13)(245) \) and \( g_2 = (13524).  \)  Then
+
+  \begin{align*}
+    \alpha^{g_1}
+    &amp;amp; = (12, 34, 15, 23)^{(13)(245)} = (34, 15, 23, 14) = \beta_1, \\
+    \alpha^{g_2}
+    &amp;amp; = (12, 34, 15, 23)^{(13524)} = (34, 51, 23, 45) = \beta_2.
+  \end{align*}
+
+  Let \( H = \langle g_1, g_2 \rangle \le \operatorname{Aut}(P).  \)
+  Consider an \( s \)-arc \( \alpha^h \) for some \( h \in H.  \)  Let
+  \( \delta \in S(\alpha^h).  \)  Then by the result in the previous
+  section, we get
+
+  \[
+    \delta^{h^{-1}} \in S(\alpha)
+    = \{ \beta_1, \beta_2 \}
+    = \{ \alpha^{g_1}, \alpha^{g_2} \}.
+  \]
+
+  Therefore
+
+  \[
+    \delta \in \{ \alpha^{g_1 h}, \alpha^{g_2 h} \}.
+  \]
+
+  Thus
+
+  \[
+    \delta \in \alpha^{H}.
+  \]
+
+  We started with an \( s \)-arc \( \alpha^h \in \alpha^H \) and
+  showed that its successors \( \delta \) also lie in \( \alpha^H.  \)
+  Thus the orbit \( \alpha^H \) is closed under taking successors.
+&lt;/p&gt;
+&lt;p&gt;
+  Now by the &lt;a href=&quot;#shunting&quot;&gt;shunting result&lt;/a&gt; discussed
+  previously, \( \alpha \) can be sent to any \( 3 \)-arc of \( P \)
+  by repeated shunting.  Therefore all \( 3 \)-arcs of \( P \) belong
+  to \( \alpha^H.  \)  Therefore the automorphisms in \( H \) can send
+  any \( 3 \)-arc of \( P \) to any other thus making \( P \) \( 3
+  \)-arc transitive.
+&lt;/p&gt;
+&lt;h3 id=&quot;moore-graphs&quot;&gt;Moore Graphs&lt;/h3&gt;
+&lt;p&gt;
+  Graphs with diameter \( d \) and girth \( 2d + 1 \) are known as
+  Moore graphs.
+&lt;/p&gt;
+&lt;p&gt;
+  There are an infinite number of Moore graphs with diameter \( 1 \)
+  since the complete graphs \( K_n, \) where \( n \ge 3, \) have
+  diameter \( 1 \) and girth \( 3.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  There are three known Moore graphs of diameter \( 2.  \)  They are \(
+  C_5, \) \( J(5, 2, 0) \) also known as the Petersen graph and the
+  Hoffman-Singleton graph.  They are respectively \( 2 \)-regular, \(
+  3 \)-regular and \( 7 \)-regular.  There is a famous result that
+  proves that a Moore graph must be \( 2 \)-regular, \( 3 \)-regular,
+  \( 7 \)-regular or \( 57 \)-regular.  It is unknown currently
+  whether a \( 57 \)-regular Moore graph of diameter \( 2 \) exists.
+&lt;/p&gt;
+&lt;p&gt;
+  There are infinitely many Moore graphs of diameter \( d \ge 3 \)
+  because the odd cycles \( C_{2d + 1} \) are \( 2 \)-regular graphs
+  with diameter \( d \) and girth \( 2d + 1 \) for all \( d \ge 1.  \)
+  However, there are no \( k \)-regular Moore graphs for diameter \( d
+  \ge 3 \) when \( k \ge 3.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;generalised-polygons&quot;&gt;Generalised Polygons&lt;/h3&gt;
+&lt;p&gt;
+  Bipartite graphs with diameter \( d \) and girth \( 2d \) are known
+  as generalised polygons.  This is easy to understand.  If we take a
+  classical \( d \)-gon and create the incidence graph of its vertices
+  and edges, then the incidence graph is the cycle \( C_{2d} \) which
+  has diameter \( d \) and girth \( 2d.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  The converse is not always true.  For example,
+  the &lt;a href=&quot;https://en.wikipedia.org/wiki/Heawood_graph&quot;&gt;Heawood
+  graph&lt;/a&gt; which has diameter \( d = 3 \) and girth \( 2d = 6.  \)  It
+  is the incidence graph of Fano plane, which is a projective plane
+  rather than a classical \( d \)-gon.
+&lt;/p&gt;
+&lt;p&gt;
+  Although a generalised polygon is not always the incidence graph of
+  a classical polygon, the idea behind the definition comes from a
+  simple observation.  If we take a classical \( d \)-gon and form the
+  incidence graph of its vertices and edges, we obtain the cycle \(
+  C_{2d}.  \)  This graph is bipartite and has diameter \( d \) and
+  girth \( 2d.  \)  The definition of a generalised polygon abstracts
+  these properties.  Any bipartite graph with diameter \( d \) and
+  girth \( 2d \) is called a generalised polygon, even when it is not
+  the incidence graph of a classical \( d \)-gon.  In this way the
+  definition allows much richer graphs than simple cycles.
+&lt;/p&gt;
+&lt;h2 id=&quot;computing&quot;&gt;Computing&lt;/h2&gt;
+&lt;h3 id=&quot;select-between-lines-inclusive&quot;&gt;Select Between Lines, Inclusive&lt;/h3&gt;
+&lt;p&gt;
+  Select text between two lines, including both lines:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sed &apos;/pattern1/,/pattern2/!d&apos;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;sed -n &apos;/pattern1/,/pattern2/p&apos;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here are some examples:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf &apos;A\nB\nC\nD\nE\nF\nG\nH\n&apos; | sed &apos;/C/,/F/!d&apos;&lt;/kbd&gt;
+C
+D
+E
+F
+$ &lt;kbd&gt;printf &apos;A\nB\nC\nD\nE\nF\nG\nH\n&apos; | sed -n &apos;/C/,/F/p&apos;&lt;/kbd&gt;
+C
+D
+E
+F&lt;/samp&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;select-between-lines-exclusive&quot;&gt;Select Between Lines, Exclusive&lt;/h3&gt;
+&lt;p&gt;
+  Select text between two lines, excluding both lines:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sed &apos;/pattern1/,/pattern2/!d; //d&apos;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here is an example usage:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf &apos;A\nB\nC\nD\nE\nF\nG\nH\n&apos; | sed &apos;/C/,/F/!d; //d&apos;&lt;/kbd&gt;
+D
+E&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The negated command &lt;code&gt;!d&lt;/code&gt; deletes everything not matched
+  by the 2-address range &lt;code&gt;/C/,/F/&lt;/code&gt;, i.e. it deletes
+  everything before the line matching &lt;code&gt;/C/&lt;/code&gt; as well as
+  everything after the line matching &lt;code&gt;/F/&lt;/code&gt;.  So we are left
+  with only the lines from &lt;code&gt;C&lt;/code&gt; to &lt;code&gt;F&lt;/code&gt;,
+  inclusive.  Finally, &lt;code&gt;//&lt;/code&gt; (the empty regular expression)
+  reuses the most recently used regular expression.  So
+  when &lt;code&gt;/C/,/F/&lt;/code&gt; matches &lt;code&gt;C&lt;/code&gt;, the
+  command &lt;code&gt;//d&lt;/code&gt; also matches &lt;code&gt;C&lt;/code&gt; and deletes it.
+  Similarly, &lt;code&gt;F&lt;/code&gt; is deleted too.  That&apos;s how we are left
+  with the lines between &lt;code&gt;C&lt;/code&gt; and &lt;code&gt;F&lt;/code&gt;, exclusive.
+&lt;/p&gt;
+&lt;p&gt;
+  Here are some excerpts from
+  &lt;a href=&quot;https://pubs.opengroup.org/onlinepubs/9799919799/utilities/sed.html&quot;&gt;POSIX.1-2024&lt;/a&gt;
+  that help understand the &lt;code&gt;!d&lt;/code&gt; and &lt;code&gt;//d&lt;/code&gt;
+  commands better:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  A function can be preceded by a &lt;code&gt;&apos;!&apos;&lt;/code&gt; character, in which
+  case the function shall be applied if the addresses do not select
+  the pattern space.  Zero or more &amp;lt;blank&amp;gt; characters shall be
+  accepted before the &lt;code&gt;&apos;!&apos;&lt;/code&gt; character.  It is unspecified
+  whether &amp;lt;blank&amp;gt; characters can follow the &lt;code&gt;&apos;!&apos;&lt;/code&gt;
+  character, and conforming applications shall not follow
+  the &lt;code&gt;&apos;!&apos;&lt;/code&gt; character with &amp;lt;blank&amp;gt; characters.
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+  If an RE is empty (that is, no pattern is specified) &lt;em&gt;sed&lt;/em&gt;
+  shall behave as if the last RE used in the last command applied
+  (either as an address or as part of a substitute command) was
+  specified.
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;signing-and-verification-with-ssh-key&quot;&gt;Signing and Verification with SSH Key&lt;/h3&gt;
+&lt;p&gt;
+  Here are some minimal commands to demonstrate how we can sign some
+  text using SSH key and then later verify it.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ssh-keygen -t ed25519 -f key
+echo hello &amp;gt; hello.txt
+ssh-keygen -Y sign -f key.pub -n file hello.txt
+echo &quot;jdoe $(cat key.pub)&quot; &amp;gt; allowed.txt
+ssh-keygen -Y verify -f allowed.txt -I jdoe -n file -s hello.txt.sig &amp;lt; hello.txt&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here are some examples that demonstrate what the outputs and
+  signature file look like:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;ssh-keygen -Y sign -f key.pub -n file hello.txt&lt;/kbd&gt;
+Signing file hello.txt
+Write signature to hello.txt.sig&lt;/samp&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;cat hello.txt.sig&lt;/kbd&gt;
+-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgAwP6RnmFVrZO0m/nRIHyvr2S19
+itsKegj9p/BZKqP1sAAAAEZmlsZQAAAAAAAAAGc2hhNTEyAAAAUwAAAAtzc2gtZWQyNTUx
+OQAAAEB8ylqjCLgInF8DvROnLSm1UUWd0VuLPesI+1NhMrV9BjH5lf0w20kHunJW3qRIjw
+Jfs9+q/e47KdlR8wBQaHYD
+-----END SSH SIGNATURE-----&lt;/samp&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;ssh-keygen -Y verify -f allowed.txt -I jdoe -n file -s hello.txt.sig &amp;lt; hello.txt&lt;/kbd&gt;
+Good &quot;file&quot; signature for jdoe with ED25519 key SHA256:9ZJuUJNMy1UXo3AlQy8L7baD3LOfEbgQ30ELIt+8wWc&lt;/samp&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;block-ip-address-with-nftables&quot;&gt;Block IP Address with nftables&lt;/h3&gt;
+&lt;p&gt;
+  Here is a sequence of commands to create an nftables rule from
+  scratch to block an IP address:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft add table inet filter&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+table inet filter {
+}
+$ &lt;kbd&gt;sudo nft add chain inet filter input { type filter hook input priority 0 \; }&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+table inet filter {
+        chain input {
+                type filter hook input priority filter; policy accept;
+        }
+}
+$ &lt;kbd&gt;sudo nft add rule inet filter input ip saddr 172.236.0.216 drop&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+table inet filter {
+        chain input {
+                type filter hook input priority filter; policy accept;
+                ip saddr 172.236.0.216 drop
+        }
+}&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here is how to undo the above setup step by step:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo nft -a list ruleset&lt;/kbd&gt;
+table inet filter { # handle 1
+        chain input { # handle 1
+                type filter hook input priority filter; policy accept;
+                ip saddr 172.236.0.216 drop # handle 2
+        }
+}
+$ &lt;kbd&gt;sudo nft delete rule inet filter input handle 2&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+table inet filter {
+        chain input {
+                type filter hook input priority filter; policy accept;
+        }
+}
+$ &lt;kbd&gt;sudo nft delete chain inet filter input&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+table inet filter {
+}
+$ &lt;kbd&gt;sudo nft delete table inet filter&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+$&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Finally, the following command deletes all rules, chains and tables.
+  It wipes the entire ruleset, so use it with care.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo nft flush ruleset&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+$&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  All outputs above were obtained using nftables v1.1.3 on Debian 13.2
+  (Trixie).
+&lt;/p&gt;
+&lt;h3 id=&quot;debian-logrotate-setup&quot;&gt;Debian Logrotate Setup&lt;/h3&gt;
+&lt;p&gt;
+  Observed on Debian 11.5 (Bullseye) that &lt;code&gt;logrotate&lt;/code&gt; is
+  set up on it via &lt;code&gt;systemd&lt;/code&gt;.  Here are some outputs that
+  show what the setup is like:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo systemctl status logrotate.service&lt;/kbd&gt;
+● logrotate.service - Rotate log files
+     Loaded: loaded (/lib/systemd/system/logrotate.service; static)
+     Active: inactive (dead) since Mon 2026-03-30 00:00:17 UTC; 19h ago
+TriggeredBy: &lt;span class=&quot;c2&quot;&gt;●&lt;/span&gt; logrotate.timer
+       Docs: man:logrotate(8)
+             man:logrotate.conf(5)
+    Process: 2148235 ExecStart=/usr/sbin/logrotate /etc/logrotate.conf (code=exited, status=0/SUCCESS)
+   Main PID: 2148235 (code=exited, status=0/SUCCESS)
+        CPU: 574ms
+
+Mar 30 00:00:16 spweb systemd[1]: Starting Rotate log files...
+Mar 30 00:00:17 spweb systemd[1]: logrotate.service: Succeeded.
+Mar 30 00:00:17 spweb systemd[1]: Finished Rotate log files.
+$ &lt;kbd&gt;sudo systemctl status logrotate.timer&lt;/kbd&gt;
+● logrotate.timer - Daily rotation of log files
+     Loaded: loaded (/lib/systemd/system/logrotate.timer; enabled; vendor preset: enabled)
+     Active: active (waiting) since Mon 2026-01-19 19:19:34 UTC; 2 months 9 days ago
+    Trigger: Tue 2026-03-31 00:00:00 UTC; 4h 7min left
+   Triggers: &lt;span class=&quot;c2&quot;&gt;●&lt;/span&gt; logrotate.service
+       Docs: man:logrotate(8)
+             man:logrotate.conf(5)
+
+Warning: journal has been rotated since unit was started, output may be incomplete.
+$ &lt;kbd&gt;sudo systemctl list-timers logrotate&lt;/kbd&gt;
+NEXT                        LEFT         LAST                        PASSED  UNIT            ACTIVATES
+Tue 2026-03-31 00:00:00 UTC 4h 7min left Mon 2026-03-30 00:00:16 UTC 19h ago logrotate.timer logrotate.service
+
+1 timers listed.
+Pass --all to see loaded but inactive timers, too.
+$ &lt;kbd&gt;head /lib/systemd/system/logrotate.service&lt;/kbd&gt;
+[Unit]
+Description=Rotate log files
+Documentation=man:logrotate(8) man:logrotate.conf(5)
+RequiresMountsFor=/var/log
+ConditionACPower=true
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/logrotate /etc/logrotate.conf
+
+$ &lt;kbd&gt;cat /lib/systemd/system/logrotate.timer&lt;/kbd&gt;
+[Unit]
+Description=Daily rotation of log files
+Documentation=man:logrotate(8) man:logrotate.conf(5)
+
+[Timer]
+OnCalendar=daily
+AccuracySec=1h
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+$ &lt;kbd&gt;grep -vE &apos;^#|^$&apos; /etc/logrotate.conf&lt;/kbd&gt;
+weekly
+rotate 4
+create
+include /etc/logrotate.d
+$ &lt;kbd&gt;ls -l /etc/logrotate.d/&lt;/kbd&gt;
+total 40
+-rw-r--r-- 1 root root 120 Aug 21  2022 alternatives
+-rw-r--r-- 1 root root 173 Jun 10  2021 apt
+-rw-r--r-- 1 root root 130 Oct 14  2019 btmp
+-rw-r--r-- 1 root root  82 May 26  2018 certbot
+-rw-r--r-- 1 root root 112 Aug 21  2022 dpkg
+-rw-r--r-- 1 root root 128 May  4  2021 exim4-base
+-rw-r--r-- 1 root root 108 May  4  2021 exim4-paniclog
+-rw-r--r-- 1 root root 329 May 29  2021 nginx
+-rw-r--r-- 1 root root 374 May 20  2022 rsyslog
+lrwxrwxrwx 1 root root  28 Mar 17 01:52 &lt;span class=&quot;c3&quot;&gt;susam&lt;/span&gt; -&amp;gt; /opt/susam.net/etc/logrotate
+-rw-r--r-- 1 root root 145 Oct 14  2019 wtmp&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  To force log rotation right now, execute:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo systemctl start logrotate.service&lt;/code&gt;&lt;/pre&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/26c.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/notes.html&quot;&gt;#notes&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/linux.html&quot;&gt;#linux&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Debian Releases and Toy Story</title>
+    <link href="https://susam.net/debian-releases-and-toy-story.html"/>
+    <id>urn:uuid:c24a67af-5351-4170-a655-e2d21e2b22a5</id>
+    <updated>2020-02-09T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Did you know that Debian releases are named after characters from
+  the &lt;em&gt;Toy&lt;/em&gt; Story films?  I began using it with Debian 4 (Etch)
+  in 2007.  It was named after Etch A Sketch, one of Andy&apos;s toys.  The
+  latest release, Debian 10 (Buster), is named after Andy&apos;s pet puppy.
+&lt;/p&gt;
+&lt;p&gt;
+  The name Debian itself is a portmanteau of the names Ian Murdock
+  (the creator of Debian) and Debra Lynn (his then-girlfriend, later
+  ex-wife).  As a result, this name has been called a &lt;em&gt;curiously
+  personal name for such a community-oriented project&lt;/em&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  I was using Fedora and Ubuntu in 2007 when a member of a local Linux
+  User Group (LUG) introduced me to Debian.  Its simplicity and
+  elegance, its vast package repository along with its stability and
+  robustness made me an ardent user of this distribution pretty
+  quickly.  Thirteen years later, I still use Debian on my laptops,
+  Linode servers and virtual machines.  I run my personal website on
+  Debian too.  I have got so used to &lt;code&gt;apt-get install&lt;/code&gt; and
+  the large number of tools available in the Debian repositories that
+  I keep a Debian virtual machine or a remote shell handy when I am
+  working on a non-Debian system.  Over these years, I have gradually
+  moved from GNOME 2 to GNOME 3 and then to Xfce 4.  It really helps
+  that Debian still provides an installation CD with Xfce as the
+  default.  In case anyone is interested, I have documented and shared
+  my &lt;a href=&quot;https://github.com/susam/dotfiles/blob/master/docs/debian-setup.md&quot;&gt;Debian
+  setup notes on GitHub&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/debian-releases-and-toy-story.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/linux.html&quot;&gt;#linux&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Writing Boot Sector Code</title>
+    <link href="https://susam.net/writing-boot-sector-code.html"/>
+    <id>urn:uuid:e29d5e21-1e8b-4687-9289-be2dae3e17ad</id>
+    <updated>2007-11-19T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;
+  In this article, we discuss how to write our own
+  &lt;code&gt;&quot;hello, world&quot;&lt;/code&gt; program into the boot sector.  At the
+  time of this writing, most such code examples available on the web
+  are meant for the Netwide Assembler (NASM).  Very little material is
+  available that could be tried with the readily available GNU tools
+  like the GNU assembler (as) and the GNU linker (ld).  This article
+  is an effort to fill this gap.
+&lt;/p&gt;
+&lt;h2 id=&quot;boot-sector&quot;&gt;Boot Sector&lt;/h2&gt;
+&lt;p&gt;
+  When the computer starts, the processor starts executing
+  instructions at the memory address 0xffff:0x0000 (CS:IP).  This is
+  an address in the BIOS ROM.  The machine instructions at this
+  address begins the boot sequence.  In practice, this memory address
+  contains a &lt;code&gt;JMP&lt;/code&gt; instruction to another address,
+  typically 0xf000:0xe05b.  This latter address contains the code to
+  perform power-on self test (POST), perform several initialisations,
+  find the boot device, load the code from the boot sector into memory
+  and execute it.  From here, the code in the boot sector takes
+  control.  In IBM-compatible PCs, the boot sector is the first sector
+  of a data storage device.  This is 512 bytes in length.  The
+  following table shows what the boot sector contains.
+&lt;/p&gt;
+&lt;table class=&quot;grid center textcenter&quot;&gt;
+  &lt;tr&gt;
+    &lt;th colspan=&quot;2&quot;&gt;Address&lt;/th&gt;
+    &lt;th rowspan=&quot;2&quot;&gt;Description&lt;/th&gt;
+    &lt;th rowspan=&quot;2&quot;&gt;Size in bytes&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Hex&lt;/th&gt;&lt;th&gt;Dec&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;000&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;td&gt;Code&lt;/td&gt;&lt;td&gt;440&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;1b8&lt;/td&gt;&lt;td&gt;440&lt;/td&gt;&lt;td&gt;Optional disk signature&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;1bc&lt;/td&gt;&lt;td&gt;444&lt;/td&gt;&lt;td&gt;0x0000&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;1be&lt;/td&gt;&lt;td&gt;446&lt;/td&gt;
+    &lt;td&gt;Four 16-byte entries for primary partitions&lt;/td&gt;&lt;td&gt;64&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;1fe&lt;/td&gt;&lt;td&gt;510&lt;/td&gt;&lt;td&gt;0xaa55&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;
+  This type of boot sector found in IBM-compatible PCs is also known
+  as master boot record (MBR).  The next two sections explain how to
+  write executable code into the boot sector.  Two programs are
+  discussed in the these two sections: one that merely prints a
+  character and another that prints a string.
+&lt;/p&gt;
+&lt;p&gt;
+  The reader is expected to have a working knowledge of x86 assembly
+  language programming using GNU assembler.  The details of assembly
+  language won&apos;t be discussed here.  Only how to write code for boot
+  sector will be discussed.
+&lt;/p&gt;
+&lt;p&gt;
+  The code examples were verified by using the following tools while
+  writing this article:
+&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Debian GNU/Linux 4.0 (etch)&lt;/li&gt;
+  &lt;li&gt;GNU assembler (GNU Binutils for Debian) 2.17&lt;/li&gt;
+  &lt;li&gt;GNU ld (GNU Binutils for Debian) 2.17&lt;/li&gt;
+  &lt;li&gt;dd (coreutils) 5.97&lt;/li&gt;
+  &lt;li&gt;DOSBox 0.65&lt;/li&gt;
+  &lt;li&gt;QEMU 0.8.2&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!--
+Version information available here:
+http://archive.debian.org/debian/dists/etch/main/binary-i386/Packages.gz
+--&gt;
+&lt;h2 id=&quot;print-character&quot;&gt;Print Character&lt;/h2&gt;
+&lt;p&gt;
+  The following code prints the character &apos;A&apos; in yellow on a blue
+  background:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.code16
+.section .text
+.globl _start
+_start:
+  mov $0xb800, %ax
+  mov %ax, %ds
+  mov $0x1e41, %ax
+  xor %di, %di
+  mov %ax, (%di)
+idle:
+  hlt
+  jmp idle&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  We save the above code in a file, say &lt;code&gt;a.s&lt;/code&gt;, then
+  assemble and link this code with the following commands:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;as -o a.o a.s
+ld --oformat binary -o a.com a.o&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The above commands should generate a 15-byte output file
+  named &lt;code&gt;a.com&lt;/code&gt;.  The &lt;code&gt;.code16&lt;/code&gt; directive in the
+  source code tells the assembler that this code is meant for 16-bit
+  mode.  The &lt;code&gt;_start&lt;/code&gt; label is meant to tell the linker
+  that this is the entry point in the program.
+&lt;/p&gt;
+&lt;p&gt;
+  The video memory of the VGA is mapped to various segments between
+  0xa000 and 0xc000 in the main memory.  The colour text mode is
+  mapped to the segment 0xb800.  The first two instructions copy
+  0xb800 into the data segment register, so that any data offsets
+  specified is an offset in this segment.  Then the ASCII code for the
+  character &apos;A&apos; (i.e. 0x41 or 65) is copied into the first location in
+  this segment and the attribute (0x1e) of this character to the
+  second location.  The higher nibble (0x1) is the attribute for
+  background colour and the lower nibble (0xe) is that of the
+  foreground colour.  The highest bit of each nibble is the
+  intensifier bit.  Depending on the video mode setup, the highest bit
+  may also represent a blinking character.  The other three bits
+  represent red, green and blue.  This is represented in a tabular
+  form below.
+&lt;/p&gt;
+&lt;table class=&quot;grid center textcenter&quot;&gt;
+  &lt;tr&gt;
+    &lt;td colspan=&quot;8&quot;&gt;Attribute&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td colspan=&quot;4&quot;&gt;Background&lt;/td&gt;
+    &lt;td colspan=&quot;4&quot;&gt;Foreground&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;I&lt;/td&gt;
+    &lt;td&gt;R&lt;/td&gt;
+    &lt;td&gt;G&lt;/td&gt;
+    &lt;td&gt;B&lt;/td&gt;
+    &lt;td&gt;I&lt;/td&gt;
+    &lt;td&gt;R&lt;/td&gt;
+    &lt;td&gt;G&lt;/td&gt;
+    &lt;td&gt;B&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;0&lt;/td&gt;
+    &lt;td&gt;0&lt;/td&gt;
+    &lt;td&gt;0&lt;/td&gt;
+    &lt;td&gt;1&lt;/td&gt;
+    &lt;td&gt;1&lt;/td&gt;
+    &lt;td&gt;1&lt;/td&gt;
+    &lt;td&gt;1&lt;/td&gt;
+    &lt;td&gt;0&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td colspan=&quot;4&quot;&gt;0x1&lt;/td&gt;
+    &lt;td colspan=&quot;4&quot;&gt;0xe&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;
+  We can be see from the table that the background colour is dark blue
+  and the foreground colour is bright yellow.  We assemble and link
+  the code with the &lt;code&gt;as&lt;/code&gt; and &lt;code&gt;ld&lt;/code&gt; commands
+  mentioned earlier and generate an executable binary consisting of
+  machine code.
+&lt;/p&gt;
+&lt;p&gt;
+  Before writing the executable binary into the boot sector, we might
+  want to verify whether the code works correctly with an emulator.
+  DOSBox is a pretty good emulator for this purpose.  It is available
+  as the &lt;code&gt;dosbox&lt;/code&gt; package in Debian.  Here is one way to
+  run the executable binary file using DOSBox:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dosbox -c cls a.com&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The letter &lt;code&gt;A&lt;/code&gt; printed in yellow on a blue foreground
+  should appear in the first column of the first row of the screen.
+&lt;/p&gt;
+&lt;p&gt;
+  In the &lt;code&gt;ld&lt;/code&gt; command earlier to generate the executable
+  binary, we used the extension name &lt;code&gt;com&lt;/code&gt; for the binary
+  file to make DOSBox believe that it is a DOS COM file, i.e. merely
+  machine code and data with no headers.  In fact, the &lt;code&gt;--oformat
+  binary&lt;/code&gt; option in the &lt;code&gt;ld&lt;/code&gt; command ensures that the
+  output file contains only machine code.  This is why we are able to
+  run the binary with DOSBox for verification.  If we do not use
+  DOSBox, any extension name or no extension name for the binary would
+  suffice.
+&lt;/p&gt;
+&lt;p&gt;
+  Once we are satisfied with the output of &lt;code&gt;a.com&lt;/code&gt; running
+  in DOSBox, we create a boot image file with this command: sector
+  with these commands:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cp a.com a.img
+echo 55 aa | xxd -r -p | dd seek=510 bs=1 of=hello.img&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  This boot image can be tested with DOSBox using the following
+  command:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dosbox -c cls -c &apos;boot a.img&apos;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Yet another way to test this image would be to make QEMU x86 system
+  emulator boot using this image.  Here is the command to do so:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;qemu-system-i386 -fda a.img&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Finally, if you are feeling brave enough, you could write this image
+  to the boot sector of an actual physical storage device, such as a
+  USB flash drive and then boot your computer with it.  To do so, you
+  first need to determine the device file that represents the storage
+  device.  There are many ways to do this.  A couple of commands that
+  may be helpful to locate the storage device are &lt;code&gt;mount&lt;/code&gt;
+  and &lt;code&gt;fdisk -l&lt;/code&gt;.  Assuming that there is a USB flash drive
+  at &lt;code&gt;/dev/sdx&lt;/code&gt;, the boot image can be written to its boot
+  sector using this command:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cp a.img /dev/sdx&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  &lt;em&gt;
+    CAUTION: You need to be absolutely sure of the device path of the
+    device being written to.  The device path &lt;code&gt;/dev/sdx&lt;/code&gt; is
+    only an example here.  If the boot image is written to the wrong
+    device, access to the data on that would be lost.
+  &lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  Now booting the computer with this device should show display the
+  letter &apos;A&apos; in yellow on a blue background.
+&lt;/p&gt;
+&lt;h2 id=&quot;print-string&quot;&gt;Print String&lt;/h2&gt;
+&lt;p&gt;
+  The following code prints the string &quot;hello, world&quot; in yellow on a
+  blue background:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.code16
+
+.section .text
+.globl _start
+_start:
+  ljmp $0, $start
+start:
+  mov $0xb800, %ax
+  mov %ax, %ds
+  xor %di, %di
+  mov $message, %si
+  mov $0x1e, %ah
+print:
+  mov %cs:(%si), %al
+  mov %ax, (%di)
+  inc %si
+  inc %di
+  inc %di
+  cmp $24, %di
+  jne print
+idle:
+  hlt
+  jmp idle
+
+.section .data
+message:
+  .ascii &quot;hello, world&quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The BIOS reads the code from the first sector of the boot device
+  into the memory at physical address 0x7c00 and jumps to that
+  address.  While most BIOS implementations jump to 0x0000:0x7c00
+  (CS:IP) to execute the boot sector code loaded at this address,
+  unfortunately there are some BIOS implementations that jump to
+  0x07c0:0x0000 instead to reach this address.  We will soon see that
+  we are going to use offsets relative to the code segment to locate
+  our string and copy it to video memory.  While the physical address
+  of the string is always going to be the same regardless of which of
+  the two types of BIOS implementations run our program, the offset of
+  the string is going to differ based on the BIOS implementation.  If
+  the register CS is set to 0 and the register IP is set to 0x7c00
+  when the BIOS jumps to our program, the offset of the string is
+  going to be greater than 0x7c00.  But if CS and IP are set to 0x07c0
+  and 0 respectively, when the BIOS jumps to our program, the offset
+  of the string is going to be much smaller.
+&lt;/p&gt;
+&lt;p&gt;
+  We cannot know in advance which type of BIOS implementation is going
+  to load our program into memory, so we need to prepare our program
+  to handle both scenarios: one in which the BIOS executes our program
+  by jumping to 0x0000:0x7c00 as well as the other in which the BIOS
+  jumps to 0x07c0:0x0000 to execute our program.  We do this by using
+  a very popular technique of setting the register CS to 0 ourselves
+  by executing a far jump instruction to the code segment 0.  The very
+  first instruction in this program that performs &lt;code&gt;ljmp $0,
+  $start&lt;/code&gt; accomplishes this.
+&lt;/p&gt;
+&lt;p&gt;
+  There are two sections in this code.  The text section has the
+  executable instructions.  The data section has the string we want to
+  print.  The code copies the first byte of the string to the memory
+  location 0xb800:0x0000, its attribute to 0xb800:0x0001, the second
+  byte of the string to 0xb800:0x0002, its attribute to 0xb800:0x0003
+  and so on until it has advanced to 0xb800:0x0018 after having
+  written 24 bytes for the 12 characters we need to print.  The
+  instruction &lt;code&gt;movb %cs:(%si), %al&lt;/code&gt; copies one character
+  from the string indexed by the SI register in the code segment into
+  the AL register.  We are reading the characters from the code
+  segment because we will place the string in the code segment using
+  the linker commands discussed later.
+&lt;/p&gt;
+&lt;p&gt;
+  However, while testing with DOSBox, things are a little different.
+  In DOS, the text section is loaded at an offset 0x0100 in the code
+  segment.  This should be specified to the linker while linking so
+  that it can correctly resolve the value of the label
+  named &lt;code&gt;message&lt;/code&gt;.  Therefore we will assemble and link our
+  program twice: once for testing it with DOSBox and once again for
+  creating the boot image.
+&lt;/p&gt;
+&lt;p&gt;
+  To understand the offset at which the data section can be put, it is
+  worth looking at how the binary code looks like with a trial linking
+  with the following commands:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;as -o hello.o hello.s
+ld --oformat binary -Ttext 0 -Tdata 40 -o hello.com hello.o
+objdump -bbinary -mi8086 -D hello.com
+xxd -g1 hello.com&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The &lt;code&gt;-Ttext 0&lt;/code&gt; option tells the linker to assume that the
+  text section should be loaded at offset 0x0 in the code segment.
+  Similarly, the &lt;code&gt;-Tdata 40&lt;/code&gt; tells the linker to assume
+  that the data section is at offset 0x40.
+&lt;/p&gt;
+&lt;p&gt;
+  The &lt;code&gt;objdump&lt;/code&gt; command mentioned above disassembles the
+  generated binary file.  This shows where the text section and data
+  section are placed.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;objdump -bbinary -mi8086 -D hello.com&lt;/kbd&gt;
+
+hello.com:     file format binary
+
+
+Disassembly of section .data:
+
+00000000 &amp;lt;.data&amp;gt;:
+   0:   ea 05 00 00 00          ljmp   $0x0,$0x5
+   5:   b8 00 b8                mov    $0xb800,%ax
+   8:   8e d8                   mov    %ax,%ds
+   a:   31 ff                   xor    %di,%di
+   c:   be 40 00                mov    $0x40,%si
+   f:   b4 1e                   mov    $0x1e,%ah
+  11:   2e 8a 04                mov    %cs:(%si),%al
+  14:   89 05                   mov    %ax,(%di)
+  16:   46                      inc    %si
+  17:   47                      inc    %di
+  18:   47                      inc    %di
+  19:   83 ff 18                cmp    $0x18,%di
+  1c:   75 f3                   jne    0x11
+  1e:   f4                      hlt
+  1f:   eb fd                   jmp    0x1e
+        ...
+  3d:   00 00                   add    %al,(%bx,%si)
+  3f:   00 68 65                add    %ch,0x65(%bx,%si)
+  42:   6c                      insb   (%dx),%es:(%di)
+  43:   6c                      insb   (%dx),%es:(%di)
+  44:   6f                      outsw  %ds:(%si),(%dx)
+  45:   2c 20                   sub    $0x20,%al
+  47:   77 6f                   ja     0xb8
+  49:   72 6c                   jb     0xb7
+  4b:   64                      fs&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Note that the &lt;samp&gt;...&lt;/samp&gt; above indicates zero bytes skipped
+  by &lt;code&gt;objdump&lt;/code&gt;.  The text section is above these zero bytes
+  and the data section is below them.  Let us also see the output of
+  the &lt;code&gt;xxd&lt;/code&gt; command:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;xxd -g1 hello.com&lt;/kbd&gt;
+00000000: ea 05 00 00 00 b8 00 b8 8e d8 31 ff be 40 00 b4  ..........1..@..
+00000010: 1e 2e 8a 04 89 05 46 47 47 83 ff 18 75 f3 f4 eb  ......FGG...u...
+00000020: fd 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+00000030: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+00000040: 68 65 6c 6c 6f 2c 20 77 6f 72 6c 64              hello, world&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Both outputs above show that the text section occupies the first
+  0x21 bytes (33 bytes).  The data section is 0xc bytes (12 bytes) in
+  length.  Let us create a binary where the region from offset 0x0 to
+  offset 0x20 contains the text section and the region from offset
+  0x21 to offset 0x2c contains the data section.  The total length of
+  the binary would then be 0x2d bytes (45 bytes).  We will create a
+  new binary as per this plan.
+&lt;/p&gt;
+&lt;p&gt;
+  However while creating the new binary, we should remember that DOS
+  would load the binary at offset 0x100, so we need to tell the linker
+  to assume 0x100 as the offset of the text section and 0x121 as the
+  offset of the data section, so that it resolves the value of the
+  label named &lt;code&gt;message&lt;/code&gt; accordingly.  Moreover while
+  testing with DOS, we must remove the far jump instruction at the top
+  of our program because DOS does not load our program at physical
+  address 0x7c00 of the memory.  We create a new binary in this manner
+  and test it with DOSBox with these commands:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;grep -v ljmp hello.s &amp;gt; dos-hello.s
+as -o hello.o dos-hello.s
+ld --oformat binary -Ttext 100 -Tdata 121 -o hello.com hello.o&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Now we can test this program with DOSBox with the following command:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dosbox -c cls hello.com&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  If everything looks fine, we assemble and link our program once
+  again for boot sector and create a boot image with these commands:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;as -o hello.o hello.s
+ld --oformat binary -Ttext 7c00 -Tdata 7c21 -o hello.img hello.o
+echo 55 aa | xxd -r -p | dd seek=510 bs=1 of=hello.img&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Now we can test this image with DOSBox like this:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dosbox -c cls -c &apos;boot hello.img&apos;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  We can also test the image with QEMU with the following command:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;qemu-system-i386 -fda hello.img&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Finally, this image can be written to the boot sector as follows:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cp hello.img /dev/sdx&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  &lt;em&gt;
+    CAUTION: Again, one needs to be very careful with the commands
+    here.  The device path &lt;code&gt;/dev/sdx&lt;/code&gt; is only an example.
+    This path must be changed to the path of the actual device one
+    wants to write the boot sector binary to.
+  &lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  Once written to the device successfully, the computer may be booted
+  with this device to display the &quot;hello, world&quot; string on the screen.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/writing-boot-sector-code.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/assembly.html&quot;&gt;#assembly&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/linux.html&quot;&gt;#linux&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/how-to.html&quot;&gt;#how-to&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

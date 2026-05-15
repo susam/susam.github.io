@@ -1,0 +1,3779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's Technology Pages</title>
+  <subtitle>Feed for Susam's Technology Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/technology.xml" rel="self"/>
+  <id>https://susam.net/tag/technology.xml</id>
+  <updated>2026-05-09T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>I Will Not Add Query Strings to Your URLs</title>
+    <link href="https://susam.net/no-query-strings.html"/>
+    <id>urn:uuid:60101ca6-f872-4062-8101-1735dcfd7b9b</id>
+    <updated>2026-05-09T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Last evening, a short blog post appeared in my feed reader that felt
+  as if it spoke directly to me.  It is Chris Morgan&apos;s excellent post
+  &lt;cite&gt;&lt;a href=&quot;https://chrismorgan.info/no-query-strings&quot;&gt;I&apos;ve banned
+  query strings&lt;/a&gt;&lt;/cite&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#wisdom-on-the-web&quot;&gt;Wisdom on the Web&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#wander-on-the-web&quot;&gt;Wander on the Web&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#misfeature&quot;&gt;Misfeature&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#broken-urls&quot;&gt;Broken URLs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#qualms&quot;&gt;Qualms&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;wisdom-on-the-web&quot;&gt;Wisdom on the Web&lt;/h2&gt;
+&lt;p&gt;
+  &lt;a href=&quot;https://chrismorgan.info/&quot;&gt;Chris&lt;/a&gt; is someone whose
+  Internet comments I have been reading for about half a decade now.
+  I first stumbled upon his comments on Hacker News, where he left
+  very detailed &lt;a href=&quot;https://news.ycombinator.com/item?id=25321222#25322611&quot;&gt;feedback&lt;/a&gt;
+  on a small collection of boilerplate CSS rules I had shared there.
+  I am by no means a web developer.  I have spent most of my
+  &lt;a href=&quot;twenty-five-years-of-computing.html&quot;&gt;professional life&lt;/a&gt;
+  doing systems programming in C and C++.  However, developing
+  websites and writing
+  &lt;a href=&quot;tag/html.html&quot;&gt;small HTML tools&lt;/a&gt; has been a long-time
+  hobby for me.  I have learnt most of my web development skills as a
+  hobbyist by studying what other people do: first by viewing the
+  source of websites I liked in the early 2000s and later by
+  occasionally getting possessed by the urge to implement a new game
+  or tool and searching
+  &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML&quot;&gt;MDN Web
+  Docs&lt;/a&gt; to learn whatever I needed to make it work.  One problem
+  with learning a skill this way is that you sometimes pick up habits
+  and practices that are fashionable but not necessarily optimal or
+  correct.  So it was really valuable to me when Chris commented on my
+  collection of boilerplate CSS rules.  It helped me improve my CSS a
+  lot.  In fact, a few of the lessons from his comment have really
+  stuck with me; I keep them in mind whenever I make a hobby HTML
+  project: always retain underlines in links and
+  &lt;a href=&quot;more-purple-links-please.html&quot;&gt;retain purple&lt;/a&gt; for
+  visited links.
+&lt;/p&gt;
+&lt;p&gt;
+  I have been following Chris&apos;s posts and comments on web-related
+  topics since then.  He often posts great feedback on web-related
+  projects.  Whenever I come across one, I make sure to read them
+  carefully, even when the project isn&apos;t mine.  I always end up
+  learning something nice and useful from his comments.  Here is one
+  such recent example from the Lobsters story
+  &lt;cite&gt;&lt;a href=&quot;https://lobste.rs/s/crcktq/adding_author_context_rss#c_wb5ryy&quot;&gt;Adding
+  author context to RSS&lt;/a&gt;&lt;/cite&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;wander-on-the-web&quot;&gt;Wander on the Web&lt;/h2&gt;
+&lt;p&gt;
+  A couple of months ago, I created a new project called &lt;em&gt;Wander
+  Console&lt;/em&gt;.  It is a small, decentralised, self-hosted web console
+  that lets visitors to your website explore interesting websites and
+  pages recommended by a community of independent personal website
+  owners.  For example, my console is here:
+  &lt;a href=&quot;wander/&quot;&gt;susam.net/wander/&lt;/a&gt;.  If you click the &apos;Wander&apos;
+  button there, the tool loads a random personal web page recommended
+  by the Wander community.
+&lt;/p&gt;
+&lt;p&gt;
+  The tool consists of one HTML file that implements the console and
+  one JavaScript file where the website owner defines a list of
+  neighbouring consoles along with a list of web pages they recommend.
+  If you copy these two files to your web server, you instantly have a
+  Wander console live on the Web.  You don&apos;t need any server-side
+  logic or server-side software beyond a basic web server to run
+  Wander Console.  You can even host it in constrained environments
+  like Codeberg Pages or GitHub Pages.  When you click the &apos;Wander&apos;
+  button, the console connects to other remote consoles, fetches web
+  page recommendations, picks one randomly and loads it in your web
+  browser.  It is a bit like the now defunct
+  &lt;a href=&quot;https://en.wikipedia.org/wiki/StumbleUpon&quot;&gt;StumbleUpon&lt;/a&gt;
+  but it is completely decentralised.  It is also a bit like web rings
+  except that the community network is not restricted to being a
+  cycle; it is a graph that can take any shape.
+&lt;/p&gt;
+&lt;p&gt;
+  There are currently over 50 websites hosting this tool.  Together,
+  they recommend over 1500 web pages.  You can find a recent snapshot
+  of the list of known consoles and the pages they recommend at
+  &lt;a href=&quot;https://susam.codeberg.page/wcn/&quot;&gt;susam.codeberg.page/wcn/&lt;/a&gt;.
+  To learn more about this tool or to set it up on your website,
+  please see &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;misfeature&quot;&gt;Misfeature&lt;/h2&gt;
+&lt;p&gt;
+  In case you were wondering why I suddenly plugged my project into
+  this post in the previous section, it is because I recently added a
+  dubious feature to that project that I myself was not entirely
+  convinced about.  That misfeature is relevant to this post.
+&lt;/p&gt;
+&lt;p&gt;
+  In version 0.4.0 of Wander Console, I added support for
+  a &lt;code&gt;via=&lt;/code&gt; query parameter while loading web pages.  For
+  example, if you encountered &lt;a href=&quot;https://midnight.pub/&quot;&gt;midnight.pub&lt;/a&gt;
+  while using the console at &lt;a href=&quot;https://susam.net/wander/&quot;&gt;susam.net/wander/&lt;/a&gt;,
+  the console loaded the page using the following URL:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://midnight.pub/?via=https://susam.net/wander/&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  This allowed the owner of the recommended website to see, via their
+  access logs, that the visit originated from a Wander Console.
+  Chris&apos;s recent &lt;a href=&quot;https://chrismorgan.info/no-query-strings&quot;&gt;blog
+  post&lt;/a&gt; is critical of features like this.  He writes:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;
+    I don&apos;t like people adding tracking stuff to URLs.  Still less do I
+    like people adding tracking stuff to &lt;em&gt;my&lt;/em&gt; URLs.
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;code&gt;https://chrismorgan.info/no-query-strings?ref=example.com&lt;/code&gt;?
+    Did I ask?  If I wanted to know I&apos;d look at the
+    &lt;code&gt;Referer&lt;/code&gt; header; and if it isn&apos;t there, it&apos;s probably
+    for a good reason.  You abuse your users by adding that to the
+    link.
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+  I mentioned earlier that I was not entirely convinced that adding a
+  referral query string was a good thing to do.  Why did I add it
+  anyway?  I succumbed to popular demand.  Let me briefly describe my
+  frame of mind when I considered and implemented that feature.  When
+  I first saw the
+  &lt;a href=&quot;https://codeberg.org/susam/wander/issues/1#issuecomment-11795493&quot;&gt;feature
+  request&lt;/a&gt; on Codeberg, my initial reaction was reluctance.  I
+  wasn&apos;t convinced it was a good feature.  But I was too busy with
+  some ongoing algebraic graph theory research, another recent hobby,
+  with a looming deadline, so I didn&apos;t have a lot of time to think
+  about it clearly.  In fact, everything about Wander Console has been
+  made in very little time during the short breaks I used to take from
+  my research.  I made the first version of the console in about one
+  and a half hours one early morning when my brain was too tired to
+  read more algebraic graph theory literature and I really needed a
+  break.  During another such break, I revisited that feature request
+  and, despite my reservations, decided to implement it anyway.
+  During yet another such break, I am writing this post.
+&lt;/p&gt;
+&lt;p&gt;
+  Normally, I don&apos;t like adding too many new features to my little
+  projects.  I want them to have a limited scope.  I also want them to
+  become stable over time.  After a project has fulfilled some
+  essential requirements I had, I just want to call it feature
+  complete and never add another feature to it again.  I&apos;ll fix bugs,
+  of course.  But I don&apos;t like to keep adding new features endlessly.
+  That&apos;s my style of maintaining my hobby projects.  So it should have
+  been very easy for me to ignore the feature request for adding a
+  referral query string to URLs loaded by the console tool.  But I
+  think a tired body and mind, worn down by long and intense research
+  work, took a toll on me.
+&lt;/p&gt;
+&lt;p&gt;
+  Although my gut feeling was telling me that it was not a good
+  feature, I couldn&apos;t articulate to myself exactly why.  So I
+  implemented the referral query string feature anyway.  While doing
+  so, I added an opt-out mechanism to the configuration, so that if
+  someone else didn&apos;t like the feature, they could disable it for
+  themselves.  This was another mistake.  A questionable feature like
+  this should be implemented as an opt-in feature, not an opt-out
+  feature, if implemented at all.  The fact that I didn&apos;t have a lot
+  of time to reason through the implications of this feature meant
+  that I just went ahead and implemented it without thinking about it
+  critically.  As the famous quote from Jurassic Park goes:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  Your scientists were so preoccupied with whether or not they could
+  that they didn&apos;t stop to think if they should.
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;broken-urls&quot;&gt;Broken URLs&lt;/h2&gt;
+&lt;p&gt;
+  It soon turned out that my gut feeling was correct.  After I
+  implemented that feature, a page from one of my favourite websites
+  refused to load in the console.  To illustrate the problem, here are
+  a few similar but slightly different URLs for that page:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://int10h.org/oldschool-pc-fonts/fontlist/&quot;&gt;https://int10h.org/oldschool-pc-fonts/fontlist/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://int10h.org/oldschool-pc-fonts/fontlist/?2&quot;&gt;https://int10h.org/oldschool-pc-fonts/fontlist/?2&lt;/a&gt;
+  &lt;li&gt;&lt;a href=&quot;https://int10h.org/oldschool-pc-fonts/fontlist/?foo&quot;&gt;https://int10h.org/oldschool-pc-fonts/fontlist/?foo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  The first and second URLs load fine, but the third URL returns an
+  HTTP 404 error page.  The website uses the query string to determine
+  which one of its several font collections to show.  So when we add
+  an arbitrary query string to the URL, the website tries to interpret
+  it as a font collection identifier and the page fails to load.  That
+  is why, when my tool added the &lt;code&gt;via=&lt;/code&gt; query parameter to
+  the first URL, the page failed to load.
+&lt;/p&gt;
+&lt;p&gt;
+  Later, with a little time to breathe and some hindsight, I could
+  articulate why adding referral query strings to a working URL was
+  such a bad idea.  Altering a URL gives you a &lt;em&gt;new&lt;/em&gt; URL.  The
+  new URL could point to a completely different resource, or to no
+  resource at all, even if the alteration is as small as adding a
+  seemingly harmless query string.  By adding the referral query
+  string, I had effectively broken a working URL from a website I am
+  very &lt;a href=&quot;https://news.ycombinator.com/item?id=39419054#39439453&quot;&gt;fond&lt;/a&gt;
+  of.
+&lt;/p&gt;
+&lt;h2 id=&quot;qualms&quot;&gt;Qualms&lt;/h2&gt;
+&lt;p&gt;
+  It is also worth asking whether an HTML tool should concern itself
+  with referral query strings at all when web browsers already have a
+  mechanism for this: the HTTP &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referer&quot;&gt;Referer&lt;/a&gt;
+  header, governed by &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referrer-Policy&quot;&gt;Referrer-Policy&lt;/a&gt;.
+  That policy can be set at the server level, the document level or
+  even on individual links.  The Web standards already provide
+  deliberate controls to decide how much referrer information should be
+  sent.  Appending referral query strings to URLs bypasses those controls.
+  It moves a privacy and attribution concern out of the
+  referrer mechanism and embeds it into the destination URL instead.
+  I don&apos;t think an HTML tool should do that.
+&lt;/p&gt;
+&lt;p&gt;
+  There is also a moral question here about whether it is
+  okay to modify a given URL on behalf of the user in order to insert
+  a referral query string into it.  I think it isn&apos;t.
+&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;
+  In the end, I decided to remove the referral query string feature
+  from Wander Console.  One might wonder why I couldn&apos;t simply leave
+  the feature in as an opt-in.  Well, the answer is that once I had
+  deemed the feature misguided, I no longer wanted it to be part of my
+  software in any form.  The project is still new and we are still in
+  the days of 0.x releases, so if there is a good time to remove
+  features, this is it.  But my ongoing research work left me with no
+  time to do it.  Finally, when the post
+  &lt;cite&gt;&lt;a href=&quot;https://chrismorgan.info/no-query-strings&quot;&gt;I&apos;ve
+  banned query strings&lt;/a&gt;&lt;/cite&gt; appeared in my feed reader last
+  evening, it nudged me just enough to take a little time away from my
+  academic hobby and devote it to removing that ill-considered
+  feature.  The feature is now gone.  See commit
+  &lt;a href=&quot;https://codeberg.org/susam/wander/commit/b26d77c4da9ec11b655ba64a4ae4f3af56e06370&quot;&gt;b26d77c&lt;/a&gt;
+  for details.  The latest release, version 0.6.0, does not have it
+  anymore.
+&lt;/p&gt;
+&lt;p&gt;
+  This is a lesson I&apos;ll remember for any new hobby projects I happen
+  to make in the future.  If I ever load URLs again, I&apos;ll load them
+  exactly as the website&apos;s author intended.  I will never add query
+  strings to your URLs.
+&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;files/blog/chalkboard-no-query-strings.png&quot;
+       alt=&quot;Bart Simpson-style chalkboard meme saying, &apos;I will not add query strings to your URLs.&apos;&quot;&gt;
+  &lt;figcaption&gt;
+    Created using &lt;a href=&quot;https://enufstyle.com/generators/bart/&quot;&gt;Simpsons
+    Chalkboard Generator&lt;/a&gt; and &lt;a href=&quot;https://www.gimp.org/&quot;&gt;GIMP&lt;/a&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/no-query-strings.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Wander Console 0.6.0</title>
+    <link href="https://susam.net/code/news/wander/0.6.0.html"/>
+    <id>urn:uuid:800b3a89-946c-4c78-b575-4262f7589885</id>
+    <updated>2026-05-08T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Wander Console 0.6.0 is now available.  This is the sixth release of
+  Wander, a small, decentralised, self-hosted web console that lets
+  visitors to your website discover interesting websites and pages
+  recommended by a community of independent website owners.  To try
+  it, go to &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander/&lt;/a&gt;.
+  To learn how it works and how to set it up on your own website, see
+  the project
+  &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;README&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  The main change in this release is the removal of support for the
+  &lt;code&gt;via&lt;/code&gt; referral query parameter, which was added to
+  recommended URLs so that website owners could identify visits coming
+  from a Wander Console in their access logs.  The &lt;code&gt;via&lt;/code&gt;
+  query parameter was introduced in version
+  &lt;a href=&quot;0.4.0.html&quot;&gt;0.4.0&lt;/a&gt; in response to
+  &lt;a href=&quot;https://codeberg.org/susam/wander/issues/1#issuecomment-11795493&quot;&gt;community
+  demand&lt;/a&gt;, but it turned out to be a misfeature.  Some websites
+  refuse to serve web pages when arbitrary query parameters are added
+  to URLs.  Although it was possible to turn this feature off via
+  configuration, I would rather not keep a dubious feature that may
+  prevent some pages from loading successfully.  This feature has now
+  been completely removed.  See
+  &lt;a href=&quot;https://chrismorgan.info/no-query-strings&quot;&gt;this excellent
+  article by Chris Morgan&lt;/a&gt; to learn more about why adding arbitrary
+  query parameters to URLs is a bad idea.  Commit
+  &lt;a href=&quot;https://codeberg.org/susam/wander/commit/b26d77c4da9ec11b655ba64a4ae4f3af56e06370&quot;&gt;b26d77c&lt;/a&gt;
+  has more details about the removal of this feature.
+&lt;/p&gt;
+&lt;p&gt;
+  Apart from this change, there are a few minor user interface
+  adjustments and fixes.  See the
+  &lt;a href=&quot;https://codeberg.org/susam/wander/src/branch/main/CHANGES.md&quot;&gt;changelog&lt;/a&gt;
+  for more details.
+&lt;/p&gt;
+&lt;p&gt;
+  If you own a personal website but have not set up a Wander Console
+  yet, I suggest that you consider setting one up.  You can see what
+  it looks like by visiting mine at
+  &lt;a href=&quot;../../../wander/&quot;&gt;/wander/&lt;/a&gt;.  To set up your
+  own, follow the
+  &lt;a href=&quot;https://codeberg.org/susam/wander#install&quot;&gt;installation
+  instructions&lt;/a&gt; in the README.  It only involves copying two files
+  to your web server, so the installation is very straightforward.
+&lt;/p&gt;
+&lt;p&gt;
+  Also, check out our new community page called
+  &lt;a href=&quot;https://susam.codeberg.page/wcn/&quot;&gt;Wander Console
+  Network&lt;/a&gt;.  This page shows a recent snapshot of all known Wander
+  Console instances along with the web pages they recommend.  We have
+  an IRC channel too at &lt;a href=&quot;http://web.libera.chat/#wander&quot;&gt;#wander&lt;/a&gt;
+  on &lt;code&gt;irc.libera.chat&lt;/code&gt; in case you are looking for a place
+  to hang out with the community.
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;strong&gt;Update on 09 May 2026:&lt;/strong&gt; See the post
+  &lt;a href=&quot;../../../no-query-strings.html&quot;&gt;I Will Not Add Query
+  Strings to Your URLs&lt;/a&gt; for an account of how the misguided
+  referral query string feature was added and how it was removed.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/wander/0.6.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>From RSS to Atom</title>
+    <link href="https://susam.net/from-rss-to-atom.html"/>
+    <id>urn:uuid:02ace576-3514-4a90-bb09-d8641aec617e</id>
+    <updated>2026-05-04T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Yesterday, I switched my website from RSS feeds to Atom feeds.  In
+  case you are wondering whether you have somehow landed on an ancient
+  post from 2010, no, you have not.  Yes, this is the year 2026, and I
+  have finally switched from RSS feeds to Atom feeds.  Yes, I am
+  fifteen, or perhaps twenty, years too late.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#impulse-coding&quot;&gt;Impulse Coding&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#atom-entries&quot;&gt;Atom Entries&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#temporary-workaround&quot;&gt;Temporary Workaround&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#does-it-matter&quot;&gt;Does It Matter?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#references&quot;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;impulse-coding&quot;&gt;Impulse Coding&lt;/h2&gt;
+&lt;p&gt;
+  I have always wanted to do this but could never make the time for
+  it.  Finally, it happened while I was giving my brain some rest from
+  my &lt;a href=&quot;26c.html&quot;&gt;ongoing&lt;/a&gt; algebraic graph theory studies.
+  That&apos;s when I felt like spending a little time on my website and
+  doing a little Lisp to change the feeds from RSS to Atom.  I suppose
+  this was &lt;em&gt;impulse coding&lt;/em&gt;, a bit like impulse buying, except
+  that I ended up with an Atom feed instead of a new book.
+&lt;/p&gt;
+&lt;p&gt;
+  I find it quite surprising that when I have plenty of time, it
+  usually does not occur to me to do these things, but when I am too
+  busy and really short of time, these little ideas possess me during
+  the short breaks I take.  My personal website is one of my passion
+  projects.  Common Lisp is one of my favourite programming languages.
+  So any time spent on this passion project using my favourite
+  programming language is a very relaxing experience for me.  It
+  serves as an ideal break between intense study sessions.  It took
+  about an hour to implement the changes needed to make the switch
+  from RSS to Atom.  In the end, I could go back to my studies
+  reinvigorated.
+&lt;/p&gt;
+&lt;p&gt;
+  In case you are curious, here is the Git commit where I implemented
+  the change from RSS to Atom:
+  &lt;a href=&quot;https://codeberg.org/susam/susam.net/commit/596e1dd&quot;&gt;596e1dd&lt;/a&gt;.
+  As you might notice, a large portion of the change consists of
+  replacing the &lt;code&gt;key&lt;/code&gt; attribute in each post with
+  the &lt;code&gt;uuid&lt;/code&gt; attribute.  The &lt;code&gt;key&lt;/code&gt; attribute
+  value was used as the value of the &lt;code&gt;&amp;lt;guid&amp;gt;&lt;/code&gt; element
+  in the RSS feeds.  While an arbitrary short string could serve as
+  the &lt;code&gt;&amp;lt;guid&amp;gt;&lt;/code&gt; element for the items in an RSS feed,
+  the &lt;code&gt;&amp;lt;id&amp;gt;&lt;/code&gt; element of the entries in an Atom feed
+  needs to be a URI.  It turns out UUID URNs are a common choice for
+  such a URI.  I wrote the following shell command to replace all
+  occurrences of the &lt;code&gt;key&lt;/code&gt; attribute
+  with &lt;code&gt;uuid&lt;/code&gt;:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;find . -type f -name &apos;*.html&apos; -exec sh -c &apos;
+  for f do
+    sed &quot;s/^&amp;lt;!-- key: .* --&amp;gt;/&amp;lt;!-- uuid: $(uuidgen) --&amp;gt;/g&quot; &quot;$f&quot; &amp;gt; tmp &amp;amp;&amp;amp;
+    mv tmp &quot;$f&quot;
+  done
+&apos; sh {} +&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The rest of the changes went into the
+  &lt;a href=&quot;https://codeberg.org/susam/susam.net/src/tag/0.8.0/layout/tag/feed.xml&quot;&gt;feed&lt;/a&gt;
+  &lt;a href=&quot;https://codeberg.org/susam/susam.net/src/tag/0.8.0/layout/tag/item.xml&quot;&gt;templates&lt;/a&gt;
+  and the Common Lisp &lt;a href=&quot;https://codeberg.org/susam/susam.net/src/tag/0.8.0/site.lisp&quot;&gt;program&lt;/a&gt;
+  that statically generates the feeds along with the website.
+&lt;/p&gt;
+&lt;p&gt;
+  For examples of the resulting feeds, see
+  &lt;a href=&quot;feed.xml&quot;&gt;feed.xml&lt;/a&gt; and
+  &lt;a href=&quot;tag/absurd.xml&quot;&gt;absurd.xml&lt;/a&gt;.  The first is the main
+  website feed and the second is an example of a tag-specific feed.
+  Yes, the aforementioned Common Lisp program generates a feed for
+  each &lt;a href=&quot;tag/&quot;&gt;tag&lt;/a&gt;.  As of today, the main feed
+  at &lt;a href=&quot;feed.xml&quot;&gt;feed.xml&lt;/a&gt; contains only two entries even
+  though this website has over &lt;a href=&quot;pages.html&quot;&gt;200 pages&lt;/a&gt;.  I
+  explain the reason later in
+  &lt;a href=&quot;#temporary-workaround&quot;&gt;Temporary Workaround&lt;/a&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;atom-entries&quot;&gt;Atom Entries&lt;/h2&gt;
+&lt;p&gt;
+  Here is an example Atom entry from my feeds:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;entry&amp;gt;
+  &amp;lt;title&amp;gt;A4 Paper Stories&amp;lt;/title&amp;gt;
+  &amp;lt;link href=&quot;https://susam.net/a4-paper-stories.html&quot;/&amp;gt;
+  &amp;lt;id&amp;gt;urn:uuid:06e5304d-c242-481c-bf94-e23b019b0a36&amp;lt;/id&amp;gt;
+  &amp;lt;updated&amp;gt;2026-01-06T00:00:00Z&amp;lt;/updated&amp;gt;
+  &amp;lt;content type=&quot;html&quot;&amp;gt;
+    &amp;amp;lt;p&amp;amp;gt;I sometimes resort to a rather common measuring ...
+  &amp;lt;/content&amp;gt;
+&amp;lt;/entry&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The ellipsis (&lt;code&gt;...&lt;/code&gt;) denotes content I have omitted for
+  the sake of brevity.
+&lt;/p&gt;
+&lt;p&gt;
+  I like how each entry in the feed now has its own UUIDv4.  I also
+  like that timestamps in an Atom feed are in the
+  &lt;code&gt;date-time&lt;/code&gt; format specified in
+  &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc3339.html&quot;&gt;RFC 3339&lt;/a&gt;,
+  which also happens to be a profile of ISO 8601.  Further, I like
+  that I can explicitly declare the content type to be HTML.  Commonly
+  used values for the content type attribute are &lt;code&gt;text&lt;/code&gt;,
+  &lt;code&gt;html&lt;/code&gt; and &lt;code&gt;xhtml&lt;/code&gt;.  If it is
+  &lt;code&gt;html&lt;/code&gt;, the content should be escaped HTML.  If it is
+  &lt;code&gt;xhtml&lt;/code&gt;, the content should be an
+  XHTML &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element containing valid XHTML.
+  Explicit content type support is likely the biggest advantage of
+  Atom over RSS.  In comparison,
+  &lt;a href=&quot;https://www.rssboard.org/rss-specification&quot;&gt;RSS 2.0&lt;/a&gt;
+  does not specify any way to declare the content type.  So feed
+  readers have to inspect the content and guess what the content type
+  might be.
+&lt;/p&gt;
+&lt;h2 id=&quot;temporary-workaround&quot;&gt;Temporary Workaround&lt;/h2&gt;
+&lt;p&gt;
+  As I mentioned before, as of today, the
+  &lt;a href=&quot;feed.xml&quot;&gt;main feed&lt;/a&gt; contains only two entries.  That&apos;s
+  because only new posts published since the migration to Atom are now
+  included in the feed.  This was done to avoid spamming subscribers.
+  The Atom specification&apos;s requirement that each entry&apos;s ID must be a
+  URI has caused the IDs of every entry to change.  If I were to
+  include the older posts from before the change in the feed, then
+  those posts would appear as new unread items.  Subscribers can find
+  this quite annoying.  In fact, I have received a few
+  &lt;a href=&quot;https://news.ycombinator.com/item?id=40680890&quot;&gt;complaints&lt;/a&gt;
+  about this in the past.  So I was careful this time.  I have a little
+  &lt;a href=&quot;https://codeberg.org/susam/susam.net/src/tag/0.8.0/site.lisp#L1520-L1525&quot;&gt;one-liner
+  workaround&lt;/a&gt; in my site generator to exclude posts published before
+  this change from the feed.
+&lt;/p&gt;
+&lt;p&gt;
+  That was the only workaround I had to implement.  Fortunately, my
+  feed file had a neutral name like &lt;code&gt;feed.xml&lt;/code&gt;, rather than
+  a format-specific name like &lt;code&gt;rss.xml&lt;/code&gt;, so I could avoid a
+  URL change and the subsequent overhead of setting up redirects.
+&lt;/p&gt;
+&lt;h2 id=&quot;does-it-matter&quot;&gt;Does It Matter?&lt;/h2&gt;
+&lt;p&gt;
+  Does any of this matter today?  I think it does.  Contrary to the
+  recurring claim that RSS and Atom are dead, most of the traffic to my
+  personal website still comes from web feeds, even in 2026.  Every
+  time I publish a new post, I can see a good number of visitors
+  arriving from feed readers.  From the referrer data in my web server
+  logs (which is not completely reliable but still offers some
+  insight), the three largest sources of traffic to my website are
+  web feeds, newsletters and search engines, in that order.
+&lt;/p&gt;
+&lt;p&gt;
+  On the topic of newsletters, I was surprised to discover just how
+  many technology newsletters there are on the Web and how active
+  their user bases are.  Once in a while, a newsletter picks up one of
+  my silly or quirky posts, which then brings a large number of visits
+  from its followers.
+&lt;/p&gt;
+&lt;p&gt;
+  Back to the topic of web feeds, there is indeed a decent user base
+  around RSS and Atom feeds.  A good number of visitors to my website
+  arrive by clicking a feed entry that shows up in their feed
+  reader.  I know this with some confidence by looking at
+  the &lt;code&gt;referer&lt;/code&gt; (sic) headers of visits to my HTML pages
+  and the subsequent browsing of the website, as opposed to the
+  isolated and automated fetches of the XML feeds.  So there must be a
+  reasonably active base of users around web feeds.  It is a bit like
+  being part of an invisible social network that we know exists and
+  that we can measure through indirect evidence.
+&lt;/p&gt;
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;p&gt;
+  I found these three resources useful while switching to Atom feeds:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://validator.w3.org/feed/docs/atom.html&quot;&gt;W3C Introduction to Atom&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://validator.w3.org/feed/&quot;&gt;W3C Feed Validation Service&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc4287&quot;&gt;RFC 4287&lt;/a&gt;: The Atom Syndication Format
+  &lt;/li&gt;
+&lt;/ul&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/from-rss-to-atom.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Apr '26 Notes</title>
+    <link href="https://susam.net/26d.html"/>
+    <id>urn:uuid:5c0287a9-2788-4970-a0f7-8c050f2ffa0a</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  This is my fourth set of &lt;a href=&quot;tag/notes.html&quot;&gt;monthly notes&lt;/a&gt;
+  for this year where I write down interesting facts and ideas I have
+  explored during my spare time.  There were three things in
+  particular that occupied my leisure time this month.  First, I
+  managed to learn the proof of Tutte&apos;s famous theorem that any \( s
+  \)-arc-transitive finite cubic graph must satisfy \( s \le 5.  \)  I
+  learnt the proof from Norman Biggs&apos;s book &lt;em&gt;Algebraic Graph
+  Theory&lt;/em&gt;.  The original proof appears in Tutte&apos;s 1947 paper &apos;A
+  family of cubical graphs&apos;
+  (&lt;a href=&quot;https://doi.org/10.1017/S0305004100023720&quot;&gt;DOI&lt;/a&gt;).
+  Biggs&apos;s presentation differs considerably from Tutte&apos;s original
+  argument and relies heavily on the properties of stabiliser
+  sequences of arcs.  I should say that Biggs&apos;s proof, while complete,
+  is extremely condensed.  The proof reads more like a high-level
+  outline that moves rapidly from one main result to the next without
+  sufficiently explaining the intermediate steps.  As a result, it
+  took considerable effort to work out the proofs of the intermediate
+  results.  Biggs presents the proof in roughly nine pages spread
+  across two chapters.  However, when I worked through it in full
+  detail while ensuring that every step is justified, my notes
+  eventually grew to around 18 pages of
+  &lt;a href=&quot;a4-paper-stories.html&quot;&gt;A4 paper&lt;/a&gt;.  The proof is quite
+  involved, so I have not included it in these notes.  Perhaps
+  someday, when I have more time, I will distil my handwritten notes
+  and publish them here on my website.
+&lt;/p&gt;
+&lt;p&gt;
+  That was the first thing I spent time on this month.  The second was
+  revisiting some elementary results in group theory concerning
+  cosets.  I have found cosets to be an extremely useful concept that
+  plays a central role in many areas of mathematics, including coding
+  theory, Galois theory, field extensions and graph theory.  In fact,
+  Biggs&apos;s proof of Tutte&apos;s theorem discussed above also relies
+  substantially on the theory of cosets.  Since these results are
+  relatively elementary and easier to write up, they are included in
+  this set of notes.
+&lt;/p&gt;
+&lt;p&gt;
+  Apart from mathematics, I also spent part of my spare time improving
+  my new web project named &lt;a href=&quot;wander/&quot;&gt;Wander
+  Console&lt;/a&gt;.  These notes include some updates about this tool.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#coset-results&quot;&gt;Coset Results&lt;/a&gt;
+    &lt;ol type=&quot;a&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#subgroup&quot;&gt;Subgroup&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#cosets&quot;&gt;Cosets&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#coset-membership&quot;&gt;Coset Membership&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#coset-equality&quot;&gt;Coset Equality&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#partitioning-a-group-into-disjoint-cosets&quot;&gt;Partitioning a Group into Disjoint Cosets&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#computing&quot;&gt;Computing&lt;/a&gt;
+    &lt;ol type=&quot;a&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#wander-console-updates&quot;&gt;Wander Console Updates&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#flush-output&quot;&gt;Flush Output&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#other-stuff&quot;&gt;Other Stuff&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;coset-results&quot;&gt;Coset Results&lt;/h2&gt;
+&lt;p&gt;
+  This section presents some very elementary results about cosets,
+  together with brief proofs.  These results appear repeatedly across
+  many areas of mathematics and I often find myself using them almost
+  instinctively, without consciously thinking through the underlying
+  arguments each time.  But once in a while, I like to sit back and
+  ponder about their proofs from first principles, reflect on why they
+  work and appreciate their elegance.  The subsections below collect
+  some of these little proofs.
+&lt;/p&gt;
+&lt;h3 id=&quot;subgroup&quot;&gt;Subgroup&lt;/h3&gt;
+&lt;p&gt;
+  &lt;strong&gt;Definition.&lt;/strong&gt;
+  Let \( G \) be a group with operation \( \cdot.  \)  Then a subset \(
+  H \subseteq G \) is called a subgroup of \( G \) if \( H \) itself
+  forms a group under the same operation and we write \( H \le G.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;cosets&quot;&gt;Cosets&lt;/h3&gt;
+&lt;p&gt;
+  &lt;strong&gt;Definition.&lt;/strong&gt;
+  Let \( G \) be a group, \( H \le G \) and \( a \in G.  \)  The left
+  coset of \( H \) by \( a \) is the set
+
+  \[
+    aH = \{ ah : h \in H \}.
+  \]
+
+  Similarly, the right coset of \( H \) by \( a \) is
+
+  \[
+    Ha = \{ ha : h \in H \}.
+  \]
+&lt;/p&gt;
+&lt;h3 id=&quot;coset-membership&quot;&gt;Coset Membership&lt;/h3&gt;
+&lt;p&gt;
+  &lt;strong&gt;Theorem.&lt;/strong&gt;
+  &lt;em&gt;
+    Let \( G \) be a group with identity \( e, \) \( H \le G \) and \( a
+    \in G.  \)  Then \( aH = H \) if and only if \( a \in H.  \)
+  &lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;em&gt;Proof.&lt;/em&gt;
+  Suppose \( aH = H.  \)  Then
+
+  \[
+    aH = H
+    \implies ae \in aH = H
+    \implies a \in H.
+  \]
+
+  Conversely, suppose \( a \in H.  \)  Let \( x \in aH.  \)  Then \( x =
+  ah \) for some \( h \in H.  \)  Then by the closure property of the
+  subgroup \( H, \) we get
+
+  \[
+    a, h \in H
+    \implies ah \in H
+    \implies x \in H.
+  \]
+
+  Thus \( aH \subseteq H.  \)  To show the reverse inclusion, let \( x
+  \in H.  \)  Since \( a \in H, \) we have \( a^{-1} \in H, \) so
+
+  \[
+    x \in H
+    \implies a^{-1} x \in H
+    \implies a(a^{-1} x) \in aH
+    \implies x \in aH.
+  \]
+
+  Therefore \( H \subseteq aH.  \)  As a result, \( H = aH.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;coset-equality&quot;&gt;Coset Equality&lt;/h3&gt;
+&lt;p&gt;
+  &lt;strong&gt;Theorem.&lt;/strong&gt;
+  &lt;em&gt;
+    Let \( G \) be a group with identity \( e, \) \( H \le G \) and \(
+    a, b \in G.  \)  Then \( aH = bH \) if and only if \( a^{-1} b \in
+    H.  \)
+  &lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;em&gt;Proof.&lt;/em&gt;
+  Suppose \( aH = bH.  \)  Then
+
+  \begin{align*}
+    aH = bH
+    &amp;amp; \implies b \in bH = aH \\
+    &amp;amp; \implies b = ah \tag{for some \( h \in H \)}\\
+    &amp;amp; \implies a^{-1} b = h \\
+    &amp;amp; \implies a^{-1} b \in H.
+  \end{align*}
+
+  Conversely, suppose \( a^{-1} b \in H.  \)  Let \( h = a^{-1} b.  \)
+  Then
+
+  \begin{align*}
+    h = a^{-1} b
+    &amp;amp; \implies ah = b \\
+    &amp;amp; \implies (ah)H = bH \\
+    &amp;amp; \implies a(hH) = bH \\
+    &amp;amp; \implies aH = bH \tag{since \( hH = H \)}.
+  \end{align*}
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;strong&gt;Corollary.&lt;/strong&gt;
+  &lt;em&gt;
+    Let \( G \) be a group with identity \( e, \) \( H \le G \) and \(
+    a, b \in G.  \)  Then \( aH = bH \) if and only if \( a \in bH.  \)
+  &lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;em&gt;Proof.&lt;/em&gt;
+  \[
+    aH = bH
+    \iff b^{-1} a \in H
+    \iff b (b^{-1} a) \in bH
+    \iff a \in bH.
+  \]
+&lt;/p&gt;
+&lt;h3 id=&quot;partitioning-a-group-into-disjoint-cosets&quot;&gt;Partitioning a Group into Disjoint Cosets&lt;/h3&gt;
+&lt;p&gt;
+  &lt;strong&gt;Theorem.&lt;/strong&gt;
+  &lt;em&gt;
+    Let \( G \) be a group with identity \( e, \) \( H \le G \) and \(
+    a, b \in G.  \)  Then either \( aH \cap bH = \varnothing \) or \(
+    aH = bH.  \)
+  &lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;em&gt;Proof.&lt;/em&gt;
+  Suppose \( aH \cap bH \ne \varnothing.  \)  Then there exists some
+  element \( x \in aH \cap bH.  \)  Then
+
+  \[
+    x = ah_1 = bh_2
+  \]
+
+  for some \( h_1, h_2 \in H.  \)  Therefore
+
+  \[
+    a^{-1} b = h_1 h_2^{-1} \in H.
+  \]
+
+  Then by section &lt;a href=&quot;#coset-equality&quot;&gt;Coset Equality&lt;/a&gt;,
+
+  \[
+    aH = bH.
+  \]
+&lt;/p&gt;
+&lt;h2 id=&quot;computing&quot;&gt;Computing&lt;/h2&gt;
+&lt;h3 id=&quot;wander-console-updates&quot;&gt;Wander Console Updates&lt;/h3&gt;
+&lt;p&gt;
+  &lt;a href=&quot;wander/&quot;&gt;Wander Console&lt;/a&gt; is a new project I
+  developed in &lt;a href=&quot;26c.html&quot;&gt;March&lt;/a&gt; while taking a short break
+  from my algebraic graph theory studies.  It is a tiny,
+  decentralised, self-hosted web console that allows visitors to a
+  website to explore other interesting personal websites.  It is
+  similar to the now-defunct service named
+  &lt;a href=&quot;https://en.wikipedia.org/wiki/StumbleUpon&quot;&gt;StumbleUpon&lt;/a&gt;,
+  but unlike StumbleUpon it has no central service and no server-side
+  logic.  Wander is hosted entirely on independent personal websites.
+  Wander Consoles link to one another and fetch web page
+  recommendations from each other.  The entire tool consists of just
+  two files: &lt;a href=&quot;wander/&quot;&gt;an HTML file&lt;/a&gt;
+  and &lt;a href=&quot;wander/wander.js&quot;&gt;a JS file&lt;/a&gt;.  Everything, including
+  connecting to other Wander Consoles in the network and recommending
+  webpages, happens entirely on the client side in the user&apos;s web
+  browser.  See
+  &lt;a href=&quot;https://codeberg.org/susam/wander&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;
+  for more details.
+&lt;/p&gt;
+&lt;p&gt;
+  Two &lt;a href=&quot;https://codeberg.org/susam/wander/src/branch/main/CHANGES.md&quot;&gt;releases&lt;/a&gt;
+  of Wander were made this month.  One notable feature introduced this
+  month is the console network crawler.  You can visit any Wander
+  console and use this feature to crawl the network reachable from it.
+  To see this in action, go to my console at
+  &lt;a href=&quot;wander/&quot;&gt;wander/&lt;/a&gt;, click the
+  &lt;strong&gt;Console&lt;/strong&gt; button at the top and then click the
+  &lt;strong&gt;Crawl&lt;/strong&gt; button.
+&lt;/p&gt;
+&lt;p&gt;
+  Since different consoles link to different sets of peers, each one
+  has its own neighbourhood, so the crawler output varies from console
+  to console.
+&lt;/p&gt;
+&lt;p&gt;
+  Due to the decentralised nature of the tool, it is difficult to know
+  exactly how many people have set up Wander Console on their
+  websites.  Nevertheless, I used the crawler with a known set of
+  consoles to explore as much of the network as possible.  The result
+  is available at
+  &lt;a href=&quot;https://susam.codeberg.page/wcn/&quot;&gt;susam.codeberg.page/wcn/&lt;/a&gt;.
+  It currently shows over 50 consoles recommending more than 1400 web
+  pages from the small web of personal sites.  For a project that is
+  only six weeks old, these seem like decent numbers.
+&lt;/p&gt;
+&lt;h3 id=&quot;flush-output&quot;&gt;Flush Output&lt;/h3&gt;
+&lt;p&gt;
+  When I log into my Debian 13.2 system via SSH, I find
+  that &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;o&lt;/kbd&gt; does not enable output discarding.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;stty -a | grep &apos;discard\|flush&apos;&lt;/kbd&gt;
+werase = ^W; lnext = ^V; discard = ^O; min = 1; time = 0;
+echoctl echoke -flusho -extproc
+$ &lt;kbd&gt;ping 127.0.0.1&lt;/kbd&gt;
+PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.021 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.030 ms
+&lt;kbd&gt;^O&lt;/kbd&gt;64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.026 ms
+64 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.049 ms
+&lt;kbd&gt;^C&lt;/kbd&gt;
+--- 127.0.0.1 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3079ms
+rtt min/avg/max/mdev = 0.021/0.031/0.049/0.010 ms&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  On macOS 15.3.2, with the Terminal app, it does work as expected.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;stty -a | grep &apos;discard\|flush&apos;&lt;/kbd&gt;
+	-echoprt -altwerase -noflsh -tostop -flusho pendin -nokerninfo
+cchars: discard = ^O; dsusp = ^Y; eof = ^D; eol = &amp;lt;undef&amp;gt;
+$ &lt;kbd&gt;ping 127.0.0.1&lt;/kbd&gt;
+PING 127.0.0.1 (127.0.0.1): 56 data bytes
+64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.087 ms
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.221 ms
+&lt;kbd&gt;^O^C&lt;/kbd&gt;
+--- 127.0.0.1 ping statistics ---
+9 packets transmitted, 9 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 0.068/0.171/0.362/0.087 ms&lt;/samp&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;other-stuff&quot;&gt;Other Stuff&lt;/h3&gt;
+&lt;p&gt;
+  My initial draft of this post had a few additional sections that have
+  since been moved to their own posts:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;multiple-urls-in-git-remote.html&quot;&gt;Multiple URLs in Git Remote&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;touch-typing-number-keys.html&quot;&gt;Touch Typing Number Keys&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/26d.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/notes.html&quot;&gt;#notes&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Multiple URLs in Git Remote</title>
+    <link href="https://susam.net/multiple-urls-in-git-remote.html"/>
+    <id>urn:uuid:862deab7-11bc-494f-aebf-597b54ffaa21</id>
+    <updated>2026-04-29T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Typically a Git remote contains a single URL.  For example, when we
+  clone a repository, a remote named &lt;code&gt;origin&lt;/code&gt; is
+  automatically created and its URL is set to the location of the
+  upstream repository.  For example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git clone -q https://codeberg.org/spxy/spica.git &amp;amp;&amp;amp; cd spica/&lt;/kbd&gt;
+$ &lt;kbd&gt;git remote -v&lt;/kbd&gt;
+origin  https://codeberg.org/spxy/spica.git (fetch)
+origin  https://codeberg.org/spxy/spica.git (push)
+$ &lt;kbd&gt;sed &apos;/remote/,$!d&apos; .git/config&lt;/kbd&gt;
+[remote &quot;origin&quot;]
+        url = https://codeberg.org/spxy/spica.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch &quot;main&quot;]
+        remote = origin
+        merge = refs/heads/main&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  A perhaps less known detail is that we can set multiple URLs for a
+  remote.  For example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git remote set-url origin --add https://github.com/spxy/spica.git&lt;/kbd&gt;
+$ &lt;kbd&gt;git remote -v&lt;/kbd&gt;
+origin  https://codeberg.org/spxy/spica.git (fetch)
+origin  https://codeberg.org/spxy/spica.git (push)
+origin  https://github.com/spxy/spica.git (push)
+$ &lt;kbd&gt;sed &apos;/remote/,$!d&apos; .git/config&lt;/kbd&gt;
+[remote &quot;origin&quot;]
+        url = https://codeberg.org/spxy/spica.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+        url = https://github.com/spxy/spica.git
+[branch &quot;main&quot;]
+        remote = origin
+        merge = refs/heads/main&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  As evident from the above output, with multiple URLs for the same
+  remote, the first one becomes the fetch URL whereas all URLs become
+  push URLs.  For example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git pull&lt;/kbd&gt;
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 327 bytes | 109.00 KiB/s, done.
+From https://codeberg.org/spxy/spica
+   d473dde..31db503  main       -&amp;gt; origin/main
+Updating d473dde..31db503
+Fast-forward
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+$ &lt;kbd&gt;git log --oneline&lt;/kbd&gt;
+31db503 (HEAD -&amp;gt; main, origin/main, origin/HEAD) Explain that Spica is a binary star system
+d473dde Create README.md&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The output above confirms that the fetch was performed from the
+  first remote URL.  Although the output shows that
+  &lt;code&gt;origin&lt;/code&gt; contains commit 31db503, it is possible
+  that not all remote locations for &lt;code&gt;origin&lt;/code&gt; have received
+  this commit yet.  Since we have not configured a
+  &lt;code&gt;pushurl&lt;/code&gt;, pushes are sent to all remote URLs by default.
+  For example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;echo &apos;It is about 250 light years away from the Sun.&apos; &amp;gt;&amp;gt; README.md&lt;/kbd&gt;
+$ &lt;kbd&gt;git add README.md&lt;/kbd&gt;
+$ &lt;kbd&gt;git commit -m &apos;Mention distance from the Sun&apos;&lt;/kbd&gt;
+[main 816998d] Mention distance from the Sun
+ 1 file changed, 1 insertion(+)
+$ &lt;kbd&gt;git push&lt;/kbd&gt;
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 10 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 325 bytes | 325.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://codeberg.org/spxy/spica.git
+   31db503..816998d  main -&amp;gt; main
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 10 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (9/9), 791 bytes | 791.00 KiB/s, done.
+Total 9 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/spxy/spica.git
+ * [new branch]      main -&amp;gt; main
+$ &lt;kbd&gt;git log --oneline&lt;/kbd&gt;
+816998d (HEAD -&amp;gt; main, origin/main, origin/HEAD) Mention distance from the Sun
+31db503 Explain that Spica is a binary star system
+d473dde Create README.md&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  A &lt;code&gt;pushurl&lt;/code&gt; can be set as follows:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git remote set-url --push origin https://github.com/spxy/spica.git&lt;/kbd&gt;
+$ &lt;kbd&gt;git remote -v&lt;/kbd&gt;
+origin  https://codeberg.org/spxy/spica.git (fetch)
+origin  https://github.com/spxy/spica.git (push)
+$ &lt;kbd&gt;sed &apos;/remote/,$!d&apos; .git/config&lt;/kbd&gt;
+[remote &quot;origin&quot;]
+        url = https://codeberg.org/spxy/spica.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+        url = https://github.com/spxy/spica.git
+        pushurl = https://github.com/spxy/spica.git
+[branch &quot;main&quot;]
+        remote = origin
+        merge = refs/heads/main&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  When one or more &lt;code&gt;pushurl&lt;/code&gt; locations are set, pushes are
+  sent to only those locations.  Fetches continue to occur from the
+  first URL as before.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;echo &apos;Its two stars orbit each other roughly every four days.&apos; &amp;gt;&amp;gt; README.md&lt;/kbd&gt;
+$ &lt;kbd&gt;git add README.md&lt;/kbd&gt;
+$ &lt;kbd&gt;git commit -m &apos;Mention the four-day orbital period&apos;&lt;/kbd&gt;
+[main 2e9f4e8] Mention the four-day orbital period
+ 1 file changed, 1 insertion(+)
+$ &lt;kbd&gt;git push&lt;/kbd&gt;
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 10 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 342 bytes | 342.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/spxy/spica.git
+   816998d..2e9f4e8  main -&amp;gt; main
+$ &lt;kbd&gt;git log --oneline&lt;/kbd&gt;
+2e9f4e8 (HEAD -&amp;gt; main, origin/main, origin/HEAD) Mention the four-day orbital period
+816998d Mention distance from the Sun
+31db503 Explain that Spica is a binary star system
+d473dde Create README.md&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Note that in this case, the new commit has been pushed only to the
+  second remote URL.  If we perform a pull, Git will fetch changes
+  from the first remote URL and will move &lt;code&gt;origin/main&lt;/code&gt;
+  back to the latest commit available there.  For example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git pull&lt;/kbd&gt;
+From https://codeberg.org/spxy/spica
+ + 2e9f4e8...816998d main       -&amp;gt; origin/main  (forced update)
+Already up to date.
+$ &lt;kbd&gt;git log --oneline&lt;/kbd&gt;
+2e9f4e8 (HEAD -&amp;gt; main) Mention the four-day orbital period
+816998d (origin/main, origin/HEAD) Mention distance from the Sun
+31db503 Explain that Spica is a binary star system
+d473dde Create README.md&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  For this reason, configuring a separate &lt;code&gt;pushurl&lt;/code&gt; should
+  be done with care.  It is useful only in a narrow range of scenarios
+  such as fetching from a primary repository that we want to treat as
+  read-only while pushing changes to a mirror.
+&lt;/p&gt;
+&lt;p&gt;
+  The difference between &lt;code&gt;pushurl&lt;/code&gt; and a normal remote URL
+  is explained in &lt;code&gt;man git-fetch&lt;/code&gt; as well as &lt;code&gt;man
+  git-push&lt;/code&gt; of Git 2.54.0 as follows:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  The &amp;lt;pushurl&amp;gt; is used for pushes only.  It is optional and
+  defaults to &amp;lt;URL&amp;gt;.  Pushing to a remote affects all defined
+  pushurls or all defined urls if no pushurls are defined.  Fetch,
+  however, will only fetch from the first defined url if multiple urls
+  are defined.
+&lt;/blockquote&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/multiple-urls-in-git-remote.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/git.html&quot;&gt;#git&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Wander Console 0.5.0</title>
+    <link href="https://susam.net/code/news/wander/0.5.0.html"/>
+    <id>urn:uuid:55fa2d80-fbba-4e75-a530-a17a912ba2a1</id>
+    <updated>2026-04-19T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Wander Console 0.5.0 is out.  It is the fifth release of Wander, a
+  small, decentralised, self-hosted web console that lets visitors to
+  your website explore interesting websites and pages recommended by a
+  community of independent website owners.  To try it, go to
+  &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander/&lt;/a&gt;.  To
+  learn more about how it works and how to set it up on your website,
+  see the project &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;README&lt;/a&gt;.
+&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;https://susam.github.io/blob/img/wander/wander-0.4.0.png&quot;
+       alt=&quot;A screenshot of Wander Console&quot;&gt;
+  &lt;figcaption&gt;A screenshot of Wander Console&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+  The big feature in this release is a built-in console network
+  crawler.  To try the console crawler, go to
+  &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander/&lt;/a&gt;
+  &amp;gt; &lt;strong&gt;Console&lt;/strong&gt; &amp;gt; &lt;strong&gt;Crawl&lt;/strong&gt;.  It
+  performs a breadth-first search (BFS) traversal of the Wander
+  network and lists all discovered consoles and page recommendations
+  in a single pane.
+&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;https://susam.github.io/blob/img/wander/wander-0.5.0.png&quot;
+       alt=&quot;A screenshot of Wander Console Crawler&quot;&gt;
+  &lt;figcaption&gt;A screenshot of Wander Console Crawler&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+  If you have set up a Wander Console instance for yourself on your
+  website, I recommend upgrading to the latest version to use this
+  feature.  It is fun to find out just how many Wander consoles belong
+  to your neighbourhood.  To upgrade, you only need to download the
+  Wander Console bundle
+  &lt;a href=&quot;https://codeberg.org/susam/wander#install&quot;&gt;mentioned
+  here&lt;/a&gt; and replace your existing Wander &lt;code&gt;index.html&lt;/code&gt;
+  with the new one.
+&lt;/p&gt;
+&lt;p&gt;
+  If you own a personal website but have not set up a Wander Console
+  yet, I suggest that you consider setting one up for yourself.  You
+  can see what it looks like by visiting mine at
+  &lt;a href=&quot;../../../wander/&quot;&gt;/wander/&lt;/a&gt;.  To set up your
+  own, follow these instructions from the README:
+  &lt;a href=&quot;https://codeberg.org/susam/wander#install&quot;&gt;Install&lt;/a&gt;.  It
+  just involves copying two files to your web server.  It is as simple
+  as that.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/wander/0.5.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Wander Console 0.4.0</title>
+    <link href="https://susam.net/code/news/wander/0.4.0.html"/>
+    <id>urn:uuid:6b9b167a-8238-44d8-b5ca-2f395684ed91</id>
+    <updated>2026-04-04T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Wander Console 0.4.0 is the fourth release of Wander, a small,
+  decentralised, self-hosted web console that lets visitors to your
+  website explore interesting websites and pages recommended by a
+  community of independent website owners.  To try it, go
+  to &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander/&lt;/a&gt;.
+&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;https://susam.github.io/blob/img/wander/wander-0.4.0.png&quot;
+       alt=&quot;A screenshot of Wander Console 0.4.0&quot;&gt;
+  &lt;figcaption&gt;A screenshot of Wander Console 0.4.0&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+  This release brings a few small additions as well as a few minor
+  fixes.  You can find the previous release pages here:
+  &lt;a href=&quot;./&quot;&gt;/code/news/wander/&lt;/a&gt;.  The sections below
+  discuss the current release.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#wildcard-patterns&quot;&gt;Wildcard Patterns&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-via-query-parameter&quot;&gt;The &apos;via&apos; Query Parameter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#console-picker-algorithm&quot;&gt;Console Picker Algorithm&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#allow-links-that-open-in-new-tab&quot;&gt;Allow Links that Open in New Tab&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#community&quot;&gt;Community&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;wildcard-patterns&quot;&gt;Wildcard Patterns&lt;/h2&gt;
+&lt;p&gt;
+  Wander Console now supports wildcard patterns in ignore lists.  An
+  asterisk (&lt;code&gt;*&lt;/code&gt;) anywhere in an ignore pattern matches zero
+  or more characters in URLs.  For example, an ignore pattern
+  like &lt;code&gt;https://*.midreadpopup.example/&lt;/code&gt; can be used to
+  ignore URLs such as this:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;https://alice.midreadpopup.example/&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;https://bob.jones.midreadpopup.example/&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  These ignore patterns are specified in a console&apos;s
+  &lt;a href=&quot;../../../wander/wander.js&quot;&gt;wander.js&lt;/a&gt; file.  These are
+  very important for providing a good wandering experience to
+  visitors.  The owner of a console decides what links they want to
+  ignore in their ignore patterns.  The ignore list typically contains
+  commercial websites that do not fit the spirit of the small web, as
+  well as defunct or incompatible websites that do not load in the
+  console.  A console with a well maintained ignore list ensures that
+  a visitor to that console has a lower likelihood of encountering
+  commercial or broken websites.
+&lt;/p&gt;
+&lt;p&gt;
+  For a complete description of the ignore patterns, see
+  &lt;a href=&quot;https://codeberg.org/susam/wander#customise-ignore-list&quot;&gt;Customise
+  Ignore List&lt;/a&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;the-via-query-parameter&quot;&gt;The &apos;via&apos; Query Parameter&lt;/h2&gt;
+&lt;p&gt;
+  By &lt;a href=&quot;https://codeberg.org/susam/wander/issues/1#issuecomment-11795493&quot;&gt;popular
+  demand&lt;/a&gt;, Wander now adds a &lt;code&gt;via=&lt;/code&gt; query parameter
+  while loading a recommended web page in the console.  The value of
+  this parameter is the console that loaded the recommended page.  For
+  example, if you encounter &lt;a href=&quot;https://midnight.pub/&quot;&gt;midnight.pub/&lt;/a&gt;
+  while using the console at &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander/&lt;/a&gt;,
+  the console loads the page using the following URL:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://midnight.pub/?via=https://susam.net/wander/&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  This allows the owner of the recommended website to see, via their
+  access logs, that the visit originated from a Wander Console.  While
+  this is the default behaviour now, it can be customised in two ways.
+  The value can be changed from the full URL of the Wander Console to
+  a small identifier that identifies the version of Wander Console
+  used (e.g. &lt;code&gt;via=wander-0.4.0&lt;/code&gt;).  The query parameter can
+  be disabled as well.  For more details,
+  see &lt;a href=&quot;https://codeberg.org/susam/wander#customise-via-parameter&quot;&gt;Customise
+  &apos;via&apos; Parameter&lt;/a&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;console-picker-algorithm&quot;&gt;Console Picker Algorithm&lt;/h2&gt;
+&lt;p&gt;
+  In earlier versions of the console, when a visitor came to your
+  console to explore the Wander network, it picked the first
+  recommendation from the list of recommended pages in it
+  (i.e. your &lt;code&gt;wander.js&lt;/code&gt; file).  But subsequent
+  recommendations came from your neighbours&apos; consoles and then their
+  neighbours&apos; consoles and so on recursively.  Your console (the
+  starting console) was not considered again unless some other console
+  in the network linked back to your console.
+&lt;/p&gt;
+&lt;p&gt;
+  A common way to ensure that your console was also considered in
+  subsequent recommendations too was to add a link to your console in
+  your own console (i.e. in your &lt;code&gt;wander.js&lt;/code&gt;).  Yes, this
+  created self-loops in the network but this wasn&apos;t considered a
+  problem.  In fact, this was considered desirable, so that when the
+  console picked a console from the pool of discovered consoles to
+  find the next recommendation, it considered itself to be part of the
+  pool.  This workaround is no longer necessary.
+&lt;/p&gt;
+&lt;p&gt;
+  Since version 0.4.0 of Wander, each console will always consider
+  itself to be part of the pool from which it picks consoles.  This
+  means that the web pages recommended by the starting console have a
+  fair chance of being picked for the next web page recommendation.
+&lt;/p&gt;
+&lt;h2 id=&quot;allow-links-that-open-in-new-tab&quot;&gt;Allow Links that Open in New Tab&lt;/h2&gt;
+&lt;p&gt;
+  The Wander Console loads the recommended web pages in an
+  &lt;code&gt;&amp;lt;iframe&amp;gt;&lt;/code&gt; element that has sandbox restrictions
+  enabled.  The sandbox properties restrict the side effects the
+  loaded web page can have on the parent Wander Console window.  For
+  example, with the sandbox restrictions enabled, a loaded web page
+  cannot redirect the parent window to another website.  In fact,
+  these days most modern browsers block this and show a warning
+  anyway, but we also block this at a sandbox level too in the console
+  implementation.
+&lt;/p&gt;
+&lt;p&gt;
+  It turned out that our aggressive sandbox restrictions also blocked
+  legitimate websites from opening a link in a new tab.  We decided
+  that opening a link in a new tab is harmless behaviour and we have
+  relaxed the sandbox restrictions a little bit to allow it.  Of
+  course, when you click such a link within Wander console, the link
+  will open in a new tab of your web browser (not within Wander
+  Console, as the console does not have any notion of tabs).
+&lt;/p&gt;
+&lt;h2 id=&quot;community&quot;&gt;Community&lt;/h2&gt;
+&lt;p&gt;
+  Although I developed this project on a whim, one early morning while
+  taking a short break from my &lt;a href=&quot;../../../26c.html&quot;&gt;ongoing
+  studies&lt;/a&gt; of algebraic graph theory, the subsequent warm
+  reception &lt;a href=&quot;https://news.ycombinator.com/item?id=47422759&quot;&gt;on
+  Hacker News&lt;/a&gt; and &lt;a href=&quot;https://lobste.rs/s/hjipba&quot;&gt;Lobsters&lt;/a&gt;
+  has led to a growing community of Wander Console owners.  There are
+  two places where the community hangs out at the moment:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    New consoles are announced in this thread on Codeberg:
+    &lt;a href=&quot;https://codeberg.org/susam/wander/issues/1&quot;&gt;Share Your
+    Wander Console&lt;/a&gt;.
+  &lt;/li&gt;
+  &lt;li&gt;
+    We also have an Internet Relay Chat (IRC) channel
+    named &lt;a href=&quot;http://web.libera.chat/#wander&quot;&gt;#wander&lt;/a&gt; on the
+    Libera IRC network.  This is a channel for people who enjoy
+    building personal websites and want to talk to each other.  You
+    are welcome to join this channel, share your console URL, link to
+    your website or recent articles as well as share links to other
+    non-commercial personal websites.
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  If you own a personal website but you have not set up a Wander
+  Console yet, I suggest that you consider setting one up for
+  yourself.  You can see what it looks like by visiting mine at
+  &lt;a href=&quot;../../../wander/&quot;&gt;/wander/&lt;/a&gt;.  To set up your
+  own, follow these
+  instructions: &lt;a href=&quot;https://codeberg.org/susam/wander#install&quot;&gt;Install&lt;/a&gt;.
+  It just involves copying two files to your web server.  It is about
+  as simple as it gets.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/wander/0.4.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Mar '26 Notes</title>
+    <link href="https://susam.net/26c.html"/>
+    <id>urn:uuid:81a44497-3807-439b-87d1-04f80ccf1240</id>
+    <updated>2026-03-30T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  This is my third set of &lt;a href=&quot;tag/notes.html&quot;&gt;monthly notes&lt;/a&gt;
+  for this year.  In these notes, I capture various interesting facts
+  and ideas I have stumbled upon during the month.  Like in the last
+  two months, I have been learning and exploring algebraic graph
+  theory.  The two main books I have been reading are &lt;em&gt;Algebraic
+  Graph Theory&lt;/em&gt; by Godsil and Royle and &lt;em&gt;Algebraic Graph
+  Theory&lt;/em&gt;, 2nd ed. by Norman Biggs.  Much of what appears here
+  comes from my study of these books as well as my own explorations
+  and attempts to distill the ideas.  This post is quite heavy on
+  mathematics but there are some non-mathematical, computing-related
+  notes towards the end.
+&lt;/p&gt;
+&lt;p&gt;
+  The level of exposition is quite uneven throughout these notes.
+  After all, they aren&apos;t meant to be a polished exposition but rather
+  notes I take for myself.  In some places I build concepts from first
+  principles, while in others I gloss over details and focus only on
+  the main results.
+&lt;/p&gt;
+&lt;p&gt;
+  Sometime during the second half of the month, I also
+  developed an open-source tool called
+  &lt;a href=&quot;https://codeberg.org/susam/wander&quot;&gt;Wander Console&lt;/a&gt; on a
+  whim.  It lets anyone with a website host a decentralised web
+  console that recommends interesting websites from the &apos;small web&apos; of
+  independent, personal websites.  Check my console
+  here: &lt;a href=&quot;wander/&quot;&gt;wander/&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  Although the initial version was ready after just about 1.5 hours of
+  development during a break I was taking from studying algebraic
+  graph theory, the
+  subsequent &lt;a href=&quot;https://news.ycombinator.com/item?id=47422759&quot;&gt;warm
+  reception on Hacker News&lt;/a&gt; and a
+  &lt;a href=&quot;https://codeberg.org/susam/wander/issues/1&quot;&gt;growing
+  community&lt;/a&gt; around it, along with the resulting feature requests
+  and bug fixes, ended up taking more time than I had anticipated, at
+  the expense of my algebraic graph theory studies.  With a full-time
+  job, it becomes difficult to find time for both open source
+  development and mathematical studies.  But eventually, I managed to
+  return to my studies while making Wander Console improvements only
+  occasionally during breaks from my studies.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#group-theory&quot;&gt;Group Theory&lt;/a&gt;
+    &lt;ol type=&quot;a&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#permutation&quot;&gt;Permutation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-homomorphism&quot;&gt;Group Homomorphism&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-homomorphism-preserves-identities&quot;&gt;Group Homomorphism Preserves Identity&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-homomorphism-preserves-inverses&quot;&gt;Group Homomorphism Preserves Inverses&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#image-of-a-group-homomorphism&quot;&gt;Image of a Group Homomorphism&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-monomorphism&quot;&gt;Group Monomorphism&lt;/a&gt;
+        &lt;ol type=&quot;i&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#standard-proof&quot;&gt;Standard Proof&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#alternate-arrangement&quot;&gt;Alternate Proof&lt;/a&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#permutation-representation&quot;&gt;Permutation Representation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-action&quot;&gt;Group Action&lt;/a&gt;
+        &lt;ol type=&quot;i&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#why-right-action&quot;&gt;Why Right Action?&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#group-action-example-1&quot;&gt;Example 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#group-action-example-2&quot;&gt;Example 2&lt;/a&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-actions-induce-permutations&quot;&gt;Group Actions Induce Permutations&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-actions-determine-permutation-representations&quot;&gt;Group Actions Determine Permutation Representations&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#permutation-representations-determine-group-actions&quot;&gt;Permutation Representations Determine Group Actions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#bijection-between-group-actions-and-permutation-representations&quot;&gt;Bijection Between Group Actions and Permutation Representations&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#orbits&quot;&gt;Orbits&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#stabilisers&quot;&gt;Stabilisers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#orbit-stabiliser-theorem&quot;&gt;Orbit-Stabiliser Theorem&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#faithful-actions&quot;&gt;Faithful Actions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#semiregular-actions&quot;&gt;Semiregular Actions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#transitive-actions&quot;&gt;Transitive Actions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#conjugacy&quot;&gt;Conjugacy&lt;/a&gt;
+        &lt;ol type=&quot;i&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#conjugation-as-group-action&quot;&gt;Conjugation as Group Action&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#right-conjugation-vs-left-conjugation&quot;&gt;Right Conjugation vs Left Conjugation&lt;/a&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#conjugate-groups&quot;&gt;Conjugate Subgroups&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#conjugacy-of-stabilisers&quot;&gt;Conjugacy of Stabilisers&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#algebraic-graph-theory&quot;&gt;Algebraic Graph Theory&lt;/a&gt;
+    &lt;ol type=&quot;a&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#stabiliser-index&quot;&gt;Stabiliser Index&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#strongly-connected-directed-graph&quot;&gt;Strongly Connected Directed Graph&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#shunting&quot;&gt;Shunting&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#automorphisms-preserve-successor-relation&quot;&gt;Automorphisms Preserve Successor Relation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#test-of-s-arc-transitivity&quot;&gt;Test of \( s \)-arc Transitivity&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#moore-graphs&quot;&gt;Moore Graphs&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#generalised-polygons&quot;&gt;Generalised Polygons&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#computing&quot;&gt;Computing&lt;/a&gt;
+    &lt;ol type=&quot;a&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#select-between-lines-inclusive&quot;&gt;Select Between Lines, Inclusive&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#select-between-lines-exclusive&quot;&gt;Select Between Lines, Exclusive&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#signing-and-verification-with-ssh-key&quot;&gt;Signing and Verification with SSH Key&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#block-ip-address-with-nftables&quot;&gt;Block IP Address with nftables&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#debian-logrotate-setup&quot;&gt;Debian Logrotate Setup&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;group-theory&quot;&gt;Group Theory&lt;/h2&gt;
+&lt;h3 id=&quot;permutation&quot;&gt;Permutation&lt;/h3&gt;
+&lt;p&gt;
+  A &lt;em&gt;permutation&lt;/em&gt; of a set \( X \) is a bijection \( X \to X
+ .  \)
+&lt;/p&gt;
+&lt;p&gt;
+  For example, take \( X = \{ 1, 2, 3, 4, 5, 6 \} \) and define the
+  map
+
+  \[
+    \pi : X \to X; \; x \mapsto 1 + ((x + 1) \bmod 6).
+  \]
+
+  This maps
+
+  \begin{align*}
+    1 &amp;amp;\mapsto 3, \\
+    2 &amp;amp;\mapsto 4, \\
+    3 &amp;amp;\mapsto 5, \\
+    4 &amp;amp;\mapsto 6, \\
+    5 &amp;amp;\mapsto 1, \\
+    6 &amp;amp;\mapsto 2.
+  \end{align*}
+&lt;/p&gt;
+&lt;p&gt;
+  We can describe permutations more succinctly using cycle notation.
+  The cycle notation of a permutation \( \pi \) consists of one or
+  more sequences written next to each other such that the sequences
+  are pairwise disjoint and \( \alpha \) maps each element in a
+  sequence to the next element on its right.  If the sequence is
+  finite, then \( \alpha \) maps the final element back to the first
+  one.  Any element that does not appear in any sequence is mapped to
+  itself.  For example the cycle notation for the above permutation is
+  \( (1 3 5)(2 4 6).  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;group-homomorphism&quot;&gt;Group Homomorphism&lt;/h3&gt;
+&lt;p&gt;
+  A map \( \phi : G \to H \) from a group \( (G, \ast) \) to a group
+  \( (H, \cdot) \) is a &lt;em&gt;group homomorphism&lt;/em&gt; if, for all \( x, y
+  \in G, \)
+
+  \[
+    \phi(x \ast y) = \phi(x) \cdot \phi(y).
+  \]
+
+  We say that a group homomorphism is a map between groups that
+  &lt;em&gt;preserves&lt;/em&gt; the group operation.  In other words, a group
+  homomorphism &lt;em&gt;sends&lt;/em&gt; products in \( G \) to products in \( H
+ .  \)  For example, consider the groups \( (\mathbb{Z}, +) \) and \(
+  (\mathbb{Z}_3, +).  \)  Then the map
+
+  \[
+    \phi : \mathbb{Z} \to \mathbb{Z}_3; \; n \mapsto n \bmod 3
+  \]
+
+  is a group homomorphism because
+
+  \[
+    \phi(x + y)
+    = (x + y) \bmod 3
+    = (x \bmod 3) + (y \bmod 3)
+    = \phi(x) + \phi(y)
+  \]
+
+   for all \( x, y \in \mathbb{Z}.  \)  As another example, consider
+   the groups \( (\mathbb{R}_{\gt 0}, \times) \) and \( (\mathbb{R},
+   +).  \)  Then the map
+
+  \[
+    \log : \mathbb{R}_{\gt 0} \to \mathbb{R}
+  \]
+
+  is a group homomorphism because
+
+  \[
+    \log(m \times n) = \log m + \log n.
+  \]
+
+  Note that a group homomorphism preserves the identity element.  For
+  example, \( 1 \) is the identity element of \( (\mathbb{R}_{\gt 0},
+  \times) \) and \( 0 \) is the identity element of \( (\mathbb{R}, +)
+  \) and indeed \( \log 1 = 0.  \)  Also, a group homomorphism
+  preserves inverses.  Indeed \( \log m^{-1} = -\log m \) for all \( m
+  \in \mathbb{R}_{\gt 0}.  \)  These observations are proved in the
+  next two sections.
+&lt;/p&gt;
+&lt;h3 id=&quot;group-homomorphism-preserves-identities&quot;&gt;Group Homomorphism Preserves Identity&lt;/h3&gt;
+&lt;p&gt;
+  Let \( \phi : G \to H \) be a group homomorphism from \( (G, \ast)
+  \) to \( (H, \cdot).  \)  Let \( e_1 \) be the identity in \( G \)
+  and let \( e_2 \) be the identity in \( H.  \)  Then \( \phi(e_1) =
+  e_2.  \)
+
+
+  The proof is straightforward.  Note first that
+
+  \[
+    \phi(e_1) \cdot \phi(e_1)
+    = \phi(e_1 \ast e_1)
+    = \phi(e_1)
+  \]
+
+  Multiplying both sides on the right by \( \phi(e_1)^{-1}, \) we get
+
+  \[
+    (\phi(e_1) \cdot \phi(e_1)) \cdot \phi(e_1)^{-1}
+    = \phi(e_1) \cdot \phi(e_1)^{-1}.
+  \]
+
+  Using the associative and inverse properties of groups, we can
+  simplify both sides to get
+
+  \[
+    \phi(e_1) = e_2.
+  \]
+&lt;/p&gt;
+&lt;h3 id=&quot;group-homomorphism-preserves-inverses&quot;&gt;Group Homomorphism Preserves Inverses&lt;/h3&gt;
+&lt;p&gt;
+  Let \( \phi : G \to H \) be a group homomorphism from \( (G, \ast)
+  \) to \( (H, \cdot).  \)  Let \( e_1 \) be the identity in \( G \)
+  and let \( e_2 \) be the identity in \( H.  \)  Then for all \( x \in
+  G, \) \(\phi(x^{-1}) = (\phi(x))^{-1}.  \)
+
+  The proof of this is straightforward too.  Note that
+
+  \[
+    \phi(x) \cdot \phi(x^{-1})
+    = \phi(x \ast x^{-1})
+    = \phi(e_1)
+    = e_2.
+  \]
+
+  Thus \( \phi(x^{-1}) \) is an inverse of \( \phi(x), \) so
+
+  \[
+    \phi(x^{-1}) = (\phi(x))^{-1}.
+  \]
+
+  The image of the inverse of an element is the inverse of the image
+  of that element.
+&lt;/p&gt;
+&lt;h3 id=&quot;image-of-a-group-homomorphism&quot;&gt;Image of a Group Homomorphism&lt;/h3&gt;
+&lt;p&gt;
+  Let \( \phi : G \to H \) be a group homomorphism.  Then the image of
+  the \( \phi, \) denoted
+
+  \[
+    \phi(G) = \{ \phi(x) : x \in G \}
+  \]
+
+  is a subgroup of \( H.  \)  We will prove this now.
+&lt;/p&gt;
+&lt;p&gt;
+  Let \( a, b \in \phi(G).  \)  Then \( a = \phi(x) \) and \( b =
+  \phi(y) \) for some \( x, y \in G.  \)  Now \( ab = \phi(x)\phi(y) =
+  \phi(xy) \in \phi(G).  \)  Therefore \( \phi(G) \) satisfies the
+  closure property.
+&lt;/p&gt;
+&lt;p&gt;
+  Let \( e_1 \) and \( e_2 \) be the identities in \( G \) and \( H \)
+  respectively.  Since a group homomorphism preserves the identity, \(
+  \phi(e_1) = e_2.  \)  Hence the identity of \( H \) lies in \(
+  \phi(G).  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Finally, let \( a \in \phi(G).  \)  Then \( a = \phi(x) \) for some
+  \( x \in G.  \)  Then \( a^{-1} = \phi(x)^{-1} = \phi(x^{-1}) \in
+  \phi(G).  \)  Therefore \( \phi(G) \) satisfies the inverse property
+  as well.  Therefore \( \phi(G) \) is a subgroup of \( H.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;group-monomorphism&quot;&gt;Group Monomorphism&lt;/h3&gt;
+&lt;p&gt;
+  A map \( \phi : G \to H \) from a group \( (G, \ast) \) to a group
+  \( (H, \cdot) \) is a &lt;em&gt;group monomorphism&lt;/em&gt; if \( \phi \) is a
+  homomorphism and is injective.  In other words, a homomorphism \(
+  \phi \) is called a monomorphism if, for all \( x, y \in G, \)
+
+  \[
+  \phi(x) = \phi(y) \implies x = y.
+  \]
+
+  Let \( e_1 \) be the identity element of \( G \) and let \( e_2 \)
+  be the identity element of \( H.  \)  A useful result in group theory
+  states that a homomorphism \( \phi : G \to H \) is a monomorphism if
+  and only if its kernel is trivial, i.e.
+
+  \[
+    \ker(\phi) = \{ x \in G : \phi(x) = e_2 \} = \{ e_1 \}.
+  \]
+
+  Let us prove this now.
+&lt;/p&gt;
+&lt;h4 id=&quot;standard-proof&quot;&gt;Standard Proof&lt;/h4&gt;
+&lt;p&gt;
+  Suppose \( \phi : G \to H \) is a monomorphism.  Since a
+  homomorphism preserves the identity element, we have \( \phi(e_1) =
+  e_2.  \)  Therefore
+
+  \[
+    e_1 \in \ker(\phi).
+  \]
+
+  Let \( x \in \ker(\phi).  \)  Then \( \phi(x) = e_2 = \phi(e_1).  \)
+  Since \( \phi \) is injective, \( x = e_1.  \)  Therefore
+
+  \[
+    \ker(\phi) = \{ e_1 \}.
+  \]
+
+  Conversely, suppose \( \ker(\phi) = \{ e_1 \}.  \)  Let \( x, y \in G
+  \) such that \( \phi(x) = \phi(y).  \)  Then
+
+  \[
+    \phi(x \ast y^{-1})
+    = \phi(x) \cdot \phi(y^{-1})
+    = \phi(x) \cdot (\phi(y))^{-1}
+    = \phi(y) \cdot (\phi(y))^{-1}
+    = e_2.
+  \]
+
+  Hence
+
+  \[
+    x \ast y^{-1} \in \ker(\phi) = \{ e_1 \},
+  \]
+
+  so
+
+  \[
+    x \ast y^{-1} = e_1.
+  \]
+
+  Multiplying both sides on the right by \( y, \) we obtain
+
+  \[
+    x = y.
+  \]
+
+  This completes the proof.
+&lt;/p&gt;
+&lt;h4 id=&quot;alternate-arrangement&quot;&gt;Alternate Proof&lt;/h4&gt;
+&lt;p&gt;
+  Here I briefly discuss an alternate way to think about the above
+  proof.  The above proof is how most texts usually present these
+  arguments.  In particular, the proof of injectivity typically
+  proceeds by showing that equal images imply equal preimages.  It&apos;s a
+  standard proof technique.  When I think about these proofs, however,
+  the contrapositive argument feels more intuitive to me.  I prefer to
+  think about how unequal preimages must have unequal images.
+  Mathematically, there is no difference at all but the contrapositive
+  argument has always felt the most natural to me.  Let me briefly
+  describe how this proof runs in my mind when I think about it more
+  intuitively.
+&lt;/p&gt;
+&lt;p&gt;
+  Suppose \( \phi \) is a monomophorism.  Since a homomorphism
+  preserves the identity element, clearly \( \phi(e_1) = e_2.  \)
+  Since \( \phi \) is injective, it cannot map two distinct elements
+  of \( G \) to \( e_2.  \)  Thus \( e_1 \) is the only element of \( G
+  \) that \( \phi \) maps to \( e_2 \) which means \( \ker(\phi) = \{
+  e_1 \}.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  To prove the converse, suppose \( \ker(\phi) = \{ e_1 \}.  \)
+  Consider distinct elements \( x, y \in G.  \)  Since \( x \ne y, \)
+  we have \( x \ast y^{-1} \ne e_1.  \)  Therefore \( x \ast y^{-1}
+  \notin \ker(\phi).  \)  Thus \( \phi(x \ast y^{-1}) \ne e_2.  \)
+  Since \( \phi \) is a homomorphism,
+
+  \[
+    \phi(x \ast y^{-1})
+    = \phi(x) \cdot \phi(y^{-1})
+    = \phi(x) \cdot \phi(y)^{-1}.
+  \]
+
+  Therefore \( \phi(x) \cdot \phi(y)^{-1} \ne e_2 \) which implies
+
+  \[
+    \phi(x) \ne \phi(y).
+  \]
+
+  This proves that \( \ker(\phi) = \{ e_1 \} \) implies that \( \phi
+  \) is injective and thus a monomorphism.
+&lt;/p&gt;
+&lt;h3 id=&quot;permutation-representation&quot;&gt;Permutation Representation&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group and \( X \) a set.  Then a homomorphism
+
+  \[
+    \phi : G \to \operatorname{Sym}(X)
+  \]
+
+  is called a &lt;em&gt;permutation representation&lt;/em&gt; of \( G \) on \( X
+ .  \)  The homomorphism \( \phi \) maps each \( g \in G \) to a
+  permutation of \( X.  \)  We say that each \( g \in G \)
+  &lt;em&gt;induces&lt;/em&gt; a permutation of \( X.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  For example, let \( G = (\mathbb{Z}_3, +) \) and \( X = \{ 0, 1, 2,
+  3, 4, 5 \}.  \)  Define the map \( \phi : G \to \operatorname{Sym}(X)
+  \) by
+
+  \begin{align*}
+    \phi(0) &amp;amp;= (), \\
+    \phi(1) &amp;amp;= (024)(135), \\
+    \phi(2) &amp;amp;= (042)(153).
+  \end{align*}
+
+  It is easy to verify that this is a homomorphism.  Here is one way
+  to verify it:
+
+  \begin{align*}
+    \phi(0)\phi(1) &amp;amp;= ()(024)(135) = (024)(135) = \phi(0 + 1), \\
+    \phi(0)\phi(2) &amp;amp;= ()(042)(153) = (042)(153) = \phi(0 + 2), \\
+    &amp;amp;\;\,\vdots \\
+    \phi(2)\phi(1) &amp;amp;= (042)(153)(024)(135) = () = \phi(0) = \phi(2 + 1), \\
+    \phi(2)\phi(2) &amp;amp;= (042)(153)(042)(153) = (024)(135) = \phi(1) = \phi(2 + 2).
+  \end{align*}
+
+  We will meet this homomorphism again in the form of group action \(
+  \alpha \) in the next section.
+&lt;/p&gt;
+&lt;h3 id=&quot;group-action&quot;&gt;Group Action&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group with identity element \( e.  \)  Let \( X \)
+  be a set.  A right action of \( G \) on \( X \) is a map
+
+  \[
+    \alpha : X \times G \to X
+  \]
+
+  such that
+
+  \begin{align*}
+    \alpha(x, e)            &amp;amp;= x, \\
+    \alpha(\alpha(x, g), h) &amp;amp;= \alpha(x, gh)
+  \end{align*}
+
+  for all \( x \in X \) and all \( g, h \in G.  \)  The two conditions
+  above are called the identity and compatibility properties of the
+  group action respectively.  Note that in a right action, the product
+  \( gh \) is applied left to right: \( g \) acts first and then \( h
+  \) acts.  If we denote \( \alpha(x, g) \) as \( x^g, \) then the
+  notation for the two conditions can be simplified to \( x^e = x \)
+  and \( (x^g)^h = x^{gh} \) for all \( g, h \in G.  \)
+&lt;/p&gt;
+&lt;h4 id=&quot;why-right-action&quot;&gt;Why Right Action?&lt;/h4&gt;
+&lt;p&gt;
+  We discuss right group actions here instead of left group actions
+  because we want to use the notation \( \alpha(x, g) = x^g, \) which
+  is quite convenient while studying permutations and graph
+  automorphisms.  It is perfectly possible to use left group actions
+  to study permutations as well.  However, we lose the benefit of the
+  convenient \( x^g \) notation.  In a left group action, the
+  compatibility property is \( \alpha(g, \alpha(h, x)) = \alpha(gh, x)
+ , \) so if we were to use the notation \( \alpha(g, x) = x^g, \) the
+  compatibility property would look like \( (x^h)^g = x^{gh}.  \)  This
+  reverses the order of exponents which can be confusing.  Right group
+  actions avoid this notational inconvenience.
+&lt;/p&gt;
+&lt;h4 id=&quot;group-action-example-1&quot;&gt;Example 1&lt;/h4&gt;
+&lt;p&gt;
+  Let \( G = \mathbb{Z}_3 \) be the group under addition modulo \( 3
+ .  \)  Let \( X = \{ 0, 1, 2, 3, 4, 5 \}.  \)  Define an action \(
+  \alpha \) of \( G \) on \( X \) by
+
+  \[
+    \alpha(x, g) = x^g = (x + 2g) \bmod 6.
+  \]
+
+  Each \( g \in G \) acts as a permutation of \( X.  \)  For example,
+  the element \( 0 \in \mathbb{Z}_3 \) acts as the identity
+  permutation.  The element \( 1 \in \mathbb{Z}_3 \) acts as the
+  permutation \( (0 2 4)(1 3 5).  \)  The element \( 2 \in \mathbb{Z}_3
+  \) acts as the permutation \( (0 4 2)(1 5 3).  \)  The following
+  table shows how each \( g \in G \) permutes \( X.  \)
+
+  \[
+    \begin{array}{c|ccc}
+      x_{\downarrow} \backslash g_{\rightarrow} &amp;amp; 0 &amp;amp; 1 &amp;amp; 2 \\
+      \hline
+      0 &amp;amp; 0 &amp;amp; 2 &amp;amp; 4 \\
+      1 &amp;amp; 1 &amp;amp; 3 &amp;amp; 5 \\
+      2 &amp;amp; 2 &amp;amp; 4 &amp;amp; 0 \\
+      3 &amp;amp; 3 &amp;amp; 5 &amp;amp; 1 \\
+      4 &amp;amp; 4 &amp;amp; 0 &amp;amp; 2 \\
+      5 &amp;amp; 5 &amp;amp; 1 &amp;amp; 3 \\
+    \end{array}
+  \]
+
+  From the table we see that each \( g \in G \) permutes the elements
+  of \( \{ 0, 2, 4 \} \) among themselves.  Similarly, the elements of
+  \( \{ 1, 3, 5 \} \) are permuted among themselves.  These sets \(
+  \{0, 2, 4 \} \) and \( \{ 1, 3, 5 \} \) are called the
+  &lt;em&gt;orbits&lt;/em&gt; of the action.  The concept of orbits is formally
+  introduced in its &lt;a href=&quot;#orbits&quot;&gt;own section further below&lt;/a&gt;.
+&lt;/p&gt;
+&lt;h4 id=&quot;group-action-example-2&quot;&gt;Example 2&lt;/h4&gt;
+&lt;p&gt;
+  Now let \( G = \mathbb{Z}_6 \) be the group under addition modulo \(
+  6.  \)  Let \( X = \{ 0, 1, \dots, 8 \}.  \)  Define an action \(
+  \beta \) of \( G \) on \( X \) by
+
+  \[
+    \beta(x, g) = x^g = (x + 3g) \bmod 9.
+  \]
+
+  Now the table for the action looks like this:
+
+  \[
+    \begin{array}{c|cccccc}
+      x_{\downarrow} \backslash g_{\rightarrow} &amp;amp; 0 &amp;amp; 1 &amp;amp; 2 &amp;amp; 3 &amp;amp; 4 &amp;amp; 5 \\
+      \hline
+      0 &amp;amp; 0 &amp;amp; 3 &amp;amp; 6 &amp;amp; 0 &amp;amp; 3 &amp;amp; 6 \\
+      1 &amp;amp; 1 &amp;amp; 4 &amp;amp; 7 &amp;amp; 1 &amp;amp; 4 &amp;amp; 7 \\
+      2 &amp;amp; 2 &amp;amp; 5 &amp;amp; 8 &amp;amp; 2 &amp;amp; 5 &amp;amp; 8 \\
+      3 &amp;amp; 3 &amp;amp; 6 &amp;amp; 0 &amp;amp; 3 &amp;amp; 6 &amp;amp; 0 \\
+      4 &amp;amp; 4 &amp;amp; 7 &amp;amp; 1 &amp;amp; 4 &amp;amp; 7 &amp;amp; 1 \\
+      5 &amp;amp; 5 &amp;amp; 8 &amp;amp; 2 &amp;amp; 5 &amp;amp; 8 &amp;amp; 2 \\
+      6 &amp;amp; 6 &amp;amp; 0 &amp;amp; 3 &amp;amp; 6 &amp;amp; 0 &amp;amp; 3 \\
+      7 &amp;amp; 7 &amp;amp; 1 &amp;amp; 4 &amp;amp; 7 &amp;amp; 1 &amp;amp; 4 \\
+      8 &amp;amp; 8 &amp;amp; 2 &amp;amp; 5 &amp;amp; 8 &amp;amp; 2 &amp;amp; 5
+    \end{array}
+  \]
+
+  This action splits \( X \) into three orbits \( \{ 0, 3, 6 \}, \) \(
+  \{ 1, 4, 7 \} \) and \( \{ 2, 5, 8 \}.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;group-actions-induce-permutations&quot;&gt;Group Actions Induce Permutations&lt;/h3&gt;
+&lt;p&gt;
+  Earlier, we saw an example of a group action and observed that each
+  element of the group acts as a permutation.  That was not merely a
+  coincidence.  It is indeed a general property of group actions.
+  Whenever a group \( G \) acts on a set \( X, \) each element \( g
+  \in G \) determines a bijection \( X \to X.  \)  In other words,
+  every element of \( G \) acts as a permutation of \( X.  \)  Let us
+  see why this must be the case.
+&lt;/p&gt;
+&lt;p&gt;
+  Consider the group action \( \alpha : X \times G \to X.  \)  Fix \( g
+  \in G \) and let \( x \) vary over \( X \) to obtain the map
+
+  \[
+    \alpha_g : X \to X; \; x \mapsto \alpha(x, g).
+  \]
+
+  We show that \( \alpha_g \) is a bijection.  First we prove
+  injectivity.  Let \( e \) be the identity element of \( G.  \)
+  Let \( x, y \in X.  \)  Then
+
+  \begin{align*}
+    \alpha_g(x) = \alpha_g(y)
+    &amp;amp; \implies \alpha(x, g) = \alpha(y, g) \\
+    &amp;amp; \implies \alpha(\alpha(x, g), g^{-1}) = \alpha(\alpha(y, g), g^{-1}) \\
+    &amp;amp; \implies \alpha(x, gg^{-1}) = \alpha(y, gg^{-1}) \\
+    &amp;amp; \implies \alpha(x, e) = \alpha(y, e) \\
+    &amp;amp; \implies x = y.
+  \end{align*}
+
+  The \( x^g \) notation allows us to write the above proof more
+  conveniently as follows:
+
+  \begin{align*}
+    \alpha_g(x) = \alpha_g(y)
+    &amp;amp; \implies \alpha(x, g) = \alpha(y, g) \\
+    &amp;amp; \implies (x^g)^{g^{-1}} = (y^g)^{g^{-1}} \\
+    &amp;amp; \implies x^{g g^{-1}} = y^{g g^{-1}} \\
+    &amp;amp; \implies x^e = y^e \\
+    &amp;amp; \implies x = y.
+  \end{align*}
+
+  This completes the proof of injectivity.  Now we prove surjectivity.
+  Let \( y \in X.  \)  Take \( x = \alpha(y, g^{-1}).  \)  Then
+
+  \[
+    \alpha_g(x)
+    = \alpha(x, g)
+    = \alpha(\alpha(y, g^{-1}), g)
+    = \alpha(y, g^{-1} g)
+    = \alpha(y, e)
+    = y.
+  \]
+
+  Again, if we write \( x = y^{g^{-1}}, \) the above step can be
+  written more succinctly as
+
+  \[
+    \alpha_g(x) = x^g = (y^{g^{-1}})^g = y^{(g^{-1} g)} = y^e = y.
+  \]
+
+  Thus every element \( y \in X \) has a preimage in \( X \) under \(
+  \alpha_g.  \)  Hence \( \alpha_g \) is surjective.  Since we have
+  already shown that \( \alpha_g \) is injective, we now conclude that
+  \( \alpha_g \) is bijective.  Therefore \( \alpha_g \) is a
+  permutation of \( X.  \)  Stated symbolically,
+
+  \[
+    \alpha_g \in \operatorname{Sym}(X).
+  \]
+
+  Note that
+
+  \[
+    \alpha_g(x) = \alpha(x, g) = x^g.
+  \]
+
+  Thus both \( \alpha_g(x) \) and \( x^g \) serve as convenient
+  shorthands for \( \alpha(x, g).  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;group-actions-determine-permutation-representations&quot;&gt;Group Actions Determine Permutation Representations&lt;/h3&gt;
+&lt;p&gt;
+  We have seen that each group element \( g \in G \) induces (acts as)
+  a permutation of \( X.  \)  Precisely speaking, each \( g \in G \)
+  determines a permutation \( \alpha_g \) of \( X.  \)  Now define a
+  map
+
+  \[
+    \phi: G \to \operatorname{Sym}(X); \; g \mapsto \alpha_g.
+  \]
+
+  We now show that this map is a homomorphism.  This means that we
+  want to show that \( \phi(gh) = \phi(g) \phi(h).  \)  Since \(
+  \phi(g), \phi(h) \in \operatorname{Sym}(X), \) the right-hand side
+  is a product of permutations of \( X.  \)  We first define the
+  product of two permutations \( \pi, \rho : X \to X \) by
+
+  \[
+    \pi \rho : X \to X; \; x \mapsto \rho(\pi(x)).
+  \]
+
+  In other words, \( \pi \rho = \rho \circ \pi.  \)  Now
+
+  \begin{align*}
+    \phi(gh)(x)
+    &amp;amp; = \alpha_{gh}(x) \\
+    &amp;amp; = \alpha(x, gh) \\
+    &amp;amp; = \alpha(\alpha(x, g), h) \\
+    &amp;amp; = \alpha_h(\alpha_g(x)) \\
+    &amp;amp; = (\alpha_h \circ \alpha_g)(x) \\
+    &amp;amp; = (\alpha_g \alpha_h)(x) \\
+    &amp;amp; = (\phi(g) \phi(h))(x).
+  \end{align*}
+
+  Since the above equality holds for all \( x \in X, \) we conclude
+  that
+
+  \[
+    \phi(gh) = \phi(g) \phi(h).
+  \]
+
+  Hence \( \phi \) is a group homomorphism from \( G \) to \(
+  \operatorname{Sym}(X).  \)  Therefore \( \phi \) is a permutation
+  representation of \( G \) on \( X.  \)  It maps each group element \(
+  g \in G \) to a permutation \( \alpha_g \in \operatorname{Sym}(X).  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Note the multiple levels of abstraction here.  The group action \(
+  \alpha : X \times G \to X \) determines a permutation representation
+  \( \phi : G \to \operatorname{Sym}(X).  \)  Each element \( g \in G
+  \) together with the group action \( \alpha \) determines a
+  permutation \( \alpha_g : X \to X.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Also note that \( \phi(g)(x) = \alpha_g(x) = \alpha(g, x) = x^g.  \)
+  In fact, \( \phi(g) = \alpha_g.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;permutation-representations-determine-group-actions&quot;&gt;Permutation Representations Determine Group Actions&lt;/h3&gt;
+&lt;p&gt;
+  Consider a permutation representation \( \phi : G \to
+  \operatorname{Sym}(X).  \)  Define a map
+
+  \[
+    \alpha : X \times G \to X; \; (x, g) \mapsto \phi(g)(x).
+  \]
+
+  First we verify the identity property of group actions.  Since \(
+  \phi \) is a homomorphism, it preserves the identity element.
+  Therefore \( \phi(e) \) is the identity permutation.  Hence
+
+  \[
+    \alpha(x, e) = \phi(e)(x) = x
+  \]
+
+  Now we verify the compatibility property of the action.  For all \(
+  g, h \in G \) and \( x \in X, \) we have
+
+  \begin{align*}
+    \alpha(\alpha(x, g), h)
+    &amp;amp; = \alpha(\phi(g)(x), h) \\
+    &amp;amp; = \phi(h)(\phi(g)(x)) \\
+    &amp;amp; = (\phi(h) \circ \phi(g))(x) \\
+    &amp;amp; = (\phi(g)\phi(h))(x) \\
+    &amp;amp; = \phi(gh)(x) \\
+    &amp;amp; = \alpha(x, gh).
+  \end{align*}
+
+  This completes the proof of the fact that every permutation
+  representation determines a group action.
+&lt;/p&gt;
+&lt;h3 id=&quot;bijection-between-group-actions-and-permutation-representations&quot;&gt;Bijection Between Group Actions and Permutation Representations&lt;/h3&gt;
+&lt;p&gt;
+  There is a bijection between the group actions \( \alpha : X \times
+  G \to X \) and permutation representations \( \phi : G \to
+  \operatorname{Sym}(X).  \)  We now show that these two constructions
+  are inverses of each other.
+&lt;/p&gt;
+&lt;p&gt;
+  Given a right action \( \alpha : X \times G \to X, \) define
+
+  \[
+    \phi_{\alpha} : G \to \operatorname{Sym}(X)
+    \quad \text{by} \quad
+    \phi_{\alpha}(g)(x) = \alpha(x, g).
+  \]
+
+  Given a permutation representation \( \phi : G \to
+  \operatorname{Sym}(X), \) define
+
+  \[
+    \alpha_{\phi} : X \times G \to X
+    \quad \text{by} \quad
+    \alpha_{\phi}(x, g) = \phi(g)(x).
+  \]
+
+  We now show that these two constructions undo each other.  Take an
+  arbitrary group action \( \alpha : X \times G \to X \) and construct
+  the corresponding permutation representation \( \phi_{\alpha}.  \)
+  Then take this permutation representation and construct the group
+  action \( \alpha_{\phi_{\alpha}}.  \)  But
+
+  \[
+    \alpha_{\phi_{\alpha}}(x, g)
+    = \phi_{\alpha}(g)(x)
+    = \alpha(x, g).
+  \]
+
+  Therefore \( \alpha_{\phi_{\alpha}} = \alpha.  \)  Similarly,
+  starting with the permutation representation \( \phi, \) we get
+
+  \[
+    \phi_{\alpha_{\phi}}(g)(x)
+    = \alpha_{\phi}(x, g)
+    = \phi(g)(x).
+  \]
+
+  Therefore \( \phi_{\alpha_{\phi}} = \phi.  \)  Hence there is a
+  bijection between group actions \( \alpha : X \times G \to X \) and
+  permutation representations: \( \phi : G \to \operatorname{Sym}(X)
+ .  \)  In fact, a group action and the corresponding permutation
+  representation contain the same information, namely how the elements
+  \( g \in G \) acts as permutations of \( X.  \)  For this reason,
+  many advanced texts do not make any distinction between the group
+  action and its permutation representation.  They often use them
+  interchangeably even though technically they have different domains.
+&lt;/p&gt;
+&lt;h3 id=&quot;orbits&quot;&gt;Orbits&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) act on a set \( X.  \)  For an element \( x \in X, \) the
+  &lt;em&gt;orbit&lt;/em&gt; of \( x \) under the action of \( G \) is the set of
+  all elements of \( X \) that can be reached from \( x \) by the
+  action of elements of \( G.  \)  Symbolically, the orbit of \( x \)
+  is the set
+
+  \[
+    x^G = \{ x^g : g \in G \}.
+  \]
+
+  In other words, the orbit of \( x \) contains every element of \( X
+  \) that \( x \) can be moved to by the group action.  If \( y \in
+  x^G, \) then there exists some \( g \in G \) such that \( y = x^g
+ .  \)
+&lt;/p&gt;
+&lt;p&gt;
+  The orbits of a group action partition the set \( X.  \)  That is,
+  every element of \( X \) lies in exactly one orbit and two orbits
+  are either identical or disjoint.  Thus the group action decomposes
+  the set \( X \) into disjoint subsets (the orbits), each consisting
+  of elements that can be transformed into one another by the action
+  of \( G.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;stabilisers&quot;&gt;Stabilisers&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group acting on a set \( X.  \)  For an element
+  \( x \in X, \) the &lt;em&gt;stabiliser&lt;/em&gt; of \( x \) is the set
+
+  \[
+    G_x = \{ g \in G : x^g = x \}.
+  \]
+
+  The stabiliser \( G_x \) consists of all elements of \( G \) that
+  fix the element \( x.  \)  The stabiliser \( G_x \) is a subgroup of
+  \( G.  \)  Indeed, the identity element \( e \in G \) satisfies \(
+  x^e = x, \) so \( e \in G_x.  \)  If \( g, h \in G_x, \) then \(
+  x^{gh} = (x^g)^h = x.  \)  If \( g \in G_x, \) then \( x^{g^{-1}} =
+  (x^g)^{g^{-1}} = x.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Intuitively, the stabiliser measures how much symmetry of the group
+  action leaves the element \( x \) unchanged.  The larger the
+  stabiliser, the more elements of \( G \) fix \( x.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;orbit-stabiliser-theorem&quot;&gt;Orbit-Stabiliser Theorem&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group acting on a set \( X.  \)  The
+  orbit-stabiliser theorem states that for any \( x \in X, \)
+
+  \[
+    \lvert G_x \rvert \cdot \lvert x^G \rvert = \lvert G \rvert.
+  \]
+
+  Stated differently, the index of the stabiliser \( G_x \) in the
+  group \( G \) is given by
+
+  \[
+    [ G : G_x ]
+    = \lvert G_x \backslash G \rvert
+    = \lvert G \rvert / \lvert G_x \rvert
+    = \lvert x^G \rvert.
+  \]
+
+  There is a bijection between the right cosets of \( G_x \) and the
+  elements of \( x^G.  \)  Demonstrating this bijection proves the
+  above equation.  We will work with right cosets of \( G_x.  \)
+  Define
+
+  \[
+    \phi : G_x \backslash G \to x^G; \; G_x g \mapsto x^g.
+  \]
+
+  We want to show that \( \phi \) is a bijection.  But first we need
+  to show that \( \phi \) is well defined.  A coset \( G_x g \in G_x
+  \backslash G \) can also be written as
+
+  \[
+    G_x g = G_x h
+  \]
+
+  for some \( h \in G.  \)  If \( x^g \ne x^h, \) then \( \phi \) would
+  not be well defined, since \( \phi \) must assign each coset in \(
+  G_x \backslash G \) to exactly one element in the orbit \( x^G \) in
+  order to be a function.  This can be shown using the following
+  equivalences:
+
+  \begin{align*}
+    G_x g = G_x h
+    &amp;amp; \iff hg^{-1} \in G_x \\
+    &amp;amp; \iff x = x^{h g^{-1}} \\
+    &amp;amp; \iff x^g = x^h \\
+  \end{align*}
+
+  This proves two things at once.  The fact that
+
+  \[
+    G_x g = G_x h \implies x^g = x^h
+  \]
+
+  proves that when the same coset is written using two different
+  representatives, the image does not change.  Therefore \( \phi \) is
+  well defined.  Further
+
+  \[
+    x^g = x^h \implies G_x g = G_x h
+  \]
+
+  proves that \( \phi \) is injective.  To show that \( \phi \) is
+  surjective, let \( y \in x^G.  \)  Then \( y = x^g \) for some \( g
+  \in G.  \)  Since \( \phi(G_x g) = x^g, \) we get
+
+  \[
+    \phi(G_x g) = y.
+  \]
+
+  Thus every element of \( x^G \) is the image of some right coset \(
+  G_x g \) under \( \phi.  \)  This completes the proof of a bijection
+  between the right cosets of \( G_x \) and the elements of \( x^G.  \)
+  Therefore \( \lvert G_x \backslash G \rvert = \lvert x^G \rvert \)
+  and hence \( \lvert G \rvert / \lvert G_x \rvert = \lvert x^G \rvert
+ , \) which establishes the orbit-stabiliser theorem.
+&lt;/p&gt;
+&lt;h3 id=&quot;faithful-actions&quot;&gt;Faithful Actions&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) act on a set \( X.  \)  The action is called
+  &lt;em&gt;faithful&lt;/em&gt; if distinct elements of \( G \) induce distinct
+  permutations of \( X.  \)  In other words, the only element of \( G
+  \) that acts as the identity permutation of \( X \) is the identity
+  element \( e \in G.  \)  Symbolically, the action is faithful if
+
+  \[
+    g \ne e \implies \exists x \in X, \; x^g \ne x.
+  \]
+
+  Equivalently,
+
+  \[
+    \forall x \in X, \; x^g = x \implies g = e.
+  \]
+
+  The action is faithful if the only element of \( G \) that fixes
+  every element of \( X \) is the identity, i.e.
+
+  \[
+    \bigcap_{x \in X} G_x = \{ e \}.
+  \]
+
+  Recall that every group action determines a permutation
+  representation \( \phi : G \to \operatorname{Sym}(X).  \)  From this
+  point of view, the action is faithful precisely when the permutation
+  representation is faithful, that is, when the homomorphism \( \phi
+  \) is injective (or equivalently when \( \ker(\phi) = \{ e \} \)).
+  In other words, the action is faithful if and only if the associated
+  homomorphism \( \phi \) is a monomorphism.
+&lt;/p&gt;
+&lt;h3 id=&quot;semiregular-actions&quot;&gt;Semiregular Actions&lt;/h3&gt;
+&lt;p&gt;
+  A group action of \( G \) on \( X \) is called &lt;em&gt;semiregular&lt;/em&gt;
+  if no non-identity element of \( G \) fixes any element of \( X.  \)
+  In other words, whenever \( g \ne e, \) the permutation of \( X \)
+  induced by \( g \) moves every element of \( X.  \)  Symbolically,
+
+  \[
+    g \ne e \implies \forall x \in X, \; x^g \ne x.
+  \]
+
+  Equivalently,
+
+  \[
+    \exists x \in X, \; x^g = x \implies g = e.
+  \]
+
+  The action is semiregular if
+
+  \[
+    \forall x \in X, \; G_x = \{ e \}.
+  \]
+
+  This is a stronger property than faithfulness.  Faithfulness only
+  guarantees that when \( g \ne e, \) the element \( g \) moves at
+  least one element of \( X.  \)  But semiregularity guarantees that
+  when \( g \ne e, \) the element \( g \) moves every element of \( X
+ .  \)  Therefore every semiregular action is faithful, but not every
+  faithful action is semiregular.
+&lt;/p&gt;
+&lt;h3 id=&quot;transitive-actions&quot;&gt;Transitive Actions&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) act on a set \( X.  \)  The action is called
+  &lt;em&gt;transitive&lt;/em&gt; if there is only one orbit.  In other words, the
+  action is transitive if every element of \( X \) can be reached from
+  any other element by the action of some element of \( G.  \)
+  Symbolically, the action is transitive if
+
+  \[
+    \forall x, y \in X \; \exists g \in G, \; x^g = y.
+  \]
+
+  Equivalently, the action is transitive if
+
+  \[
+    x^G = X
+  \]
+
+  for some (and hence every) \( x \in X.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;conjugacy&quot;&gt;Conjugacy&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group.  Let \( x, g \in G.  \)  The element
+
+  \[
+    g^{-1} x g
+  \]
+
+  is called a &lt;em&gt;conjugate&lt;/em&gt; of \( x \) by \( g.  \)  Any element
+  \( y \in G \) that can be written as \( g^{-1} x g \) for some \( g
+  \in G \) is said to be a conjugate of \( x.  \)  The conjugacy class
+  of \( x \) in \( G \) is the set
+
+  \[
+    x^G = \{ g^{-1} x g : g \in G \}.
+  \]
+
+  In other words, the conjugacy class of \( x \) is the set of all
+  elements of \( G \) that are conjugate to \( x.  \)  At first,
+  reusing the orbit notation \( x^G \) for the conjugacy class may
+  seem like an abuse of notation.  However, we will see in the next
+  section that the conjugacy class is precisely the orbit of \( x \)
+  under the action of \( G \) on itself by conjugation.  Thus \( x^G
+  \) is in fact a natural and accurate notation for the conjugacy
+  class.
+&lt;/p&gt;
+&lt;h4 id=&quot;conjugation-as-group-action&quot;&gt;Conjugation as Group Action&lt;/h4&gt;
+&lt;p&gt;
+  Conjugation can be seen as an action of a group on itself.  Define
+  the map
+
+  \[
+    \alpha : G \times G \to G; \; (x, g) \mapsto g^{-1} x g.
+  \]
+
+  Note that
+
+  \[
+    \alpha(x, e) = e^{-1} x e = x
+  \]
+
+  and
+
+  \[
+    \alpha(\alpha(x, g), h)
+    = h^{-1} (g^{-1} x g) h
+    = (gh)^{-1} x (gh)
+    = \alpha(x, gh).
+  \]
+
+  Therefore \( \alpha \) satisfies the two defining properties of a
+  right group action.  The conjugacy class \( x^G \) is precisely the
+  orbit of \( x \) under the conjugation action.  Therefore the orbits
+  of the conjugation action of \( G \) on itself are the conjugacy
+  classes of \( G.  \)
+&lt;/p&gt;
+&lt;h4 id=&quot;right-conjugation-vs-left-conjugation&quot;&gt;Right Conjugation vs Left Conjugation&lt;/h4&gt;
+&lt;p&gt;
+  We observed above that the conjugation action is a right action of a
+  group on itself.  Let \( x, g \in G \) and let
+
+  \[
+    y = g^{-1} x g.
+  \]
+
+  Now let \( h = g^{-1}.  \)  Then we can write the above equation as
+
+  \[
+    y = h x h^{-1}.
+  \]
+
+  According to the previous section, \( y \) is the conjugate of \( x
+  \) by \( g.  \)  However, many texts call \( y \) the conjugate of \(
+  x \) by \( h.  \)  Both are valid perspectives.  In both
+  perspectives, \( x \) and \( y \) are conjugates of each other.
+  Precisely,
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    In the first perspective, we have \( y = g^{-1} x g \) and we say
+    that \( y \) is a conjugate of \( x \) by \( g.  \)  A corollary is
+    that \( x \) is a conjugate of \( y \) by \( g^{-1}.  \)
+  &lt;/li&gt;
+  &lt;li&gt;
+    In the second perspective, we have \( y = h x h^{-1} \) and we say
+    that \( y \) is a conjugate of \( x \) by \( h.  \)  A corollary is
+    that \( x \) is a conjugate of \( y \) by \( h^{-1}.  \)
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  Although in both perspectives, \( x \) and \( y \) are conjugates of
+  each other, the group element by which one is conjugated to the
+  other is different.  This leads to different group actions as well.
+&lt;/p&gt;
+&lt;p&gt;
+  When we say that \( y = g^{-1} x g \) is a conjugate of \( x \) by
+  \( g, \) the group action
+
+  \[
+    \alpha : G \times G \to G; \; (x, g) \mapsto g^{-1} x g.
+  \]
+
+  is a right group action as demonstrated in the previous section.
+  But when we say that \( y = h x h^{-1} \) is a conjugate of \( x \)
+  by \( h, \) the conjugation action is no longer a right group action
+  because the compatibility property is violated:
+
+  \[
+    \alpha(\alpha(x, g), h)
+    = h ( g x g^{-1} ) h^{-1}
+    = (hg) x (hg)^{-1}
+    = \alpha(x, hg).
+  \]
+
+  We get \( \alpha(x, hg) \) instead of the required \( \alpha(x, gh)
+ .  \)  So with the second perspective, the group action is no longer a
+  right action.  Instead it is a left action since
+
+  \[
+    \alpha(g, \alpha(h, x))
+    = g (h x h^{-1}) g^{-1}
+    = (gh) x (gh)^{-1}
+    = \alpha(gh, x).
+  \]
+
+  In this post we will work only with the first perspective because we
+  will use right actions throughout.
+&lt;/p&gt;
+&lt;h3 id=&quot;conjugate-groups&quot;&gt;Conjugate Subgroups&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group.  Let \( H \le G.  \)  Define
+
+  \[
+    g^{-1} H g = \{ g^{-1} h g : h \in H \}.
+  \]
+
+  We say that \( g^{-1} H g \) is a conjugate of \( H \) by \( g.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;conjugacy-of-stabilisers&quot;&gt;Conjugacy of Stabilisers&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group acting on a set \( X.  \)  Let \( x \in X \)
+  and \( g \in G.  \)  Then
+
+  \[
+    g^{-1} G_x g = G_{x^g}.
+  \]
+
+  That is, \( G_{x^g} \) is a conjugate of \( G_x \) by \( g.  \)  This
+  result can be summarised as follows: stabilisers of elements in the
+  same orbit are conjugate.  Or more explicitly: the stabiliser of \(
+  x^g \) is a conjugate of the stabiliser of \( x \) by \( g.  \)  The
+  proof is straightforward.  Let \( h \in G.  \)  Then
+
+  \begin{align*}
+    h \in g^{-1} G_x g
+    &amp;amp; \iff g^{-1} (g h g^{-1}) g \in g^{-1} G_x g \\
+    &amp;amp; \iff g h g^{-1} \in G_x \\
+    &amp;amp; \iff x^{g h g^{-1}} = x \\
+    &amp;amp; \iff (x^g)^h = x^g \\
+    &amp;amp; \iff h \in G_{x^g}.
+  \end{align*}
+
+  Therefore \( g^{-1} G_x g = G_{x^g}.  \)
+&lt;/p&gt;
+&lt;h2 id=&quot;algebraic-graph-theory&quot;&gt;Algebraic Graph Theory&lt;/h2&gt;
+&lt;h3 id=&quot;stabiliser-index&quot;&gt;Stabiliser Index&lt;/h3&gt;
+&lt;p&gt;
+  In a vertex-transitive graph \( \Gamma, \) for any \( x \in
+  V(\Gamma) \) and all \( y \in V(\Gamma), \) there exists \( g \in G
+  \) such that \( x^g = y.  \)  Therefore \( x^G = V(\Gamma).  \)  Thus
+  by the &lt;a href=&quot;#orbit-stabiliser-theorem&quot;&gt;orbit-stabiliser
+  theorem&lt;/a&gt;,
+
+  \[
+    [ G : G_x ]
+    = \lvert G_x \backslash G \rvert
+    = \lvert x^G \rvert
+    = \lvert V(\Gamma) \rvert.
+  \]
+&lt;/p&gt;
+&lt;h3 id=&quot;strongly-connected-directed-graph&quot;&gt;Strongly Connected Directed Graph&lt;/h3&gt;
+&lt;p&gt;
+  A &lt;em&gt;path&lt;/em&gt; in a directed graph \( \Gamma \) is a sequence of
+  vertices \( v_0, \dots, v_r \) of distinct vertices such that \(
+  (v_{i - 1}, v_i) \) is an arc of \( \Gamma \) for \( i = 1, \dots, r
+ .  \)
+&lt;/p&gt;
+&lt;p&gt;
+  A directed graph is &lt;em&gt;strongly connected&lt;/em&gt; if for every ordered
+  pair of vertices \( (u, v) \) there is a path from \( u \) to \( v
+ .  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;shunting&quot;&gt;Shunting&lt;/h3&gt;
+&lt;p&gt;
+  Let \( \alpha = ( \alpha_0, \dots, \alpha_s ) \) and \( \beta = (
+  \beta_0, \dots, \beta_s ) \) be two \( s \)-arcs in a graph \(
+  \Gamma.  \)  We say that \( \beta \) is a successor of \( \alpha \)
+  if \( \beta_i = \alpha_{i + 1} \) for \( 0 \le i \le s - 1.  \)  We
+  also say that \( \alpha \) can be &lt;em&gt;shunted&lt;/em&gt; onto \( \beta.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  In section 4.2 of Godsil and Royle, there is a rather technical
+  setup which first defines \( X^{(s)} \) as the directed graph with
+  the \( s \)-arcs of a graph \( X \) as its vertices such that \(
+  (\alpha, \beta) \) is an arc of \( X^{(s)} \) if and only if \(
+  \alpha \) can be shunted onto \( \beta \) in \( X.  \)  Then it goes
+  on to show that if \( X \) is a connected graph with a minimum
+  degree two and \( X \) is not a cycle, then \( X^{(s)} \) is
+  strongly connected for all \( s \ge 0.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  That is a very technical way of saying that in a connected graph \(
+  X \) that is not a cycle and has a minimum degree two, any \( s
+  \)-arc \( \alpha \) can be sent to any \( s \)-arc \( \beta \) by
+  repeated shunting.  The proof is quite technical too and pretty
+  long, so I&apos;ll omit it here.
+&lt;/p&gt;
+&lt;h3 id=&quot;automorphisms-preserve-successor-relation&quot;&gt;Automorphisms Preserve Successor Relation&lt;/h3&gt;
+&lt;p&gt;
+  We will obtain a nifty result here that will prove to be very useful
+  in the next section.  Let \( S(\gamma) \) denote the set of all
+  successors of the \( s \)-arc \( \gamma \) of a graph.  Let \( g \)
+  be an automorphism of the graph.  Then
+
+  \[
+    \delta \in S(\gamma) \iff \delta^g \in S(\gamma^g).
+  \]
+
+  This follows directly from the fact that automorphisms preserve
+  adjacency, so they must preserve successor relation as well.  A
+  corollary of this is that for an automorphism \( h, \) we have
+
+  \[
+    \delta^{h^{-1}} \in S(\gamma) \iff \delta \in S(\gamma^h).
+  \]
+
+  This is the form that will be useful soon.
+&lt;/p&gt;
+&lt;h3 id=&quot;test-of-s-arc-transitivity&quot;&gt;Test of \( s \)-arc Transitivity&lt;/h3&gt;
+&lt;p&gt;
+  The results in the previous two sections lead to a remarkably simple
+  proof of the fact that the Petersen graph is \( 3 \)-arc transitive.
+  Let us see how.
+&lt;/p&gt;
+&lt;p&gt;
+  Let \( P \) be the Petersen graph whose vertices are the \( 2
+  \)-subsets of \( \{ 1, 2, 3, 4, 5 \} \) with adjacency given by
+  disjointness of the \( 2 \)-subsets.  Then \( \operatorname{Aut}(P)
+  \cong S_5 \) since any permutation of \( \{ 1, 2, 3, 4, 5 \} \)
+  induces a permutation of the vertices that preserves disjointness
+  and hence adjacency.  We will use the shorthand \( ab \) to
+  represent each vertex \( \{ a, b \} \) of \( P.  \)  Consider the \(
+  3 \)-arc
+
+  \[
+    \alpha = (12, 34, 15, 23).
+  \]
+
+  It has exactly two successors, namely
+
+  \[
+    \beta_1 = (34, 15, 23, 14), \quad \beta_2 = (34, 15, 23, 45).
+  \]
+
+  Let \( g_1 = (13)(245) \) and \( g_2 = (13524).  \)  Then
+
+  \begin{align*}
+    \alpha^{g_1}
+    &amp;amp; = (12, 34, 15, 23)^{(13)(245)} = (34, 15, 23, 14) = \beta_1, \\
+    \alpha^{g_2}
+    &amp;amp; = (12, 34, 15, 23)^{(13524)} = (34, 51, 23, 45) = \beta_2.
+  \end{align*}
+
+  Let \( H = \langle g_1, g_2 \rangle \le \operatorname{Aut}(P).  \)
+  Consider an \( s \)-arc \( \alpha^h \) for some \( h \in H.  \)  Let
+  \( \delta \in S(\alpha^h).  \)  Then by the result in the previous
+  section, we get
+
+  \[
+    \delta^{h^{-1}} \in S(\alpha)
+    = \{ \beta_1, \beta_2 \}
+    = \{ \alpha^{g_1}, \alpha^{g_2} \}.
+  \]
+
+  Therefore
+
+  \[
+    \delta \in \{ \alpha^{g_1 h}, \alpha^{g_2 h} \}.
+  \]
+
+  Thus
+
+  \[
+    \delta \in \alpha^{H}.
+  \]
+
+  We started with an \( s \)-arc \( \alpha^h \in \alpha^H \) and
+  showed that its successors \( \delta \) also lie in \( \alpha^H.  \)
+  Thus the orbit \( \alpha^H \) is closed under taking successors.
+&lt;/p&gt;
+&lt;p&gt;
+  Now by the &lt;a href=&quot;#shunting&quot;&gt;shunting result&lt;/a&gt; discussed
+  previously, \( \alpha \) can be sent to any \( 3 \)-arc of \( P \)
+  by repeated shunting.  Therefore all \( 3 \)-arcs of \( P \) belong
+  to \( \alpha^H.  \)  Therefore the automorphisms in \( H \) can send
+  any \( 3 \)-arc of \( P \) to any other thus making \( P \) \( 3
+  \)-arc transitive.
+&lt;/p&gt;
+&lt;h3 id=&quot;moore-graphs&quot;&gt;Moore Graphs&lt;/h3&gt;
+&lt;p&gt;
+  Graphs with diameter \( d \) and girth \( 2d + 1 \) are known as
+  Moore graphs.
+&lt;/p&gt;
+&lt;p&gt;
+  There are an infinite number of Moore graphs with diameter \( 1 \)
+  since the complete graphs \( K_n, \) where \( n \ge 3, \) have
+  diameter \( 1 \) and girth \( 3.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  There are three known Moore graphs of diameter \( 2.  \)  They are \(
+  C_5, \) \( J(5, 2, 0) \) also known as the Petersen graph and the
+  Hoffman-Singleton graph.  They are respectively \( 2 \)-regular, \(
+  3 \)-regular and \( 7 \)-regular.  There is a famous result that
+  proves that a Moore graph must be \( 2 \)-regular, \( 3 \)-regular,
+  \( 7 \)-regular or \( 57 \)-regular.  It is unknown currently
+  whether a \( 57 \)-regular Moore graph of diameter \( 2 \) exists.
+&lt;/p&gt;
+&lt;p&gt;
+  There are infinitely many Moore graphs of diameter \( d \ge 3 \)
+  because the odd cycles \( C_{2d + 1} \) are \( 2 \)-regular graphs
+  with diameter \( d \) and girth \( 2d + 1 \) for all \( d \ge 1.  \)
+  However, there are no \( k \)-regular Moore graphs for diameter \( d
+  \ge 3 \) when \( k \ge 3.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;generalised-polygons&quot;&gt;Generalised Polygons&lt;/h3&gt;
+&lt;p&gt;
+  Bipartite graphs with diameter \( d \) and girth \( 2d \) are known
+  as generalised polygons.  This is easy to understand.  If we take a
+  classical \( d \)-gon and create the incidence graph of its vertices
+  and edges, then the incidence graph is the cycle \( C_{2d} \) which
+  has diameter \( d \) and girth \( 2d.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  The converse is not always true.  For example,
+  the &lt;a href=&quot;https://en.wikipedia.org/wiki/Heawood_graph&quot;&gt;Heawood
+  graph&lt;/a&gt; which has diameter \( d = 3 \) and girth \( 2d = 6.  \)  It
+  is the incidence graph of Fano plane, which is a projective plane
+  rather than a classical \( d \)-gon.
+&lt;/p&gt;
+&lt;p&gt;
+  Although a generalised polygon is not always the incidence graph of
+  a classical polygon, the idea behind the definition comes from a
+  simple observation.  If we take a classical \( d \)-gon and form the
+  incidence graph of its vertices and edges, we obtain the cycle \(
+  C_{2d}.  \)  This graph is bipartite and has diameter \( d \) and
+  girth \( 2d.  \)  The definition of a generalised polygon abstracts
+  these properties.  Any bipartite graph with diameter \( d \) and
+  girth \( 2d \) is called a generalised polygon, even when it is not
+  the incidence graph of a classical \( d \)-gon.  In this way the
+  definition allows much richer graphs than simple cycles.
+&lt;/p&gt;
+&lt;h2 id=&quot;computing&quot;&gt;Computing&lt;/h2&gt;
+&lt;h3 id=&quot;select-between-lines-inclusive&quot;&gt;Select Between Lines, Inclusive&lt;/h3&gt;
+&lt;p&gt;
+  Select text between two lines, including both lines:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sed &apos;/pattern1/,/pattern2/!d&apos;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;sed -n &apos;/pattern1/,/pattern2/p&apos;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here are some examples:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf &apos;A\nB\nC\nD\nE\nF\nG\nH\n&apos; | sed &apos;/C/,/F/!d&apos;&lt;/kbd&gt;
+C
+D
+E
+F
+$ &lt;kbd&gt;printf &apos;A\nB\nC\nD\nE\nF\nG\nH\n&apos; | sed -n &apos;/C/,/F/p&apos;&lt;/kbd&gt;
+C
+D
+E
+F&lt;/samp&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;select-between-lines-exclusive&quot;&gt;Select Between Lines, Exclusive&lt;/h3&gt;
+&lt;p&gt;
+  Select text between two lines, excluding both lines:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sed &apos;/pattern1/,/pattern2/!d; //d&apos;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here is an example usage:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf &apos;A\nB\nC\nD\nE\nF\nG\nH\n&apos; | sed &apos;/C/,/F/!d; //d&apos;&lt;/kbd&gt;
+D
+E&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The negated command &lt;code&gt;!d&lt;/code&gt; deletes everything not matched
+  by the 2-address range &lt;code&gt;/C/,/F/&lt;/code&gt;, i.e. it deletes
+  everything before the line matching &lt;code&gt;/C/&lt;/code&gt; as well as
+  everything after the line matching &lt;code&gt;/F/&lt;/code&gt;.  So we are left
+  with only the lines from &lt;code&gt;C&lt;/code&gt; to &lt;code&gt;F&lt;/code&gt;,
+  inclusive.  Finally, &lt;code&gt;//&lt;/code&gt; (the empty regular expression)
+  reuses the most recently used regular expression.  So
+  when &lt;code&gt;/C/,/F/&lt;/code&gt; matches &lt;code&gt;C&lt;/code&gt;, the
+  command &lt;code&gt;//d&lt;/code&gt; also matches &lt;code&gt;C&lt;/code&gt; and deletes it.
+  Similarly, &lt;code&gt;F&lt;/code&gt; is deleted too.  That&apos;s how we are left
+  with the lines between &lt;code&gt;C&lt;/code&gt; and &lt;code&gt;F&lt;/code&gt;, exclusive.
+&lt;/p&gt;
+&lt;p&gt;
+  Here are some excerpts from
+  &lt;a href=&quot;https://pubs.opengroup.org/onlinepubs/9799919799/utilities/sed.html&quot;&gt;POSIX.1-2024&lt;/a&gt;
+  that help understand the &lt;code&gt;!d&lt;/code&gt; and &lt;code&gt;//d&lt;/code&gt;
+  commands better:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  A function can be preceded by a &lt;code&gt;&apos;!&apos;&lt;/code&gt; character, in which
+  case the function shall be applied if the addresses do not select
+  the pattern space.  Zero or more &amp;lt;blank&amp;gt; characters shall be
+  accepted before the &lt;code&gt;&apos;!&apos;&lt;/code&gt; character.  It is unspecified
+  whether &amp;lt;blank&amp;gt; characters can follow the &lt;code&gt;&apos;!&apos;&lt;/code&gt;
+  character, and conforming applications shall not follow
+  the &lt;code&gt;&apos;!&apos;&lt;/code&gt; character with &amp;lt;blank&amp;gt; characters.
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+  If an RE is empty (that is, no pattern is specified) &lt;em&gt;sed&lt;/em&gt;
+  shall behave as if the last RE used in the last command applied
+  (either as an address or as part of a substitute command) was
+  specified.
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;signing-and-verification-with-ssh-key&quot;&gt;Signing and Verification with SSH Key&lt;/h3&gt;
+&lt;p&gt;
+  Here are some minimal commands to demonstrate how we can sign some
+  text using SSH key and then later verify it.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ssh-keygen -t ed25519 -f key
+echo hello &amp;gt; hello.txt
+ssh-keygen -Y sign -f key.pub -n file hello.txt
+echo &quot;jdoe $(cat key.pub)&quot; &amp;gt; allowed.txt
+ssh-keygen -Y verify -f allowed.txt -I jdoe -n file -s hello.txt.sig &amp;lt; hello.txt&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here are some examples that demonstrate what the outputs and
+  signature file look like:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;ssh-keygen -Y sign -f key.pub -n file hello.txt&lt;/kbd&gt;
+Signing file hello.txt
+Write signature to hello.txt.sig&lt;/samp&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;cat hello.txt.sig&lt;/kbd&gt;
+-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgAwP6RnmFVrZO0m/nRIHyvr2S19
+itsKegj9p/BZKqP1sAAAAEZmlsZQAAAAAAAAAGc2hhNTEyAAAAUwAAAAtzc2gtZWQyNTUx
+OQAAAEB8ylqjCLgInF8DvROnLSm1UUWd0VuLPesI+1NhMrV9BjH5lf0w20kHunJW3qRIjw
+Jfs9+q/e47KdlR8wBQaHYD
+-----END SSH SIGNATURE-----&lt;/samp&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;ssh-keygen -Y verify -f allowed.txt -I jdoe -n file -s hello.txt.sig &amp;lt; hello.txt&lt;/kbd&gt;
+Good &quot;file&quot; signature for jdoe with ED25519 key SHA256:9ZJuUJNMy1UXo3AlQy8L7baD3LOfEbgQ30ELIt+8wWc&lt;/samp&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;block-ip-address-with-nftables&quot;&gt;Block IP Address with nftables&lt;/h3&gt;
+&lt;p&gt;
+  Here is a sequence of commands to create an nftables rule from
+  scratch to block an IP address:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft add table inet filter&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+table inet filter {
+}
+$ &lt;kbd&gt;sudo nft add chain inet filter input { type filter hook input priority 0 \; }&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+table inet filter {
+        chain input {
+                type filter hook input priority filter; policy accept;
+        }
+}
+$ &lt;kbd&gt;sudo nft add rule inet filter input ip saddr 172.236.0.216 drop&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+table inet filter {
+        chain input {
+                type filter hook input priority filter; policy accept;
+                ip saddr 172.236.0.216 drop
+        }
+}&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here is how to undo the above setup step by step:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo nft -a list ruleset&lt;/kbd&gt;
+table inet filter { # handle 1
+        chain input { # handle 1
+                type filter hook input priority filter; policy accept;
+                ip saddr 172.236.0.216 drop # handle 2
+        }
+}
+$ &lt;kbd&gt;sudo nft delete rule inet filter input handle 2&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+table inet filter {
+        chain input {
+                type filter hook input priority filter; policy accept;
+        }
+}
+$ &lt;kbd&gt;sudo nft delete chain inet filter input&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+table inet filter {
+}
+$ &lt;kbd&gt;sudo nft delete table inet filter&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+$&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Finally, the following command deletes all rules, chains and tables.
+  It wipes the entire ruleset, so use it with care.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo nft flush ruleset&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+$&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  All outputs above were obtained using nftables v1.1.3 on Debian 13.2
+  (Trixie).
+&lt;/p&gt;
+&lt;h3 id=&quot;debian-logrotate-setup&quot;&gt;Debian Logrotate Setup&lt;/h3&gt;
+&lt;p&gt;
+  Observed on Debian 11.5 (Bullseye) that &lt;code&gt;logrotate&lt;/code&gt; is
+  set up on it via &lt;code&gt;systemd&lt;/code&gt;.  Here are some outputs that
+  show what the setup is like:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo systemctl status logrotate.service&lt;/kbd&gt;
+● logrotate.service - Rotate log files
+     Loaded: loaded (/lib/systemd/system/logrotate.service; static)
+     Active: inactive (dead) since Mon 2026-03-30 00:00:17 UTC; 19h ago
+TriggeredBy: &lt;span class=&quot;c2&quot;&gt;●&lt;/span&gt; logrotate.timer
+       Docs: man:logrotate(8)
+             man:logrotate.conf(5)
+    Process: 2148235 ExecStart=/usr/sbin/logrotate /etc/logrotate.conf (code=exited, status=0/SUCCESS)
+   Main PID: 2148235 (code=exited, status=0/SUCCESS)
+        CPU: 574ms
+
+Mar 30 00:00:16 spweb systemd[1]: Starting Rotate log files...
+Mar 30 00:00:17 spweb systemd[1]: logrotate.service: Succeeded.
+Mar 30 00:00:17 spweb systemd[1]: Finished Rotate log files.
+$ &lt;kbd&gt;sudo systemctl status logrotate.timer&lt;/kbd&gt;
+● logrotate.timer - Daily rotation of log files
+     Loaded: loaded (/lib/systemd/system/logrotate.timer; enabled; vendor preset: enabled)
+     Active: active (waiting) since Mon 2026-01-19 19:19:34 UTC; 2 months 9 days ago
+    Trigger: Tue 2026-03-31 00:00:00 UTC; 4h 7min left
+   Triggers: &lt;span class=&quot;c2&quot;&gt;●&lt;/span&gt; logrotate.service
+       Docs: man:logrotate(8)
+             man:logrotate.conf(5)
+
+Warning: journal has been rotated since unit was started, output may be incomplete.
+$ &lt;kbd&gt;sudo systemctl list-timers logrotate&lt;/kbd&gt;
+NEXT                        LEFT         LAST                        PASSED  UNIT            ACTIVATES
+Tue 2026-03-31 00:00:00 UTC 4h 7min left Mon 2026-03-30 00:00:16 UTC 19h ago logrotate.timer logrotate.service
+
+1 timers listed.
+Pass --all to see loaded but inactive timers, too.
+$ &lt;kbd&gt;head /lib/systemd/system/logrotate.service&lt;/kbd&gt;
+[Unit]
+Description=Rotate log files
+Documentation=man:logrotate(8) man:logrotate.conf(5)
+RequiresMountsFor=/var/log
+ConditionACPower=true
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/logrotate /etc/logrotate.conf
+
+$ &lt;kbd&gt;cat /lib/systemd/system/logrotate.timer&lt;/kbd&gt;
+[Unit]
+Description=Daily rotation of log files
+Documentation=man:logrotate(8) man:logrotate.conf(5)
+
+[Timer]
+OnCalendar=daily
+AccuracySec=1h
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+$ &lt;kbd&gt;grep -vE &apos;^#|^$&apos; /etc/logrotate.conf&lt;/kbd&gt;
+weekly
+rotate 4
+create
+include /etc/logrotate.d
+$ &lt;kbd&gt;ls -l /etc/logrotate.d/&lt;/kbd&gt;
+total 40
+-rw-r--r-- 1 root root 120 Aug 21  2022 alternatives
+-rw-r--r-- 1 root root 173 Jun 10  2021 apt
+-rw-r--r-- 1 root root 130 Oct 14  2019 btmp
+-rw-r--r-- 1 root root  82 May 26  2018 certbot
+-rw-r--r-- 1 root root 112 Aug 21  2022 dpkg
+-rw-r--r-- 1 root root 128 May  4  2021 exim4-base
+-rw-r--r-- 1 root root 108 May  4  2021 exim4-paniclog
+-rw-r--r-- 1 root root 329 May 29  2021 nginx
+-rw-r--r-- 1 root root 374 May 20  2022 rsyslog
+lrwxrwxrwx 1 root root  28 Mar 17 01:52 &lt;span class=&quot;c3&quot;&gt;susam&lt;/span&gt; -&amp;gt; /opt/susam.net/etc/logrotate
+-rw-r--r-- 1 root root 145 Oct 14  2019 wtmp&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  To force log rotation right now, execute:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo systemctl start logrotate.service&lt;/code&gt;&lt;/pre&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/26c.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/notes.html&quot;&gt;#notes&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/linux.html&quot;&gt;#linux&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Accessing Fork Commits via Original Repository</title>
+    <link href="https://susam.net/fork-commits-via-original-repo.html"/>
+    <id>urn:uuid:2e7ea4cc-eb02-4d97-90f5-3c82f40da913</id>
+    <updated>2026-03-28T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  I ran a small experiment with Git hosting behaviour using two demo
+  repositories:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;code&gt;cuppa&lt;/code&gt;: The original repository.
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;code&gt;muppa&lt;/code&gt;: Fork of &lt;code&gt;cuppa&lt;/code&gt; with questionable changes.
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  Here is a table with links to these repositories on Codeberg and
+  GitHub:
+&lt;/p&gt;
+&lt;table class=&quot;grid center&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Codeberg&lt;/th&gt;
+      &lt;th&gt;GitHub&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;cuppa&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://codeberg.org/spxy/cuppa&quot;&gt;codeberg.org/spxy/cuppa&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/spxy/cuppa&quot;&gt;github.com/spxy/cuppa&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;muppa&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://codeberg.org/spxy/muppa&quot;&gt;codeberg.org/spxy/muppa&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/spxy/muppa&quot;&gt;github.com/spxy/muppa&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;
+  It is well known that GitHub lets us access a commit that exists
+  only on the fork via the original repository using a direct commit
+  URL.  I wanted to find out if Codeberg behaves the same.
+&lt;/p&gt;
+&lt;p&gt;
+  The commit &lt;code&gt;f79ef5a&lt;/code&gt; exists only on the fork
+  (&lt;code&gt;muppa&lt;/code&gt;) but not on the original repo
+  (&lt;code&gt;cuppa&lt;/code&gt;).  Let us see how the two hosting services
+  handle direct URLs to this commit.
+&lt;/p&gt;
+&lt;table class=&quot;grid center&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Codeberg&lt;/th&gt;
+      &lt;th&gt;GitHub&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;code&gt;cuppa&lt;/code&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;a href=&quot;https://codeberg.org/spxy/cuppa/commit/f79ef5a03cfe2aa429a9207d8b60f5779544d072&quot;&gt;f79ef5a&lt;/a&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;a href=&quot;https://github.com/spxy/cuppa/commit/f79ef5a03cfe2aa429a9207d8b60f5779544d072&quot;&gt;f79ef5a&lt;/a&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;code&gt;muppa&lt;/code&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;a href=&quot;https://codeberg.org/spxy/muppa/commit/f79ef5a03cfe2aa429a9207d8b60f5779544d072&quot;&gt;f79ef5a&lt;/a&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;a href=&quot;https://github.com/spxy/muppa/commit/f79ef5a03cfe2aa429a9207d8b60f5779544d072&quot;&gt;f79ef5a&lt;/a&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;
+  If we look at the second row, both commit URLs for Codeberg and
+  GitHub work because that is where the commit was actually created.
+  The commit belongs to the fork named &lt;code&gt;muppa&lt;/code&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  Now if we look at the first row, the commit URL for Codeberg returns
+  a 404 page.  This reflects the fact that the
+  commit &lt;code&gt;f79ef5a&lt;/code&gt; does not exist on &lt;code&gt;cuppa&lt;/code&gt;.
+  However, GitHub returns a successful response and shows the commit.
+  It shows the following warning at the top:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  This commit does not belong to any branch on this repository, and
+  may belong to a fork outside of the repository.
+&lt;/blockquote&gt;
+&lt;p&gt;
+  There is no particular point to this experiment.
+  I just wanted to know.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/fork-commits-via-original-repo.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Wander Console 0.3.0</title>
+    <link href="https://susam.net/code/news/wander/0.3.0.html"/>
+    <id>urn:uuid:2181779b-1aa4-4ce8-afde-d271ac662d8c</id>
+    <updated>2026-03-25T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Wander 0.3.0 is the third release of Wander, a small, decentralised,
+  self-hosted web console that lets visitors to your website explore
+  interesting websites and pages recommended by a community of
+  independent website owners.  To try it, go
+  to &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander/&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  This release brings small but important bug fixes.  The previous
+  release, &lt;a href=&quot;0.2.0.html&quot;&gt;version 0.2.0&lt;/a&gt; introduced a number
+  of new features.  Unfortunately, two of them caused issues for some
+  users.  A new feature in the previous release was
+  the &lt;code&gt;ignore&lt;/code&gt; list feature.  The &lt;code&gt;ignore&lt;/code&gt; list
+  defines console URLs and page URLs that the console never uses while
+  discovering page recommendations.  While this feature works fine,
+  due to a bug in the implementation, the &lt;strong&gt;Console&lt;/strong&gt;
+  dialog fails to load in consoles that do not define
+  any &lt;code&gt;ignore&lt;/code&gt; list.  This has now been fixed.
+&lt;/p&gt;
+&lt;p&gt;
+  There was another issue due to which the &lt;code&gt;&amp;lt;iframe&amp;gt;&lt;/code&gt;
+  that displays discovered websites and pages could not load certain
+  websites.  In particular, any website that relied on same-origin
+  context to load its own resources failed to load in the console.
+  This has been fixed as well.  Please see
+  &lt;a href=&quot;https://codeberg.org/susam/wander/issues/7&quot;&gt;codeberg.org/susam/wander/issues/7&lt;/a&gt;
+  for a detailed discussion on this issue.
+&lt;/p&gt;
+&lt;p&gt;
+  Apart from these two important fixes, there are a few other minor
+  fixes too pertaining to preventing horizontal scrolling in small
+  devices and preventing duplicate recommendations from appearing too
+  close to each other.  Please
+  see &lt;a href=&quot;https://codeberg.org/susam/wander/src/branch/main/CHANGES.md&quot;&gt;CHANGES.md&lt;/a&gt;
+  for a detailed changelog.
+&lt;/p&gt;
+&lt;p&gt;
+  To learn more about Wander, how it works and how to set it up,
+  please read the project README at
+  &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;.
+  To try it out right now, go to
+  &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander/&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/wander/0.3.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Wander Console 0.2.0</title>
+    <link href="https://susam.net/code/news/wander/0.2.0.html"/>
+    <id>urn:uuid:a0df297e-771c-42ab-856c-2c066e1cd1a1</id>
+    <updated>2026-03-24T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Wander 0.2.0 is the second release of Wander, a small,
+  decentralised, self-hosted web console that lets visitors to your
+  website explore interesting websites and pages recommended by a
+  community of independent personal website owners.  To try it, go
+  to &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  This release brings a number of improvements.  When I released
+  version 0.1.0, it was the initial version of the software I was
+  using for my own website.  Naturally, I was the only user initially
+  and I only added trusted web pages to the recommendation list of my
+  console.  But ever since I
+  &lt;a href=&quot;https://news.ycombinator.com/item?id=47422759&quot;&gt;announced
+  this project on Hacker News&lt;/a&gt;, it has received a good amount of
+  attention.  It has been less than a week since I announced it there
+  but over 30 people have set up a Wander console on their personal
+  websites.  There are now over a hundred web pages being recommended
+  by this network of consoles.  With the growth in the number of
+  people who have set up Wander console, came several feature
+  requests, most of which have been implemented already.  This release
+  makes these new features available.
+&lt;/p&gt;
+&lt;p&gt;
+  Since Wander 0.2.0, the &lt;code&gt;wander.js&lt;/code&gt; file of remote
+  consoles is executed in a sandbox &lt;code&gt;iframe&lt;/code&gt; to ensure that
+  it has no side effects on the parent Wander console page.
+  Similarly, the pages recommended by the network are also loaded into
+  a sandbox &lt;code&gt;iframe&lt;/code&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  This release also brings several customisation features.  Console
+  owners can customise their Wander console by adding custom CSS or
+  JavaScript.  Console owners can also block certain URLs from ever
+  being recommended on their console.  This is especially important in
+  providing a good wandering experience to visitors.  Since this
+  network is completely decentralised, console owners can add any web
+  page they like to their console.  Sometimes they inadvertently add
+  pages that do not load successfully in the console due to frame
+  embedding restrictions.  This leads to an uneven wandering
+  experience because these page recommendations occasionally make it
+  to other consoles where they fail to load.  Console owners can now
+  block such URLs in their console to decrease the likelihood of these
+  failed page loads.  This helps make the wandering experience smoother.
+&lt;/p&gt;
+&lt;p&gt;
+  Another significant feature in this release is the
+  expanded &lt;strong&gt;Console&lt;/strong&gt; dialog box.  This dialog box now
+  shows various details about the console and the current wandering
+  session.  For example, it shows the console&apos;s configuration:
+  recommended pages, ignored URLs and linked consoles.  It also shows
+  a wandering history screen where you can see each link that was
+  recommended to you along with the console that recommendation came
+  from.  There is another screen that shows all the consoles
+  discovered during the discovery process.  Those who care about how
+  Wander works would find this dialog box quite useful.  To check it
+  out, go to
+  &lt;a href=&quot;../../../wander/&quot;&gt;my Wander console&lt;/a&gt; and
+  explore.
+&lt;/p&gt;
+&lt;p&gt;
+  To learn more about Wander, how it works and how to set it up,
+  please read the project README at
+  &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/wander/0.2.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Wander Console 0.1.0</title>
+    <link href="https://susam.net/code/news/wander/0.1.0.html"/>
+    <id>urn:uuid:a4717b2b-aa67-4cf9-b59f-5c50c29ba716</id>
+    <updated>2026-03-18T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Wander 0.1.0 is the first release of Wander, a small, decentralised,
+  self-hosted web console that lets visitors to your website explore
+  interesting websites and pages recommended by a community of
+  independent personal website owners.
+&lt;/p&gt;
+&lt;p&gt;
+  Anyone with a personal website can take this tool and host an
+  instance of a Wander console.  Each Wander console loads personal
+  websites and pages recommended by the Wander community.  Further,
+  each Wander console can link to other Wander consoles, forming a
+  lightweight, decentralised network for browsing the small web of
+  personal websites.
+&lt;/p&gt;
+&lt;p&gt;
+  Setting up an instance of a Wander console involves copying just two
+  static files from the Wander project at
+  &lt;a href=&quot;https://codeberg.org/susam/wander&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;.
+  The most interesting aspect of the Wander console is that discovery
+  of new links from other consoles happens on the client side in the
+  user&apos;s web browser.  As a website owner, you do not need to set up
+  any server-side components beyond a basic web server.  In fact, you
+  can host a Wander console on GitHub Pages or Codeberg Pages too.
+&lt;/p&gt;
+&lt;p&gt;
+  To learn more about Wander, how it works and how to set it up,
+  please read the project README at
+  &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/wander/0.1.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Wander Console</title>
+    <link href="https://susam.net/wander/"/>
+    <id>urn:uuid:2e9733ae-16b0-487a-8e83-ce20cb765e70</id>
+    <updated>2026-03-16T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  I have put together a small tool to explore the small web of
+  personal websites.  It is called &lt;em&gt;Wander&lt;/em&gt;.  Please
+  visit &lt;a href=&quot;https://susam.net/wander/&quot;&gt;susam.net/wander/&lt;/a&gt; to
+  try out my Wander console.
+&lt;/p&gt;
+&lt;p&gt;
+  If you have your own website, please consider joining this community
+  by hosting your own Wander console.  To do so, visit
+  &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;
+  and follow the instructions there.  Thank you!
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/wander/"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/html.html&quot;&gt;#html&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Git Checkout, Reset and Restore</title>
+    <link href="https://susam.net/git-checkout-reset-restore.html"/>
+    <id>urn:uuid:a22f24a7-a154-408a-9dfd-b69e46eebeac</id>
+    <updated>2026-03-12T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  I have always used the &lt;code&gt;git checkout&lt;/code&gt; and &lt;code&gt;git
+  reset&lt;/code&gt; commands to reset my working tree or index but since
+  Git 2.23 there has been a &lt;code&gt;git restore&lt;/code&gt; command available
+  for these purposes.  In this post, I record how some of the &apos;older&apos;
+  commands I use map to the new ones.  Well, the new commands aren&apos;t
+  exactly new since Git 2.23 was released in 2019, so this post is
+  perhaps six years too late.  Even so, I want to write this down for
+  future reference.  It is worth noting that the old and new commands
+  are not always equivalent.  I&apos;ll talk more about this briefly as we
+  discuss the commands.  However, they can be used to perform similar
+  tasks.  Some of these tasks are discussed below.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#experimental-setup&quot;&gt;Experimental Setup&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reset-working-directory&quot;&gt;Reset the Working Tree&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reset-index&quot;&gt;Reset the Index&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reset-working-directory-and-index&quot;&gt;Reset the Working Tree and Index&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#summary&quot;&gt;Summary&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;experimental-setup&quot;&gt;Experimental Setup&lt;/h2&gt;
+&lt;p&gt;
+  To experiment quickly, we first create an example Git repository.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir foo/; cd foo/; touch a b c
+git init; git add a b c; git commit -m hello&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Now we make changes to the files and stage some of the changes.  We
+  then add more unstaged changes to one of the staged files.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;date | tee a b c d; git add a b d; echo &amp;gt; b&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  At this point, the working tree and index look like this:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git status&lt;/kbd&gt;
+On branch main
+Changes to be committed:
+  (use &quot;git restore --staged &amp;lt;file&amp;gt;...&quot; to unstage)
+        &lt;span class=&quot;c2&quot;&gt;modified:   a
+        modified:   b
+        new file:   d&lt;/span&gt;
+
+Changes not staged for commit:
+  (use &quot;git add &amp;lt;file&amp;gt;...&quot; to update what will be committed)
+  (use &quot;git restore &amp;lt;file&amp;gt;...&quot; to discard changes in working directory)
+        &lt;span class=&quot;c4&quot;&gt;modified:   b
+        modified:   c&lt;/span&gt;&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  File &lt;code&gt;a&lt;/code&gt; has staged changes.  File &lt;code&gt;b&lt;/code&gt; has
+  both staged and unstaged changes.  File &lt;code&gt;c&lt;/code&gt; has only
+  unstaged changes.  File &lt;code&gt;d&lt;/code&gt; is a new staged file.  In
+  each experiment below, we will work with this setup.
+&lt;/p&gt;
+&lt;p&gt;
+  All results discussed in this post were obtained using Git 2.47.3 on
+  Debian 13.2 (Trixie).
+&lt;/p&gt;
+&lt;h2 id=&quot;reset-working-directory&quot;&gt;Reset the Working Tree&lt;/h2&gt;
+&lt;p&gt;
+  As a reminder, we will always use the following command between
+  experiments to ensure that we restore the experimental setup each
+  time:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;date | tee a b c d; git add a b d; echo &amp;gt; b&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  To discard the changes in the working tree and reset the files in
+  the working tree from the index, I typically run:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git checkout .&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  However, the modern way to do this is to use the following command:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git restore .&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Both commands leave the working tree and the index in the following
+  state:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git status&lt;/kbd&gt;
+On branch main
+Changes to be committed:
+  (use &quot;git restore --staged &amp;lt;file&amp;gt;...&quot; to unstage)
+        &lt;span class=&quot;c2&quot;&gt;modified:   a
+        modified:   b
+        new file:   d&lt;/span&gt;&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Both commands operate only on the working tree.  They do not alter
+  the index.  Therefore the staged changes remain intact in the index.
+&lt;/p&gt;
+&lt;h2 id=&quot;reset-index&quot;&gt;Reset the Index&lt;/h2&gt;
+&lt;p&gt;
+  Another common situation is when we have staged some changes but
+  want to unstage them.  First, we restore the experimental setup:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;date | tee a b c d; git add a b d; echo &amp;gt; b&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  I normally run the following command to do so:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git reset&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The modern way to do this is:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git restore -S .&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Both commands leave the working tree and the index in the following
+  state:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git status&lt;/kbd&gt;
+On branch main
+Changes not staged for commit:
+  (use &quot;git add &amp;lt;file&amp;gt;...&quot; to update what will be committed)
+  (use &quot;git restore &amp;lt;file&amp;gt;...&quot; to discard changes in working directory)
+        &lt;span class=&quot;c4&quot;&gt;modified:   a
+        modified:   b
+        modified:   c&lt;/span&gt;
+
+Untracked files:
+  (use &quot;git add &amp;lt;file&amp;gt;...&quot; to include in what will be committed)
+        &lt;span class=&quot;c4&quot;&gt;d&lt;/span&gt;
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The &lt;code&gt;-S&lt;/code&gt; (&lt;code&gt;--staged&lt;/code&gt;) option tells &lt;code&gt;git
+  restore&lt;/code&gt; to operate on the index (not the working tree) and
+  reset the index entries for the specified files to match the
+  version in &lt;code&gt;HEAD&lt;/code&gt;.  The unstaged changes remain intact as
+  modified files in the working tree.  With the &lt;code&gt;-S&lt;/code&gt;
+  option, no changes are made to the working tree.
+&lt;/p&gt;
+&lt;p&gt;
+  From the arguments we can see that the old and new commands are not
+  exactly equivalent.  Without any arguments, the &lt;code&gt;git
+  reset&lt;/code&gt; command resets the entire index to &lt;code&gt;HEAD&lt;/code&gt;,
+  so all staged changes become unstaged.  Similarly, when we run
+  &lt;code&gt;git restore -S&lt;/code&gt; without specifying a commit, branch or
+  tag using the &lt;code&gt;-s&lt;/code&gt; (&lt;code&gt;--source&lt;/code&gt;) option, it
+  defaults to resetting the index from &lt;code&gt;HEAD&lt;/code&gt;.
+  The &lt;code&gt;.&lt;/code&gt; at the end ensures that all paths under the
+  current directory are affected.  When we run the command at the
+  top-level directory of the repository, all paths are affected and
+  the entire index gets reset.  As a result, both the old and the new
+  commands accomplish the same result.
+&lt;/p&gt;
+&lt;h2 id=&quot;reset-working-directory-and-index&quot;&gt;Reset the Working Tree and Index&lt;/h2&gt;
+&lt;p&gt;
+  Once again, we restore the experimental setup.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;date | tee a b c d; git add a b d; echo &amp;gt; b&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  This time we not only want to unstage the changes but also discard
+  the changes in the working tree.  In other words, we want to reset
+  both the working tree and the index from &lt;code&gt;HEAD&lt;/code&gt;.  This is
+  a dangerous operation because any uncommitted changes discarded in
+  this manner cannot be restored using Git.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git reset --hard&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The modern way to do this is:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git restore -WS .&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The working tree is now clean:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git status&lt;/kbd&gt;
+On branch main
+nothing to commit, working tree clean&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The &lt;code&gt;-W&lt;/code&gt; (&lt;code&gt;--worktree&lt;/code&gt;) option makes the
+  command operate on the working tree.  The &lt;code&gt;-S&lt;/code&gt;
+  (&lt;code&gt;--staged&lt;/code&gt;) option resets the index as described in the
+  previous section.  As a result, this command unstages any changes
+  and discards any modifications in the working tree.
+&lt;/p&gt;
+&lt;p&gt;
+  Note that when neither of these options is specified,
+  &lt;code&gt;-W&lt;/code&gt; is implied by default.  That&apos;s why the
+  bare &lt;code&gt;git restore .&lt;/code&gt; command in the previous section
+  discards the changes in the working tree.
+&lt;/p&gt;
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;
+  The following table summarises how the three pairs of commands
+  discussed above affect the working tree and the index, assuming the
+  commands are run at the top-level directory of a repository.
+&lt;/p&gt;
+&lt;div style=&quot;overflow: auto&quot;&gt;
+  &lt;table class=&quot;grid&quot; style=&quot;margin: 0&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Old&lt;/th&gt;
+        &lt;th&gt;New&lt;/th&gt;
+        &lt;th&gt;Working Tree&lt;/th&gt;
+        &lt;th&gt;Index&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td class=&quot;pre&quot;&gt;&lt;code&gt;git checkout .&lt;/code&gt;&lt;/td&gt;
+        &lt;td class=&quot;pre&quot;&gt;&lt;code&gt;git restore .&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;Reset to match the index.&lt;/td&gt;
+        &lt;td&gt;No change.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td class=&quot;pre&quot;&gt;&lt;code&gt;git reset&lt;/code&gt;&lt;/td&gt;
+        &lt;td class=&quot;pre&quot;&gt;&lt;code&gt;git restore -S .&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;No change.&lt;/td&gt;
+        &lt;td&gt;Reset to match &lt;code&gt;HEAD&lt;/code&gt;.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td class=&quot;pre&quot;&gt;&lt;code&gt;git reset --hard&lt;/code&gt;&lt;/td&gt;
+        &lt;td class=&quot;pre&quot;&gt;&lt;code&gt;git restore -SW .&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;Reset to match &lt;code&gt;HEAD&lt;/code&gt;.&lt;/td&gt;
+        &lt;td&gt;Reset to match &lt;code&gt;HEAD&lt;/code&gt;.&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;
+  The &lt;code&gt;git restore&lt;/code&gt; command is meant to provide a clearer
+  interface for resetting the working tree and the index.  I still use
+  the older commands out of habit.  Perhaps I will adopt the new ones
+  in another six years, but at least I have the mapping written down
+  now.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/git-checkout-reset-restore.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/git.html&quot;&gt;#git&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/how-to.html&quot;&gt;#how-to&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>HN Skins 0.4.0</title>
+    <link href="https://susam.net/code/news/hnskins/0.4.0.html"/>
+    <id>urn:uuid:2fd608c6-887a-4b10-b961-5f231cb41a6c</id>
+    <updated>2026-03-10T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  HN Skins 0.4.0 is a minor update to HN Skins, a web browser
+  userscript that adds custom themes to Hacker News and lets you
+  browse HN with a variety of visual styles.  This release introduces
+  a small fix to preserve the commemorative black bar that
+  occasionally appears at the top of the page.
+&lt;/p&gt;
+&lt;p&gt;
+  When a notable figure in technology or science passes away, Hacker
+  News places a thin black bar at the top of the page in tribute.
+  Previously some skins could obscure this element.  This update
+  ensures that the bar remains visible and clearly noticeable.  In
+  dark themed skins, the black bar is rendered as a lighter shade of
+  grey so that it maintains sufficient contrast and remains
+  conspicuous.
+&lt;/p&gt;
+&lt;p&gt;
+  Today Hacker News has
+  &lt;a href=&quot;https://news.ycombinator.com/item?id=47324054&quot;&gt;a story
+  about Tony Hoare passing away&lt;/a&gt;, which made me notice that the
+  commemorative black bar was not rendered properly with some skins.
+  This prompted me to investigate the issue and implement the fix
+  included in this release.
+&lt;/p&gt;
+&lt;p&gt;
+  Screenshots showing how the bar appears with different skins are
+  available at
+  &lt;a href=&quot;https://susam.github.io/blob/img/hnskins/0.4.0/&quot;&gt;susam.github.io/blob/img/hnskins/0.4.0/&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  To install HN Skins,
+  visit &lt;a href=&quot;https://github.com/susam/hnskins#readme&quot;&gt;github.com/susam/hnskins&lt;/a&gt;
+  and follow the instructions there.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/hnskins/0.4.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>HN Skins 0.3.0</title>
+    <link href="https://susam.net/code/news/hnskins/0.3.0.html"/>
+    <id>urn:uuid:baafca23-8068-4b32-85b3-4f4aadbbf581</id>
+    <updated>2026-03-07T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  HN Skins 0.3.0 is a minor update to HN Skins, a web browser
+  userscript that adds custom themes to Hacker News and allows you to
+  browse HN with a variety of visual styles.  This release includes
+  fixes for a few issues that slipped through earlier versions.  For
+  example, the comment input textbox now uses the same font face and
+  size as the rest of the active theme.  The colour of visited links
+  has also been slightly muted to make it easier to distinguish them
+  from unvisited links.  In addition, some skins have been renamed:
+  Teletype is now called Courier and Nox is now called Midnight.
+&lt;/p&gt;
+&lt;p&gt;
+  Further, the font face of several monospace based themes is now set
+  to &lt;code&gt;monospace&lt;/code&gt; instead of &lt;code&gt;courier&lt;/code&gt;.  This
+  allows the browser&apos;s preferred monospace font to be used.  The font
+  face of the Courier skin (formerly known as Teletype) remains set
+  to &lt;code&gt;courier&lt;/code&gt;.  This will never change because the sole
+  purpose of this skin is to celebrate this legendary font.
+&lt;/p&gt;
+&lt;p&gt;
+  To view screenshots of HN Skins or install it, visit
+  &lt;a href=&quot;https://github.com/susam/hnskins#readme&quot;&gt;github.com/susam/hnskins&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/hnskins/0.3.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>HN Skins 0.2.0</title>
+    <link href="https://susam.net/code/news/hnskins/0.2.0.html"/>
+    <id>urn:uuid:15679d71-ed9d-4db4-a1ad-b94a9d2b72be</id>
+    <updated>2026-03-01T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  HN Skins 0.2.0 is a minor update of HN Skins.  It comes a day after
+  its &lt;a href=&quot;0.1.0.html&quot;&gt;initial release&lt;/a&gt; in order to fine tune a
+  few minor issues with the styles in the initial release.  HN Skins
+  is a web browser userscript that adds custom themes to Hacker News
+  and allows you to browse HN with different visual styles.
+&lt;/p&gt;
+&lt;p&gt;
+  This update removes excessive vertical space below the &apos;reply&apos;
+  links, sorts the skin options alphabetically in the selection dialog
+  and fixes the background colour of the navigation bar in the
+  Terminal skin by changing it from a dark grey to a dark green.
+&lt;/p&gt;
+&lt;p&gt;
+  Soon after making this release, I discovered a few other minor
+  issues, such as the Cafe and Terminal themes using Courier when I
+  intended them to use the system monospace font.  This has already
+  been fixed in the development version currently available on GitHub.
+  However, I will make a formal release later.
+&lt;/p&gt;
+&lt;p&gt;
+  See the &lt;a href=&quot;https://github.com/susam/hnskins/blob/main/CHANGES.md&quot;&gt;changelog&lt;/a&gt;
+  for more details.  To see some screenshots of HN Skins or to install
+  it, visit &lt;a href=&quot;https://github.com/susam/hnskins#readme&quot;&gt;github.com/susam/hnlinks&lt;/a&gt;
+  and follow the instructions there.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/hnskins/0.2.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>HN Skins 0.1.0</title>
+    <link href="https://susam.net/code/news/hnskins/0.1.0.html"/>
+    <id>urn:uuid:810a59fc-4dd4-4631-8426-172165338bca</id>
+    <updated>2026-02-28T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  HN Skins 0.1.0 is the initial release of HN Skins, a browser
+  userscript that adds custom themes to Hacker News (HN).  It allows
+  you to browse HN in style with a selection of visual skins.
+&lt;/p&gt;
+&lt;p&gt;
+  To use HN Skins, first install a userscript manager such as
+  Greasemonkey, Tampermonkey or Violentmonkey in your web browser.
+  Once installed, you can install HN Skins from
+  &lt;a href=&quot;https://github.com/susam/hnskins#readme&quot;&gt;github.com/susam/hnskins&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  The source code is available under the terms of the MIT licence.
+  For usage instructions and screenshots, please visit
+  &lt;a href=&quot;https://github.com/susam/hnskins#readme&quot;&gt;github.com/susam/hnskins&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/hnskins/0.1.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Soju User Delete Hash</title>
+    <link href="https://susam.net/soju-user-delete-hash.html"/>
+    <id>urn:uuid:6afbcfe5-8218-40dc-83ad-45efbfe40bb9</id>
+    <updated>2026-02-14T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  In &lt;a href=&quot;from-znc-to-soju.html&quot;&gt;my last post&lt;/a&gt;, I talked about
+  switching from ZNC to Soju as my IRC bouncer.  One thing that caught
+  my attention while creating and deleting Soju users was that the
+  delete command asks for a confirmation, like so:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo sojuctl user delete soju&lt;/kbd&gt;
+To confirm user deletion, send &quot;user delete soju 4664cd&quot;
+$ &lt;kbd&gt;sudo sojuctl user delete soju 4664cd&lt;/kbd&gt;
+deleted user &quot;soju&quot;&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  That confirmation token for a specific user never changes, no matter
+  how many times we create or delete it.  The confirmation token is
+  not saved in the Soju database, as can be confirmed here:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo sqlite3 -table /var/lib/soju/main.db &apos;SELECT * FROM User&apos;&lt;/kbd&gt;
++----+----------+--------------------------------------------------------------+-------+----------+------+--------------------------+---------+--------------------------+--------------+
+| id | username |                           password                           | admin | realname | nick |        created_at        | enabled | downstream_interacted_at | max_networks |
++----+----------+--------------------------------------------------------------+-------+----------+------+--------------------------+---------+--------------------------+--------------+
+| 1  | soju     | $2a$10$yRj/oYlR2Zwd8YQxZPuAQuNo2j7FVJWeNdIAHF2MinYkKLmBjtf0y | 0     |          |      | 2026-02-16T13:49:46.119Z | 1       |                          | -1           |
++----+----------+--------------------------------------------------------------+-------+----------+------+--------------------------+---------+--------------------------+--------------+&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Surely, then, the confirmation token is derived from the user
+  definition?  Yes, indeed it is.  This can be confirmed at the
+  &lt;a href=&quot;https://codeberg.org/emersion/soju/src/commit/v0.10.1/service.go#L1185-L1203&quot;&gt;source
+  code here&lt;/a&gt;.  Quoting the most relevant part from the source code:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hashBytes := sha1.Sum([]byte(username))
+hash := fmt.Sprintf(&quot;%x&quot;, hashBytes[0:3])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Indeed if we compute the same hash ourselves, we get the same token:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf soju | sha1sum | head -c6&lt;/kbd&gt;
+4664cd&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  This allows us to automate the two step Soju user deletion process
+  in a single command:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo sojuctl user delete soju &quot;$(printf soju | sha1sum | head -c6)&quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  But of course, the implementation of the confirmation token may
+  change in future and Soju helpfully outputs the deletion command
+  with the confirmation token when we first invoke it without the
+  token, so it is perhaps more prudent to just take that output and
+  feed it back to Soju, like so:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo sojuctl $(sudo sojuctl user delete soju | sed &apos;s/.*&quot;\(.*\)&quot;/\1/&apos;)&lt;/code&gt;&lt;/pre&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/soju-user-delete-hash.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/irc.html&quot;&gt;#irc&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/how-to.html&quot;&gt;#how-to&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>From ZNC to Soju</title>
+    <link href="https://susam.net/from-znc-to-soju.html"/>
+    <id>urn:uuid:82f24add-daf5-4815-a853-5dd9c6ef559d</id>
+    <updated>2026-02-12T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  I have recently switched from ZNC to Soju as my IRC bouncer and I am
+  already quite pleased with it.  I usually run my bouncer on a Debian
+  machine, where Soju is well packaged and runs smoothly right after
+  installation.  By contrast, the ZNC package included with Debian 13
+  (Trixie) and earlier fails to start after installation because of a
+  missing configuration file.  As a result, I was forced to maintain
+  my own configuration file along with a necessary PEM bundle, copy
+  them to the Debian system and carefully set the correct file
+  permissions before I could run ZNC successfully.  None of this is
+  necessary with Soju, since installing it from the Debian package
+  repository automatically sets up the configuration and certificate
+  files.  I no longer have to manage any configuration or certificate
+  files myself.
+&lt;/p&gt;
+&lt;h2 id=&quot;setup&quot;&gt;Setup&lt;/h2&gt;
+&lt;p&gt;
+  It is quite straightforward to install and set up Soju on Debian.
+  The following two commands install Soju:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get -y install soju&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Then setting up an IRC connection involves another two commands:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo sojuctl user create -username soju -password YOUR_SOJU_PASSWORD
+sudo sojuctl user run soju network create -name bnc1 -addr irc.libera.chat -nick YOUR_NICK -pass YOUR_NICK_PASSWORD&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here, &lt;code&gt;YOUR_SOJU_PASSWORD&lt;/code&gt; is a placeholder for a new
+  password you must choose for your Soju user.  Finally, we restart
+  Soju as follows:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo systemctl restart soju&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;database&quot;&gt;Database&lt;/h2&gt;
+&lt;p&gt;
+  What previously involved maintaining several files that had to be
+  installed and configured on each machine running ZNC is now reduced
+  to the two &lt;code&gt;sojuctl&lt;/code&gt; commands above.  Still, the
+  configuration needs to live somewhere.  In fact, the
+  two &lt;code&gt;sojuctl&lt;/code&gt; commands introduce earlier store the
+  configuration in a SQLite database.  Here is a glimpse of what the
+  database looks like:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo sqlite3 /var/lib/soju/main.db &apos;.tables&apos;&lt;/kbd&gt;
+Channel              MessageFTS_data      ReadReceipt
+DeliveryReceipt      MessageFTS_docsize   User
+Message              MessageFTS_idx       WebPushConfig
+MessageFTS           MessageTarget        WebPushSubscription
+MessageFTS_config    Network
+$ &lt;kbd&gt;sudo sqlite3 /var/lib/soju/main.db &apos;SELECT * from User&apos;&lt;/kbd&gt;
+1|soju|$2a$10$mM5Qcz8.OPMi9lyWDxPRh.bNxzq7jtLdxcoPl09AYTnqcmLmEqzSO|0|||2026-02-17T23:24:24.926Z|1||-1
+$ &lt;kbd&gt;sudo sqlite3 /var/lib/soju/main.db &apos;SELECT * from Network&apos;&lt;/kbd&gt;
+1|bnc1|1|irc.libera.chat|YOUR_NICK||||YOUR_NICK_PASSWORD|||||||1|1&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;client&quot;&gt;Client Configuration&lt;/h2&gt;
+&lt;p&gt;
+  Finally, the IRC client can be configured to connect to port 6697 on
+  the system running Soju.  Here is an example of how this can be done
+  in Irssi:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/network add -nick YOUR_NICK -user soju/bnc1 net1
+/server add -tls -network bnc1 YOUR_SOJU_HOST 6697 YOUR_SOJU_PASSWORD
+/connect net1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  You can also set up multiple connections to IRC networks through the
+  same Soju instance.  All you need to do is repeat
+  the &lt;code&gt;sojuctl&lt;/code&gt; commands to create additional networks such
+  as &lt;code&gt;bnc2&lt;/code&gt;, &lt;code&gt;bnc3&lt;/code&gt; and so on, then repeat the
+  configuration in your IRC client using new network names such as
+  &lt;code&gt;net2&lt;/code&gt;, &lt;code&gt;net3&lt;/code&gt;, etc.  These network names are
+  entirely user defined, so you can choose any names you like.  The
+  names &lt;code&gt;bnc2&lt;/code&gt;, &lt;code&gt;net2&lt;/code&gt; and so on are only
+  examples.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/from-znc-to-soju.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/irc.html&quot;&gt;#irc&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/how-to.html&quot;&gt;#how-to&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

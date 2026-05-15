@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Activity Log - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/dd/">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/extra.css">
+  <link rel="stylesheet" href="../css/activity.css">
+  <link rel="stylesheet" href="../js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 0.5em; /* Prevent top clipping. */
+      padding-right: 0.5em; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="../js/katex/katex.min.js"></script>
+  <script defer src="../js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<table class="grid">
+  <tr>
+    <th>&nbsp;#</th>
+    <th>Date</th>
+    <th>Mins</th>
+    <th>Type</th>
+    <th>Activity</th>
+  </tr>
+  <tr id="64">
+    <td>&nbsp;64<a href="#64"></a></td>
+    <td rowspan="1">2026-03-02</td>
+    <td class="mins">30</td>
+    <td>Write</td>
+    <td>Nerd Quiz: Write question 21: Hart's Rules</td>
+  </tr>
+  <tr id="63">
+    <td>&nbsp;63<a href="#63"></a></td>
+    <td rowspan="1">2026-03-01</td>
+    <td class="mins">30</td>
+    <td>Code</td>
+    <td>HN Skins: Release HN Skins 0.2.0 &lt;<a href="https://github.com/susam/hnskins/releases/tag/0.2.0">github.com/susam/hnskins/releases/tag/0.2.0</a>&gt;</td>
+  </tr>
+  <tr id="62">
+    <td>&nbsp;62<a href="#62"></a></td>
+    <td rowspan="1">2026-02-28</td>
+    <td class="mins">90</td>
+    <td>Code</td>
+    <td>HN Skins: Release HN Skins 0.1.0 &lt;<a href="https://github.com/susam/hnskins/releases/tag/0.1.0">github.com/susam/hnskins/releases/tag/0.1.0</a>&gt;</td>
+  </tr>
+  <tr id="61">
+    <td>&nbsp;61<a href="#61"></a></td>
+    <td rowspan="3">2026-02-24</td>
+    <td class="mins">60</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory, 2nd ed. by Biggs (1993): Chapter 15: Pages 115-116: Automorphisms of Graphs</td>
+  </tr>
+  <tr id="60">
+    <td>&nbsp;60<a href="#60"></a></td>
+    <td class="mins">60</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory, 2nd ed. by Biggs (1993): Chapter 15: Pages 115-116: Automorphisms of Graphs</td>
+  </tr>
+  <tr id="59">
+    <td>&nbsp;59<a href="#59"></a></td>
+    <td class="mins">30</td>
+    <td>Code</td>
+    <td>Nerd Quiz: Publish quiz #4 &lt;<a href="../nq.html#4">susam.net/nq.html#4</a>&gt;</td>
+  </tr>
+  <tr id="58">
+    <td>&nbsp;58<a href="#58"></a></td>
+    <td rowspan="2">2026-02-21</td>
+    <td class="mins">60</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 5: Section 5.1: Pages 79-80: Projective Planes</td>
+  </tr>
+  <tr id="57">
+    <td>&nbsp;57<a href="#57"></a></td>
+    <td class="mins">30</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 5: Section 5.1: Pages 77-79: Incidence Graphs</td>
+  </tr>
+  <tr id="56">
+    <td>&nbsp;56<a href="#56"></a></td>
+    <td rowspan="1">2026-02-20</td>
+    <td class="mins">30</td>
+    <td>Write</td>
+    <td>Nerd Quiz: Write questions 18 and 19</td>
+  </tr>
+  <tr id="55">
+    <td>&nbsp;55<a href="#55"></a></td>
+    <td rowspan="1">2026-01-09</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 4: Section 4.7: Pages 71-74: Tutte's 8-Cage</td>
+  </tr>
+  <tr id="54">
+    <td>&nbsp;54<a href="#54"></a></td>
+    <td rowspan="1">2026-01-07</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 4: Section 4.6: Pages 69-71: The Coxeter Graph</td>
+  </tr>
+  <tr id="53">
+    <td>&nbsp;53<a href="#53"></a></td>
+    <td rowspan="1">2026-01-05</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 4: Section 4.5: Pages 66-69: Distance-Transitive Graphs</td>
+  </tr>
+  <tr id="52">
+    <td>&nbsp;52<a href="#52"></a></td>
+    <td rowspan="1">2025-12-30</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 4: Section 4.4: Pages 64-66: The Petersen Graph</td>
+  </tr>
+  <tr id="51">
+    <td>&nbsp;51<a href="#51"></a></td>
+    <td rowspan="1">2025-12-28</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 4: Section 4.3: Pages 63-64: Cubic Arc-Transitive Graphs</td>
+  </tr>
+  <tr id="50">
+    <td>&nbsp;50<a href="#50"></a></td>
+    <td rowspan="1">2025-12-23</td>
+    <td class="mins">30</td>
+    <td>Code</td>
+    <td>Nerd Quiz: Publish quiz #3 &lt;<a href="../nq.html#3">susam.net/nq.html#3</a>&gt;</td>
+  </tr>
+  <tr id="49">
+    <td>&nbsp;49<a href="#49"></a></td>
+    <td rowspan="1">2025-12-22</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 4: Section 4.2: Pages 62-63: Arc Graphs</td>
+  </tr>
+  <tr id="48">
+    <td>&nbsp;48<a href="#48"></a></td>
+    <td rowspan="1">2025-12-20</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 4: Section 4.1: Pages 59-61: Arc-Transitive Graphs</td>
+  </tr>
+  <tr id="47">
+    <td>&nbsp;47<a href="#47"></a></td>
+    <td rowspan="1">2025-12-04</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 3: Section 3.10: Pages 52-54: Transpositions</td>
+  </tr>
+  <tr id="46">
+    <td>&nbsp;46<a href="#46"></a></td>
+    <td rowspan="1">2025-12-02</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 3: Section 3.9: Pages 51-52: Retracts</td>
+  </tr>
+  <tr id="45">
+    <td>&nbsp;45<a href="#45"></a></td>
+    <td rowspan="1">2025-11-30</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 3: Section 3.8: Pages 47-49: Directed Cayley Graphs with No Hamilton Cycles</td>
+  </tr>
+  <tr id="44">
+    <td>&nbsp;44<a href="#44"></a></td>
+    <td rowspan="1">2025-11-29</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 3: Section 3.7: Pages 47-49: Cayley Graphs</td>
+  </tr>
+  <tr id="43">
+    <td>&nbsp;43<a href="#43"></a></td>
+    <td rowspan="1">2025-11-27</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 3: Section 3.6: Pages 45-47: Hamilton Paths and Cycles</td>
+  </tr>
+  <tr id="42">
+    <td>&nbsp;42<a href="#42"></a></td>
+    <td rowspan="1">2025-11-25</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 3: Section 3.5: Pages 43-45: Matchings</td>
+  </tr>
+  <tr id="41">
+    <td>&nbsp;41<a href="#41"></a></td>
+    <td rowspan="1">2025-11-23</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 3: Section 3.4: Pages 39-42: Vertex Connectivity</td>
+  </tr>
+  <tr id="40">
+    <td>&nbsp;40<a href="#40"></a></td>
+    <td rowspan="1">2025-11-18</td>
+    <td class="mins">30</td>
+    <td>Code</td>
+    <td>Nerd Quiz: Publish quiz #2 &lt;<a href="../nq.html#2">susam.net/nq.html#2</a>&gt;</td>
+  </tr>
+  <tr id="39">
+    <td>&nbsp;39<a href="#39"></a></td>
+    <td rowspan="1">2025-11-17</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 3: Section 3.3: Pages 37-39: Edge Connectivity</td>
+  </tr>
+  <tr id="38">
+    <td>&nbsp;38<a href="#38"></a></td>
+    <td rowspan="1">2025-11-14</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 3: Section 3.2: Pages 35-37: Edge-Transitive Graphs</td>
+  </tr>
+  <tr id="37">
+    <td>&nbsp;37<a href="#37"></a></td>
+    <td rowspan="1">2025-11-12</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 3: Section 3.1: Pages 33-34: Vertex-Transitive Graphs</td>
+  </tr>
+  <tr id="36">
+    <td>&nbsp;36<a href="#36"></a></td>
+    <td rowspan="1">2025-11-11</td>
+    <td class="mins">30</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 2: Section 2.6: Pages 29-30: Primitivity and Connectivity</td>
+  </tr>
+  <tr id="35">
+    <td>&nbsp;35<a href="#35"></a></td>
+    <td rowspan="1">2025-11-10</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 2: Section 2.5: Pages 27-29: Primitivity</td>
+  </tr>
+  <tr id="34">
+    <td>&nbsp;34<a href="#34"></a></td>
+    <td rowspan="1">2025-11-09</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 2: Section 2.4: Pages 25-27: Orbits on Pairs</td>
+  </tr>
+  <tr id="33">
+    <td>&nbsp;33<a href="#33"></a></td>
+    <td rowspan="1">2025-11-08</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 2: Section 2.3: Pages 23-25: Asymmetric Graphs</td>
+  </tr>
+  <tr id="32">
+    <td>&nbsp;32<a href="#32"></a></td>
+    <td rowspan="1">2025-11-07</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 2: Section 2.3: Pages 22-23: Asymmetric Graphs</td>
+  </tr>
+  <tr id="31">
+    <td>&nbsp;31<a href="#31"></a></td>
+    <td rowspan="1">2025-11-05</td>
+    <td class="mins">60</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 2: Section 2.2: Pages 21-22: Counting</td>
+  </tr>
+  <tr id="30">
+    <td>&nbsp;30<a href="#30"></a></td>
+    <td rowspan="1">2025-11-03</td>
+    <td class="mins">90</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 2: Section 2.2: Pages 20-21: Counting</td>
+  </tr>
+  <tr id="29">
+    <td>&nbsp;29<a href="#29"></a></td>
+    <td rowspan="1">2025-11-01</td>
+    <td class="mins">60</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 2: Section 2.1: Pages 19-20: Permutation Groups</td>
+  </tr>
+  <tr id="28">
+    <td>&nbsp;28<a href="#28"></a></td>
+    <td rowspan="1">2025-10-31</td>
+    <td class="mins">90</td>
+    <td>Admin</td>
+    <td>Update content checkers to be stricter</td>
+  </tr>
+  <tr id="27">
+    <td>&nbsp;27<a href="#27"></a></td>
+    <td rowspan="1">2025-10-29</td>
+    <td class="mins">30</td>
+    <td>Code</td>
+    <td>Nerd Quiz: Fix bug preventing quiz from starting on revisiting a quiz using an internal link</td>
+  </tr>
+  <tr id="26">
+    <td>&nbsp;26<a href="#26"></a></td>
+    <td rowspan="1">2025-10-28</td>
+    <td class="mins">30</td>
+    <td>Code</td>
+    <td>Nerd Quiz: Add question info dialog</td>
+  </tr>
+  <tr id="25">
+    <td>&nbsp;25<a href="#25"></a></td>
+    <td rowspan="1">2025-10-27</td>
+    <td class="mins">30</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 1: Section 1.8: Pages 12-15: Planar Graphs</td>
+  </tr>
+  <tr id="24">
+    <td>&nbsp;24<a href="#24"></a></td>
+    <td rowspan="1">2025-10-26</td>
+    <td class="mins">30</td>
+    <td>Code</td>
+    <td>Nerd Quiz: Move meta line setup into its own function</td>
+  </tr>
+  <tr id="23">
+    <td>&nbsp;23<a href="#23"></a></td>
+    <td rowspan="1">2025-10-23</td>
+    <td class="mins">60</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 1: Section 1.7: Pages 10-12: Line Graphs</td>
+  </tr>
+  <tr id="22">
+    <td>&nbsp;22<a href="#22"></a></td>
+    <td rowspan="1">2025-10-22</td>
+    <td class="mins">30</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 1: Section 1.6: Pages 9-10: Johnson Graphs</td>
+  </tr>
+  <tr id="21">
+    <td>&nbsp;21<a href="#21"></a></td>
+    <td rowspan="1">2025-10-21</td>
+    <td class="mins">30</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 1: Section 1.5: Pages 8-9: Circulant Graphs</td>
+  </tr>
+  <tr id="20">
+    <td>&nbsp;20<a href="#20"></a></td>
+    <td rowspan="1">2025-10-20</td>
+    <td class="mins">60</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 1: Section 1.4: Pages 6-8: Homomorphisms</td>
+  </tr>
+  <tr id="19">
+    <td>&nbsp;19<a href="#19"></a></td>
+    <td rowspan="1">2025-10-19</td>
+    <td class="mins">60</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 1: Section 1.3: Pages 4-6: Automorphisms</td>
+  </tr>
+  <tr id="18">
+    <td>&nbsp;18<a href="#18"></a></td>
+    <td rowspan="1">2025-10-16</td>
+    <td class="mins">30</td>
+    <td>Code</td>
+    <td>Nerd Quiz: Publish quiz #1 &lt;<a href="../nq.html#1">susam.net/nq.html#1</a>&gt;</td>
+  </tr>
+  <tr id="17">
+    <td>&nbsp;17<a href="#17"></a></td>
+    <td rowspan="2">2025-10-15</td>
+    <td class="mins">30</td>
+    <td>Lift</td>
+    <td>Leg Press 40 kg 20 20 20, Lat Pulldown 25 kg 15 15 15, Chest Press 20 kg 20 20 15, Shoulder Press 15 kg 10 10 12</td>
+  </tr>
+  <tr id="16">
+    <td>&nbsp;16<a href="#16"></a></td>
+    <td class="mins">37</td>
+    <td>Run</td>
+    <td>3.4 km, 230 kcal, 6.6 kmph peak, 166 bpm peak</td>
+  </tr>
+  <tr id="15">
+    <td>&nbsp;15<a href="#15"></a></td>
+    <td rowspan="1">2025-10-14</td>
+    <td class="mins">30</td>
+    <td>Code</td>
+    <td>Nerd Quiz: Write JavaScript functions to mark submitted answers</td>
+  </tr>
+  <tr id="14">
+    <td>&nbsp;14<a href="#14"></a></td>
+    <td rowspan="1">2025-10-13</td>
+    <td class="mins">30</td>
+    <td>Code</td>
+    <td>Nerd Quiz: Write JavaScript functions to render quiz form</td>
+  </tr>
+  <tr id="13">
+    <td>&nbsp;13<a href="#13"></a></td>
+    <td rowspan="1">2025-10-12</td>
+    <td class="mins">30</td>
+    <td>Code</td>
+    <td>Nerd Quiz: Write JavaScript functions to read quiz cards into an array of models</td>
+  </tr>
+  <tr id="12">
+    <td>&nbsp;12<a href="#12"></a></td>
+    <td rowspan="1">2025-10-11</td>
+    <td class="mins">30</td>
+    <td>Code</td>
+    <td>Nerd Quiz: Create quiz cards and test the Common Lisp quiz card translator</td>
+  </tr>
+  <tr id="11">
+    <td>&nbsp;11<a href="#11"></a></td>
+    <td rowspan="1">2025-10-09</td>
+    <td class="mins">30</td>
+    <td>Code</td>
+    <td>Nerd Quiz: Write Common Lisp program to translate quiz cards to JavaScript array</td>
+  </tr>
+  <tr id="10">
+    <td>&nbsp;10<a href="#10"></a></td>
+    <td rowspan="1">2025-10-08</td>
+    <td class="mins">30</td>
+    <td>Code</td>
+    <td>Nerd Quiz: Design HTML form to display quiz</td>
+  </tr>
+  <tr id="9">
+    <td>&nbsp;9<a href="#9"></a></td>
+    <td rowspan="2">2025-10-06</td>
+    <td class="mins">30</td>
+    <td>Lift</td>
+    <td>Leg Press 40 kg 20 20 20, Lat Pulldown 25 kg 15 15 15, Chest Press 20 kg 15 15 10, Shoulder Press 15 kg 10 10 10</td>
+  </tr>
+  <tr id="8">
+    <td>&nbsp;8<a href="#8"></a></td>
+    <td class="mins">40</td>
+    <td>Run</td>
+    <td>3.7 km, 250 kcal, 6.6 kmph peak, 166 bpm peak</td>
+  </tr>
+  <tr id="7">
+    <td>&nbsp;7<a href="#7"></a></td>
+    <td rowspan="1">2025-10-05</td>
+    <td class="mins">60</td>
+    <td>Code</td>
+    <td>QuickQWERTY: Publish version 1.2.0</td>
+  </tr>
+  <tr id="6">
+    <td>&nbsp;6<a href="#6"></a></td>
+    <td rowspan="1">2025-10-04</td>
+    <td class="mins">30</td>
+    <td>Admin</td>
+    <td>Publish new comments to guestbook</td>
+  </tr>
+  <tr id="5">
+    <td>&nbsp;5<a href="#5"></a></td>
+    <td rowspan="1">2025-10-03</td>
+    <td class="mins">30</td>
+    <td>Write</td>
+    <td>I Reinstated My Guestbook After 20 Years &lt;<a href="../reinstated-guestbook.html">susam.net/reinstated-guestbook.html</a>&gt;</td>
+  </tr>
+  <tr id="4">
+    <td>&nbsp;4<a href="#4"></a></td>
+    <td rowspan="3">2025-10-02</td>
+    <td class="mins">45</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 1: Section 1.2: Pages 3-4: Subgraphs</td>
+  </tr>
+  <tr id="3">
+    <td>&nbsp;3<a href="#3"></a></td>
+    <td class="mins">30</td>
+    <td>Lift</td>
+    <td>Leg Press 40 kg 20 20 20, Lat Pulldown 25 kg 15 15 15, Chest Press 20 kg 20 20 10, Shoulder Press 15 kg 07 07 15</td>
+  </tr>
+  <tr id="2">
+    <td>&nbsp;2<a href="#2"></a></td>
+    <td class="mins">38</td>
+    <td>Run</td>
+    <td> 3.6 km, 240 kcal, 6.6 kmph peak, 169 bpm peak</td>
+  </tr>
+  <tr id="1">
+    <td>&nbsp;1<a href="#1"></a></td>
+    <td rowspan="1">2025-10-01</td>
+    <td class="mins">30</td>
+    <td>Read</td>
+    <td>Algebraic Graph Theory by Godsil and Royle (2001): Chapter 1: Section 1.1: Pages 1-3: Graphs</td>
+  </tr>
+</table>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../wander/">Wander</a>
+    <a href="../about.html">About</a>
+    <a href="https://codeberg.org/susam">Codeberg</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

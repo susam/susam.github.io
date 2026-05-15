@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's CSS Pages</title>
+  <subtitle>Feed for Susam's CSS Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/css.xml" rel="self"/>
+  <id>https://susam.net/tag/css.xml</id>
+  <updated>2025-12-06T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Fizz Buzz in CSS</title>
+    <link href="https://susam.net/fizz-buzz-in-css.html"/>
+    <id>urn:uuid:e380ad23-cfde-4836-b214-0e64baf6be65</id>
+    <updated>2025-12-06T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  How many CSS selectors and declarations do we need to produce the
+  Fizz Buzz sequence?  Of course we could do this with no CSS at all
+  simply by placing the entire sequence as text in the HTML body.  So
+  to make the problem precise as well as to keep it interesting, we
+  require that all text that appears in the Fizz Buzz sequence comes
+  directly from the CSS.  Placing any part of the output numbers or
+  words outside the stylesheet is not allowed.  JavaScript is not
+  allowed either.  With these constraints, I think we need at least
+  four CSS selectors along with four declarations to solve this
+  puzzle, as shown below:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;li { counter-increment: n }
+li:not(:nth-child(5n))::before { content: counter(n) }
+li:nth-child(3n)::before { content: &quot;Fizz&quot; }
+li:nth-child(5n)::after { content: &quot;Buzz&quot; }&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here is a complete working example:
+  &lt;a href=&quot;css-fizz-buzz.html&quot;&gt;css-fizz-buzz.html&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  The above solution contains four CSS rules with one selector and one
+  declaration in each rule.  For example,
+  &lt;code&gt;li { counter-increment: n }&lt;/code&gt; is one rule consisting of
+  the selector &lt;code&gt;li&lt;/code&gt; and the declaration
+  &lt;code&gt;counter-increment: n&lt;/code&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  Seasoned code golfers looking for a challenge can probably shrink
+  this solution further.  A common trick to solve this problem is to
+  use an ordered list (&lt;code&gt;&amp;lt;ol&amp;gt;&lt;/code&gt;) which provides the
+  integers in the form of list markers automatically, thereby
+  eliminating the need to maintain a counter in the stylesheet.
+  However, this violates the requirement set out in the introduction.
+  We want every integer to be produced directly by the stylesheet.
+  Treating the integers in the list markers as part of the output
+  sequence breaks this rule.  Not to mention the output looks untidy
+  because of the unnecessary dot after each marker and also because
+  the numbers and words appear misaligned.  See an example of that
+  trick here:
+  &lt;a href=&quot;code/web/css-fizz-buzz-ol.html&quot;&gt;css-fizz-buzz-ol.html&lt;/a&gt;.
+  Correcting the misaligned output calls for extra code that cancels
+  out the number of declarations saved.  In any case, the requirement
+  that all integers of the output must come directly from the
+  stylesheet prevents untidy solutions like this and also forces us to
+  rely on the capabilities of CSS to solve this puzzle.
+&lt;/p&gt;
+&lt;p&gt;
+  The intention here was to obtain the smallest possible code in terms
+  of the number of CSS declarations.  This example is not crafted to
+  minimise bytes, but for code golfers who enjoy reducing byte count,
+  here is the number of bytes this solution consumes after removing
+  all whitespace:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ curl -sS https://susam.net/css-fizz-buzz.html | sed -n &apos;/counter/,/after/p&apos; | tr -d &apos;[:space:]&apos; | wc -c
+152&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Further reduction in byte count can be achieved by using the
+  &lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt; element instead of &lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt;,
+  nesting CSS selectors, etc.  I&apos;ll leave that as an exercise for the
+  reader.  Returning to the focus of this post as well as to summarise
+  it, the solution here uses four CSS rules consisting of four
+  selectors and four declarations to render the Fizz Buzz sequence.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/fizz-buzz-in-css.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/absurd.html&quot;&gt;#absurd&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/css.html&quot;&gt;#css&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/puzzle.html&quot;&gt;#puzzle&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>CSS Experiments: overflow-wrap vs word-break</title>
+    <link href="https://susam.net/code/web/overflow-wrap-vs-word-break.html"/>
+    <id>urn:uuid:b46dabe1-8714-40e2-becc-33f643d8bb36</id>
+    <updated>2025-06-16T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  An example page demonstrating experiments with the
+  CSS &lt;code&gt;overflow-wrap&lt;/code&gt; and &lt;code&gt;word-break&lt;/code&gt;
+  properties.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/web/overflow-wrap-vs-word-break.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/css.html&quot;&gt;#css&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

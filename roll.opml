@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Susam's Blogroll</title>
+  </head>
+  <body>
+    <!-- 11 entries -->
+    <outline text="Susam's Blogroll">
+      <outline type="rss" text="Alex Alejandre" title="Alex Alejandre" htmlUrl="https://alexalejandre.com/" xmlUrl="https://alexalejandre.com/index.xml"/>
+      <outline type="rss" text="Alex Kladov" title="Alex Kladov" htmlUrl="https://matklad.github.io/" xmlUrl="https://matklad.github.io/feed.xml"/>
+      <outline type="rss" text="Artyom Bologov" title="Artyom Bologov" htmlUrl="https://aartaka.me/" xmlUrl="https://aartaka.me/rss.xml"/>
+      <outline type="rss" text="Chris Morgan" title="Chris Morgan" htmlUrl="https://chrismorgan.info/" xmlUrl="https://chrismorgan.info/*.feed"/>
+      <outline type="rss" text="Max" title="Max" htmlUrl="https://maxwellito.com/" xmlUrl="https://maxwellito.com/feed"/>
+      <outline type="rss" text="Mickey Petersen" title="Mickey Petersen" htmlUrl="https://www.masteringemacs.org/" xmlUrl="https://www.masteringemacs.org/feed"/>
+      <outline type="rss" text="Peter Norvig" title="Peter Norvig" htmlUrl="https://www.norvig.com/" xmlUrl="https://www.norvig.com/rss-feed.xml"/>
+      <outline type="rss" text="Sacha Chua" title="Sacha Chua" htmlUrl="https://sachachua.com/" xmlUrl="https://sachachua.com/blog/feed/"/>
+      <outline type="rss" text="Susam Pal" title="Susam Pal" htmlUrl="https://susam.net/" xmlUrl="https://susam.net/feed.xml"/>
+      <outline type="rss" text="Terence Eden" title="Terence Eden" htmlUrl="https://shkspr.mobi/" xmlUrl="https://shkspr.mobi/blog/feed/atom/"/>
+      <outline type="rss" text="Thejesh GN" title="Thejesh GN" htmlUrl="https://thejeshgn.com/" xmlUrl="https://feeds.thejeshgn.com/thejeshgn/"/>
+</outline>
+  </body>
+</opml>

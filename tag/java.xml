@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's Java Pages</title>
+  <subtitle>Feed for Susam's Java Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/java.xml" rel="self"/>
+  <id>https://susam.net/tag/java.xml</id>
+  <updated>2010-05-03T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Zero Length Regular Expression</title>
+    <link href="https://susam.net/zero-length-regular-expression.html"/>
+    <id>urn:uuid:fd6a0f03-eb89-4f61-952f-8621ca13d8be</id>
+    <updated>2010-05-03T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  This post presents a list of how zero length regular expression is
+  handled in various tools and programming languages.  All of them
+  compile the zero length regular expression pattern and the regular
+  expression matches all strings.
+&lt;/p&gt;
+&lt;h2 id=&quot;gnu-grep&quot;&gt;GNU grep&lt;/h2&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf &quot;foo\nbar\n&quot; | grep &quot;&quot;&lt;/kbd&gt;
+foo
+bar&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;bsd-grep&quot;&gt;BSD grep&lt;/h2&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf &quot;foo\nbar\n&quot; | grep &quot;&quot;&lt;/kbd&gt;
+foo
+bar&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;perl&quot;&gt;Perl&lt;/h2&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;perl -e &apos;print((&quot;foo&quot; =~ //) . &quot;\n&quot;)&apos;&lt;/kbd&gt;
+1&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;python&quot;&gt;Python&lt;/h2&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;python&lt;/kbd&gt;
+Python 2.5.2 (r252:60911, Jan  4 2009, 21:59:32)
+[GCC 4.3.2] on linux2
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&amp;gt;&amp;gt;&amp;gt; &lt;kbd&gt;import re; re.compile(&apos;&apos;).search(&apos;foo&apos;)&lt;/kbd&gt;
+&amp;lt;_sre.SRE_Match object at 0x7fc6c5a2c510&amp;gt;&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;java&quot;&gt;Java&lt;/h2&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;cat RegexExperiment.java&lt;/kbd&gt;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+public class RegexExperiment
+{
+    public static void main(String[] args)
+    {
+        System.out.println(Pattern.compile(&quot;&quot;).matcher(&quot;foo&quot;).find());
+    }
+}
+$ &lt;kbd&gt;javac RegexExperiment.java &amp;amp;&amp;amp; java RegexExperiment&lt;/kbd&gt;
+true&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;mzscheme&quot;&gt;MzScheme&lt;/h2&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;mzscheme&lt;/kbd&gt;
+Welcome to MzScheme v4.0.1 [3m], Copyright (c) 2004-2008 PLT Scheme Inc.
+&amp;gt; &lt;kbd&gt;(regexp-match &quot;&quot; &quot;foo&quot;)&lt;/kbd&gt;
+(&quot;&quot;)&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;clisp&quot;&gt;CLISP&lt;/h2&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;clisp&lt;/kbd&gt;
+  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
+  I I I I I I I      8     8   8           8     8     o  8    8
+  I  \ `+&apos; /  I      8         8           8     8        8    8
+   \  `-+-&apos;  /       8         8           8      ooooo   8oooo
+    `-__|__-&apos;        8         8           8           8  8
+        |            8     o   8           8     o     8  8
+  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8
+
+Welcome to GNU CLISP 2.44.1 (2008-02-23) &amp;lt;http://clisp.cons.org/&amp;gt;
+
+Copyright (c) Bruno Haible, Michael Stoll 1992, 1993
+Copyright (c) Bruno Haible, Marcus Daniels 1994-1997
+Copyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998
+Copyright (c) Bruno Haible, Sam Steingold 1999-2000
+Copyright (c) Sam Steingold, Bruno Haible 2001-2008
+
+Type :h and hit Enter for context help.
+
+[1]&amp;gt; &lt;kbd&gt;(regexp:match &quot;&quot; &quot;foo&quot;)&lt;/kbd&gt;
+#S(REGEXP:MATCH :START 0 :END 0)&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;c&quot;&gt;C&lt;/h2&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;ls -l /usr/lib/libpcre.so*&lt;/kbd&gt;
+lrwxrwxrwx 1 root root     17 May  3 15:15 /usr/lib/libpcre.so -&amp;gt; libpcre.so.3.12.1
+lrwxrwxrwx 1 root root     17 Jan  6 14:57 /usr/lib/libpcre.so.3 -&amp;gt; libpcre.so.3.12.1
+-rw-r--r-- 1 root root 162816 Jul 14  2008 /usr/lib/libpcre.so.3.12.1
+susam@swift:~$ &lt;kbd&gt;cat pcre.c&lt;/kbd&gt;
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;pcre.h&amp;gt;
+
+#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;pcre.h&amp;gt;
+
+int main(int argc, char **argv)
+{
+    pcre *p;
+    char *re = &quot;&quot;;
+    char *s  = &quot;foo&quot;;
+    const char *errmsg;
+    int errpos;
+    int ovector[10];
+    int ret;
+
+    p = pcre_compile(re, 0, &amp;amp;errmsg, &amp;amp;errpos, NULL);
+    ret = pcre_exec(p, NULL, s, strlen(s), 0, 0,
+                    ovector, sizeof ovector / sizeof *ovector);
+
+    printf(ret &amp;lt; 0 ? &quot;no match\n&quot; : &quot;match\n&quot;);
+}
+$ &lt;kbd&gt;cc -lpcre pcre.c &amp;amp;&amp;amp; ./a.out&lt;/kbd&gt;
+match&lt;/samp&gt;&lt;/pre&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/zero-length-regular-expression.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/perl.html&quot;&gt;#perl&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/python.html&quot;&gt;#python&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/java.html&quot;&gt;#java&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/lisp.html&quot;&gt;#lisp&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Lucene Java Example</title>
+    <link href="https://susam.net/lucene-java-example.html"/>
+    <id>urn:uuid:71b3f2bc-afc1-441e-a866-6b42dd0f4e5a</id>
+    <updated>2010-04-10T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Here is a simple program I wrote that makes use of Lucene Java
+  3.0.1:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package in.susam;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.queryParser.ParseException;
+import org.apache.lucene.queryParser.QueryParser;
+import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.ScoreDoc;
+import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.store.FSDirectory;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.util.Version;
+import org.apache.lucene.document.Document;
+import org.apache.lucene.document.Field;
+
+public class LuceneDemo
+{
+    static final String INDEX_DIR = &quot;index1&quot;;
+
+    public static void main(String[] args) throws Exception {
+        write();
+        search(&quot;content&quot;, &quot;integer&quot;);
+        search(&quot;tags&quot;, &quot;rhyme&quot;);
+    }
+
+    static void write() throws IOException {
+        // Create index
+        IndexWriter writer = new IndexWriter(
+                FSDirectory.open(new File(INDEX_DIR)),
+                new StandardAnalyzer(Version.LUCENE_30),
+                true,
+                IndexWriter.MaxFieldLength.UNLIMITED);
+
+        Document doc;
+        String field;
+        String text;
+
+        // Add first document
+        doc = new Document();
+
+        field = &quot;title&quot;;
+        text = &quot;Humpty Dumpty sat on a wall&quot;;
+        doc.add(new Field(field, text, Field.Store.YES, Field.Index.ANALYZED));
+
+        field = &quot;content&quot;;
+        text = &quot;Humpty Dumpty sat on a wall.\n&quot; +
+               &quot;Humpty Dumpty had a great fall;\n&quot; +
+               &quot;All the King&apos;s horses and all the King&apos;s men,\n&quot; +
+               &quot;Couldn&apos;t put Humpty together again.&quot;;
+        doc.add(new Field(field, text, Field.Store.YES, Field.Index.ANALYZED));
+
+        field = &quot;tags&quot;;
+        text = &quot;rhyme&quot;;
+        doc.add(new Field(field, text, Field.Store.YES, Field.Index.ANALYZED));
+
+        writer.addDocument(doc);
+
+        // Add second document
+        doc = new Document();
+
+        field = &quot;title&quot;;
+        text = &quot;Jack and Jill went up the hill&quot;;
+        doc.add(new Field(field, text, Field.Store.YES, Field.Index.ANALYZED));
+
+        field = &quot;content&quot;;
+        text = &quot;Jack and Jill went up the hill\n&quot; +
+               &quot;To fetch a pail of water.\n&quot; +
+               &quot;Jack fell down and broke his crown,\n&quot; +
+               &quot;And Jill came tumbling after.\n&quot;;
+        doc.add(new Field(field, text, Field.Store.YES, Field.Index.ANALYZED));
+
+        field = &quot;tags&quot;;
+        text = &quot;rhyme&quot;;
+        doc.add(new Field(field, text, Field.Store.YES, Field.Index.ANALYZED));
+
+        writer.addDocument(doc);
+
+        // Add third document
+        doc = new Document();
+
+        field = &quot;title&quot;;
+        text = &quot;Fermat&apos;s Last Theorem&quot;;
+        doc.add(new Field(field, text, Field.Store.YES, Field.Index.ANALYZED));
+
+        field = &quot;content&quot;;
+        text = &quot;In number theory, Fermat&apos;s Last Theorem states that no &quot; +
+               &quot;three positive integers a, b and c can satisfy the &quot; +
+               &quot;equation for a^n + b^n = c^n for any integer value of n &quot; +
+               &quot;greater than two.&quot;;
+        doc.add(new Field(field, text, Field.Store.YES, Field.Index.ANALYZED));
+
+        field = &quot;tags&quot;;
+        text = &quot;math, theorem&quot;;
+        doc.add(new Field(field, text, Field.Store.YES, Field.Index.ANALYZED));
+
+        writer.addDocument(doc);
+
+        // Add fourth document
+        doc = new Document();
+
+        field = &quot;title&quot;;
+        text = &quot;Euler&apos;s theorem&quot;;
+        doc.add(new Field(field, text, Field.Store.YES, Field.Index.ANALYZED));
+
+        field = &quot;content&quot;;
+        text = &quot;Euler&apos;s theorem states that if n is a positive integer and &quot; +
+               &quot;a is a positive integer coprime to n, then a^phi(n) = 1 &quot; +
+               &quot;(mod n) where phi(n) is Euler&apos;s totient function.&quot;;
+        doc.add(new Field(field, text, Field.Store.YES, Field.Index.ANALYZED));
+
+        field = &quot;tags&quot;;
+        text = &quot;math, theorem&quot;;
+        doc.add(new Field(field, text, Field.Store.YES, Field.Index.ANALYZED));
+
+        writer.addDocument(doc);
+
+        writer.close();
+    }
+
+    static void search(String field, String query) throws IOException,
+                                                          ParseException {
+        IndexSearcher searcher = new IndexSearcher(
+                FSDirectory.open(new File(INDEX_DIR)), true);
+        QueryParser parser = new QueryParser(
+                Version.LUCENE_30, field,
+                new StandardAnalyzer(Version.LUCENE_30));
+        TopDocs docs = searcher.search(parser.parse(query), 10);
+        System.out.println(&quot;Query: &apos;&quot; + query + &quot;&apos; in &apos;&quot; + field + &quot;&apos;&quot;);
+        System.out.println(&quot;Total hits: &quot; + docs.totalHits);
+        System.out.println(&quot;&quot;);
+        for (int i = 0; i &amp;lt; docs.scoreDocs.length; i++) {
+            ScoreDoc hit = docs.scoreDocs[i];
+            Document doc = searcher.doc(hit.doc);
+            System.out.println(&quot;#&quot; + i);
+            System.out.println(&quot;title: &quot; + doc.get(&quot;title&quot;));
+            System.out.println(&quot;content: &quot; + doc.get(&quot;content&quot;));
+            System.out.println(&quot;tags: &quot; + doc.get(&quot;tags&quot;));
+            System.out.println(&quot;id: &quot; + hit.doc);
+            System.out.println(&quot;score: &quot; + hit.score);
+            System.out.println();
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here is the output when the above code is compiled and run:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;Query: &apos;integer&apos; in &apos;content&apos;
+Total hits: 2
+
+#0
+title: Euler&apos;s theorem
+content: Euler&apos;s theorem states that if n is a positive integer and a is a positive integer coprime to n, then a^phi(n) = 1 (mod n) where phi(n) is Euler&apos;s totient function.
+tags: math, theorem
+id: 3
+score: 0.34144828
+
+#1
+title: Fermat&apos;s Last Theorem
+content: In number theory, Fermat&apos;s Last Theorem states that no three positive integers a, b and c can satisfy the equation for a^n + b^n = c^n for any integer value of n greater than two.
+tags: math, theorem
+id: 2
+score: 0.24144039
+
+Query: &apos;rhyme&apos; in &apos;tags&apos;
+Total hits: 2
+
+#0
+title: Humpty Dumpty sat on a wall
+content: Humpty Dumpty sat on a wall.
+Humpty Dumpty had a great fall;
+All the King&apos;s horses and all the King&apos;s men,
+Couldn&apos;t put Humpty together again.
+tags: rhyme
+id: 0
+score: 1.287682
+
+#1
+title: Jack and Jill went up the hill
+content: Jack and Jill went up the hill
+To fetch a pail of water.
+Jack fell down and broke his crown,
+And Jill came tumbling after.
+
+tags: rhyme
+id: 1
+score: 1.287682
+&lt;/samp&gt;&lt;/pre&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/lucene-java-example.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/java.html&quot;&gt;#java&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>ResizableDoubleArray contract() and expand()</title>
+    <link href="https://susam.net/resizabledoublearray-contract-and-expand.html"/>
+    <id>urn:uuid:afccaf6d-3c82-4495-9b18-934dedf93aff</id>
+    <updated>2010-03-23T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Here is a diff of the changes I made to Apache Common Math&apos;s
+  &lt;code&gt;ResizableDoubleArray&lt;/code&gt; class to investigate how it
+  contracts or expands its internal capacity.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Index: src/main/java/org/apache/commons/math/util/ResizableDoubleArray.java
+===================================================================
+--- src/main/java/org/apache/commons/math/util/ResizableDoubleArray.java (revision 925455)
++++ src/main/java/org/apache/commons/math/util/ResizableDoubleArray.java (working copy)
+@@ -157,6 +157,14 @@
+     public ResizableDoubleArray(int initialCapacity) {
+         setInitialCapacity(initialCapacity);
+         internalArray = new double[this.initialCapacity];
++        System.out.println(&quot;:::: initialCapacity: &quot; + initialCapacity);
++        System.out.println(&quot;:::: expansionMode: &quot; +
++                           (expansionMode == 0 ? &quot;MULTIPLICATIVE_MODE&quot;
++                                               : &quot;ADDITIVE_MODE&quot; ));
++        System.out.println(&quot;:::: expansionFactor: &quot; + expansionFactor);
++        System.out.println(&quot;:::: contractionCriteria: &quot; +
++                           contractionCriteria);
++        System.out.println();
+     }
+
+     /**
+@@ -264,14 +272,33 @@
+      * @param value to be added to end of array
+      */
+     public synchronized void addElement(double value) {
++        System.out.println(&quot;:::: addElement(&quot; + value + &quot;)&quot;);
++        System.out.println(&quot;:::: startIndex: &quot; + startIndex);
++        System.out.println(&quot;:::: internalArray.length: &quot; +
++                           internalArray.length);
+         numElements++;
++        System.out.println(&quot;:::: numElements incremented to: &quot; +
++                           numElements);
++
+         if ((startIndex + numElements) &amp;gt; internalArray.length) {
++            System.out.println(&quot;:::: expanding ...&quot;);
+             expand();
++            System.out.println(&quot;:::: expanded; internalArray.length: &quot; +
++                               internalArray.length);
+         }
+         internalArray[startIndex + (numElements - 1)] = value;
++        System.out.print(&quot;:::: internalArray: &quot;);
++        for (int i = 0; i &amp;lt; startIndex + numElements; i++) {
++            System.out.print(internalArray[i] + &quot;, &quot;);
++        }
++        System.out.println();
+         if (shouldContract()) {
++            System.out.println(&quot;:::: contracting ...&quot;);
+             contract();
++            System.out.println(&quot;:::: contracted; internalArray.length: &quot; +
++                               internalArray.length);
+         }
++        System.out.println();
+     }
+
+     /**&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here is a tiny test program to use &lt;code&gt;ResizableDoubleArray&lt;/code&gt;.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import org.apache.commons.math.util.ResizableDoubleArray;
+
+public class RDAContractExpand
+{
+    public static void main(String[] args)
+    {
+        ResizableDoubleArray rda = new ResizableDoubleArray(10);
+        for (int i = 0; i &amp;lt; 10; i++)
+            rda.addElement(i);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here is the output of the above program:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;:::: initialCapacity: 10
+:::: expansionMode: MULTIPLICATIVE_MODE
+:::: expansionFactor: 2.0
+:::: contractionCriteria: 2.5
+
+:::: addElement(0.0)
+:::: startIndex: 0
+:::: internalArray.length: 10
+:::: numElements incremented to: 1
+:::: internalArray: 0.0,
+:::: contracting ...
+:::: contracted; internalArray.length: 2
+
+:::: addElement(1.0)
+:::: startIndex: 0
+:::: internalArray.length: 2
+:::: numElements incremented to: 2
+:::: internalArray: 0.0, 1.0,
+
+:::: addElement(2.0)
+:::: startIndex: 0
+:::: internalArray.length: 2
+:::: numElements incremented to: 3
+:::: expanding ...
+:::: expanded; internalArray.length: 4
+:::: internalArray: 0.0, 1.0, 2.0,
+
+:::: addElement(3.0)
+:::: startIndex: 0
+:::: internalArray.length: 4
+:::: numElements incremented to: 4
+:::: internalArray: 0.0, 1.0, 2.0, 3.0,
+
+:::: addElement(4.0)
+:::: startIndex: 0
+:::: internalArray.length: 4
+:::: numElements incremented to: 5
+:::: expanding ...
+:::: expanded; internalArray.length: 8
+:::: internalArray: 0.0, 1.0, 2.0, 3.0, 4.0,
+
+:::: addElement(5.0)
+:::: startIndex: 0
+:::: internalArray.length: 8
+:::: numElements incremented to: 6
+:::: internalArray: 0.0, 1.0, 2.0, 3.0, 4.0, 5.0,
+
+:::: addElement(6.0)
+:::: startIndex: 0
+:::: internalArray.length: 8
+:::: numElements incremented to: 7
+:::: internalArray: 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0,
+
+:::: addElement(7.0)
+:::: startIndex: 0
+:::: internalArray.length: 8
+:::: numElements incremented to: 8
+:::: internalArray: 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0,
+
+:::: addElement(8.0)
+:::: startIndex: 0
+:::: internalArray.length: 8
+:::: numElements incremented to: 9
+:::: expanding ...
+:::: expanded; internalArray.length: 16
+:::: internalArray: 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0,
+
+:::: addElement(9.0)
+:::: startIndex: 0
+:::: internalArray.length: 16
+:::: numElements incremented to: 10
+:::: internalArray: 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0,&lt;/samp&gt;&lt;/pre&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/resizabledoublearray-contract-and-expand.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/java.html&quot;&gt;#java&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

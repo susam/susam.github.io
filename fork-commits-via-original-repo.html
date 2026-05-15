@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Accessing Fork Commits via Original Repository - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/fork-commits-via-original-repo.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/extra.css">
+</head>
+<body>
+<main>
+<h1>Accessing Fork Commits via Original Repository</h1>
+<div>By <b>Susam Pal</b> on 28 Mar 2026</div>
+<p>
+  I ran a small experiment with Git hosting behaviour using two demo
+  repositories:
+</p>
+<ul>
+  <li>
+    <code>cuppa</code>: The original repository.
+  </li>
+  <li>
+    <code>muppa</code>: Fork of <code>cuppa</code> with questionable changes.
+  </li>
+</ul>
+<p>
+  Here is a table with links to these repositories on Codeberg and
+  GitHub:
+</p>
+<table class="grid center">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Codeberg</th>
+      <th>GitHub</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>cuppa</code></td>
+      <td><a href="https://codeberg.org/spxy/cuppa">codeberg.org/spxy/cuppa</a></td>
+      <td><a href="https://github.com/spxy/cuppa">github.com/spxy/cuppa</a></td>
+    </tr>
+    <tr>
+      <td><code>muppa</code></td>
+      <td><a href="https://codeberg.org/spxy/muppa">codeberg.org/spxy/muppa</a></td>
+      <td><a href="https://github.com/spxy/muppa">github.com/spxy/muppa</a></td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  It is well known that GitHub lets us access a commit that exists
+  only on the fork via the original repository using a direct commit
+  URL.  I wanted to find out if Codeberg behaves the same.
+</p>
+<p>
+  The commit <code>f79ef5a</code> exists only on the fork
+  (<code>muppa</code>) but not on the original repo
+  (<code>cuppa</code>).  Let us see how the two hosting services
+  handle direct URLs to this commit.
+</p>
+<table class="grid center">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Codeberg</th>
+      <th>GitHub</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>cuppa</code>
+      </td>
+      <td>
+        <a href="https://codeberg.org/spxy/cuppa/commit/f79ef5a03cfe2aa429a9207d8b60f5779544d072">f79ef5a</a>
+      </td>
+      <td>
+        <a href="https://github.com/spxy/cuppa/commit/f79ef5a03cfe2aa429a9207d8b60f5779544d072">f79ef5a</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>muppa</code>
+      </td>
+      <td>
+        <a href="https://codeberg.org/spxy/muppa/commit/f79ef5a03cfe2aa429a9207d8b60f5779544d072">f79ef5a</a>
+      </td>
+      <td>
+        <a href="https://github.com/spxy/muppa/commit/f79ef5a03cfe2aa429a9207d8b60f5779544d072">f79ef5a</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  If we look at the second row, both commit URLs for Codeberg and
+  GitHub work because that is where the commit was actually created.
+  The commit belongs to the fork named <code>muppa</code>.
+</p>
+<p>
+  Now if we look at the first row, the commit URL for Codeberg returns
+  a 404 page.  This reflects the fact that the
+  commit <code>f79ef5a</code> does not exist on <code>cuppa</code>.
+  However, GitHub returns a successful response and shows the commit.
+  It shows the following warning at the top:
+</p>
+<blockquote>
+  This commit does not belong to any branch on this repository, and
+  may belong to a fork outside of the repository.
+</blockquote>
+<p>
+  There is no particular point to this experiment.
+  I just wanted to know.
+</p>
+<div>
+  <a href="./comments/fork-commits-via-original-repo.html">Comments</a> |
+  <a href="./tag/technology.html">#technology</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./wander/">Wander</a>
+    <a href="./about.html">About</a>
+    <a href="https://codeberg.org/susam">Codeberg</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

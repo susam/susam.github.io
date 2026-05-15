@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="./feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam Pal</title>
+  <subtitle>Susam's Feed</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/feed.xml" rel="self"/>
+  <id>urn:uuid:92c43730-c96a-44a7-a2c3-ed18dcc268f7</id>
+  <updated>2026-05-14T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Commenting Guidelines</title>
+    <link href="https://susam.net/commenting.html"/>
+    <id>urn:uuid:b9d391bb-4cf2-49a8-8e7a-c5b7216bdf01</id>
+    <updated>2026-05-14T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h1&gt;Commenting Guidelines&lt;/h1&gt;
+&lt;p&gt;
+  This website has an active &lt;a href=&quot;comments/&quot;&gt;comments
+  section&lt;/a&gt;, carefully maintained and curated by the author of this
+  website.  When commenting on this website, please keep the following
+  points in mind:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      You may include HTML or Markdown in your comment.  Comments are
+      converted to HTML and sanitised before they are published on
+      this website.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      All submitted comments are held for review.  Whether a comment
+      is published or not is at the discretion of the author of this
+      website.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Typically, only the following types of comments are published:
+    &lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        Comments that add new information to the topic discussed in an
+        article.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Comments that offer new insight on a topic.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Comments that provide a neutral, supporting or opposing
+        viewpoint.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Comments that report typos, errors or bugs on the website.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Comments that contain good humour.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Comments that express appreciation.
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Generally, rants are not published, even when the post you are
+      commenting on is itself a rant.  This website is the author&apos;s
+      place to rant.  It is not your place to rant.  If you really
+      need to rant, please do so on your own website.  This guideline
+      exists to maintain a high signal-to-noise ratio in
+      the &lt;a href=&quot;comments/&quot;&gt;comments&lt;/a&gt; section.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Similarly, comments containing speculation about worldly affairs
+      are not published.  The intention here is to prevent the
+      comments section from becoming an endless stream of speculative
+      remarks.  This is especially a problem for articles discussing
+      academic, professional, social or technological issues.  Such
+      articles tend to attract a large number of comments speculating
+      about how certain organisations may be causing those issues for
+      their own benefit.  While such speculation may have merit, this
+      website is not the place to discuss it.  If you feel strongly
+      about such topics, please discuss them on your own website.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Comments discussing politics are not published.  Regrettably,
+      many otherwise good comments have not been published because
+      they contained political asides.  Allowing political discussion
+      in the &lt;a href=&quot;comments/&quot;&gt;comments&lt;/a&gt; section is a
+      sure way to ruin this carefully maintained section.  Therefore,
+      comments containing political remarks are not published.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      When a comment reports a typo or error in an article, that
+      comment is published on the &lt;a href=&quot;comments/bugs.html&quot;&gt;bugs
+      page&lt;/a&gt; rather than on the comment page for the article.  This
+      is done to collect contributions from kind readers on a single
+      page.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      All comments deemed suitable for this website by its author
+      become publicly available on this website at two places: either
+      on the comment page for the article you commented on
+      (&lt;a href=&quot;comments/fd-100.html&quot;&gt;example&lt;/a&gt;) or on the
+      &lt;a href=&quot;comments/bugs.html&quot;&gt;bugs page&lt;/a&gt;, as well as on
+      the overall comment index page at
+      &lt;a href=&quot;comments/&quot;&gt;comments&lt;/a&gt;.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Do not submit sensitive personal data in your comments.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Do not publish original research in comments.  This may seem
+      like a strange guideline, but there have been instances where
+      people posted long comments containing mathematical material,
+      claiming that they had novel results.  The author of this
+      website does not have the time to review such comments.  If you
+      want to share original research, please do so on your own
+      website or in a more appropriate forum.
+    &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/commenting.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>The Problem of Pedagogy in Advanced Mathematics</title>
+    <link href="https://susam.net/advanced-mathematics-pedagogy.html"/>
+    <id>urn:uuid:f47ac884-f0f8-47ff-aa66-16a28ec9c980</id>
+    <updated>2026-05-11T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  It is a commonly held opinion that educational institutions could do
+  more to improve the pedagogy of mathematics.  This is especially
+  applicable to primary and secondary schools, where students are
+  first exposed to mathematics as a formal subject, along with other
+  new subjects.  Poor exposition can turn students away from
+  mathematics for a lifetime.  Only the highly motivated ones continue
+  to engage with the subject.  This is very unfortunate because
+  mathematics is a beautiful subject and it is filled with wonder.  It
+  also teaches rigour in reasoning, clarity of thought and the
+  discipline of constructing arguments from first principles to obtain
+  intricate and often beautiful results.
+&lt;/p&gt;
+&lt;p&gt;
+  What is perhaps less known is that pedagogy is a problem even for
+  graduate-level mathematics students and professional mathematicians.
+  The proofs in many graduate-level mathematics textbooks are, in my
+  humble opinion, not really proofs at all.  They are closer to
+  high-level outlines of proofs.  The authors simply do not show their
+  work.  The student then has to put in an extraordinary amount of
+  effort to understand and justify each line.  Sometimes a 10-line
+  argument in a textbook might expand into a 10-page proof if the
+  student really wants to convince themselves that the argument works.
+&lt;/p&gt;
+&lt;p&gt;
+  I am not a mathematician, but out of personal interest, I have
+  worked with professional mathematicians in the past to help refine
+  notes that explain certain intermediate steps in textbooks (for
+  example, Galois Theory by Stewart, in a specific case).  I was
+  surprised to find that it was not just me who found the intermediate
+  steps of certain proofs obscure.  Even professional mathematicians
+  who had studied the subject for much of their lives found them
+  obscure.  It took us two days of working together to untangle a
+  complicated argument and present it in a way that satisfied three
+  properties: correctness, completeness and accessibility to a
+  reasonably motivated student.  There is a reason why jokes like
+  &apos;proof by obviousness&apos; and &apos;proof by intimidation&apos; are so funny.
+  They are funny because they are true, more true than one would like.
+&lt;/p&gt;
+&lt;p&gt;
+  I don&apos;t mean that the books merely omit basic results from
+  elementary topics like group theory or field theory, which students
+  typically learn in their undergraduate courses.  Even if we take all
+  the elementary results from undergraduate courses for granted, the
+  proofs presented in graduate-level textbooks are often nowhere near
+  a complete explanation of why the arguments work.  They are
+  high-level outlines at best.  I find this hugely problematic,
+  especially because students often have to learn a topic under
+  difficult deadlines.  If the exposition does not include sufficient
+  detail, some students might never learn exactly why the proof works,
+  because not everyone has the time to work out a 10-page proof for
+  every 10 lines in the book.
+&lt;/p&gt;
+&lt;p&gt;
+  The situation is even more dire when it comes to research papers but
+  that would be a topic for another discussion.  I&apos;ll focus on books
+  for now.  I completely understand why an advanced textbook cannot
+  provide a justification for every argument, because if a textbook
+  tries to do so, then a 200 page book would turn into a 2000 page
+  book.  No student or teacher has the time or patience to read
+  through thousands of pages of uninteresting &apos;technical&apos; arguments.
+  So the authors choose to focus on the interesting parts and expect
+  the student to work out all the elisions.  Even so, I find it
+  painful to see just how many such elisions exist in a typical
+  textbook and how big they can sometimes be.
+&lt;/p&gt;
+&lt;p&gt;
+  Many good universities provide accompanying notes that expand the
+  difficult arguments by giving rigorous proofs and adding commentary
+  to aid intuition.  I think that is a great practice.  I have studied
+  several graduate-level textbooks in the last few years.  While these
+  textbooks are a boon to the world because textbooks that expose the
+  subject are better than no textbooks at all, I am also disappointed
+  by how inaccessible such material often is.  If I had unlimited
+  time, I would write accompaniments to those textbooks that provide a
+  detailed exposition of all the arguments.  But of course, I don&apos;t
+  have unlimited time.  Even so, I am thinking of at least making a
+  start by writing accompaniment notes for some topics whose
+  exposition quality I feel strongly about, such as s-arc transitivity
+  of graphs, field extensions and related topics.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/advanced-mathematics-pedagogy.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/miscellaneous.html&quot;&gt;#miscellaneous&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>I Will Not Add Query Strings to Your URLs</title>
+    <link href="https://susam.net/no-query-strings.html"/>
+    <id>urn:uuid:60101ca6-f872-4062-8101-1735dcfd7b9b</id>
+    <updated>2026-05-09T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Last evening, a short blog post appeared in my feed reader that felt
+  as if it spoke directly to me.  It is Chris Morgan&apos;s excellent post
+  &lt;cite&gt;&lt;a href=&quot;https://chrismorgan.info/no-query-strings&quot;&gt;I&apos;ve banned
+  query strings&lt;/a&gt;&lt;/cite&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#wisdom-on-the-web&quot;&gt;Wisdom on the Web&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#wander-on-the-web&quot;&gt;Wander on the Web&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#misfeature&quot;&gt;Misfeature&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#broken-urls&quot;&gt;Broken URLs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#qualms&quot;&gt;Qualms&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;wisdom-on-the-web&quot;&gt;Wisdom on the Web&lt;/h2&gt;
+&lt;p&gt;
+  &lt;a href=&quot;https://chrismorgan.info/&quot;&gt;Chris&lt;/a&gt; is someone whose
+  Internet comments I have been reading for about half a decade now.
+  I first stumbled upon his comments on Hacker News, where he left
+  very detailed &lt;a href=&quot;https://news.ycombinator.com/item?id=25321222#25322611&quot;&gt;feedback&lt;/a&gt;
+  on a small collection of boilerplate CSS rules I had shared there.
+  I am by no means a web developer.  I have spent most of my
+  &lt;a href=&quot;twenty-five-years-of-computing.html&quot;&gt;professional life&lt;/a&gt;
+  doing systems programming in C and C++.  However, developing
+  websites and writing
+  &lt;a href=&quot;tag/html.html&quot;&gt;small HTML tools&lt;/a&gt; has been a long-time
+  hobby for me.  I have learnt most of my web development skills as a
+  hobbyist by studying what other people do: first by viewing the
+  source of websites I liked in the early 2000s and later by
+  occasionally getting possessed by the urge to implement a new game
+  or tool and searching
+  &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML&quot;&gt;MDN Web
+  Docs&lt;/a&gt; to learn whatever I needed to make it work.  One problem
+  with learning a skill this way is that you sometimes pick up habits
+  and practices that are fashionable but not necessarily optimal or
+  correct.  So it was really valuable to me when Chris commented on my
+  collection of boilerplate CSS rules.  It helped me improve my CSS a
+  lot.  In fact, a few of the lessons from his comment have really
+  stuck with me; I keep them in mind whenever I make a hobby HTML
+  project: always retain underlines in links and
+  &lt;a href=&quot;more-purple-links-please.html&quot;&gt;retain purple&lt;/a&gt; for
+  visited links.
+&lt;/p&gt;
+&lt;p&gt;
+  I have been following Chris&apos;s posts and comments on web-related
+  topics since then.  He often posts great feedback on web-related
+  projects.  Whenever I come across one, I make sure to read them
+  carefully, even when the project isn&apos;t mine.  I always end up
+  learning something nice and useful from his comments.  Here is one
+  such recent example from the Lobsters story
+  &lt;cite&gt;&lt;a href=&quot;https://lobste.rs/s/crcktq/adding_author_context_rss#c_wb5ryy&quot;&gt;Adding
+  author context to RSS&lt;/a&gt;&lt;/cite&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;wander-on-the-web&quot;&gt;Wander on the Web&lt;/h2&gt;
+&lt;p&gt;
+  A couple of months ago, I created a new project called &lt;em&gt;Wander
+  Console&lt;/em&gt;.  It is a small, decentralised, self-hosted web console
+  that lets visitors to your website explore interesting websites and
+  pages recommended by a community of independent personal website
+  owners.  For example, my console is here:
+  &lt;a href=&quot;wander/&quot;&gt;susam.net/wander/&lt;/a&gt;.  If you click the &apos;Wander&apos;
+  button there, the tool loads a random personal web page recommended
+  by the Wander community.
+&lt;/p&gt;
+&lt;p&gt;
+  The tool consists of one HTML file that implements the console and
+  one JavaScript file where the website owner defines a list of
+  neighbouring consoles along with a list of web pages they recommend.
+  If you copy these two files to your web server, you instantly have a
+  Wander console live on the Web.  You don&apos;t need any server-side
+  logic or server-side software beyond a basic web server to run
+  Wander Console.  You can even host it in constrained environments
+  like Codeberg Pages or GitHub Pages.  When you click the &apos;Wander&apos;
+  button, the console connects to other remote consoles, fetches web
+  page recommendations, picks one randomly and loads it in your web
+  browser.  It is a bit like the now defunct
+  &lt;a href=&quot;https://en.wikipedia.org/wiki/StumbleUpon&quot;&gt;StumbleUpon&lt;/a&gt;
+  but it is completely decentralised.  It is also a bit like web rings
+  except that the community network is not restricted to being a
+  cycle; it is a graph that can take any shape.
+&lt;/p&gt;
+&lt;p&gt;
+  There are currently over 50 websites hosting this tool.  Together,
+  they recommend over 1500 web pages.  You can find a recent snapshot
+  of the list of known consoles and the pages they recommend at
+  &lt;a href=&quot;https://susam.codeberg.page/wcn/&quot;&gt;susam.codeberg.page/wcn/&lt;/a&gt;.
+  To learn more about this tool or to set it up on your website,
+  please see &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;misfeature&quot;&gt;Misfeature&lt;/h2&gt;
+&lt;p&gt;
+  In case you were wondering why I suddenly plugged my project into
+  this post in the previous section, it is because I recently added a
+  dubious feature to that project that I myself was not entirely
+  convinced about.  That misfeature is relevant to this post.
+&lt;/p&gt;
+&lt;p&gt;
+  In version 0.4.0 of Wander Console, I added support for
+  a &lt;code&gt;via=&lt;/code&gt; query parameter while loading web pages.  For
+  example, if you encountered &lt;a href=&quot;https://midnight.pub/&quot;&gt;midnight.pub&lt;/a&gt;
+  while using the console at &lt;a href=&quot;https://susam.net/wander/&quot;&gt;susam.net/wander/&lt;/a&gt;,
+  the console loaded the page using the following URL:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://midnight.pub/?via=https://susam.net/wander/&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  This allowed the owner of the recommended website to see, via their
+  access logs, that the visit originated from a Wander Console.
+  Chris&apos;s recent &lt;a href=&quot;https://chrismorgan.info/no-query-strings&quot;&gt;blog
+  post&lt;/a&gt; is critical of features like this.  He writes:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;
+    I don&apos;t like people adding tracking stuff to URLs.  Still less do I
+    like people adding tracking stuff to &lt;em&gt;my&lt;/em&gt; URLs.
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;code&gt;https://chrismorgan.info/no-query-strings?ref=example.com&lt;/code&gt;?
+    Did I ask?  If I wanted to know I&apos;d look at the
+    &lt;code&gt;Referer&lt;/code&gt; header; and if it isn&apos;t there, it&apos;s probably
+    for a good reason.  You abuse your users by adding that to the
+    link.
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+  I mentioned earlier that I was not entirely convinced that adding a
+  referral query string was a good thing to do.  Why did I add it
+  anyway?  I succumbed to popular demand.  Let me briefly describe my
+  frame of mind when I considered and implemented that feature.  When
+  I first saw the
+  &lt;a href=&quot;https://codeberg.org/susam/wander/issues/1#issuecomment-11795493&quot;&gt;feature
+  request&lt;/a&gt; on Codeberg, my initial reaction was reluctance.  I
+  wasn&apos;t convinced it was a good feature.  But I was too busy with
+  some ongoing algebraic graph theory research, another recent hobby,
+  with a looming deadline, so I didn&apos;t have a lot of time to think
+  about it clearly.  In fact, everything about Wander Console has been
+  made in very little time during the short breaks I used to take from
+  my research.  I made the first version of the console in about one
+  and a half hours one early morning when my brain was too tired to
+  read more algebraic graph theory literature and I really needed a
+  break.  During another such break, I revisited that feature request
+  and, despite my reservations, decided to implement it anyway.
+  During yet another such break, I am writing this post.
+&lt;/p&gt;
+&lt;p&gt;
+  Normally, I don&apos;t like adding too many new features to my little
+  projects.  I want them to have a limited scope.  I also want them to
+  become stable over time.  After a project has fulfilled some
+  essential requirements I had, I just want to call it feature
+  complete and never add another feature to it again.  I&apos;ll fix bugs,
+  of course.  But I don&apos;t like to keep adding new features endlessly.
+  That&apos;s my style of maintaining my hobby projects.  So it should have
+  been very easy for me to ignore the feature request for adding a
+  referral query string to URLs loaded by the console tool.  But I
+  think a tired body and mind, worn down by long and intense research
+  work, took a toll on me.
+&lt;/p&gt;
+&lt;p&gt;
+  Although my gut feeling was telling me that it was not a good
+  feature, I couldn&apos;t articulate to myself exactly why.  So I
+  implemented the referral query string feature anyway.  While doing
+  so, I added an opt-out mechanism to the configuration, so that if
+  someone else didn&apos;t like the feature, they could disable it for
+  themselves.  This was another mistake.  A questionable feature like
+  this should be implemented as an opt-in feature, not an opt-out
+  feature, if implemented at all.  The fact that I didn&apos;t have a lot
+  of time to reason through the implications of this feature meant
+  that I just went ahead and implemented it without thinking about it
+  critically.  As the famous quote from Jurassic Park goes:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  Your scientists were so preoccupied with whether or not they could
+  that they didn&apos;t stop to think if they should.
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;broken-urls&quot;&gt;Broken URLs&lt;/h2&gt;
+&lt;p&gt;
+  It soon turned out that my gut feeling was correct.  After I
+  implemented that feature, a page from one of my favourite websites
+  refused to load in the console.  To illustrate the problem, here are
+  a few similar but slightly different URLs for that page:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://int10h.org/oldschool-pc-fonts/fontlist/&quot;&gt;https://int10h.org/oldschool-pc-fonts/fontlist/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://int10h.org/oldschool-pc-fonts/fontlist/?2&quot;&gt;https://int10h.org/oldschool-pc-fonts/fontlist/?2&lt;/a&gt;
+  &lt;li&gt;&lt;a href=&quot;https://int10h.org/oldschool-pc-fonts/fontlist/?foo&quot;&gt;https://int10h.org/oldschool-pc-fonts/fontlist/?foo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  The first and second URLs load fine, but the third URL returns an
+  HTTP 404 error page.  The website uses the query string to determine
+  which one of its several font collections to show.  So when we add
+  an arbitrary query string to the URL, the website tries to interpret
+  it as a font collection identifier and the page fails to load.  That
+  is why, when my tool added the &lt;code&gt;via=&lt;/code&gt; query parameter to
+  the first URL, the page failed to load.
+&lt;/p&gt;
+&lt;p&gt;
+  Later, with a little time to breathe and some hindsight, I could
+  articulate why adding referral query strings to a working URL was
+  such a bad idea.  Altering a URL gives you a &lt;em&gt;new&lt;/em&gt; URL.  The
+  new URL could point to a completely different resource, or to no
+  resource at all, even if the alteration is as small as adding a
+  seemingly harmless query string.  By adding the referral query
+  string, I had effectively broken a working URL from a website I am
+  very &lt;a href=&quot;https://news.ycombinator.com/item?id=39419054#39439453&quot;&gt;fond&lt;/a&gt;
+  of.
+&lt;/p&gt;
+&lt;h2 id=&quot;qualms&quot;&gt;Qualms&lt;/h2&gt;
+&lt;p&gt;
+  It is also worth asking whether an HTML tool should concern itself
+  with referral query strings at all when web browsers already have a
+  mechanism for this: the HTTP &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referer&quot;&gt;Referer&lt;/a&gt;
+  header, governed by &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Referrer-Policy&quot;&gt;Referrer-Policy&lt;/a&gt;.
+  That policy can be set at the server level, the document level or
+  even on individual links.  The Web standards already provide
+  deliberate controls to decide how much referrer information should be
+  sent.  Appending referral query strings to URLs bypasses those controls.
+  It moves a privacy and attribution concern out of the
+  referrer mechanism and embeds it into the destination URL instead.
+  I don&apos;t think an HTML tool should do that.
+&lt;/p&gt;
+&lt;p&gt;
+  There is also a moral question here about whether it is
+  okay to modify a given URL on behalf of the user in order to insert
+  a referral query string into it.  I think it isn&apos;t.
+&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;
+  In the end, I decided to remove the referral query string feature
+  from Wander Console.  One might wonder why I couldn&apos;t simply leave
+  the feature in as an opt-in.  Well, the answer is that once I had
+  deemed the feature misguided, I no longer wanted it to be part of my
+  software in any form.  The project is still new and we are still in
+  the days of 0.x releases, so if there is a good time to remove
+  features, this is it.  But my ongoing research work left me with no
+  time to do it.  Finally, when the post
+  &lt;cite&gt;&lt;a href=&quot;https://chrismorgan.info/no-query-strings&quot;&gt;I&apos;ve
+  banned query strings&lt;/a&gt;&lt;/cite&gt; appeared in my feed reader last
+  evening, it nudged me just enough to take a little time away from my
+  academic hobby and devote it to removing that ill-considered
+  feature.  The feature is now gone.  See commit
+  &lt;a href=&quot;https://codeberg.org/susam/wander/commit/b26d77c4da9ec11b655ba64a4ae4f3af56e06370&quot;&gt;b26d77c&lt;/a&gt;
+  for details.  The latest release, version 0.6.0, does not have it
+  anymore.
+&lt;/p&gt;
+&lt;p&gt;
+  This is a lesson I&apos;ll remember for any new hobby projects I happen
+  to make in the future.  If I ever load URLs again, I&apos;ll load them
+  exactly as the website&apos;s author intended.  I will never add query
+  strings to your URLs.
+&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;files/blog/chalkboard-no-query-strings.png&quot;
+       alt=&quot;Bart Simpson-style chalkboard meme saying, &apos;I will not add query strings to your URLs.&apos;&quot;&gt;
+  &lt;figcaption&gt;
+    Created using &lt;a href=&quot;https://enufstyle.com/generators/bart/&quot;&gt;Simpsons
+    Chalkboard Generator&lt;/a&gt; and &lt;a href=&quot;https://www.gimp.org/&quot;&gt;GIMP&lt;/a&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/no-query-strings.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Wander Console 0.6.0</title>
+    <link href="https://susam.net/code/news/wander/0.6.0.html"/>
+    <id>urn:uuid:800b3a89-946c-4c78-b575-4262f7589885</id>
+    <updated>2026-05-08T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Wander Console 0.6.0 is now available.  This is the sixth release of
+  Wander, a small, decentralised, self-hosted web console that lets
+  visitors to your website discover interesting websites and pages
+  recommended by a community of independent website owners.  To try
+  it, go to &lt;a href=&quot;../../../wander/&quot;&gt;susam.net/wander/&lt;/a&gt;.
+  To learn how it works and how to set it up on your own website, see
+  the project
+  &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;README&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  The main change in this release is the removal of support for the
+  &lt;code&gt;via&lt;/code&gt; referral query parameter, which was added to
+  recommended URLs so that website owners could identify visits coming
+  from a Wander Console in their access logs.  The &lt;code&gt;via&lt;/code&gt;
+  query parameter was introduced in version
+  &lt;a href=&quot;0.4.0.html&quot;&gt;0.4.0&lt;/a&gt; in response to
+  &lt;a href=&quot;https://codeberg.org/susam/wander/issues/1#issuecomment-11795493&quot;&gt;community
+  demand&lt;/a&gt;, but it turned out to be a misfeature.  Some websites
+  refuse to serve web pages when arbitrary query parameters are added
+  to URLs.  Although it was possible to turn this feature off via
+  configuration, I would rather not keep a dubious feature that may
+  prevent some pages from loading successfully.  This feature has now
+  been completely removed.  See
+  &lt;a href=&quot;https://chrismorgan.info/no-query-strings&quot;&gt;this excellent
+  article by Chris Morgan&lt;/a&gt; to learn more about why adding arbitrary
+  query parameters to URLs is a bad idea.  Commit
+  &lt;a href=&quot;https://codeberg.org/susam/wander/commit/b26d77c4da9ec11b655ba64a4ae4f3af56e06370&quot;&gt;b26d77c&lt;/a&gt;
+  has more details about the removal of this feature.
+&lt;/p&gt;
+&lt;p&gt;
+  Apart from this change, there are a few minor user interface
+  adjustments and fixes.  See the
+  &lt;a href=&quot;https://codeberg.org/susam/wander/src/branch/main/CHANGES.md&quot;&gt;changelog&lt;/a&gt;
+  for more details.
+&lt;/p&gt;
+&lt;p&gt;
+  If you own a personal website but have not set up a Wander Console
+  yet, I suggest that you consider setting one up.  You can see what
+  it looks like by visiting mine at
+  &lt;a href=&quot;../../../wander/&quot;&gt;/wander/&lt;/a&gt;.  To set up your
+  own, follow the
+  &lt;a href=&quot;https://codeberg.org/susam/wander#install&quot;&gt;installation
+  instructions&lt;/a&gt; in the README.  It only involves copying two files
+  to your web server, so the installation is very straightforward.
+&lt;/p&gt;
+&lt;p&gt;
+  Also, check out our new community page called
+  &lt;a href=&quot;https://susam.codeberg.page/wcn/&quot;&gt;Wander Console
+  Network&lt;/a&gt;.  This page shows a recent snapshot of all known Wander
+  Console instances along with the web pages they recommend.  We have
+  an IRC channel too at &lt;a href=&quot;http://web.libera.chat/#wander&quot;&gt;#wander&lt;/a&gt;
+  on &lt;code&gt;irc.libera.chat&lt;/code&gt; in case you are looking for a place
+  to hang out with the community.
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;strong&gt;Update on 09 May 2026:&lt;/strong&gt; See the post
+  &lt;a href=&quot;../../../no-query-strings.html&quot;&gt;I Will Not Add Query
+  Strings to Your URLs&lt;/a&gt; for an account of how the misguided
+  referral query string feature was added and how it was removed.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/wander/0.6.0.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>From RSS to Atom</title>
+    <link href="https://susam.net/from-rss-to-atom.html"/>
+    <id>urn:uuid:02ace576-3514-4a90-bb09-d8641aec617e</id>
+    <updated>2026-05-04T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Yesterday, I switched my website from RSS feeds to Atom feeds.  In
+  case you are wondering whether you have somehow landed on an ancient
+  post from 2010, no, you have not.  Yes, this is the year 2026, and I
+  have finally switched from RSS feeds to Atom feeds.  Yes, I am
+  fifteen, or perhaps twenty, years too late.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#impulse-coding&quot;&gt;Impulse Coding&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#atom-entries&quot;&gt;Atom Entries&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#temporary-workaround&quot;&gt;Temporary Workaround&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#does-it-matter&quot;&gt;Does It Matter?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#references&quot;&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;impulse-coding&quot;&gt;Impulse Coding&lt;/h2&gt;
+&lt;p&gt;
+  I have always wanted to do this but could never make the time for
+  it.  Finally, it happened while I was giving my brain some rest from
+  my &lt;a href=&quot;26c.html&quot;&gt;ongoing&lt;/a&gt; algebraic graph theory studies.
+  That&apos;s when I felt like spending a little time on my website and
+  doing a little Lisp to change the feeds from RSS to Atom.  I suppose
+  this was &lt;em&gt;impulse coding&lt;/em&gt;, a bit like impulse buying, except
+  that I ended up with an Atom feed instead of a new book.
+&lt;/p&gt;
+&lt;p&gt;
+  I find it quite surprising that when I have plenty of time, it
+  usually does not occur to me to do these things, but when I am too
+  busy and really short of time, these little ideas possess me during
+  the short breaks I take.  My personal website is one of my passion
+  projects.  Common Lisp is one of my favourite programming languages.
+  So any time spent on this passion project using my favourite
+  programming language is a very relaxing experience for me.  It
+  serves as an ideal break between intense study sessions.  It took
+  about an hour to implement the changes needed to make the switch
+  from RSS to Atom.  In the end, I could go back to my studies
+  reinvigorated.
+&lt;/p&gt;
+&lt;p&gt;
+  In case you are curious, here is the Git commit where I implemented
+  the change from RSS to Atom:
+  &lt;a href=&quot;https://codeberg.org/susam/susam.net/commit/596e1dd&quot;&gt;596e1dd&lt;/a&gt;.
+  As you might notice, a large portion of the change consists of
+  replacing the &lt;code&gt;key&lt;/code&gt; attribute in each post with
+  the &lt;code&gt;uuid&lt;/code&gt; attribute.  The &lt;code&gt;key&lt;/code&gt; attribute
+  value was used as the value of the &lt;code&gt;&amp;lt;guid&amp;gt;&lt;/code&gt; element
+  in the RSS feeds.  While an arbitrary short string could serve as
+  the &lt;code&gt;&amp;lt;guid&amp;gt;&lt;/code&gt; element for the items in an RSS feed,
+  the &lt;code&gt;&amp;lt;id&amp;gt;&lt;/code&gt; element of the entries in an Atom feed
+  needs to be a URI.  It turns out UUID URNs are a common choice for
+  such a URI.  I wrote the following shell command to replace all
+  occurrences of the &lt;code&gt;key&lt;/code&gt; attribute
+  with &lt;code&gt;uuid&lt;/code&gt;:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;find . -type f -name &apos;*.html&apos; -exec sh -c &apos;
+  for f do
+    sed &quot;s/^&amp;lt;!-- key: .* --&amp;gt;/&amp;lt;!-- uuid: $(uuidgen) --&amp;gt;/g&quot; &quot;$f&quot; &amp;gt; tmp &amp;amp;&amp;amp;
+    mv tmp &quot;$f&quot;
+  done
+&apos; sh {} +&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The rest of the changes went into the
+  &lt;a href=&quot;https://codeberg.org/susam/susam.net/src/tag/0.8.0/layout/tag/feed.xml&quot;&gt;feed&lt;/a&gt;
+  &lt;a href=&quot;https://codeberg.org/susam/susam.net/src/tag/0.8.0/layout/tag/item.xml&quot;&gt;templates&lt;/a&gt;
+  and the Common Lisp &lt;a href=&quot;https://codeberg.org/susam/susam.net/src/tag/0.8.0/site.lisp&quot;&gt;program&lt;/a&gt;
+  that statically generates the feeds along with the website.
+&lt;/p&gt;
+&lt;p&gt;
+  For examples of the resulting feeds, see
+  &lt;a href=&quot;feed.xml&quot;&gt;feed.xml&lt;/a&gt; and
+  &lt;a href=&quot;tag/absurd.xml&quot;&gt;absurd.xml&lt;/a&gt;.  The first is the main
+  website feed and the second is an example of a tag-specific feed.
+  Yes, the aforementioned Common Lisp program generates a feed for
+  each &lt;a href=&quot;tag/&quot;&gt;tag&lt;/a&gt;.  As of today, the main feed
+  at &lt;a href=&quot;feed.xml&quot;&gt;feed.xml&lt;/a&gt; contains only two entries even
+  though this website has over &lt;a href=&quot;pages.html&quot;&gt;200 pages&lt;/a&gt;.  I
+  explain the reason later in
+  &lt;a href=&quot;#temporary-workaround&quot;&gt;Temporary Workaround&lt;/a&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;atom-entries&quot;&gt;Atom Entries&lt;/h2&gt;
+&lt;p&gt;
+  Here is an example Atom entry from my feeds:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;entry&amp;gt;
+  &amp;lt;title&amp;gt;A4 Paper Stories&amp;lt;/title&amp;gt;
+  &amp;lt;link href=&quot;https://susam.net/a4-paper-stories.html&quot;/&amp;gt;
+  &amp;lt;id&amp;gt;urn:uuid:06e5304d-c242-481c-bf94-e23b019b0a36&amp;lt;/id&amp;gt;
+  &amp;lt;updated&amp;gt;2026-01-06T00:00:00Z&amp;lt;/updated&amp;gt;
+  &amp;lt;content type=&quot;html&quot;&amp;gt;
+    &amp;amp;lt;p&amp;amp;gt;I sometimes resort to a rather common measuring ...
+  &amp;lt;/content&amp;gt;
+&amp;lt;/entry&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The ellipsis (&lt;code&gt;...&lt;/code&gt;) denotes content I have omitted for
+  the sake of brevity.
+&lt;/p&gt;
+&lt;p&gt;
+  I like how each entry in the feed now has its own UUIDv4.  I also
+  like that timestamps in an Atom feed are in the
+  &lt;code&gt;date-time&lt;/code&gt; format specified in
+  &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc3339.html&quot;&gt;RFC 3339&lt;/a&gt;,
+  which also happens to be a profile of ISO 8601.  Further, I like
+  that I can explicitly declare the content type to be HTML.  Commonly
+  used values for the content type attribute are &lt;code&gt;text&lt;/code&gt;,
+  &lt;code&gt;html&lt;/code&gt; and &lt;code&gt;xhtml&lt;/code&gt;.  If it is
+  &lt;code&gt;html&lt;/code&gt;, the content should be escaped HTML.  If it is
+  &lt;code&gt;xhtml&lt;/code&gt;, the content should be an
+  XHTML &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; element containing valid XHTML.
+  Explicit content type support is likely the biggest advantage of
+  Atom over RSS.  In comparison,
+  &lt;a href=&quot;https://www.rssboard.org/rss-specification&quot;&gt;RSS 2.0&lt;/a&gt;
+  does not specify any way to declare the content type.  So feed
+  readers have to inspect the content and guess what the content type
+  might be.
+&lt;/p&gt;
+&lt;h2 id=&quot;temporary-workaround&quot;&gt;Temporary Workaround&lt;/h2&gt;
+&lt;p&gt;
+  As I mentioned before, as of today, the
+  &lt;a href=&quot;feed.xml&quot;&gt;main feed&lt;/a&gt; contains only two entries.  That&apos;s
+  because only new posts published since the migration to Atom are now
+  included in the feed.  This was done to avoid spamming subscribers.
+  The Atom specification&apos;s requirement that each entry&apos;s ID must be a
+  URI has caused the IDs of every entry to change.  If I were to
+  include the older posts from before the change in the feed, then
+  those posts would appear as new unread items.  Subscribers can find
+  this quite annoying.  In fact, I have received a few
+  &lt;a href=&quot;https://news.ycombinator.com/item?id=40680890&quot;&gt;complaints&lt;/a&gt;
+  about this in the past.  So I was careful this time.  I have a little
+  &lt;a href=&quot;https://codeberg.org/susam/susam.net/src/tag/0.8.0/site.lisp#L1520-L1525&quot;&gt;one-liner
+  workaround&lt;/a&gt; in my site generator to exclude posts published before
+  this change from the feed.
+&lt;/p&gt;
+&lt;p&gt;
+  That was the only workaround I had to implement.  Fortunately, my
+  feed file had a neutral name like &lt;code&gt;feed.xml&lt;/code&gt;, rather than
+  a format-specific name like &lt;code&gt;rss.xml&lt;/code&gt;, so I could avoid a
+  URL change and the subsequent overhead of setting up redirects.
+&lt;/p&gt;
+&lt;h2 id=&quot;does-it-matter&quot;&gt;Does It Matter?&lt;/h2&gt;
+&lt;p&gt;
+  Does any of this matter today?  I think it does.  Contrary to the
+  recurring claim that RSS and Atom are dead, most of the traffic to my
+  personal website still comes from web feeds, even in 2026.  Every
+  time I publish a new post, I can see a good number of visitors
+  arriving from feed readers.  From the referrer data in my web server
+  logs (which is not completely reliable but still offers some
+  insight), the three largest sources of traffic to my website are
+  web feeds, newsletters and search engines, in that order.
+&lt;/p&gt;
+&lt;p&gt;
+  On the topic of newsletters, I was surprised to discover just how
+  many technology newsletters there are on the Web and how active
+  their user bases are.  Once in a while, a newsletter picks up one of
+  my silly or quirky posts, which then brings a large number of visits
+  from its followers.
+&lt;/p&gt;
+&lt;p&gt;
+  Back to the topic of web feeds, there is indeed a decent user base
+  around RSS and Atom feeds.  A good number of visitors to my website
+  arrive by clicking a feed entry that shows up in their feed
+  reader.  I know this with some confidence by looking at
+  the &lt;code&gt;referer&lt;/code&gt; (sic) headers of visits to my HTML pages
+  and the subsequent browsing of the website, as opposed to the
+  isolated and automated fetches of the XML feeds.  So there must be a
+  reasonably active base of users around web feeds.  It is a bit like
+  being part of an invisible social network that we know exists and
+  that we can measure through indirect evidence.
+&lt;/p&gt;
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;p&gt;
+  I found these three resources useful while switching to Atom feeds:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://validator.w3.org/feed/docs/atom.html&quot;&gt;W3C Introduction to Atom&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://validator.w3.org/feed/&quot;&gt;W3C Feed Validation Service&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc4287&quot;&gt;RFC 4287&lt;/a&gt;: The Atom Syndication Format
+  &lt;/li&gt;
+&lt;/ul&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/from-rss-to-atom.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>QuickQWERTY 1.2.3</title>
+    <link href="https://susam.net/code/news/quickqwerty/1.2.3.html"/>
+    <id>urn:uuid:d1c2f6bb-8a47-4785-959b-167b8c1fa13a</id>
+    <updated>2026-05-03T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  &lt;a href=&quot;../../../quickqwerty.html&quot;&gt;QuickQWERTY 1.2.3&lt;/a&gt; is now
+  available.  QuickQWERTY is a web-based touch typing tutor for QWERTY
+  keyboards that runs directly in the browser.
+&lt;/p&gt;
+&lt;p&gt;
+  This release includes two small bug fixes.  In the
+  &lt;a href=&quot;1.2.2.html&quot;&gt;previous release&lt;/a&gt;, QuickQWERTY source code
+  management moved from GitHub to Codeberg.  During that update, the
+  licence link in the footer was updated incorrectly.  The broken
+  licence link has now been fixed.
+&lt;/p&gt;
+&lt;p&gt;
+  Further, there was a minor bug that caused a redundant dialog box to
+  appear while switching between 6-7 split and 5-6 split.  Units 16 to
+  20 contain two links labeled &apos;6-7 split&apos; and &apos;5-6 split&apos; which allow
+  you to select how you want to split the number keys between left and
+  right hands.  Clicking either of those links brings up a dialog that
+  explains what the two splits mean and prompts you to confirm in
+  order to make the switch.  Say, the &apos;6-7 split&apos; was already the
+  chosen split.  Clicking the &apos;6-7 split&apos; label triggered the dialog
+  box unnecessarily.  A dialog was unnecessary in that case since if
+  you were already on the &apos;6-7 split&apos;, clicking the &apos;6-7 split&apos; label
+  resulted in no switch.  This unnecessary dialog has now been
+  eliminated.
+&lt;/p&gt;
+&lt;p&gt;
+  To try out QuickQWERTY, please visit
+  &lt;a href=&quot;../../../quickqwerty.html&quot;&gt;quickqwerty.html&lt;/a&gt;.  The
+  source code of QuickQWERTY is available under the terms of the MIT
+  licence at &lt;a href=&quot;https://codeberg.org/susam/quickqwerty&quot;&gt;codeberg.org/susam/quickqwerty&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/code/news/quickqwerty/1.2.3.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

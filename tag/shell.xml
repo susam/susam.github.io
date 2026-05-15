@@ -1,0 +1,2380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's Shell Pages</title>
+  <subtitle>Feed for Susam's Shell Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/shell.xml" rel="self"/>
+  <id>https://susam.net/tag/shell.xml</id>
+  <updated>2026-02-14T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Soju User Delete Hash</title>
+    <link href="https://susam.net/soju-user-delete-hash.html"/>
+    <id>urn:uuid:6afbcfe5-8218-40dc-83ad-45efbfe40bb9</id>
+    <updated>2026-02-14T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  In &lt;a href=&quot;from-znc-to-soju.html&quot;&gt;my last post&lt;/a&gt;, I talked about
+  switching from ZNC to Soju as my IRC bouncer.  One thing that caught
+  my attention while creating and deleting Soju users was that the
+  delete command asks for a confirmation, like so:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo sojuctl user delete soju&lt;/kbd&gt;
+To confirm user deletion, send &quot;user delete soju 4664cd&quot;
+$ &lt;kbd&gt;sudo sojuctl user delete soju 4664cd&lt;/kbd&gt;
+deleted user &quot;soju&quot;&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  That confirmation token for a specific user never changes, no matter
+  how many times we create or delete it.  The confirmation token is
+  not saved in the Soju database, as can be confirmed here:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo sqlite3 -table /var/lib/soju/main.db &apos;SELECT * FROM User&apos;&lt;/kbd&gt;
++----+----------+--------------------------------------------------------------+-------+----------+------+--------------------------+---------+--------------------------+--------------+
+| id | username |                           password                           | admin | realname | nick |        created_at        | enabled | downstream_interacted_at | max_networks |
++----+----------+--------------------------------------------------------------+-------+----------+------+--------------------------+---------+--------------------------+--------------+
+| 1  | soju     | $2a$10$yRj/oYlR2Zwd8YQxZPuAQuNo2j7FVJWeNdIAHF2MinYkKLmBjtf0y | 0     |          |      | 2026-02-16T13:49:46.119Z | 1       |                          | -1           |
++----+----------+--------------------------------------------------------------+-------+----------+------+--------------------------+---------+--------------------------+--------------+&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Surely, then, the confirmation token is derived from the user
+  definition?  Yes, indeed it is.  This can be confirmed at the
+  &lt;a href=&quot;https://codeberg.org/emersion/soju/src/commit/v0.10.1/service.go#L1185-L1203&quot;&gt;source
+  code here&lt;/a&gt;.  Quoting the most relevant part from the source code:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hashBytes := sha1.Sum([]byte(username))
+hash := fmt.Sprintf(&quot;%x&quot;, hashBytes[0:3])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Indeed if we compute the same hash ourselves, we get the same token:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf soju | sha1sum | head -c6&lt;/kbd&gt;
+4664cd&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  This allows us to automate the two step Soju user deletion process
+  in a single command:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo sojuctl user delete soju &quot;$(printf soju | sha1sum | head -c6)&quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  But of course, the implementation of the confirmation token may
+  change in future and Soju helpfully outputs the deletion command
+  with the confirmation token when we first invoke it without the
+  token, so it is perhaps more prudent to just take that output and
+  feed it back to Soju, like so:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo sojuctl $(sudo sojuctl user delete soju | sed &apos;s/.*&quot;\(.*\)&quot;/\1/&apos;)&lt;/code&gt;&lt;/pre&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/soju-user-delete-hash.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/irc.html&quot;&gt;#irc&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/how-to.html&quot;&gt;#how-to&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Jan '26 Notes</title>
+    <link href="https://susam.net/26a.html"/>
+    <id>urn:uuid:77759acf-97e2-4ded-b57e-12449baeb13d</id>
+    <updated>2026-01-29T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  In these monthly notes, I jot down ideas and references I
+  encountered during the month that I did not have time to expand into
+  their own posts.  A few of these may later develop into independent
+  posts but most of them will likely not.  In any case, this format
+  ensures that I record them here.  I spent a significant part of this
+  month studying the book &lt;em&gt;Algebraic Graph Theory&lt;/em&gt; by Godsil
+  and Royle, so many of the notes here are about it.  There are a few
+  non-mathematical, technical notes towards the end.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#cayley-graphs&quot;&gt;Cayley Graphs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#vertex-transitive-graphs&quot;&gt;Vertex-Transitive Graphs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#arc-transitive-graphs&quot;&gt;Arc-Transitive Graphs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#bipartite-graphs-and-cycle-parity&quot;&gt;Bipartite Graphs and Cycle Parity&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#tutte-theorem&quot;&gt;Tutte&apos;s Theorem&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#tutte-8-cage&quot;&gt;Tutte&apos;s 8-Cage&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#lcg&quot;&gt;Linear Congruential Generator&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cat-n&quot;&gt;Numbering Lines&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;cayley-graphs&quot;&gt;Cayley Graphs&lt;/h2&gt;
+&lt;p&gt;
+  Let \( G \) be a group and let \( C \subseteq G \) such that \( C \)
+  is closed under taking inverses and does not contain the identity,
+  i.e.
+
+  \[
+    \forall x \in C, \; x^{-1} \in C, \qquad e \notin C.
+  \]
+
+  Then the Cayley graph \( X(G, C) \) is the graph with the vertex set
+  \( V(X(G, C)) \) and edge set \( E(X(G, C)) \) defined by
+
+  \begin{align*}
+    V(X(G, C)) &amp;amp;= G, \\
+    E(X(G, C)) &amp;amp;= \{ gh : hg^{-1} \in C \}.
+  \end{align*}
+
+  The set \( C \) is known as the connection set.
+&lt;/p&gt;
+&lt;h2 id=&quot;vertex-transitive-graphs&quot;&gt;Vertex-Transitive Graphs&lt;/h2&gt;
+&lt;p&gt;
+  A graph \( X \) is &lt;em&gt;vertex-transitive&lt;/em&gt; if its automorphism
+  group acts transitively on its set of vertices \( V(X).  \)
+  Intuitively, this means that no vertex has a special role.  We can
+  &apos;move&apos; the graph around so that any chosen vertex becomes any other
+  vertex.  In other words, all vertices are indistinguishable.  The
+  graph looks the same from each vertex.
+&lt;/p&gt;
+&lt;p&gt;
+  The \( k \)-cube \( Q_k \) is vertex-transitive.  So are the Cayley
+  graphs \( X(G, C).  \)  However the path graph \( P_3 \) is not
+  vertex-transitive since no automorphism can send the middle vertex
+  of valency \( 2 \) to an end vertex of valency \( 1.  \)
+&lt;/p&gt;
+&lt;h2 id=&quot;arc-transitive-graphs&quot;&gt;Arc-Transitive Graphs&lt;/h2&gt;
+&lt;p&gt;
+  The cube \( Q_3 \) is \( 2 \)-arc-transitive but not \( 3
+  \)-arc-transitive.  In \( Q_3, \) a \( 3 \)-arc belonging to a \( 4
+  \)-cycle cannot be sent to a \( 3 \)-arc that does not belong to a
+  \( 4 \)-cycle.  This is easy to explain.  The end vertices of a \( 3
+  \)-arc belonging to a \( 4 \)-cycle are adjacent but the end
+  vertices of a \( 3 \)-arc not belonging to a \( 4 \)-cycle are not
+  adjacent.  Therefore, no automorphism can map the end vertices of
+  the first \( 3 \)-arc to those of the second \( 3 \)-arc.
+&lt;/p&gt;
+&lt;p&gt;
+  For intuition, imagine that a traveller stands on a vertex and
+  chooses an edge to move along.  They do this \( s \) times thereby
+  walking along an arc of length \( s, \) also known as an \( s
+  \)-arc.  By the definition of \( s \)-arcs, the traveller is not
+  allowed to backtrack from one vertex to the previous one
+  immediately.  In an \( s \)-arc-transitive graph, these arcs look
+  the same no matter which vertex they start from or which edges they
+  choose.  In the cube, this is indeed true for \( s = 2.  \)  All arcs
+  of length \( 2 \) are indistinguishable.  No matter which arc of
+  length \( 2 \) the traveller has walked along, the graph would look
+  the same from their perspective at each vertex along the arc.
+  However, this no longer holds good for arcs of length \( 3 \) since
+  there are two distinct kinds of arcs of length \( 3.  \)  The first
+  kind ends at a distance of \( 1 \) from the starting vertex of the
+  arc (when the arc belongs to a \( 4 \)-cycle).  The second kind ends
+  at a distance \( 3 \) from the starting vertex of the arc (when the
+  arc does not belong to a \( 4 \)-cycle).  Therefore the cube is not
+  \( 3 \)-arc-transitive.
+&lt;/p&gt;
+&lt;h2 id=&quot;bipartite-graphs-and-cycle-parity&quot;&gt;Bipartite Graphs and Cycle Parity&lt;/h2&gt;
+&lt;p&gt;
+  A graph is bipartite if and only if it contains no cycles of odd
+  length.  Equivalently, every cycle in a bipartite graph has even
+  length.  Conversely, if every cycle in a graph has even length, then
+  the graph is bipartite.
+&lt;/p&gt;
+&lt;h2 id=&quot;tutte-theorem&quot;&gt;Tutte&apos;s Theorem&lt;/h2&gt;
+&lt;p&gt;
+  For any \( s \)-arc-transitive cubic graph, \( s \le 5.  \)  This was
+  demonstrated by W. T. Tutte in 1947.  A proof can be found in
+  Chapter 18 of &lt;em&gt;Algebraic Graph Theory&lt;/em&gt; by Norman Biggs.
+&lt;/p&gt;
+&lt;p&gt;
+  In 1973, Richward Weiss established a more general theorem that
+  proves that for any \( s \)-arc-transitive graph, \( s \le 7.  \)
+  The bound is weaker but it applies to all graphs rather than only to
+  cubic ones.
+&lt;/p&gt;
+&lt;h2 id=&quot;tutte-8-cage&quot;&gt;Tutte&apos;s 8-Cage&lt;/h2&gt;
+&lt;p&gt;
+  The book &lt;em&gt;Algebraic Graph Theory&lt;/em&gt; by Godsil and Royle offers
+  the following two descriptions of Tutte&apos;s 8-cage on 30 vertices:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  Take the cube and an additional vertex \( \infty.  \)  In each set of
+  four parallel edges, join the midpoint of each pair of opposite
+  edges by an edge, then join the midpoint of the two new edges by an
+  edge, and finally join the midpoint of this edge to \( \infty.  \)
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+  Construct a bipartite graph \( T \) with the fifteen edges as one
+  colour class and the fifteen \( 1 \)-factors as the other, where
+  each edge is adjacent to the three \( 1 \)-factors that contain it.
+&lt;/blockquote&gt;
+&lt;p&gt;
+  It can be shown that both descriptions construct a cubic bipartite
+  graph on \( 30 \) vertices of girth \( 8.  \)  It can be further
+  shown that there is a unique cubic bipartite graph on \( 30 \)
+  vertices with girth \( 8.  \)  As a result both descriptions above
+  construct the same graph.
+&lt;/p&gt;
+&lt;h2 id=&quot;lcg&quot;&gt;Linear Congruential Generator&lt;/h2&gt;
+&lt;p&gt;
+  Here is a simple linear congruential generator (LCG) implementation
+  in JavaScript:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function srand (seed) {
+  let x = seed
+  return function () {
+    x = (1664525 * x + 1013904223) % 4294967296
+    return x
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here is an example usage:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;&amp;gt; &lt;kbd&gt;const rand = srand(0)&lt;/kbd&gt;
+undefined
+&amp;gt; &lt;kbd&gt;rand()&lt;/kbd&gt;
+1013904223
+&amp;gt; &lt;kbd&gt;rand()&lt;/kbd&gt;
+1196435762
+&amp;gt; &lt;kbd&gt;rand()&lt;/kbd&gt;
+3519870697&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;cat-n&quot;&gt;Numbering Lines&lt;/h2&gt;
+&lt;p&gt;
+  Both BSD and GNU &lt;code&gt;cat&lt;/code&gt; can number output lines with
+  the &lt;code&gt;-n&lt;/code&gt; option.  For example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf &apos;foo\nbar\nbaz\n&apos; | cat -n&lt;/kbd&gt;
+     1  foo
+     2  bar
+     3  baz&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  However I have always used &lt;code&gt;nl&lt;/code&gt; for this.  For example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf &apos;foo\nbar\nbaz\n&apos; | nl&lt;/kbd&gt;
+     1  foo
+     2  bar
+     3  baz&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  While &lt;code&gt;nl&lt;/code&gt; is
+  &lt;a href=&quot;https://pubs.opengroup.org/onlinepubs/9699919799/utilities/nl.html&quot;&gt;specified
+  in POSIX&lt;/a&gt;, the &lt;code&gt;cat -n&lt;/code&gt; option
+  &lt;a href=&quot;https://pubs.opengroup.org/onlinepubs/9699919799/utilities/cat.html&quot;&gt;is
+  not&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/26a.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/notes.html&quot;&gt;#notes&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/javascript.html&quot;&gt;#javascript&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Hacker News Hug of Deaf</title>
+    <link href="https://susam.net/hn-bell.html"/>
+    <id>urn:uuid:94fda865-ecac-4354-a570-4e6fd18db614</id>
+    <updated>2025-04-05T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;blockquote&gt;
+  &lt;p&gt;
+    &quot;It&apos;s essentially the Hacker News Hug of Deaf.&quot;
+    &amp;ndash;
+    &lt;a href=&quot;https://news.ycombinator.com/item?id=30146019#30147639&quot;&gt;@TonyTrapp&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+  About three years ago, I set up a tiny &lt;code&gt;netcat&lt;/code&gt; loop on
+  one of my Debian servers to accept arbitrary connections from the
+  Hacker News (HN) community.  The loop ran for 24 hours and did
+  exactly three things whenever a client connected:
+&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    Send a simple &lt;code&gt;ok&lt;/code&gt; message to the client.
+  &lt;/li&gt;
+  &lt;li&gt;
+    Close the connection immediately.
+  &lt;/li&gt;
+  &lt;li&gt;
+    Make my terminal beep four times.
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+  That&apos;s it!  It was a playful experiment in response to a thread
+  about quirky, do-it-yourself alerting systems for friends and
+  family.  See
+  &lt;a href=&quot;https://news.ycombinator.com/item?id=30146019#30146451&quot;&gt;this
+  HN thread&lt;/a&gt; for the original discussion.  Here is the exact
+  command I ran on my server:
+&lt;/p&gt;
+&lt;pre class=&quot;wrap&quot;&gt;&lt;code&gt;while true; do (echo ok | nc -q 1 -vlp 8000 2&amp;gt;&amp;amp;1; echo; date -u) | tee -a beeper.log; for i in 1 2 3 4; do printf &apos;\a&apos;; sleep 1; done &amp;amp; done&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The &lt;code&gt;nc&lt;/code&gt; command closes the connection immediately after
+  sending the &lt;code&gt;ok&lt;/code&gt; message and runs an
+  inner &lt;code&gt;for&lt;/code&gt; loop in a background shell that
+  asynchronously prints the bell character to the terminal four times.
+  Meanwhile, the outer &lt;code&gt;while&lt;/code&gt; command loops back quickly
+  to run a new &lt;code&gt;nc&lt;/code&gt; process, thus making this one-liner
+  script instantly ready to accept the next incoming connection.
+&lt;/p&gt;
+&lt;p&gt;
+  Soon after I shared this, members of the HN community began
+  connecting to the demo running on &lt;code&gt;susam.net:8000&lt;/code&gt;.
+  Anyone on the Internet could use any client of their choice to
+  connect.  Here&apos;s how I explained it in the HN thread:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;
+    Now anytime someone connects to port 8000 of my system
+    by &lt;em&gt;any&lt;/em&gt; means, I will hear 4 beeps!  The other party can
+    use &lt;em&gt;whatever client&lt;/em&gt; they have to connect to port 8000 of
+    my system, e.g. a web browser, &lt;code&gt;nc HOST
+    8000&lt;/code&gt;, &lt;code&gt;curl HOST:8000&lt;/code&gt; or even &lt;code&gt;ssh HOST -p
+    8000&lt;/code&gt;, &lt;code&gt;irssi -c HOST -p 8000&lt;/code&gt;, etc.
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+  In the next 24 hours, I received over 4761 connections, each one
+  triggering four beeps.  That&apos;s a total of 19&amp;#x202f;044 terminal
+  beeps echoing throughout the day!
+&lt;/p&gt;
+&lt;figure class=&quot;soft&quot;&gt;
+  &lt;img src=&quot;files/blog/beeper1.png&quot; alt=&quot;Graph&quot;&gt;
+  &lt;figcaption&gt;
+    Number of connections received every hour since 31 Jan 2022 10:00 UTC
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+  The data for the above graph is available at
+  &lt;a href=&quot;https://gist.github.com/susam/159c7d92659b3185eb0b0d683998a3b7&quot;&gt;beeper.log&lt;/a&gt;.
+  Now, 4761 isn&apos;t a huge number in the grand scheme of things, but it
+  was still pretty cool to see people notice an obscure comment buried
+  in a regular HN thread, act on it and make my terminal beep
+  thousands of time.
+&lt;/p&gt;
+&lt;p&gt;
+  At the end of the day, this was a fun experiment.  Pointless, but
+  fun!  Computing isn&apos;t always about solving problems.  Sometimes,
+  it&apos;s also about exploring quirky ideas.  The joy is in the
+  exploration and having others join in made it even more enjoyable.
+  Activities like this keep computing fun for me!
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;p id=&quot;update-2025-04-10&quot;&gt;
+  &lt;strong&gt;Update on 10 Apr 2025:&lt;/strong&gt;
+  I &lt;a href=&quot;https://news.ycombinator.com/item?id=43642123&quot;&gt;shared
+  this article on Hacker News&lt;/a&gt; today and saw another surge in
+  connections to my beeper loop.
+&lt;/p&gt;
+&lt;figure class=&quot;soft&quot;&gt;
+  &lt;img src=&quot;files/blog/beeper2.png&quot; alt=&quot;Graph&quot;&gt;
+  &lt;figcaption&gt;
+    Number of connections received every hour since 10 Apr 2025 10:00 UTC
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+  The data for the above graph is available at
+  &lt;a href=&quot;https://gist.github.com/susam/3cec5db1a78a9db527327460656daeae&quot;&gt;beeper2.log&lt;/a&gt;.
+  The data shows a total of 352&amp;#x202f;831 connections from 1396
+  unique client addresses over 14 hours.  That amounts to a total of
+  1&amp;#x202f;411&amp;#x202f;324 beeps!  Much of the traffic seems to have
+  come from persistent client loops constantly connecting to my beeper
+  loop.  In particular, the client identified by the anonymised
+  identifier C0276 made the largest number of connections by far, with
+  327&amp;#x202f;209 total connections.  The second most active client,
+  C0595, made only 6771 connections.  There were 491 clients that
+  connected exactly once.  If you&apos;d like to see the number of
+  connections by each client, see
+  &lt;a href=&quot;https://gist.github.com/susam/d6766f4b722f899250a8f3da0c98f993&quot;&gt;beeperclient2.log&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  In conclusion, the difference in the volume of connections between
+  the earlier experiment and today&apos;s is striking.  In the first round,
+  three years ago, there were only 4761 connections from some readers
+  of a comment thread.  But in today&apos;s round, with this post being
+  featured on the HN front page, there were 352&amp;#x202f;831
+  connections!  It is fascinating to see how odd experiments like this
+  can find so many participants within the HN community!
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/hn-bell.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/absurd.html&quot;&gt;#absurd&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/unix.html&quot;&gt;#unix&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/networking.html&quot;&gt;#networking&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Pretty-Printing JSON Response with HTTP Headers</title>
+    <link href="https://susam.net/pretty-print-json-response-with-http-headers.html"/>
+    <id>urn:uuid:894ff191-0b1a-454a-8757-7aa3a94b94f2</id>
+    <updated>2024-04-14T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Often while using &lt;code&gt;curl&lt;/code&gt; with URLs that return a JSON
+  response, I need to print the HTTP response headers along with the
+  JSON response.  Here is an example that shows how this can be done:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;curl -sSi https://susam.net/code/lab/json/books.json&lt;/kbd&gt;
+HTTP/1.1 200 OK
+Server: nginx/1.18.0
+Date: Sat, 05 Apr 2024 11:53:24 GMT
+Content-Type: application/json
+Content-Length: 172
+Last-Modified: Sat, 05 Apr 2024 11:53:05 GMT
+Connection: keep-alive
+ETag: &quot;67f119a1-ac&quot;
+Accept-Ranges: bytes
+
+[
+  {&quot;title&quot;: &quot;Gulliver&apos;s Travels&quot;, &quot;author&quot;: &quot;Jonathan Swift&quot;, &quot;published&quot;: 1726},
+  {&quot;title&quot;: &quot;Treasure Island&quot;, &quot;author&quot;: &quot;Robert Louis Stevenson&quot;, &quot;published&quot;: 1883}
+]&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The above output is obtained using curl 7.77.0
+  (x86_64-apple-darwin21.0).  The &lt;code&gt;-i&lt;/code&gt; option is
+  responsible for including the HTTP response headers.
+  The &lt;code&gt;-s&lt;/code&gt; and &lt;code&gt;-S&lt;/code&gt; options are not too
+  important for the current discussion but I usually happen to use
+  them out of habit.  The &lt;code&gt;-s&lt;/code&gt; option suppresses the
+  progress meter and error messages but the &lt;code&gt;-S&lt;/code&gt; re-enables
+  the display of error messages.  This helps me avoid the progress
+  meter in the output without having to lose visibility of any errors
+  that may arise.
+&lt;/p&gt;
+&lt;p&gt;
+  So far so good!  But can we also have the JSON response
+  pretty-printed with say &lt;code&gt;jq&lt;/code&gt;?  The above command prints
+  both the HTTP headers and the response to the standard output, so
+  piping the standard output to &lt;code&gt;jq&lt;/code&gt; does not work.
+  The &lt;code&gt;jq&lt;/code&gt; command fails with an error as soon as it
+  encounters the HTTP headers.
+&lt;/p&gt;
+&lt;p&gt;
+  If, however, we manage to send the HTTP header and the response to
+  different streams or files, then we could utilise &lt;code&gt;jq&lt;/code&gt; to
+  pretty-print the stream or file that contains the JSON response.
+  Here is an example that shows how to do this:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;curl -sSD head.txt -o out.json https://susam.net/code/lab/json/books.json &amp;amp;&amp;amp; cat head.txt &amp;amp;&amp;amp; jq . out.json&lt;/kbd&gt;
+HTTP/1.1 200 OK
+Server: nginx/1.18.0
+Date: Sat, 05 Apr 2024 11:53:51 GMT
+Content-Type: application/json
+Content-Length: 172
+Last-Modified: Sat, 05 Apr 2024 11:53:05 GMT
+Connection: keep-alive
+ETag: &quot;67f119a1-ac&quot;
+Accept-Ranges: bytes
+
+[
+  {
+    &quot;title&quot;: &quot;Gulliver&apos;s Travels&quot;,
+    &quot;author&quot;: &quot;Jonathan Swift&quot;,
+    &quot;published&quot;: 1726
+  },
+  {
+    &quot;title&quot;: &quot;Treasure Island&quot;,
+    &quot;author&quot;: &quot;Robert Louis Stevenson&quot;,
+    &quot;published&quot;: 1883
+  }
+]&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Alternatively, we can achieve this using a single command by
+  printing the the HTTP headers to standard error.  This ensures that
+  only the JSON response is printed to standard output, which we can
+  then pretty-print using &lt;code&gt;jq&lt;/code&gt;.  Here is an example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;curl -sSD /dev/stderr https://susam.net/code/lab/json/books.json | jq .&lt;/kbd&gt;
+HTTP/1.1 200 OK
+Server: nginx/1.18.0
+Date: Sat, 05 Apr 2024 11:54:12 GMT
+Content-Type: application/json
+Content-Length: 172
+Last-Modified: Sat, 05 Apr 2024 11:53:05 GMT
+Connection: keep-alive
+ETag: &quot;67f119a1-ac&quot;
+Accept-Ranges: bytes
+
+[
+  {
+    &quot;title&quot;: &quot;Gulliver&apos;s Travels&quot;,
+    &quot;author&quot;: &quot;Jonathan Swift&quot;,
+    &quot;published&quot;: 1726
+  },
+  {
+    &quot;title&quot;: &quot;Treasure Island&quot;,
+    &quot;author&quot;: &quot;Robert Louis Stevenson&quot;,
+    &quot;published&quot;: 1883
+  }
+]&lt;/samp&gt;&lt;/pre&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/pretty-print-json-response-with-http-headers.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/unix.html&quot;&gt;#unix&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/networking.html&quot;&gt;#networking&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Control, Escape and Meta Tricks</title>
+    <link href="https://susam.net/control-escape-meta-tricks.html"/>
+    <id>urn:uuid:bbe73d4e-8b02-4fb2-b3c2-b765c3e129a6</id>
+    <updated>2023-06-16T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h2 id=&quot;terminal-tricks&quot;&gt;Terminal Tricks&lt;/h2&gt;
+&lt;p&gt;
+  Open a Unix or Linux terminal emulator.  If you have Terminal.app on
+  macOS, ensure that the &quot;Use Option as Meta Key&quot; option is enabled in
+  its &quot;Preferences&quot; section.  Now type &lt;code&gt;foo bar baz&lt;/code&gt;
+  followed by &lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;b&lt;/kbd&gt;
+  (i.e. &lt;kbd&gt;alt&lt;/kbd&gt;+&lt;kbd&gt;b&lt;/kbd&gt; or &lt;kbd&gt;option&lt;/kbd&gt;+&lt;kbd&gt;b&lt;/kbd&gt;
+  on modern keyboards).  In a typical desktop environment with a
+  typical and modern terminal emulator running a modern shell like
+  Bash, Zsh, etc., the cursor should move backward by one word.  Now
+  type &lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;b&lt;/kbd&gt;.  The cursor should move back again
+  by one word.  Finally type &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;[&lt;/kbd&gt; &lt;kbd&gt;b&lt;/kbd&gt;
+  and the same thing should happen again.  How are we able to perform
+  the same operation in three different ways?
+&lt;/p&gt;
+&lt;p&gt;
+  Note that if the desktop environment or the terminal emulator or the
+  set of shell key bindings is configured differently, the results may
+  vary.  But we will assume that the typical defaults are in effect in
+  the remainder of this post.  To understand why these three key
+  sequences yield the same result, it might be a good exercise to run
+  the command &lt;code&gt;cat&lt;/code&gt; and type the three key sequences again.
+  The three key sequences we are talking about are:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;b&lt;/kbd&gt; (i.e. &lt;kbd&gt;alt&lt;/kbd&gt;+&lt;kbd&gt;b&lt;/kbd&gt;
+    or &lt;kbd&gt;option&lt;/kbd&gt;+&lt;kbd&gt;b&lt;/kbd&gt; on modern keyboards)
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;b&lt;/kbd&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;[&lt;/kbd&gt; &lt;kbd&gt;b&lt;/kbd&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  When we run &lt;code&gt;cat&lt;/code&gt; and type the three key sequences
+  mentioned above, the following output may appear:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;cat
+^[b^[b^[b&lt;/kbd&gt;&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The output shows that the terminal sends the same input
+  to &lt;code&gt;cat&lt;/code&gt; each time: the &lt;em&gt;escape&lt;/em&gt; character that
+  appears as &lt;code&gt;^[&lt;/code&gt; in the output and the
+  character &lt;code&gt;b&lt;/code&gt;.  This becomes more apparent if instead of
+  running &lt;code&gt;cat&lt;/code&gt;, we run &lt;code&gt;od -t d1&lt;/code&gt; and type the
+  three key sequences followed
+  by &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;d&lt;/kbd&gt; &lt;kbd&gt;enter&lt;/kbd&gt;:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;od -t d1
+^[b^[b^[b&lt;/kbd&gt;
+0000000    27  98  27  98  27  98  10
+0000007&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Indeed decimal 27 is the code of the &lt;em&gt;escape&lt;/em&gt; character.
+  Similarly decimal 98 is the code of the character &lt;code&gt;b&lt;/code&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;control-codes&quot;&gt;Control Codes&lt;/h2&gt;
+&lt;p&gt;
+  Let us first discuss why typing &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;[&lt;/kbd&gt;
+  produces the &lt;em&gt;escape&lt;/em&gt; character.  The
+  character &lt;code&gt;[&lt;/code&gt; has code 91 (binary 1011011) and holding
+  the &lt;kbd&gt;ctrl&lt;/kbd&gt; key while typing it results in a control code
+  obtained by taking 91 (binary 1011011), keeping its five least
+  significant bits and discarding the rest.  We get the control code
+  27 (binary 11011) as the result.  This is the code of
+  the &lt;em&gt;escape&lt;/em&gt; character.  This explains
+  why &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;[&lt;/kbd&gt; produces the &lt;em&gt;escape&lt;/em&gt;
+  character and why the &lt;em&gt;escape&lt;/em&gt; character is represented
+  as &lt;code&gt;^[&lt;/code&gt; while typing it into the standard input.  The
+  caret sign (&lt;code&gt;^&lt;/code&gt;) here is a notation for
+  the &lt;code&gt;ctrl&lt;/code&gt; modifier.
+&lt;/p&gt;
+&lt;p&gt;
+  The following table provides some more examples of control codes
+  that can be obtained by typing the &lt;kbd&gt;ctrl&lt;/kbd&gt; key along with
+  some other key.
+&lt;/p&gt;
+&lt;table class=&quot;grid mono&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th rowspan=&quot;2&quot;&gt;Key&lt;/th&gt;
+      &lt;th colspan=&quot;3&quot;&gt;Modified Character&lt;/th&gt;
+      &lt;th colspan=&quot;3&quot;&gt;Control Character&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Binary&lt;/th&gt;
+      &lt;th&gt;Decimal&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+      &lt;th&gt;Binary&lt;/th&gt;
+      &lt;th&gt;Decimal&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;@&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;1000000&lt;/td&gt;
+      &lt;td&gt;64&lt;/td&gt;
+      &lt;td&gt;@&lt;/td&gt;
+      &lt;td&gt;00000&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;Null&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;g&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;1000111&lt;/td&gt;
+      &lt;td&gt;71&lt;/td&gt;
+      &lt;td&gt;G&lt;/td&gt;
+      &lt;td&gt;00111&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;Bell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;h&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;1001000&lt;/td&gt;
+      &lt;td&gt;72&lt;/td&gt;
+      &lt;td&gt;H&lt;/td&gt;
+      &lt;td&gt;01000&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;Backspace&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;i&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;1001001&lt;/td&gt;
+      &lt;td&gt;73&lt;/td&gt;
+      &lt;td&gt;I&lt;/td&gt;
+      &lt;td&gt;01001&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;Horizontal Tab&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;j&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;1001010&lt;/td&gt;
+      &lt;td&gt;74&lt;/td&gt;
+      &lt;td&gt;I&lt;/td&gt;
+      &lt;td&gt;01010&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;Line Feed&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;m&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;1001101&lt;/td&gt;
+      &lt;td&gt;77&lt;/td&gt;
+      &lt;td&gt;M&lt;/td&gt;
+      &lt;td&gt;01101&lt;/td&gt;
+      &lt;td&gt;13&lt;/td&gt;
+      &lt;td&gt;Carriage Return&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;[&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;1011011&lt;/td&gt;
+      &lt;td&gt;91&lt;/td&gt;
+      &lt;td&gt;[&lt;/td&gt;
+      &lt;td&gt;11011&lt;/td&gt;
+      &lt;td&gt;27&lt;/td&gt;
+      &lt;td&gt;Escape&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;
+  This explains why typing &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;g&lt;/kbd&gt; in a modern
+  terminal emulator produces an audible beep or a visual flash,
+  why &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;h&lt;/kbd&gt; erases a character and so on.  This
+  also explains why we can type &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;[&lt;/kbd&gt; in Vim to
+  escape from insert mode to normal mode.  While we can
+  type &lt;em&gt;escape&lt;/em&gt; with the &lt;kbd&gt;esc&lt;/kbd&gt; key on the keyboard, we
+  can do so with the &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;[&lt;/kbd&gt; key too within the
+  terminal.
+&lt;/p&gt;
+&lt;p&gt;
+  The keen eyed may notice that the table above has lowercase letters
+  in the first column but the second and third columns use the code of
+  the corresponding uppercase letters.  The lowercase letters in the
+  first column is merely a notation I am using in this post to
+  identify the keys on a keyboard.  They don&apos;t actually mean lowercase
+  characters.  In fact, the very early keyboards only had uppercase
+  letters and they simply toggled the 7th least significant bit of the
+  modified character to obtain the control code.
+&lt;/p&gt;
+&lt;p&gt;
+  By the way, an interesting thing worth noting here is that even if
+  we do consider the code of the lowercase character and pick only its
+  five least significant bits, we get the same control code as we
+  would get if we started with the corresponding uppercase character.
+  For example, consider the key sequence
+  &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;g&lt;/kbd&gt;.  The uppercase character &lt;code&gt;G&lt;/code&gt;
+  has the code 71 (decimal 1000111) and the lowercase
+  character &lt;code&gt;g&lt;/code&gt; has the code 103 (decimal 1100111).  The
+  five least significant bits are equal in both.  So when we pick the
+  five least significant bits and discard the rest, we get the same
+  result, i.e. 7 (binary 111) which is the code of the &lt;em&gt;bell&lt;/em&gt;
+  character.  This is due to the fact that the five least significant
+  bits of the code of a lowercase character is exactly the same as
+  that of the corresponding uppercase character.  They differ only in
+  their sixth least significant bit.  This is only an interesting
+  observation.  It is of little significance though because like I
+  mentioned earlier, the early keyboards only flipped a bit in the
+  code of the uppercase characters when the &lt;kbd&gt;ctrl&lt;/kbd&gt; modifier
+  was applied.
+&lt;/p&gt;
+&lt;p&gt;
+  In addition to what we have discussed so far, some terminal
+  emulators also implement a few special rules such as the following:
+&lt;/p&gt;
+&lt;table class=&quot;grid mono&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th rowspan=&quot;2&quot;&gt;Key&lt;/th&gt;
+      &lt;th colspan=&quot;3&quot;&gt;Modified Character&lt;/th&gt;
+      &lt;th colspan=&quot;3&quot;&gt;Resulting Character&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Binary&lt;/th&gt;
+      &lt;th&gt;Decimal&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+      &lt;th&gt;Binary&lt;/th&gt;
+      &lt;th&gt;Decimal&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody style=&quot;font-family: monospace, monospace&quot;&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;space&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;0100000&lt;/td&gt;
+      &lt;td&gt;32&lt;/td&gt;
+      &lt;td&gt;Space&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;Null&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;?&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;0111111&lt;/td&gt;
+      &lt;td&gt;63&lt;/td&gt;
+      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt;1111111&lt;/td&gt;
+      &lt;td&gt;127&lt;/td&gt;
+      &lt;td&gt;Delete&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;
+  One could argue that the first row shows a straightforward example
+  of picking the least significiant five bits to arrive at the control
+  code, so it is not really a special case.  That is a fair point.
+  However, in the history of computing, different systems have
+  implemented slightly different methods to compute the resulting
+  control codes from our input.  Flipping the 7th least significant
+  bit was one of the early methods.  Turning off only the the 6th and
+  the 7th least significant bits has been another method.  Subtracting
+  64 from the character code has been yet another one.  These
+  different methods produce identical results for the first table but
+  not so for the second table.  For example, while turning off the 6th
+  and 7th least significnat bits of 32 (the code of the &lt;em&gt;space&lt;/em&gt;
+  character) does give us 0 but merely flipping its 7th bit does not.
+  Further, note that allowing &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;space&lt;/kbd&gt; to
+  produce the null character is a bit redundant
+  because &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;@&lt;/kbd&gt; already did that right from the
+  days of very early keyboards.  The second entry above is also a
+  special rule because we neither turn off bits nor subtract 64.
+  Instead, we flip the 7th least significant bit which amounts to
+  adding 64 to the code of the modified character.  It is also the
+  only control code that has its 6th and 7th least significant bits
+  turned on.
+&lt;/p&gt;
+&lt;h2 id=&quot;meta-key-sequences&quot;&gt;Meta Key Sequences&lt;/h2&gt;
+&lt;p&gt;
+  The &lt;kbd&gt;meta&lt;/kbd&gt; key no longer exists on modern keyboards.  On
+  modern keyboards, we use the &lt;kbd&gt;alt&lt;/kbd&gt; or &lt;kbd&gt;option&lt;/kbd&gt; key
+  instead of &lt;kbd&gt;meta&lt;/kbd&gt;.  For example, when a shell&apos;s manual says
+  that we need to type &lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;b&lt;/kbd&gt; to move the cursor
+  back by one word, what we really type on a modern keyboard is
+  either &lt;kbd&gt;alt&lt;/kbd&gt;+&lt;kbd&gt;b&lt;/kbd&gt;
+  or &lt;kbd&gt;option&lt;/kbd&gt;+&lt;kbd&gt;b&lt;/kbd&gt;.  In fact, the &lt;code&gt;cat&lt;/code&gt;
+  and &lt;code&gt;od&lt;/code&gt; experiments mentioned earlier show that when we
+  type the modern alternative for the &lt;kbd&gt;meta&lt;/kbd&gt; key along with
+  another key, what most terminals really send to the underlying
+  program is an &lt;em&gt;escape&lt;/em&gt; control code (27) followed by the code
+  of the modified character.
+&lt;/p&gt;
+&lt;table class=&quot;grid mono&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Meta Key Sequence&lt;/th&gt;
+      &lt;th&gt;Escape Key Sequence&lt;/th&gt;
+      &lt;th&gt;Control Key Sequence&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;b&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;b&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;[&lt;/kbd&gt; &lt;kbd&gt;b&lt;/kbd&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;f&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;f&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;[&lt;/kbd&gt; &lt;kbd&gt;f&lt;/kbd&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;/&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;/&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;[&lt;/kbd&gt; &lt;kbd&gt;/&lt;/kbd&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;:&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;:&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;[&lt;/kbd&gt; &lt;kbd&gt;:&lt;/kbd&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;
+  There are several layers of software involved between the keyboard
+  input and the application running in the terminal and the exact
+  behaviour of the &lt;kbd&gt;alt&lt;/kbd&gt; or &lt;kbd&gt;option&lt;/kbd&gt; key may vary
+  depending on the configuration of each of these layers.  Terminal
+  configuration alone is a complex topic that can be discussed
+  extensively.  However, the behaviour described here is one of the
+  popular defaults.  Alternative behaviours exist but they generally
+  produce similar effects for the user.
+&lt;/p&gt;
+&lt;h2 id=&quot;awkward-vim-tricks&quot;&gt;Awkward Vim Tricks&lt;/h2&gt;
+&lt;p&gt;
+  Most Vim users know that we can go from insert mode to command-line
+  mode and search for patterns by typing
+  either &lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;/&lt;/kbd&gt; or &lt;kbd&gt;C-[&lt;/kbd&gt; &lt;kbd&gt;/&lt;/kbd&gt;.
+  But what some people may find surprising is that we can also go from
+  insert mode to searching patterns simply by typing
+  &lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;/&lt;/kbd&gt;.  Yes, this can be verified by running
+  Vim in a terminal emulator.  While insert mode is active,
+  type &lt;kbd&gt;alt&lt;/kbd&gt;+&lt;kbd&gt;/&lt;/kbd&gt; or &lt;kbd&gt;option&lt;/kbd&gt;+&lt;kbd&gt;/&lt;/kbd&gt;
+  and the current mode should instantly switch to the command-line
+  mode with the forward-slash (&lt;samp&gt;/&lt;/samp&gt;) prompt waiting for our
+  search pattern.  This works only in a terminal emulator.  It may not
+  work in the graphical version of Vim.  The table above illustrates
+  why this works in a terminal emulator.
+&lt;/p&gt;
+&lt;p&gt;
+  Similarly, in a Vim instance running within a terminal emulator, we
+  can type &lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;:&lt;/kbd&gt; to go directly from insert
+  mode to command-line mode and enter Ex commands.  We can
+  type &lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;0&lt;/kbd&gt; to go directly from insert mode to
+  the first character of a line or type &lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;$&lt;/kbd&gt;
+  to go to the end of the line and so on.  These are equivalent to
+  typing &lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;0&lt;/kbd&gt;, &lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;$&lt;/kbd&gt;,
+  etc.
+&lt;/p&gt;
+&lt;p&gt;
+  More interestingly, we can type &lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;O&lt;/kbd&gt; to open
+  a line above, &lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;A&lt;/kbd&gt; to append text at the end
+  of the line, &lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;I&lt;/kbd&gt; to append text at the
+  beginning of the line or &lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;S&lt;/kbd&gt; to delete the
+  current line while staying in insert mode!  Since the Vim
+  commands &lt;kbd&gt;O&lt;/kbd&gt;, &lt;kbd&gt;A&lt;/kbd&gt;, &lt;kbd&gt;I&lt;/kbd&gt; and &lt;kbd&gt;S&lt;/kbd&gt;
+  leave us back in insert mode, we are able to perform an editing
+  operation that involves leaving the insert mode, doing something
+  interesting and returning to insert mode instantly using the
+  the &lt;kbd&gt;meta&lt;/kbd&gt; key combination.  The following table summarises
+  these observations:
+&lt;/p&gt;
+&lt;table class=&quot;grid mono&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Initial Mode&lt;/th&gt;
+      &lt;th&gt;Meta Key Sequence&lt;/th&gt;
+      &lt;th&gt;Equivalent To&lt;/th&gt;
+      &lt;th&gt;Operation&lt;/th&gt;
+      &lt;th&gt;Final State&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Insert&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;/&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;/&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;Enter command-line mode to search a pattern&lt;/td&gt;
+      &lt;td&gt;Command-line&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Insert&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;:&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;:&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;Enter command-line mode to enter Ex command&lt;/td&gt;
+      &lt;td&gt;Command-line&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Insert&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;0&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;0&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;Move to the first character of the line&lt;/td&gt;
+      &lt;td&gt;Normal&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Insert&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;$&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;$&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;Move to the end of the line&lt;/td&gt;
+      &lt;td&gt;Normal&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Insert&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;O&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;O&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;Begin a new line above and insert text&lt;/td&gt;
+      &lt;td&gt;Insert&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Insert&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;A&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;A&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;Append text to the end of line&lt;/td&gt;
+      &lt;td&gt;Insert&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Insert&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;I&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;I&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;Insert text before the first non-blank in line&lt;/td&gt;
+      &lt;td&gt;Insert&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Insert&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;meta&lt;/kbd&gt;+&lt;kbd&gt;S&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;kbd&gt;esc&lt;/kbd&gt; &lt;kbd&gt;S&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;Delete line and insert text&lt;/td&gt;
+      &lt;td&gt;Insert&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;
+  There is no good reason to use Vim like this but it works, thanks to
+  the quirky history of Unix terminals and keyboards!
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/control-escape-meta-tricks.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/unix.html&quot;&gt;#unix&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Commands</title>
+    <link href="https://susam.net/cmd.html"/>
+    <id>urn:uuid:fa06d77b-ee11-4658-94a5-4e4b9952f6de</id>
+    <updated>2022-11-18T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  On this page, I collect both frequently and rarely used commands.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#join-pdf-files-with-ghostscript&quot;&gt;Join PDF Files With Ghostscript&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#resize-window-on-macos&quot;&gt;Resize Window on macOS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- gs join --&gt;
+&lt;h2 id=&quot;join-pdf-files-with-ghostscript&quot;&gt;Join PDF Files With Ghostscript&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=out.pdf 1.pdf 2.pdf 3.pdf&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Last tested with gs 10.0.0 on 18 Nov 2022.&lt;/p&gt;
+
+&lt;!-- osascript resize --&gt;
+&lt;h2 id=&quot;resize-window-on-macos&quot;&gt;Resize Window on macOS&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;osascript -e &apos;tell app &quot;Firefox&quot; to set bounds of front window to {0, 0, 1200, 720}&apos;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Last tested on macOS 15.3.2 on 19 Feb 2026.&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/cmd.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>From XON/XOFF to Forward Incremental Search</title>
+    <link href="https://susam.net/from-xon-xoff-to-forward-incremental-search.html"/>
+    <id>urn:uuid:b8e4d86c-6221-49bd-b600-3dd723f319e0</id>
+    <updated>2022-08-13T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h2 id=&quot;xon-xoff&quot;&gt;XON/XOFF&lt;/h2&gt;
+&lt;p&gt;
+  In the olden days of computing, software flow control with control
+  codes XON and XOFF was a necessary feature that dumb terminals
+  needed to support.  When a terminal received more data than it could
+  display, there needed to be a way for the terminal to tell the
+  remote host to pause sending more data.  The control code 19 was
+  chosen for this.  The control code 17 was chosen to tell the remote
+  host to resume transmission of data.
+&lt;/p&gt;
+&lt;p&gt;
+  The control code 19 is called Device Control 3 (DC3) in the ASCII
+  chart.  It is also known as &quot;transmit off&quot; (XOFF).  The control code
+  17 is called Device Control 1 (DC1) as well as &quot;transmit on&quot; (XON).
+  Now how does a user of the terminal really send these control codes?
+  Well, how do they send any control code?  Using the &lt;kbd&gt;ctrl&lt;/kbd&gt;
+  key of course.
+&lt;/p&gt;
+&lt;p&gt;
+  Let us take a step back and see how a user can send familiar control
+  codes on modern terminal emulators, like say, the terminal software
+  we find on a Unix or Linux desktop environment.  While any sane
+  computer user would just type the &lt;kbd&gt;tab&lt;/kbd&gt; key to insert a tab
+  character, one could also type &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;i&lt;/kbd&gt; to
+  insert a tab character.  The character &lt;code&gt;I&lt;/code&gt; has code 73
+  (binary 1001001) and holding the &lt;kbd&gt;ctrl&lt;/kbd&gt; key while typing it
+  results in a control code made by taking 73 (binary 1001001),
+  keeping its five least significant bits and discarding the rest to
+  get the control code 9 (binary 1001) which is the code of the tab
+  character.  In other words, we get the control code by performing a
+  bitwise AND operation on the code of the character being modified
+  with binary code of 31 (binary 0011111).
+&lt;/p&gt;
+&lt;p&gt;
+  In case you are wondering, if we get the same result if we choose
+  the binary code of the lowercase &lt;code&gt;i&lt;/code&gt; to perform the
+  aforementioned operation, the answer is, yes.  While the code of
+  uppercase &lt;code&gt;I&lt;/code&gt; is 73 (binary 1001001), that of
+  lowercase &lt;code&gt;i&lt;/code&gt; is 105 (binary 1101001).  The right-most
+  five bits are same for both.  Thus when we preserve the five least
+  significant bits and discard the rest, we get the control code 9
+  (binary 1001) in both cases.  This is a neat result due to the fact
+  that the five least significant bits of the code of a lowercase
+  character is exactly the same as that of the corresponding uppercase
+  character.  They differ only in their sixth least significant bit.
+  That bit is on for the lowercase character but off for the
+  corresponding uppercase character.  This is just an interesting
+  observation as far as this post is concerned.  The very early
+  keyboards did not have lowercase letters.  They only had uppercase
+  letters and when the &lt;kbd&gt;ctrl&lt;/kbd&gt; key is pressed together with a
+  letter on such keyboards, the 7th bit of the character code was
+  flipped to get the control code.
+&lt;/p&gt;
+&lt;p&gt;
+  The bitwise operation mentioned earlier explains why
+  typing &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;h&lt;/kbd&gt; sends a backspace,
+  typing &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;j&lt;/kbd&gt; sends a newline and
+  typing &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;g&lt;/kbd&gt; plays a bell.  In modern
+  terminal emulators these days, the bell often manifests in the form
+  of an audible beep or a visual flash.  Here is a table that
+  summarises these control codes and a few more:
+&lt;/p&gt;
+&lt;table class=&quot;grid mono&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th rowspan=&quot;2&quot;&gt;Key&lt;/th&gt;
+      &lt;th colspan=&quot;3&quot;&gt;Modified Character&lt;/th&gt;
+      &lt;th colspan=&quot;3&quot;&gt;Control Character&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Binary&lt;/th&gt;
+      &lt;th&gt;Decimal&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+      &lt;th&gt;Binary&lt;/th&gt;
+      &lt;th&gt;Decimal&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;@&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;1000000&lt;/td&gt;
+      &lt;td&gt;64&lt;/td&gt;
+      &lt;td&gt;@&lt;/td&gt;
+      &lt;td&gt;00000&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;Null&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;g&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;1000111&lt;/td&gt;
+      &lt;td&gt;71&lt;/td&gt;
+      &lt;td&gt;G&lt;/td&gt;
+      &lt;td&gt;00111&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;Bell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;h&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;1001000&lt;/td&gt;
+      &lt;td&gt;72&lt;/td&gt;
+      &lt;td&gt;H&lt;/td&gt;
+      &lt;td&gt;01000&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;Backspace&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;i&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;1001001&lt;/td&gt;
+      &lt;td&gt;73&lt;/td&gt;
+      &lt;td&gt;I&lt;/td&gt;
+      &lt;td&gt;01001&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;Horizontal Tab&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;j&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;1001010&lt;/td&gt;
+      &lt;td&gt;74&lt;/td&gt;
+      &lt;td&gt;I&lt;/td&gt;
+      &lt;td&gt;01010&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;Line Feed&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;m&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;1001101&lt;/td&gt;
+      &lt;td&gt;77&lt;/td&gt;
+      &lt;td&gt;M&lt;/td&gt;
+      &lt;td&gt;01101&lt;/td&gt;
+      &lt;td&gt;13&lt;/td&gt;
+      &lt;td&gt;Carriage Return&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;[&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;1011011&lt;/td&gt;
+      &lt;td&gt;91&lt;/td&gt;
+      &lt;td&gt;[&lt;/td&gt;
+      &lt;td&gt;11011&lt;/td&gt;
+      &lt;td&gt;27&lt;/td&gt;
+      &lt;td&gt;Escape&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;
+  The last row in the table above explains why we can also
+  type &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;[&lt;/kbd&gt; in Vim to escape from insert mode
+  to normal mode.  This is, in fact, one of the convenient ways for
+  touch-typists to return to normal mode in Vim instead of clumsily
+  stretching the left hand fingers out to reach the &lt;kbd&gt;esc&lt;/kbd&gt; key
+  which is usually poorly located at the corner of most keyboards.
+&lt;/p&gt;
+&lt;p&gt;
+  There is a bit of oversimplication in the description above.
+  Throughout the history of computing, different systems have used
+  slightly different methods to compute the resulting control code
+  when the &lt;kbd&gt;ctrl&lt;/kbd&gt; modifier key is held.  Toggling the 7th
+  least significant bit was an early method.  Turning off both the 6th
+  and 7th least significant bits is another method.  Subtracting 64
+  from the character code is yet another method.  These are
+  implementation details and these various implementation methods lead
+  to the same results for the examples in the table above.  Then there
+  are some special rules too.  For example, many terminals implement a
+  special rule to make &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;space&lt;/kbd&gt; behave the
+  same as &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;@&lt;/kbd&gt; thus producing the null
+  character.  Further &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;?&lt;/kbd&gt; produces the delete
+  character in some terminals.  These special rules are summarised in
+  the table below.
+&lt;/p&gt;
+&lt;table class=&quot;grid mono&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th rowspan=&quot;2&quot;&gt;Key&lt;/th&gt;
+      &lt;th colspan=&quot;3&quot;&gt;Modified Character&lt;/th&gt;
+      &lt;th colspan=&quot;3&quot;&gt;Resulting Character&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Binary&lt;/th&gt;
+      &lt;th&gt;Decimal&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+      &lt;th&gt;Binary&lt;/th&gt;
+      &lt;th&gt;Decimal&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;space&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;0100000&lt;/td&gt;
+      &lt;td&gt;32&lt;/td&gt;
+      &lt;td&gt;Space&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;Null&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;?&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;0111111&lt;/td&gt;
+      &lt;td&gt;63&lt;/td&gt;
+      &lt;td&gt;?&lt;/td&gt;
+      &lt;td&gt;1111111&lt;/td&gt;
+      &lt;td&gt;127&lt;/td&gt;
+      &lt;td&gt;Delete&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;
+  For the purpose of this blog post, we don&apos;t need to worry about
+  these special rules.  Let us get back to the control codes 19 and 17
+  that represent XOFF and XON.  Here is how the table looks for them:
+&lt;/p&gt;
+&lt;table class=&quot;grid mono&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th rowspan=&quot;2&quot;&gt;Key&lt;/th&gt;
+      &lt;th colspan=&quot;3&quot;&gt;Modified Character&lt;/th&gt;
+      &lt;th colspan=&quot;3&quot;&gt;Resulting Character&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Binary&lt;/th&gt;
+      &lt;th&gt;Decimal&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+      &lt;th&gt;Binary&lt;/th&gt;
+      &lt;th&gt;Decimal&lt;/th&gt;
+      &lt;th&gt;Character&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;q&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;1010001&lt;/td&gt;
+      &lt;td&gt;81&lt;/td&gt;
+      &lt;td&gt;Q&lt;/td&gt;
+      &lt;td&gt;10001&lt;/td&gt;
+      &lt;td&gt;17&lt;/td&gt;
+      &lt;td&gt;DC1 (XON)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;s&lt;/kbd&gt;&lt;/td&gt;
+      &lt;td&gt;1010011&lt;/td&gt;
+      &lt;td&gt;83&lt;/td&gt;
+      &lt;td&gt;S&lt;/td&gt;
+      &lt;td&gt;10011&lt;/td&gt;
+      &lt;td&gt;19&lt;/td&gt;
+      &lt;td&gt;DC3 (XOFF)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;
+  We see that a user can type &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;s&lt;/kbd&gt; to send the
+  control code XOFF and then &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;q&lt;/kbd&gt; to send the
+  control code XON.  Although we do not use dumb terminals anymore,
+  these conventions have survived in various forms in our modern
+  terminal emulators.  To see a glimpse of it, launch the terminal
+  that comes with a modern operating system, then run &lt;code&gt;ping
+  localhost&lt;/code&gt; and while this command is printing its output,
+  type &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;s&lt;/kbd&gt;.  The terminal should pause
+  printing the output of the command.  Then
+  type &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;q&lt;/kbd&gt; and the terminal should resume
+  printing the output.
+&lt;/p&gt;
+&lt;h2 id=&quot;incremental-search-in-bash-zsh&quot;&gt;Incremental Search in Bash/Zsh&lt;/h2&gt;
+&lt;p&gt;
+  Let us now take a look at the shells that run within the terminals.
+  Both Bash and Zsh are very popular these days.  Both these shells
+  have excellent support for performing incremental searches through
+  the input history.  To see a quick demonstration of this, open a new
+  terminal that runs either Bash or Zsh and run these commands:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;echo foo
+echo bar
+cal
+uname
+echo baz&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Now type &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;r&lt;/kbd&gt; followed by &lt;code&gt;echo&lt;/code&gt;.
+  This should invoke the reverse search feature of the shell and
+  automatically complete the partial command &lt;code&gt;echo&lt;/code&gt;
+  to &lt;code&gt;echo baz&lt;/code&gt;.  Type &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;r&lt;/kbd&gt; again
+  to move back in the input history and autocomplete the command
+  to &lt;code&gt;echo bar&lt;/code&gt;.  We can type &lt;kbd&gt;enter&lt;/kbd&gt; anytime we
+  use the reverse search feature to execute the automatically
+  completed command.  Typing &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;r&lt;/kbd&gt; yet another
+  time should bring the &lt;code&gt;echo foo&lt;/code&gt; command at the shell
+  prompt.
+&lt;/p&gt;
+&lt;p&gt;
+  What if we went too far back in the input history and now want to go
+  forward?  There is a good news and there is some bad news.  The good
+  news is that both Bash and Zsh support forward search using
+  the &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;s&lt;/kbd&gt; key sequence.  The bad news is that
+  this key sequence may not reach the shell.  Most terminal emulators
+  consume this key sequence and interpret it as the control code XOFF.
+&lt;/p&gt;
+
+&lt;h2 id=&quot;conflict&quot;&gt;The Conflict&lt;/h2&gt;
+&lt;p&gt;
+  In the previous two sections, we have seen that the
+  &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;s&lt;/kbd&gt; key sequence is used to send the
+  control code XOFF.  But the same key sequence is also used for
+  forward incremental search in Bash and Zsh.  Since the terminal
+  consumes this key sequence and interprets it as the control code
+  XOFF, the shell never sees the key sequence.  As a result, the
+  forward incremental search functionality does not work when we type
+  this key sequence in the shell.
+&lt;/p&gt;
+&lt;p&gt;
+  Bash offers the incremental search facility via a wonderful piece of
+  library known as the the GNU Readline Library.  ZSH offers this
+  facility with its own Zsh Line Editor (ZLE).  So other tools that
+  rely on these libraries to offer line editing and history capability
+  are also affected by this conflict.  For example, many builds of
+  Python offer line editing and history capability using GNU Readline,
+  so while &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;r&lt;/kbd&gt; works fine to perform reverse
+  search in the Python interpreter, it is very likely
+  that &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;s&lt;/kbd&gt; does not work to perform forward
+  search.
+&lt;/p&gt;
+&lt;h2 id=&quot;reclaim-forward-incremental-search&quot;&gt;Reclaim Forward Incremental Search&lt;/h2&gt;
+&lt;p&gt;
+  We can forfeit the usage of control codes XON/XOFF to reclaim
+  forward incremental search.  Here is the command to disable XON/XOFF
+  output control in the terminal:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;stty -ixon&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  After running the command, &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;s&lt;/kbd&gt; is no longer
+  consumed by the terminal to pause the output.  To confirm that
+  forward incremental search works now, first run the above command
+  and then run the following commands:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;echo foo
+echo bar
+cal
+uname
+echo baz&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Now type &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;r&lt;/kbd&gt; followed by &lt;code&gt;echo&lt;/code&gt;
+  and the input line should be automatically completed to &lt;code&gt;echo
+  baz&lt;/code&gt;.  Type &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;r&lt;/kbd&gt; again and &lt;code&gt;echo
+  bar&lt;/code&gt; should appear at the shell prompt.
+  Type &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;r&lt;/kbd&gt; one more time to bring the
+  command &lt;code&gt;echo foo&lt;/code&gt; at the shell prompt.
+&lt;/p&gt;
+&lt;p&gt;
+  Now type &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;s&lt;/kbd&gt; once and the search facility
+  should switch itself to forward incremental search.  The search
+  prompt should change to show this.  For example, in Bash the search
+  prompt changes from &lt;code&gt;reverse-i-search:&lt;/code&gt;
+  to &lt;code&gt;i-search:&lt;/code&gt; to indicate this.  In Zsh, the search
+  prompt changes from &lt;code&gt;bck-i-search:&lt;/code&gt;
+  to &lt;code&gt;fwd-i-search:&lt;/code&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  Now type &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;s&lt;/kbd&gt; again and the input line
+  should be automatically completed to &lt;code&gt;echo bar&lt;/code&gt;.
+  Type &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;s&lt;/kbd&gt; again to bring back &lt;code&gt;echo
+  baz&lt;/code&gt; at the shell prompt.  This is the forward incremental
+  search in action.
+&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;
+  I believe the forward incremental search facility offered in shells
+  and other tools with line editing and history capabilities is a very
+  useful feature that can make navigating the input history very
+  convenient.  However due to the default setting of most terminals,
+  this rather splendid feature remains unusable.
+&lt;/p&gt;
+&lt;p&gt;
+  I believe heavy terminal users should add the command &lt;code&gt;stty
+  -ixon&lt;/code&gt; to their &lt;code&gt;~/.bash_profile&lt;/code&gt;
+  or &lt;code&gt;~/.zshrc&lt;/code&gt;, so that the &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;s&lt;/kbd&gt;
+  key sequence can be used for forward incremental search.  Forfeit
+  XON/XOFF to reclaim forward incremental search!
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/from-xon-xoff-to-forward-incremental-search.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/unix.html&quot;&gt;#unix&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Toy Traceroute With Ping</title>
+    <link href="https://susam.net/toy-traceroute-with-ping.html"/>
+    <id>urn:uuid:0cb3604a-a142-4c9b-85ea-e948fc3450bd</id>
+    <updated>2022-02-01T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Here is an example of a toy traceroute using &lt;code&gt;ping&lt;/code&gt; on
+  Linux:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;for ttl in {1..30}; do ping -4 -c 1 -t $ttl example.com &amp;amp;&amp;amp; break; done | grep -i from | nl -s &apos; &apos; -w 2&lt;/kbd&gt;
+ 1 From router1-lon.linode.com (212.111.33.229) icmp_seq=1 Time to live exceeded
+ 2 From if-0-1-0-0-0.gw1.lon1.gb.linode.com (109.74.207.10) icmp_seq=1 Time to live exceeded
+ 3 From be5787.rcr51.lon10.atlas.cogentco.com (204.68.252.58) icmp_seq=1 Time to live exceeded
+ 4 From be2589.ccr41.lon13.atlas.cogentco.com (154.54.59.37) icmp_seq=1 Time to live exceeded
+ 5 From be2099.ccr31.bos01.atlas.cogentco.com (154.54.82.34) icmp_seq=1 Time to live exceeded
+ 6 From verizondms.bos01.atlas.cogentco.com (154.54.11.54) icmp_seq=1 Time to live exceeded
+ 7 From ae-66.core1.bsa.edgecastcdn.net (152.195.233.129) icmp_seq=1 Time to live exceeded
+ 8 64 bytes from 93.184.216.34 (93.184.216.34): icmp_seq=1 ttl=57 time=63.0 ms&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The output above was obtained on a Debian GNU/Linux 11.2 (bullseye)
+  system.  The above loop sends multiple ICMP echo requests with
+  different Time to Live (TTL) values to reach the host
+  for &lt;code&gt;example.com&lt;/code&gt;.  The TTL occurs as an 8-bit field in
+  the Internet Protocol (IP) header of each packet.  It is the 9th
+  octet in an IPv4 header and the 8th octet in an IPv6 header.
+&lt;/p&gt;
+&lt;p&gt;
+  When a router on the path to the destination receives a packet, it
+  decrements the TTL value in the IP header by one.  If the TTL value
+  becomes 0 after the decrement operation, the router responds with a
+  &quot;time-to-live exceeded&quot; ICMP message.  Thus an echo request with TTL
+  value set to 1 gets us an ICMP &quot;time-to-live exceeded&quot; message from
+  the first router in the path, the next echo request with TTL value 2
+  gets us a similar ICMP message from the second router in the path
+  and so on.  The traceroute is complete when we receive a successful
+  ICMP echo reply.
+&lt;/p&gt;
+&lt;p&gt;
+  For comparison, here is the output of the
+  actual &lt;code&gt;traceroute&lt;/code&gt; command:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;traceroute example.com&lt;/kbd&gt;
+traceroute to example.com (93.184.216.34), 30 hops max, 60 byte packets
+ 1  router1-lon.linode.com (212.111.33.229)  0.602 ms  1.202 ms  1.326 ms
+ 2  if-0-1-0-1-0.gw1.lon1.gb.linode.com (109.74.207.14)  0.502 ms if-11-1-0-0-0.gw2.lon1.gb.linode.com (109.74.207.26)  0.401 ms if-11-0-0-0-0.gw2.lon1.gb.linode.com (109.74.207.30)  0.379 ms
+ 3  be5787.rcr51.lon10.atlas.cogentco.com (204.68.252.58)  0.573 ms  0.563 ms  0.566 ms
+ 4  be2589.ccr41.lon13.atlas.cogentco.com (154.54.59.37)  1.271 ms  1.311 ms ldn-bb1-link.ip.twelve99.net (62.115.122.188)  1.400 ms
+ 5  be2099.ccr31.bos01.atlas.cogentco.com (154.54.82.34)  63.511 ms  63.540 ms nyk-bb1-link.ip.twelve99.net (62.115.112.244)  73.397 ms
+ 6  nyk-b1-link.ip.twelve99.net (62.115.135.131)  70.113 ms verizondms.bos01.atlas.cogentco.com (154.54.11.54)  63.657 ms nyk-b1-link.ip.twelve99.net (62.115.135.131)  70.190 ms
+ 7  ae-66.core1.bsa.edgecastcdn.net (152.195.233.129)  63.535 ms edgecast-ic317659-nyk-b6.ip.twelve99-cust.net (62.115.147.199)  77.802 ms ae-66.core1.bsa.edgecastcdn.net (152.195.233.129)  63.582 ms
+ 8  93.184.216.34 (93.184.216.34)  62.895 ms ae-71.core1.nyb.edgecastcdn.net (152.195.69.139)  72.312 ms ae-70.core1.nyb.edgecastcdn.net (152.195.68.141)  69.419 ms
+ 9  93.184.216.34 (93.184.216.34)  70.827 ms  62.896 ms  73.342 ms&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Each line in the output above corresponds to a hop.  Each line shows
+  one or more addresses.  A maximum of three addresses can be seen in
+  the result for each hop.  That is because there are multiple paths
+  to the destination and the &lt;code&gt;traceroute&lt;/code&gt; command sends 3
+  UDP probe packets by default for each hop.  In this manner, it ends
+  up discovering multiple routes to the destination.  It is worth
+  noting here that by default &lt;code&gt;traceroute&lt;/code&gt; sends UDP
+  packets, not ICMP echo requests, with different TTL values as probe
+  packets.  But the route discovery mechanism remains the same.  After
+  sending each probe packet, it waits for ICMP &quot;time-to-live exceeded
+  messages&quot; from the routers that fall in the path to the destination.
+&lt;/p&gt;
+&lt;p&gt;
+  By comparing the two outputs above, we can see that the route found
+  by the toy traceroute using &lt;code&gt;ping&lt;/code&gt; is one of the several
+  routes found by the &lt;code&gt;traceroute&lt;/code&gt; command.
+&lt;/p&gt;
+&lt;p&gt;
+  For those on macOS, the &lt;code&gt;ping&lt;/code&gt; command options need to be
+  modified as follows:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;&lt;kbd&gt;for ttl in {1..30}; do ping -c 1 -t 1 -m $ttl example.com &amp;amp;&amp;amp; break; done | grep -i from | nl -s &apos; &apos; -w 2&lt;/kbd&gt;&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  On macOS, the &lt;code&gt;-t&lt;/code&gt; option of the &lt;code&gt;ping&lt;/code&gt;
+  command specifies a timeout (not IP TTL) that prevents it from
+  waiting for too long for a successful echo reply which we don&apos;t
+  expect to receive.  Further, on macOS, the &lt;code&gt;-m&lt;/code&gt; option of
+  the &lt;code&gt;ping&lt;/code&gt; command specifies the IP TTL.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/toy-traceroute-with-ping.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/networking.html&quot;&gt;#networking&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/protocol.html&quot;&gt;#protocol&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Wordle With Grep</title>
+    <link href="https://susam.net/wordle-with-grep.html"/>
+    <id>urn:uuid:5e705240-72ed-4ef8-86a1-bf3a99f50d50</id>
+    <updated>2022-01-22T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Let us solve a couple of
+  &lt;a href=&quot;https://www.powerlanguage.co.uk/wordle/&quot;&gt;Wordle&lt;/a&gt; games
+  with the Unix &lt;code&gt;grep&lt;/code&gt; command and the
+  Unix &lt;code&gt;words&lt;/code&gt; file.  The Wordle games #217, #218 and #219
+  for 22&amp;nbsp;Jan&amp;nbsp;2022, 23&amp;nbsp;Jan&amp;nbsp;2022 and
+  24&amp;nbsp;Jan&amp;nbsp;22 respectively are used as examples in this post.
+  The output examples shown below are obtained using the words
+  file &lt;code&gt;/usr/share/dict/words&lt;/code&gt;, GNU grep 3.6 and GNU bash
+  5.1.4 on Debian GNU/Linux 11.2 (bullseye).
+&lt;/p&gt;
+&lt;p&gt;
+  Note that the original Wordle game uses a different word list.
+  Further, there are several Wordle clones which may have their own
+  word lists.  For the purpose of this post, we will use the word list
+  that comes with Debian.  We will solve each Wordle in a quick and
+  dirty manner in this post.  The focus is going to be on making
+  constant progress and reaching the solution quickly with simple
+  shell commands.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#preliminary-work&quot;&gt;Preliminary Work&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#wordle-217&quot;&gt;Wordle #217&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#wordle-218&quot;&gt;Wordle #218&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#wordle-219&quot;&gt;Wordle #219&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;preliminary-work&quot;&gt;Preliminary Work&lt;/h2&gt;
+&lt;p&gt;
+  Before we start solving Wordle games, we will do some preliminary
+  work.  We will create a convenient shell alias that automatically
+  selects all five-letter words from the &lt;code&gt;words&lt;/code&gt; files.  We
+  will also find a good word to enter as the first guess into the
+  Wordle game.  The following steps elaborate this preliminary work:
+&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Make a shell alias named &lt;code&gt;words&lt;/code&gt; that selects all 5
+      letter words from the words file.
+    &lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;alias words=&apos;grep &quot;^[a-z]\{5\}$&quot; /usr/share/dict/words&apos;&lt;/kbd&gt;
+$ &lt;kbd&gt;words | head -n 3&lt;/kbd&gt;
+abaci
+aback
+abaft
+$ &lt;kbd&gt;words | tail -n 3&lt;/kbd&gt;
+zoned
+zones
+zooms
+$ &lt;kbd&gt;words | wc -l&lt;/kbd&gt;
+4594&lt;/samp&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      For each letter in the English alphabet, count the number of
+      five-letter words that contain the letter.  Rank each letter by
+      this count.
+    &lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;for c in {a..z}; do echo $(words | grep $c | wc -l) $c; done | sort -rn | head -n 15&lt;/kbd&gt;
+2245 s
+2149 e
+1736 a
+1404 r
+1301 o
+1231 i
+1177 l
+1171 t
+975 n
+924 d
+810 u
+757 c
+708 p
+633 h
+623 y&lt;/samp&gt;&lt;/pre&gt;
+    &lt;p&gt;
+      The output shows that the letter &apos;s&apos; occurs in 2245 five-letter
+      words, followed by &apos;e&apos; which occurs in 2149 five-letter words
+      and so on.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Find a word that contains the top five letters found in the
+      previous step.
+    &lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;words | grep s | grep e | grep a | grep r | grep o&lt;/kbd&gt;
+arose&lt;/samp&gt;&lt;/pre&gt;
+    &lt;p&gt;
+      We will enter this word as the first guess in every Wordle game.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      In case, the word &quot;arose&quot; does not lead to any positive result,
+      we will need another word to enter as our second guess.  Find a
+      word that contains the next five top letters in the list found
+      above.
+    &lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;words | grep i | grep l | grep t | grep n | grep d&lt;/kbd&gt;
+$ &lt;kbd&gt;words | grep i | grep l | grep t | grep n | grep u&lt;/kbd&gt;
+until&lt;/samp&gt;&lt;/pre&gt;
+    &lt;p&gt;
+      We found that there is no such word that contains &apos;i&apos;, &apos;l&apos;, &apos;t&apos;,
+      &apos;n&apos; and &apos;d&apos;.  So we got rid of &apos;d&apos; in our search and included
+      &apos;u&apos; (the next highest ranking letter after &apos;d&apos;) instead to find
+      the word &quot;until&quot;.  We will enter this word as the second guess
+      if and only if the first guess (i.e. &quot;arose&quot;) does not lead to
+      any positive result.
+    &lt;/p&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;wordle-217&quot;&gt;Wordle #217&lt;/h2&gt;
+&lt;p&gt;
+  Let us now solve Wordle #217 for Sat,&amp;nbsp;22&amp;nbsp;Jan&amp;nbsp;2022
+  with the following steps:
+&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Use the word &quot;arose&quot; as the first guess.  The following result
+      appears:
+    &lt;/p&gt;
+    &lt;p style=&quot;font-family: monospace; font-weight: bold; color: #ddd&quot;&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;A&lt;/span&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;R&lt;/span&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;O&lt;/span&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;S&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;E&lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      The previous result shows that the letter &apos;e&apos; occurs at the
+      fifth place.  Further, the letters &apos;a&apos;, &apos;r&apos;, &apos;o&apos; and &apos;s&apos; do not
+      occur anywhere in the word.  Look for words satisfying these
+      constraints.
+    &lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;words | grep &apos;....e&apos; | grep -v &apos;[aros]&apos; | head -n 5&lt;/kbd&gt;
+beige
+belie
+belle
+bible
+bilge&lt;/samp&gt;&lt;/pre&gt;
+    &lt;p&gt;
+      Pick the word &quot;beige&quot; for the second guess and enter it into the
+      Wordle game.  Note that since we are following a quick and dirty
+      approach here, we do not spend any time figuring out which of
+      the various five-letter words ending with the letter &apos;e&apos; is the
+      most optimal choice for the next guess.  We simply pick the
+      first word from the output above and enter it as the second
+      guess.  The following result appears now:
+    &lt;/p&gt;
+    &lt;p style=&quot;font-family: monospace; font-weight: bold; color: #ddd&quot;&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;B&lt;/span&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;E&lt;/span&gt;
+      &lt;span style=&quot;background: #b93; padding: 0.5em&quot;&gt;I&lt;/span&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;G&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;E&lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      The letter &apos;i&apos; occurs somewhere in the word but not at the third
+      place.  Further the letters &apos;b&apos; and &apos;g&apos; do not occur anywhere in
+      the word.  Also, the letter &apos;e&apos; does not occur anywhere apart
+      from the fifth place.  The letter &apos;e&apos; in the gray tile in the
+      second place confirms that the letter &apos;e&apos; does not repeat in the
+      answer word.  Refine the previous command to add these
+      constraints.
+    &lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;words | grep &apos;[^e][^e][^ie][^e]e&apos; | grep i | grep -v &apos;[arosbg]&apos; | head -n 5&lt;/kbd&gt;
+fiche
+indue
+lithe
+mince
+niche&lt;/samp&gt;&lt;/pre&gt;
+    &lt;p&gt;
+      Enter &quot;fiche&quot; as the third guess.  The following result appears:
+    &lt;/p&gt;
+    &lt;p style=&quot;font-family: monospace; font-weight: bold; color: #ddd&quot;&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;F&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;I&lt;/span&gt;
+      &lt;span style=&quot;background: #b93; padding: 0.5em&quot;&gt;C&lt;/span&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;H&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;E&lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      The previous result shows that the letter &apos;i&apos; occurs at the
+      second place.  Further, the letter &apos;c&apos; occurs somewhere in the
+      word but not at the third place.  Also, the letters &apos;f&apos; and &apos;h&apos;
+      do not occur anywhere in the word.  Refine the previous command
+      further to add these constraints:
+    &lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;words | grep &apos;[^e]i[^iec][^e]e&apos; | grep c | grep -v &apos;[arosbgfh]&apos; | head -n 5&lt;/kbd&gt;
+mince
+wince&lt;/samp&gt;&lt;/pre&gt;
+    &lt;p&gt;
+      Enter the word &quot;mince&quot; for the fourth guess.  It leads to the
+      following result:
+    &lt;/p&gt;
+    &lt;p style=&quot;font-family: monospace; font-weight: bold; color: #ddd&quot;&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;M&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;I&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;N&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;C&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;E&lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      We are almost there!  We now have all the letters except the
+      first one.  The previous result shows that the letter &apos;m&apos; does
+      not occur in the word.  Thus the answer word must be &quot;wince&quot;.
+      For the sake of completeness, here is a refined search that
+      selects the answer word based on the constraints known so far:
+    &lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;words | grep &apos;[^e]ince&apos; | grep -v &apos;[arosbgfhm]&apos; | head -n 5&lt;/kbd&gt;
+wince&lt;/samp&gt;&lt;/pre&gt;
+    &lt;p&gt;
+      It looks like we have found the answer word.  Enter &quot;wince&quot; as
+      the fifth guess to get the following result:
+    &lt;/p&gt;
+    &lt;p style=&quot;font-family: monospace; font-weight: bold; color: #ddd&quot;&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;W&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;I&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;N&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;C&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;E&lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      Done!
+    &lt;/p&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;wordle-218&quot;&gt;Wordle #218&lt;/h2&gt;
+&lt;p&gt;
+  Now that the wordle for Sat,&amp;nbsp;22&amp;nbsp;Jan&amp;nbsp;2022 is solved,
+  let us try the same method on Wordle #219 for
+  Sun,&amp;nbsp;23&amp;nbsp;Jan&amp;nbsp;2022 and see how well this method works.
+  Here are the steps:
+&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Like before, the first guess is &quot;arose&quot;.  Entering this word
+      leads to the following result:
+    &lt;/p&gt;
+    &lt;p style=&quot;font-family: monospace; font-weight: bold; color: #ddd&quot;&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;A&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;R&lt;/span&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;O&lt;/span&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;S&lt;/span&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;E&lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Now search for words based on the previous result.
+    &lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;words | grep &apos;.r...&apos; | grep -v &apos;[aose]&apos; | head -n 5&lt;/kbd&gt;
+brick
+bring
+brink
+briny
+bruin&lt;/samp&gt;&lt;/pre&gt;
+    &lt;p&gt;
+      Enter the word &quot;brick&quot; as the second guess.  This leads to the
+      following result:
+    &lt;/p&gt;
+    &lt;p style=&quot;font-family: monospace; font-weight: bold; color: #ddd&quot;&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;B&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;R&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;I&lt;/span&gt;
+      &lt;span style=&quot;background: #b93; padding: 0.5em&quot;&gt;C&lt;/span&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;K&lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Use the previous result to refine the search further.
+    &lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;words | grep &apos;.ri[^c].&apos; | grep c | grep -v &apos;[aosebk]&apos; | head -n 5&lt;/kbd&gt;
+crimp&lt;/samp&gt;&lt;/pre&gt;
+    &lt;p&gt;
+      Enter &quot;crimp&quot; as the third guess.  This leads to the following
+      result:
+    &lt;/p&gt;
+    &lt;p style=&quot;font-family: monospace; font-weight: bold; color: #ddd&quot;&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;C&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;R&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;I&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;M&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;P&lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      Done!
+    &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;wordle-219&quot;&gt;Wordle #219&lt;/h2&gt;
+&lt;p&gt;
+  Finally, let us solve Wordle #219 for
+  Mon,&amp;nbsp;24&amp;nbsp;Jan&amp;nbsp;2022.
+&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Enter &quot;arose&quot; as the first guess to get this result:
+    &lt;/p&gt;
+    &lt;p style=&quot;font-family: monospace; font-weight: bold; color: #ddd&quot;&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;A&lt;/span&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;R&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;O&lt;/span&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;S&lt;/span&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;E&lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      The previous result shows that the third letter is &apos;o&apos; and the
+      letters &apos;a&apos;, &apos;r&apos;, &apos;s&apos; and &apos;e&apos; do not occur anywhere in the word.
+      Search for words that match these constraints.
+    &lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;words | grep &apos;..o..&apos; | grep -v &apos;[arse]&apos; | head -n 5&lt;/kbd&gt;
+block
+blond
+blood
+bloom
+blown&lt;/samp&gt;&lt;/pre&gt;
+    &lt;p&gt;
+      Enter &quot;block&quot; as the second guess.  This leads to the following
+      result:
+    &lt;/p&gt;
+    &lt;p style=&quot;font-family: monospace; font-weight: bold; color: #ddd&quot;&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;B&lt;/span&gt;
+      &lt;span style=&quot;background: #b93; padding: 0.5em&quot;&gt;L&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;O&lt;/span&gt;
+      &lt;span style=&quot;background: #333; padding: 0.5em&quot;&gt;C&lt;/span&gt;
+      &lt;span style=&quot;background: #b93; padding: 0.5em&quot;&gt;K&lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      The previous result shows that the letter &apos;l&apos; occurs somewhere
+      in the word but not at the second place.  Similarly, the letter
+      &apos;k&apos; occurs somewhere in the word but not at the fifth place.
+      Further, the letters &apos;b&apos; and &apos;c&apos; do not occur anywhere in the
+      word.  Search for words that match these constraints.
+    &lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;words | grep &apos;.[^l]o.[^k]&apos; | grep l | grep k | grep -v &apos;[arsebc]&apos; | head -n 5&lt;/kbd&gt;
+knoll&lt;/samp&gt;&lt;/pre&gt;
+    &lt;p&gt;
+      Enter &quot;knoll&quot; as the third guess.  It leads to the following
+      result:
+    &lt;/p&gt;
+    &lt;p style=&quot;font-family: monospace; font-weight: bold; color: #ddd&quot;&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;K&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;N&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;O&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;L&lt;/span&gt;
+      &lt;span style=&quot;background: #585; padding: 0.5em&quot;&gt;L&lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      Done!
+    &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/wordle-with-grep.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/unix.html&quot;&gt;#unix&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/puzzle.html&quot;&gt;#puzzle&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Shell Eval</title>
+    <link href="https://susam.net/shell-eval.html"/>
+    <id>urn:uuid:b06e9411-2efb-4af6-9153-7118a5360f2d</id>
+    <updated>2022-01-06T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  In this post, we will perform a few experiments to see the
+  usefulness of the &lt;code&gt;eval&lt;/code&gt; command for a particular
+  scenario in a POSIX-compliant shell.  At first, we prepare a test
+  file that contains a space in its name and define a variable as
+  follows:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;echo lorem ipsum &amp;gt; &quot;foo bar&quot;&lt;/kbd&gt;
+$ &lt;kbd&gt;cmd=&apos;cat &quot;foo bar&quot;&apos;&lt;/kbd&gt;&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  We will use this file and the variable in the experiments below.
+  All output examples below are obtained using Dash 0.5.11 on a Debian
+  GNU/Linux 11.2 (bullseye) system.  Dash stands for Debian Almquist
+  Shell which is a POSIX-compliant shell available in Debian.  Any
+  POSIX conforming shell should produce similar output.  On Zsh, use
+  the command &lt;code&gt;emulate sh&lt;/code&gt; before running these examples to
+  get similar output.
+&lt;/p&gt;
+&lt;h2 id=&quot;experiment-1&quot;&gt;Experiment 1&lt;/h2&gt;
+&lt;p&gt;
+  Now simply enter &lt;code&gt;$cmd&lt;/code&gt; as a command into the shell.  The
+  following error occurs:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;$cmd&lt;/kbd&gt;
+cat: &apos;&quot;foo&apos;: No such file or directory
+cat: &apos;bar&quot;&apos;: No such file or directory&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The error occurs because the above command expands to the
+  command &lt;code&gt;cat&lt;/code&gt; followed by two
+  arguments: &lt;code&gt;&quot;foo&lt;/code&gt; and &lt;code&gt;bar&quot;&lt;/code&gt;.  Such an
+  expansion occurs due to a concept known as field splitting.  Quoting
+  from section 2.6.5 of
+  &lt;a href=&quot;https://pubs.opengroup.org/onlinepubs/9699919799/&quot;&gt;POSIX.1-2017&lt;/a&gt;:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;
+    After parameter expansion, command substitution, and arithmetic
+    expansion, the shell shall scan the results of expansions and
+    substitutions that did not occur in double-quotes for field
+    splitting and multiple fields can result.
+  &lt;/p&gt;
+  &lt;p&gt;
+    The shell shall treat each character of the IFS as a delimiter and
+    use the delimiters as field terminators to split the results of
+    parameter expansion, command substitution, and arithmetic
+    expansion into fields.
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+  By default, the space character belongs to &lt;code&gt;IFS&lt;/code&gt;.  Here
+  is an example command to verify this:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf &quot;$IFS&quot; | od -tcx1&lt;/kbd&gt;
+0000000      \t  \n
+         20  09  0a
+0000003&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The hexadecimal code &lt;samp&gt;20&lt;/samp&gt; in the output confirms that the
+  space character is present in the value of &lt;code&gt;IFS&lt;/code&gt;.
+  Therefore, according to the POSIX specification, &lt;code&gt;$cmd&lt;/code&gt;
+  first expands to &lt;code&gt;cat &quot;foo bar&quot;&lt;/code&gt;, then it is split into
+  three fields &lt;code&gt;cat&lt;/code&gt;, &lt;code&gt;&quot;foo&lt;/code&gt; and
+  &lt;code&gt;bar&quot;&lt;/code&gt; and then the command &lt;code&gt;cat&lt;/code&gt; is executed
+  with two arguments &lt;code&gt;&quot;foo&lt;/code&gt; and &lt;code&gt;bar&quot;&lt;/code&gt;.  Since
+  no files with those names exist, an error occurs.
+&lt;/p&gt;
+&lt;h2 id=&quot;experiment-2&quot;&gt;Experiment 2&lt;/h2&gt;
+&lt;p&gt;
+  Next we try to double-quote the previous command to prevent field
+  splitting and see what happens:
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;&quot;$cmd&quot;&lt;/kbd&gt;
+dash: 8: cat &quot;foo bar&quot;: not found&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The excerpt from the POSIX.1-2017 specification quoted in the
+  previous section shows that field splitting does not occur for
+  variable expansions within double quotes.  So the entire
+  expansion &lt;code&gt;cat &quot;foo bar&quot;&lt;/code&gt; remains intact as a single
+  field and is then executed as a command.  Since there is no such
+  weirdly named command, we get the above error.
+&lt;/p&gt;
+&lt;h2 id=&quot;experiment-3&quot;&gt;Experiment 3&lt;/h2&gt;
+&lt;p&gt;
+  Field splitting leads to an error as seen in the first experiment.
+  Preventing field splitting by double-quoting the variable expansion
+  also leads to an error as seen in the second experiment.  How do we
+  execute the command in the &lt;code&gt;cmd&lt;/code&gt; variable?
+&lt;/p&gt;
+&lt;p&gt;
+  We need a way to somehow get the shell to parse &lt;code&gt;cat &quot;foo
+  bar&quot;&lt;/code&gt; like a shell normally does, i.e. treat each unquoted
+  token as a separate field and each quoted token as a single one.
+  How do we get the shell to do that?  Well, we can just invoke the
+  shell itself to parse our command:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sh -c &quot;$cmd&quot;&lt;/kbd&gt;
+lorem ipsum&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  But the above command invokes a new shell process.  Can we avoid
+  that?  Yes, using the &lt;code&gt;eval&lt;/code&gt; command:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;eval &quot;$cmd&quot;&lt;/kbd&gt;
+lorem ipsum&lt;/samp&gt;&lt;/pre&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/shell-eval.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/unix.html&quot;&gt;#unix&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Of Course "changeme" Is Valid Base64</title>
+    <link href="https://susam.net/of-course-changeme-is-valid-base64.html"/>
+    <id>urn:uuid:fbcc9953-15ca-44c6-a4b6-31838ab3e242</id>
+    <updated>2020-10-24T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Today, I came across
+  this &lt;a href=&quot;https://3fx.ch/blog/2019/12/09/changeme-is-valid-base64/&quot;&gt;blog
+  post&lt;/a&gt; regarding how the author of the post used the
+  string &lt;code&gt;&quot;changeme&quot;&lt;/code&gt; as test data while testing a Base64
+  decoding functionality in their application.  However, the author
+  incorrectly believed that this test data is not a valid
+  Base64-encoded string and therefore would fail to decode
+  successfully when decoded as Base64.  To their surprise, they found
+  that this string &lt;code&gt;&quot;changeme&quot;&lt;/code&gt; does in fact decode
+  successfully.
+&lt;/p&gt;
+&lt;p&gt;
+  The post did not go any further into understanding why
+  indeed &lt;code&gt;&quot;changeme&quot;&lt;/code&gt; is a valid Base64-encoded string and
+  why it can successfully be decoded into binary data.  It appears
+  that the author was using Base64 encoding scheme as a black box.
+&lt;/p&gt;
+&lt;p&gt;
+  I think it is worth noting and illustrating that any alphanumeric
+  string with a length that is a multiple of 4 is a valid
+  Base64-encoded string.  Here are some examples that illustrate this:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf AAAA | base64 --decode | od -tx1&lt;/kbd&gt;
+0000000    00  00  00
+0000003
+$ &lt;kbd&gt;printf AAAAAAAA | base64 --decode | od -tx1&lt;/kbd&gt;
+0000000    00  00  00  00  00  00
+0000006
+$ &lt;kbd&gt;printf AQEB | base64 --decode | od -tx1&lt;/kbd&gt;
+0000000    01  01  01
+0000003
+$ &lt;kbd&gt;printf AQID | base64 --decode | od -tx1&lt;/kbd&gt;
+0000000    01  02  03
+0000003
+$ &lt;kbd&gt;printf main | base64 --decode | od -tx1&lt;/kbd&gt;
+0000000    99  a8  a7
+0000003
+$ &lt;kbd&gt;printf scrabble | base64 --decode | od -tx1&lt;/kbd&gt;
+0000000    b1  ca  da  6d  b9  5e
+0000006
+$ &lt;kbd&gt;printf 12345678 | base64 --decode | od -tx1&lt;/kbd&gt;
+0000000    d7  6d  f8  e7  ae  fc
+0000006&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Further, since &lt;code&gt;+&lt;/code&gt; and &lt;code&gt;/&lt;/code&gt; are also used as
+  symbols in Base64 encoding (for binary &lt;code&gt;111110&lt;/code&gt;
+  and &lt;code&gt;111111&lt;/code&gt; respectively), we also have a few more
+  interesting examples:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf 1+2+3+4+5/11 | base64 --decode | od -tx1&lt;/kbd&gt;
+0000000    d7  ed  be  df  ee  3e  e7  fd  75
+0000011
+$ &lt;kbd&gt;printf &quot;\xd7\xed\xbe\xdf\xee\x3e\xe7\xfd\x75&quot; | base64&lt;/kbd&gt;
+1+2+3+4+5/11&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  I think it is good to understand why any string with a length that
+  is a multiple of 4 turns out to be a valid Base64-encoded string.
+  The Base64 encoding scheme encodes each group of 6 bits in the
+  binary input with a chosen ASCII character.  For every possible
+  6-bit binary value, we have assigned an ASCII character that appears
+  in the Base64-encoded string.  Each output ASCII character can be
+  one of the 64 carefully chosen ASCII characters: lowercase and
+  uppercase letters from the English alphabet, the ten digits from the
+  Arabic numerals, the plus sign (&lt;code&gt;+&lt;/code&gt;) and the forward
+  slash (&lt;code&gt;/&lt;/code&gt;).  For example, the bits &lt;code&gt;000000&lt;/code&gt;
+  is encoded as &lt;code&gt;A&lt;/code&gt;, the bits &lt;code&gt;000001&lt;/code&gt; is
+  encoded as &lt;code&gt;B&lt;/code&gt; and so on.  The equals sign
+  (&lt;code&gt;=&lt;/code&gt;) is used for padding but that is not something we
+  will discuss in detail in this post.
+&lt;/p&gt;
+&lt;p&gt;
+  The smallest positive multiple of 6 that is also a multiple of 8 is
+  24.  Thus every group of 3 bytes (24 bits) of binary data is
+  translated to 4 ASCII characters in its Base64-encoded string.  Thus
+  the entire input data is divided into groups of 3 bytes each and
+  then each group of 3 bytes is encoded into 4 ASCII characters.  What
+  if the last group is less than 3 bytes long?  There are certain
+  padding rules for such cases but I will not discuss them right now
+  in this post.  For more details on the padding rules,
+  see &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc4648&quot;&gt;RFC 4648&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  Now as a natural result of the encoding scheme, it turns out that
+  any 4 alphanumeric characters is a valid Base64 encoding of some
+  binary data.  That&apos;s because for every alphanumeric character, we
+  can find some 6-bit binary data that would be translated to it
+  during Base64 encoding.  This is the reason why any alphanumeric
+  string with a length that is a multiple of 4 is a valid
+  Base64-encoded string and can be successfully decoded to some binary
+  data.
+&lt;/p&gt;
+
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/of-course-changeme-is-valid-base64.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/unix.html&quot;&gt;#unix&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Unix Timestamp 1600000000</title>
+    <link href="https://susam.net/unix-timestamp-1600000000.html"/>
+    <id>urn:uuid:6e3c2f3d-6dec-4215-909c-f19ab0a4f4ac</id>
+    <updated>2020-09-12T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  At 2020-09-13 12:26:40 UTC, the Unix timestamp is going to turn
+  1600000000.
+&lt;/p&gt;
+&lt;h2 id=&quot;unix-timestamp-conversion&quot;&gt;Unix Timestamp Conversion&lt;/h2&gt;
+&lt;p&gt;
+  The following subsections show a few examples of converting the Unix
+  timestamp to a human-readable date.
+&lt;/p&gt;
+&lt;h3 id=&quot;python&quot;&gt;Python&lt;/h3&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;python3 -q&lt;/kbd&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;kbd&gt;from datetime import datetime&lt;/kbd&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;kbd&gt;datetime.utcfromtimestamp(1_600_000_000)&lt;/kbd&gt;
+datetime.datetime(2020, 9, 13, 12, 26, 40)&lt;/samp&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;gnu-date&quot;&gt;GNU date (Linux)&lt;/h3&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;date -ud @1600000000&lt;/kbd&gt;
+Sun Sep 13 12:26:40 UTC 2020&lt;/samp&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;bsd-date&quot;&gt;BSD date (macOS, FreeBSD, OpenBSD, etc.)&lt;/h3&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;date -ur 1600000000&lt;/kbd&gt;
+Sun Sep 13 12:26:40 UTC 2020&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;other-such-dates&quot;&gt;Other Such Dates&lt;/h2&gt;
+&lt;p&gt;
+  All such dates (in UTC) until the end of the current century:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;python3 -q&lt;/kbd&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;kbd&gt;from datetime import datetime&lt;/kbd&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;kbd&gt;for t in range(0, 4_200_000_000, 100_000_000):&lt;/kbd&gt;
+... &lt;kbd&gt;    print(f&apos;{t:13_d} - {datetime.utcfromtimestamp(t)}&apos;)&lt;/kbd&gt;
+...
+            0 - 1970-01-01 00:00:00
+  100_000_000 - 1973-03-03 09:46:40
+  200_000_000 - 1976-05-03 19:33:20
+  300_000_000 - 1979-07-05 05:20:00
+  400_000_000 - 1982-09-04 15:06:40
+  500_000_000 - 1985-11-05 00:53:20
+  600_000_000 - 1989-01-05 10:40:00
+  700_000_000 - 1992-03-07 20:26:40
+  800_000_000 - 1995-05-09 06:13:20
+  900_000_000 - 1998-07-09 16:00:00
+1_000_000_000 - 2001-09-09 01:46:40
+1_100_000_000 - 2004-11-09 11:33:20
+1_200_000_000 - 2008-01-10 21:20:00
+1_300_000_000 - 2011-03-13 07:06:40
+1_400_000_000 - 2014-05-13 16:53:20
+1_500_000_000 - 2017-07-14 02:40:00
+1_600_000_000 - 2020-09-13 12:26:40
+1_700_000_000 - 2023-11-14 22:13:20
+1_800_000_000 - 2027-01-15 08:00:00
+1_900_000_000 - 2030-03-17 17:46:40
+2_000_000_000 - 2033-05-18 03:33:20
+2_100_000_000 - 2036-07-18 13:20:00
+2_200_000_000 - 2039-09-18 23:06:40
+2_300_000_000 - 2042-11-19 08:53:20
+2_400_000_000 - 2046-01-19 18:40:00
+2_500_000_000 - 2049-03-22 04:26:40
+2_600_000_000 - 2052-05-22 14:13:20
+2_700_000_000 - 2055-07-24 00:00:00
+2_800_000_000 - 2058-09-23 09:46:40
+2_900_000_000 - 2061-11-23 19:33:20
+3_000_000_000 - 2065-01-24 05:20:00
+3_100_000_000 - 2068-03-26 15:06:40
+3_200_000_000 - 2071-05-28 00:53:20
+3_300_000_000 - 2074-07-28 10:40:00
+3_400_000_000 - 2077-09-27 20:26:40
+3_500_000_000 - 2080-11-28 06:13:20
+3_600_000_000 - 2084-01-29 16:00:00
+3_700_000_000 - 2087-04-01 01:46:40
+3_800_000_000 - 2090-06-01 11:33:20
+3_900_000_000 - 2093-08-01 21:20:00
+4_000_000_000 - 2096-10-02 07:06:40
+4_100_000_000 - 2099-12-03 16:53:20&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;update&quot;&gt;Update&lt;/h2&gt;
+&lt;p&gt;
+  Here is a screenshot I took at Unix timestamp 1600000000:
+  &lt;a href=&quot;https://twitter.com/susam/status/1305120936098627589&quot;&gt;twitter.com/susam/status/130512093609862758&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  Reproduced as text below:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;date -u; date; date +%s&lt;/kbd&gt;
+Sun Sep 13 12:26:39 UTC 2020
+Sun Sep 13 17:56:39 IST 2020
+1599999999
+$ &lt;kbd&gt;date -u; date; date +%s&lt;/kbd&gt;
+Sun Sep 13 12:26:40 UTC 2020
+Sun Sep 13 17:56:40 IST 2020
+1600000000&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  An important point worth noting from the POSIX.1-2008 specification:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  Coordinated Universal Time (UTC) includes leap seconds.  However, in
+  POSIX time (seconds since the Epoch), leap seconds are ignored (not
+  applied) to provide an easy and compatible method of computing time
+  differences.  Broken-down POSIX time is therefore not necessarily
+  UTC, despite its appearance.
+&lt;/blockquote&gt;
+&lt;p&gt;
+  See &lt;a href=&quot;https://pubs.opengroup.org/onlinepubs/9699919799/xrat/V4_xbd_chap04.html#tag_21_04_16&quot;&gt;&amp;sect; A.4.16&lt;/a&gt;
+  of the POSIX.1-2008 specification for more details.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/unix-timestamp-1600000000.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/unix.html&quot;&gt;#unix&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/python.html&quot;&gt;#python&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Unix Line Discard</title>
+    <link href="https://susam.net/unix-line-discard.html"/>
+    <id>urn:uuid:c78208c6-42fe-4681-82aa-ee91e25208d8</id>
+    <updated>2017-07-09T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Type &lt;code&gt;C-u&lt;/code&gt; (i.e. &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;u&lt;/kbd&gt;) in Bash or
+  Zsh to discard the current line of input.  To read more about it,
+  enter &lt;code&gt;man bash&lt;/code&gt; and then type
+  &lt;code&gt;/unix-line-discard&lt;/code&gt; to locate the relevant section of
+  the manual.  Here is an excerpt:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;unix-line-discard (C-u)
+       Kill backward from point to the beginning of the line.
+       The killed text is saved on the kill-ring.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Similarly, for Zsh, type &lt;code&gt;man zshzle&lt;/code&gt; and then
+  type &lt;code&gt;/kill-whole-line&lt;/code&gt;.  We find this:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;kill-whole-line (^U) (unbound) (unbound)
+       Kill the current line.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  By the way, Emacs-style key sequence like &lt;code&gt;C-a C-k&lt;/code&gt; works
+  too.
+&lt;/p&gt;
+&lt;p&gt;
+  Furthermore, it is quite likely that &lt;code&gt;C-u&lt;/code&gt; is mapped to
+  delete the current line of input in the terminal itself.  To confirm
+  this, type the command &lt;code&gt;stty -a&lt;/code&gt; and check the output.
+  If the output contains the text &lt;code&gt;kill = ^U&lt;/code&gt;, then
+  typing &lt;code&gt;C-u&lt;/code&gt; anytime in the terminal would delete the
+  current line of input.  This would happen regardless of what program
+  is running in the terminal.  For example, programs
+  like &lt;code&gt;cat&lt;/code&gt;, &lt;code&gt;sbcl&lt;/code&gt;, etc. do not support key
+  sequences like &lt;code&gt;C-a&lt;/code&gt;, &lt;code&gt;C-k&lt;/code&gt;, &lt;code&gt;C-u&lt;/code&gt;,
+  etc. the way Bash or Zsh does.  Despite this limitation,
+  typing &lt;code&gt;C-u&lt;/code&gt; in &lt;code&gt;cat&lt;/code&gt; or &lt;code&gt;sbcl&lt;/code&gt;
+  would delete the current line of input if the output of &lt;code&gt;stty
+  -a&lt;/code&gt; indicates that the terminal has mapped this key sequence
+  to the operation of deleting the current line.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/unix-line-discard.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/unix.html&quot;&gt;#unix&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Random String in Shell</title>
+    <link href="https://susam.net/random-string-in-shell.html"/>
+    <id>urn:uuid:6dde1077-33c9-46c8-a27c-4414f7f71930</id>
+    <updated>2011-08-11T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Here is a quick way to generate a random alphanumeric string in the
+  shell:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;LC_CTYPE=C tr -dc &apos;[:alnum:]&apos; &amp;lt; /dev/urandom | head -c 20; echo&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here is an example output:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;GrWPmvF1oOmbeUzyJwC3&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The command works both on macOS as well as Linux.
+  The &lt;code&gt;LC_CTYPE=C&lt;/code&gt; environment variable is set specifically
+  to make the command work successfully on macOS.  Without
+  it &lt;code&gt;tr&lt;/code&gt; may report an &quot;Illegal byte sequence&quot; error.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/random-string-in-shell.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/unix.html&quot;&gt;#unix&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Fork Bunny</title>
+    <link href="https://susam.net/fork-bunny.html"/>
+    <id>urn:uuid:34f57748-ee06-4f8f-9ec5-23b63c2caa7e</id>
+    <updated>2006-06-11T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Have a close look at this line of shell command that can be executed
+  on Bash, Zsh and most POSIX or POSIX-like shells:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;: () { : | : &amp;amp; } ; :&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Beware!  Don&apos;t execute it on your system without understanding the
+  consequences completely.  If the command above looks puzzling, that
+  is because it is deliberately obfuscated.  Let us simplify it.
+&lt;/p&gt;
+&lt;p&gt;
+  The &lt;code&gt;:&lt;/code&gt; is a function name.  It could very well have
+  been &lt;code&gt;f&lt;/code&gt;.  Let us replace &lt;code&gt;:&lt;/code&gt;
+  with &lt;code&gt;f&lt;/code&gt; and see what the code now looks like.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;f () { f | f &amp;amp; } ; f&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Now it looks familiar.  We have two commands separated by a
+  semicolon.  Written in a more legible manner, the code would look
+  like this:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;f()
+{
+    f | f &amp;amp;
+}
+
+f&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  It creates a function &lt;code&gt;f&lt;/code&gt; and then executes it.  This
+  function calls itself twice recursively.  The control
+  operator &lt;code&gt;&amp;amp;&lt;/code&gt; executes the recursive calls
+  to &lt;code&gt;f&lt;/code&gt; asynchronously, i.e. in the background.  The
+  number of instances of the function executing keeps growing
+  exponentially thereby depleting CPU cycles and memory.  The system
+  is rendered unusable soon.
+&lt;/p&gt;
+&lt;p&gt;
+  This type of denial-of-service attack by self-replication is also
+  known as a &lt;em&gt;fork bunny&lt;/em&gt; which is a specific type
+  of &lt;em&gt;wabbit&lt;/em&gt;.  See the following entry in the Jargon File for
+  more information on this:
+  &lt;a href=&quot;http://catb.org/~esr/jargon/html/W/wabbit.html&quot;&gt;wabbit&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/fork-bunny.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/unix.html&quot;&gt;#unix&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

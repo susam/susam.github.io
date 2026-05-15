@@ -1,0 +1,2420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's Notes</title>
+  <subtitle>Feed for Susam's Notes</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/notes.xml" rel="self"/>
+  <id>https://susam.net/tag/notes.xml</id>
+  <updated>2026-04-30T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Apr '26 Notes</title>
+    <link href="https://susam.net/26d.html"/>
+    <id>urn:uuid:5c0287a9-2788-4970-a0f7-8c050f2ffa0a</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  This is my fourth set of &lt;a href=&quot;tag/notes.html&quot;&gt;monthly notes&lt;/a&gt;
+  for this year where I write down interesting facts and ideas I have
+  explored during my spare time.  There were three things in
+  particular that occupied my leisure time this month.  First, I
+  managed to learn the proof of Tutte&apos;s famous theorem that any \( s
+  \)-arc-transitive finite cubic graph must satisfy \( s \le 5.  \)  I
+  learnt the proof from Norman Biggs&apos;s book &lt;em&gt;Algebraic Graph
+  Theory&lt;/em&gt;.  The original proof appears in Tutte&apos;s 1947 paper &apos;A
+  family of cubical graphs&apos;
+  (&lt;a href=&quot;https://doi.org/10.1017/S0305004100023720&quot;&gt;DOI&lt;/a&gt;).
+  Biggs&apos;s presentation differs considerably from Tutte&apos;s original
+  argument and relies heavily on the properties of stabiliser
+  sequences of arcs.  I should say that Biggs&apos;s proof, while complete,
+  is extremely condensed.  The proof reads more like a high-level
+  outline that moves rapidly from one main result to the next without
+  sufficiently explaining the intermediate steps.  As a result, it
+  took considerable effort to work out the proofs of the intermediate
+  results.  Biggs presents the proof in roughly nine pages spread
+  across two chapters.  However, when I worked through it in full
+  detail while ensuring that every step is justified, my notes
+  eventually grew to around 18 pages of
+  &lt;a href=&quot;a4-paper-stories.html&quot;&gt;A4 paper&lt;/a&gt;.  The proof is quite
+  involved, so I have not included it in these notes.  Perhaps
+  someday, when I have more time, I will distil my handwritten notes
+  and publish them here on my website.
+&lt;/p&gt;
+&lt;p&gt;
+  That was the first thing I spent time on this month.  The second was
+  revisiting some elementary results in group theory concerning
+  cosets.  I have found cosets to be an extremely useful concept that
+  plays a central role in many areas of mathematics, including coding
+  theory, Galois theory, field extensions and graph theory.  In fact,
+  Biggs&apos;s proof of Tutte&apos;s theorem discussed above also relies
+  substantially on the theory of cosets.  Since these results are
+  relatively elementary and easier to write up, they are included in
+  this set of notes.
+&lt;/p&gt;
+&lt;p&gt;
+  Apart from mathematics, I also spent part of my spare time improving
+  my new web project named &lt;a href=&quot;wander/&quot;&gt;Wander
+  Console&lt;/a&gt;.  These notes include some updates about this tool.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#coset-results&quot;&gt;Coset Results&lt;/a&gt;
+    &lt;ol type=&quot;a&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#subgroup&quot;&gt;Subgroup&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#cosets&quot;&gt;Cosets&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#coset-membership&quot;&gt;Coset Membership&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#coset-equality&quot;&gt;Coset Equality&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#partitioning-a-group-into-disjoint-cosets&quot;&gt;Partitioning a Group into Disjoint Cosets&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#computing&quot;&gt;Computing&lt;/a&gt;
+    &lt;ol type=&quot;a&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#wander-console-updates&quot;&gt;Wander Console Updates&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#flush-output&quot;&gt;Flush Output&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#other-stuff&quot;&gt;Other Stuff&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;coset-results&quot;&gt;Coset Results&lt;/h2&gt;
+&lt;p&gt;
+  This section presents some very elementary results about cosets,
+  together with brief proofs.  These results appear repeatedly across
+  many areas of mathematics and I often find myself using them almost
+  instinctively, without consciously thinking through the underlying
+  arguments each time.  But once in a while, I like to sit back and
+  ponder about their proofs from first principles, reflect on why they
+  work and appreciate their elegance.  The subsections below collect
+  some of these little proofs.
+&lt;/p&gt;
+&lt;h3 id=&quot;subgroup&quot;&gt;Subgroup&lt;/h3&gt;
+&lt;p&gt;
+  &lt;strong&gt;Definition.&lt;/strong&gt;
+  Let \( G \) be a group with operation \( \cdot.  \)  Then a subset \(
+  H \subseteq G \) is called a subgroup of \( G \) if \( H \) itself
+  forms a group under the same operation and we write \( H \le G.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;cosets&quot;&gt;Cosets&lt;/h3&gt;
+&lt;p&gt;
+  &lt;strong&gt;Definition.&lt;/strong&gt;
+  Let \( G \) be a group, \( H \le G \) and \( a \in G.  \)  The left
+  coset of \( H \) by \( a \) is the set
+
+  \[
+    aH = \{ ah : h \in H \}.
+  \]
+
+  Similarly, the right coset of \( H \) by \( a \) is
+
+  \[
+    Ha = \{ ha : h \in H \}.
+  \]
+&lt;/p&gt;
+&lt;h3 id=&quot;coset-membership&quot;&gt;Coset Membership&lt;/h3&gt;
+&lt;p&gt;
+  &lt;strong&gt;Theorem.&lt;/strong&gt;
+  &lt;em&gt;
+    Let \( G \) be a group with identity \( e, \) \( H \le G \) and \( a
+    \in G.  \)  Then \( aH = H \) if and only if \( a \in H.  \)
+  &lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;em&gt;Proof.&lt;/em&gt;
+  Suppose \( aH = H.  \)  Then
+
+  \[
+    aH = H
+    \implies ae \in aH = H
+    \implies a \in H.
+  \]
+
+  Conversely, suppose \( a \in H.  \)  Let \( x \in aH.  \)  Then \( x =
+  ah \) for some \( h \in H.  \)  Then by the closure property of the
+  subgroup \( H, \) we get
+
+  \[
+    a, h \in H
+    \implies ah \in H
+    \implies x \in H.
+  \]
+
+  Thus \( aH \subseteq H.  \)  To show the reverse inclusion, let \( x
+  \in H.  \)  Since \( a \in H, \) we have \( a^{-1} \in H, \) so
+
+  \[
+    x \in H
+    \implies a^{-1} x \in H
+    \implies a(a^{-1} x) \in aH
+    \implies x \in aH.
+  \]
+
+  Therefore \( H \subseteq aH.  \)  As a result, \( H = aH.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;coset-equality&quot;&gt;Coset Equality&lt;/h3&gt;
+&lt;p&gt;
+  &lt;strong&gt;Theorem.&lt;/strong&gt;
+  &lt;em&gt;
+    Let \( G \) be a group with identity \( e, \) \( H \le G \) and \(
+    a, b \in G.  \)  Then \( aH = bH \) if and only if \( a^{-1} b \in
+    H.  \)
+  &lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;em&gt;Proof.&lt;/em&gt;
+  Suppose \( aH = bH.  \)  Then
+
+  \begin{align*}
+    aH = bH
+    &amp;amp; \implies b \in bH = aH \\
+    &amp;amp; \implies b = ah \tag{for some \( h \in H \)}\\
+    &amp;amp; \implies a^{-1} b = h \\
+    &amp;amp; \implies a^{-1} b \in H.
+  \end{align*}
+
+  Conversely, suppose \( a^{-1} b \in H.  \)  Let \( h = a^{-1} b.  \)
+  Then
+
+  \begin{align*}
+    h = a^{-1} b
+    &amp;amp; \implies ah = b \\
+    &amp;amp; \implies (ah)H = bH \\
+    &amp;amp; \implies a(hH) = bH \\
+    &amp;amp; \implies aH = bH \tag{since \( hH = H \)}.
+  \end{align*}
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;strong&gt;Corollary.&lt;/strong&gt;
+  &lt;em&gt;
+    Let \( G \) be a group with identity \( e, \) \( H \le G \) and \(
+    a, b \in G.  \)  Then \( aH = bH \) if and only if \( a \in bH.  \)
+  &lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;em&gt;Proof.&lt;/em&gt;
+  \[
+    aH = bH
+    \iff b^{-1} a \in H
+    \iff b (b^{-1} a) \in bH
+    \iff a \in bH.
+  \]
+&lt;/p&gt;
+&lt;h3 id=&quot;partitioning-a-group-into-disjoint-cosets&quot;&gt;Partitioning a Group into Disjoint Cosets&lt;/h3&gt;
+&lt;p&gt;
+  &lt;strong&gt;Theorem.&lt;/strong&gt;
+  &lt;em&gt;
+    Let \( G \) be a group with identity \( e, \) \( H \le G \) and \(
+    a, b \in G.  \)  Then either \( aH \cap bH = \varnothing \) or \(
+    aH = bH.  \)
+  &lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;em&gt;Proof.&lt;/em&gt;
+  Suppose \( aH \cap bH \ne \varnothing.  \)  Then there exists some
+  element \( x \in aH \cap bH.  \)  Then
+
+  \[
+    x = ah_1 = bh_2
+  \]
+
+  for some \( h_1, h_2 \in H.  \)  Therefore
+
+  \[
+    a^{-1} b = h_1 h_2^{-1} \in H.
+  \]
+
+  Then by section &lt;a href=&quot;#coset-equality&quot;&gt;Coset Equality&lt;/a&gt;,
+
+  \[
+    aH = bH.
+  \]
+&lt;/p&gt;
+&lt;h2 id=&quot;computing&quot;&gt;Computing&lt;/h2&gt;
+&lt;h3 id=&quot;wander-console-updates&quot;&gt;Wander Console Updates&lt;/h3&gt;
+&lt;p&gt;
+  &lt;a href=&quot;wander/&quot;&gt;Wander Console&lt;/a&gt; is a new project I
+  developed in &lt;a href=&quot;26c.html&quot;&gt;March&lt;/a&gt; while taking a short break
+  from my algebraic graph theory studies.  It is a tiny,
+  decentralised, self-hosted web console that allows visitors to a
+  website to explore other interesting personal websites.  It is
+  similar to the now-defunct service named
+  &lt;a href=&quot;https://en.wikipedia.org/wiki/StumbleUpon&quot;&gt;StumbleUpon&lt;/a&gt;,
+  but unlike StumbleUpon it has no central service and no server-side
+  logic.  Wander is hosted entirely on independent personal websites.
+  Wander Consoles link to one another and fetch web page
+  recommendations from each other.  The entire tool consists of just
+  two files: &lt;a href=&quot;wander/&quot;&gt;an HTML file&lt;/a&gt;
+  and &lt;a href=&quot;wander/wander.js&quot;&gt;a JS file&lt;/a&gt;.  Everything, including
+  connecting to other Wander Consoles in the network and recommending
+  webpages, happens entirely on the client side in the user&apos;s web
+  browser.  See
+  &lt;a href=&quot;https://codeberg.org/susam/wander&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;
+  for more details.
+&lt;/p&gt;
+&lt;p&gt;
+  Two &lt;a href=&quot;https://codeberg.org/susam/wander/src/branch/main/CHANGES.md&quot;&gt;releases&lt;/a&gt;
+  of Wander were made this month.  One notable feature introduced this
+  month is the console network crawler.  You can visit any Wander
+  console and use this feature to crawl the network reachable from it.
+  To see this in action, go to my console at
+  &lt;a href=&quot;wander/&quot;&gt;wander/&lt;/a&gt;, click the
+  &lt;strong&gt;Console&lt;/strong&gt; button at the top and then click the
+  &lt;strong&gt;Crawl&lt;/strong&gt; button.
+&lt;/p&gt;
+&lt;p&gt;
+  Since different consoles link to different sets of peers, each one
+  has its own neighbourhood, so the crawler output varies from console
+  to console.
+&lt;/p&gt;
+&lt;p&gt;
+  Due to the decentralised nature of the tool, it is difficult to know
+  exactly how many people have set up Wander Console on their
+  websites.  Nevertheless, I used the crawler with a known set of
+  consoles to explore as much of the network as possible.  The result
+  is available at
+  &lt;a href=&quot;https://susam.codeberg.page/wcn/&quot;&gt;susam.codeberg.page/wcn/&lt;/a&gt;.
+  It currently shows over 50 consoles recommending more than 1400 web
+  pages from the small web of personal sites.  For a project that is
+  only six weeks old, these seem like decent numbers.
+&lt;/p&gt;
+&lt;h3 id=&quot;flush-output&quot;&gt;Flush Output&lt;/h3&gt;
+&lt;p&gt;
+  When I log into my Debian 13.2 system via SSH, I find
+  that &lt;kbd&gt;ctrl&lt;/kbd&gt;+&lt;kbd&gt;o&lt;/kbd&gt; does not enable output discarding.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;stty -a | grep &apos;discard\|flush&apos;&lt;/kbd&gt;
+werase = ^W; lnext = ^V; discard = ^O; min = 1; time = 0;
+echoctl echoke -flusho -extproc
+$ &lt;kbd&gt;ping 127.0.0.1&lt;/kbd&gt;
+PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.021 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.030 ms
+&lt;kbd&gt;^O&lt;/kbd&gt;64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.026 ms
+64 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.049 ms
+&lt;kbd&gt;^C&lt;/kbd&gt;
+--- 127.0.0.1 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3079ms
+rtt min/avg/max/mdev = 0.021/0.031/0.049/0.010 ms&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  On macOS 15.3.2, with the Terminal app, it does work as expected.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;stty -a | grep &apos;discard\|flush&apos;&lt;/kbd&gt;
+	-echoprt -altwerase -noflsh -tostop -flusho pendin -nokerninfo
+cchars: discard = ^O; dsusp = ^Y; eof = ^D; eol = &amp;lt;undef&amp;gt;
+$ &lt;kbd&gt;ping 127.0.0.1&lt;/kbd&gt;
+PING 127.0.0.1 (127.0.0.1): 56 data bytes
+64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.087 ms
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.221 ms
+&lt;kbd&gt;^O^C&lt;/kbd&gt;
+--- 127.0.0.1 ping statistics ---
+9 packets transmitted, 9 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 0.068/0.171/0.362/0.087 ms&lt;/samp&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;other-stuff&quot;&gt;Other Stuff&lt;/h3&gt;
+&lt;p&gt;
+  My initial draft of this post had a few additional sections that have
+  since been moved to their own posts:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;multiple-urls-in-git-remote.html&quot;&gt;Multiple URLs in Git Remote&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;touch-typing-number-keys.html&quot;&gt;Touch Typing Number Keys&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/26d.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/notes.html&quot;&gt;#notes&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/web.html&quot;&gt;#web&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Mar '26 Notes</title>
+    <link href="https://susam.net/26c.html"/>
+    <id>urn:uuid:81a44497-3807-439b-87d1-04f80ccf1240</id>
+    <updated>2026-03-30T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  This is my third set of &lt;a href=&quot;tag/notes.html&quot;&gt;monthly notes&lt;/a&gt;
+  for this year.  In these notes, I capture various interesting facts
+  and ideas I have stumbled upon during the month.  Like in the last
+  two months, I have been learning and exploring algebraic graph
+  theory.  The two main books I have been reading are &lt;em&gt;Algebraic
+  Graph Theory&lt;/em&gt; by Godsil and Royle and &lt;em&gt;Algebraic Graph
+  Theory&lt;/em&gt;, 2nd ed. by Norman Biggs.  Much of what appears here
+  comes from my study of these books as well as my own explorations
+  and attempts to distill the ideas.  This post is quite heavy on
+  mathematics but there are some non-mathematical, computing-related
+  notes towards the end.
+&lt;/p&gt;
+&lt;p&gt;
+  The level of exposition is quite uneven throughout these notes.
+  After all, they aren&apos;t meant to be a polished exposition but rather
+  notes I take for myself.  In some places I build concepts from first
+  principles, while in others I gloss over details and focus only on
+  the main results.
+&lt;/p&gt;
+&lt;p&gt;
+  Sometime during the second half of the month, I also
+  developed an open-source tool called
+  &lt;a href=&quot;https://codeberg.org/susam/wander&quot;&gt;Wander Console&lt;/a&gt; on a
+  whim.  It lets anyone with a website host a decentralised web
+  console that recommends interesting websites from the &apos;small web&apos; of
+  independent, personal websites.  Check my console
+  here: &lt;a href=&quot;wander/&quot;&gt;wander/&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  Although the initial version was ready after just about 1.5 hours of
+  development during a break I was taking from studying algebraic
+  graph theory, the
+  subsequent &lt;a href=&quot;https://news.ycombinator.com/item?id=47422759&quot;&gt;warm
+  reception on Hacker News&lt;/a&gt; and a
+  &lt;a href=&quot;https://codeberg.org/susam/wander/issues/1&quot;&gt;growing
+  community&lt;/a&gt; around it, along with the resulting feature requests
+  and bug fixes, ended up taking more time than I had anticipated, at
+  the expense of my algebraic graph theory studies.  With a full-time
+  job, it becomes difficult to find time for both open source
+  development and mathematical studies.  But eventually, I managed to
+  return to my studies while making Wander Console improvements only
+  occasionally during breaks from my studies.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#group-theory&quot;&gt;Group Theory&lt;/a&gt;
+    &lt;ol type=&quot;a&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#permutation&quot;&gt;Permutation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-homomorphism&quot;&gt;Group Homomorphism&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-homomorphism-preserves-identities&quot;&gt;Group Homomorphism Preserves Identity&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-homomorphism-preserves-inverses&quot;&gt;Group Homomorphism Preserves Inverses&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#image-of-a-group-homomorphism&quot;&gt;Image of a Group Homomorphism&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-monomorphism&quot;&gt;Group Monomorphism&lt;/a&gt;
+        &lt;ol type=&quot;i&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#standard-proof&quot;&gt;Standard Proof&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#alternate-arrangement&quot;&gt;Alternate Proof&lt;/a&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#permutation-representation&quot;&gt;Permutation Representation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-action&quot;&gt;Group Action&lt;/a&gt;
+        &lt;ol type=&quot;i&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#why-right-action&quot;&gt;Why Right Action?&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#group-action-example-1&quot;&gt;Example 1&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#group-action-example-2&quot;&gt;Example 2&lt;/a&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-actions-induce-permutations&quot;&gt;Group Actions Induce Permutations&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#group-actions-determine-permutation-representations&quot;&gt;Group Actions Determine Permutation Representations&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#permutation-representations-determine-group-actions&quot;&gt;Permutation Representations Determine Group Actions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#bijection-between-group-actions-and-permutation-representations&quot;&gt;Bijection Between Group Actions and Permutation Representations&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#orbits&quot;&gt;Orbits&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#stabilisers&quot;&gt;Stabilisers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#orbit-stabiliser-theorem&quot;&gt;Orbit-Stabiliser Theorem&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#faithful-actions&quot;&gt;Faithful Actions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#semiregular-actions&quot;&gt;Semiregular Actions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#transitive-actions&quot;&gt;Transitive Actions&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#conjugacy&quot;&gt;Conjugacy&lt;/a&gt;
+        &lt;ol type=&quot;i&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#conjugation-as-group-action&quot;&gt;Conjugation as Group Action&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#right-conjugation-vs-left-conjugation&quot;&gt;Right Conjugation vs Left Conjugation&lt;/a&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#conjugate-groups&quot;&gt;Conjugate Subgroups&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#conjugacy-of-stabilisers&quot;&gt;Conjugacy of Stabilisers&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#algebraic-graph-theory&quot;&gt;Algebraic Graph Theory&lt;/a&gt;
+    &lt;ol type=&quot;a&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#stabiliser-index&quot;&gt;Stabiliser Index&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#strongly-connected-directed-graph&quot;&gt;Strongly Connected Directed Graph&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#shunting&quot;&gt;Shunting&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#automorphisms-preserve-successor-relation&quot;&gt;Automorphisms Preserve Successor Relation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#test-of-s-arc-transitivity&quot;&gt;Test of \( s \)-arc Transitivity&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#moore-graphs&quot;&gt;Moore Graphs&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#generalised-polygons&quot;&gt;Generalised Polygons&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#computing&quot;&gt;Computing&lt;/a&gt;
+    &lt;ol type=&quot;a&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#select-between-lines-inclusive&quot;&gt;Select Between Lines, Inclusive&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#select-between-lines-exclusive&quot;&gt;Select Between Lines, Exclusive&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#signing-and-verification-with-ssh-key&quot;&gt;Signing and Verification with SSH Key&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#block-ip-address-with-nftables&quot;&gt;Block IP Address with nftables&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#debian-logrotate-setup&quot;&gt;Debian Logrotate Setup&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;group-theory&quot;&gt;Group Theory&lt;/h2&gt;
+&lt;h3 id=&quot;permutation&quot;&gt;Permutation&lt;/h3&gt;
+&lt;p&gt;
+  A &lt;em&gt;permutation&lt;/em&gt; of a set \( X \) is a bijection \( X \to X
+ .  \)
+&lt;/p&gt;
+&lt;p&gt;
+  For example, take \( X = \{ 1, 2, 3, 4, 5, 6 \} \) and define the
+  map
+
+  \[
+    \pi : X \to X; \; x \mapsto 1 + ((x + 1) \bmod 6).
+  \]
+
+  This maps
+
+  \begin{align*}
+    1 &amp;amp;\mapsto 3, \\
+    2 &amp;amp;\mapsto 4, \\
+    3 &amp;amp;\mapsto 5, \\
+    4 &amp;amp;\mapsto 6, \\
+    5 &amp;amp;\mapsto 1, \\
+    6 &amp;amp;\mapsto 2.
+  \end{align*}
+&lt;/p&gt;
+&lt;p&gt;
+  We can describe permutations more succinctly using cycle notation.
+  The cycle notation of a permutation \( \pi \) consists of one or
+  more sequences written next to each other such that the sequences
+  are pairwise disjoint and \( \alpha \) maps each element in a
+  sequence to the next element on its right.  If the sequence is
+  finite, then \( \alpha \) maps the final element back to the first
+  one.  Any element that does not appear in any sequence is mapped to
+  itself.  For example the cycle notation for the above permutation is
+  \( (1 3 5)(2 4 6).  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;group-homomorphism&quot;&gt;Group Homomorphism&lt;/h3&gt;
+&lt;p&gt;
+  A map \( \phi : G \to H \) from a group \( (G, \ast) \) to a group
+  \( (H, \cdot) \) is a &lt;em&gt;group homomorphism&lt;/em&gt; if, for all \( x, y
+  \in G, \)
+
+  \[
+    \phi(x \ast y) = \phi(x) \cdot \phi(y).
+  \]
+
+  We say that a group homomorphism is a map between groups that
+  &lt;em&gt;preserves&lt;/em&gt; the group operation.  In other words, a group
+  homomorphism &lt;em&gt;sends&lt;/em&gt; products in \( G \) to products in \( H
+ .  \)  For example, consider the groups \( (\mathbb{Z}, +) \) and \(
+  (\mathbb{Z}_3, +).  \)  Then the map
+
+  \[
+    \phi : \mathbb{Z} \to \mathbb{Z}_3; \; n \mapsto n \bmod 3
+  \]
+
+  is a group homomorphism because
+
+  \[
+    \phi(x + y)
+    = (x + y) \bmod 3
+    = (x \bmod 3) + (y \bmod 3)
+    = \phi(x) + \phi(y)
+  \]
+
+   for all \( x, y \in \mathbb{Z}.  \)  As another example, consider
+   the groups \( (\mathbb{R}_{\gt 0}, \times) \) and \( (\mathbb{R},
+   +).  \)  Then the map
+
+  \[
+    \log : \mathbb{R}_{\gt 0} \to \mathbb{R}
+  \]
+
+  is a group homomorphism because
+
+  \[
+    \log(m \times n) = \log m + \log n.
+  \]
+
+  Note that a group homomorphism preserves the identity element.  For
+  example, \( 1 \) is the identity element of \( (\mathbb{R}_{\gt 0},
+  \times) \) and \( 0 \) is the identity element of \( (\mathbb{R}, +)
+  \) and indeed \( \log 1 = 0.  \)  Also, a group homomorphism
+  preserves inverses.  Indeed \( \log m^{-1} = -\log m \) for all \( m
+  \in \mathbb{R}_{\gt 0}.  \)  These observations are proved in the
+  next two sections.
+&lt;/p&gt;
+&lt;h3 id=&quot;group-homomorphism-preserves-identities&quot;&gt;Group Homomorphism Preserves Identity&lt;/h3&gt;
+&lt;p&gt;
+  Let \( \phi : G \to H \) be a group homomorphism from \( (G, \ast)
+  \) to \( (H, \cdot).  \)  Let \( e_1 \) be the identity in \( G \)
+  and let \( e_2 \) be the identity in \( H.  \)  Then \( \phi(e_1) =
+  e_2.  \)
+
+
+  The proof is straightforward.  Note first that
+
+  \[
+    \phi(e_1) \cdot \phi(e_1)
+    = \phi(e_1 \ast e_1)
+    = \phi(e_1)
+  \]
+
+  Multiplying both sides on the right by \( \phi(e_1)^{-1}, \) we get
+
+  \[
+    (\phi(e_1) \cdot \phi(e_1)) \cdot \phi(e_1)^{-1}
+    = \phi(e_1) \cdot \phi(e_1)^{-1}.
+  \]
+
+  Using the associative and inverse properties of groups, we can
+  simplify both sides to get
+
+  \[
+    \phi(e_1) = e_2.
+  \]
+&lt;/p&gt;
+&lt;h3 id=&quot;group-homomorphism-preserves-inverses&quot;&gt;Group Homomorphism Preserves Inverses&lt;/h3&gt;
+&lt;p&gt;
+  Let \( \phi : G \to H \) be a group homomorphism from \( (G, \ast)
+  \) to \( (H, \cdot).  \)  Let \( e_1 \) be the identity in \( G \)
+  and let \( e_2 \) be the identity in \( H.  \)  Then for all \( x \in
+  G, \) \(\phi(x^{-1}) = (\phi(x))^{-1}.  \)
+
+  The proof of this is straightforward too.  Note that
+
+  \[
+    \phi(x) \cdot \phi(x^{-1})
+    = \phi(x \ast x^{-1})
+    = \phi(e_1)
+    = e_2.
+  \]
+
+  Thus \( \phi(x^{-1}) \) is an inverse of \( \phi(x), \) so
+
+  \[
+    \phi(x^{-1}) = (\phi(x))^{-1}.
+  \]
+
+  The image of the inverse of an element is the inverse of the image
+  of that element.
+&lt;/p&gt;
+&lt;h3 id=&quot;image-of-a-group-homomorphism&quot;&gt;Image of a Group Homomorphism&lt;/h3&gt;
+&lt;p&gt;
+  Let \( \phi : G \to H \) be a group homomorphism.  Then the image of
+  the \( \phi, \) denoted
+
+  \[
+    \phi(G) = \{ \phi(x) : x \in G \}
+  \]
+
+  is a subgroup of \( H.  \)  We will prove this now.
+&lt;/p&gt;
+&lt;p&gt;
+  Let \( a, b \in \phi(G).  \)  Then \( a = \phi(x) \) and \( b =
+  \phi(y) \) for some \( x, y \in G.  \)  Now \( ab = \phi(x)\phi(y) =
+  \phi(xy) \in \phi(G).  \)  Therefore \( \phi(G) \) satisfies the
+  closure property.
+&lt;/p&gt;
+&lt;p&gt;
+  Let \( e_1 \) and \( e_2 \) be the identities in \( G \) and \( H \)
+  respectively.  Since a group homomorphism preserves the identity, \(
+  \phi(e_1) = e_2.  \)  Hence the identity of \( H \) lies in \(
+  \phi(G).  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Finally, let \( a \in \phi(G).  \)  Then \( a = \phi(x) \) for some
+  \( x \in G.  \)  Then \( a^{-1} = \phi(x)^{-1} = \phi(x^{-1}) \in
+  \phi(G).  \)  Therefore \( \phi(G) \) satisfies the inverse property
+  as well.  Therefore \( \phi(G) \) is a subgroup of \( H.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;group-monomorphism&quot;&gt;Group Monomorphism&lt;/h3&gt;
+&lt;p&gt;
+  A map \( \phi : G \to H \) from a group \( (G, \ast) \) to a group
+  \( (H, \cdot) \) is a &lt;em&gt;group monomorphism&lt;/em&gt; if \( \phi \) is a
+  homomorphism and is injective.  In other words, a homomorphism \(
+  \phi \) is called a monomorphism if, for all \( x, y \in G, \)
+
+  \[
+  \phi(x) = \phi(y) \implies x = y.
+  \]
+
+  Let \( e_1 \) be the identity element of \( G \) and let \( e_2 \)
+  be the identity element of \( H.  \)  A useful result in group theory
+  states that a homomorphism \( \phi : G \to H \) is a monomorphism if
+  and only if its kernel is trivial, i.e.
+
+  \[
+    \ker(\phi) = \{ x \in G : \phi(x) = e_2 \} = \{ e_1 \}.
+  \]
+
+  Let us prove this now.
+&lt;/p&gt;
+&lt;h4 id=&quot;standard-proof&quot;&gt;Standard Proof&lt;/h4&gt;
+&lt;p&gt;
+  Suppose \( \phi : G \to H \) is a monomorphism.  Since a
+  homomorphism preserves the identity element, we have \( \phi(e_1) =
+  e_2.  \)  Therefore
+
+  \[
+    e_1 \in \ker(\phi).
+  \]
+
+  Let \( x \in \ker(\phi).  \)  Then \( \phi(x) = e_2 = \phi(e_1).  \)
+  Since \( \phi \) is injective, \( x = e_1.  \)  Therefore
+
+  \[
+    \ker(\phi) = \{ e_1 \}.
+  \]
+
+  Conversely, suppose \( \ker(\phi) = \{ e_1 \}.  \)  Let \( x, y \in G
+  \) such that \( \phi(x) = \phi(y).  \)  Then
+
+  \[
+    \phi(x \ast y^{-1})
+    = \phi(x) \cdot \phi(y^{-1})
+    = \phi(x) \cdot (\phi(y))^{-1}
+    = \phi(y) \cdot (\phi(y))^{-1}
+    = e_2.
+  \]
+
+  Hence
+
+  \[
+    x \ast y^{-1} \in \ker(\phi) = \{ e_1 \},
+  \]
+
+  so
+
+  \[
+    x \ast y^{-1} = e_1.
+  \]
+
+  Multiplying both sides on the right by \( y, \) we obtain
+
+  \[
+    x = y.
+  \]
+
+  This completes the proof.
+&lt;/p&gt;
+&lt;h4 id=&quot;alternate-arrangement&quot;&gt;Alternate Proof&lt;/h4&gt;
+&lt;p&gt;
+  Here I briefly discuss an alternate way to think about the above
+  proof.  The above proof is how most texts usually present these
+  arguments.  In particular, the proof of injectivity typically
+  proceeds by showing that equal images imply equal preimages.  It&apos;s a
+  standard proof technique.  When I think about these proofs, however,
+  the contrapositive argument feels more intuitive to me.  I prefer to
+  think about how unequal preimages must have unequal images.
+  Mathematically, there is no difference at all but the contrapositive
+  argument has always felt the most natural to me.  Let me briefly
+  describe how this proof runs in my mind when I think about it more
+  intuitively.
+&lt;/p&gt;
+&lt;p&gt;
+  Suppose \( \phi \) is a monomophorism.  Since a homomorphism
+  preserves the identity element, clearly \( \phi(e_1) = e_2.  \)
+  Since \( \phi \) is injective, it cannot map two distinct elements
+  of \( G \) to \( e_2.  \)  Thus \( e_1 \) is the only element of \( G
+  \) that \( \phi \) maps to \( e_2 \) which means \( \ker(\phi) = \{
+  e_1 \}.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  To prove the converse, suppose \( \ker(\phi) = \{ e_1 \}.  \)
+  Consider distinct elements \( x, y \in G.  \)  Since \( x \ne y, \)
+  we have \( x \ast y^{-1} \ne e_1.  \)  Therefore \( x \ast y^{-1}
+  \notin \ker(\phi).  \)  Thus \( \phi(x \ast y^{-1}) \ne e_2.  \)
+  Since \( \phi \) is a homomorphism,
+
+  \[
+    \phi(x \ast y^{-1})
+    = \phi(x) \cdot \phi(y^{-1})
+    = \phi(x) \cdot \phi(y)^{-1}.
+  \]
+
+  Therefore \( \phi(x) \cdot \phi(y)^{-1} \ne e_2 \) which implies
+
+  \[
+    \phi(x) \ne \phi(y).
+  \]
+
+  This proves that \( \ker(\phi) = \{ e_1 \} \) implies that \( \phi
+  \) is injective and thus a monomorphism.
+&lt;/p&gt;
+&lt;h3 id=&quot;permutation-representation&quot;&gt;Permutation Representation&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group and \( X \) a set.  Then a homomorphism
+
+  \[
+    \phi : G \to \operatorname{Sym}(X)
+  \]
+
+  is called a &lt;em&gt;permutation representation&lt;/em&gt; of \( G \) on \( X
+ .  \)  The homomorphism \( \phi \) maps each \( g \in G \) to a
+  permutation of \( X.  \)  We say that each \( g \in G \)
+  &lt;em&gt;induces&lt;/em&gt; a permutation of \( X.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  For example, let \( G = (\mathbb{Z}_3, +) \) and \( X = \{ 0, 1, 2,
+  3, 4, 5 \}.  \)  Define the map \( \phi : G \to \operatorname{Sym}(X)
+  \) by
+
+  \begin{align*}
+    \phi(0) &amp;amp;= (), \\
+    \phi(1) &amp;amp;= (024)(135), \\
+    \phi(2) &amp;amp;= (042)(153).
+  \end{align*}
+
+  It is easy to verify that this is a homomorphism.  Here is one way
+  to verify it:
+
+  \begin{align*}
+    \phi(0)\phi(1) &amp;amp;= ()(024)(135) = (024)(135) = \phi(0 + 1), \\
+    \phi(0)\phi(2) &amp;amp;= ()(042)(153) = (042)(153) = \phi(0 + 2), \\
+    &amp;amp;\;\,\vdots \\
+    \phi(2)\phi(1) &amp;amp;= (042)(153)(024)(135) = () = \phi(0) = \phi(2 + 1), \\
+    \phi(2)\phi(2) &amp;amp;= (042)(153)(042)(153) = (024)(135) = \phi(1) = \phi(2 + 2).
+  \end{align*}
+
+  We will meet this homomorphism again in the form of group action \(
+  \alpha \) in the next section.
+&lt;/p&gt;
+&lt;h3 id=&quot;group-action&quot;&gt;Group Action&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group with identity element \( e.  \)  Let \( X \)
+  be a set.  A right action of \( G \) on \( X \) is a map
+
+  \[
+    \alpha : X \times G \to X
+  \]
+
+  such that
+
+  \begin{align*}
+    \alpha(x, e)            &amp;amp;= x, \\
+    \alpha(\alpha(x, g), h) &amp;amp;= \alpha(x, gh)
+  \end{align*}
+
+  for all \( x \in X \) and all \( g, h \in G.  \)  The two conditions
+  above are called the identity and compatibility properties of the
+  group action respectively.  Note that in a right action, the product
+  \( gh \) is applied left to right: \( g \) acts first and then \( h
+  \) acts.  If we denote \( \alpha(x, g) \) as \( x^g, \) then the
+  notation for the two conditions can be simplified to \( x^e = x \)
+  and \( (x^g)^h = x^{gh} \) for all \( g, h \in G.  \)
+&lt;/p&gt;
+&lt;h4 id=&quot;why-right-action&quot;&gt;Why Right Action?&lt;/h4&gt;
+&lt;p&gt;
+  We discuss right group actions here instead of left group actions
+  because we want to use the notation \( \alpha(x, g) = x^g, \) which
+  is quite convenient while studying permutations and graph
+  automorphisms.  It is perfectly possible to use left group actions
+  to study permutations as well.  However, we lose the benefit of the
+  convenient \( x^g \) notation.  In a left group action, the
+  compatibility property is \( \alpha(g, \alpha(h, x)) = \alpha(gh, x)
+ , \) so if we were to use the notation \( \alpha(g, x) = x^g, \) the
+  compatibility property would look like \( (x^h)^g = x^{gh}.  \)  This
+  reverses the order of exponents which can be confusing.  Right group
+  actions avoid this notational inconvenience.
+&lt;/p&gt;
+&lt;h4 id=&quot;group-action-example-1&quot;&gt;Example 1&lt;/h4&gt;
+&lt;p&gt;
+  Let \( G = \mathbb{Z}_3 \) be the group under addition modulo \( 3
+ .  \)  Let \( X = \{ 0, 1, 2, 3, 4, 5 \}.  \)  Define an action \(
+  \alpha \) of \( G \) on \( X \) by
+
+  \[
+    \alpha(x, g) = x^g = (x + 2g) \bmod 6.
+  \]
+
+  Each \( g \in G \) acts as a permutation of \( X.  \)  For example,
+  the element \( 0 \in \mathbb{Z}_3 \) acts as the identity
+  permutation.  The element \( 1 \in \mathbb{Z}_3 \) acts as the
+  permutation \( (0 2 4)(1 3 5).  \)  The element \( 2 \in \mathbb{Z}_3
+  \) acts as the permutation \( (0 4 2)(1 5 3).  \)  The following
+  table shows how each \( g \in G \) permutes \( X.  \)
+
+  \[
+    \begin{array}{c|ccc}
+      x_{\downarrow} \backslash g_{\rightarrow} &amp;amp; 0 &amp;amp; 1 &amp;amp; 2 \\
+      \hline
+      0 &amp;amp; 0 &amp;amp; 2 &amp;amp; 4 \\
+      1 &amp;amp; 1 &amp;amp; 3 &amp;amp; 5 \\
+      2 &amp;amp; 2 &amp;amp; 4 &amp;amp; 0 \\
+      3 &amp;amp; 3 &amp;amp; 5 &amp;amp; 1 \\
+      4 &amp;amp; 4 &amp;amp; 0 &amp;amp; 2 \\
+      5 &amp;amp; 5 &amp;amp; 1 &amp;amp; 3 \\
+    \end{array}
+  \]
+
+  From the table we see that each \( g \in G \) permutes the elements
+  of \( \{ 0, 2, 4 \} \) among themselves.  Similarly, the elements of
+  \( \{ 1, 3, 5 \} \) are permuted among themselves.  These sets \(
+  \{0, 2, 4 \} \) and \( \{ 1, 3, 5 \} \) are called the
+  &lt;em&gt;orbits&lt;/em&gt; of the action.  The concept of orbits is formally
+  introduced in its &lt;a href=&quot;#orbits&quot;&gt;own section further below&lt;/a&gt;.
+&lt;/p&gt;
+&lt;h4 id=&quot;group-action-example-2&quot;&gt;Example 2&lt;/h4&gt;
+&lt;p&gt;
+  Now let \( G = \mathbb{Z}_6 \) be the group under addition modulo \(
+  6.  \)  Let \( X = \{ 0, 1, \dots, 8 \}.  \)  Define an action \(
+  \beta \) of \( G \) on \( X \) by
+
+  \[
+    \beta(x, g) = x^g = (x + 3g) \bmod 9.
+  \]
+
+  Now the table for the action looks like this:
+
+  \[
+    \begin{array}{c|cccccc}
+      x_{\downarrow} \backslash g_{\rightarrow} &amp;amp; 0 &amp;amp; 1 &amp;amp; 2 &amp;amp; 3 &amp;amp; 4 &amp;amp; 5 \\
+      \hline
+      0 &amp;amp; 0 &amp;amp; 3 &amp;amp; 6 &amp;amp; 0 &amp;amp; 3 &amp;amp; 6 \\
+      1 &amp;amp; 1 &amp;amp; 4 &amp;amp; 7 &amp;amp; 1 &amp;amp; 4 &amp;amp; 7 \\
+      2 &amp;amp; 2 &amp;amp; 5 &amp;amp; 8 &amp;amp; 2 &amp;amp; 5 &amp;amp; 8 \\
+      3 &amp;amp; 3 &amp;amp; 6 &amp;amp; 0 &amp;amp; 3 &amp;amp; 6 &amp;amp; 0 \\
+      4 &amp;amp; 4 &amp;amp; 7 &amp;amp; 1 &amp;amp; 4 &amp;amp; 7 &amp;amp; 1 \\
+      5 &amp;amp; 5 &amp;amp; 8 &amp;amp; 2 &amp;amp; 5 &amp;amp; 8 &amp;amp; 2 \\
+      6 &amp;amp; 6 &amp;amp; 0 &amp;amp; 3 &amp;amp; 6 &amp;amp; 0 &amp;amp; 3 \\
+      7 &amp;amp; 7 &amp;amp; 1 &amp;amp; 4 &amp;amp; 7 &amp;amp; 1 &amp;amp; 4 \\
+      8 &amp;amp; 8 &amp;amp; 2 &amp;amp; 5 &amp;amp; 8 &amp;amp; 2 &amp;amp; 5
+    \end{array}
+  \]
+
+  This action splits \( X \) into three orbits \( \{ 0, 3, 6 \}, \) \(
+  \{ 1, 4, 7 \} \) and \( \{ 2, 5, 8 \}.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;group-actions-induce-permutations&quot;&gt;Group Actions Induce Permutations&lt;/h3&gt;
+&lt;p&gt;
+  Earlier, we saw an example of a group action and observed that each
+  element of the group acts as a permutation.  That was not merely a
+  coincidence.  It is indeed a general property of group actions.
+  Whenever a group \( G \) acts on a set \( X, \) each element \( g
+  \in G \) determines a bijection \( X \to X.  \)  In other words,
+  every element of \( G \) acts as a permutation of \( X.  \)  Let us
+  see why this must be the case.
+&lt;/p&gt;
+&lt;p&gt;
+  Consider the group action \( \alpha : X \times G \to X.  \)  Fix \( g
+  \in G \) and let \( x \) vary over \( X \) to obtain the map
+
+  \[
+    \alpha_g : X \to X; \; x \mapsto \alpha(x, g).
+  \]
+
+  We show that \( \alpha_g \) is a bijection.  First we prove
+  injectivity.  Let \( e \) be the identity element of \( G.  \)
+  Let \( x, y \in X.  \)  Then
+
+  \begin{align*}
+    \alpha_g(x) = \alpha_g(y)
+    &amp;amp; \implies \alpha(x, g) = \alpha(y, g) \\
+    &amp;amp; \implies \alpha(\alpha(x, g), g^{-1}) = \alpha(\alpha(y, g), g^{-1}) \\
+    &amp;amp; \implies \alpha(x, gg^{-1}) = \alpha(y, gg^{-1}) \\
+    &amp;amp; \implies \alpha(x, e) = \alpha(y, e) \\
+    &amp;amp; \implies x = y.
+  \end{align*}
+
+  The \( x^g \) notation allows us to write the above proof more
+  conveniently as follows:
+
+  \begin{align*}
+    \alpha_g(x) = \alpha_g(y)
+    &amp;amp; \implies \alpha(x, g) = \alpha(y, g) \\
+    &amp;amp; \implies (x^g)^{g^{-1}} = (y^g)^{g^{-1}} \\
+    &amp;amp; \implies x^{g g^{-1}} = y^{g g^{-1}} \\
+    &amp;amp; \implies x^e = y^e \\
+    &amp;amp; \implies x = y.
+  \end{align*}
+
+  This completes the proof of injectivity.  Now we prove surjectivity.
+  Let \( y \in X.  \)  Take \( x = \alpha(y, g^{-1}).  \)  Then
+
+  \[
+    \alpha_g(x)
+    = \alpha(x, g)
+    = \alpha(\alpha(y, g^{-1}), g)
+    = \alpha(y, g^{-1} g)
+    = \alpha(y, e)
+    = y.
+  \]
+
+  Again, if we write \( x = y^{g^{-1}}, \) the above step can be
+  written more succinctly as
+
+  \[
+    \alpha_g(x) = x^g = (y^{g^{-1}})^g = y^{(g^{-1} g)} = y^e = y.
+  \]
+
+  Thus every element \( y \in X \) has a preimage in \( X \) under \(
+  \alpha_g.  \)  Hence \( \alpha_g \) is surjective.  Since we have
+  already shown that \( \alpha_g \) is injective, we now conclude that
+  \( \alpha_g \) is bijective.  Therefore \( \alpha_g \) is a
+  permutation of \( X.  \)  Stated symbolically,
+
+  \[
+    \alpha_g \in \operatorname{Sym}(X).
+  \]
+
+  Note that
+
+  \[
+    \alpha_g(x) = \alpha(x, g) = x^g.
+  \]
+
+  Thus both \( \alpha_g(x) \) and \( x^g \) serve as convenient
+  shorthands for \( \alpha(x, g).  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;group-actions-determine-permutation-representations&quot;&gt;Group Actions Determine Permutation Representations&lt;/h3&gt;
+&lt;p&gt;
+  We have seen that each group element \( g \in G \) induces (acts as)
+  a permutation of \( X.  \)  Precisely speaking, each \( g \in G \)
+  determines a permutation \( \alpha_g \) of \( X.  \)  Now define a
+  map
+
+  \[
+    \phi: G \to \operatorname{Sym}(X); \; g \mapsto \alpha_g.
+  \]
+
+  We now show that this map is a homomorphism.  This means that we
+  want to show that \( \phi(gh) = \phi(g) \phi(h).  \)  Since \(
+  \phi(g), \phi(h) \in \operatorname{Sym}(X), \) the right-hand side
+  is a product of permutations of \( X.  \)  We first define the
+  product of two permutations \( \pi, \rho : X \to X \) by
+
+  \[
+    \pi \rho : X \to X; \; x \mapsto \rho(\pi(x)).
+  \]
+
+  In other words, \( \pi \rho = \rho \circ \pi.  \)  Now
+
+  \begin{align*}
+    \phi(gh)(x)
+    &amp;amp; = \alpha_{gh}(x) \\
+    &amp;amp; = \alpha(x, gh) \\
+    &amp;amp; = \alpha(\alpha(x, g), h) \\
+    &amp;amp; = \alpha_h(\alpha_g(x)) \\
+    &amp;amp; = (\alpha_h \circ \alpha_g)(x) \\
+    &amp;amp; = (\alpha_g \alpha_h)(x) \\
+    &amp;amp; = (\phi(g) \phi(h))(x).
+  \end{align*}
+
+  Since the above equality holds for all \( x \in X, \) we conclude
+  that
+
+  \[
+    \phi(gh) = \phi(g) \phi(h).
+  \]
+
+  Hence \( \phi \) is a group homomorphism from \( G \) to \(
+  \operatorname{Sym}(X).  \)  Therefore \( \phi \) is a permutation
+  representation of \( G \) on \( X.  \)  It maps each group element \(
+  g \in G \) to a permutation \( \alpha_g \in \operatorname{Sym}(X).  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Note the multiple levels of abstraction here.  The group action \(
+  \alpha : X \times G \to X \) determines a permutation representation
+  \( \phi : G \to \operatorname{Sym}(X).  \)  Each element \( g \in G
+  \) together with the group action \( \alpha \) determines a
+  permutation \( \alpha_g : X \to X.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Also note that \( \phi(g)(x) = \alpha_g(x) = \alpha(g, x) = x^g.  \)
+  In fact, \( \phi(g) = \alpha_g.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;permutation-representations-determine-group-actions&quot;&gt;Permutation Representations Determine Group Actions&lt;/h3&gt;
+&lt;p&gt;
+  Consider a permutation representation \( \phi : G \to
+  \operatorname{Sym}(X).  \)  Define a map
+
+  \[
+    \alpha : X \times G \to X; \; (x, g) \mapsto \phi(g)(x).
+  \]
+
+  First we verify the identity property of group actions.  Since \(
+  \phi \) is a homomorphism, it preserves the identity element.
+  Therefore \( \phi(e) \) is the identity permutation.  Hence
+
+  \[
+    \alpha(x, e) = \phi(e)(x) = x
+  \]
+
+  Now we verify the compatibility property of the action.  For all \(
+  g, h \in G \) and \( x \in X, \) we have
+
+  \begin{align*}
+    \alpha(\alpha(x, g), h)
+    &amp;amp; = \alpha(\phi(g)(x), h) \\
+    &amp;amp; = \phi(h)(\phi(g)(x)) \\
+    &amp;amp; = (\phi(h) \circ \phi(g))(x) \\
+    &amp;amp; = (\phi(g)\phi(h))(x) \\
+    &amp;amp; = \phi(gh)(x) \\
+    &amp;amp; = \alpha(x, gh).
+  \end{align*}
+
+  This completes the proof of the fact that every permutation
+  representation determines a group action.
+&lt;/p&gt;
+&lt;h3 id=&quot;bijection-between-group-actions-and-permutation-representations&quot;&gt;Bijection Between Group Actions and Permutation Representations&lt;/h3&gt;
+&lt;p&gt;
+  There is a bijection between the group actions \( \alpha : X \times
+  G \to X \) and permutation representations \( \phi : G \to
+  \operatorname{Sym}(X).  \)  We now show that these two constructions
+  are inverses of each other.
+&lt;/p&gt;
+&lt;p&gt;
+  Given a right action \( \alpha : X \times G \to X, \) define
+
+  \[
+    \phi_{\alpha} : G \to \operatorname{Sym}(X)
+    \quad \text{by} \quad
+    \phi_{\alpha}(g)(x) = \alpha(x, g).
+  \]
+
+  Given a permutation representation \( \phi : G \to
+  \operatorname{Sym}(X), \) define
+
+  \[
+    \alpha_{\phi} : X \times G \to X
+    \quad \text{by} \quad
+    \alpha_{\phi}(x, g) = \phi(g)(x).
+  \]
+
+  We now show that these two constructions undo each other.  Take an
+  arbitrary group action \( \alpha : X \times G \to X \) and construct
+  the corresponding permutation representation \( \phi_{\alpha}.  \)
+  Then take this permutation representation and construct the group
+  action \( \alpha_{\phi_{\alpha}}.  \)  But
+
+  \[
+    \alpha_{\phi_{\alpha}}(x, g)
+    = \phi_{\alpha}(g)(x)
+    = \alpha(x, g).
+  \]
+
+  Therefore \( \alpha_{\phi_{\alpha}} = \alpha.  \)  Similarly,
+  starting with the permutation representation \( \phi, \) we get
+
+  \[
+    \phi_{\alpha_{\phi}}(g)(x)
+    = \alpha_{\phi}(x, g)
+    = \phi(g)(x).
+  \]
+
+  Therefore \( \phi_{\alpha_{\phi}} = \phi.  \)  Hence there is a
+  bijection between group actions \( \alpha : X \times G \to X \) and
+  permutation representations: \( \phi : G \to \operatorname{Sym}(X)
+ .  \)  In fact, a group action and the corresponding permutation
+  representation contain the same information, namely how the elements
+  \( g \in G \) acts as permutations of \( X.  \)  For this reason,
+  many advanced texts do not make any distinction between the group
+  action and its permutation representation.  They often use them
+  interchangeably even though technically they have different domains.
+&lt;/p&gt;
+&lt;h3 id=&quot;orbits&quot;&gt;Orbits&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) act on a set \( X.  \)  For an element \( x \in X, \) the
+  &lt;em&gt;orbit&lt;/em&gt; of \( x \) under the action of \( G \) is the set of
+  all elements of \( X \) that can be reached from \( x \) by the
+  action of elements of \( G.  \)  Symbolically, the orbit of \( x \)
+  is the set
+
+  \[
+    x^G = \{ x^g : g \in G \}.
+  \]
+
+  In other words, the orbit of \( x \) contains every element of \( X
+  \) that \( x \) can be moved to by the group action.  If \( y \in
+  x^G, \) then there exists some \( g \in G \) such that \( y = x^g
+ .  \)
+&lt;/p&gt;
+&lt;p&gt;
+  The orbits of a group action partition the set \( X.  \)  That is,
+  every element of \( X \) lies in exactly one orbit and two orbits
+  are either identical or disjoint.  Thus the group action decomposes
+  the set \( X \) into disjoint subsets (the orbits), each consisting
+  of elements that can be transformed into one another by the action
+  of \( G.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;stabilisers&quot;&gt;Stabilisers&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group acting on a set \( X.  \)  For an element
+  \( x \in X, \) the &lt;em&gt;stabiliser&lt;/em&gt; of \( x \) is the set
+
+  \[
+    G_x = \{ g \in G : x^g = x \}.
+  \]
+
+  The stabiliser \( G_x \) consists of all elements of \( G \) that
+  fix the element \( x.  \)  The stabiliser \( G_x \) is a subgroup of
+  \( G.  \)  Indeed, the identity element \( e \in G \) satisfies \(
+  x^e = x, \) so \( e \in G_x.  \)  If \( g, h \in G_x, \) then \(
+  x^{gh} = (x^g)^h = x.  \)  If \( g \in G_x, \) then \( x^{g^{-1}} =
+  (x^g)^{g^{-1}} = x.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Intuitively, the stabiliser measures how much symmetry of the group
+  action leaves the element \( x \) unchanged.  The larger the
+  stabiliser, the more elements of \( G \) fix \( x.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;orbit-stabiliser-theorem&quot;&gt;Orbit-Stabiliser Theorem&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group acting on a set \( X.  \)  The
+  orbit-stabiliser theorem states that for any \( x \in X, \)
+
+  \[
+    \lvert G_x \rvert \cdot \lvert x^G \rvert = \lvert G \rvert.
+  \]
+
+  Stated differently, the index of the stabiliser \( G_x \) in the
+  group \( G \) is given by
+
+  \[
+    [ G : G_x ]
+    = \lvert G_x \backslash G \rvert
+    = \lvert G \rvert / \lvert G_x \rvert
+    = \lvert x^G \rvert.
+  \]
+
+  There is a bijection between the right cosets of \( G_x \) and the
+  elements of \( x^G.  \)  Demonstrating this bijection proves the
+  above equation.  We will work with right cosets of \( G_x.  \)
+  Define
+
+  \[
+    \phi : G_x \backslash G \to x^G; \; G_x g \mapsto x^g.
+  \]
+
+  We want to show that \( \phi \) is a bijection.  But first we need
+  to show that \( \phi \) is well defined.  A coset \( G_x g \in G_x
+  \backslash G \) can also be written as
+
+  \[
+    G_x g = G_x h
+  \]
+
+  for some \( h \in G.  \)  If \( x^g \ne x^h, \) then \( \phi \) would
+  not be well defined, since \( \phi \) must assign each coset in \(
+  G_x \backslash G \) to exactly one element in the orbit \( x^G \) in
+  order to be a function.  This can be shown using the following
+  equivalences:
+
+  \begin{align*}
+    G_x g = G_x h
+    &amp;amp; \iff hg^{-1} \in G_x \\
+    &amp;amp; \iff x = x^{h g^{-1}} \\
+    &amp;amp; \iff x^g = x^h \\
+  \end{align*}
+
+  This proves two things at once.  The fact that
+
+  \[
+    G_x g = G_x h \implies x^g = x^h
+  \]
+
+  proves that when the same coset is written using two different
+  representatives, the image does not change.  Therefore \( \phi \) is
+  well defined.  Further
+
+  \[
+    x^g = x^h \implies G_x g = G_x h
+  \]
+
+  proves that \( \phi \) is injective.  To show that \( \phi \) is
+  surjective, let \( y \in x^G.  \)  Then \( y = x^g \) for some \( g
+  \in G.  \)  Since \( \phi(G_x g) = x^g, \) we get
+
+  \[
+    \phi(G_x g) = y.
+  \]
+
+  Thus every element of \( x^G \) is the image of some right coset \(
+  G_x g \) under \( \phi.  \)  This completes the proof of a bijection
+  between the right cosets of \( G_x \) and the elements of \( x^G.  \)
+  Therefore \( \lvert G_x \backslash G \rvert = \lvert x^G \rvert \)
+  and hence \( \lvert G \rvert / \lvert G_x \rvert = \lvert x^G \rvert
+ , \) which establishes the orbit-stabiliser theorem.
+&lt;/p&gt;
+&lt;h3 id=&quot;faithful-actions&quot;&gt;Faithful Actions&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) act on a set \( X.  \)  The action is called
+  &lt;em&gt;faithful&lt;/em&gt; if distinct elements of \( G \) induce distinct
+  permutations of \( X.  \)  In other words, the only element of \( G
+  \) that acts as the identity permutation of \( X \) is the identity
+  element \( e \in G.  \)  Symbolically, the action is faithful if
+
+  \[
+    g \ne e \implies \exists x \in X, \; x^g \ne x.
+  \]
+
+  Equivalently,
+
+  \[
+    \forall x \in X, \; x^g = x \implies g = e.
+  \]
+
+  The action is faithful if the only element of \( G \) that fixes
+  every element of \( X \) is the identity, i.e.
+
+  \[
+    \bigcap_{x \in X} G_x = \{ e \}.
+  \]
+
+  Recall that every group action determines a permutation
+  representation \( \phi : G \to \operatorname{Sym}(X).  \)  From this
+  point of view, the action is faithful precisely when the permutation
+  representation is faithful, that is, when the homomorphism \( \phi
+  \) is injective (or equivalently when \( \ker(\phi) = \{ e \} \)).
+  In other words, the action is faithful if and only if the associated
+  homomorphism \( \phi \) is a monomorphism.
+&lt;/p&gt;
+&lt;h3 id=&quot;semiregular-actions&quot;&gt;Semiregular Actions&lt;/h3&gt;
+&lt;p&gt;
+  A group action of \( G \) on \( X \) is called &lt;em&gt;semiregular&lt;/em&gt;
+  if no non-identity element of \( G \) fixes any element of \( X.  \)
+  In other words, whenever \( g \ne e, \) the permutation of \( X \)
+  induced by \( g \) moves every element of \( X.  \)  Symbolically,
+
+  \[
+    g \ne e \implies \forall x \in X, \; x^g \ne x.
+  \]
+
+  Equivalently,
+
+  \[
+    \exists x \in X, \; x^g = x \implies g = e.
+  \]
+
+  The action is semiregular if
+
+  \[
+    \forall x \in X, \; G_x = \{ e \}.
+  \]
+
+  This is a stronger property than faithfulness.  Faithfulness only
+  guarantees that when \( g \ne e, \) the element \( g \) moves at
+  least one element of \( X.  \)  But semiregularity guarantees that
+  when \( g \ne e, \) the element \( g \) moves every element of \( X
+ .  \)  Therefore every semiregular action is faithful, but not every
+  faithful action is semiregular.
+&lt;/p&gt;
+&lt;h3 id=&quot;transitive-actions&quot;&gt;Transitive Actions&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) act on a set \( X.  \)  The action is called
+  &lt;em&gt;transitive&lt;/em&gt; if there is only one orbit.  In other words, the
+  action is transitive if every element of \( X \) can be reached from
+  any other element by the action of some element of \( G.  \)
+  Symbolically, the action is transitive if
+
+  \[
+    \forall x, y \in X \; \exists g \in G, \; x^g = y.
+  \]
+
+  Equivalently, the action is transitive if
+
+  \[
+    x^G = X
+  \]
+
+  for some (and hence every) \( x \in X.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;conjugacy&quot;&gt;Conjugacy&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group.  Let \( x, g \in G.  \)  The element
+
+  \[
+    g^{-1} x g
+  \]
+
+  is called a &lt;em&gt;conjugate&lt;/em&gt; of \( x \) by \( g.  \)  Any element
+  \( y \in G \) that can be written as \( g^{-1} x g \) for some \( g
+  \in G \) is said to be a conjugate of \( x.  \)  The conjugacy class
+  of \( x \) in \( G \) is the set
+
+  \[
+    x^G = \{ g^{-1} x g : g \in G \}.
+  \]
+
+  In other words, the conjugacy class of \( x \) is the set of all
+  elements of \( G \) that are conjugate to \( x.  \)  At first,
+  reusing the orbit notation \( x^G \) for the conjugacy class may
+  seem like an abuse of notation.  However, we will see in the next
+  section that the conjugacy class is precisely the orbit of \( x \)
+  under the action of \( G \) on itself by conjugation.  Thus \( x^G
+  \) is in fact a natural and accurate notation for the conjugacy
+  class.
+&lt;/p&gt;
+&lt;h4 id=&quot;conjugation-as-group-action&quot;&gt;Conjugation as Group Action&lt;/h4&gt;
+&lt;p&gt;
+  Conjugation can be seen as an action of a group on itself.  Define
+  the map
+
+  \[
+    \alpha : G \times G \to G; \; (x, g) \mapsto g^{-1} x g.
+  \]
+
+  Note that
+
+  \[
+    \alpha(x, e) = e^{-1} x e = x
+  \]
+
+  and
+
+  \[
+    \alpha(\alpha(x, g), h)
+    = h^{-1} (g^{-1} x g) h
+    = (gh)^{-1} x (gh)
+    = \alpha(x, gh).
+  \]
+
+  Therefore \( \alpha \) satisfies the two defining properties of a
+  right group action.  The conjugacy class \( x^G \) is precisely the
+  orbit of \( x \) under the conjugation action.  Therefore the orbits
+  of the conjugation action of \( G \) on itself are the conjugacy
+  classes of \( G.  \)
+&lt;/p&gt;
+&lt;h4 id=&quot;right-conjugation-vs-left-conjugation&quot;&gt;Right Conjugation vs Left Conjugation&lt;/h4&gt;
+&lt;p&gt;
+  We observed above that the conjugation action is a right action of a
+  group on itself.  Let \( x, g \in G \) and let
+
+  \[
+    y = g^{-1} x g.
+  \]
+
+  Now let \( h = g^{-1}.  \)  Then we can write the above equation as
+
+  \[
+    y = h x h^{-1}.
+  \]
+
+  According to the previous section, \( y \) is the conjugate of \( x
+  \) by \( g.  \)  However, many texts call \( y \) the conjugate of \(
+  x \) by \( h.  \)  Both are valid perspectives.  In both
+  perspectives, \( x \) and \( y \) are conjugates of each other.
+  Precisely,
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    In the first perspective, we have \( y = g^{-1} x g \) and we say
+    that \( y \) is a conjugate of \( x \) by \( g.  \)  A corollary is
+    that \( x \) is a conjugate of \( y \) by \( g^{-1}.  \)
+  &lt;/li&gt;
+  &lt;li&gt;
+    In the second perspective, we have \( y = h x h^{-1} \) and we say
+    that \( y \) is a conjugate of \( x \) by \( h.  \)  A corollary is
+    that \( x \) is a conjugate of \( y \) by \( h^{-1}.  \)
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  Although in both perspectives, \( x \) and \( y \) are conjugates of
+  each other, the group element by which one is conjugated to the
+  other is different.  This leads to different group actions as well.
+&lt;/p&gt;
+&lt;p&gt;
+  When we say that \( y = g^{-1} x g \) is a conjugate of \( x \) by
+  \( g, \) the group action
+
+  \[
+    \alpha : G \times G \to G; \; (x, g) \mapsto g^{-1} x g.
+  \]
+
+  is a right group action as demonstrated in the previous section.
+  But when we say that \( y = h x h^{-1} \) is a conjugate of \( x \)
+  by \( h, \) the conjugation action is no longer a right group action
+  because the compatibility property is violated:
+
+  \[
+    \alpha(\alpha(x, g), h)
+    = h ( g x g^{-1} ) h^{-1}
+    = (hg) x (hg)^{-1}
+    = \alpha(x, hg).
+  \]
+
+  We get \( \alpha(x, hg) \) instead of the required \( \alpha(x, gh)
+ .  \)  So with the second perspective, the group action is no longer a
+  right action.  Instead it is a left action since
+
+  \[
+    \alpha(g, \alpha(h, x))
+    = g (h x h^{-1}) g^{-1}
+    = (gh) x (gh)^{-1}
+    = \alpha(gh, x).
+  \]
+
+  In this post we will work only with the first perspective because we
+  will use right actions throughout.
+&lt;/p&gt;
+&lt;h3 id=&quot;conjugate-groups&quot;&gt;Conjugate Subgroups&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group.  Let \( H \le G.  \)  Define
+
+  \[
+    g^{-1} H g = \{ g^{-1} h g : h \in H \}.
+  \]
+
+  We say that \( g^{-1} H g \) is a conjugate of \( H \) by \( g.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;conjugacy-of-stabilisers&quot;&gt;Conjugacy of Stabilisers&lt;/h3&gt;
+&lt;p&gt;
+  Let \( G \) be a group acting on a set \( X.  \)  Let \( x \in X \)
+  and \( g \in G.  \)  Then
+
+  \[
+    g^{-1} G_x g = G_{x^g}.
+  \]
+
+  That is, \( G_{x^g} \) is a conjugate of \( G_x \) by \( g.  \)  This
+  result can be summarised as follows: stabilisers of elements in the
+  same orbit are conjugate.  Or more explicitly: the stabiliser of \(
+  x^g \) is a conjugate of the stabiliser of \( x \) by \( g.  \)  The
+  proof is straightforward.  Let \( h \in G.  \)  Then
+
+  \begin{align*}
+    h \in g^{-1} G_x g
+    &amp;amp; \iff g^{-1} (g h g^{-1}) g \in g^{-1} G_x g \\
+    &amp;amp; \iff g h g^{-1} \in G_x \\
+    &amp;amp; \iff x^{g h g^{-1}} = x \\
+    &amp;amp; \iff (x^g)^h = x^g \\
+    &amp;amp; \iff h \in G_{x^g}.
+  \end{align*}
+
+  Therefore \( g^{-1} G_x g = G_{x^g}.  \)
+&lt;/p&gt;
+&lt;h2 id=&quot;algebraic-graph-theory&quot;&gt;Algebraic Graph Theory&lt;/h2&gt;
+&lt;h3 id=&quot;stabiliser-index&quot;&gt;Stabiliser Index&lt;/h3&gt;
+&lt;p&gt;
+  In a vertex-transitive graph \( \Gamma, \) for any \( x \in
+  V(\Gamma) \) and all \( y \in V(\Gamma), \) there exists \( g \in G
+  \) such that \( x^g = y.  \)  Therefore \( x^G = V(\Gamma).  \)  Thus
+  by the &lt;a href=&quot;#orbit-stabiliser-theorem&quot;&gt;orbit-stabiliser
+  theorem&lt;/a&gt;,
+
+  \[
+    [ G : G_x ]
+    = \lvert G_x \backslash G \rvert
+    = \lvert x^G \rvert
+    = \lvert V(\Gamma) \rvert.
+  \]
+&lt;/p&gt;
+&lt;h3 id=&quot;strongly-connected-directed-graph&quot;&gt;Strongly Connected Directed Graph&lt;/h3&gt;
+&lt;p&gt;
+  A &lt;em&gt;path&lt;/em&gt; in a directed graph \( \Gamma \) is a sequence of
+  vertices \( v_0, \dots, v_r \) of distinct vertices such that \(
+  (v_{i - 1}, v_i) \) is an arc of \( \Gamma \) for \( i = 1, \dots, r
+ .  \)
+&lt;/p&gt;
+&lt;p&gt;
+  A directed graph is &lt;em&gt;strongly connected&lt;/em&gt; if for every ordered
+  pair of vertices \( (u, v) \) there is a path from \( u \) to \( v
+ .  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;shunting&quot;&gt;Shunting&lt;/h3&gt;
+&lt;p&gt;
+  Let \( \alpha = ( \alpha_0, \dots, \alpha_s ) \) and \( \beta = (
+  \beta_0, \dots, \beta_s ) \) be two \( s \)-arcs in a graph \(
+  \Gamma.  \)  We say that \( \beta \) is a successor of \( \alpha \)
+  if \( \beta_i = \alpha_{i + 1} \) for \( 0 \le i \le s - 1.  \)  We
+  also say that \( \alpha \) can be &lt;em&gt;shunted&lt;/em&gt; onto \( \beta.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  In section 4.2 of Godsil and Royle, there is a rather technical
+  setup which first defines \( X^{(s)} \) as the directed graph with
+  the \( s \)-arcs of a graph \( X \) as its vertices such that \(
+  (\alpha, \beta) \) is an arc of \( X^{(s)} \) if and only if \(
+  \alpha \) can be shunted onto \( \beta \) in \( X.  \)  Then it goes
+  on to show that if \( X \) is a connected graph with a minimum
+  degree two and \( X \) is not a cycle, then \( X^{(s)} \) is
+  strongly connected for all \( s \ge 0.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  That is a very technical way of saying that in a connected graph \(
+  X \) that is not a cycle and has a minimum degree two, any \( s
+  \)-arc \( \alpha \) can be sent to any \( s \)-arc \( \beta \) by
+  repeated shunting.  The proof is quite technical too and pretty
+  long, so I&apos;ll omit it here.
+&lt;/p&gt;
+&lt;h3 id=&quot;automorphisms-preserve-successor-relation&quot;&gt;Automorphisms Preserve Successor Relation&lt;/h3&gt;
+&lt;p&gt;
+  We will obtain a nifty result here that will prove to be very useful
+  in the next section.  Let \( S(\gamma) \) denote the set of all
+  successors of the \( s \)-arc \( \gamma \) of a graph.  Let \( g \)
+  be an automorphism of the graph.  Then
+
+  \[
+    \delta \in S(\gamma) \iff \delta^g \in S(\gamma^g).
+  \]
+
+  This follows directly from the fact that automorphisms preserve
+  adjacency, so they must preserve successor relation as well.  A
+  corollary of this is that for an automorphism \( h, \) we have
+
+  \[
+    \delta^{h^{-1}} \in S(\gamma) \iff \delta \in S(\gamma^h).
+  \]
+
+  This is the form that will be useful soon.
+&lt;/p&gt;
+&lt;h3 id=&quot;test-of-s-arc-transitivity&quot;&gt;Test of \( s \)-arc Transitivity&lt;/h3&gt;
+&lt;p&gt;
+  The results in the previous two sections lead to a remarkably simple
+  proof of the fact that the Petersen graph is \( 3 \)-arc transitive.
+  Let us see how.
+&lt;/p&gt;
+&lt;p&gt;
+  Let \( P \) be the Petersen graph whose vertices are the \( 2
+  \)-subsets of \( \{ 1, 2, 3, 4, 5 \} \) with adjacency given by
+  disjointness of the \( 2 \)-subsets.  Then \( \operatorname{Aut}(P)
+  \cong S_5 \) since any permutation of \( \{ 1, 2, 3, 4, 5 \} \)
+  induces a permutation of the vertices that preserves disjointness
+  and hence adjacency.  We will use the shorthand \( ab \) to
+  represent each vertex \( \{ a, b \} \) of \( P.  \)  Consider the \(
+  3 \)-arc
+
+  \[
+    \alpha = (12, 34, 15, 23).
+  \]
+
+  It has exactly two successors, namely
+
+  \[
+    \beta_1 = (34, 15, 23, 14), \quad \beta_2 = (34, 15, 23, 45).
+  \]
+
+  Let \( g_1 = (13)(245) \) and \( g_2 = (13524).  \)  Then
+
+  \begin{align*}
+    \alpha^{g_1}
+    &amp;amp; = (12, 34, 15, 23)^{(13)(245)} = (34, 15, 23, 14) = \beta_1, \\
+    \alpha^{g_2}
+    &amp;amp; = (12, 34, 15, 23)^{(13524)} = (34, 51, 23, 45) = \beta_2.
+  \end{align*}
+
+  Let \( H = \langle g_1, g_2 \rangle \le \operatorname{Aut}(P).  \)
+  Consider an \( s \)-arc \( \alpha^h \) for some \( h \in H.  \)  Let
+  \( \delta \in S(\alpha^h).  \)  Then by the result in the previous
+  section, we get
+
+  \[
+    \delta^{h^{-1}} \in S(\alpha)
+    = \{ \beta_1, \beta_2 \}
+    = \{ \alpha^{g_1}, \alpha^{g_2} \}.
+  \]
+
+  Therefore
+
+  \[
+    \delta \in \{ \alpha^{g_1 h}, \alpha^{g_2 h} \}.
+  \]
+
+  Thus
+
+  \[
+    \delta \in \alpha^{H}.
+  \]
+
+  We started with an \( s \)-arc \( \alpha^h \in \alpha^H \) and
+  showed that its successors \( \delta \) also lie in \( \alpha^H.  \)
+  Thus the orbit \( \alpha^H \) is closed under taking successors.
+&lt;/p&gt;
+&lt;p&gt;
+  Now by the &lt;a href=&quot;#shunting&quot;&gt;shunting result&lt;/a&gt; discussed
+  previously, \( \alpha \) can be sent to any \( 3 \)-arc of \( P \)
+  by repeated shunting.  Therefore all \( 3 \)-arcs of \( P \) belong
+  to \( \alpha^H.  \)  Therefore the automorphisms in \( H \) can send
+  any \( 3 \)-arc of \( P \) to any other thus making \( P \) \( 3
+  \)-arc transitive.
+&lt;/p&gt;
+&lt;h3 id=&quot;moore-graphs&quot;&gt;Moore Graphs&lt;/h3&gt;
+&lt;p&gt;
+  Graphs with diameter \( d \) and girth \( 2d + 1 \) are known as
+  Moore graphs.
+&lt;/p&gt;
+&lt;p&gt;
+  There are an infinite number of Moore graphs with diameter \( 1 \)
+  since the complete graphs \( K_n, \) where \( n \ge 3, \) have
+  diameter \( 1 \) and girth \( 3.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  There are three known Moore graphs of diameter \( 2.  \)  They are \(
+  C_5, \) \( J(5, 2, 0) \) also known as the Petersen graph and the
+  Hoffman-Singleton graph.  They are respectively \( 2 \)-regular, \(
+  3 \)-regular and \( 7 \)-regular.  There is a famous result that
+  proves that a Moore graph must be \( 2 \)-regular, \( 3 \)-regular,
+  \( 7 \)-regular or \( 57 \)-regular.  It is unknown currently
+  whether a \( 57 \)-regular Moore graph of diameter \( 2 \) exists.
+&lt;/p&gt;
+&lt;p&gt;
+  There are infinitely many Moore graphs of diameter \( d \ge 3 \)
+  because the odd cycles \( C_{2d + 1} \) are \( 2 \)-regular graphs
+  with diameter \( d \) and girth \( 2d + 1 \) for all \( d \ge 1.  \)
+  However, there are no \( k \)-regular Moore graphs for diameter \( d
+  \ge 3 \) when \( k \ge 3.  \)
+&lt;/p&gt;
+&lt;h3 id=&quot;generalised-polygons&quot;&gt;Generalised Polygons&lt;/h3&gt;
+&lt;p&gt;
+  Bipartite graphs with diameter \( d \) and girth \( 2d \) are known
+  as generalised polygons.  This is easy to understand.  If we take a
+  classical \( d \)-gon and create the incidence graph of its vertices
+  and edges, then the incidence graph is the cycle \( C_{2d} \) which
+  has diameter \( d \) and girth \( 2d.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  The converse is not always true.  For example,
+  the &lt;a href=&quot;https://en.wikipedia.org/wiki/Heawood_graph&quot;&gt;Heawood
+  graph&lt;/a&gt; which has diameter \( d = 3 \) and girth \( 2d = 6.  \)  It
+  is the incidence graph of Fano plane, which is a projective plane
+  rather than a classical \( d \)-gon.
+&lt;/p&gt;
+&lt;p&gt;
+  Although a generalised polygon is not always the incidence graph of
+  a classical polygon, the idea behind the definition comes from a
+  simple observation.  If we take a classical \( d \)-gon and form the
+  incidence graph of its vertices and edges, we obtain the cycle \(
+  C_{2d}.  \)  This graph is bipartite and has diameter \( d \) and
+  girth \( 2d.  \)  The definition of a generalised polygon abstracts
+  these properties.  Any bipartite graph with diameter \( d \) and
+  girth \( 2d \) is called a generalised polygon, even when it is not
+  the incidence graph of a classical \( d \)-gon.  In this way the
+  definition allows much richer graphs than simple cycles.
+&lt;/p&gt;
+&lt;h2 id=&quot;computing&quot;&gt;Computing&lt;/h2&gt;
+&lt;h3 id=&quot;select-between-lines-inclusive&quot;&gt;Select Between Lines, Inclusive&lt;/h3&gt;
+&lt;p&gt;
+  Select text between two lines, including both lines:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sed &apos;/pattern1/,/pattern2/!d&apos;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;sed -n &apos;/pattern1/,/pattern2/p&apos;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here are some examples:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf &apos;A\nB\nC\nD\nE\nF\nG\nH\n&apos; | sed &apos;/C/,/F/!d&apos;&lt;/kbd&gt;
+C
+D
+E
+F
+$ &lt;kbd&gt;printf &apos;A\nB\nC\nD\nE\nF\nG\nH\n&apos; | sed -n &apos;/C/,/F/p&apos;&lt;/kbd&gt;
+C
+D
+E
+F&lt;/samp&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;select-between-lines-exclusive&quot;&gt;Select Between Lines, Exclusive&lt;/h3&gt;
+&lt;p&gt;
+  Select text between two lines, excluding both lines:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sed &apos;/pattern1/,/pattern2/!d; //d&apos;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here is an example usage:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf &apos;A\nB\nC\nD\nE\nF\nG\nH\n&apos; | sed &apos;/C/,/F/!d; //d&apos;&lt;/kbd&gt;
+D
+E&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The negated command &lt;code&gt;!d&lt;/code&gt; deletes everything not matched
+  by the 2-address range &lt;code&gt;/C/,/F/&lt;/code&gt;, i.e. it deletes
+  everything before the line matching &lt;code&gt;/C/&lt;/code&gt; as well as
+  everything after the line matching &lt;code&gt;/F/&lt;/code&gt;.  So we are left
+  with only the lines from &lt;code&gt;C&lt;/code&gt; to &lt;code&gt;F&lt;/code&gt;,
+  inclusive.  Finally, &lt;code&gt;//&lt;/code&gt; (the empty regular expression)
+  reuses the most recently used regular expression.  So
+  when &lt;code&gt;/C/,/F/&lt;/code&gt; matches &lt;code&gt;C&lt;/code&gt;, the
+  command &lt;code&gt;//d&lt;/code&gt; also matches &lt;code&gt;C&lt;/code&gt; and deletes it.
+  Similarly, &lt;code&gt;F&lt;/code&gt; is deleted too.  That&apos;s how we are left
+  with the lines between &lt;code&gt;C&lt;/code&gt; and &lt;code&gt;F&lt;/code&gt;, exclusive.
+&lt;/p&gt;
+&lt;p&gt;
+  Here are some excerpts from
+  &lt;a href=&quot;https://pubs.opengroup.org/onlinepubs/9799919799/utilities/sed.html&quot;&gt;POSIX.1-2024&lt;/a&gt;
+  that help understand the &lt;code&gt;!d&lt;/code&gt; and &lt;code&gt;//d&lt;/code&gt;
+  commands better:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  A function can be preceded by a &lt;code&gt;&apos;!&apos;&lt;/code&gt; character, in which
+  case the function shall be applied if the addresses do not select
+  the pattern space.  Zero or more &amp;lt;blank&amp;gt; characters shall be
+  accepted before the &lt;code&gt;&apos;!&apos;&lt;/code&gt; character.  It is unspecified
+  whether &amp;lt;blank&amp;gt; characters can follow the &lt;code&gt;&apos;!&apos;&lt;/code&gt;
+  character, and conforming applications shall not follow
+  the &lt;code&gt;&apos;!&apos;&lt;/code&gt; character with &amp;lt;blank&amp;gt; characters.
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+  If an RE is empty (that is, no pattern is specified) &lt;em&gt;sed&lt;/em&gt;
+  shall behave as if the last RE used in the last command applied
+  (either as an address or as part of a substitute command) was
+  specified.
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;signing-and-verification-with-ssh-key&quot;&gt;Signing and Verification with SSH Key&lt;/h3&gt;
+&lt;p&gt;
+  Here are some minimal commands to demonstrate how we can sign some
+  text using SSH key and then later verify it.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ssh-keygen -t ed25519 -f key
+echo hello &amp;gt; hello.txt
+ssh-keygen -Y sign -f key.pub -n file hello.txt
+echo &quot;jdoe $(cat key.pub)&quot; &amp;gt; allowed.txt
+ssh-keygen -Y verify -f allowed.txt -I jdoe -n file -s hello.txt.sig &amp;lt; hello.txt&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here are some examples that demonstrate what the outputs and
+  signature file look like:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;ssh-keygen -Y sign -f key.pub -n file hello.txt&lt;/kbd&gt;
+Signing file hello.txt
+Write signature to hello.txt.sig&lt;/samp&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;cat hello.txt.sig&lt;/kbd&gt;
+-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgAwP6RnmFVrZO0m/nRIHyvr2S19
+itsKegj9p/BZKqP1sAAAAEZmlsZQAAAAAAAAAGc2hhNTEyAAAAUwAAAAtzc2gtZWQyNTUx
+OQAAAEB8ylqjCLgInF8DvROnLSm1UUWd0VuLPesI+1NhMrV9BjH5lf0w20kHunJW3qRIjw
+Jfs9+q/e47KdlR8wBQaHYD
+-----END SSH SIGNATURE-----&lt;/samp&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;ssh-keygen -Y verify -f allowed.txt -I jdoe -n file -s hello.txt.sig &amp;lt; hello.txt&lt;/kbd&gt;
+Good &quot;file&quot; signature for jdoe with ED25519 key SHA256:9ZJuUJNMy1UXo3AlQy8L7baD3LOfEbgQ30ELIt+8wWc&lt;/samp&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;block-ip-address-with-nftables&quot;&gt;Block IP Address with nftables&lt;/h3&gt;
+&lt;p&gt;
+  Here is a sequence of commands to create an nftables rule from
+  scratch to block an IP address:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft add table inet filter&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+table inet filter {
+}
+$ &lt;kbd&gt;sudo nft add chain inet filter input { type filter hook input priority 0 \; }&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+table inet filter {
+        chain input {
+                type filter hook input priority filter; policy accept;
+        }
+}
+$ &lt;kbd&gt;sudo nft add rule inet filter input ip saddr 172.236.0.216 drop&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+table inet filter {
+        chain input {
+                type filter hook input priority filter; policy accept;
+                ip saddr 172.236.0.216 drop
+        }
+}&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here is how to undo the above setup step by step:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo nft -a list ruleset&lt;/kbd&gt;
+table inet filter { # handle 1
+        chain input { # handle 1
+                type filter hook input priority filter; policy accept;
+                ip saddr 172.236.0.216 drop # handle 2
+        }
+}
+$ &lt;kbd&gt;sudo nft delete rule inet filter input handle 2&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+table inet filter {
+        chain input {
+                type filter hook input priority filter; policy accept;
+        }
+}
+$ &lt;kbd&gt;sudo nft delete chain inet filter input&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+table inet filter {
+}
+$ &lt;kbd&gt;sudo nft delete table inet filter&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+$&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Finally, the following command deletes all rules, chains and tables.
+  It wipes the entire ruleset, so use it with care.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo nft flush ruleset&lt;/kbd&gt;
+$ &lt;kbd&gt;sudo nft list ruleset&lt;/kbd&gt;
+$&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  All outputs above were obtained using nftables v1.1.3 on Debian 13.2
+  (Trixie).
+&lt;/p&gt;
+&lt;h3 id=&quot;debian-logrotate-setup&quot;&gt;Debian Logrotate Setup&lt;/h3&gt;
+&lt;p&gt;
+  Observed on Debian 11.5 (Bullseye) that &lt;code&gt;logrotate&lt;/code&gt; is
+  set up on it via &lt;code&gt;systemd&lt;/code&gt;.  Here are some outputs that
+  show what the setup is like:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo systemctl status logrotate.service&lt;/kbd&gt;
+● logrotate.service - Rotate log files
+     Loaded: loaded (/lib/systemd/system/logrotate.service; static)
+     Active: inactive (dead) since Mon 2026-03-30 00:00:17 UTC; 19h ago
+TriggeredBy: &lt;span class=&quot;c2&quot;&gt;●&lt;/span&gt; logrotate.timer
+       Docs: man:logrotate(8)
+             man:logrotate.conf(5)
+    Process: 2148235 ExecStart=/usr/sbin/logrotate /etc/logrotate.conf (code=exited, status=0/SUCCESS)
+   Main PID: 2148235 (code=exited, status=0/SUCCESS)
+        CPU: 574ms
+
+Mar 30 00:00:16 spweb systemd[1]: Starting Rotate log files...
+Mar 30 00:00:17 spweb systemd[1]: logrotate.service: Succeeded.
+Mar 30 00:00:17 spweb systemd[1]: Finished Rotate log files.
+$ &lt;kbd&gt;sudo systemctl status logrotate.timer&lt;/kbd&gt;
+● logrotate.timer - Daily rotation of log files
+     Loaded: loaded (/lib/systemd/system/logrotate.timer; enabled; vendor preset: enabled)
+     Active: active (waiting) since Mon 2026-01-19 19:19:34 UTC; 2 months 9 days ago
+    Trigger: Tue 2026-03-31 00:00:00 UTC; 4h 7min left
+   Triggers: &lt;span class=&quot;c2&quot;&gt;●&lt;/span&gt; logrotate.service
+       Docs: man:logrotate(8)
+             man:logrotate.conf(5)
+
+Warning: journal has been rotated since unit was started, output may be incomplete.
+$ &lt;kbd&gt;sudo systemctl list-timers logrotate&lt;/kbd&gt;
+NEXT                        LEFT         LAST                        PASSED  UNIT            ACTIVATES
+Tue 2026-03-31 00:00:00 UTC 4h 7min left Mon 2026-03-30 00:00:16 UTC 19h ago logrotate.timer logrotate.service
+
+1 timers listed.
+Pass --all to see loaded but inactive timers, too.
+$ &lt;kbd&gt;head /lib/systemd/system/logrotate.service&lt;/kbd&gt;
+[Unit]
+Description=Rotate log files
+Documentation=man:logrotate(8) man:logrotate.conf(5)
+RequiresMountsFor=/var/log
+ConditionACPower=true
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/logrotate /etc/logrotate.conf
+
+$ &lt;kbd&gt;cat /lib/systemd/system/logrotate.timer&lt;/kbd&gt;
+[Unit]
+Description=Daily rotation of log files
+Documentation=man:logrotate(8) man:logrotate.conf(5)
+
+[Timer]
+OnCalendar=daily
+AccuracySec=1h
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+$ &lt;kbd&gt;grep -vE &apos;^#|^$&apos; /etc/logrotate.conf&lt;/kbd&gt;
+weekly
+rotate 4
+create
+include /etc/logrotate.d
+$ &lt;kbd&gt;ls -l /etc/logrotate.d/&lt;/kbd&gt;
+total 40
+-rw-r--r-- 1 root root 120 Aug 21  2022 alternatives
+-rw-r--r-- 1 root root 173 Jun 10  2021 apt
+-rw-r--r-- 1 root root 130 Oct 14  2019 btmp
+-rw-r--r-- 1 root root  82 May 26  2018 certbot
+-rw-r--r-- 1 root root 112 Aug 21  2022 dpkg
+-rw-r--r-- 1 root root 128 May  4  2021 exim4-base
+-rw-r--r-- 1 root root 108 May  4  2021 exim4-paniclog
+-rw-r--r-- 1 root root 329 May 29  2021 nginx
+-rw-r--r-- 1 root root 374 May 20  2022 rsyslog
+lrwxrwxrwx 1 root root  28 Mar 17 01:52 &lt;span class=&quot;c3&quot;&gt;susam&lt;/span&gt; -&amp;gt; /opt/susam.net/etc/logrotate
+-rw-r--r-- 1 root root 145 Oct 14  2019 wtmp&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  To force log rotation right now, execute:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo systemctl start logrotate.service&lt;/code&gt;&lt;/pre&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/26c.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/notes.html&quot;&gt;#notes&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/linux.html&quot;&gt;#linux&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Feb '26 Notes</title>
+    <link href="https://susam.net/26b.html"/>
+    <id>urn:uuid:ae080857-f795-4d86-a7fe-60910dbf0357</id>
+    <updated>2026-02-27T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Since last month, I have been collecting brief notes on ideas and
+  references that caught my attention during each month but did not
+  make it into full articles.  Some of these fragments may eventually
+  grow into standalone posts, though most will probably remain as they
+  are.  At the very least, this approach allows me to keep a record of
+  them.
+&lt;/p&gt;
+&lt;p&gt;
+  Most of &lt;a href=&quot;26a.html&quot;&gt;last month&apos;s notes&lt;/a&gt; grew out of my
+  reading of &lt;em&gt;Algebraic Graph Theory&lt;/em&gt; by Godsil and Royle.  I
+  am still exploring and learning this subject.  This month, however,
+  I dove into another book with the same title but this book is
+  written by Norman Biggs.  As a result, many of the notes that follow
+  are drawn from Biggs&apos;s treatment of the topic.
+&lt;/p&gt;
+&lt;p&gt;
+  Since I already had a good understanding of the subject from the
+  earlier book, I decided to skip the first fourteen chapters of the
+  new book.  I began with Chapter 15, which discusses automorphisms of
+  graphs and then moved on to the following chapters on graph
+  symmetries.  My main reason for picking up Biggs&apos;s book was to
+  understand Tutte&apos;s well known result that any \( s \)-arc-transitive
+  finite cubic graph must satisfy \( s \le 5.  \)  While I did not
+  reach that chapter this month, I made substantial progress with the
+  book.  I hope to work through the proof of Tutte&apos;s theorem next
+  month.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#degree-of-vertices-in-an-orbit&quot;&gt;Degree of Vertices in an Orbit&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#regular-non-vertex-transitive-graphs&quot;&gt;Regular Non-Vertex-Transitive Graphs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#vertex-transitive-but-not-edge-transitive&quot;&gt;Vertex-Transitive But Not Edge-Transitive&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#edge-transitive-but-not-vertex-transitive&quot;&gt;Edge-Transitivex But Not Vertex-Transitive&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#bipartiteness-as-a-necessary-condition&quot;&gt;Bipartiteness as a Necessary Condition&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#graph-with-an-automorphism-group&quot;&gt;Graph with an Automorphism Group&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#permutation-groups-need-not-be-automorphism-groups&quot;&gt;Permutation Groups Need Not Be Automorphism Groups&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#symmetric-graphs&quot;&gt;Symmetric Graphs&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;degree-of-vertices-in-an-orbit&quot;&gt;Degree of Vertices in an Orbit&lt;/h2&gt;
+&lt;p&gt;
+  If two vertices of a graph belong to the same orbit, then they have
+  the same degree.  In other words, for a graph \( X, \) if \( x, y
+  \in V(X) \) and there is an automorphism \( \alpha \) such that \(
+  \alpha(x) = y, \) then \( \deg(x) = \deg(y).  \)
+&lt;/p&gt;
+&lt;p&gt;
+  The proof is quite straightforward.  Let
+
+  \begin{align*}
+    N(x) &amp;amp;= \{ v_1, \dots, v_r \}, \\
+    N(y) &amp;amp;= \{ w_1, \dots, w_s \}
+  \end{align*}
+
+  represent the neighbours of \( x \) and \( y \) respectively.
+  Therefore we have
+
+  \[
+    x \sim v_1, \; \dots, \; x \sim v_r.
+  \]
+
+  Since an automorphism preserves adjacency, we get
+
+  \[
+    \alpha(x) \sim \alpha(v_1), \; \dots, \;
+    \alpha(x) \sim \alpha(v_r).
+  \]
+
+  Substituting \( \alpha(x) = y, \) we get
+
+  \[
+    y \sim \alpha(v_1), \; \dots, \; y \sim \alpha(v_r).
+  \]
+
+  Thus
+
+  \[
+    \alpha(N(x))
+    = \{ \alpha(v_1), \; \dots, \; \alpha(v_r) \}
+    \subseteq N(y).
+  \]
+
+  A similar argument works in reverse as well.  By the definition of
+  automorphism, if \( \alpha \) is an automorphism, so is \(
+  \alpha^{-1}.  \)  From the definition of \( N(y) \) above, we have
+
+  \[
+    y \sim w_1, \; \dots, \; y \sim w_s.
+  \]
+
+  Therefore
+
+  \[
+    \alpha^{-1}(y) \sim \alpha^{-1}(w_1), \; \dots, \;
+    \alpha^{-1}(y) \sim \alpha^{-1}(w_s).
+  \]
+
+  This is equivalent to
+
+  \[
+    x \sim \alpha^{-1}(w_1), \; \dots, \; x \sim \alpha^{-1}(w_s).
+  \]
+
+  Thus
+
+  \[
+    \alpha^{-1}(N(y))
+    = \{ \alpha^{-1}(w_1), \; \dots, \; \alpha^{-1}(w_s) \}
+    \subseteq N(x)
+  \]
+
+  This can be rewritten as
+
+  \[
+    \{ \alpha^{-1}(w_1), \; \dots, \; \alpha^{-1}(w_s) \}
+    \subseteq \{ v_1, \dots, v_r \}.
+  \]
+
+  Therefore
+
+  \[
+    N(y)
+    = \{ w_1, \dots, w_s \}
+    \subseteq \{ \alpha(v_1), \dots, \alpha(v_r) \}
+    = \alpha(N(x)).
+  \]
+
+  We have shown that \( \alpha(N(x)) \subseteq N(y) \) and \( N(y)
+  \subseteq \alpha(N(x)).  \)  Thus
+
+  \[
+    \alpha(N(x)) = N(y).
+  \]
+
+  Thus
+
+  \[
+    \lvert N(y) \rvert = \lvert \alpha(N(x)) \rvert = r.
+  \]
+
+  Therefore both \( x \) and \( y \) have \( r \) neighbours each.
+  Hence \( \deg(x) = \deg(y).  \)
+&lt;/p&gt;
+&lt;h2 id=&quot;regular-non-vertex-transitive-graphs&quot;&gt;Regular Non-Vertex-Transitive Graphs&lt;/h2&gt;
+&lt;p&gt;
+  The &lt;a href=&quot;https://en.wikipedia.org/wiki/Frucht_graph&quot;&gt;Frucht graph&lt;/a&gt;
+  and the
+  &lt;a href=&quot;https://en.wikipedia.org/wiki/Folkman_graph&quot;&gt;Folkman
+  graph&lt;/a&gt; are examples of graphs that are \( k \)-regular but not
+  vertex-transitive.  In fact, the Folkman graph is a semi-symmetric
+  graph, i.e. it is regular and edge-transitive but not
+  vertex-transitive.
+&lt;/p&gt;
+&lt;h2 id=&quot;vertex-transitive-but-not-edge-transitive&quot;&gt;Vertex-Transitive But Not Edge-Transitive&lt;/h2&gt;
+&lt;p&gt;
+  The circular ladder graph \( CL_3, \) i.e. the triangular prism
+  graph, is vertex-transitive but not edge-transitive.
+&lt;/p&gt;
+&lt;p&gt;
+  Every vertex has the same local structure.  Every vertex has degree
+  \( 3 \) and it lies on exactly one of the two triangles and it has
+  exactly one &apos;vertical&apos; edge connecting it to the corresponding edge
+  on the other triangle.  Any vertex can be sent to any other by an
+  automorphism.
+&lt;/p&gt;
+&lt;p&gt;
+  Since triangle edges are in a triangle and vertical edges are in no
+  triangle, no automorphism can send a triangle edge to a vertical
+  edge or vice versa.  Therefore the graph is not edge-transitive.
+&lt;/p&gt;
+&lt;h2 id=&quot;edge-transitive-but-not-vertex-transitive&quot;&gt;Edge-Transitivex But Not Vertex-Transitive&lt;/h2&gt;
+&lt;p&gt;
+  The complete bipartite graphs \( K_{m,n} \) with \( m \ne n \) are
+  edge-transitive but not vertex-transitive.
+&lt;/p&gt;
+&lt;p&gt;
+  Every edge connects one vertex from the \( m \)-part to one vertex
+  from the \( n \)-part.  Any permutation of vertices inside the \( m
+  \)-part preserves adjacency.  Similarly, any permutation of vertices
+  inside the \( n \)-part preserves adjacency.
+&lt;/p&gt;
+&lt;p&gt;
+  Take two arbitrary edges
+
+  \[
+    uv, \; u&apos;v&apos; \in E(K_{m,n})
+  \]
+
+  where \( u, u&apos; \) are vertices that lie in the \( m \)-part and \(
+  v, v&apos; \) are vertices that lie in the \( n \)-part.  Permute
+  vertices within the \( m \)-part to send \( u \) to \( u&apos;.  \)
+  Similarly, permute vertices within the \( n \)-part to send \( v \)
+  to \( v&apos;.  \)  This gives an automorphism that sends the edge \( uv
+  \) to \( u&apos;v&apos;.  \)  In this manner we can find an automorphism that
+  sends any edge to any other.  Therefore, \( K_{m,n} \) is
+  edge-transitive.
+&lt;/p&gt;
+&lt;p&gt;
+  However, \( K_{m,n} \) is not vertex-transitive since no
+  automorphism can send a vertex in the \( m \)-part to a vertex in
+  the \( n \)-part since the vertices in the \( m \)-part have degree
+  \( n \) and the vertices in the \( n \)-part have degree \( m.  \)
+&lt;/p&gt;
+&lt;h2 id=&quot;bipartiteness-as-a-necessary-condition&quot;&gt;Bipartiteness as a Necessary Condition&lt;/h2&gt;
+&lt;p&gt;
+  If a connected graph is edge-transitive but not vertex-transitive,
+  then it must be bipartite.
+&lt;/p&gt;
+&lt;h2 id=&quot;graph-with-an-automorphism-group&quot;&gt;Graph with an Automorphism Group&lt;/h2&gt;
+&lt;p&gt;
+  In 1938, Frucht proved that for every finite abstract group \( G, \)
+  there exists a graph whose automorphism group is isomorphic to \( G
+ .  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Remarkably, this result remains valid even when we restrict our
+  attention to cubic graphs.  That is, for every finite abstract group
+  \( G, \) there exists a cubic graph whose automorphism group is
+  isomorphic to \( G.  \)  Moreover, the result has been extended to
+  graphs satisfying various additional graph-theoretical properties,
+  such as \( k \)-connectivity, \( k \)-regularity and prescribed
+  chromatic number.
+&lt;/p&gt;
+&lt;h2 id=&quot;permutation-groups-need-not-be-automorphism-groups&quot;&gt;Permutation Groups Need Not Be Automorphism Groups&lt;/h2&gt;
+&lt;p&gt;
+  Consider the following specialised version of the problem discussed
+  in the previous section: Given a permutation group on a set \( X, \)
+  must there exist a graph with vertex set \( X \) whose automorphism
+  group is precisely that permutation group?
+&lt;/p&gt;
+&lt;p&gt;
+  The answer is no.  Consider the cyclic group \( C_3 \) acting on \(
+  X = \{ a, b, c \}.  \)  There is no graph \( \Gamma \) with \(
+  V(\Gamma) = X \) and \( \operatorname{Aut}(\Gamma) \cong C_3.  \)  If
+  we take \( \Gamma = K_3, \) then \( C_3 \subset S_3 =
+  \operatorname{Aut}(K_3) \) but \( C_3 \ne \operatorname{Aut}(K_3)
+ .  \)
+&lt;/p&gt;
+&lt;h2 id=&quot;symmetric-graphs&quot;&gt;Symmetric Graphs&lt;/h2&gt;
+&lt;p&gt;
+  It is interesting that while we study graph symmetry through
+  concepts such as graph automorphisms, vertex-transitivity,
+  edge-transitivity, etc. the name &lt;em&gt;symmetric graph&lt;/em&gt; is
+  reserved for graphs that are \( 1 \)-arc-transitive.  A
+  vertex-transitive graph or an edge-transitive graph need not be
+  \(1\)-arc-transitive and therefore need not be symmetric.
+&lt;/p&gt;
+&lt;p&gt;
+  However, every \( s \)-arc-transitive graph is \(1 \)-arc-transitive
+  for \( s \ge 1.  \)  Consequently, every \( s \)-arc-transitive graph
+  is symmetric.  Moreover, every distance-transitive graph is also \(
+  1 \)-arc-transitive and hence symmetric.
+&lt;/p&gt;
+&lt;p&gt;
+  Formally, we say that a graph \( \Gamma \) is \( 1 \)-arc-transitive
+  (or equivalently, symmetric) if for all \( 1 \)-arcs \( uv \) and \(
+  u&apos;v&apos; \) of \( \Gamma, \) there is an automorphism \( \alpha \in
+  \operatorname{Aut}(\Gamma) \) such that \( \alpha(uv) = u&apos;v&apos;.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Stated in more basic terms, we can say that \( \Gamma \) is
+  symmetric if for all \( u, v, u&apos;, v&apos; \in V(\Gamma) \) satisfying \(
+  u \sim v \) and \( u&apos; \sim v&apos;, \) there exists \( \alpha \in
+  \operatorname{Aut}(\Gamma) \) such that \( \alpha(u) = u&apos; \) and \(
+  \alpha(v) = v&apos;.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Switching gears now, we say that \( \Gamma \) is distance-transitive
+  if for all \( u, v, u&apos;, v&apos; \in V(\Gamma) \) satisfying \( d(u, v) =
+  d(u&apos;, v&apos;), \) there exists \( \alpha \in \operatorname{Aut}(\Gamma)
+  \) such that \( \alpha(u) = u&apos; \) and \( \alpha(v) = v&apos;.  \)  Since
+  all \( 1 \)-arcs \( uv \) and \( u&apos;v&apos; \) satisfy \( d(u, v) = d(u&apos;,
+  v&apos;) = 1, \) distance-transitivity implies that there is an
+  automorphism that sends \( uv \) to \( u&apos;v&apos;.  \)  Therefore a
+  distance-transitive graph is also \( 1 \)-arc-transitive.
+&lt;/p&gt;
+&lt;p&gt;
+  To summarise, a graph must possess a certain degree of symmetry in
+  order to be called symmetric.  It turns out that merely having a
+  non-trivial automorphism group is not sufficient.  Even being
+  vertex-transitive or edge-transitive is not enough for a graph to be
+  called symmetric.  The graph needs to be at least \( 1
+  \)-arc-transitive to be called symmetric.
+&lt;/p&gt;
+&lt;p&gt;
+  Another interesting aspect of this terminology is that the property
+  of being asymmetric is not the exact opposite of being symmetric.
+  For example, a vertex-transitive graph need not be symmetric.
+  However, that does not make it asymmetric.  A graph is called
+  asymmetric if it has no non-trivial automorphisms, i.e. its
+  automorphism group contains only the identity permutation.  Thus, if
+  a graph has at least two vertices and is vertex-transitive, it must
+  admit a non-trivial automorphism that maps one vertex to another.
+  So while such a vertex-transitive may not be symmetric, it isn&apos;t
+  asymmetric either.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/26b.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/notes.html&quot;&gt;#notes&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Jan '26 Notes</title>
+    <link href="https://susam.net/26a.html"/>
+    <id>urn:uuid:77759acf-97e2-4ded-b57e-12449baeb13d</id>
+    <updated>2026-01-29T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  In these monthly notes, I jot down ideas and references I
+  encountered during the month that I did not have time to expand into
+  their own posts.  A few of these may later develop into independent
+  posts but most of them will likely not.  In any case, this format
+  ensures that I record them here.  I spent a significant part of this
+  month studying the book &lt;em&gt;Algebraic Graph Theory&lt;/em&gt; by Godsil
+  and Royle, so many of the notes here are about it.  There are a few
+  non-mathematical, technical notes towards the end.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#cayley-graphs&quot;&gt;Cayley Graphs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#vertex-transitive-graphs&quot;&gt;Vertex-Transitive Graphs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#arc-transitive-graphs&quot;&gt;Arc-Transitive Graphs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#bipartite-graphs-and-cycle-parity&quot;&gt;Bipartite Graphs and Cycle Parity&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#tutte-theorem&quot;&gt;Tutte&apos;s Theorem&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#tutte-8-cage&quot;&gt;Tutte&apos;s 8-Cage&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#lcg&quot;&gt;Linear Congruential Generator&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cat-n&quot;&gt;Numbering Lines&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;cayley-graphs&quot;&gt;Cayley Graphs&lt;/h2&gt;
+&lt;p&gt;
+  Let \( G \) be a group and let \( C \subseteq G \) such that \( C \)
+  is closed under taking inverses and does not contain the identity,
+  i.e.
+
+  \[
+    \forall x \in C, \; x^{-1} \in C, \qquad e \notin C.
+  \]
+
+  Then the Cayley graph \( X(G, C) \) is the graph with the vertex set
+  \( V(X(G, C)) \) and edge set \( E(X(G, C)) \) defined by
+
+  \begin{align*}
+    V(X(G, C)) &amp;amp;= G, \\
+    E(X(G, C)) &amp;amp;= \{ gh : hg^{-1} \in C \}.
+  \end{align*}
+
+  The set \( C \) is known as the connection set.
+&lt;/p&gt;
+&lt;h2 id=&quot;vertex-transitive-graphs&quot;&gt;Vertex-Transitive Graphs&lt;/h2&gt;
+&lt;p&gt;
+  A graph \( X \) is &lt;em&gt;vertex-transitive&lt;/em&gt; if its automorphism
+  group acts transitively on its set of vertices \( V(X).  \)
+  Intuitively, this means that no vertex has a special role.  We can
+  &apos;move&apos; the graph around so that any chosen vertex becomes any other
+  vertex.  In other words, all vertices are indistinguishable.  The
+  graph looks the same from each vertex.
+&lt;/p&gt;
+&lt;p&gt;
+  The \( k \)-cube \( Q_k \) is vertex-transitive.  So are the Cayley
+  graphs \( X(G, C).  \)  However the path graph \( P_3 \) is not
+  vertex-transitive since no automorphism can send the middle vertex
+  of valency \( 2 \) to an end vertex of valency \( 1.  \)
+&lt;/p&gt;
+&lt;h2 id=&quot;arc-transitive-graphs&quot;&gt;Arc-Transitive Graphs&lt;/h2&gt;
+&lt;p&gt;
+  The cube \( Q_3 \) is \( 2 \)-arc-transitive but not \( 3
+  \)-arc-transitive.  In \( Q_3, \) a \( 3 \)-arc belonging to a \( 4
+  \)-cycle cannot be sent to a \( 3 \)-arc that does not belong to a
+  \( 4 \)-cycle.  This is easy to explain.  The end vertices of a \( 3
+  \)-arc belonging to a \( 4 \)-cycle are adjacent but the end
+  vertices of a \( 3 \)-arc not belonging to a \( 4 \)-cycle are not
+  adjacent.  Therefore, no automorphism can map the end vertices of
+  the first \( 3 \)-arc to those of the second \( 3 \)-arc.
+&lt;/p&gt;
+&lt;p&gt;
+  For intuition, imagine that a traveller stands on a vertex and
+  chooses an edge to move along.  They do this \( s \) times thereby
+  walking along an arc of length \( s, \) also known as an \( s
+  \)-arc.  By the definition of \( s \)-arcs, the traveller is not
+  allowed to backtrack from one vertex to the previous one
+  immediately.  In an \( s \)-arc-transitive graph, these arcs look
+  the same no matter which vertex they start from or which edges they
+  choose.  In the cube, this is indeed true for \( s = 2.  \)  All arcs
+  of length \( 2 \) are indistinguishable.  No matter which arc of
+  length \( 2 \) the traveller has walked along, the graph would look
+  the same from their perspective at each vertex along the arc.
+  However, this no longer holds good for arcs of length \( 3 \) since
+  there are two distinct kinds of arcs of length \( 3.  \)  The first
+  kind ends at a distance of \( 1 \) from the starting vertex of the
+  arc (when the arc belongs to a \( 4 \)-cycle).  The second kind ends
+  at a distance \( 3 \) from the starting vertex of the arc (when the
+  arc does not belong to a \( 4 \)-cycle).  Therefore the cube is not
+  \( 3 \)-arc-transitive.
+&lt;/p&gt;
+&lt;h2 id=&quot;bipartite-graphs-and-cycle-parity&quot;&gt;Bipartite Graphs and Cycle Parity&lt;/h2&gt;
+&lt;p&gt;
+  A graph is bipartite if and only if it contains no cycles of odd
+  length.  Equivalently, every cycle in a bipartite graph has even
+  length.  Conversely, if every cycle in a graph has even length, then
+  the graph is bipartite.
+&lt;/p&gt;
+&lt;h2 id=&quot;tutte-theorem&quot;&gt;Tutte&apos;s Theorem&lt;/h2&gt;
+&lt;p&gt;
+  For any \( s \)-arc-transitive cubic graph, \( s \le 5.  \)  This was
+  demonstrated by W. T. Tutte in 1947.  A proof can be found in
+  Chapter 18 of &lt;em&gt;Algebraic Graph Theory&lt;/em&gt; by Norman Biggs.
+&lt;/p&gt;
+&lt;p&gt;
+  In 1973, Richward Weiss established a more general theorem that
+  proves that for any \( s \)-arc-transitive graph, \( s \le 7.  \)
+  The bound is weaker but it applies to all graphs rather than only to
+  cubic ones.
+&lt;/p&gt;
+&lt;h2 id=&quot;tutte-8-cage&quot;&gt;Tutte&apos;s 8-Cage&lt;/h2&gt;
+&lt;p&gt;
+  The book &lt;em&gt;Algebraic Graph Theory&lt;/em&gt; by Godsil and Royle offers
+  the following two descriptions of Tutte&apos;s 8-cage on 30 vertices:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  Take the cube and an additional vertex \( \infty.  \)  In each set of
+  four parallel edges, join the midpoint of each pair of opposite
+  edges by an edge, then join the midpoint of the two new edges by an
+  edge, and finally join the midpoint of this edge to \( \infty.  \)
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+  Construct a bipartite graph \( T \) with the fifteen edges as one
+  colour class and the fifteen \( 1 \)-factors as the other, where
+  each edge is adjacent to the three \( 1 \)-factors that contain it.
+&lt;/blockquote&gt;
+&lt;p&gt;
+  It can be shown that both descriptions construct a cubic bipartite
+  graph on \( 30 \) vertices of girth \( 8.  \)  It can be further
+  shown that there is a unique cubic bipartite graph on \( 30 \)
+  vertices with girth \( 8.  \)  As a result both descriptions above
+  construct the same graph.
+&lt;/p&gt;
+&lt;h2 id=&quot;lcg&quot;&gt;Linear Congruential Generator&lt;/h2&gt;
+&lt;p&gt;
+  Here is a simple linear congruential generator (LCG) implementation
+  in JavaScript:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function srand (seed) {
+  let x = seed
+  return function () {
+    x = (1664525 * x + 1013904223) % 4294967296
+    return x
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here is an example usage:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;&amp;gt; &lt;kbd&gt;const rand = srand(0)&lt;/kbd&gt;
+undefined
+&amp;gt; &lt;kbd&gt;rand()&lt;/kbd&gt;
+1013904223
+&amp;gt; &lt;kbd&gt;rand()&lt;/kbd&gt;
+1196435762
+&amp;gt; &lt;kbd&gt;rand()&lt;/kbd&gt;
+3519870697&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;cat-n&quot;&gt;Numbering Lines&lt;/h2&gt;
+&lt;p&gt;
+  Both BSD and GNU &lt;code&gt;cat&lt;/code&gt; can number output lines with
+  the &lt;code&gt;-n&lt;/code&gt; option.  For example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf &apos;foo\nbar\nbaz\n&apos; | cat -n&lt;/kbd&gt;
+     1  foo
+     2  bar
+     3  baz&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  However I have always used &lt;code&gt;nl&lt;/code&gt; for this.  For example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf &apos;foo\nbar\nbaz\n&apos; | nl&lt;/kbd&gt;
+     1  foo
+     2  bar
+     3  baz&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  While &lt;code&gt;nl&lt;/code&gt; is
+  &lt;a href=&quot;https://pubs.opengroup.org/onlinepubs/9699919799/utilities/nl.html&quot;&gt;specified
+  in POSIX&lt;/a&gt;, the &lt;code&gt;cat -n&lt;/code&gt; option
+  &lt;a href=&quot;https://pubs.opengroup.org/onlinepubs/9699919799/utilities/cat.html&quot;&gt;is
+  not&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/26a.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/notes.html&quot;&gt;#notes&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/javascript.html&quot;&gt;#javascript&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

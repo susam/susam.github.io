@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's JavaScript Pages</title>
+  <subtitle>Feed for Susam's JavaScript Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/javascript.xml" rel="self"/>
+  <id>https://susam.net/tag/javascript.xml</id>
+  <updated>2026-01-29T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Jan '26 Notes</title>
+    <link href="https://susam.net/26a.html"/>
+    <id>urn:uuid:77759acf-97e2-4ded-b57e-12449baeb13d</id>
+    <updated>2026-01-29T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  In these monthly notes, I jot down ideas and references I
+  encountered during the month that I did not have time to expand into
+  their own posts.  A few of these may later develop into independent
+  posts but most of them will likely not.  In any case, this format
+  ensures that I record them here.  I spent a significant part of this
+  month studying the book &lt;em&gt;Algebraic Graph Theory&lt;/em&gt; by Godsil
+  and Royle, so many of the notes here are about it.  There are a few
+  non-mathematical, technical notes towards the end.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#cayley-graphs&quot;&gt;Cayley Graphs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#vertex-transitive-graphs&quot;&gt;Vertex-Transitive Graphs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#arc-transitive-graphs&quot;&gt;Arc-Transitive Graphs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#bipartite-graphs-and-cycle-parity&quot;&gt;Bipartite Graphs and Cycle Parity&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#tutte-theorem&quot;&gt;Tutte&apos;s Theorem&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#tutte-8-cage&quot;&gt;Tutte&apos;s 8-Cage&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#lcg&quot;&gt;Linear Congruential Generator&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cat-n&quot;&gt;Numbering Lines&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;cayley-graphs&quot;&gt;Cayley Graphs&lt;/h2&gt;
+&lt;p&gt;
+  Let \( G \) be a group and let \( C \subseteq G \) such that \( C \)
+  is closed under taking inverses and does not contain the identity,
+  i.e.
+
+  \[
+    \forall x \in C, \; x^{-1} \in C, \qquad e \notin C.
+  \]
+
+  Then the Cayley graph \( X(G, C) \) is the graph with the vertex set
+  \( V(X(G, C)) \) and edge set \( E(X(G, C)) \) defined by
+
+  \begin{align*}
+    V(X(G, C)) &amp;amp;= G, \\
+    E(X(G, C)) &amp;amp;= \{ gh : hg^{-1} \in C \}.
+  \end{align*}
+
+  The set \( C \) is known as the connection set.
+&lt;/p&gt;
+&lt;h2 id=&quot;vertex-transitive-graphs&quot;&gt;Vertex-Transitive Graphs&lt;/h2&gt;
+&lt;p&gt;
+  A graph \( X \) is &lt;em&gt;vertex-transitive&lt;/em&gt; if its automorphism
+  group acts transitively on its set of vertices \( V(X).  \)
+  Intuitively, this means that no vertex has a special role.  We can
+  &apos;move&apos; the graph around so that any chosen vertex becomes any other
+  vertex.  In other words, all vertices are indistinguishable.  The
+  graph looks the same from each vertex.
+&lt;/p&gt;
+&lt;p&gt;
+  The \( k \)-cube \( Q_k \) is vertex-transitive.  So are the Cayley
+  graphs \( X(G, C).  \)  However the path graph \( P_3 \) is not
+  vertex-transitive since no automorphism can send the middle vertex
+  of valency \( 2 \) to an end vertex of valency \( 1.  \)
+&lt;/p&gt;
+&lt;h2 id=&quot;arc-transitive-graphs&quot;&gt;Arc-Transitive Graphs&lt;/h2&gt;
+&lt;p&gt;
+  The cube \( Q_3 \) is \( 2 \)-arc-transitive but not \( 3
+  \)-arc-transitive.  In \( Q_3, \) a \( 3 \)-arc belonging to a \( 4
+  \)-cycle cannot be sent to a \( 3 \)-arc that does not belong to a
+  \( 4 \)-cycle.  This is easy to explain.  The end vertices of a \( 3
+  \)-arc belonging to a \( 4 \)-cycle are adjacent but the end
+  vertices of a \( 3 \)-arc not belonging to a \( 4 \)-cycle are not
+  adjacent.  Therefore, no automorphism can map the end vertices of
+  the first \( 3 \)-arc to those of the second \( 3 \)-arc.
+&lt;/p&gt;
+&lt;p&gt;
+  For intuition, imagine that a traveller stands on a vertex and
+  chooses an edge to move along.  They do this \( s \) times thereby
+  walking along an arc of length \( s, \) also known as an \( s
+  \)-arc.  By the definition of \( s \)-arcs, the traveller is not
+  allowed to backtrack from one vertex to the previous one
+  immediately.  In an \( s \)-arc-transitive graph, these arcs look
+  the same no matter which vertex they start from or which edges they
+  choose.  In the cube, this is indeed true for \( s = 2.  \)  All arcs
+  of length \( 2 \) are indistinguishable.  No matter which arc of
+  length \( 2 \) the traveller has walked along, the graph would look
+  the same from their perspective at each vertex along the arc.
+  However, this no longer holds good for arcs of length \( 3 \) since
+  there are two distinct kinds of arcs of length \( 3.  \)  The first
+  kind ends at a distance of \( 1 \) from the starting vertex of the
+  arc (when the arc belongs to a \( 4 \)-cycle).  The second kind ends
+  at a distance \( 3 \) from the starting vertex of the arc (when the
+  arc does not belong to a \( 4 \)-cycle).  Therefore the cube is not
+  \( 3 \)-arc-transitive.
+&lt;/p&gt;
+&lt;h2 id=&quot;bipartite-graphs-and-cycle-parity&quot;&gt;Bipartite Graphs and Cycle Parity&lt;/h2&gt;
+&lt;p&gt;
+  A graph is bipartite if and only if it contains no cycles of odd
+  length.  Equivalently, every cycle in a bipartite graph has even
+  length.  Conversely, if every cycle in a graph has even length, then
+  the graph is bipartite.
+&lt;/p&gt;
+&lt;h2 id=&quot;tutte-theorem&quot;&gt;Tutte&apos;s Theorem&lt;/h2&gt;
+&lt;p&gt;
+  For any \( s \)-arc-transitive cubic graph, \( s \le 5.  \)  This was
+  demonstrated by W. T. Tutte in 1947.  A proof can be found in
+  Chapter 18 of &lt;em&gt;Algebraic Graph Theory&lt;/em&gt; by Norman Biggs.
+&lt;/p&gt;
+&lt;p&gt;
+  In 1973, Richward Weiss established a more general theorem that
+  proves that for any \( s \)-arc-transitive graph, \( s \le 7.  \)
+  The bound is weaker but it applies to all graphs rather than only to
+  cubic ones.
+&lt;/p&gt;
+&lt;h2 id=&quot;tutte-8-cage&quot;&gt;Tutte&apos;s 8-Cage&lt;/h2&gt;
+&lt;p&gt;
+  The book &lt;em&gt;Algebraic Graph Theory&lt;/em&gt; by Godsil and Royle offers
+  the following two descriptions of Tutte&apos;s 8-cage on 30 vertices:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  Take the cube and an additional vertex \( \infty.  \)  In each set of
+  four parallel edges, join the midpoint of each pair of opposite
+  edges by an edge, then join the midpoint of the two new edges by an
+  edge, and finally join the midpoint of this edge to \( \infty.  \)
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+  Construct a bipartite graph \( T \) with the fifteen edges as one
+  colour class and the fifteen \( 1 \)-factors as the other, where
+  each edge is adjacent to the three \( 1 \)-factors that contain it.
+&lt;/blockquote&gt;
+&lt;p&gt;
+  It can be shown that both descriptions construct a cubic bipartite
+  graph on \( 30 \) vertices of girth \( 8.  \)  It can be further
+  shown that there is a unique cubic bipartite graph on \( 30 \)
+  vertices with girth \( 8.  \)  As a result both descriptions above
+  construct the same graph.
+&lt;/p&gt;
+&lt;h2 id=&quot;lcg&quot;&gt;Linear Congruential Generator&lt;/h2&gt;
+&lt;p&gt;
+  Here is a simple linear congruential generator (LCG) implementation
+  in JavaScript:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function srand (seed) {
+  let x = seed
+  return function () {
+    x = (1664525 * x + 1013904223) % 4294967296
+    return x
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here is an example usage:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;&amp;gt; &lt;kbd&gt;const rand = srand(0)&lt;/kbd&gt;
+undefined
+&amp;gt; &lt;kbd&gt;rand()&lt;/kbd&gt;
+1013904223
+&amp;gt; &lt;kbd&gt;rand()&lt;/kbd&gt;
+1196435762
+&amp;gt; &lt;kbd&gt;rand()&lt;/kbd&gt;
+3519870697&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;cat-n&quot;&gt;Numbering Lines&lt;/h2&gt;
+&lt;p&gt;
+  Both BSD and GNU &lt;code&gt;cat&lt;/code&gt; can number output lines with
+  the &lt;code&gt;-n&lt;/code&gt; option.  For example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf &apos;foo\nbar\nbaz\n&apos; | cat -n&lt;/kbd&gt;
+     1  foo
+     2  bar
+     3  baz&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  However I have always used &lt;code&gt;nl&lt;/code&gt; for this.  For example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf &apos;foo\nbar\nbaz\n&apos; | nl&lt;/kbd&gt;
+     1  foo
+     2  bar
+     3  baz&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  While &lt;code&gt;nl&lt;/code&gt; is
+  &lt;a href=&quot;https://pubs.opengroup.org/onlinepubs/9699919799/utilities/nl.html&quot;&gt;specified
+  in POSIX&lt;/a&gt;, the &lt;code&gt;cat -n&lt;/code&gt; option
+  &lt;a href=&quot;https://pubs.opengroup.org/onlinepubs/9699919799/utilities/cat.html&quot;&gt;is
+  not&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/26a.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/notes.html&quot;&gt;#notes&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/javascript.html&quot;&gt;#javascript&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

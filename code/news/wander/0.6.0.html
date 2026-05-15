@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Wander Console 0.6.0 - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/code/news/wander/0.6.0.html">
+  <link rel="icon" type="image/png" href="../../../favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Susam's Feed" href="../../../feed.xml">
+  <link rel="stylesheet" href="../../../css/main.css">
+</head>
+<body>
+<main>
+<h1>Wander Console 0.6.0</h1>
+<div>By <b>Susam Pal</b> on 08 May 2026</div>
+<p>
+  Wander Console 0.6.0 is now available.  This is the sixth release of
+  Wander, a small, decentralised, self-hosted web console that lets
+  visitors to your website discover interesting websites and pages
+  recommended by a community of independent website owners.  To try
+  it, go to <a href="../../../wander/">susam.net/wander/</a>.
+  To learn how it works and how to set it up on your own website, see
+  the project
+  <a href="https://codeberg.org/susam/wander#readme">README</a>.
+</p>
+<p>
+  The main change in this release is the removal of support for the
+  <code>via</code> referral query parameter, which was added to
+  recommended URLs so that website owners could identify visits coming
+  from a Wander Console in their access logs.  The <code>via</code>
+  query parameter was introduced in version
+  <a href="0.4.0.html">0.4.0</a> in response to
+  <a href="https://codeberg.org/susam/wander/issues/1#issuecomment-11795493">community
+  demand</a>, but it turned out to be a misfeature.  Some websites
+  refuse to serve web pages when arbitrary query parameters are added
+  to URLs.  Although it was possible to turn this feature off via
+  configuration, I would rather not keep a dubious feature that may
+  prevent some pages from loading successfully.  This feature has now
+  been completely removed.  See
+  <a href="https://chrismorgan.info/no-query-strings">this excellent
+  article by Chris Morgan</a> to learn more about why adding arbitrary
+  query parameters to URLs is a bad idea.  Commit
+  <a href="https://codeberg.org/susam/wander/commit/b26d77c4da9ec11b655ba64a4ae4f3af56e06370">b26d77c</a>
+  has more details about the removal of this feature.
+</p>
+<p>
+  Apart from this change, there are a few minor user interface
+  adjustments and fixes.  See the
+  <a href="https://codeberg.org/susam/wander/src/branch/main/CHANGES.md">changelog</a>
+  for more details.
+</p>
+<p>
+  If you own a personal website but have not set up a Wander Console
+  yet, I suggest that you consider setting one up.  You can see what
+  it looks like by visiting mine at
+  <a href="../../../wander/">/wander/</a>.  To set up your
+  own, follow the
+  <a href="https://codeberg.org/susam/wander#install">installation
+  instructions</a> in the README.  It only involves copying two files
+  to your web server, so the installation is very straightforward.
+</p>
+<p>
+  Also, check out our new community page called
+  <a href="https://susam.codeberg.page/wcn/">Wander Console
+  Network</a>.  This page shows a recent snapshot of all known Wander
+  Console instances along with the web pages they recommend.  We have
+  an IRC channel too at <a href="http://web.libera.chat/#wander">#wander</a>
+  on <code>irc.libera.chat</code> in case you are looking for a place
+  to hang out with the community.
+</p>
+<p>
+  <strong>Update on 09 May 2026:</strong> See the post
+  <a href="../../../no-query-strings.html">I Will Not Add Query
+  Strings to Your URLs</a> for an account of how the misguided
+  referral query string feature was added and how it was removed.
+</p>
+<div>
+  <a href="../../../comments/wander.html">Comments</a> |
+  <a href="../../../tag/web.html">#web</a> |
+  <a href="../../../tag/technology.html">#technology</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../../../">Home</a>
+    <a href="../../../links.html">Links</a>
+    <a href="../../../feed.xml">Feed</a>
+    <a href="../../../form/subscribe/">Subscribe</a>
+    <a href="../../../wander/">Wander</a>
+    <a href="../../../about.html">About</a>
+    <a href="https://codeberg.org/susam">Codeberg</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

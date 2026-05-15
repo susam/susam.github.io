@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's IRC Pages</title>
+  <subtitle>Feed for Susam's IRC Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/irc.xml" rel="self"/>
+  <id>https://susam.net/tag/irc.xml</id>
+  <updated>2026-02-14T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Soju User Delete Hash</title>
+    <link href="https://susam.net/soju-user-delete-hash.html"/>
+    <id>urn:uuid:6afbcfe5-8218-40dc-83ad-45efbfe40bb9</id>
+    <updated>2026-02-14T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  In &lt;a href=&quot;from-znc-to-soju.html&quot;&gt;my last post&lt;/a&gt;, I talked about
+  switching from ZNC to Soju as my IRC bouncer.  One thing that caught
+  my attention while creating and deleting Soju users was that the
+  delete command asks for a confirmation, like so:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo sojuctl user delete soju&lt;/kbd&gt;
+To confirm user deletion, send &quot;user delete soju 4664cd&quot;
+$ &lt;kbd&gt;sudo sojuctl user delete soju 4664cd&lt;/kbd&gt;
+deleted user &quot;soju&quot;&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  That confirmation token for a specific user never changes, no matter
+  how many times we create or delete it.  The confirmation token is
+  not saved in the Soju database, as can be confirmed here:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo sqlite3 -table /var/lib/soju/main.db &apos;SELECT * FROM User&apos;&lt;/kbd&gt;
++----+----------+--------------------------------------------------------------+-------+----------+------+--------------------------+---------+--------------------------+--------------+
+| id | username |                           password                           | admin | realname | nick |        created_at        | enabled | downstream_interacted_at | max_networks |
++----+----------+--------------------------------------------------------------+-------+----------+------+--------------------------+---------+--------------------------+--------------+
+| 1  | soju     | $2a$10$yRj/oYlR2Zwd8YQxZPuAQuNo2j7FVJWeNdIAHF2MinYkKLmBjtf0y | 0     |          |      | 2026-02-16T13:49:46.119Z | 1       |                          | -1           |
++----+----------+--------------------------------------------------------------+-------+----------+------+--------------------------+---------+--------------------------+--------------+&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Surely, then, the confirmation token is derived from the user
+  definition?  Yes, indeed it is.  This can be confirmed at the
+  &lt;a href=&quot;https://codeberg.org/emersion/soju/src/commit/v0.10.1/service.go#L1185-L1203&quot;&gt;source
+  code here&lt;/a&gt;.  Quoting the most relevant part from the source code:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hashBytes := sha1.Sum([]byte(username))
+hash := fmt.Sprintf(&quot;%x&quot;, hashBytes[0:3])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Indeed if we compute the same hash ourselves, we get the same token:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;printf soju | sha1sum | head -c6&lt;/kbd&gt;
+4664cd&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  This allows us to automate the two step Soju user deletion process
+  in a single command:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo sojuctl user delete soju &quot;$(printf soju | sha1sum | head -c6)&quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  But of course, the implementation of the confirmation token may
+  change in future and Soju helpfully outputs the deletion command
+  with the confirmation token when we first invoke it without the
+  token, so it is perhaps more prudent to just take that output and
+  feed it back to Soju, like so:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo sojuctl $(sudo sojuctl user delete soju | sed &apos;s/.*&quot;\(.*\)&quot;/\1/&apos;)&lt;/code&gt;&lt;/pre&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/soju-user-delete-hash.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/shell.html&quot;&gt;#shell&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/irc.html&quot;&gt;#irc&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/how-to.html&quot;&gt;#how-to&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>From ZNC to Soju</title>
+    <link href="https://susam.net/from-znc-to-soju.html"/>
+    <id>urn:uuid:82f24add-daf5-4815-a853-5dd9c6ef559d</id>
+    <updated>2026-02-12T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  I have recently switched from ZNC to Soju as my IRC bouncer and I am
+  already quite pleased with it.  I usually run my bouncer on a Debian
+  machine, where Soju is well packaged and runs smoothly right after
+  installation.  By contrast, the ZNC package included with Debian 13
+  (Trixie) and earlier fails to start after installation because of a
+  missing configuration file.  As a result, I was forced to maintain
+  my own configuration file along with a necessary PEM bundle, copy
+  them to the Debian system and carefully set the correct file
+  permissions before I could run ZNC successfully.  None of this is
+  necessary with Soju, since installing it from the Debian package
+  repository automatically sets up the configuration and certificate
+  files.  I no longer have to manage any configuration or certificate
+  files myself.
+&lt;/p&gt;
+&lt;h2 id=&quot;setup&quot;&gt;Setup&lt;/h2&gt;
+&lt;p&gt;
+  It is quite straightforward to install and set up Soju on Debian.
+  The following two commands install Soju:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get -y install soju&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Then setting up an IRC connection involves another two commands:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo sojuctl user create -username soju -password YOUR_SOJU_PASSWORD
+sudo sojuctl user run soju network create -name bnc1 -addr irc.libera.chat -nick YOUR_NICK -pass YOUR_NICK_PASSWORD&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here, &lt;code&gt;YOUR_SOJU_PASSWORD&lt;/code&gt; is a placeholder for a new
+  password you must choose for your Soju user.  Finally, we restart
+  Soju as follows:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo systemctl restart soju&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;database&quot;&gt;Database&lt;/h2&gt;
+&lt;p&gt;
+  What previously involved maintaining several files that had to be
+  installed and configured on each machine running ZNC is now reduced
+  to the two &lt;code&gt;sojuctl&lt;/code&gt; commands above.  Still, the
+  configuration needs to live somewhere.  In fact, the
+  two &lt;code&gt;sojuctl&lt;/code&gt; commands introduce earlier store the
+  configuration in a SQLite database.  Here is a glimpse of what the
+  database looks like:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;sudo sqlite3 /var/lib/soju/main.db &apos;.tables&apos;&lt;/kbd&gt;
+Channel              MessageFTS_data      ReadReceipt
+DeliveryReceipt      MessageFTS_docsize   User
+Message              MessageFTS_idx       WebPushConfig
+MessageFTS           MessageTarget        WebPushSubscription
+MessageFTS_config    Network
+$ &lt;kbd&gt;sudo sqlite3 /var/lib/soju/main.db &apos;SELECT * from User&apos;&lt;/kbd&gt;
+1|soju|$2a$10$mM5Qcz8.OPMi9lyWDxPRh.bNxzq7jtLdxcoPl09AYTnqcmLmEqzSO|0|||2026-02-17T23:24:24.926Z|1||-1
+$ &lt;kbd&gt;sudo sqlite3 /var/lib/soju/main.db &apos;SELECT * from Network&apos;&lt;/kbd&gt;
+1|bnc1|1|irc.libera.chat|YOUR_NICK||||YOUR_NICK_PASSWORD|||||||1|1&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;client&quot;&gt;Client Configuration&lt;/h2&gt;
+&lt;p&gt;
+  Finally, the IRC client can be configured to connect to port 6697 on
+  the system running Soju.  Here is an example of how this can be done
+  in Irssi:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/network add -nick YOUR_NICK -user soju/bnc1 net1
+/server add -tls -network bnc1 YOUR_SOJU_HOST 6697 YOUR_SOJU_PASSWORD
+/connect net1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  You can also set up multiple connections to IRC networks through the
+  same Soju instance.  All you need to do is repeat
+  the &lt;code&gt;sojuctl&lt;/code&gt; commands to create additional networks such
+  as &lt;code&gt;bnc2&lt;/code&gt;, &lt;code&gt;bnc3&lt;/code&gt; and so on, then repeat the
+  configuration in your IRC client using new network names such as
+  &lt;code&gt;net2&lt;/code&gt;, &lt;code&gt;net3&lt;/code&gt;, etc.  These network names are
+  entirely user defined, so you can choose any names you like.  The
+  names &lt;code&gt;bnc2&lt;/code&gt;, &lt;code&gt;net2&lt;/code&gt; and so on are only
+  examples.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/from-znc-to-soju.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/irc.html&quot;&gt;#irc&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/how-to.html&quot;&gt;#how-to&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Simplicity of IRC</title>
+    <link href="https://susam.net/simplicity-of-irc.html"/>
+    <id>urn:uuid:0a61290e-283f-46f6-8602-6f2ac0b4904d</id>
+    <updated>2022-01-09T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  During discussions with my friends and colleagues, whenever the
+  topic of chat protocols comes up, I often remark how simple the
+  Internet Relay Chat (IRC) protocol is and how this simplicity has
+  fostered creativity in the lives of many young computer hobbyists
+  growing up in the late 1990s and early 2000s.  For many of us who
+  were introduced to the Internet during that time, writing an IRC bot
+  turned out to be one of our first few non-trivial hobby programming
+  projects that involved network sockets, did something meaningful and
+  served actual users.
+&lt;/p&gt;
+&lt;h2 id=&quot;simplicity&quot;&gt;Simplicity&lt;/h2&gt;
+&lt;p&gt;
+  The underlying payloads that IRC servers and clients exchange during
+  an IRC session are quite simple to read manually and understand.
+  While implementing IRC servers still involves significant work to
+  keep track of users and channels as well as exchanging network state
+  and messages between servers, implementing IRC clients can often be
+  quite simple.  With a convenient programming language, one can
+  develop all kinds of fun tools and bots pretty quickly.  Only
+  creativity is the limit!
+&lt;/p&gt;
+&lt;p&gt;
+  In the early days of IRC, it was quite common for someone with basic
+  programming skills to write a simple IRC bot within a matter of
+  hours.  Such IRC bots typically responded to requests from users,
+  answered frequently asked questions, hosted trivia quiz, etc.  The
+  simplicity of the protocol made it very enticing to write programs
+  that could talk to IRC servers directly.  In fact, many people chose
+  to write the code to parse and create IRC payloads from scratch.
+  Observing the TCP/IP packets with a packet analyser such as
+  Wireshark or Tcpdump was all one needed to learn about the various
+  payload formats.  Additionally, back then
+  &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc1459&quot;&gt;RFC 1459&lt;/a&gt; served
+  as a good reference to learn the IRC specification.
+&lt;/p&gt;
+&lt;p&gt;
+  As a result of the simplicity of the IRC protocol, sometimes when I
+  wanted to join an IRC channel, say to seek some technical help, from
+  a system without an IRC client installed, I would often just start
+  a &lt;code&gt;telnet&lt;/code&gt;, &lt;code&gt;nc&lt;/code&gt; or &lt;code&gt;openssl&lt;/code&gt;
+  connection directly to my favourite IRC network and type out IRC
+  protocol commands by hand to join channels and talk to users.
+&lt;/p&gt;
+&lt;h2 id=&quot;session&quot;&gt;Session&lt;/h2&gt;
+&lt;p&gt;
+  To illustrate how simple the IRC protocol is, here is an example of
+  a minimal IRC session that involves joining a channel and posting a
+  message:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;nc irc.libera.chat 6667&lt;/kbd&gt;
+:strontium.libera.chat NOTICE * :*** Checking Ident
+:strontium.libera.chat NOTICE * :*** Looking up your hostname...
+:strontium.libera.chat NOTICE * :*** Couldn&apos;t look up your hostname
+:strontium.libera.chat NOTICE * :*** No Ident response
+&lt;kbd&gt;NICK humpty&lt;/kbd&gt;
+&lt;kbd&gt;USER humpty humpty irc.libera.chat :Humpty Dumpty&lt;/kbd&gt;
+:strontium.libera.chat 001 humpty :Welcome to the Libera.Chat Internet Relay Chat Network humpty
+:strontium.libera.chat 002 humpty :Your host is strontium.libera.chat[204.225.96.123/6667], running version solanum-1.0-dev
+:strontium.libera.chat 003 humpty :This server was created Sat Oct 30 2021 at 17:56:22 UTC
+:strontium.libera.chat 004 humpty strontium.libera.chat solanum-1.0-dev DGQRSZaghilopsuwz CFILMPQSTbcefgijklmnopqrstuvz bkloveqjfI
+:strontium.libera.chat 005 humpty MONITOR=100 CALLERID=g WHOX FNC ETRACE KNOCK SAFELIST ELIST=CMNTU CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQSTcgimnprstuz :are supported by this server
+:strontium.libera.chat 005 humpty CHANLIMIT=#:250 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=Libera.Chat STATUSMSG=@+ CASEMAPPING=rfc1459 NICKLEN=16 MAXNICKLEN=16 CHANNELLEN=50 TOPICLEN=390 DEAF=D :are supported by this server
+:strontium.libera.chat 005 humpty TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,ajrxz :are supported by this server
+:strontium.libera.chat 251 humpty :There are 66 users and 48644 invisible on 25 servers
+:strontium.libera.chat 252 humpty 35 :IRC Operators online
+:strontium.libera.chat 253 humpty 11 :unknown connection(s)
+:strontium.libera.chat 254 humpty 21561 :channels formed
+:strontium.libera.chat 255 humpty :I have 3117 clients and 1 servers
+:strontium.libera.chat 265 humpty 3117 4559 :Current local users 3117, max 4559
+:strontium.libera.chat 266 humpty 48710 50463 :Current global users 48710, max 50463
+:strontium.libera.chat 250 humpty :Highest connection count: 4560 (4559 clients) (301752 connections received)
+:strontium.libera.chat 375 humpty :- strontium.libera.chat Message of the Day -
+:strontium.libera.chat 372 humpty :- Welcome to Libera Chat, the IRC network for
+:strontium.libera.chat 372 humpty :- free &amp;amp; open-source software and peer directed projects.
+:strontium.libera.chat 372 humpty :-
+:strontium.libera.chat 372 humpty :- Use of Libera Chat is governed by our network policies.
+:strontium.libera.chat 372 humpty :-
+:strontium.libera.chat 372 humpty :- To reduce network abuses we perform open proxy checks
+:strontium.libera.chat 372 humpty :- on hosts at connection time.
+:strontium.libera.chat 372 humpty :-
+:strontium.libera.chat 372 humpty :- Please visit us in #libera for questions and support.
+:strontium.libera.chat 372 humpty :-
+:strontium.libera.chat 372 humpty :- Website and documentation:  https://libera.chat
+:strontium.libera.chat 372 humpty :- Webchat:                    https://web.libera.chat
+:strontium.libera.chat 372 humpty :- Network policies:           https://libera.chat/policies
+:strontium.libera.chat 372 humpty :- Email:                      support@libera.chat
+:strontium.libera.chat 376 humpty :End of /MOTD command.
+:humpty MODE humpty :+iw
+&lt;kbd&gt;JOIN #test&lt;/kbd&gt;
+:humpty!~humpty@178.79.176.169 JOIN #test
+:strontium.libera.chat 353 humpty = #test :humpty susam coolnickname ptl-tab edcragg
+:strontium.libera.chat 366 humpty #test :End of /NAMES list.
+&lt;kbd&gt;PRIVMSG #test :Hello, World!&lt;/kbd&gt;
+:susam!~susam@user/susam PRIVMSG #test :Hello, Humpty!
+&lt;kbd&gt;PART #test&lt;/kbd&gt;
+:humpty!~humpty@178.79.176.169 PART #test
+&lt;kbd&gt;QUIT&lt;/kbd&gt;
+:humpty!~humpty@178.79.176.169 QUIT :Client Quit
+ERROR :Closing Link: 178.79.176.169 (Client Quit)&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  In the above session, the user connects to the Libera Chat network
+  with the nickname &lt;code&gt;humpty&lt;/code&gt;, joins a channel
+  named &lt;code&gt;#test&lt;/code&gt; and posts a message.
+&lt;/p&gt;
+&lt;p&gt;
+  Note that the above session is not encrypted.  By convention, IRC
+  port 6667 is used for cleartext connections.  A separate port, such
+  as port 6697, is available for encrypted connections.  Here is an
+  example of an encrypted IRC session established with the OpenSSL
+  command line tool:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;openssl s_client -quiet -connect irc.libera.chat:6697 2&amp;gt; /dev/null&lt;/kbd&gt;
+:strontium.libera.chat NOTICE * :*** Checking Ident
+:strontium.libera.chat NOTICE * :*** Looking up your hostname...
+:strontium.libera.chat NOTICE * :*** Couldn&apos;t look up your hostname
+:strontium.libera.chat NOTICE * :*** No Ident response
+NICK humpty
+USER humpty humpty irc.libera.chat :Humpty Dumpty
+:strontium.libera.chat 001 humpty :Welcome to the Libera.Chat Internet Relay Chat Network humpty
+...&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The ellipsis denotes lines omitted for the sake of brevity.  The
+  remainder of the session is quite similar to the first example in
+  this post.
+&lt;/p&gt;
+&lt;p&gt;
+  It is worth noting here that although the payload format of IRC
+  protocol is quite simple, as one starts writing IRC clients, one
+  would stumble upon several tiny details about the protocol that
+  needs to be taken care of, e.g. authenticating to the network,
+  responding to &lt;code&gt;PING&lt;/code&gt; messages from the server to avoid
+  ping timeouts, splitting messages into shorter messages so that the
+  overall payload does not exceed the message length limit of 512
+  characters, etc.  For a serious IRC client, relying on a suitable
+  library that already solves these problems and implements the IRC
+  specification accurately is of course going to be useful.  But for a
+  hobbyist who wants to understand the protocol and write some tools
+  for fun, the textual nature of the IRC protocol and its simplicity
+  offers a fertile ground for experimentation and creativity.
+&lt;/p&gt;
+&lt;h2 id=&quot;join&quot;&gt;Join&lt;/h2&gt;
+&lt;p&gt;
+  In case you have never used IRC but this post has piqued your
+  interest and you want to try it out, you probably don&apos;t want to be
+  typing out IRC payloads by hand.  You would want a good IRC client
+  instead.  Let me share some convenient ways to connect to the Libera
+  Chat network.  Say, you want to join the &lt;code&gt;#python&lt;/code&gt;
+  channel on Libera Chat network.  Here are some ways to do it:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Join via web interface:
+      &lt;a href=&quot;https://web.libera.chat/#python&quot;&gt;web.libera.chat/#python&lt;/a&gt;.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Join using Irssi: On macOS, run &lt;code&gt;brew install irssi&lt;/code&gt;
+      to install it.  On Debian, Ubuntu or a Debian-based Linux
+      system, run &lt;code&gt;sudo apt-get install irssi&lt;/code&gt;.  Then
+      enter &lt;code&gt;irssi -c irc.libera.chat&lt;/code&gt; to connect to Libera
+      Chat.  Then within Irssi, type &lt;code&gt;/join #python&lt;/code&gt;.
+    &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  There are numerous other ways to join IRC networks.  There are GUI
+  desktop clients, web browser plugins, Emacs plugins, web-based
+  services, bouncers, etc. that let users connect to IRC networks in
+  various ways.  On Libera Chat, there are various channels for open
+  source projects (&lt;code&gt;#emacs&lt;/code&gt;, &lt;code&gt;#linux&lt;/code&gt;, etc.),
+  communities around specific subjects (&lt;code&gt;##math&lt;/code&gt;,
+  &lt;code&gt;#physics&lt;/code&gt;, etc.), programming languages
+  (&lt;code&gt;#c&lt;/code&gt;, &lt;code&gt;#c++&lt;/code&gt;, &lt;code&gt;#commonlisp&lt;/code&gt;,
+  etc.).  Type the &lt;code&gt;/join&lt;/code&gt; command followed by a space and
+  the channel name to join a channel and start posting and reading
+  messages there.  It is also possible to search for channels by
+  channel names.  For example, on Libera Chat, to search for all
+  channels with &apos;python&apos; in its name, enter the IRC
+  command: &lt;code&gt;/msg alis list python&lt;/code&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  Although I have used Libera Chat in the examples above, there are
+  plenty of other IRC networks too such as EFNet, DALNet, OFTC, etc.
+  Libera Chat happens to be one of the very popular and active
+  networks for open source projects and topic based communities.  I
+  use it everyday, so I chose it for the examples here.  There are
+  many tight-knit communities on Libera Chat.  Some of my favourite
+  ones are &lt;code&gt;#commonlisp&lt;/code&gt;, &lt;code&gt;#emacs&lt;/code&gt;,
+  &lt;code&gt;#python&lt;/code&gt;, etc.  All of these have very nice and active
+  communities with great attitudes towards beginners.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/simplicity-of-irc.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/irc.html&quot;&gt;#irc&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/networking.html&quot;&gt;#networking&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/protocol.html&quot;&gt;#protocol&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/retrospective.html&quot;&gt;#retrospective&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Algorithms Channel Migrates to Libera Chat</title>
+    <link href="https://susam.net/algorithms-channel-migrates-to-libera-chat.html"/>
+    <id>urn:uuid:a86ea13b-3306-45fd-ab31-1e74297eece7</id>
+    <updated>2021-05-19T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Our &lt;code&gt;##algorithms&lt;/code&gt; that has been running on the Freenode
+  IRC network for the last 14 years is now migrating to the Libera
+  Chat IRC network.  Our new channel name on Libera Chat
+  is &lt;code&gt;#algorithms&lt;/code&gt;.
+&lt;/p&gt;
+
+&lt;h2 id=&quot;history&quot;&gt;History&lt;/h2&gt;
+&lt;p&gt;
+  The original &lt;code&gt;##algorithms&lt;/code&gt; channel on Freenode IRC began
+  as an offshoot of the &lt;code&gt;##math&lt;/code&gt; channel there when we
+  found that there was enough interest in the latter to form a channel
+  dedicated to the subject of algorithms and data structures.  I
+  created the new channel for algorithms in 2007.  I used to go by the
+  nick &lt;code&gt;spal&lt;/code&gt; and used to be active on both channels.
+&lt;/p&gt;
+&lt;p&gt;
+  What began as a tiny hobby group around algorithms gradually grew to
+  be be a thriving community with over 200 members.  I don&apos;t
+  participate in the channel much anymore but a highly talented group
+  of moderators helps maintain the channel.
+&lt;/p&gt;
+
+&lt;h2 id=&quot;migration&quot;&gt;Migration&lt;/h2&gt;
+&lt;p&gt;
+  The original Freenode staff that used to run the Freenode network
+  has stepped down after a controversial change in management of
+  Freenode.  The former Freenode staff has now launched a new IRC
+  network named &lt;em&gt;Libera Chat&lt;/em&gt;.  Thousands of channels that used
+  to exist on Freenode IRC earlier have been rapidly migrating to
+  Libera Chat now.  For more on the events that led to this mass
+  migration, see this
+  post: &lt;a href=&quot;https://gist.github.com/joepie91/df80d8d36cd9d1bde46ba018af497409&quot;&gt;The
+  Freenode Resignation FAQ&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  The &lt;code&gt;##algorithms&lt;/code&gt; channel too has now moved from
+  Freenode to Libera Chat.  Our new channel name
+  is &lt;code&gt;#algorithms&lt;/code&gt; on Libera Chat.  Our entire operator team
+  for the channel is also moving to the new channel.  The old channel
+  on Freenode should now be considered defunct.
+&lt;/p&gt;
+
+&lt;h2 id=&quot;old-channel-information&quot;&gt;Old Channel Information&lt;/h2&gt;
+&lt;p&gt;
+  Here is the last known good state of the &lt;code&gt;##algorithms&lt;/code&gt;
+  channel on Freenode before we declared the channel defunct.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;&lt;kbd&gt;/msg chanserv info ##algorithms&lt;/kbd&gt;
+Information on ##algorithms:
+Founder    : spal
+Successor  : halberd
+Registered : Oct 13 19:49:56 2007 (13y 31w 5d ago)
+Mode lock  : +ntcC
+Flags      : GUARD
+*** End of Info ***&lt;/samp&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;new-channel-information&quot;&gt;New Channel Information&lt;/h2&gt;
+&lt;p&gt;
+  Here is the current information of the new channel
+  named &lt;code&gt;#algorithms&lt;/code&gt; on Libera Chat.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;&lt;kbd&gt;/msg chanserv info #algorithms&lt;/kbd&gt;
+Information on #algorithms:
+Founder    : susam
+Successor  : libera-placeholder-account
+Registered : May 19 14:52:38 2021 +0000 (2h ago)
+Mode lock  : +nt-lk
+Flags      : GUARD PUBACL
+*** End of Info ***&lt;/samp&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;join&quot;&gt;Join&lt;/h2&gt;
+&lt;p&gt;
+  If you are new to the world of IRC, here are some steps to join the
+  Libera Chat network:
+&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Install Irssi, an IRC chat client.  On macOS, enter the following
+      command if you have Homebrew:
+    &lt;/p&gt;
+    &lt;pre&gt;&lt;code&gt;brew install irssi&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;
+      On Debian, Ubuntu or another Debian-based Linux system, enter
+      the following command:
+    &lt;/p&gt;
+    &lt;pre&gt;&lt;code&gt;sudo apt-get install irssi&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;
+      For other systems or environments,
+      see &lt;a href=&quot;https://irssi.org/&quot;&gt;irssi.org&lt;/a&gt;.
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Enter the following command to connect to Libera Chat:
+    &lt;/p&gt;
+    &lt;pre&gt;&lt;code&gt;irssi -c irc.libera.chat&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Now type these IRC commands into Irssi to join some channels:
+    &lt;/p&gt;
+    &lt;pre&gt;&lt;code&gt;/join #algorithms
+/join #irssi
+/join #libera
+/join #linux&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Enter this IRC command into Irssi to send me a message if you
+      need any help:
+    &lt;/p&gt;
+    &lt;pre&gt;&lt;code&gt;/msg susam hello&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+  You can also join the algorithms channel via Libera Chat&apos;s web
+  interface
+  at &lt;a href=&quot;https://web.libera.chat/#algorithms&quot;&gt;web.libera.chat&lt;/a&gt;.
+  This can be useful for those who want to join the network quickly
+  without installing a client.  Further there is a Matrix bridge to the
+  channel accessible
+  via &lt;a href=&quot;https://app.element.io/#/room/#algorithms:libera.chat&quot;&gt;#algorithms:libera.chat&lt;/a&gt;.
+  The Matrix bridge is quite convenient for someone unfamiliar with
+  IRC.  For example, you can close your browser or client and your chat
+  session will still stay alive on the Matrix bridge.  You can connect
+  back the next day and catch up with the messages.  Doing that with
+  IRC requires setting up an IRC bouncers which may feel like
+  considerable additional work.
+&lt;/p&gt;
+
+&lt;h2 id=&quot;freenode-wipes-database&quot;&gt;Freenode Wipes Database&lt;/h2&gt;
+&lt;p&gt;
+  &lt;strong&gt;Update on 15 Jun 2021:&lt;/strong&gt; All old communities on the
+  Freenode IRC network are now gone.  The new Freenode staff has wiped
+  out their database thereby resetting the state of their network.  We
+  learnt about this when we received these global notices in our
+  clients connected to the Freenode IRC network:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;-root- [Global Notice 1/3] We are moving past legacy freenode to a new
+       fork.  The new freenode is launched.  You will slowly be
+       disconnected and when you reconnect, you will be on the new
+       freenode.  We patiently await to welcome you in freedom&apos;s
+       holdout - the freenode.
+
+-root- [Global Notice 2/3] If you&apos;re looking to connect now, you can
+       already /server chat.freenode.net 6697 (ssl) or 6667
+       (plaintext).  It&apos;s a new genesis for a new era.  Thank you for
+       using freenode, and Hello World, from the future.  freenode is
+       IRC.  freenode is FOSS.  freenode is freedom.
+
+-root- [Global Notice 3/3] When you connect, register your nickname
+       and your channel and get started.  It&apos;s a new world.  We&apos;re so
+       happy to welcome you and the millions of others.  We will be
+       posting more information in the coming days on our website and
+       twitter.  Otherwise, see you on the other side!&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  See this thread on Reddit for a discussion on this
+  event:
+  &lt;a href=&quot;https://www.reddit.com/r/irc/comments/o01tmv&quot;&gt;reddit.com/r/irc/comments/o01tmv&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  What this really means is that decades old nicks and channels are
+  completely wiped out!  For example, my own 15 year old nick is now
+  gone.  Our algorithms channel on the Freenode network is also gone.
+  All the nicks and other channels I was familiar with are also gone.
+  I am not going to bother registering my nick and our channel there
+  again!  It is not worth it.  We have all moved on to Libera Chat
+  already and there is nothing left on Freenode to care about it
+  anymore.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/algorithms-channel-migrates-to-libera-chat.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/irc.html&quot;&gt;#irc&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Mathematics Storm</title>
+    <link href="https://susam.net/mathematics-storm.html"/>
+    <id>urn:uuid:888606f7-8ef9-488c-bed1-742aef5e6f58</id>
+    <updated>2011-05-12T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  From Freenode IRC &lt;code&gt;#math&lt;/code&gt; channel this morning:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;&amp;lt;oops&amp;gt; I have a confusion.  the calculation that was giving
+       me 2 bits earlier is not giving me 2 bits now.  :(  please help.
+&amp;lt;oops&amp;gt; 4 equally probable symbols: so 4 * (1/4) * log(1 / 1/4), right?
+&amp;lt;antonfire&amp;gt; yeah math changes sometimes.
+&amp;lt;antonfire&amp;gt; probably a math storm
+&amp;lt;antonfire&amp;gt; wait a few minutes and try again
+&amp;lt;_Ray_&amp;gt; try logging out and back in
+&amp;lt;oops&amp;gt; so, so 1 * log(4) = 2
+&amp;lt;oops&amp;gt; oh it is giving me 2 bits again
+&amp;lt;mariano|syzygy&amp;gt; hmmm, actually he was not his advisor
+&amp;lt;oops&amp;gt; thanks, nvm.
+&amp;lt;sig^&amp;gt; try switching math off and on again
+&amp;lt;thermoplyae&amp;gt; haha
+&amp;lt;_Ray_&amp;gt; yeah, it was the router&lt;/samp&gt;&lt;/pre&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/mathematics-storm.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/irc.html&quot;&gt;#irc&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/humour.html&quot;&gt;#humour&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

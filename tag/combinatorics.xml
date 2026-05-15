@@ -1,0 +1,1039 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's Combinatorics Pages</title>
+  <subtitle>Feed for Susam's Combinatorics Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/combinatorics.xml" rel="self"/>
+  <id>https://susam.net/tag/combinatorics.xml</id>
+  <updated>2011-09-17T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Langford Pairing</title>
+    <link href="https://susam.net/langford-pairing.html"/>
+    <id>urn:uuid:3b6d1107-fe4c-4a9d-8ce0-ba02423bf622</id>
+    <updated>2011-09-17T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h2 id=&quot;permutation-problem&quot;&gt;Permutation Problem&lt;/h2&gt;
+&lt;p&gt;
+  A few days ago, I came across this problem:
+&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;
+  &lt;p&gt;
+    There is a sequence of \( 2n \) numbers where each natural number
+    from \( 1 \) to \( n \) is repeated twice, i.e.
+
+    \[
+      (1, 1, 2, 2, \dots, n, n).
+    \]
+
+    Find a permutation of this sequence such that for each \( k \)
+    where \( 1 \le k \le n, \) there are \( k \) numbers between two
+    occurrences of \( k \) in the permutation.
+  &lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
+&lt;p&gt;
+  In combinatorics, this problem has a name: &lt;em&gt;Langford&apos;s
+  problem&lt;/em&gt;.  A permutation of \( (1, 1, 2, 2, \dots, n, n) \) that
+  satisfies the condition given in the probem is known as
+  a &lt;em&gt;Langford pairing&lt;/em&gt; or &lt;em&gt;Langford sequence&lt;/em&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  For small \( n, \) say \( n = 4, \) Langford pairings can be
+  obtained easily by trial and error: \( (4, 1, 3, 1, 2, 4, 3, 2).  \)
+  What if \( n \) is large?  We need an algorithm to find a
+  permutation that solves the problem in that case.
+&lt;/p&gt;
+&lt;p&gt;
+  There is another question to consider: Is there a solution for every
+  possible \( n?  \)  One can easily see that there are no Langford
+  pairings for \( n = 1 \) and \( n = 2, \) i.e. the sequences \( (1,
+  1) \) and \( (1, 1, 2, 2) \) have no Langford pairings.
+&lt;/p&gt;
+&lt;p&gt;
+  We need to understand two things:
+&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    For what values of \( n \) do Langford pairings exist?
+  &lt;/li&gt;
+  &lt;li&gt;
+    For the values of \( n \) for which Langford pairings exist, how
+    do we find the Langford pairings?
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+  A simple Python 3 program I wrote to find Langford pairings for
+  small values of \( n \) offers some clues.  Here is the program:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def find_solutions(n, s=None):
+    # If called from top-level (s=None), create a list of 2n zero
+    # values.  Zeroes represent unoccupied cells.
+    if s is None:
+        s = [0] * (2 * n)
+
+    # Next number to be placed.
+    m = max(s) + 1
+
+    # For each i, try to place m at s[i] and s[i + m + 1].
+    for i in range(2 * n - m - 1):
+
+        # If s[i] and s[i + m + 1] are unoccupied, ...
+        if s[i] == s[i + m + 1] == 0:
+
+            # first place m at s[i] and s[i + m + 1].
+            s[i] = s[i + m + 1] = m
+
+            # If m is the last number to be placed, ...
+            if m == n:
+                # then a solution has been found; yield it.
+                yield s[:]
+            else:
+                # else try to place the next number.
+                yield from find_solutions(n, s)
+
+            # Undo placement of m.
+            s[i] = s[i + m + 1] = 0
+
+
+# Count solutions for 1 &amp;lt;= n &amp;lt;= 12.
+for n in range(1, 13):
+    count = sum(1 for s in find_solutions(n))
+    print(&apos;n = {:2} =&amp;gt; {:6} solutions&apos;.format(n, count))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  It takes a few minutes for this program to run.  Here is the output
+  of this program:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;python3 langford.py&lt;/kbd&gt;
+n =  1 =&amp;gt;      0 solutions
+n =  2 =&amp;gt;      0 solutions
+n =  3 =&amp;gt;      2 solutions
+n =  4 =&amp;gt;      2 solutions
+n =  5 =&amp;gt;      0 solutions
+n =  6 =&amp;gt;      0 solutions
+n =  7 =&amp;gt;     52 solutions
+n =  8 =&amp;gt;    300 solutions
+n =  9 =&amp;gt;      0 solutions
+n = 10 =&amp;gt;      0 solutions
+n = 11 =&amp;gt;  35584 solutions
+n = 12 =&amp;gt; 216288 solutions&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Note that we always talk about Langford pairings in plural in this
+  post.  That&apos;s because either a sequence has no Langford pairings or
+  it has two or more Langford pairings.  There is never a sequence
+  that has only one Langford pairing.  That&apos;s because if we find at
+  least one Langford pairing for a sequence, the reverse of that
+  Langford pairing is also a Langford pairing.  Therefore, when
+  Langford pairings exist for a sequence, they must at least be two in
+  number.  Since they occur in pairs, they are always even in number.
+  This is why we don&apos;t have to write &quot;one or more Langford pairings&quot;
+  in this post.  We can always write &quot;Langford pairings&quot; instead.
+&lt;/p&gt;
+&lt;h2 id=&quot;conjecture&quot;&gt;Conjecture&lt;/h2&gt;
+&lt;p&gt;
+  From the output above, we can form a conjecture:
+&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;
+  The sequence \( (1, 1, 2, 2, \dots, n, n) \) has Langford pairings
+  if and only if \( n \equiv 0 \pmod{4} \) or
+  \( n \equiv 3 \pmod{4}.  \)
+&lt;/div&gt;
+&lt;p&gt;
+  For convenience, let us denote the sequence \( (1, 1, 2, 2, \dots,
+  n, n) \) as \( S_n.  \)  We will now prove the above conjecture in two
+  parts:
+&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    We will first show that the condition that either \( n \equiv 0
+    \pmod{4} \) or \( n \equiv 3 \pmod{4} \) must hold is a
+    &lt;em&gt;necessary&lt;/em&gt; condition for the sequence \( S_n \) to have
+    Langford pairings.
+  &lt;/li&gt;
+  &lt;li&gt;
+    We will then show that the condition that either \( n \equiv 0
+    \pmod{4} \) or \( n \equiv 3 \pmod{4} \) must hold is a
+    &lt;em&gt;sufficient&lt;/em&gt; condition for the sequence \( S_n \) to have
+    Langford pairings.
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;necessity&quot;&gt;Necessity&lt;/h2&gt;
+&lt;p&gt;
+  Let \( S_n = (1, 1, 2, 2, \dots, n, n) \) be a sequence such that it
+  has Langford pairings.  Let us pick an arbitrary Langford pairing \(
+  s \) of \( S_n \) and split this Langford pairing \( s \) into two
+  mutually exclusive subsequences \( s_1 \) and \( s_2 \) such that:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    \( s_1 \) contains all numbers in odd numbered positions and
+  &lt;/li&gt;
+  &lt;li&gt;
+    \( s_2 \) contains all numbers in even numbered positions.
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  For example, if we pick \( s = (1, 7, 1, 2, 5, 6, 2, 3, 4, 7, 5, 3,
+  6, 4) \) which is a Langford pairing of \( S_7, \) we split \( s \)
+  into
+
+  \begin{align*}
+    s_1 &amp;amp; = (1, 1, 5, 2, 4, 5, 6), \\
+    s_2 &amp;amp; = (7, 2, 6, 3, 7, 3, 4).
+  \end{align*}
+&lt;/p&gt;
+&lt;p&gt;
+  We can make a few observations:
+&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    Both occurrences of an even number do not occur in the same
+    subsequence.
+  &lt;/li&gt;
+  &lt;li&gt;
+    There are \( \left\lfloor \frac{n}{2} \right\rfloor \) even
+    numbers in each subsequence.
+  &lt;/li&gt;
+  &lt;li&gt;
+    Both occurrences of an odd number occur in the same subsequence.
+  &lt;/li&gt;
+  &lt;li&gt;
+    There are \( \left\lceil \frac{n}{2} \right\rceil \) odd numbers
+    in each subsequence.
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+  Do these observations hold good for every Langford pairing of any
+  aribrary \( S_n \) for every positive integer value of \( n?  \)
+  Yes, they do.  We will now prove them one by one:
+&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Let us consider an even number \( k \) from a Langford pairing.
+      If the first occurrence of \( k \) lies at the \( i \)th
+      position in the pairing, then its second occurrence lies at the
+      \( (i + k + 1) \)th position.  Since \( k \) is even, \( i \)
+      and \( i + k + 1 \) have different parities, i.e. if \( i \) is
+      odd, then \( i + k + 1 \) is even and vice versa.  Therefore, if
+      the first occurrence of \( k \) lies at an odd numbered
+      position, its second occurrence must lie at an even numbered
+      position and vice versa.  Thus one occurrence of \( k \) must
+      belong to \( s_1 \) and the other must belong to \( s_2.  \)
+      This proves the first observation.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      The number of even numbers between \( 1 \) and \( n, \)
+      inclusive, is \( \left\lfloor \frac{n}{2} \right\rfloor.  \)
+      Each of these even numbers has been split equally between
+      \( s_1 \) and \( s_2.  \)  This proves the second observation.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Now let us consider an odd number \( k \) from a Langford
+      pairing.  If the first occurrence of \( k \) lies at the
+      \( i \)th position in the pairing, then its second occurrence lies at
+      the \( (i + k + 1) \)th position.  Since \( k \) is odd, \( i \)
+      and \( i + k + 1 \) have the same parity.  Therefore, either
+      both occurrences of \( k \) belong to \( s_1 \) or both belong
+      to \( s_2.  \)  This proves the third observation.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Each subsequence, \( s_1 \) or \( s_2 \) has \( n \) numbers
+      because we split a Langford pairing \( s \) with \( 2n \)
+      numbers equally between the two subsequences.  We have shown
+      that each subsequence has \( \left\lfloor \frac{n}{2}
+      \right\rfloor \) even numbers.  Therefore the number of odd
+      numbers in each subsequence is \( n - \left\lfloor \frac{n}{2}
+      \right\rfloor = \left\lceil \frac{n}{2} \right\rceil.  \)
+    &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+  From the third observation, we know that the odd numbers always
+  occur in pairs in each subsequence because both occurrences of an
+  odd number occur together in the same subsequence.  Therefore, the
+  number of odd numbers in each subsequence must be even.  Since the
+  number of odd numbers in each subsequence is \( \left\lceil
+  \frac{n}{2} \right\rceil \) as proven for the fourth observation, we
+  conclude that \( \left\lceil \frac{n}{2} \right\rceil \) must be
+  even.
+&lt;/p&gt;
+&lt;p&gt;
+  Now let us see what must \( n \) be like so that \( \left\lceil
+  \frac{n}{2} \right\rceil \) is even.
+&lt;/p&gt;
+&lt;p&gt;
+  Let us express \( n \) as \( 4q + r \) where \( q \) is a
+  nonnegative integer and \( r \in \{0, 1, 2, 3\}.  \)
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    If \( n = 4q + 0, \) then\( \left\lceil \frac{n}{2} \right\rceil =
+    \left\lceil \frac{4q}{2} \right\rceil = 2q.  \)
+  &lt;/li&gt;
+  &lt;li&gt;
+    If \( n = 4q + 1, \) then\( \left\lceil \frac{n}{2} \right\rceil =
+    \left\lceil \frac{4q + 1}{2} \right\rceil = 2q + 1.  \)
+  &lt;/li&gt;
+  &lt;li&gt;
+    If \( n = 4q + 2, \) then\( \left\lceil \frac{n}{2} \right\rceil =
+    \left\lceil \frac{4q + 2}{2} \right\rceil = 2q + 1.  \)
+  &lt;/li&gt;
+  &lt;li&gt;
+    If \( n = 4q + 3, \) then\( \left\lceil \frac{n}{2} \right\rceil =
+    \left\lceil \frac{4q + 3}{2} \right\rceil = 2q + 2.  \)
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  We see that \( \left\lceil \frac{n}{2} \right\rceil \) is even if
+  and only if either \( n \equiv 0 \pmod{4} \) or \( n \equiv 3
+  \pmod{4} \) holds good.
+&lt;/p&gt;
+&lt;p&gt;
+  We have shown that if a sequence \( S_n \) has Langford pairings,
+  then either \( n \equiv 0 \pmod{4} \) or \( n \equiv 3 \pmod{4}.  \)
+  This proves the necessity of the condition.
+&lt;/p&gt;
+&lt;h2 id=&quot;sufficiency&quot;&gt;Sufficiency&lt;/h2&gt;
+&lt;p&gt;
+  If we can show that we can construct a Langford pairing for \( (1,
+  1, 2, 2, \dots, n, n ) \) for both cases, i.e. \( n \equiv 0
+  \pmod{4} \) as well as \( n \equiv 3 \pmod{4}, \) then it would
+  complete the proof.
+&lt;/p&gt;
+&lt;h3 id=&quot;notation&quot;&gt;Notation&lt;/h3&gt;
+&lt;p&gt;
+  Let us define some notation to make it easier to write sequences we
+  will use in the construction of a Langford pairing:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      \( (i \dots j)_{even} \) denotes a sequence of even positive
+      integers from \( i \) to \( j, \) exclusive, arranged in
+      ascending order.
+    &lt;/p&gt;
+    &lt;p&gt;
+      For example, \( (1 \dots 8)_{even} = (2, 4, 6) \) and \( (1
+      \dots 2)_{even} = ().  \)
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      \( (i \dots j)_{odd} \) denotes a sequence of odd positive
+      integers from \( i \) to \( j, \) exclusive, arranged in
+      ascending order.
+    &lt;/p&gt;
+    &lt;p&gt;
+      For example, \( (1 \dots 8)_{odd} = (3, 5, 7) \) and \( (1 \dots
+      3)_{odd} = ().  \)
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      \( s&apos; \) denotes the reverse of the sequence \( s.  \)
+    &lt;/p&gt;
+    &lt;p&gt;
+      For example, for a sequence \( s = (2, 3, 4, 5), \) we have \(
+      s&apos; = (2, 3, 4, 5)&apos; = (5, 4, 3, 2).  \)
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      \( s \cdot t \) denotes the concatenation of sequences \( s \)
+      and \( t.  \)
+    &lt;/p&gt;
+    &lt;p&gt;
+      For example, for sequences \( s = (1, 2, 3) \) and
+      \( t = (4, 5), \) we have \( s \cdot t = (1, 2, 3) \cdot (4, 5)
+      = (1, 2, 3, 4, 5).  \)
+    &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  Let \( x = \left\lceil \frac{n}{4} \right\rceil.  \)  Therefore,
+
+  \[
+    x =
+    \begin{cases}
+      \frac{n}{4}     &amp;amp; \text{if } n \equiv 0 \pmod{4}, \\
+      \frac{n + 1}{4} &amp;amp; \text{if } n \equiv 3 \pmod{4}.
+    \end{cases}
+  \]
+
+  Let us now define the following eight sequences:
+
+  \begin{align*}
+    a &amp;amp; = (2x - 1), \\
+    b &amp;amp; = (4x - 2), \\
+    c &amp;amp; = (4x - 1), \\
+    d &amp;amp; = (4x), \\
+    p &amp;amp; = (0 \dots a)_{odd}, \\
+    q &amp;amp; = (0 \dots a)_{even}, \\
+    r &amp;amp; = (a \dots b)_{odd}, \\
+    s &amp;amp; = (a \dots b)_{even}.
+  \end{align*}
+
+  Now let us construct a Langford pairing for both cases: \( n \equiv
+  0 \pmod{4} \) and \( n \equiv 3 \pmod{4}.  \)  We will do this case by
+  case.
+&lt;/p&gt;
+&lt;h3 id=&quot;case-1&quot;&gt;Case \( n \equiv 0 \pmod{4} \)&lt;/h3&gt;
+&lt;p&gt;
+  If \( n \equiv 0 \pmod{4}, \) we construct a Langford pairing with
+  the following concatenation:
+
+  \[
+    s&apos; \cdot
+    p&apos; \cdot
+    b  \cdot
+    p  \cdot
+    c  \cdot
+    s  \cdot
+    d  \cdot
+    r&apos; \cdot
+    q&apos; \cdot
+    b  \cdot
+    a  \cdot
+    q  \cdot
+    c  \cdot
+    r  \cdot
+    a  \cdot
+    d.
+  \]
+
+  Let us do an example with \( n = 12.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  For \( n = 12, \) we get \( x = \frac{n}{4} = 3.  \)  Therefore,
+
+  \begin{alignat*}{2}
+    a &amp;amp; = (2x - 1)           &amp;amp;&amp;amp; = (5), \\
+    b &amp;amp; = (4x - 2)           &amp;amp;&amp;amp; = (10), \\
+    c &amp;amp; = (4x - 1)           &amp;amp;&amp;amp; = (11), \\
+    d &amp;amp; = (4x)               &amp;amp;&amp;amp; = (12), \\
+    p &amp;amp; = (0 \dots a)_{odd}  &amp;amp;&amp;amp; = (1, 3), \\
+    q &amp;amp; = (0 \dots a)_{even} &amp;amp;&amp;amp; = (2, 4), \\
+    r &amp;amp; = (a \dots b)_{odd}  &amp;amp;&amp;amp; = (7, 9), \\
+    s &amp;amp; = (a \dots b)_{even} &amp;amp;&amp;amp; = (6, 8).
+  \end{alignat*}
+
+  After performing the specified concatenation, we get the following
+  Langford pairing:
+
+  \[
+    (
+      8, 6, 3, 1, 10, 1, 3, 11, 6, 8, 12, 9,
+      7, 4, 2, 10, 5, 2, 4, 11, 7, 9, 5, 12
+    ).
+  \]
+
+  Let us now show that any construction of a sequence as per this
+  specified concatenation always leads to a Langford pairing.
+&lt;/p&gt;
+&lt;p&gt;
+  Each sequence \( a, \) \( b, \) \( c \) and \( d \) has one number
+  each.  Each sequence \( p, \) \( q, \) \( r \) and \( s \) has \( x
+  - 1 \) numbers each.
+&lt;/p&gt;
+&lt;p&gt;
+  The two occurrences of \( a \) have \( q, \) \( c \) and \( r \) in
+  between, i.e.
+
+  \[
+    (x - 1) + 1 + (x - 1) = 2x - 1 = a
+  \]
+
+  numbers in between.  Similarly, we can check that the two
+  occurrences of \( b \) have \( b \) numbers in between; likewise for
+  \( c \) and \( d.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  The two occurrences of \( 1 \) belong to \( p \) and \( p&apos;.  \)
+  Between these two occurrences of \( 1, \) we have only one element
+  of \( b.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  We now show that for each \( k \) in \( p, \) there are \( k \)
+  numbers in between.  For any \( k \) in \( p, \) there is the
+  sequence \( (0..k)&apos;_{odd} \cdot b \cdot (0..k)_{odd} \) in between
+  the two occurrences of \( k, \) i.e, there are \( \frac{k - 1}{2} +
+  1 + \frac{k - 1}{2} = k \) numbers in between.  Similarly, we can
+  check that for each \( k \) in \( q, \) there are \( k \) numbers in
+  between.
+&lt;/p&gt;
+&lt;p&gt;
+  Finally, we show that for each \( k \) in \( r, \) there are \( k \)
+  numbers in between.  For any \( k \) in \( r, \) there is the
+  sequence \( (a..k)&apos;_{odd} \cdot q&apos; \cdot b \cdot a \cdot q \cdot c
+  \cdot (a..k)_{odd} \) in between the two occurrences of \( k.  \)
+  Note that \( a \) is odd, so the number of integers in this sequence
+  is
+
+  \[
+    \frac{k - a - 2}{2} + (x - 1) + 1 + 1 + (x - 1) + 1 + \frac{k - a - 2}{2}.
+  \]
+
+  Simplifying the above expression and then substituting
+  \( a = 2x - 1, \) we get
+
+  \[
+    k - a - 2 + 2x + 1 = k.
+  \]
+
+  Similarly, we can check that for each \( k \) in \( s, \) there are
+  \( k \) numbers in between.
+&lt;/p&gt;
+&lt;h3 id=&quot;case-2&quot;&gt;Case \( n \equiv 3 \pmod{4} \)&lt;/h3&gt;
+&lt;p&gt;
+  If \( n \equiv 3 \pmod{4}, \) we construct a Langford pairing with
+  the following concatenation:
+
+  \[
+    s&apos; \cdot
+    p&apos; \cdot
+    b  \cdot
+    p  \cdot
+    c  \cdot
+    s  \cdot
+    a  \cdot
+    r&apos; \cdot
+    q&apos; \cdot
+    b  \cdot
+    a  \cdot
+    q  \cdot
+    c  \cdot
+    r.
+  \]
+
+  Note that this concatenation of sequences is almost the same as the
+  concatenation in the previous section with the following two
+  differences:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    The sequence \( d \) is not used here.
+  &lt;/li&gt;
+  &lt;li&gt;
+    The sequence \( a \) in the end has moved to replace the sequence
+    \( d \) in the middle of the concatenation.
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  Let us do an example with \( n = 11.  \)  For \( n = 12, \) we get \(
+  x = \frac{n + 1}{4} = 3.  \)  Therefore, the sequences \( a, \) \(
+  b, \) \( c, \) \( p, \) \( q, \) \( r \) and \( s \) are same as
+  those in the last example in the previous section.  After performing
+  the specified concatenation, we get the following Langford pairing:
+
+  \[
+    (
+      8, 6, 3, 1, 10, 1, 3, 11, 6, 8, 5,
+      9, 7, 4, 2, 10, 5, 2, 4, 11, 7, 9
+    ).
+  \]
+
+  We can verify that for every \( k \) in a Langford pairing
+  constructed in this manner, there are \( k \) numbers in between.
+  The verification steps are similar to what we did in the previous
+  section.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/langford-pairing.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/combinatorics.html&quot;&gt;#combinatorics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/puzzle.html&quot;&gt;#puzzle&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>From Out Shuffles to Multiplicative Order</title>
+    <link href="https://susam.net/from-out-shuffles-to-multiplicative-order.html"/>
+    <id>urn:uuid:81a33643-0b86-4472-93e4-34debbba8ccd</id>
+    <updated>2011-03-23T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;div style=&quot;display: none&quot;&gt;
+  \( \gdef\ord{\operatorname{ord}} \)
+&lt;/div&gt;
+&lt;h2 id=&quot;out-shuffles&quot;&gt;Out Shuffles&lt;/h2&gt;
+&lt;p&gt;
+  A &lt;em&gt;perfect riffle shuffle&lt;/em&gt; of a deck of cards involves
+  splitting the deck into two halves (one in each hand) and then
+  alternately dropping one card from each half till all cards have
+  fallen.  If the shuffling is done in such a manner that the bottom
+  and the top cards remain preserved at their positions, then it is
+  an &lt;em&gt;out shuffle&lt;/em&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;problem&quot;&gt;Problem&lt;/h2&gt;
+&lt;p&gt;
+  Here is a problem that a colleague asked me recently while
+  discussing shuffling techniques:
+&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;
+  How many out shuffles do we need to perform on a deck of 52 cards to
+  return the deck to its initial state?
+&lt;/div&gt;
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+&lt;p&gt;
+  The solution to this problem is rather long, so it has been split
+  into three parts below.
+&lt;/p&gt;
+&lt;h3 id=&quot;part-1&quot;&gt;Part 1: Congruence Relation&lt;/h3&gt;
+&lt;p&gt;
+  Let us assume that there are \( n \) cards where \( n \) is a
+  positive even integer.  Let us denote these cards as \( c_0, c_1,
+  \dots, c_{n-1} \) where \( c_0 \) is the card at index \( 0 \) (top
+  of the deck), \( c_{n - 1} \) is the card at index \( n - 1 \)
+  (bottom of the deck) and \( c_i \) is the card at index \( i \)
+  where \( 0 \le i \le n - 1.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  For example, if we have \( 8 \) cards, then the cards are denoted as
+
+  \[
+    c_0, c_1, c_2, c_3, c_4, c_5, c_6, c_7.
+  \]
+
+  After the first out shuffle, these cards are now in this order:
+
+  \[
+    c_0, c_4, c_1, c_5, c_2, c_6, c_3, c_7.
+  \]
+&lt;/p&gt;
+&lt;p&gt;
+  From the problem description and the example above, we see that
+  after a single out shuffle, a card at index \( i \) moves to index
+  \( 2i \bmod (n - 1) \) for \( 0 \le i \lt n - 1 \) and the card at
+  index \( n - 1 \) remains at the same place.
+&lt;/p&gt;
+&lt;p&gt;
+  After \( m \) shuffles a card at index \( i \) moves to index \(
+  (2^m i) \bmod (n - 1) \) for \( 0 \le i \lt n - 1.  \)  The card at
+  index \( n - 1 \) always remains at the same place.
+&lt;/p&gt;
+&lt;p&gt;
+  The solution to the problem then is the smallest positive integer \(
+  m \) such that
+
+  \[
+    2^m i \equiv i \pmod{n - 1}.
+  \]
+
+  for all integers \( i \) that satisfy the inequality \( 0 \le i \lt
+  n - 1.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  In modular arithmetic, we know that
+
+  \[
+    ac \equiv bc \pmod{n}
+    \iff
+    a \equiv b \pmod{n / \gcd(c, n)}.
+  \]
+
+  where \( a, \) \( b, \) \( c \) and \( n \) are integers.  Therefore
+
+  \[
+    2^m i \equiv i \pmod{n - 1}
+    \iff
+    2^m \equiv 1 \pmod{(n - 1) / \gcd(i, n - 1)}.
+  \]
+
+  Let \( F_{ni} = \frac{n - 1}{\gcd(i, n - 1)} \) where \( 0 \le i \lt
+  n - 1.  \)  Now the above congruence relation can be written as
+
+  \[
+    2^m \equiv 1 \pmod{F_{ni}}.
+  \]
+&lt;/p&gt;
+&lt;h3 id=&quot;part-2&quot;&gt;Part 2: Multiplicative Order&lt;/h3&gt;
+&lt;p&gt;
+  The smallest positive integer \( m \) that satisfies the above
+  congruence relation is known as the multiplicative order of \( 2 \)
+  modulo \( F_{ni}.  \)  It is denoted as \( \ord_{F_{ni}}(2).  \)
+&lt;/p&gt;
+&lt;p&gt;
+  In general, given an integer \( a \) and a positive integer \( n \)
+  with \( \gcd(a, n) = 1, \) the multiplicative order of \( a \)
+  modulo \( n, \) denoted as \( \ord_{n}(a), \) is the smallest
+  positive integer \( k \) such that
+
+  \[
+    a^k \equiv 1 \pmod{n}.
+  \]
+
+  In this problem, \( n \) is even, so \( n - 1 \) is odd as a result
+  of which \( F_{ni} \) is also odd.  As a result, \( \gcd(2, F_{ni}) =
+  1.  \)  Therefore, the smallest positive integer \( m \) that
+  satisfies the congruence relation \( 2^m \equiv 1 \pmod{F_{ni}} \)
+  is denoted as \( \ord_{F_{ni}}(2).  \)
+&lt;/p&gt;
+&lt;p&gt;
+  If \( n = 2, \) \( F_{n0} = F_{n1} = 1, \) therefore \( 2^m \equiv 1
+  \pmod{F_{ni}} \) for \( 0 \le i \lt n - 1 \) and all positive
+  integers \( m.  \)  This proves the trivial observation that when
+  there are only two cards \( c_0 \) and \( c_1, \) they remain at
+  index \( 0 \) and index \( 1 \) respectively, after any number of
+  out shuffles, i.e. their positions do not change with out shuffles.
+&lt;/p&gt;
+&lt;h4 id=&quot;case-1&quot;&gt;Case \( n \ge 4 \)&lt;/h4&gt;
+&lt;p&gt;
+  If \( n \ge 4, \) we know that there exists at least one integer
+  between \( 1 \) and \( n - 1 \) that is coprime to \( n - 1 \)
+  because \( \varphi(n) \ge 2 \) for \( n \ge 4 \) where
+  \( \varphi(n) \) represents Euler&apos;s totient of \( n.  \)
+&lt;/p&gt;
+&lt;h5 id=&quot;subcase-1-1&quot;&gt;Subcase \( i \) is coprime to \( n - 1 \)&lt;/h5&gt;
+&lt;p&gt;
+  For any arbitrary \( n \ge 4, \) let \( i \) be an integer that is
+  coprime to \( n - 1 \) such that \( 1 \lt i \lt n - 1.  \)  Now \(
+  \gcd(i, n - 1 ) = 1, \) so \( F_{ni} = \frac{n - 1}{\gcd(i, n - 1)}
+  = n - 1.  \)  As a result, \( \ord_{F_{ni}}(2) = \ord_{n -
+  1}({2}).  \)  This shows that any card at index \( i \) such that \(
+  i \) is coprime to \( n - 1 \) requires a minimum of \( \ord_{n -
+  1}(2) \) out shuffles to return to its initial place.
+&lt;/p&gt;
+&lt;h5 id=&quot;subcase-1-2&quot;&gt;Subcase \( i \) is &lt;em&gt;not&lt;/em&gt; coprime to \( n - 1 \)&lt;/h5&gt;
+&lt;p&gt;
+  For any arbitrary \( n \ge 4, \) now let us consider the case of a
+  card at index \( i \) such that \( i \) is not coprime to
+  \( n - 1.  \)  Since \( n - 1 \) is odd, we have \( \gcd(2, n - 1) =
+  1.  \)  Therefore, by definition of multiplicative order,
+
+  \[
+    2^{\ord_{n - 1}(2)} \equiv 1 \pmod{n - 1}.
+  \]
+
+  Since \( F_{ni} \mid n - 1, \) we get,
+
+  \[
+    2^{\ord_{n - 1}(2)} \equiv 1 \pmod{F_{ni}}.
+  \]
+
+  This shows that a card at index \( i \) such that \( i \) is not
+  coprime to \( n - 1 \) also return to its initial place after \(
+  \ord_{n - 1}(2) \) out shuffles.  Actually, it takes only \(
+  \ord_{F_{ni}}(2) \) out shuffles to return the card to its initial
+  place.  But \( \ord_{F_{ni}}(2) \mid \ord_{n - 1}(2), \) so \(
+  \ord_{n - 1}(2) = c \ord_{F_{ni}}(2) \) for some positive integer \(
+  c.  \)  Therefore performing \( \ord_{n - 1}(2) \) out shuffles is
+  same as repeating \( \ord_{F_{ni}}(2) \) out shuffles \( c \) times.
+  Every \( \ord_{F_{ni}}(2) \) brings back the card to its initial
+  position, so repeating it \( c \) times also brings it back to its
+  initial position.
+&lt;/p&gt;
+&lt;p&gt;
+  We have shown that a card at index \( i \) such that \( i \) is
+  coprime to \( n - 1 \) takes a minimum of \( \ord_{n - 1}(2) \) out
+  shuffles to return to its initial place.  We have also shown that a
+  card at other indices also return to its initial place after the
+  same number of out shuffles.  Therefore, it takes a minimum of \(
+  \ord_{n - 1}{2} \) out shuffles to return the deck of cards to its
+  initial state.
+&lt;/p&gt;
+&lt;h4 id=&quot;case-2&quot;&gt;Case \( n = 2 \)&lt;/h4&gt;
+&lt;p&gt;
+  When there are only \( 2 \) cards in the deck, every out shuffle
+  trivially returns the deck to its initial state.  In other words, it
+  takes only \( 1 \) out shuffle to return the deck to its initial
+  state.  Indeed \( \ord_{n - 1}(2) = \ord_{1}(2) = 1.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  We have now shown that for any positive even integer \( n, \) a deck
+  of \( n \) cards returns to its initial state after \( \ord_{n -
+  1}(2) \) out shuffles.
+&lt;/p&gt;
+&lt;h3 id=&quot;part-3&quot;&gt;Part 3: Computing Multiplicative Order&lt;/h3&gt;
+&lt;p&gt;
+  For a deck of \( 52 \) cards, we have \( n = 52.  \)  A minimum of \(
+  \ord_{51}(2) \) out shuffles are required to return the deck to its
+  initial state.  To compute \( \ord_{51}(2) \) we first enumerate the
+  powers of \( 2 \) modulo \( 51 \):
+
+  \begin{alignat*}{2}
+    2^0 &amp;amp; \equiv 1  &amp;amp;&amp;amp; \pmod{51}, \\
+    2^1 &amp;amp; \equiv 2  &amp;amp;&amp;amp; \pmod{51}, \\
+    2^2 &amp;amp; \equiv 4  &amp;amp;&amp;amp; \pmod{51}, \\
+    2^3 &amp;amp; \equiv 8  &amp;amp;&amp;amp; \pmod{51}, \\
+    2^4 &amp;amp; \equiv 16 &amp;amp;&amp;amp; \pmod{51}, \\
+    2^5 &amp;amp; \equiv 32 &amp;amp;&amp;amp; \pmod{51}, \\
+    2^6 &amp;amp; \equiv 13 &amp;amp;&amp;amp; \pmod{51}, \\
+    2^7 &amp;amp; \equiv 26 &amp;amp;&amp;amp; \pmod{51}, \\
+    2^8 &amp;amp; \equiv 1  &amp;amp;&amp;amp; \pmod{51}.
+  \end{alignat*}
+
+  The smallest positive integer \( k \) such that \( 2^k \equiv 1
+  \pmod{51} \) is 8, so \( \ord_51(2) = 8.  \)  We need \( 8 \) out
+  shuffles to return a deck of \( 52 \) cards to its initial state.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/from-out-shuffles-to-multiplicative-order.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/combinatorics.html&quot;&gt;#combinatorics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/puzzle.html&quot;&gt;#puzzle&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>From Diophantine Equation to Fermat's Last Theorem</title>
+    <link href="https://susam.net/from-diophantine-equation-to-fermats-last-theorem.html"/>
+    <id>urn:uuid:6fad92a5-62f0-4bf1-aaaa-d5167426db8d</id>
+    <updated>2011-01-12T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Here is a puzzle I created recently for my friends who love to
+  indulge in recreational mathematics:
+&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;
+  Find all integer solutions to the equation
+
+  \[
+    y^2 + 3 = \frac{x^3}{18}.
+  \]
+&lt;/div&gt;
+&lt;p&gt;
+  &lt;em&gt;If you want to think about this puzzle, this is a good time to
+  pause and think about it.  There are spoilers ahead.&lt;/em&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  It does not take long to realise that this is a Diophantine equation
+  of the form \( a^n + b^n = c^n.  \)  Here is how the equation looks
+  after rearranging the terms:
+
+  \[
+    x^3 = 18y^2 + 54.
+  \]
+&lt;/p&gt;
+&lt;p&gt;
+  The right hand side is positive, so any \( x \) that satisfies this
+  equation must also be positive, i.e. \( x \gt 0 \) must hold good
+  for any solution \( x \) and \( y.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Also, if some \( y \) satisfies the equation, then \( -y \) also
+  satisfies the equation because the right hand side value remains the
+  same for both \( y \) and \( -y.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  The right hand side is \( 2(9y^2 + 3^3).  \)  This is of the form \(
+  2(3a^2b + b^3) \) where \( a = y \) and \( b = 3.  \)  Now \( 2(3a^2b
+  + b^3) = (a + b)^3 - (a - b)^3.  \)  Using these details, we get
+
+  \[
+    x^3 = 18y^2 + 54 = 2(9y^2 + 3^3) = (y + 3)^3 - (y - 3)^3.
+  \]
+
+  Rearranging the terms, we get
+
+  \[
+    x^3 + (y - 3)^3 = (y + 3)^3.
+  \]
+
+  From Fermat&apos;s Last Theorem, we know that an equation of the form \(
+  a^n + b^n = c^n \) does not have any solution for positive integers
+  \( a, \) \( b, \) \( c \) and positive integer \( n \gt 2.  \)  We
+  know that \( x \gt 0.  \)  Therefore \( y \gt 3 \) contradicts
+  Fermat&apos;s Last Theorem.  Thus the inequality \( y \le 3 \) must hold
+  good.  Further since for every solution \( x \) and \( y, \) there
+  is also a solution \( x \) and \( -y, \) the inequality \( -y \le
+  3 \) must also hold good.  Therefore values of \( x \) and \( y \)
+  that satisfy the above equation must satisfy the following
+  inequalities:
+
+  \begin{align*}
+    x \gt 0, \\
+    -3 \le y \le 3.
+  \end{align*}
+
+  Since \( y \) must be one of the seven integers between \( -3 \) and
+  \( 3, \) inclusive, we can try solving for \( x \) with each of
+  these seven values of \( y.  \)  When we do so, we find that there
+  are only two values of \( y \) for which we get integer solutions
+  for \( x.  \)  They are \( y = 3 \) and \( y = -3.  \)  In both cases,
+  we get \( x = 6.  \)  Therefore, the solutions to the given equation
+  are:
+
+  \[
+    x = 6, \qquad y = \pm 3.
+  \]
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/from-diophantine-equation-to-fermats-last-theorem.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/combinatorics.html&quot;&gt;#combinatorics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/puzzle.html&quot;&gt;#puzzle&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Combinatorics Coincidence</title>
+    <link href="https://susam.net/combinatorics-coincidence.html"/>
+    <id>urn:uuid:13dedd05-23b8-4c81-8eff-0109539ba000</id>
+    <updated>2008-09-14T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h2 id=&quot;combinatorics-for-fun&quot;&gt;Combinatorics for Fun&lt;/h2&gt;
+&lt;p&gt;
+  At my current workplace, there are several engineers who have an
+  affinity for combinatorics.  As a result, discussions about
+  combinatorics problems often occur at the cafeteria.  Probability
+  theory is another popular topic of discussion.  Of course, often
+  combinatorics and probability theory go hand in hand.
+&lt;/p&gt;
+&lt;h2 id=&quot;recurrence-relation&quot;&gt;Recurrence Relation&lt;/h2&gt;
+&lt;p&gt;
+  At the cafeteria one day, I joined in on a conversation about
+  combinatorics problems.  During the conversation, I happened to
+  share the following problem:
+&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;
+  &lt;p&gt;
+    For integers \( n \ge 1 \) and \( k \ge 1, \)
+
+    \[
+      f_k(n) =
+      \begin{cases}
+        n                       &amp;amp; \text{if } k = 1, \\
+        \sum_{i=1}^n f_{k-1}(i) &amp;amp; \text{if } k \ge 2.
+      \end{cases}
+    \]
+
+    Find a closed-form expression for \( f_k(n).  \)
+  &lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;nested-loops&quot;&gt;Nested Loops&lt;/h2&gt;
+&lt;p&gt;
+  Soon after I shared the above problem, a colleague of mine shared
+  this problem with me:
+&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;
+  &lt;p&gt;
+    Consider the following pseudocode with &lt;code&gt;k&lt;/code&gt; nested
+    loops:
+  &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;x = 0
+for c&lt;sub&gt;1&lt;/sub&gt; in 0 to (n - 1):
+    for c&lt;sub&gt;2&lt;/sub&gt; in 0 to (c&lt;sub&gt;1&lt;/sub&gt; - 1):
+        ...
+            for c&lt;sub&gt;k&lt;/sub&gt; in 0 to (c&lt;sub&gt;k-1&lt;/sub&gt; - 1):
+                x = x + 1&lt;/code&gt;&lt;/pre&gt;
+  &lt;p&gt;
+    What is the final value of &lt;code&gt;x&lt;/code&gt; after the outermost loop
+    terminates?
+  &lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;coincidence&quot;&gt;Coincidence&lt;/h2&gt;
+&lt;p&gt;
+  With one problem each, we went back to our desks.  As I began
+  solving the &lt;em&gt;nested loops&lt;/em&gt; problem shared by my colleague, I
+  realised that the solution to his problem led me to
+  the &lt;em&gt;recurrence relation&lt;/em&gt; in the problem I shared with him.
+&lt;/p&gt;
+&lt;p&gt;
+  In the &lt;em&gt;nested loops&lt;/em&gt; problem, if \( k = 1, \) the final
+  value of \( x \) after the loop terminates is \( x = n.  \)  This is
+  also the value of \( f_1(n).  \)
+&lt;/p&gt;
+&lt;p&gt;
+  If \( k = 2, \) the inner loop with counter \( c_2 \) runs once when
+  \( c_1 = 0, \) twice when \( c_1 = 1 \) and so on.  When the loop
+  terminates, \( x = 1 + 2 + \dots + n.  \)  Note that this series is
+  same as \( f_2(n) = f_1(1) + f_1(2) + \dots + f_1(n).  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Extending this argument, we now see that for any \( k \ge 1, \) the
+  final value of \( x \) is
+
+  \[
+    f_k(n) = f_{k-1}(1) + f_{k-1}(2) + \dots + f_{k-1}(n).
+  \]
+
+  In other words, the solution to his &lt;em&gt;nested loops&lt;/em&gt; problem is
+  the solution to my &lt;em&gt;recurrence relation&lt;/em&gt; problem.  It was an
+  interesting coincidence that the problems we shared with each other
+  had the same solution.
+&lt;/p&gt;
+&lt;h2 id=&quot;closed-form-expression&quot;&gt;Closed-Form Expression&lt;/h2&gt;
+&lt;p&gt;
+  The closed form expression for the recurrence relation is
+
+  \[
+    f_k(n) = \binom{n + k - 1}{k}.
+  \]
+
+  It is quite easy to prove this using the principle of mathematical
+  induction.  Since we know that this is also the result of
+  the &lt;em&gt;nested loops&lt;/em&gt; problem, we can also arrive at this result
+  by another way.
+&lt;/p&gt;
+&lt;p&gt;
+  In the &lt;em&gt;nested loops&lt;/em&gt; problem, the following inequalities are
+  always met due to the loop conditions:
+
+  \[
+    n - 1 \ge c_1 \ge c_2 \ge \dots \ge c_k \ge 0.
+  \]
+
+  The variables \( c_1, c_2, \dots, c_k \) take all possible
+  arrangements of integer values that satisfy the above inequalities.
+  If we find out how many such arrangements are there, we will know
+  how many times the variable \( x \) is incremented.
+&lt;/p&gt;
+&lt;p&gt;
+  Let us consider \( n - 1 \) similar balls and \( k \) similar
+  sticks.  For every possible permutation of these balls and sticks,
+  if we count the number of balls to the right of the \( i \)th stick
+  where \( 1 \le i \le k, \) we get a number that the variable \( c_i \)
+  holds in some iteration of the \( i \)th loop.  Therefore the
+  variable \( c_i \) is represented as the number of balls lying on
+  the right side of the \( i \)th stick.
+&lt;/p&gt;
+&lt;p&gt;
+  The above argument holds good because the number of balls on the
+  right side of the first stick does not exceed \( n - 1, \) the
+  number of balls on the right side of the second stick does not
+  exceed the number of balls on the right side of the first stick and
+  so on.  Thus the inequalities mentioned earlier are always
+  satisfied.  Also, any set of valid values for \( c_1, c_2, \dots,
+  c_k \) can be represented as an arrangement of these sticks and
+  balls.
+&lt;/p&gt;
+&lt;p&gt;
+  The number of permutations of \( n - 1 \) similar balls and \( k \)
+  similar sticks is
+
+  \[
+    \frac{(n + k - 1)!}{(n - 1)! \, k!} = \binom{n + k - 1}{k}.
+  \]
+
+  This closed-form expression is the solution to both the
+  &lt;em&gt;recurrence relation&lt;/em&gt; problem and the &lt;em&gt;nested loops&lt;/em&gt;
+  problem.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/combinatorics-coincidence.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/combinatorics.html&quot;&gt;#combinatorics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/puzzle.html&quot;&gt;#puzzle&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

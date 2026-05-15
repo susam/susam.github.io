@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's Git Pages</title>
+  <subtitle>Feed for Susam's Git Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/git.xml" rel="self"/>
+  <id>https://susam.net/tag/git.xml</id>
+  <updated>2026-04-29T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Multiple URLs in Git Remote</title>
+    <link href="https://susam.net/multiple-urls-in-git-remote.html"/>
+    <id>urn:uuid:862deab7-11bc-494f-aebf-597b54ffaa21</id>
+    <updated>2026-04-29T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Typically a Git remote contains a single URL.  For example, when we
+  clone a repository, a remote named &lt;code&gt;origin&lt;/code&gt; is
+  automatically created and its URL is set to the location of the
+  upstream repository.  For example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git clone -q https://codeberg.org/spxy/spica.git &amp;amp;&amp;amp; cd spica/&lt;/kbd&gt;
+$ &lt;kbd&gt;git remote -v&lt;/kbd&gt;
+origin  https://codeberg.org/spxy/spica.git (fetch)
+origin  https://codeberg.org/spxy/spica.git (push)
+$ &lt;kbd&gt;sed &apos;/remote/,$!d&apos; .git/config&lt;/kbd&gt;
+[remote &quot;origin&quot;]
+        url = https://codeberg.org/spxy/spica.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch &quot;main&quot;]
+        remote = origin
+        merge = refs/heads/main&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  A perhaps less known detail is that we can set multiple URLs for a
+  remote.  For example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git remote set-url origin --add https://github.com/spxy/spica.git&lt;/kbd&gt;
+$ &lt;kbd&gt;git remote -v&lt;/kbd&gt;
+origin  https://codeberg.org/spxy/spica.git (fetch)
+origin  https://codeberg.org/spxy/spica.git (push)
+origin  https://github.com/spxy/spica.git (push)
+$ &lt;kbd&gt;sed &apos;/remote/,$!d&apos; .git/config&lt;/kbd&gt;
+[remote &quot;origin&quot;]
+        url = https://codeberg.org/spxy/spica.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+        url = https://github.com/spxy/spica.git
+[branch &quot;main&quot;]
+        remote = origin
+        merge = refs/heads/main&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  As evident from the above output, with multiple URLs for the same
+  remote, the first one becomes the fetch URL whereas all URLs become
+  push URLs.  For example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git pull&lt;/kbd&gt;
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 327 bytes | 109.00 KiB/s, done.
+From https://codeberg.org/spxy/spica
+   d473dde..31db503  main       -&amp;gt; origin/main
+Updating d473dde..31db503
+Fast-forward
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+$ &lt;kbd&gt;git log --oneline&lt;/kbd&gt;
+31db503 (HEAD -&amp;gt; main, origin/main, origin/HEAD) Explain that Spica is a binary star system
+d473dde Create README.md&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The output above confirms that the fetch was performed from the
+  first remote URL.  Although the output shows that
+  &lt;code&gt;origin&lt;/code&gt; contains commit 31db503, it is possible
+  that not all remote locations for &lt;code&gt;origin&lt;/code&gt; have received
+  this commit yet.  Since we have not configured a
+  &lt;code&gt;pushurl&lt;/code&gt;, pushes are sent to all remote URLs by default.
+  For example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;echo &apos;It is about 250 light years away from the Sun.&apos; &amp;gt;&amp;gt; README.md&lt;/kbd&gt;
+$ &lt;kbd&gt;git add README.md&lt;/kbd&gt;
+$ &lt;kbd&gt;git commit -m &apos;Mention distance from the Sun&apos;&lt;/kbd&gt;
+[main 816998d] Mention distance from the Sun
+ 1 file changed, 1 insertion(+)
+$ &lt;kbd&gt;git push&lt;/kbd&gt;
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 10 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 325 bytes | 325.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://codeberg.org/spxy/spica.git
+   31db503..816998d  main -&amp;gt; main
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 10 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (9/9), 791 bytes | 791.00 KiB/s, done.
+Total 9 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/spxy/spica.git
+ * [new branch]      main -&amp;gt; main
+$ &lt;kbd&gt;git log --oneline&lt;/kbd&gt;
+816998d (HEAD -&amp;gt; main, origin/main, origin/HEAD) Mention distance from the Sun
+31db503 Explain that Spica is a binary star system
+d473dde Create README.md&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  A &lt;code&gt;pushurl&lt;/code&gt; can be set as follows:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git remote set-url --push origin https://github.com/spxy/spica.git&lt;/kbd&gt;
+$ &lt;kbd&gt;git remote -v&lt;/kbd&gt;
+origin  https://codeberg.org/spxy/spica.git (fetch)
+origin  https://github.com/spxy/spica.git (push)
+$ &lt;kbd&gt;sed &apos;/remote/,$!d&apos; .git/config&lt;/kbd&gt;
+[remote &quot;origin&quot;]
+        url = https://codeberg.org/spxy/spica.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+        url = https://github.com/spxy/spica.git
+        pushurl = https://github.com/spxy/spica.git
+[branch &quot;main&quot;]
+        remote = origin
+        merge = refs/heads/main&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  When one or more &lt;code&gt;pushurl&lt;/code&gt; locations are set, pushes are
+  sent to only those locations.  Fetches continue to occur from the
+  first URL as before.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;echo &apos;Its two stars orbit each other roughly every four days.&apos; &amp;gt;&amp;gt; README.md&lt;/kbd&gt;
+$ &lt;kbd&gt;git add README.md&lt;/kbd&gt;
+$ &lt;kbd&gt;git commit -m &apos;Mention the four-day orbital period&apos;&lt;/kbd&gt;
+[main 2e9f4e8] Mention the four-day orbital period
+ 1 file changed, 1 insertion(+)
+$ &lt;kbd&gt;git push&lt;/kbd&gt;
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 10 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 342 bytes | 342.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/spxy/spica.git
+   816998d..2e9f4e8  main -&amp;gt; main
+$ &lt;kbd&gt;git log --oneline&lt;/kbd&gt;
+2e9f4e8 (HEAD -&amp;gt; main, origin/main, origin/HEAD) Mention the four-day orbital period
+816998d Mention distance from the Sun
+31db503 Explain that Spica is a binary star system
+d473dde Create README.md&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Note that in this case, the new commit has been pushed only to the
+  second remote URL.  If we perform a pull, Git will fetch changes
+  from the first remote URL and will move &lt;code&gt;origin/main&lt;/code&gt;
+  back to the latest commit available there.  For example:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git pull&lt;/kbd&gt;
+From https://codeberg.org/spxy/spica
+ + 2e9f4e8...816998d main       -&amp;gt; origin/main  (forced update)
+Already up to date.
+$ &lt;kbd&gt;git log --oneline&lt;/kbd&gt;
+2e9f4e8 (HEAD -&amp;gt; main) Mention the four-day orbital period
+816998d (origin/main, origin/HEAD) Mention distance from the Sun
+31db503 Explain that Spica is a binary star system
+d473dde Create README.md&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  For this reason, configuring a separate &lt;code&gt;pushurl&lt;/code&gt; should
+  be done with care.  It is useful only in a narrow range of scenarios
+  such as fetching from a primary repository that we want to treat as
+  read-only while pushing changes to a mirror.
+&lt;/p&gt;
+&lt;p&gt;
+  The difference between &lt;code&gt;pushurl&lt;/code&gt; and a normal remote URL
+  is explained in &lt;code&gt;man git-fetch&lt;/code&gt; as well as &lt;code&gt;man
+  git-push&lt;/code&gt; of Git 2.54.0 as follows:
+&lt;/p&gt;
+&lt;blockquote&gt;
+  The &amp;lt;pushurl&amp;gt; is used for pushes only.  It is optional and
+  defaults to &amp;lt;URL&amp;gt;.  Pushing to a remote affects all defined
+  pushurls or all defined urls if no pushurls are defined.  Fetch,
+  however, will only fetch from the first defined url if multiple urls
+  are defined.
+&lt;/blockquote&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/multiple-urls-in-git-remote.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/git.html&quot;&gt;#git&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Git Checkout, Reset and Restore</title>
+    <link href="https://susam.net/git-checkout-reset-restore.html"/>
+    <id>urn:uuid:a22f24a7-a154-408a-9dfd-b69e46eebeac</id>
+    <updated>2026-03-12T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  I have always used the &lt;code&gt;git checkout&lt;/code&gt; and &lt;code&gt;git
+  reset&lt;/code&gt; commands to reset my working tree or index but since
+  Git 2.23 there has been a &lt;code&gt;git restore&lt;/code&gt; command available
+  for these purposes.  In this post, I record how some of the &apos;older&apos;
+  commands I use map to the new ones.  Well, the new commands aren&apos;t
+  exactly new since Git 2.23 was released in 2019, so this post is
+  perhaps six years too late.  Even so, I want to write this down for
+  future reference.  It is worth noting that the old and new commands
+  are not always equivalent.  I&apos;ll talk more about this briefly as we
+  discuss the commands.  However, they can be used to perform similar
+  tasks.  Some of these tasks are discussed below.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#experimental-setup&quot;&gt;Experimental Setup&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reset-working-directory&quot;&gt;Reset the Working Tree&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reset-index&quot;&gt;Reset the Index&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reset-working-directory-and-index&quot;&gt;Reset the Working Tree and Index&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#summary&quot;&gt;Summary&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;experimental-setup&quot;&gt;Experimental Setup&lt;/h2&gt;
+&lt;p&gt;
+  To experiment quickly, we first create an example Git repository.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir foo/; cd foo/; touch a b c
+git init; git add a b c; git commit -m hello&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Now we make changes to the files and stage some of the changes.  We
+  then add more unstaged changes to one of the staged files.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;date | tee a b c d; git add a b d; echo &amp;gt; b&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  At this point, the working tree and index look like this:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git status&lt;/kbd&gt;
+On branch main
+Changes to be committed:
+  (use &quot;git restore --staged &amp;lt;file&amp;gt;...&quot; to unstage)
+        &lt;span class=&quot;c2&quot;&gt;modified:   a
+        modified:   b
+        new file:   d&lt;/span&gt;
+
+Changes not staged for commit:
+  (use &quot;git add &amp;lt;file&amp;gt;...&quot; to update what will be committed)
+  (use &quot;git restore &amp;lt;file&amp;gt;...&quot; to discard changes in working directory)
+        &lt;span class=&quot;c4&quot;&gt;modified:   b
+        modified:   c&lt;/span&gt;&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  File &lt;code&gt;a&lt;/code&gt; has staged changes.  File &lt;code&gt;b&lt;/code&gt; has
+  both staged and unstaged changes.  File &lt;code&gt;c&lt;/code&gt; has only
+  unstaged changes.  File &lt;code&gt;d&lt;/code&gt; is a new staged file.  In
+  each experiment below, we will work with this setup.
+&lt;/p&gt;
+&lt;p&gt;
+  All results discussed in this post were obtained using Git 2.47.3 on
+  Debian 13.2 (Trixie).
+&lt;/p&gt;
+&lt;h2 id=&quot;reset-working-directory&quot;&gt;Reset the Working Tree&lt;/h2&gt;
+&lt;p&gt;
+  As a reminder, we will always use the following command between
+  experiments to ensure that we restore the experimental setup each
+  time:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;date | tee a b c d; git add a b d; echo &amp;gt; b&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  To discard the changes in the working tree and reset the files in
+  the working tree from the index, I typically run:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git checkout .&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  However, the modern way to do this is to use the following command:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git restore .&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Both commands leave the working tree and the index in the following
+  state:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git status&lt;/kbd&gt;
+On branch main
+Changes to be committed:
+  (use &quot;git restore --staged &amp;lt;file&amp;gt;...&quot; to unstage)
+        &lt;span class=&quot;c2&quot;&gt;modified:   a
+        modified:   b
+        new file:   d&lt;/span&gt;&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Both commands operate only on the working tree.  They do not alter
+  the index.  Therefore the staged changes remain intact in the index.
+&lt;/p&gt;
+&lt;h2 id=&quot;reset-index&quot;&gt;Reset the Index&lt;/h2&gt;
+&lt;p&gt;
+  Another common situation is when we have staged some changes but
+  want to unstage them.  First, we restore the experimental setup:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;date | tee a b c d; git add a b d; echo &amp;gt; b&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  I normally run the following command to do so:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git reset&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The modern way to do this is:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git restore -S .&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Both commands leave the working tree and the index in the following
+  state:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git status&lt;/kbd&gt;
+On branch main
+Changes not staged for commit:
+  (use &quot;git add &amp;lt;file&amp;gt;...&quot; to update what will be committed)
+  (use &quot;git restore &amp;lt;file&amp;gt;...&quot; to discard changes in working directory)
+        &lt;span class=&quot;c4&quot;&gt;modified:   a
+        modified:   b
+        modified:   c&lt;/span&gt;
+
+Untracked files:
+  (use &quot;git add &amp;lt;file&amp;gt;...&quot; to include in what will be committed)
+        &lt;span class=&quot;c4&quot;&gt;d&lt;/span&gt;
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The &lt;code&gt;-S&lt;/code&gt; (&lt;code&gt;--staged&lt;/code&gt;) option tells &lt;code&gt;git
+  restore&lt;/code&gt; to operate on the index (not the working tree) and
+  reset the index entries for the specified files to match the
+  version in &lt;code&gt;HEAD&lt;/code&gt;.  The unstaged changes remain intact as
+  modified files in the working tree.  With the &lt;code&gt;-S&lt;/code&gt;
+  option, no changes are made to the working tree.
+&lt;/p&gt;
+&lt;p&gt;
+  From the arguments we can see that the old and new commands are not
+  exactly equivalent.  Without any arguments, the &lt;code&gt;git
+  reset&lt;/code&gt; command resets the entire index to &lt;code&gt;HEAD&lt;/code&gt;,
+  so all staged changes become unstaged.  Similarly, when we run
+  &lt;code&gt;git restore -S&lt;/code&gt; without specifying a commit, branch or
+  tag using the &lt;code&gt;-s&lt;/code&gt; (&lt;code&gt;--source&lt;/code&gt;) option, it
+  defaults to resetting the index from &lt;code&gt;HEAD&lt;/code&gt;.
+  The &lt;code&gt;.&lt;/code&gt; at the end ensures that all paths under the
+  current directory are affected.  When we run the command at the
+  top-level directory of the repository, all paths are affected and
+  the entire index gets reset.  As a result, both the old and the new
+  commands accomplish the same result.
+&lt;/p&gt;
+&lt;h2 id=&quot;reset-working-directory-and-index&quot;&gt;Reset the Working Tree and Index&lt;/h2&gt;
+&lt;p&gt;
+  Once again, we restore the experimental setup.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;date | tee a b c d; git add a b d; echo &amp;gt; b&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  This time we not only want to unstage the changes but also discard
+  the changes in the working tree.  In other words, we want to reset
+  both the working tree and the index from &lt;code&gt;HEAD&lt;/code&gt;.  This is
+  a dangerous operation because any uncommitted changes discarded in
+  this manner cannot be restored using Git.
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git reset --hard&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The modern way to do this is:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git restore -WS .&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The working tree is now clean:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;git status&lt;/kbd&gt;
+On branch main
+nothing to commit, working tree clean&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The &lt;code&gt;-W&lt;/code&gt; (&lt;code&gt;--worktree&lt;/code&gt;) option makes the
+  command operate on the working tree.  The &lt;code&gt;-S&lt;/code&gt;
+  (&lt;code&gt;--staged&lt;/code&gt;) option resets the index as described in the
+  previous section.  As a result, this command unstages any changes
+  and discards any modifications in the working tree.
+&lt;/p&gt;
+&lt;p&gt;
+  Note that when neither of these options is specified,
+  &lt;code&gt;-W&lt;/code&gt; is implied by default.  That&apos;s why the
+  bare &lt;code&gt;git restore .&lt;/code&gt; command in the previous section
+  discards the changes in the working tree.
+&lt;/p&gt;
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;
+  The following table summarises how the three pairs of commands
+  discussed above affect the working tree and the index, assuming the
+  commands are run at the top-level directory of a repository.
+&lt;/p&gt;
+&lt;div style=&quot;overflow: auto&quot;&gt;
+  &lt;table class=&quot;grid&quot; style=&quot;margin: 0&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Old&lt;/th&gt;
+        &lt;th&gt;New&lt;/th&gt;
+        &lt;th&gt;Working Tree&lt;/th&gt;
+        &lt;th&gt;Index&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td class=&quot;pre&quot;&gt;&lt;code&gt;git checkout .&lt;/code&gt;&lt;/td&gt;
+        &lt;td class=&quot;pre&quot;&gt;&lt;code&gt;git restore .&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;Reset to match the index.&lt;/td&gt;
+        &lt;td&gt;No change.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td class=&quot;pre&quot;&gt;&lt;code&gt;git reset&lt;/code&gt;&lt;/td&gt;
+        &lt;td class=&quot;pre&quot;&gt;&lt;code&gt;git restore -S .&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;No change.&lt;/td&gt;
+        &lt;td&gt;Reset to match &lt;code&gt;HEAD&lt;/code&gt;.&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td class=&quot;pre&quot;&gt;&lt;code&gt;git reset --hard&lt;/code&gt;&lt;/td&gt;
+        &lt;td class=&quot;pre&quot;&gt;&lt;code&gt;git restore -SW .&lt;/code&gt;&lt;/td&gt;
+        &lt;td&gt;Reset to match &lt;code&gt;HEAD&lt;/code&gt;.&lt;/td&gt;
+        &lt;td&gt;Reset to match &lt;code&gt;HEAD&lt;/code&gt;.&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;
+  The &lt;code&gt;git restore&lt;/code&gt; command is meant to provide a clearer
+  interface for resetting the working tree and the index.  I still use
+  the older commands out of habit.  Perhaps I will adopt the new ones
+  in another six years, but at least I have the mapping written down
+  now.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/git-checkout-reset-restore.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/git.html&quot;&gt;#git&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/how-to.html&quot;&gt;#how-to&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

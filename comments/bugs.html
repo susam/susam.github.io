@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Report Bugs - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/bugs.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+  <link rel="stylesheet" href="../js/katex/katex.min.css">
+  <style>
+    .katex {font-size: 1.1em }
+    .katex a:link {text-decoration: none}
+    .katex-display {
+      overflow-x: auto; /* Allow horizontal scroll for wide equations. */
+      overflow-y: hidden; /* Hide vertical scroll due to horizontal scroll. */
+      padding-top: 0.5em; /* Prevent top clipping. */
+      padding-right: 0.5em; /* Prevent horizontal scroll on numbered equations. */
+      /* See also: <https://github.com/KaTeX/KaTeX/issues/3254> */
+    }
+  </style>
+  <script defer src="../js/katex/katex.min.js"></script>
+  <script defer src="../js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true},
+          {left: '\\begin{equation}', right: '\\end{equation}', display: true},
+          {left: '\\begin{align}', right: '\\end{align}', display: true},
+          {left: '\\begin{align*}', right: '\\end{align*}', display: true},
+          {left: '\\begin{alignat}', right: '\\end{alignat}', display: true},
+          {left: '\\begin{alignat*}', right: '\\end{alignat*}', display: true},
+          {left: '\\begin{array}', right: '\\end{array}', display: true},
+        ],
+        macros: {
+          '\\eqnref': '\\href{###1}{(\\text{#2})}',
+          '\\label': '\\htmlId{#1}{}'
+        },
+        throwOnError: false,
+        trust: function (context) {
+          return ['\\htmlId', '\\href'].includes(context.command)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<main>
+<h1>Report Bugs</h1>
+<nav><a href="../form/comment/?p=bugs">Post Comment</a></nav>
+<!-- Comment 1 of 7 -->
+<section id="1" class="visitor">
+<h2>Ikiatl wrote:</h2>
+<p>
+  Loved your <a href="../langford-pairing.html">Langford Pairing</a>
+  blog post.  Found a small error in the proof of sufficiency.  I
+  think the value of \( c \) should be \( 4x - 1 \) and not \( 4x - 3
+ .  \)  Great blog post though!
+</p>
+<div>
+<a href="#1">18 May 2023 19:09 UTC</a> |
+<a href="#1">#1 of 7 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 7 -->
+<section id="2" class="visitor">
+<h2><a href="https://www.youtube.com/MindYourDecisions">Presh</a> wrote:</h2>
+<p>
+  Wonderful <a href="../langford-pairing.html">Langford Pairing</a>
+  post.  By the way, I believe there is a small typo in the formula
+  for \( c.  \)  It should be \( c = 4x - 1.  \)
+</p>
+<div>
+<a href="#2">05 Jun 2023 22:40 UTC</a> |
+<a href="#2">#2 of 7 comments</a>
+</div>
+</section>
+<!-- Comment 3 of 7 -->
+<section id="3" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Thank you, Ikiatl and Presh, for your comments.  The formula for \(
+  c \) indeed had a typo.  Although I wrote the correct values for \(
+  c \) obtained from the formula \( c = 4x - 1 \) in the examples, the
+  formula itself was written incorrectly as \( c = 4x - 3.  \)  I have
+  corrected <a href="../langford-pairing.html">Langford Pairing</a> to
+  use \( c = 4x - 1 \) now.
+</p>
+<div>
+<a href="#3">12 Jun 2023 07:18 UTC</a> |
+<a href="#3">#3 of 7 comments</a>
+</div>
+</section>
+<!-- Comment 4 of 7 -->
+<section id="4" class="visitor">
+<h2>Dan wrote:</h2>
+<p>
+  Read <a href="../nested-code-fences.html">Nested Code Fences in
+  Markdown</a>.  Nice post!  One tiny correction in this sentence:
+</p>
+<blockquote>
+  So when we put Becky within a code span, the first backtick in Corey's
+  face would terminate the code span immediately and then the rest of
+  Becky would lie outside it.
+</blockquote>
+<p>
+  I think that "Corey" should instead be "Becky".
+</p>
+<div>
+<a href="#4">21 Jan 2026 16:02 UTC</a> |
+<a href="#4">#4 of 7 comments</a>
+</div>
+</section>
+<!-- Comment 5 of 7 -->
+<section id="5" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Dan, Thank you for the correction.  Yes, that should indeed be
+  'Becky'.  I have made the correction now.
+</p>
+<div>
+<a href="#5">21 Jan 2026 20:13 UTC</a> |
+<a href="#5">#5 of 7 comments</a>
+</div>
+</section>
+<!-- Comment 6 of 7 -->
+<section id="6" class="visitor">
+<h2>Mario wrote:</h2>
+<p>
+  Hi Susam.  A small correction in
+  <a href="emacs-info-expressions.html">Emacs Info Expressions</a>.
+  The prefix to copy the info expression is <code>C-u 0 c</code>,
+  not <code>C-0 c</code>.
+</p>
+<p>
+  Also,
+  <a href="https://news.ycombinator.com/item?id=40021782">news.ycombinator.com/item?id=40021782</a>
+  links to <a href="emacs-info-expressions.html">emacs-info-expressions.html</a>
+  (note the "s" in "expressions"), which doesn't exist now (not sure
+  if a bug or intentional rename).
+</p>
+<div>
+<a href="#6">11 May 2026 17:37 UTC</a> |
+<a href="#6">#6 of 7 comments</a>
+</div>
+</section>
+<!-- Comment 7 of 7 -->
+<section id="7" class="author">
+<h2><a href="https://susam.net/">Susam Pal</a> wrote:</h2>
+<p>
+  Hi Mario!  The key sequences <code>C-u 0 c</code> and <code>C-0
+  c</code> are equivalent in GUI Emacs.  If <code>C-0</code> does not
+  work for you, then you are likely running Emacs in a terminal.  Most
+  terminals do not recognise <code>C-0</code> as a key combination.
+  In a terminal, you should type <code>C-u 0 c</code>, as you
+  mentioned, or alternatively <code>M-0 c</code>.  I have updated the
+  article <a href="emacs-info-expressions.html">Emacs Info
+  Expressions</a> to include this detail.
+</p>
+<p>
+  About the article URL, you are right.  I had inadvertently renamed
+  the article file.  I have now fixed it and the article is now
+  available at <a href="emacs-info-expressions.html">emacs-info-expressions.html</a>
+  again.  Thank you for reporting this issue.
+</p>
+<div>
+<a href="#7">12 May 2026 00:42 UTC</a> |
+<a href="#7">#7 of 7 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=bugs">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../wander/">Wander</a>
+    <a href="../about.html">About</a>
+    <a href="https://codeberg.org/susam">Codeberg</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1095 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's Meta Pages</title>
+  <subtitle>Feed for Susam's Meta Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/meta.xml" rel="self"/>
+  <id>https://susam.net/tag/meta.xml</id>
+  <updated>2026-05-14T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Commenting Guidelines</title>
+    <link href="https://susam.net/commenting.html"/>
+    <id>urn:uuid:b9d391bb-4cf2-49a8-8e7a-c5b7216bdf01</id>
+    <updated>2026-05-14T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h1&gt;Commenting Guidelines&lt;/h1&gt;
+&lt;p&gt;
+  This website has an active &lt;a href=&quot;comments/&quot;&gt;comments
+  section&lt;/a&gt;, carefully maintained and curated by the author of this
+  website.  When commenting on this website, please keep the following
+  points in mind:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      You may include HTML or Markdown in your comment.  Comments are
+      converted to HTML and sanitised before they are published on
+      this website.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      All submitted comments are held for review.  Whether a comment
+      is published or not is at the discretion of the author of this
+      website.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Typically, only the following types of comments are published:
+    &lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        Comments that add new information to the topic discussed in an
+        article.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Comments that offer new insight on a topic.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Comments that provide a neutral, supporting or opposing
+        viewpoint.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Comments that report typos, errors or bugs on the website.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Comments that contain good humour.
+      &lt;/li&gt;
+      &lt;li&gt;
+        Comments that express appreciation.
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Generally, rants are not published, even when the post you are
+      commenting on is itself a rant.  This website is the author&apos;s
+      place to rant.  It is not your place to rant.  If you really
+      need to rant, please do so on your own website.  This guideline
+      exists to maintain a high signal-to-noise ratio in
+      the &lt;a href=&quot;comments/&quot;&gt;comments&lt;/a&gt; section.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Similarly, comments containing speculation about worldly affairs
+      are not published.  The intention here is to prevent the
+      comments section from becoming an endless stream of speculative
+      remarks.  This is especially a problem for articles discussing
+      academic, professional, social or technological issues.  Such
+      articles tend to attract a large number of comments speculating
+      about how certain organisations may be causing those issues for
+      their own benefit.  While such speculation may have merit, this
+      website is not the place to discuss it.  If you feel strongly
+      about such topics, please discuss them on your own website.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Comments discussing politics are not published.  Regrettably,
+      many otherwise good comments have not been published because
+      they contained political asides.  Allowing political discussion
+      in the &lt;a href=&quot;comments/&quot;&gt;comments&lt;/a&gt; section is a
+      sure way to ruin this carefully maintained section.  Therefore,
+      comments containing political remarks are not published.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      When a comment reports a typo or error in an article, that
+      comment is published on the &lt;a href=&quot;comments/bugs.html&quot;&gt;bugs
+      page&lt;/a&gt; rather than on the comment page for the article.  This
+      is done to collect contributions from kind readers on a single
+      page.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      All comments deemed suitable for this website by its author
+      become publicly available on this website at two places: either
+      on the comment page for the article you commented on
+      (&lt;a href=&quot;comments/fd-100.html&quot;&gt;example&lt;/a&gt;) or on the
+      &lt;a href=&quot;comments/bugs.html&quot;&gt;bugs page&lt;/a&gt;, as well as on
+      the overall comment index page at
+      &lt;a href=&quot;comments/&quot;&gt;comments&lt;/a&gt;.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Do not submit sensitive personal data in your comments.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Do not publish original research in comments.  This may seem
+      like a strange guideline, but there have been instances where
+      people posted long comments containing mathematical material,
+      claiming that they had novel results.  The author of this
+      website does not have the time to review such comments.  If you
+      want to share original research, please do so on your own
+      website or in a more appropriate forum.
+    &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/commenting.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Now</title>
+    <link href="https://susam.net/now.html"/>
+    <id>urn:uuid:07ae129b-f93e-4905-bcae-10d608470d6e</id>
+    <updated>2026-01-02T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h1&gt;Now&lt;/h1&gt;
+&lt;p&gt;
+  Hello!  This is my &lt;a href=&quot;https://nownownow.com/about&quot;&gt;now
+  page&lt;/a&gt; where I keep a brief record of what I am up to these days.
+&lt;/p&gt;
+&lt;p&gt;
+  As of 03 Jan 2026, I am:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    Studying the book &lt;em&gt;Algebraic Graph Theory&lt;/em&gt; by Godsil and
+    Royle.
+  &lt;/li&gt;
+  &lt;li&gt;
+    Learning about the Coxeter graph and Tutte&apos;s 8-cage.
+  &lt;/li&gt;
+  &lt;li&gt;
+    Learning about distance-transitive graphs, in general.
+  &lt;/li&gt;
+  &lt;li&gt;
+    Maintaining this website.
+  &lt;/li&gt;
+  &lt;li&gt;
+    Occasionally posting comments to Hacker News
+    (&lt;a href=&quot;https://news.ycombinator.com/threads?id=susam&quot;&gt;see here&lt;/a&gt;).
+  &lt;/li&gt;
+&lt;/ul&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/now.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Colophon</title>
+    <link href="https://susam.net/colophon.html"/>
+    <id>urn:uuid:61cfcdbb-6522-47a5-bde5-b99027a41b97</id>
+    <updated>2024-06-15T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h1&gt;Colophon&lt;/h1&gt;
+&lt;p&gt;
+  Here are some details about how this website is maintained and
+  published:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      This website runs on a &lt;a href=&quot;https://www.debian.org/&quot;&gt;Debian&lt;/a&gt; system.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      This website is served
+      using &lt;a href=&quot;https://packages.debian.org/stable/nginx&quot;&gt;Nginx&lt;/a&gt;.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      This website is generated statically using a small
+      &lt;a href=&quot;https://github.com/susam/susam.net/blob/main/site.lisp&quot;&gt;Common
+        Lisp program&lt;/a&gt;.  This program is available under the terms of
+      the MIT licence.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Every line of HTML and CSS that makes this website is
+      handcrafted.  The final HTML pages, however, are generated using
+      a Common Lisp program.  This program merely combines the
+      handcrafted HTML content with a handcrafted HTML layout to
+      generate the pages that are served over the web.  The content
+      HTML, layout HTML and the Common Lisp program were all written
+      from scratch.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      All web pages on this website are
+      &lt;a href=&quot;https://github.com/susam/susam.net/blob/0.6.0/Makefile#L860-L870&quot;&gt;validated
+      using HTML Tidy&lt;/a&gt;.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      While most of this website is made of static HTML pages served
+      via Nginx, the pages for the comment and subscriber forms are
+      dynamic in nature.  They are implemented using Common Lisp and
+      Hunchentoot.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      This website has a &lt;a href=&quot;pages.html&quot;&gt;site-wide page list&lt;/a&gt;
+      that includes every page on this website.  It doesn&apos;t matter if
+      the page is part of a blog, a standalone HTML tool or an HTML
+      game.  Every single web page on this website occurs in this
+      list.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      This website has a &lt;a href=&quot;links.html&quot;&gt;links page&lt;/a&gt; that has
+      pointers to various sections of my website.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      This website has a &lt;a href=&quot;tag/&quot;&gt;tag list page&lt;/a&gt;
+      that can be used to browse this website by topics.  Clicking on
+      any tag on the tag list page, presents a list of all web pages
+      that have been marked with that tag.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      This website provides a consolidated &lt;a href=&quot;feed.xml&quot;&gt;web feed
+      (Atom)&lt;/a&gt;.  The Common Lisp program mentioned earlier ensures
+      that every new web page that appears on this website also
+      appears in this web feed.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Every tag has its own web feed.  For example,
+      see &lt;a href=&quot;tag/technology.html&quot;&gt;tag/technology.html&lt;/a&gt; for a
+      list of all pages tagged &quot;Technology&quot; and then
+      see &lt;a href=&quot;tag/technology.xml&quot;&gt;tag/technology.xml&lt;/a&gt; for the
+      corresponding web feed.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      The web feeds are sparingly styled with
+      &lt;a href=&quot;feed.xsl&quot;&gt;XSLT&lt;/a&gt;.  Web browsers that support XSL
+      transformation for web feeds render the feeds as HTML (rather
+      than raw XML) as determined by the stylesheet.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      This website has an old-fashioned
+      &lt;a href=&quot;comments/guestbook.html&quot;&gt;guestbook&lt;/a&gt;.  Feel free to
+      leave a message there if you would like to say hello or share a
+      thought.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      This website includes a &lt;a href=&quot;roll.html&quot;&gt;blogroll&lt;/a&gt;
+      consisting of a list of my favourite websites.  It also comes
+      with an &lt;a href=&quot;roll.opml&quot;&gt;OPML file&lt;/a&gt; that you can import
+      into your feed reader to follow these websites.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Every directory and subdirectory on this website has a directory
+      listing page that lists all its files and subdirectories.
+      See &lt;a href=&quot;ls.html&quot;&gt;ls.html&lt;/a&gt; for an example.  Subdirectory
+      names are marked with a trailing slash.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      This website loads KaTeX to render LaTeX snippets on web pages
+      that contain mathematical formulas.  For example, see the page
+      &lt;a href=&quot;zigzag-number-spiral.html&quot;&gt;zigzag-number-spiral.html&lt;/a&gt;.
+      KaTeX is not loaded on other web pages.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      All internal links on this website are relative links.  In fact,
+      all internal resources like the stylesheet, KaTeX, etc. too are
+      loaded using relative links.  Doing so allows me to browse this
+      website locally from my local drive without having to run a web
+      server on my development system.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    All web pages on this website have been
+    &lt;a href=&quot;https://github.com/susam/susam.net/blob/0.6.0/Makefile#L872-L876&quot;&gt;validated
+    to ensure that there are no broken internal links&lt;/a&gt;.
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      When you visit any web page on this website, all resources are
+      loaded from this website and only this website.  No external
+      resources are loaded.  This ensures that when you visit this
+      website, no data about your client is transmitted to another web
+      server.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      This website does not load analytics scripts.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      This website does not use cookies.
+    &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/colophon.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Quick Links</title>
+    <link href="https://susam.net/links.html"/>
+    <id>urn:uuid:445f9a87-7bbd-4bf6-a1f9-0fdfbddf69be</id>
+    <updated>2024-02-18T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h1&gt;Quick Links&lt;/h1&gt;
+&lt;p&gt;
+  This page contains quick links to various sections of this website.
+&lt;/p&gt;
+&lt;h2 id=&quot;main&quot;&gt;Main Sections&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;./&quot;&gt;Blog Posts&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;maze.html&quot;&gt;Quick Notes&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;pages.html&quot;&gt;All Pages&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;comments/&quot;&gt;All Comments&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;tag/&quot;&gt;Tags&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;comments/guestbook.html&quot;&gt;Guestbook&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;more&quot;&gt;Additional Sections&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;backlinks.html&quot;&gt;Backlinks&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;roll.html&quot;&gt;Blogroll&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;comments/bugs.html&quot;&gt;Bug Reports&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;colophon.html&quot;&gt;Colophon&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;cc/&quot;&gt;Computation Club&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;dd/&quot;&gt;Daily Activity Log&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;fun&quot;&gt;Fun Pages&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;contrast.html&quot;&gt;Contrast Calculator&lt;/a&gt; &amp;ndash; Calculate contrast between two colours per WCAG formula
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;cfrs.html&quot;&gt;CFRS[]&lt;/a&gt; &amp;ndash; Minimal drawing language with only six commands
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;css-fizz-buzz.html&quot;&gt;CSS Fizz Buzz&lt;/a&gt; &amp;ndash; Fizz Buzz in four lines of CSS
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;fxyt.html&quot;&gt;FXYT&lt;/a&gt; &amp;ndash; Tiny, stack-based, postfix canvas colouring language
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;myrgb.html&quot;&gt;Guess My RGB&lt;/a&gt; &amp;ndash; RGB colour guessing game
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;invaders.html&quot;&gt;Invaders&lt;/a&gt; &amp;ndash; 1980s-arcade-style invaders game
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;jokes.html&quot;&gt;Jokes&lt;/a&gt; &amp;ndash; My favourite jokes
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;nq.html&quot;&gt;Nerd Quiz&lt;/a&gt; &amp;ndash; Built from everyday moments of exploration
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;primegrid.html&quot;&gt;Prime Number Grid Explorer&lt;/a&gt; &amp;ndash; Explore prime numbers in a grid
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;quickqwerty.html&quot;&gt;QuickQWERTY&lt;/a&gt; &amp;ndash; Touch typing tutor for QWERTY keyboard
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;wander/&quot;&gt;Wander&lt;/a&gt; &amp;ndash; Discover the &lt;em&gt;small web&lt;/em&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;demos&quot;&gt;Fun Demos&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    CFRS[] Demos:
+    &lt;a href=&quot;cfrs.html#1&quot;&gt;#1&lt;/a&gt;,
+    &lt;a href=&quot;cfrs.html#2&quot;&gt;#2&lt;/a&gt;,
+    &lt;a href=&quot;cfrs.html#3&quot;&gt;#3&lt;/a&gt;,
+    &lt;a href=&quot;cfrs.html#4&quot;&gt;#4&lt;/a&gt;,
+    &lt;a href=&quot;cfrs.html#5&quot;&gt;#5&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    FXYT Demos:
+    &lt;a href=&quot;fxyt.html#XYxTN1srN255pTN1sqD&quot;&gt;#1&lt;/a&gt;,
+    &lt;a href=&quot;fxyt.html#XYaTN1srN255pTN1sqN0&quot;&gt;#2&lt;/a&gt;,
+    &lt;a href=&quot;fxyt.html#XYoTN1srN255pTN1sqDN0S&quot;&gt;#3&lt;/a&gt;,
+    &lt;a href=&quot;fxyt.html#XYpTN1srN255pTN1sqD&quot;&gt;#4&lt;/a&gt;,
+    &lt;a href=&quot;fxyt.html#XYN256sTdrD&quot;&gt;#5&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    Invaders: &lt;a href=&quot;invaders.html#auto&quot;&gt;Autopilot&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;quirky&quot;&gt;Quirky Pages&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;pc.html&quot;&gt;ASCII PC&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;assoc.html&quot;&gt;Associations&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;eql.html&quot;&gt;Equal Length Words&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;0573e7473.html&quot;&gt;SHA256 Hash of Self-Referential Message&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;sections&quot;&gt;Subscribe&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;feed.xml&quot;&gt;By Atom Feed&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;form/subscribe/&quot;&gt;By Email Newsletter&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;social&quot;&gt;Social&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://codeberg.org/susam&quot;&gt;Codeberg&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://github.com/susam&quot;&gt;GitHub&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://mastodon.social/@susam&quot;&gt;Mastodon&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://twitch.tv/susampal&quot;&gt;Twitch&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://web.libera.chat/#susam&quot;&gt;IRC&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;https://app.element.io/#/room/#susam:matrix.org&quot;&gt;Matrix&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/links.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Report Bugs</title>
+    <link href="https://susam.net/comments/bugs.html"/>
+    <id>urn:uuid:7dc2172f-60fa-4442-9bb2-47aaa497e2bd</id>
+    <updated>2023-05-18T19:09:23Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  A comments page to report bugs, typos and errors found on this
+  website.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/comments/bugs.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Computation Club Meeting</title>
+    <link href="https://susam.net/meet/"/>
+    <id>urn:uuid:87aef726-ffce-4e6f-8ba3-e08aaffb220f</id>
+    <updated>2022-12-12T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Meeting link for computation club.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/meet/"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Privacy Notice</title>
+    <link href="https://susam.net/privacy.html"/>
+    <id>urn:uuid:ce9cff28-6b42-4267-8771-604fe6cbd1d7</id>
+    <updated>2022-11-20T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h1&gt;Privacy Notice&lt;/h1&gt;
+&lt;p&gt;
+  &lt;a href=&quot;https://susam.net/&quot;&gt;Susam.Net&lt;/a&gt; (this website) is a
+  personal website maintained by Susam Pal.  This privacy notice
+  explains how this website uses the data it collects from you when
+  you use this website.
+&lt;/p&gt;
+&lt;h2 id=&quot;data-items&quot;&gt;Data Items&lt;/h2&gt;
+&lt;p&gt;
+  This website collects the following data:
+&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      The text submitted by you if you submit a new comment to this
+      website.  This text submitted by you may contain your name, a
+      URL to your profile on the world wide web and a comment.  This
+      text is written by you, so you are in complete control of what
+      you submit in the text.  You must not submit sensitive personal
+      data to this website.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Your email address submitted by you if you submit a subscribe or
+      unsubscribe request to this website.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      Your Internet Protocol (IP) address used to visit this website.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      HTTP referrer URL sent by your web browser or client software
+      while connecting to this website.  A web browser or a client
+      software typically, but not necessarily, sends the URL of the
+      web page or website where you clicked on a link to visit this
+      website as the HTTP referrer value.  If this website is visited
+      directly without clicking on any link, then a web browser or
+      client does not typically send any HTTP referrer data.
+    &lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;
+      User agent string sent by your web browser or client software
+      while visiting this website.  A web browser or a client software
+      typically, but not necessarily, includes the names and versions
+      of your device and operating system as well as the name and
+      version of your web browser or client software in the user agent
+      string.
+    &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;data-collection&quot;&gt;Data Collection&lt;/h2&gt;
+&lt;p&gt;
+  When you visit this website, your IP address, referrer data and user
+  agent string are automatically recorded in web server log files.
+&lt;/p&gt;
+&lt;p&gt;
+  When you submit a new comment to this website successfully, your
+  text is written to a file on the web server.  If the comment
+  submission fails due to errors, then your text is neither saved nor
+  published.  If the comment submission succeeds, the text submitted
+  by you is reviewed within 30 days.  If your comment is found to be
+  suitable for this website, then the text you have submitted is
+  published on the website.  If the comment is found to be unsuitable
+  for this website, then the text file containing your submitted text
+  is deleted.
+&lt;/p&gt;
+&lt;p&gt;
+  When you submit a new subscribe or unsubscribe request to this
+  website successfully, your email address is written to a file on the
+  web server.  If the request submission fails due to errors, then
+  your email address is not saved.  If the subscribe or unsubscribe
+  request succeeds, the email address submitted by you is added to a
+  Google Groups mailing list that is used to send email newsletters.
+  The use of your email address by Google Groups is covered by
+  Google&apos;s privacy policy.
+&lt;/p&gt;
+&lt;h2 id=&quot;data-usage&quot;&gt;Data Usage&lt;/h2&gt;
+&lt;p&gt;
+  The IP address, referrer data and user agent string is used to
+  monitor abuse of this website such as submitting spam comments,
+  sending too many requests to reduce the availability of this
+  website, etc.  This data is also used to mitigate abuse of this
+  website by blocking certain combinations of IP address, referrer
+  data and/or user agent from accessing this website or by limiting
+  the number of requests such a combination may send to this website.
+&lt;/p&gt;
+&lt;p&gt;
+  If you submit a comment to this website successfully and if the
+  comment is found to be suitable for this website during review, the
+  comment text is published at a comments page on this website.
+  Whether a comment is published or not is at the discretion of the
+  maintainer of this website.  When your comment text is published on
+  this website, it becomes available publicly to anyone who visits the
+  comments page.  You must not submit sensitive personal data to this
+  website.
+&lt;/p&gt;
+&lt;p&gt;
+  If you submit a subscribe request to this website successfully, then
+  at the discretion of the maintainer of this website, your email
+  address may be added to the email newsletter recipient list.  The
+  recipient list is maintained in Google Groups, a third-party service
+  provided by Google LLC.  This website uses Google Groups mailing
+  list to send email newsletters.  The mailing list is configured to
+  not expose your email address to other subscribers.  The use of your
+  email address by Google Groups is covered by Google&apos;s privacy
+  policy.
+&lt;/p&gt;
+&lt;p&gt;
+  If you submit an unsubscribe request to this website successfully,
+  then your email address is removed from the Google Groups mailing
+  list within 30 days if the email address exists in the mailing list.
+  You can remove your email address immediately from the Google Groups
+  mailing list by sending an email
+  to &lt;code&gt;susampal+unsubscribe@googlegroups.com&lt;/code&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;data-storage&quot;&gt;Data Storage&lt;/h2&gt;
+&lt;p&gt;
+  The IP address, referrer data and user agent string are stored in
+  web server log files.  This data is retained for 15 days.  After 15
+  days, this data is deleted automatically.
+&lt;/p&gt;
+&lt;p&gt;
+  A successfully submitted comment text is first stored in a text file
+  on the web server.  The comment text is reviewed within 30 days.  If
+  the comment is found to be suitable for this website, the comment
+  text is copied to a comments page where the comment becomes
+  available publicly on the world wide web.  If the comment is found
+  to be unsuitable for this website, then the text file containing
+  your submitted text is deleted from the web server.  You must never
+  submit sensitive personal data to this website.
+&lt;/p&gt;
+&lt;p&gt;
+  A successfully submitted email address in a subscribe or unsubscribe
+  request is first stored in a text file on the web server.  The email
+  address is reviewed within 30 days.  At the discretion of the
+  maintainer of this website, a successfully submitted subscription
+  request is either accepted or rejected.  When a subscription request
+  is accepted, the email address is added to a Google Groups mailing
+  list that is used to send email newsletters.  After adding your
+  email address to the mailing list, the text file containing your
+  email address is deleted from the web server.  The mailing list is
+  configured to not expose your email address to other subscribers.
+  When a subscription request is rejected, the text file containing
+  your email address is deleted from the web server.  A successfully
+  submitted unsubscribe request is always accepted within 30 days.
+  The email address submitted in an unsubscribe request is removed
+  from the Google Groups mailing list within 30 days if it exists in
+  the mailing list.  Then the text file containing the email address
+  is deleted.  The use of your email address by Google Groups is
+  covered by Google&apos;s privacy policy.
+&lt;/p&gt;
+&lt;h2 id=&quot;third-party-services&quot;&gt;Third-Party Services&lt;/h2&gt;
+&lt;p&gt;
+  If and only if you successfully submit a request to subscribe to the
+  email newsletters of this website and your subscription requested is
+  accepted, your email address is added to a Google Groups mailing
+  list used to send email newsletters.  Google Groups is a third-party
+  service provided by Google LLC.  The use of your email address by
+  Google Groups is covered by Google&apos;s privacy policy.  Google&apos;s
+  privacy policy is available
+  at &lt;a href=&quot;https://policies.google.com/privacy&quot;&gt;policies.google.com/privacy&lt;/a&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;third-party-analytics&quot;&gt;Third-Party Analytics&lt;/h2&gt;
+&lt;p&gt;
+  This website does not use third-party analytics.
+&lt;/p&gt;
+&lt;h2 id=&quot;cookies&quot;&gt;Cookies&lt;/h2&gt;
+&lt;p&gt;
+  This website does not use cookies.
+&lt;/p&gt;
+&lt;h2 id=&quot;marketing&quot;&gt;Marketing&lt;/h2&gt;
+&lt;p&gt;
+  This website does not use your data for marketing purpose.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/privacy.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Forms</title>
+    <link href="https://susam.net/form/"/>
+    <id>urn:uuid:e0e44c67-fed0-4ac0-884d-44bee0fab761</id>
+    <updated>2022-03-11T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h1&gt;Forms&lt;/h1&gt;
+&lt;ul style=&quot;font-family: monospace,monospace; list-style-type: none; padding: 0&quot;&gt;
+  &lt;li style=&quot;margin-top: 1em&quot;&gt;
+    &lt;a href=&quot;comment/&quot;&gt;comment/&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;margin-top: 1em&quot;&gt;
+    &lt;a href=&quot;subscribe/&quot;&gt;subscribe/&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li style=&quot;margin-top: 1em&quot;&gt;
+    &lt;a href=&quot;unsubscribe/&quot;&gt;unsubscribe/&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/form/"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Unsubscribe</title>
+    <link href="https://susam.net/form/unsubscribe/"/>
+    <id>urn:uuid:d1f6a263-3e33-4876-8875-2795469c95f5</id>
+    <updated>2021-09-20T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h1&gt;Unsubscribe&lt;/h1&gt;
+&lt;p&gt;
+  The unsubscription form is not available in this local copy of the
+  website.  To access it, please visit the online version at
+  &lt;a href=&quot;https://susam.net/form/unsubscribe/&quot;&gt;susam.net/form/unsubscribe/&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/form/unsubscribe/"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Subscribe</title>
+    <link href="https://susam.net/form/subscribe/"/>
+    <id>urn:uuid:bbcb71a8-02f6-4c94-9fed-1baa85d0526a</id>
+    <updated>2021-09-19T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h1&gt;Subscribe&lt;/h1&gt;
+&lt;p&gt;
+  The subscription form is not available in this local copy of the
+  website.  To access it, please visit the online version at
+  &lt;a href=&quot;https://susam.net/form/subscribe/&quot;&gt;susam.net/form/subscribe/&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/form/subscribe/"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Comment</title>
+    <link href="https://susam.net/form/comment/"/>
+    <id>urn:uuid:79470939-0c8b-4f41-b8ec-914c29f36ef2</id>
+    <updated>2021-08-15T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h1&gt;Comment&lt;/h1&gt;
+&lt;p&gt;
+  The comment form is not available in this local copy of the website.
+  To access it, please visit the online version at
+  &lt;a href=&quot;https://susam.net/form/comment/&quot;&gt;susam.net/form/comment/&lt;/a&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/form/comment/"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>About Me</title>
+    <link href="https://susam.net/about.html"/>
+    <id>urn:uuid:9b5f1cbd-d19f-4020-8c0b-41190e65b18c</id>
+    <updated>2007-10-01T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h1&gt;About Me&lt;/h1&gt;
+&lt;p&gt;
+  Hi!  I am Susam.  Welcome to my website.  This page provides a brief
+  introduction about me and this website.
+&lt;/p&gt;
+&lt;p&gt;
+  I am a software engineer by profession.  I have a keen interest in
+  free and open source software.  My first non-trivial contribution to
+  open source was
+  &lt;a href=&quot;https://issues.apache.org/jira/browse/NUTCH-559&quot;&gt;NUTCH-559&lt;/a&gt;
+  in 2007.  That contribution added support for various authentication
+  schemes to Apache Nutch, an open source web crawler.  I have
+  remained active in the open source communities since then.  I also
+  develop and maintain a few open source projects of my own at
+  &lt;a href=&quot;https://codeberg.org/susam&quot;&gt;codeberg.org/susam&lt;/a&gt; (earlier
+  on &lt;a href=&quot;https://github.com/susam&quot;&gt;github.com/susam&lt;/a&gt;.  For a
+  list of my projects, see my &lt;a href=&quot;foss.html&quot;&gt;open source work
+  details&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  When not involved with technology, I like reading books, playing the
+  piano and travelling.
+&lt;/p&gt;
+&lt;h2 id=&quot;irc&quot;&gt;IRC&lt;/h2&gt;
+&lt;p&gt;
+  I am usually online as my IRC nick &lt;em&gt;susam&lt;/em&gt; on
+  &lt;a href=&quot;https://web.libera.chat/&quot;&gt;Libera IRC&lt;/a&gt;.  I hang out at
+  various channels like #algorithms, #commonlisp, #emacs, #python,
+  etc.
+&lt;/p&gt;
+&lt;p&gt;
+  The #algorithms channel was founded by me first on Freenode in 2007
+  when there was no such channel dedicated to the subject of
+  algorithms.  It started as a tiny community of about 10 members from
+  the ##math channel and then gradually grew to have over 200 members
+  within a few years.  The channel was then
+  &lt;a href=&quot;algorithms-channel-migrates-to-libera-chat.html&quot;&gt;migrated&lt;/a&gt;
+  to Libera in 2021.
+&lt;/p&gt;
+&lt;h2 id=&quot;website&quot;&gt;Website&lt;/h2&gt;
+&lt;p&gt;
+  This website is generated using a Common Lisp program.  Most of this
+  website is static in nature.  The
+  &lt;a href=&quot;form/comment/?p=about&quot;&gt;comment form&lt;/a&gt; on this
+  website is served dynamically using a tiny web server program
+  written in Common Lisp.  See
+  &lt;a href=&quot;https://codeberg.org/susam/susam.net&quot;&gt;codeberg.org/susam/susam.net&lt;/a&gt;
+  for the source code of this website.
+&lt;/p&gt;
+&lt;p&gt;
+  Every line of HTML and CSS that makes this website is handcrafted.
+  See &lt;a href=&quot;colophon.html&quot;&gt;colophon.html&lt;/a&gt; for more details about
+  how this website is written and run.
+&lt;/p&gt;
+&lt;p&gt;
+  The primary copy of this website is hosted at
+  &lt;a href=&quot;https://susam.net/&quot;&gt;susam.net&lt;/a&gt;.  A mirror of the
+  website is hosted at
+  &lt;a href=&quot;https://susam.github.io/&quot;&gt;susam.github.io&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  This website began its life as an intranet portal running on an
+  intranet server out of my dorm room during my university days back
+  in 2001-2005.  That intranet server was named &lt;code&gt;maze&lt;/code&gt;.  I
+  used to run that server for my fellow students in our university&apos;s
+  computer network.  The server used to host an FTP server and an HTTP
+  portal for mathematical puzzles, technical articles, free software
+  downloads and audio/video streaming.  While that intranet portal and
+  its source code written in Classic ASP are now long gone, some of
+  its content still survives on this website.
+&lt;/p&gt;
+&lt;h2 id=&quot;browse&quot;&gt;Browse&lt;/h2&gt;
+&lt;p&gt;
+  The &lt;a href=&quot;./&quot;&gt;home page&lt;/a&gt; of this website presents
+  my primary blog.  I write about technology, mathematics and other
+  miscellaneous topics on this blog.  The posts on my primary blog
+  often tend to be long-form, involved and detailed.  They sometimes
+  take considerable time to write and publish.  As a result, the
+  interval between two posts on this blog can range from several weeks
+  to months.
+&lt;/p&gt;
+&lt;p&gt;
+  I also archive notes, code and various miscellaneous files on other
+  sections of this website that I update more frequently than my
+  primary blog.  Visit &lt;a href=&quot;links.html&quot;&gt;links.html&lt;/a&gt; to find
+  quick links to my primary blog as well as other sections of this
+  website.
+&lt;/p&gt;
+&lt;h2 id=&quot;guestbook&quot;&gt;Guestbook&lt;/h2&gt;
+&lt;p&gt;
+  This website has a simple, old-fashioned guestbook.  Please
+  visit &lt;a href=&quot;comments/guestbook.html&quot;&gt;guestbook.html&lt;/a&gt; if you
+  would like to leave a comment.
+&lt;/p&gt;
+&lt;h2 id=&quot;comments&quot;&gt;Comments&lt;/h2&gt;
+&lt;p&gt;
+  This website has an active comments section.  Please
+  visit &lt;a href=&quot;comments/&quot;&gt;comments/&lt;/a&gt; to find an index
+  of all comments posted on articles across this website.
+&lt;/p&gt;
+&lt;p&gt;
+  See &lt;a href=&quot;commenting.html&quot;&gt;commenting.html&lt;/a&gt; for commenting
+  guidelines.
+&lt;/p&gt;
+&lt;h2 id=&quot;blogroll&quot;&gt;Blogroll&lt;/h2&gt;
+&lt;p&gt;
+  This website has a blogroll consisting a list of my favourite blogs.
+  The blogroll also offers an OPML file, so that you can follow the
+  websites in my blogroll from your feed reader.  To check my
+  blogroll, please visit &lt;a href=&quot;roll.html&quot;&gt;roll.html&lt;/a&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;wander&quot;&gt;Wander&lt;/h2&gt;
+&lt;p&gt;
+  This website has a &lt;a href=&quot;wander/&quot;&gt;Wander Console&lt;/a&gt;
+  that lets you randomly wander from one personal website to another.
+&lt;/p&gt;
+&lt;p&gt;
+  Wander is a small, decentralised, self-hosted web console that lets
+  visitors to a website discover interesting websites and pages
+  recommended by a community of independent personal website owners.
+  If you have a website, you can host Wander Console too.  The setup
+  only requires copying two files (an HTML file and a JS file) to your
+  website.  See
+  &lt;a href=&quot;https://codeberg.org/susam/wander#readme&quot;&gt;codeberg.org/susam/wander&lt;/a&gt;
+  for more details.
+&lt;/p&gt;
+&lt;p&gt;
+  To see my Wander Console and explore the network of personal
+  websites, please visit &lt;a href=&quot;wander/&quot;&gt;wander/&lt;/a&gt;.
+&lt;/p&gt;
+&lt;h2 id=&quot;colours&quot;&gt;Colours&lt;/h2&gt;
+&lt;p&gt;
+  This website supports both light and dark colour schemes.  The
+  information box below shows the colour scheme selected right now.
+&lt;/p&gt;
+&lt;p class=&quot;light highlight&quot;&gt;
+  The &lt;strong&gt;light colour scheme&lt;/strong&gt; is active currently.
+&lt;/p&gt;
+&lt;p class=&quot;dark highlight&quot;&gt;
+  The &lt;strong&gt;dark colour scheme&lt;/strong&gt; is active currently.
+&lt;/p&gt;
+&lt;p&gt;
+  If you would like to browse this website using the opposite colour
+  scheme, please check if your operating system or web browser
+  supports changing the preferred colour scheme.  Most modern
+  operating systems do support it.
+&lt;/p&gt;
+&lt;h2 id=&quot;name&quot;&gt;Name&lt;/h2&gt;
+&lt;p&gt;
+  I have been told many times that my name, &lt;em&gt;&quot;Susam&quot;&lt;/em&gt;, is a
+  little unusual which makes it difficult for others to figure how to
+  pronounce it.  It is pronounced almost like the English
+  words &lt;em&gt;&quot;sue sum&quot;&lt;/em&gt; (/suːsʌm/).  However you may call my name
+  however you find most natural, convenient or intuitive.  I do not
+  mind mispronunciations of my name at all whatsoever.
+&lt;/p&gt;
+&lt;h2 id=&quot;bugs&quot;&gt;Bugs&lt;/h2&gt;
+&lt;p&gt;
+  If you find any bugs, typos or errors on this website, please report
+  them to me by &lt;a href=&quot;form/comment/?p=bugs&quot;&gt;sending a
+  comment here&lt;/a&gt;.  See also &lt;a href=&quot;comments/bugs.html&quot;&gt;the bug
+  report page&lt;/a&gt; for previously reported issues.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/about.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Talks</title>
+    <link href="https://susam.net/talks.html"/>
+    <id>urn:uuid:4e1bdc75-0be0-49b9-be1d-9c60df3562bb</id>
+    <updated>2006-09-20T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  My talks.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/talks.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>FOSS</title>
+    <link href="https://susam.net/foss.html"/>
+    <id>urn:uuid:80e36f2d-e184-4846-b526-a9d2737786da</id>
+    <updated>2006-08-06T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Free and open source contributions.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/foss.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>CV</title>
+    <link href="https://susam.net/cv.html"/>
+    <id>urn:uuid:9445e71d-b2a2-45d4-89a0-9f342512752c</id>
+    <updated>2005-10-10T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Curriculum vitae.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/cv.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Guestbook</title>
+    <link href="https://susam.net/comments/guestbook.html"/>
+    <id>urn:uuid:3c3fc460-6f60-4b8d-80a1-4718ff0a52f2</id>
+    <updated>2002-12-11T16:06:29Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Guestbook
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/comments/guestbook.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/meta.html&quot;&gt;#meta&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's SQL Pages</title>
+  <subtitle>Feed for Susam's SQL Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/sql.xml" rel="self"/>
+  <id>https://susam.net/tag/sql.xml</id>
+  <updated>2010-05-13T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Coefficient of Variation Function in PostgreSQL</title>
+    <link href="https://susam.net/coefficient-of-variation-function-in-postgresql.html"/>
+    <id>urn:uuid:e884c961-be61-4ddd-8b22-4d9835bde07d</id>
+    <updated>2010-05-13T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Today I learnt how to create an aggregate function in PostgreSQL
+  function that wraps the functionality provided by other aggregate
+  functions in PosgreSQL.  In this experiment, I created
+  a &lt;code&gt;cv()&lt;/code&gt; function that calculates the coefficient of
+  variation.  The function &lt;code&gt;cv(x)&lt;/code&gt; is equivalent
+  to &lt;code&gt;stddev(x)&lt;/code&gt; / &lt;code&gt;avg(x)&lt;/code&gt; where &lt;code&gt;x&lt;/code&gt;
+  represents the list of data points.
+&lt;/p&gt;
+&lt;h2 id=&quot;example-data-table&quot;&gt;Example Data Table&lt;/h2&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;cat perf.sql&lt;/kbd&gt;
+CREATE TABLE performance
+(
+    name VARCHAR,
+    duration DOUBLE PRECISION
+);
+
+INSERT INTO performance VALUES (&apos;RAND&apos;, 101.0);
+INSERT INTO performance VALUES (&apos;ZERO&apos;, 157.0);
+INSERT INTO performance VALUES (&apos;NONE&apos;, 209.0);
+INSERT INTO performance VALUES (&apos;TEST&apos;, 176.0);
+INSERT INTO performance VALUES (&apos;UNIT&apos;, 197.0);
+INSERT INTO performance VALUES (&apos;LOAD&apos;, 193.0);
+INSERT INTO performance VALUES (&apos;FREE&apos;, 198.0);
+$ &lt;kbd&gt;psql statistics&lt;/kbd&gt;
+psql (8.4.3)
+Type &quot;help&quot; for help.
+statistics=# &lt;kbd&gt;\i perf.sql&lt;/kbd&gt;
+DROP TABLE
+CREATE TABLE
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+statistics=# &lt;kbd&gt;select * from performance;&lt;/kbd&gt;
+ name | duration
+------+----------
+ RAND |      101
+ ZERO |      157
+ NONE |      209
+ TEST |      176
+ UNIT |      197
+ LOAD |      193
+ FREE |      198
+(7 rows)
+
+statistics=#&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;useful-details-to-create-our-function&quot;&gt;Useful Details to Create Our Function&lt;/h2&gt;
+&lt;pre&gt;&lt;samp&gt;statistics=# &lt;kbd&gt;SELECT aggtransfn, aggfinalfn, aggtranstype::regtype, agginitval&lt;/kbd&gt;
+statistics-# &lt;kbd&gt;FROM pg_aggregate&lt;/kbd&gt;
+statistics-# &lt;kbd&gt;WHERE aggfnoid=&apos;stddev(double precision)&apos;::regprocedure;&lt;/kbd&gt;
+  aggtransfn  |     aggfinalfn     |    aggtranstype    | agginitval
+--------------+--------------------+--------------------+------------
+ float8_accum | float8_stddev_samp | double precision[] | {0,0,0}
+(1 row)
+
+statistics=# &lt;kbd&gt;SELECT aggtransfn, aggfinalfn, aggtranstype::regtype, agginitval&lt;/kbd&gt;
+statistics-# &lt;kbd&gt;FROM pg_aggregate&lt;/kbd&gt;
+statistics-# &lt;kbd&gt;WHERE aggfnoid=&apos;avg(double precision)&apos;::regprocedure;&lt;/kbd&gt;
+  aggtransfn  | aggfinalfn |    aggtranstype    | agginitval
+--------------+------------+--------------------+------------
+ float8_accum | float8_avg | double precision[] | {0,0,0}
+(1 row)
+
+statistics=#&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;function-definition&quot;&gt;Function Definition&lt;/h2&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;cat cv.sql&lt;/kbd&gt;
+CREATE OR REPLACE FUNCTION finalcv(double precision[])
+RETURNS double precision
+AS $$
+    SELECT float8_stddev_samp($1) / float8_avg($1);
+$$ LANGUAGE SQL;
+
+CREATE AGGREGATE cv(double precision)
+(
+    sfunc = float8_accum,
+    stype = double precision[],
+    finalfunc = finalcv,
+    initcond = &apos;{0, 0, 0}&apos;
+);&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;psql statistics&lt;/kbd&gt;
+psql (8.4.3)
+Type &quot;help&quot; for help.
+
+statistics=# &lt;kbd&gt;select stddev(duration), avg(duration) from performance;&lt;/kbd&gt;
+      stddev      |       avg
+------------------+------------------
+ 37.1682147873178 | 175.857142857143
+(1 row)
+
+statistics=# &lt;kbd&gt;select stddev(duration) / avg(duration) as cv from performance;&lt;/kbd&gt;
+        cv
+-------------------
+ 0.211354592616754
+(1 row)
+
+statistics=# &lt;kbd&gt;\i cv.sql&lt;/kbd&gt;
+CREATE FUNCTION
+CREATE AGGREGATE
+statistics=# &lt;kbd&gt;select cv(duration) from performance;&lt;/kbd&gt;
+        cv
+-------------------
+ 0.211354592616754
+(1 row)
+
+statistics=#&lt;/samp&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;bessel-correction&quot;&gt;Bessel&apos;s Correction&lt;/h2&gt;
+&lt;p&gt;
+  Checked whether
+  &lt;a href=&quot;http://en.wikipedia.org/wiki/Bessel&apos;s_correction&quot;&gt;Bessel&apos;s
+  correction&lt;/a&gt; was used in the &lt;code&gt;stddev()&lt;/code&gt; function of
+  PostgreSQL.  Yes, it was used.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;$ &lt;kbd&gt;octave -q&lt;/kbd&gt;
+octave:1&amp;gt; &lt;kbd&gt;std([101, 157, 209, 176, 197, 193, 198], 0)&lt;/kbd&gt;
+ans =  37.168
+octave:2&amp;gt; &lt;kbd&gt;std([101, 157, 209, 176, 197, 193, 198], 1)&lt;/kbd&gt;
+ans =  34.411
+octave:3&amp;gt;&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The &lt;code&gt;std()&lt;/code&gt; function in MATLAB and GNU Octave applies
+  Bessel&apos;s correction when invoked with the second argument
+  as &lt;code&gt;0&lt;/code&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/coefficient-of-variation-function-in-postgresql.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/sql.html&quot;&gt;#sql&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

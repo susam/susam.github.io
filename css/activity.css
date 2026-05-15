@@ -1,0 +1,9 @@
+body {
+  max-width: none;
+}
+td {
+  vertical-align: top;
+}
+td:nth-last-of-type(3) {
+  text-align: center;
+}

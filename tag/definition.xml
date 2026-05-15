@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's Definition Pages</title>
+  <subtitle>Feed for Susam's Definition Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/definition.xml" rel="self"/>
+  <id>https://susam.net/tag/definition.xml</id>
+  <updated>2024-10-21T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Function</title>
+    <link href="https://susam.net/function.html"/>
+    <id>urn:uuid:8b86610f-cf9a-4ba9-a055-9f116c8b2ba3</id>
+    <updated>2024-10-20T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  In mathematics, a function \( f \) from a set \( X \) to a set \(
+  Y \) is a relation that associates each element of \( X \) with
+  exactly one element of \( Y.  \)  This page describes the commonly
+  used notation, terminology and concepts pertaining to functions.
+&lt;/p&gt;
+&lt;h2 id=&quot;contents&quot;&gt;Contents&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#definition&quot;&gt;Definition&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#notation&quot;&gt;Notation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#domain-codomain-and-image&quot;&gt;Domain, Codomain and Image&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#injection-surjection-and-bijection&quot;&gt;Injection, Surjection and Bijection&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;definition&quot;&gt;Definition&lt;/h2&gt;
+&lt;p&gt;
+  A function \( f \) from a set \( X \) to a set \( Y \) is a binary
+  relation \( R \) that satisfies the following conditions:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    \( R \subseteq \{ (x, y) \mid x \in X, y \in Y \} = X \times Y.  \)
+  &lt;/li&gt;
+  &lt;li&gt;
+    For every \( x \in X, \) there exists \( y \in Y \) such that \(
+    (x, y) \in R.  \)
+  &lt;/li&gt;
+  &lt;li&gt;
+    If \( (x, y) \in R \) and \( (x, z) \in R, \) then \( y = z.  \)
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+  The set \( X \) is called the domain of \( f \) and the set \( Y \)
+  is called the codomain of \( f.  \)  The relation \( R \) is also
+  known as the graph of \( f.  \)
+&lt;/p&gt;
+&lt;h2 id=&quot;notation&quot;&gt;Notation&lt;/h2&gt;
+&lt;p&gt;
+  Let \( f \) be a function from a set \( X \) to a set \( Y.  \)  Then
+  the name \( f \) represents the function and the notation \( f(x) \)
+  represents the application of the function to the argument \( x, \)
+  i.e. \( f(x) \) represents the value of \( f \) for the element \( x
+  \in X.  \)  In other words, for all \( x \in X, \) we have \( (x,
+  f(x)) \in R.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  A function \( f \) with domain \( X \) and codomain \( Y \) is also
+  written as \( f : X \to Y.  \)  The function \( f \) may also be
+  written as \( x \mapsto f(x).  \)  This notation specifies a function
+  that maps \( x \) to \( f(x).  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Formally, \( f(x) \) denotes the application of the function \( f \)
+  to the argument \( x.  \)  However, in practice, it is common to use
+  the expression \( f(x) \) to refer to both the function itself and
+  its output for a given \( x, \) which is a slight deviation from
+  strict notation.  Similarly, the function \( x \mapsto g(x) \) is
+  often written as \( f(x) = g(x).  \)  For example, the function \( x
+  \mapsto x^2 - 1 \) may also be written as \( f(x) = x^2 - 1.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  Consider a function \( f \) that returns the square of a real
+  number.  The following are common notations used to define this
+  function, roughly ordered from the most formal form to the least
+  formal one:
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    \( f : \mathbb{R} \to \mathbb{R} ; \; x \mapsto x^2, \)
+  &lt;/li&gt;
+  &lt;li&gt;
+    \( f : \mathbb{R} \to \mathbb{R} : x \mapsto x^2, \)
+  &lt;/li&gt;
+  &lt;li&gt;
+    \( f : x \mapsto x^2, \)
+  &lt;/li&gt;
+  &lt;li&gt;
+    \( f: \mathbb{R} \to \mathbb{R} \) where \( f(x) = x^2, \)
+  &lt;/li&gt;
+  &lt;li&gt;
+    \( f(x) = x^2.  \)
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;domain-codomain-and-image&quot;&gt;Domain, Codomain and Image&lt;/h2&gt;
+&lt;p&gt;
+  The &lt;em&gt;domain&lt;/em&gt; of a function is the set of all values for which
+  the function is defined.
+&lt;/p&gt;
+&lt;p&gt;
+  A &lt;em&gt;codomain&lt;/em&gt; of a function \( f \) is a set within which the
+  values \( f(x) \) for all \( x \in X \) must lie, where \( X \) is
+  the domain of \( f.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  The &lt;em&gt;image&lt;/em&gt; of a function \( f \) is the set \( \{ f(x) \mid
+  x \in X \} \) where \( X \) is the domain of \( f.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  The term &lt;em&gt;range&lt;/em&gt; is often used as a synonym of image.
+  However the use of this term is inconsistent across literature.
+  Some old books use the term range to mean codomain while other books
+  use this term to mean the image.  Therefore it is best to use the
+  term image because it is free from such ambiguity.
+&lt;/p&gt;
+&lt;h2 id=&quot;injection-surjection-and-bijection&quot;&gt;Injection, Surjection and Bijection&lt;/h2&gt;
+&lt;p&gt;
+  A function \( f : X \to Y \) is &lt;em&gt;injective&lt;/em&gt; if \( \forall a,
+  b \in X, a \neq b \implies f(a) \neq f(b).  \)  A function is
+  injective, if each element of the codomain is mapped to by &lt;em&gt;at
+  most&lt;/em&gt; one element of the domain.  An injective function is also
+  known as a &lt;em&gt;one-to-one&lt;/em&gt; function or an injection.
+&lt;/p&gt;
+&lt;p&gt;
+  A function \( f : X \to Y \) is &lt;em&gt;surjective&lt;/em&gt; if \( \forall y
+  \in Y, \exists x \in X \) such that \( y = f(x).  \)  A function is
+  surjective, if each element of the codomain is mapped to by &lt;em&gt;at
+  least&lt;/em&gt; one element of the domain.  A surjective function is also
+  known as an &lt;em&gt;onto&lt;/em&gt; function or a surjection.
+&lt;/p&gt;
+&lt;p&gt;
+  A function \( f : X \to Y \) is &lt;em&gt;bijective&lt;/em&gt; if \( \forall y
+  \in Y, \) there exists exactly one \( x \in X, \) such that \( y =
+  f(x).  \)  A function is bijective, if each element of the codomain
+  is mapped to by &lt;em&gt;exactly&lt;/em&gt; one element of the domain.  A
+  bijective function is also known as a &lt;em&gt;one-to-one
+  correspondence&lt;/em&gt; or bijection.  A bijection is both injective and
+  surjective.  In other words, a bijection is both &lt;em&gt;one-to-one and
+  onto&lt;/em&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  The function \( f : \mathbb{R} \to \mathbb{R}; \; x \mapsto e^x \)
+  is injective but not surjective.  It is injective because distinct
+  values of \( x \) produce distinct values of \( e^x.  \)  However, it
+  is not surjective as no value in the domain maps to negative numbers
+  in the codomain, leaving some elements in the codomain unmapped.
+&lt;/p&gt;
+&lt;p&gt;
+  The function \( f : \mathbb{R} \to \mathbb{R}; \; x \mapsto x^3 - x \)
+  is surjective but not injective.  It is surjective because every
+  value in the codomain is mapped to by at least one value in the
+  domain.  However, it is not injective, as distinct values in the
+  domain can map to the same value in the codomain.  For example, \(
+  f(-1) = f(0) = f(1) = 0.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  The function \( f : \mathbb{R} \to \mathbb{R}; \; x \mapsto x + 1 \)
+  is bijective.  It is both injective and surjective.  This function
+  is invertible with the inverse given by the function \( f^{-1} :
+  \mathbb{R} \to \mathbb{R}; \; x \mapsto x - 1.  \)
+&lt;/p&gt;
+&lt;p&gt;
+  The function \( f : \mathbb{R} \to \mathbb{R}; \; x \mapsto x^2 \)
+  is neither injective nor surjective.  First, the function is not
+  injective because distinct values in the domain can map to the same
+  value in the codomain.  For example, \( f(-2) = f(2) = 4.  \)
+  Additionally, the function is not surjective because no value in the
+  domain maps to the negative numbers in the codomain.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/function.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/mathematics.html&quot;&gt;#mathematics&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/definition.html&quot;&gt;#definition&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

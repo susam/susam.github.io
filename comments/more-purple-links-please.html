@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Comments on More Purple Links, Please - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/comments/more-purple-links-please.html">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Susam's Feed" href="../feed.xml">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/comment.css">
+</head>
+<body>
+<main>
+<h1>Comments</h1>
+<div><strong>On <a href="../more-purple-links-please.html"><em>More Purple Links, Please</em></a></strong></div>
+<nav><a href="../form/comment/?p=more-purple-links-please">Post Comment</a></nav>
+<!-- Comment 1 of 2 -->
+<section id="1" class="visitor">
+<h2><a href="https://chrismorgan.info">Chris Morgan</a> wrote:</h2>
+<ol>
+  <li>
+    <p>
+      Two other techniques you could use for installing user styles:
+    </p>
+    <ol style="list-style-type: lower-alpha">
+      <li>
+        Use an extension like
+        <a href="https://addons.mozilla.org/en-US/firefox/addon/styl-us/">Stylus</a>.
+      </li>
+      <li>
+        If in Firefox, enable the
+        <code>layout.css.moz-document.content.enabled</code> pref, add
+        the desired CSS to
+        <code>{profile}/chrome/userContent.css</code>, and restart the
+        browser.
+      </li>
+    </ol>
+  </li>
+  <li>
+    <p>
+      A foolish optimisation in the user script: since
+      <code>appendChild</code> returns the appended child, you
+      don&rsquo;t need to store it or look it up.  Personally
+      I&rsquo;d also use <code>textContent</code> instead
+      of <code>innerHTML</code>, though it doesn&rsquo;t actually
+      matter:
+    </p>
+    <pre><code>document.head.appendChild(document.createElement('style')).textContent = 'a:visited {color: #518}'</code></pre>
+  </li>
+  <li>
+    <p>
+      So long as the page used <code>color-scheme: dark</code> or
+      similar appropriately (normally the case for dark pages, seldom
+      remembered for dark sections of light pages), there are two ways
+      to get a different visited link colour on dark backgrounds:
+    </p>
+    <pre><code>color: VisitedText;
+color: light-dark(#518, #96b);</code></pre>
+  </li>
+  <li>
+    <p>
+      A related possibility: force link underlines.  Some browsers
+      provide a native way of forcing them (Firefox does), but
+      I&rsquo;ve become partial to a semitransparent-when-not-hovered
+      style since about 2018.  From my own user styles:
+    </p>
+    <pre><code>:any-link {
+        text-decoration: underline color-mix(in srgb, currentColor 30%, transparent) !important;
+        /* These are two extra properties not caught by the text-decoration shorthand, but relevant to reset.  */
+        text-underline-offset: unset !important;
+        text-decoration-skip-ink: unset !important;
+}</code></pre>
+  </li>
+</ol>
+<div>
+<a href="#1">10 Jan 2026 10:27 UTC</a> |
+<a href="#1">#1 of 2 comments</a>
+</div>
+</section>
+<!-- Comment 2 of 2 -->
+<section id="2" class="visitor">
+<h2><a href="https://chrismorgan.info">Chris Morgan</a> wrote:</h2>
+<p>
+  Correction to my last comment:
+  <code>toolkit.legacyUserProfileCustomizations.stylesheets</code> is
+  the Firefox pref to enable userContent.css.
+  (<code>layout.css.moz-document.content.enabled</code>
+  makes <code>@-moz-document</code> work&mdash;quite useful in
+  userContent.css, but distinct.)
+</p>
+<div>
+<a href="#2">12 Jan 2026 14:56 UTC</a> |
+<a href="#2">#2 of 2 comments</a>
+</div>
+</section>
+
+<nav><a href="../form/comment/?p=more-purple-links-please">Post Comment</a></nav>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../links.html">Links</a>
+    <a href="../feed.xml">Feed</a>
+    <a href="../form/subscribe/">Subscribe</a>
+    <a href="../wander/">Wander</a>
+    <a href="../about.html">About</a>
+    <a href="https://codeberg.org/susam">Codeberg</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

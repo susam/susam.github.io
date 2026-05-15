@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's Windows Pages</title>
+  <subtitle>Feed for Susam's Windows Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/windows.xml" rel="self"/>
+  <id>https://susam.net/tag/windows.xml</id>
+  <updated>2010-04-14T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Minimal Installation of WinHTTP API</title>
+    <link href="https://susam.net/minimal-installation-of-winhttp-api.html"/>
+    <id>urn:uuid:ad1872b6-f77c-4e71-befe-22f94207860b</id>
+    <updated>2010-04-14T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Here are the steps to perform for a minimal download and
+  installation of WinHTTP API for C++ so that we have the
+  the &lt;code&gt;winhttp.lib&lt;/code&gt; and &lt;code&gt;winhttp.h&lt;/code&gt; files while
+  writing C++ programs using the WinHTTP API:
+&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Download PSDK-x86.exe
+  from &lt;a href=&quot;https://web.archive.org/web/20100507044252/http://www.microsoft.com/downloads/details.aspx?familyid=0BAF2B35-C656-4969-ACE8-E4C0C0716ADB&amp;amp;displaylang=en&quot;&gt;Microsoft
+      ® Windows Server® 2003 R2 Platform SDK Web Install&lt;/a&gt;.
+  &lt;/li&gt;
+  &lt;li&gt;
+    Run the installer, select &lt;em&gt;Custom&lt;/em&gt; installation type, clear
+    all categories and select &lt;em&gt;Microsoft Windows Core SDK&lt;/em&gt; &amp;gt;
+    &lt;em&gt;Build Environment&lt;/em&gt; &amp;gt; &lt;em&gt;Build Environment (x86
+    32-bit)&lt;/em&gt;.
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+  After the installation is complete, the &lt;code&gt;winhttp.h&lt;/code&gt; file
+  can be found at &lt;code&gt;C:\Program Files\Microsoft Platform SDK Server
+    2003 R2\Include&lt;/code&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/minimal-installation-of-winhttp-api.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/c++.html&quot;&gt;#c++&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/windows.html&quot;&gt;#windows&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Character Encoding Bug in Notepad</title>
+    <link href="https://susam.net/character-encoding-bug-in-notepad.html"/>
+    <id>urn:uuid:8564996d-03d2-4695-8675-a52f1c651300</id>
+    <updated>2006-06-19T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;h2 id=&quot;symptoms-of-the-bug&quot;&gt;Symptoms of the Bug&lt;/h2&gt;
+&lt;p&gt;
+  I came across an interesting bug in Notepad last week.  I have
+  verified that this bug is reproducible in Windows XP.  Older
+  versions might be affected as well.  Here are the steps to reproduce
+  the issue:
+&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    Open Notepad.
+  &lt;/li&gt;
+  &lt;li&gt;
+    Enter the following text exactly as shown here:
+    &lt;pre&gt;&lt;samp&gt;this app can break&lt;/samp&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    Save the file.
+  &lt;/li&gt;
+  &lt;li&gt;
+    Close Notepad.
+  &lt;/li&gt;
+  &lt;li&gt;
+    Open the file again with Notepad.
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+  Some users may find Chinese characters instead of the English text
+  that was entered.  Others may find 9 boxes instead.
+&lt;/p&gt;
+&lt;p&gt;
+  A similar issue happens with other strings like the following ones:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;Bush hid the facts&lt;/samp&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;samp&gt;Bill hid the facts&lt;/samp&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;samp&gt;aa aaa aaa&lt;/samp&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;samp&gt;bb bbb bbb&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  We can craft many more such strings that trigger this bug if we
+  understand what causes this bug.
+&lt;/p&gt;
+&lt;h2 id=&quot;cause-of-the-bug&quot;&gt;Cause of the Bug&lt;/h2&gt;
+&lt;p&gt;
+  Let us take the following text as an example and try to understand
+  what is going on:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;this app can break&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here are the hexadecimal codes for the characters in the string:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;74 68 69 73 20 61 70 70 20 63 61 6e 20 62 72 65 61 6b&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Now let us try to interpret these 18 bytes as if they represent
+  UTF-16LE encoded characters.  After rearranging them to represent
+  UTF-16LE encoded characters, we get 9 UTF-16LE encoded characters
+  with the following code points:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;&lt;a href=&quot;https://www.fileformat.info/info/unicode/char/6874/&quot;&gt;6874&lt;/a&gt; &lt;!--
+--&gt;&lt;a href=&quot;https://www.fileformat.info/info/unicode/char/7369/&quot;&gt;7369&lt;/a&gt; &lt;!--
+--&gt;&lt;a href=&quot;https://www.fileformat.info/info/unicode/char/6120/&quot;&gt;6120&lt;/a&gt; &lt;!--
+--&gt;&lt;a href=&quot;https://www.fileformat.info/info/unicode/char/7070/&quot;&gt;7070&lt;/a&gt; &lt;!--
+--&gt;&lt;a href=&quot;https://www.fileformat.info/info/unicode/char/6320/&quot;&gt;6320&lt;/a&gt; &lt;!--
+--&gt;&lt;a href=&quot;https://www.fileformat.info/info/unicode/char/6e61/&quot;&gt;6e61&lt;/a&gt; &lt;!--
+--&gt;&lt;a href=&quot;https://www.fileformat.info/info/unicode/char/6220/&quot;&gt;6220&lt;/a&gt; &lt;!--
+--&gt;&lt;a href=&quot;https://www.fileformat.info/info/unicode/char/6572/&quot;&gt;6572&lt;/a&gt; &lt;!--
+--&gt;&lt;a href=&quot;https://www.fileformat.info/info/unicode/char/6b61/&quot;&gt;6b61&lt;/a&gt;&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Click the codes above to see what the characters they represent look
+  like.  Each code represents a CJK ideograph.  CJK stands for
+  Chinese, Japanese and Korean.
+&lt;/p&gt;
+&lt;p&gt;
+  We can see now that the 18 bytes entered into Notepad also happen to
+  represent 9 valid CJK ideographs when encoded using UTF-16LE.  When
+  Notepad opens a text file, it finds that the bytes in the file
+  happen to be valid UTF-16LE characters, so it attempts to display
+  them as the corresponding UTF-16LE characters.  Those who do not
+  have CJK fonts installed on their systems see them appear as boxes.
+&lt;/p&gt;
+&lt;h2 id=&quot;rewriting-the-file&quot;&gt;Rewriting the File&lt;/h2&gt;
+&lt;p&gt;
+  One of my friends, after playing a little with this bug, asked me,
+  &quot;When I create that file for the first time, I see 9 boxes.  But if
+  I open the same file, delete everything, type the same thing again,
+  close it and open it again, I don&apos;t see 9 boxes any more.  I can
+  read the English text without issues now.  Does it mean that for
+  some reason this time Notepad can interpret them as ASCII encoded
+  characters?&quot;
+&lt;/p&gt;
+&lt;p&gt;
+  The answer is: No!  In fact it is just the opposite.  This time
+  Notepad correctly saves them as UTF-16LE encoded characters.
+&lt;/p&gt;
+&lt;p&gt;
+  The first time Notepad saves the data in ASCII encoding.  The next
+  time it saves it as UTF-16LE encoded characters.
+&lt;/p&gt;
+&lt;p&gt;
+  Let us create the file for the first time and see what each byte
+  looks like using the &lt;samp&gt;debug&lt;/samp&gt; program of DOS.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;C:\&amp;gt;&lt;kbd&gt;debug foo.txt&lt;/kbd&gt;
+-&lt;kbd&gt;r ip&lt;/kbd&gt;
+IP 0100
+:
+-&lt;kbd&gt;d 100 11f&lt;/kbd&gt;
+0B66:0100  74 68 69 73 20 61 70 70-20 63 61 6E 20 62 72 65  this app can bre
+0B66:0110  61 6B BC 00 72 16 03 D3-13 C8 E8 B3 34 00 55 0B  ak..r.......4.U.
+-&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  When we open this file using Notepad and edit, Notepad considers the
+  text to be in UTF-16LE encoding due to reasons explained earlier in
+  this post.  Therefore it displays the text as CJK ideographs or
+  boxes (if CJK fonts are missing).  Now when we erase the text and
+  write the same English text again, the English text is saved in
+  UTF-16LE encoding (not ASCII encoding like the first time).  This
+  can be confirmed with the &lt;samp&gt;debug&lt;/samp&gt; command.
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;C:\&amp;gt;&lt;kbd&gt;debug a.txt&lt;/kbd&gt;
+-&lt;kbd&gt;r ip&lt;/kbd&gt;
+IP 0100
+:
+-&lt;kbd&gt;d 100 11f&lt;/kbd&gt;
+0B66:0100  FF FE 74 00 68 00 69 00-73 00 20 00 61 00 70 00   ..t.h.i.s.  .a.p.
+0B66:0110  70 00 20 00 63 00 61 00-6E 00 20 00 62 00 72 00   p. .c.a.n.  .b.r.
+-&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The two bytes &lt;samp&gt;FF&lt;/samp&gt; and &lt;samp&gt;EE&lt;/samp&gt; in the beginning
+  is the byte order mark (BOM) for UTF-16LE encoding.  The remaining
+  bytes are the characters of the text in UTF-16LE encoding.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/character-encoding-bug-in-notepad.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/windows.html&quot;&gt;#windows&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>WinPopup</title>
+    <link href="https://susam.net/winpopup.html"/>
+    <id>urn:uuid:b996b9b4-ae3c-4110-b513-817f5e255715</id>
+    <updated>2001-12-10T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  While browsing the &lt;code&gt;C:\Windows&lt;/code&gt; directory of the Windows
+  98 system in our dorm room, I came across an interesting program
+  named &lt;code&gt;Winpopup.exe&lt;/code&gt;.  It is a tiny little program that
+  can be used to send messages from one Windows system to another on
+  the same local area network (LAN).
+&lt;/p&gt;
+&lt;figure class=&quot;stretch&quot;&gt;
+  &lt;img src=&quot;files/blog/winpopup-1.png&quot; alt=&quot;A screenshot of Windows directory&quot;&gt;
+  &lt;figcaption&gt;
+    Winpopup.exe in C:\Windows of Windows 98
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+  Windows networking supports the notion of workgroups where one or
+  more computers may logically belong to a common group.  Computers
+  belonging to the same workgroup can share resources such as files,
+  printers, etc. with each other.  To see the workgroup your computer
+  belongs to, go to Start &amp;gt; Settings &amp;gt; Control Panel &amp;gt;
+  Network &amp;gt; Identification and see the value of the field named
+  &quot;Workgroup&quot;.  By default, this value is &quot;WORKGROUP&quot; but it can be
+  changed to create smaller working groups of computers.
+&lt;/p&gt;
+&lt;p&gt;
+  Apart from sending messages to a specific computer, WinPopup
+  supports sending messages to an entire workgroup of computers too.
+  An example of this is shown later in this post.
+&lt;/p&gt;
+&lt;figure class=&quot;stretch&quot;&gt;
+  &lt;img src=&quot;files/blog/winpopup-2.png&quot; alt=&quot;A screenshot of Windows workgroup configuration&quot;&gt;
+  &lt;figcaption&gt;
+    Workgroup configuration in Windows 98
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+  To start WinPopup, go to My Computer &amp;gt; C: &amp;gt; Windows, then
+  click on the link that says &quot;Show Files&quot;, then scroll down to the
+  bottom to find WinPopup.exe and finally double click on it to start
+  it.  Alternatively, you can also type &lt;kbd&gt;win&lt;/kbd&gt;+&lt;kbd&gt;r&lt;/kbd&gt;,
+  type &lt;code&gt;winpopup&lt;/code&gt; and type &lt;kbd&gt;enter&lt;/kbd&gt;.
+&lt;/p&gt;
+&lt;figure class=&quot;stretch&quot;&gt;
+  &lt;img src=&quot;files/blog/winpopup-3.png&quot; alt=&quot;A screenshot of WinPopup&quot;&gt;
+  &lt;figcaption&gt;
+    WinPopup running on Windows 98
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+  To send a message, simply click on the envelope icon, select one of
+  the radio buttons depending on whether you want to send a message to
+  a specific computer or an entire workgroup, then type the name of
+  the computer or workgroup you want to send your message to and then
+  type the message to be sent.
+&lt;/p&gt;
+&lt;figure class=&quot;stretch&quot;&gt;
+  &lt;img src=&quot;files/blog/winpopup-4.png&quot; alt=&quot;A screenshot of message being composed in WinPopup&quot;&gt;
+  &lt;figcaption&gt;
+    Composing a message running on WinPopup running on Windows 98
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+  When you are ready to send the message, just click on the OK button.
+  If everything goes fine, a message box confirming that the message
+  was successfully sent should appear.
+&lt;/p&gt;
+&lt;figure class=&quot;stretch&quot;&gt;
+  &lt;img src=&quot;files/blog/winpopup-5.png&quot; alt=&quot;A screenshot of a message successfully sent with WinPopup&quot;&gt;
+  &lt;figcaption&gt;
+    Message sent successfully with WinPopup running on Windows 98
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+  It is worth noting here that the recipient also needs to have
+  WinPopup running in order to read messages successfully.  I found
+  this tool only a few days ago and I already find this tool to be
+  very useful for communicating with other users of Windows systems.
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;
+  &lt;em&gt;
+    &lt;strong&gt;Update on 30 Oct 2022:&lt;/strong&gt; This article was imported
+    into this website from an old intranet portal I used to run during
+    my university days back in 2001-2005.  While importing this
+    article here, I took the liberty of adding a few screenshots taken
+    from a Windows 98 system running in an emulator.
+  &lt;/em&gt;
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/winpopup.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/windows.html&quot;&gt;#windows&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/networking.html&quot;&gt;#networking&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

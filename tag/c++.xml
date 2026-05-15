@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Susam's C++ Pages</title>
+  <subtitle>Feed for Susam's C++ Pages</subtitle>
+  <link href="https://susam.net/"/>
+  <link href="https://susam.net/tag/c++.xml" rel="self"/>
+  <id>https://susam.net/tag/c++.xml</id>
+  <updated>2010-06-04T00:00:00Z</updated>
+  <author><name>Susam Pal</name></author>
+  <entry>
+    <title>Correctly Printing STAFString</title>
+    <link href="https://susam.net/correctly-printing-stafstring.html"/>
+    <id>urn:uuid:4c9b1de7-7d16-426a-bb7a-a4901f5a7a49</id>
+    <updated>2010-06-04T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  At RSA, we use &lt;a href=&quot;http://staf.sourceforge.net/&quot;&gt;Software
+  Testing Automation Framework (STAF)&lt;/a&gt; to automate testing our
+  products.  Recently, I ran into a bug that occurred due
+  to &lt;code&gt;STAFResult::STAFString&lt;/code&gt; not being null-terminated.
+  Here is an example C++ program that demonstrates the issue:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;string&amp;gt;
+using namespace std;
+
+#include &quot;STAF.h&quot;
+#include &quot;STAFString.h&quot;
+
+int main(int argc, char **argv)
+{
+    STAFString name(&quot;foo&quot;);
+    STAFHandlePtr handle;
+
+    int rc = STAFHandle::create(name, handle);
+    if (rc != 0) {
+        std::cerr &amp;lt;&amp;lt; &quot;Could not create STAF handle; error code: &quot;
+                  &amp;lt;&amp;lt; rc &amp;lt;&amp;lt; endl;
+        return 1;
+    }
+
+    STAFResultPtr result = handle-&amp;gt;submit(&quot;127.0.0.1&quot;, &quot;VAR&quot;,
+                                          &quot;RESOLVE STRING {STAF/Env/DUMMY}&quot;);
+    if (result-&amp;gt;rc != 0) {
+        std::cerr &amp;lt;&amp;lt; &quot;Could not run STAF command; error code: &quot;
+                  &amp;lt;&amp;lt; rc &amp;lt;&amp;lt; &quot;\n&quot;;
+        return 1;
+    }
+
+    STAFString output = result-&amp;gt;result;
+    std::cout &amp;lt;&amp;lt; &quot;Output: &quot; &amp;lt;&amp;lt; output.buffer() &amp;lt;&amp;lt; &quot;\n&quot;;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+  Here is an example output of the above program:
+&lt;/p&gt;
+&lt;pre&gt;&lt;samp&gt;C:\&amp;gt;&lt;kbd&gt;echo %DUMMY%&lt;/kbd&gt;
+Why__does__it__break
+C:\&amp;gt;&lt;kbd&gt;STAFExperiments.exe&lt;/kbd&gt;
+Output: Why__does__it__break/Env/DUMMY}}&lt;/samp&gt;&lt;/pre&gt;
+&lt;p&gt;
+  The substring &lt;code&gt;/Env/DUMMY&lt;/code&gt; at the end of the output is
+  garbage.  The result is not null-terminated in the output buffer.
+  Here is the correct way to print the output:
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;std::cout &amp;lt;&amp;lt; &quot;Output: &quot; &amp;lt;&amp;lt; string(output.buffer(), output.length()) &amp;lt;&amp;lt; &quot;\n&quot;;&lt;/code&gt;&lt;/pre&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/correctly-printing-stafstring.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/c++.html&quot;&gt;#c++&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+  <entry>
+    <title>Minimal Installation of WinHTTP API</title>
+    <link href="https://susam.net/minimal-installation-of-winhttp-api.html"/>
+    <id>urn:uuid:ad1872b6-f77c-4e71-befe-22f94207860b</id>
+    <updated>2010-04-14T00:00:00Z</updated>
+    <content type="html">
+<!-- BEGIN HTML -->
+&lt;p&gt;
+  Here are the steps to perform for a minimal download and
+  installation of WinHTTP API for C++ so that we have the
+  the &lt;code&gt;winhttp.lib&lt;/code&gt; and &lt;code&gt;winhttp.h&lt;/code&gt; files while
+  writing C++ programs using the WinHTTP API:
+&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Download PSDK-x86.exe
+  from &lt;a href=&quot;https://web.archive.org/web/20100507044252/http://www.microsoft.com/downloads/details.aspx?familyid=0BAF2B35-C656-4969-ACE8-E4C0C0716ADB&amp;amp;displaylang=en&quot;&gt;Microsoft
+      ® Windows Server® 2003 R2 Platform SDK Web Install&lt;/a&gt;.
+  &lt;/li&gt;
+  &lt;li&gt;
+    Run the installer, select &lt;em&gt;Custom&lt;/em&gt; installation type, clear
+    all categories and select &lt;em&gt;Microsoft Windows Core SDK&lt;/em&gt; &amp;gt;
+    &lt;em&gt;Build Environment&lt;/em&gt; &amp;gt; &lt;em&gt;Build Environment (x86
+    32-bit)&lt;/em&gt;.
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+  After the installation is complete, the &lt;code&gt;winhttp.h&lt;/code&gt; file
+  can be found at &lt;code&gt;C:\Program Files\Microsoft Platform SDK Server
+    2003 R2\Include&lt;/code&gt;.
+&lt;/p&gt;
+<!-- ### -->
+&lt;p&gt;
+  &lt;a href="https://susam.net/minimal-installation-of-winhttp-api.html"&gt;Read on website&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/c++.html&quot;&gt;#c++&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/windows.html&quot;&gt;#windows&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/programming.html&quot;&gt;#programming&lt;/a&gt; |
+  &lt;a href=&quot;https://susam.net/tag/technology.html&quot;&gt;#technology&lt;/a&gt;
+&lt;/p&gt;
+<!-- END HTML -->
+    </content>
+  </entry>
+</feed>

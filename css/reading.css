@@ -1,0 +1,16 @@
+.reading {
+  border: thin dotted #999;
+  padding: 0.625em;
+  margin: 1em 0;
+}
+.reading h3 {
+  margin-top: 0;
+}
+.reading :last-child {
+  margin-bottom: 0;
+}
+@media (prefers-color-scheme: dark) {
+  .reading {
+    border-color: #666;
+  }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Commands - Susam Pal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://susam.net/cmd.html">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Susam's Feed" href="./feed.xml">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<main>
+<h1>Commands</h1>
+<div>By <b>Susam Pal</b> on 18 Nov 2022 | Updated on 19 Feb 2026</div>
+<p>
+  On this page, I collect both frequently and rarely used commands.
+</p>
+<h2 id="contents">Contents<a href="#contents"></a></h2>
+<ul>
+  <li><a href="#join-pdf-files-with-ghostscript">Join PDF Files With Ghostscript</a></li>
+  <li><a href="#resize-window-on-macos">Resize Window on macOS</a></li>
+</ul>
+
+<!-- gs join -->
+<h2 id="join-pdf-files-with-ghostscript">Join PDF Files With Ghostscript<a href="#join-pdf-files-with-ghostscript"></a></h2>
+<pre><code>gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE=out.pdf 1.pdf 2.pdf 3.pdf</code></pre>
+<p>Last tested with gs 10.0.0 on 18 Nov 2022.</p>
+
+<!-- osascript resize -->
+<h2 id="resize-window-on-macos">Resize Window on macOS<a href="#resize-window-on-macos"></a></h2>
+<pre><code>osascript -e 'tell app "Firefox" to set bounds of front window to {0, 0, 1200, 720}'</code></pre>
+<p>Last tested on macOS 15.3.2 on 19 Feb 2026.</p>
+<div>
+  <a href="./comments/cmd.html">Comments</a> |
+  <a href="./tag/shell.html">#shell</a> |
+  <a href="./tag/technology.html">#technology</a>
+</div>
+</main>
+<footer>
+  <hr>
+  <nav>
+    <a href="./">Home</a>
+    <a href="./maze.html">Maze</a>
+    <a href="./links.html">Links</a>
+    <a href="./feed.xml">Feed</a>
+    <a href="./form/subscribe/">Subscribe</a>
+    <a href="./wander/">Wander</a>
+    <a href="./about.html">About</a>
+    <a href="https://codeberg.org/susam">Codeberg</a>
+    <a href="https://mastodon.social/@susam">Mastodon</a>
+  </nav>
+  <p>&copy; 2001&ndash;2026 Susam Pal</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1186 @@
+<!--
+  Wander 0.6.0
+  Source: https://codeberg.org/susam/wander
+  Licence: MIT
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Wander Console - Discover the Small Web</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      /* Colours */
+      body { background: #696 }
+      body, button, input { color: #030 }
+      button, input, dialog { background: #bdb; border-color: #363 }
+      button:hover { background: #9c9 }
+      button:active { background: #8c8 }
+      button:disabled, button:disabled:hover, button:disabled:active { background: #cec }
+      dialog { background: #cec }
+      dialog::backdrop { background: #0009 }
+      dialog details[open] { background: #bdb }
+
+      /* Body and header */
+      body {
+        line-height: 1.5;
+        margin: 0;
+        overflow-wrap: break-word;
+      }
+      body, button, input {
+        font-family: courier, monospace;
+        font-size: medium;
+        font-weight: bold;
+      }
+      button, input {
+        min-height: 2.5em;
+        box-sizing: border-box;
+      }
+      button { cursor: pointer }
+      button:disabled {
+        border: thick double;
+        cursor: default
+      }
+      input { padding-left: 0.5em }
+      header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        padding: 0.5em;
+      }
+      header button { flex: 1 1 0% }
+      header input { flex: 0 0 100% }
+      #go-button, #open-button { display: none }
+      noscript {
+        border: medium double #600;
+        color: #600;
+        display: block;
+        font-size: x-large;
+        margin-bottom: 1em;
+        padding: 1em;
+        text-align: center;
+      }
+      .center {
+        text-align: center;
+      }
+      /* Dialog */
+      dialog {
+        border: thick solid;
+        box-sizing: border-box;
+        margin: 1em auto;
+        max-height: calc(100vh - 2em);
+        width: min(45em, calc(100% - 2em));
+        overflow: auto;
+      }
+      dialog header { padding: 0 }
+      dialog header span, dialog header form { flex: 1 1 0% }
+      dialog header button {
+        box-sizing: border-box;
+        height: 2em;
+        min-height: 0;
+        padding: 0;
+        width: 2em;
+      }
+      dialog header h1 {
+        flex: 0 1 auto;
+        margin: 0;
+        text-align: center;
+      }
+      dialog header form {
+        text-align: right;
+      }
+      dialog h2 {
+        font-size: 1.2em;
+        margin: 1.5em 0 0 0;
+      }
+      dialog h2 + p {
+        margin-top: 0.5em;
+      }
+      dialog nav button {
+        display: block;
+        margin: 1em auto;
+        width: min(30em, calc(100% - 2em));
+      }
+      dialog header + div {
+        text-align: center;
+      }
+      dialog details summary {
+        padding-left: 2em;
+        text-indent: -1em;
+      }
+      dialog details p {
+        padding-left: 2em;
+      }
+      dialog details ul {
+        padding-left: 4em;
+      }
+      dialog footer button {
+        width: 6em;
+        display: block;
+        margin: 1.5em auto 0.5em auto;
+      }
+      svg {
+        color: inherit;
+        height: 0.8em;
+        width: 0.8em;
+        margin-left: 0.25em;
+        vertical-align: middle;
+      }
+      /* Frames */
+      #wander-iframe {
+        background: #fff;
+        border: thick solid #363;
+        box-sizing: border-box;
+        height: calc(100vh - 6.5em);
+        width: 100%;
+      }
+      .loader-iframe-template {
+        display: none;
+      }
+      /* Wide screen */
+      @media (min-width: 40em) {
+        body { padding: 1em }
+        header { padding: 0 0 1em 0 }
+        header input { order: 1; flex: 3 1 0% }
+        #go-button, #open-button, #about-button { order: 2; display: block }
+        #wander-iframe { height: calc(100vh - 5.5em) }
+      }
+    </style>
+    <script src="wander.js"></script>
+    <script>
+      const VERSION = '0.6.0'
+      const LOGGING = true
+      const HISTORY_SIZE = 100
+      const IDLE_MODE = 0
+      const WANDERING_MODE = 1
+      const WANDER_MODE = 2
+      const CRAWL_MODE = 3
+      const MAX_CRAWL_CONSOLES = 10000
+
+      const pages = []
+      const ignores = []
+      const consoles = []
+      const visitedPages = []
+      const crawlConsoleQueue = []
+      const crawlConsoleMap = {}
+      const crawlPageMap = {}
+
+      let mode = IDLE_MODE
+      let consolesFound = 0
+      let pagesPicked = 0
+      let crawlTimer = null
+      let crawlConsoleCounter
+      let crawlPageCounter
+
+      // Main Console
+      // ------------
+
+      function init () {
+        log(`Wander ${VERSION}`)
+        initCustomStyle()
+        initCustomScript()
+        initListeners()
+        initConsoleDialog()
+        initVersion()
+        initIgnores(wander.ignore || [])
+
+        const baseURL = normaliseWanderURL(window.location.href)
+        saveWanderConsoles(baseURL, [baseURL].concat(wander.consoles || []))
+        saveWanderPages(baseURL, wander.pages || [])
+        pickPage()
+        log('Initialised')
+      }
+
+      function initCustomStyle () {
+        const styles = wander.styles || []
+        for (const href of styles) {
+          const link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.href = href
+          document.head.append(link)
+        }
+      }
+
+      function initCustomScript () {
+        const scripts = wander.scripts || []
+        for (const src of scripts) {
+          const script = document.createElement('script')
+          script.src = src
+          document.head.append(script)
+        }
+      }
+
+      function initListeners () {
+        document.getElementById('about-button').addEventListener('click', showAboutDialog)
+        document.getElementById('console-button').addEventListener('click', showConsoleDialog)
+        document.getElementById('open-button').addEventListener('click', openURL)
+        document.getElementById('go-button').addEventListener('click', gotoURL)
+        document.getElementById('url-input').addEventListener('keydown', handleURLInput)
+        document.getElementById('wander-button').addEventListener('click', pickPage)
+        document.getElementById('wander-iframe').addEventListener('load', pageLoadDone)
+        document.getElementById('wander-iframe').addEventListener('error', pageLoadError)
+        window.addEventListener('message', receiveMessage)
+      }
+
+      function initConsoleDialog () {
+        const dialog = document.getElementById('console-dialog')
+        const menu = document.getElementById('menu-section')
+        const back = document.getElementById('back-button')
+        for (const button of menu.querySelectorAll('button')) {
+          const key = button.id.replace('-button', '')
+          button.addEventListener('click', function (e) {
+            changeConsoleDialogSection(key)
+          })
+        }
+        dialog.addEventListener('close', function () {
+          log('Dialog box closed')
+          clearTimeout(crawlTimer)
+        })
+        back.addEventListener('click', function () {
+          changeConsoleDialogSection('menu')
+        })
+      }
+
+      function showConsoleDialog () {
+        setupConsoleDialogBase()
+        setupConsoleDialogNeighbours()
+        setupConsoleDialogPages()
+        setupConsoleDialogIgnores()
+        setupConsoleDialogHistory()
+        setupConsoleDialogDiscovery()
+        changeConsoleDialogSection('menu')
+        document.getElementById('console-dialog').showModal()
+      }
+
+      function changeConsoleDialogSection (key) {
+        const dialog = document.getElementById('console-dialog')
+        const back = document.getElementById('back-button')
+        log(`Changing console dialog to section: ${key}`)
+        clearTimeout(crawlTimer)
+        back.style.visibility = key === 'menu' ? 'hidden' : 'visible'
+        for (const section of dialog.querySelectorAll('section')) {
+          section.style.display = 'none'
+        }
+        document.getElementById(key + '-section').style.display = 'block'
+        if (key === 'crawl') {
+          startCrawl()
+        }
+      }
+
+      function initVersion () {
+        for (const element of document.querySelectorAll('.version')) {
+          element.textContent = VERSION
+        }
+      }
+
+      function initIgnores (patterns) {
+        for (const pattern of patterns) {
+          ignores.push(pattern)
+        }
+      }
+
+      // Wandering
+      // ---------
+
+      function saveWanderConsoles (referrerURL, consoleURLs) {
+        const prevConsolesFound = consolesFound
+        for (const url of consoleURLs) {
+          if (!URL.canParse(url)) {
+            log(`Skipped bad console URL: ${referrerURL} => ${url}`)
+            continue
+          }
+          const normURL = normaliseWanderURL(url)
+          if (isFileURL(normURL)) {
+            log(`Skipped file URL: ${referrerURL} => ${normURL}`)
+            continue
+          }
+          if (!isCompatibleURL(normURL)) {
+            log(`Skipped incompatible console URL: ${referrerURL} => ${normURL}`)
+            continue
+          }
+          if (isDuplicateURL(consoles, normURL)) {
+            log(`Skipped duplicate console URL: ${referrerURL} => ${normURL}`)
+            continue
+          }
+          if (isIgnoredURL(ignores, normURL)) {
+            log(`Skipped ignored console URL: ${referrerURL} => ${normURL}`)
+            continue
+          }
+          consoles.push({ referrer: referrerURL, url: normURL })
+          consolesFound++
+          log(`Discovered console URL: ${referrerURL} => ${normURL} ` +
+              `(total ${consolesFound}, saved ${consoles.length})`)
+        }
+        if (consolesFound === prevConsolesFound) {
+          log(`No new consoles found at ${wanderJSURL(referrerURL)}`)
+          return
+        }
+        trimHistory(consoles)
+        log('Trimmed console history ' +
+            `(total ${consolesFound}, saved ${consoles.length})`)
+      }
+
+      function saveWanderPages (referrerURL, pageURLs) {
+        const goodPages = []
+        for (const url of pageURLs) {
+          if (!URL.canParse(url)) {
+            log(`Skipped bad page URL: ${referrerURL} => ${url}`)
+            continue
+          }
+          if (!isCompatibleURL(url)) {
+            log(`Skipped incompatible page URL: ${referrerURL} => ${url}`)
+            continue
+          }
+          if (isDuplicateURL(visitedPages, url)) {
+            log(`Skipped recently visited page URL: ${referrerURL} => ${url}`)
+            continue
+          }
+          if (isIgnoredURL(ignores, url)) {
+            log(`Skipped ignored page URL: ${referrerURL} => ${url}`)
+            continue
+          }
+          goodPages.push({ referrer: referrerURL, url })
+          log(`Discovered page URL: ${referrerURL} => ${url} (saved ${goodPages.length})`)
+        }
+        if (goodPages.length === 0) {
+          log(`WARNING: No good pages found at ${wanderJSURL(referrerURL)}`)
+          return
+        }
+        if (goodPages.length > 0) {
+          pages.length = 0
+          goodPages.forEach(function (item) { pages.push(item) })
+        }
+      }
+
+      function pickPage () {
+        if (pages.length === 0) {
+          log('WARNING: No valid pages available')
+          return
+        }
+        const iframe = document.getElementById('wander-iframe')
+        const page = pick(pages)
+        log('----- BEGIN WANDERING -----')
+        mode = WANDERING_MODE
+        document.getElementById('url-input').value = page.url
+        log(`Loading page: ${page.referrer} => ${page.url}`)
+        iframe.src = page.url
+        visitedPages.push(page)
+        pagesPicked++
+        trimHistory(visitedPages)
+        log('Trimmed page history ' +
+            `(total ${pagesPicked}, saved ${visitedPages.length})`)
+      }
+
+      function pageLoadDone () {
+        const iframe = document.getElementById('wander-iframe')
+        log('Loaded page')
+        if (iframe.style.display !== 'block') {
+          iframe.style.display = 'block'
+          log('Displayed iframe')
+        }
+        iframe.focus()
+        if (mode === WANDERING_MODE) {
+          log('----- END WANDERING -----')
+          mode = IDLE_MODE
+          pickConsole()
+        }
+      }
+
+      function pageLoadError (e) {
+        log('ERROR:', e)
+        if (mode === WANDERING_MODE) {
+          log('----- FAILED WANDERING -----')
+        }
+      }
+
+      function pickConsole () {
+        if (consoles.length === 0) {
+          log('WARNING: No valid consoles found')
+          return
+        }
+        const console = pick(consoles)
+        log('Loading next console:', console.url)
+        loadWanderJS(console.url, WANDER_MODE)
+      }
+
+      // Crawler
+      // -------
+
+      function saveCrawlConsoles (referrerURL, consoleURLs) {
+        for (const url of consoleURLs) {
+          if (!URL.canParse(url)) {
+            log(`Skipped bad console URL: ${referrerURL} => ${url}`)
+            continue
+          }
+          const normURL = normaliseWanderURL(url)
+          if (isIgnoredURL(ignores, normURL)) {
+            log(`Skipped ignored console URL: ${referrerURL} => ${normURL}`)
+            continue
+          }
+          if (!crawlConsoleMap[normURL]) {
+            // Save new referenced consoles in the map.
+            crawlConsoleQueue.push(normURL)
+            crawlConsoleMap[normURL] = {
+              depth: crawlConsoleMap[referrerURL].depth + 1,
+              referrers: [],
+              visited: false
+            }
+          }
+          // The console being crawled is a referrer for other consoles.
+          const value = crawlConsoleMap[normURL]
+          value.referrers.push(referrerURL)
+        }
+      }
+
+      function saveCrawlPages (referrerURL, pageURLs) {
+        for (const url of pageURLs) {
+          if (!URL.canParse(url)) {
+            log(`Skipped bad page URL: ${referrerURL} => ${url}`)
+            continue
+          }
+          if (isIgnoredURL(ignores, url)) {
+            log(`Skipped ignored page URL: ${referrerURL} => ${url}`)
+            continue
+          }
+          if (!crawlPageMap[url]) {
+            crawlPageMap[url] = {
+              depth: crawlConsoleMap[referrerURL].depth,
+              id: 'crawl-page-' + crawlPageCounter++,
+              referrers: []
+            }
+          }
+          const value = crawlPageMap[url]
+          value.referrers.push(referrerURL)
+        }
+      }
+
+      function startCrawl () {
+        // Reset data.
+        Object.keys(crawlConsoleMap).forEach(function (key) {
+          delete crawlConsoleMap[key]
+        })
+        Object.keys(crawlPageMap).forEach(function (key) {
+          delete crawlPageMap[key]
+        })
+        crawlConsoleQueue.length = 0
+        crawlConsoleCounter = 0
+        crawlPageCounter = 0
+        cdj()
+        // Reset dialog.
+        document.getElementById('crawl-console-info').textContent = 'Crawling ...'
+        document.getElementById('crawl-console-list').textContent = ''
+        document.getElementById('crawl-page-info').textContent = ''
+        document.getElementById('crawl-page-list').textContent = ''
+        // Start crawl.
+        clearTimeout(crawlTimer)
+        const baseURL = normaliseWanderURL(window.location.href)
+        crawlConsoleMap[baseURL] = {
+          depth: 0,
+          id: 'crawl-console-' + ++crawlConsoleCounter,
+          referrers: [],
+          visited: true
+        }
+        saveCrawlConsoles(baseURL, wander.consoles || [], wander.pages || [])
+        log('Starting crawl')
+        crawl()
+      }
+
+      function crawl () {
+        updateCrawlSection('console', crawlConsoleMap)
+        updateCrawlSection('page', crawlPageMap)
+        if (crawlConsoleCounter >= MAX_CRAWL_CONSOLES) {
+          log(`Cancelling crawl; max ${crawlConsoleCounter} consoles crawled`)
+          return
+        }
+        log(`Crawling ${crawlConsoleQueue.length} consoles`)
+        const interval = 100
+        const extraDelay = crawlConsoleQueue.length === 0 ? 2000 : 0
+        let delay = interval
+        while (crawlConsoleQueue.length > 0) {
+          const consoleURL = crawlConsoleQueue.shift()
+          setTimeout(function () {
+            loadWanderJS(consoleURL, CRAWL_MODE)
+          }, delay)
+          delay += interval
+        }
+        crawlTimer = setTimeout(crawl, delay + extraDelay)
+      }
+
+      function updateCrawlSection (type, crawlMap) {
+        const info = document.getElementById(`crawl-${type}-info`)
+        const list = document.getElementById(`crawl-${type}-list`)
+        let count = 0
+        for (const url in crawlMap) {
+          const value = crawlMap[url]
+          if (type === 'console' && value.visited === false) {
+            continue
+          }
+          let details = document.getElementById(value.id)
+          if (!details) {
+            details = document.createElement('details')
+            const summary = document.createElement('summary')
+            const p = document.createElement('p')
+            const ul = document.createElement('ul')
+            details.append(summary, p, ul)
+            summary.append(type === 'console' ? createConsoleLink(url) : createExtLink(url))
+            list.append(details)
+            details.id = value.id
+            p.className = 'info'
+          }
+          const p = details.querySelector('.info')
+          const label = countWord(value.referrers.length, 'console')
+          const ul = details.querySelector('ul')
+          p.textContent = `Found ${label} linking to this ${type}:`
+          ul.textContent = ''
+          for (const referrerURL of value.referrers) {
+            const li = document.createElement('li')
+            ul.append(li)
+            li.append(createConsoleLink(referrerURL))
+          }
+          count++
+        }
+        const label = countWord(count, type)
+        info.textContent = `Found ${label}:`
+      }
+
+      function cdj () {
+        const data = {
+          date: formatTime(),
+          consoles: crawlConsoleMap,
+          pages: crawlPageMap
+        }
+        log(JSON.stringify(data, null, 2))
+      }
+
+      // Loader
+      // ------
+
+      function loadWanderJS (wanderURL, mode) {
+        const iframe = document.querySelector('.loader-iframe-template').cloneNode()
+        const jsURL = wanderJSURL(wanderURL)
+        const urlAsCode = JSON.stringify(wanderURL)
+        log('Loading console JS URL:', jsURL)
+        iframe.srcdoc = `
+          <script src="${jsURL}"></scr` + `ipt>
+          <script>
+            parent.postMessage({ type: ${mode}, wander: wander, url: ${urlAsCode} }, '*')
+          </scr` + 'ipt>'
+        document.body.append(iframe)
+        setTimeout(function () { iframe.remove() }, 10000)
+      }
+
+      function receiveMessage (e) {
+        log(`Received message; origin: ${e.origin}; data: ${e.data}; event:`, e)
+        if (e.origin !== 'null') {
+          log('WARNING: Ignored message from untrusted origin:', e.origin)
+          return
+        }
+        if (typeof e.data !== 'object' || e.data === null ||
+            typeof e.data.url !== 'string' ||
+            typeof e.data.wander !== 'object' || e.data.wander === null) {
+          log('WARNING: Ignored dodgy message:', e.data)
+          return
+        }
+        if (!isArrayOfStrings(e.data.wander.consoles) ||
+            !isArrayOfStrings(e.data.wander.pages)) {
+          log('WARNING: Ignored bad console data:', e.data)
+          return
+        }
+        if (e.data.type === WANDER_MODE) { // Wander mode.
+          log('Loaded next console:', e.data.url)
+          saveWanderConsoles(e.data.url, e.data.wander.consoles || [])
+          saveWanderPages(e.data.url, e.data.wander.pages || [])
+        } else { // Crawl mode.
+          if (crawlConsoleCounter >= MAX_CRAWL_CONSOLES) {
+            log(`Ignoring crawl data from ${e.data.url}; ` +
+                `max ${crawlConsoleCounter} consoles saved`)
+            return
+          }
+          crawlConsoleMap[e.data.url].visited = true
+          crawlConsoleMap[e.data.url].id = 'crawl-console-' + ++crawlConsoleCounter
+          saveCrawlConsoles(e.data.url, e.data.wander.consoles || [])
+          saveCrawlPages(e.data.url, e.data.wander.pages || [])
+          log(`Crawled console: ${e.data.url} (total ${crawlConsoleCounter})`)
+        }
+      }
+
+      // Console Dialog
+      // --------------
+
+      function setupConsoleDialogBase () {
+        const normBaseURL = normaliseWanderURL(window.location.href)
+        const baseConsoleLink = document.getElementById('base-console-link')
+        const aConsoleLink = document.createElement('a')
+        const aJSLink = createExtLink(wanderJSURL(normBaseURL), 'JS')
+        baseConsoleLink.textContent = ''
+        baseConsoleLink.append(aConsoleLink, ' (', aJSLink, ')')
+        aConsoleLink.href = aConsoleLink.textContent = normBaseURL
+        const lastPageLink = document.getElementById('last-page-link')
+        const lastReferrerLink = document.getElementById('last-referrer-link')
+        if (visitedPages.length === 0) {
+          lastPageLink.textContent = lastReferrerLink.textContent = 'N/A'
+          return
+        }
+        const lastPage = visitedPages[visitedPages.length - 1]
+        lastPageLink.textContent = ''
+        lastPageLink.append(createExtLink(lastPage.url))
+        lastReferrerLink.textContent = ''
+        lastReferrerLink.append(createConsoleLink(lastPage.referrer))
+        const baseJSLink = document.getElementById('base-js-link')
+        baseJSLink.textContent = ''
+        baseJSLink.append(createExtLink('wander.js', 'wander.js'))
+      }
+
+      function setupConsoleDialogNeighbours () {
+        const ul = document.getElementById('neighbours-list')
+        ul.textContent = ''
+        if (!wander.consoles || wander.consoles.length === 0) {
+          createNoneItem(ul)
+          return
+        }
+        for (const url of wander.consoles) {
+          const li = document.createElement('li')
+          ul.append(li)
+          li.append(createConsoleLink(url))
+        }
+      }
+
+      function setupConsoleDialogPages () {
+        const ul = document.getElementById('pages-list')
+        ul.textContent = ''
+        if (!wander.pages || wander.pages.length === 0) {
+          createNoneItem(ul)
+          return
+        }
+        for (const url of wander.pages) {
+          const li = document.createElement('li')
+          ul.append(li)
+          li.append(createExtLink(url))
+        }
+      }
+
+      function setupConsoleDialogIgnores () {
+        const ul = document.getElementById('ignores-list')
+        ul.textContent = ''
+        if (ignores.length === 0) {
+          createNoneItem(ul)
+          return
+        }
+        for (const url of ignores) {
+          const li = document.createElement('li')
+          ul.append(li)
+          li.append(createExtLink(url))
+        }
+      }
+
+      function setupConsoleDialogHistory () {
+        document.getElementById('page-history-size').textContent = HISTORY_SIZE
+        const ul = document.getElementById('history-list')
+        ul.textContent = ''
+        if (visitedPages.length === 0) {
+          createNoneItem(ul)
+          return
+        }
+        for (const item of visitedPages.slice().reverse()) {
+          const li = document.createElement('li')
+          const p = document.createElement('p')
+          const br = document.createElement('br')
+          ul.append(li)
+          li.append(p)
+          p.append(
+            createConsoleLink(item.referrer), br, '\u21b3 ',
+            createExtLink(item.url)
+          )
+        }
+      }
+
+      function setupConsoleDialogDiscovery () {
+        document.getElementById('console-history-size').textContent = HISTORY_SIZE
+        const ul = document.getElementById('discovery-list')
+        ul.textContent = ''
+        if (consoles.length === 0) {
+          createNoneItem(ul)
+          return
+        }
+        for (const item of consoles.slice().reverse()) {
+          const li = document.createElement('li')
+          const p = document.createElement('p')
+          const br = document.createElement('br')
+          ul.append(li)
+          li.append(p)
+          p.append(
+            createConsoleLink(item.referrer), br, '\u21b3 ',
+            createConsoleLink(item.url)
+          )
+        }
+      }
+
+      // Button Handlers
+      // ---------------
+
+      function handleURLInput (e) {
+        if (e.key === 'Enter') {
+          gotoURL()
+        }
+      }
+
+      function gotoURL () {
+        const url = document.getElementById('url-input').value
+        const normURL = normaliseGotoURL(url)
+        log('Navigating to URL:', normURL)
+        document.getElementById('url-input').value = normURL
+        document.getElementById('wander-iframe').src = normURL
+      }
+
+      function openURL () {
+        window.open(document.getElementById('url-input').value)
+      }
+
+      function showAboutDialog () {
+        document.getElementById('about-dialog').showModal()
+      }
+
+      // Utilities
+      // ---------
+
+      function pick (items) {
+        return items[Math.floor(Math.random() * items.length)]
+      }
+
+      function isFileURL (url) {
+        return typeof url === 'string' && URL.canParse(url) &&
+          new URL(url).protocol === 'file:'
+      }
+
+      function isCompatibleURL (url) {
+        if (wander._checkURLs === false) {
+          return true
+        }
+        if (typeof url === 'string' && URL.canParse(url)) {
+          const levels = ['file:', 'http:', 'https:']
+          const myLevel = levels.indexOf(window.location.protocol)
+          const theirLevel = levels.indexOf(new URL(url).protocol)
+          return myLevel >= 0 && theirLevel >= myLevel
+        }
+        return false
+      }
+
+      function isDuplicateURL (history, url) {
+        return history.some(function (item) {
+          return item.url === url
+        })
+      }
+
+      function isIgnoredURL (ignores, url) {
+        return ignores.some(function (ignore) {
+          return isURLMatchingIgnore(ignore, url)
+        })
+      }
+
+      // RFC 3986, section 3.1.
+      const PROTOCOL_RE = /^[A-Za-z][A-Za-z0-9+\-.]*:\/\//
+
+      function isURLMatchingIgnore (ignore, url) {
+        function norm (s) {
+          s = s.replace(PROTOCOL_RE, '') // Disregard protocol.
+          s = s.replace(/[?#].*$/, '') // Disregard query string and fragment.
+          s = s.toLowerCase() // Disregard case.
+          if (!s.endsWith('/')) s += '/' // Treat foo and foo/ as the same.
+          return s
+        }
+        const re = new RegExp(
+          norm(ignore)
+            .replace(/[.+?^${}()|[\]\\]/g, '\\$&')
+            .replace(/\*/g, '.*')
+        )
+        return re.test(norm(url))
+      }
+
+      function isArrayOfStrings (value) {
+        return value === undefined || (
+          Array.isArray(value) && value.every(function (v) {
+            return typeof v === 'string'
+          })
+        )
+      }
+
+      function normaliseGotoURL (url) {
+        let result = url.trim()
+        if (!PROTOCOL_RE.test(result)) {
+          let protocol = window.location.protocol
+          if (protocol !== 'http:' && protocol !== 'https:') {
+            protocol = 'https:'
+          }
+          result = protocol + '//' + result
+        }
+        return new URL(result).href
+      }
+
+      function normaliseWanderURL (wanderURL) {
+        const url = new URL(wanderURL)
+        if (url.pathname.endsWith('index.html')) {
+          url.pathname = url.pathname.slice(0, -'index.html'.length)
+        }
+        if (url.pathname.endsWith('/')) {
+          return url.href
+        }
+        const lastSlash = url.pathname.lastIndexOf('/')
+        const lastSegment = url.pathname.slice(lastSlash + 1)
+        if (lastSegment.includes('.')) {
+          return url.href
+        }
+        url.pathname += '/'
+        return url.href
+      }
+
+      function wanderJSURL (wanderURL) {
+        const url = new URL(normaliseWanderURL(wanderURL))
+        if (url.pathname.endsWith('/')) {
+          url.pathname += 'wander.js'
+          return url.href
+        }
+        const lastSlash = url.pathname.lastIndexOf('/')
+        const lastSegment = url.pathname.slice(lastSlash + 1)
+        if (lastSegment.includes('.')) {
+          url.pathname = url.pathname.slice(0, lastSlash + 1)
+        }
+        url.pathname += 'wander.js'
+        return url.href
+      }
+
+      function createConsoleLink (consoleURL) {
+        const span = document.createElement('span')
+        const aConsoleLink = createExtLink(consoleURL, consoleURL)
+        const aJSLink = createExtLink(wanderJSURL(consoleURL), 'JS')
+        span.append(aConsoleLink, ' (', aJSLink, ')')
+        return span
+      }
+
+      function createExtLink (href, text) {
+        const a = document.createElement('a')
+        a.href = href
+        a.target = '_blank'
+        a.append(text || href, createExtIcon())
+        return a
+      }
+
+      function createExtIcon () {
+        const ns = 'http://www.w3.org/2000/svg'
+        const svg = document.createElementNS(ns, 'svg')
+        const use = document.createElementNS(ns, 'use')
+        svg.append(use)
+        use.setAttribute('href', '#ext-icon')
+        return svg
+      }
+
+      function createNoneItem (ul) {
+        const li = document.createElement('li')
+        ul.append(li)
+        li.append('None')
+      }
+
+      function trimHistory (history) {
+        if (history.length > HISTORY_SIZE) {
+          history.splice(0, history.length - HISTORY_SIZE)
+        }
+      }
+
+      function countWord (count, word) {
+        if (count !== 1) {
+          word += 's'
+        }
+        return `${count} ${word}`
+      }
+
+      function log () {
+        if (LOGGING) {
+          console.log.apply(
+            console, [formatTime(), '[Wander]'].concat(Array.from(arguments))
+          )
+        }
+      }
+
+      function formatTime () {
+        function pad (n) {
+          return (n < 10 ? '0' : '') + n
+        }
+        const date = new Date()
+        const offset = -date.getTimezoneOffset()
+        return date.getFullYear() + '-' +
+          pad(date.getMonth() + 1) + '-' +
+          pad(date.getDate()) + ' ' +
+          pad(date.getHours()) + ':' +
+          pad(date.getMinutes()) + ':' +
+          pad(date.getSeconds()) + ' ' +
+          (offset >= 0 ? '+' : '-') +
+          pad(Math.floor(Math.abs(offset) / 60)) +
+          pad(Math.abs(offset) % 60)
+      }
+
+      // Tests
+      // -----
+
+      function test () {
+        function assert (condition) {
+          if (!condition) {
+            throw new Error('Assertion failed')
+          }
+          console.log('PASS')
+        }
+
+        assert(isURLMatchingIgnore('', ''))
+        assert(isURLMatchingIgnore('f', 'f'))
+        assert(isURLMatchingIgnore('http://foo/', 'ftp://foo/'))
+        assert(isURLMatchingIgnore('http://foo/', 'http://foo/'))
+        assert(isURLMatchingIgnore('http://foo/', 'http://foo'))
+        assert(isURLMatchingIgnore('http://foo', 'http://foo/'))
+        assert(isURLMatchingIgnore('http://foo/bar', 'http://foo/bar?hello'))
+        assert(isURLMatchingIgnore('http://foo/bar', 'http://foo/bar/?hello'))
+        assert(isURLMatchingIgnore('http://foo/bar/', 'http://foo/bar?hello'))
+        assert(isURLMatchingIgnore('http://foo/bar/', 'http://foo/bar/?hello'))
+        assert(isURLMatchingIgnore('http://foo/bar?baz', 'http://foo/bar?hello'))
+        assert(isURLMatchingIgnore('http://foo/bar?baz', 'http://foo/bar/?hello'))
+        assert(isURLMatchingIgnore('http://foo/bar/?baz', 'http://foo/bar?hello'))
+        assert(isURLMatchingIgnore('http://foo/bar/?baz', 'http://foo/bar/?hello'))
+        assert(isURLMatchingIgnore('http://foo/bar/#baz', 'http://foo/bar/?hello'))
+        assert(isURLMatchingIgnore('http://foo/bar/?baz', 'http://foo/bar/#hello'))
+        assert(isURLMatchingIgnore('http://foo/bar.html', 'http://foo/bar.html?hello'))
+        assert(isURLMatchingIgnore('http://foo/bar.html?hello', 'http://foo/bar.html'))
+        assert(isURLMatchingIgnore('http://*example/', 'http://fooexample/'))
+        assert(isURLMatchingIgnore('http://*example/', 'http://example/'))
+        assert(isURLMatchingIgnore('http://*example/', 'http://foo.example/'))
+        assert(isURLMatchingIgnore('http://*.example/', 'http://foo.example/'))
+        assert(isURLMatchingIgnore('http://*.example/', 'http://.example/'))
+        assert(isURLMatchingIgnore('http://*.example/', 'https://archive/*/https://foo.example/'))
+
+        assert(!isURLMatchingIgnore('f', ''))
+        assert(!isURLMatchingIgnore('f/', 'fo'))
+        assert(!isURLMatchingIgnore('http://foo/bar', 'http://foo/'))
+        assert(!isURLMatchingIgnore('http://foo/', 'http://foobar'))
+        assert(!isURLMatchingIgnore('http://foo', 'http://foobar'))
+        assert(!isURLMatchingIgnore('http://*.example/', 'http://fooexample/'))
+
+        assert(isIgnoredURL(['http://foo/bar'], 'http://foo/bar/'))
+        assert(isIgnoredURL(['http://foo/bar/'], 'http://foo/bar'))
+        assert(isIgnoredURL(['http://foo/bar/'], 'https://foo/bar'))
+        assert(!isIgnoredURL(['http://foo/bar/'], 'https://foo/barx'))
+
+        assert(normaliseGotoURL('example.com') === 'https://example.com/')
+        assert(normaliseGotoURL('http://example.com') === 'http://example.com/')
+        assert(normaliseGotoURL('https://example.com') === 'https://example.com/')
+        assert(normaliseGotoURL('file:///home/foo') === 'file:///home/foo')
+
+        assert(normaliseWanderURL('http://foo') === 'http://foo/')
+        assert(normaliseWanderURL('http://foo/') === 'http://foo/')
+        assert(normaliseWanderURL('http://foo//') === 'http://foo//')
+        assert(normaliseWanderURL('http://foo/index.html') === 'http://foo/')
+        assert(normaliseWanderURL('http://foo//index.html') === 'http://foo//')
+        assert(normaliseWanderURL('http://foo/bar') === 'http://foo/bar/')
+        assert(normaliseWanderURL('http://foo/bar.html') === 'http://foo/bar.html')
+        assert(normaliseWanderURL('http://foo.example') === 'http://foo.example/')
+
+        assert(wanderJSURL('http://foo') === 'http://foo/wander.js')
+        assert(wanderJSURL('http://foo/') === 'http://foo/wander.js')
+        assert(wanderJSURL('http://foo//') === 'http://foo//wander.js')
+        assert(wanderJSURL('http://foo/w') === 'http://foo/w/wander.js')
+        assert(wanderJSURL('http://foo/w/') === 'http://foo/w/wander.js')
+        assert(wanderJSURL('http://foo/bar.html') === 'http://foo/wander.js')
+      }
+
+      const TESTING = false
+
+      if (TESTING) {
+        test()
+      } else {
+        window.addEventListener('load', init)
+      }
+    </script>
+  </head>
+  <body>
+    <noscript>JavaScript is required to use this application.</noscript>
+    <header>
+      <button id="wander-button">Wander</button>
+      <button id="console-button">Console</button>
+      <button id="go-button">Go</button>
+      <button id="open-button">Open</button>
+      <button id="about-button">About</button>
+      <input id="url-input" autocomplete="off">
+    </header>
+    <iframe id="wander-iframe" sandbox="allow-downloads allow-forms allow-modals allow-pointer-lock allow-popups allow-same-origin allow-scripts"></iframe>
+    <iframe class="loader-iframe-template" sandbox="allow-scripts"></iframe>
+    <svg style="display: none">
+      <symbol id="ext-icon" viewBox="0 0 16 16">
+        <path fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linejoin="round" stroke-linecap="round" d="
+                M 7 1 L 1 1 L 1 15 L 15 15 L 15 9
+                M 11 1 L 15 1 L 15 5
+                M 8 8 L 15 1
+              "/>
+      </symbol>
+    </svg>
+    <dialog id="console-dialog">
+      <header>
+        <span><button id="back-button">&larr;</button></span>
+        <h1>Console</h1>
+        <form method="dialog"><button>x</button></form>
+      </header>
+      <section id="menu-section">
+        <nav>
+          <button id="base-button">Base</button>
+          <button id="neighbours-button">Neighbours</button>
+          <button id="pages-button">Pages</button>
+          <button id="ignores-button">Ignores</button>
+          <button id="history-button">History</button>
+          <button id="discovery-button">Discovery</button>
+          <button id="crawl-button">Crawl</button>
+        </nav>
+      </section>
+      <section id="base-section">
+        <h2>Base Console</h2>
+        <p>
+          Your base console is:
+        </p>
+        <p id="base-console-link" class="center"></p>
+        <p>
+          This is the console you have loaded on your browser.  The
+          base console fetches website recommendations from itself as
+          well as other remote consoles and shows them to you.
+        </p>
+        <h2>Remote Console</h2>
+        <p>
+          The last web page recommendation to you was:
+        </p>
+        <p id="last-page-link" class="center"></p>
+        <p>
+          This recommendation was fetched from the following remote
+          console:
+        </p>
+        <p id="last-referrer-link" class="center"></p>
+      </section>
+      <section id="neighbours-section">
+        <h2>Console Neighbours</h2>
+        <p>
+          This console lists the following consoles as its neighbours:
+        </p>
+        <ul id="neighbours-list"></ul>
+        <p>
+          You can wander to a neighbouring console by clicking one of
+          the links above.  Note that you do not really need to change
+          console to browse the Wander network.  The host console can
+          fetch recommendations from other consoles, then from the
+          consoles they link to and so on recursively.  However, if
+          you want to explore other consoles, you may click one of the
+          links above.
+        </p>
+      </section>
+      <section id="pages-section">
+        <h2>Pages</h2>
+        <p>
+          This console recommends the following websites and pages to
+          the Wander community:
+        </p>
+        <ul id="pages-list"></ul>
+        <p>
+          If you click on any link above, it will open in a new tab.
+        </p>
+      </section>
+      <section id="ignores-section">
+        <h2>Ignore List</h2>
+        <p>
+          This console ignores URLs matching the following patterns:
+        </p>
+        <ul id="ignores-list"></ul>
+        <p>
+          You might find the reasons for these ignore patterns in this
+          console's <span id="base-js-link"></span> file.
+        </p>
+        <p>
+          A URL that matches an ignore pattern is never recommended in
+          this console, even if it appears in the recommendation lists
+          of this console or other remote consoles.
+        </p>
+        <p>
+          Ignore patterns are normalised before matching.  The URL
+          scheme, query parameters and fragments are ignored, matching
+          is case-insensitive and the patterns act like prefixes.  A
+          pattern such as https://example.com/foo/ matches both HTTP
+          and HTTPS URLs for the same site, as well as all pages under
+          that path.
+        </p>
+      </section>
+      <section id="history-section">
+        <h2>Wandering History</h2>
+        <p>
+          Your wandering history from the current session, in reverse
+          chronological order
+          (up to <span id="page-history-size"></span> pages):
+        </p>
+        <ul id="history-list"></ul>
+        <p>
+          Each item above includes three links: the console that
+          recommended a page, the wander.js file of that console and
+          the page that was recommended.
+        </p>
+      </section>
+      <section id="discovery-section">
+        <h2>Discovered Consoles</h2>
+        <p>
+          Consoles discovered in the current session, in reverse
+          chronological order (up to <span id="console-history-size"></span>):
+        </p>
+        <ul id="discovery-list"></ul>
+        <p>
+          Each item above includes four links: the recommending
+          console and its wander.js file, followed by the recommended
+          console and its wander.js file.
+        </p>
+      </section>
+      <section id="crawl-section">
+        <h2>Console Crawler</h2>
+        <p>
+          This dialog is now running a crawler to find consoles
+          reachable from this console.  The list below updates
+          automatically as new consoles are found.
+        </p>
+        <p id="crawl-console-info"></p>
+        <div id="crawl-console-list"></div>
+        <p id="crawl-page-info"></p>
+        <div id="crawl-page-list"></div>
+      </section>
+      <footer><form method="dialog"><button>Close</button></form></footer>
+    </dialog>
+    <dialog id="about-dialog">
+      <header>
+        <span>&nbsp;</span>
+        <h1>Wander Console</h1>
+        <form method="dialog"><button>x</button></form>
+      </header>
+      <div>Version <span class="version">&nbsp;</span></div>
+      <p>
+        Wander Console lets you discover random personal websites from
+        the Wander community.
+      </p>
+      <p>
+        To learn more about Wander or set up your own console, see
+        <a href="https://codeberg.org/susam/wander#readme"
+           target="_blank">codeberg.org/susam/wander<svg>
+            <use href="#ext-icon"></use></svg></a>.
+      </p>
+      <p>
+        Wander Console is free and open source software.  You can use,
+        copy, modify, merge, publish, distribute, sublicence and/or
+        sell copies of it, under the terms of the
+        <a href="https://codeberg.org/susam/wander/src/branch/main/LICENCE.md"
+           target="_blank">MIT Licence<svg><use href="#ext-icon"></use></svg></a>.
+      </p>
+      <p>
+        This software is provided "AS IS", WITHOUT WARRANTY OF ANY
+        KIND, express or implied.  See the
+        <a href="https://codeberg.org/susam/wander/src/branch/main/LICENCE.md"
+           target="_blank">licence<svg><use href="#ext-icon"></use></svg></a>
+        for details.
+      </p>
+      <footer><form method="dialog"><button>Close</button></form></footer>
+    </dialog>
+  </body>
+</html>
